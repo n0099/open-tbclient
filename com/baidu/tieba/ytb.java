@@ -1,93 +1,133 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.awb;
+import com.baidu.tieba.yvb;
+import com.baidu.tieba.zvb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPayAmountView;
+import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
+import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
+import tv.athena.revenue.payui.view.impl.YYPayGiftView;
+import tv.athena.revenue.payui.view.impl.YYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPaySignView;
+import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
+import tv.athena.revenue.payui.view.impl.YYPayWayView;
 /* loaded from: classes8.dex */
-public class ytb {
+public class ytb implements ssb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public PayUIKitConfig c;
 
-    public static void a(String str, int i, int i2, PayFlowType payFlowType) {
+    public ytb(int i, int i2, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            wsb viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayActivityDestory  payFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.d(str, payFlowType);
-            }
         }
+        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = payUIKitConfig;
     }
 
-    public static void b(String str, int i, int i2, PayFlowType payFlowType) {
+    @Override // com.baidu.tieba.ssb
+    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, psb psbVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
-                return;
-            }
-            wsb viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayActivityVisit  payFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.c(str, payFlowType);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, psbVar)) == null) {
+            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, psbVar);
         }
+        return (IYYPayAmountView) invokeLLL.objValue;
     }
 
-    public static void c(int i, int i2, PayFlowType payFlowType, PayDialogType payDialogType) {
+    @Override // com.baidu.tieba.ssb
+    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, psb psbVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, payDialogType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayDialogTypeChange error payUIKit null", new Object[0]);
-                return;
-            }
-            wsb viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayDialogTypeChange mPayFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.b(payFlowType, payDialogType);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, psbVar)) == null) {
+            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, psbVar);
         }
+        return (IYYPayResultView) invokeLLL.objValue;
     }
 
-    public static void d(int i, int i2, PayFlowType payFlowType) {
+    @Override // com.baidu.tieba.ssb
+    public yvb f(Activity activity, yvb.b bVar, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65539, null, i, i2, payFlowType) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
-                return;
-            }
-            wsb viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayFlowWork mPayFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.a(payFlowType);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
+            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
         }
+        return (yvb) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ssb
+    public awb g(Activity activity, awb.b bVar, usb usbVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, usbVar)) == null) {
+            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, usbVar);
+        }
+        return (awb) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ssb
+    public wvb b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            return new YYPayConfirmView(activity, this.a, this.b, this.c);
+        }
+        return (wvb) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ssb
+    public vvb c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            return new YYPayCampaignView(activity, this.a, this.b, this.c);
+        }
+        return (vvb) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ssb
+    public xvb d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            return new YYPayGiftView(activity, this.a, this.b, this.c);
+        }
+        return (xvb) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ssb
+    public zvb h(Activity activity, PayUIKitConfig payUIKitConfig, zvb.b bVar, usb usbVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, usbVar)) == null) {
+            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, usbVar);
+        }
+        return (zvb) invokeLLLL.objValue;
     }
 }

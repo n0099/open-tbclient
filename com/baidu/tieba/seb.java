@@ -1,78 +1,369 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.os.Build;
-import android.os.Environment;
-import android.os.Process;
-import android.os.StatFs;
+import android.os.StrictMode;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tieba.neb;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.web;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import com.huawei.hms.framework.common.hianalytics.CrashHianalyticsData;
-import com.yy.hiidostatis.inner.BaseStatisContent;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.sdk.crashreportbaidu.ActivityHistory;
+import com.yy.sdk.crashreportbaidu.CrashHandler;
 import com.yy.sdk.crashreportbaidu.CrashInfo;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.RandomAccessFile;
-import java.io.StringWriter;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class seb {
-    public static /* synthetic */ Interceptable $ic;
-    public static Context a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static Map<String, String> j;
-    public static neb.g k;
-    public static String l;
-    public static int m;
-    public static String n;
-    public static String o;
-    public static boolean p;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static veb<CrashInfo> a = null;
+    public static String b = "";
+    public static qeb c;
+    public static List<String> d;
+    public static e e;
+    public static List<String> f;
+    public static h g;
+    public static ConcurrentHashMap<String, Integer> h;
+    public static CrashHandler.b i;
+    public static Boolean j;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void Q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a(String str, boolean z, String str2, String str3, String str4);
+
+        void b(String str, boolean z, String str2, String str3, String str4);
+
+        void c(boolean z, String str, String str2, String str3);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface g {
+        Map<String, String> getExtInfo();
+    }
+
+    /* loaded from: classes7.dex */
+    public interface h {
+        List<String> a();
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a implements CrashHandler.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.yy.sdk.crashreportbaidu.CrashHandler.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xeb.S();
+            }
+        }
+
+        @Override // com.yy.sdk.crashreportbaidu.CrashHandler.b
+        public void b(int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2) == null) {
+                seb.m(i, str, null, str2);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                List<CrashInfo> c = seb.a.c();
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                ArrayList arrayList3 = new ArrayList();
+                for (CrashInfo crashInfo : c) {
+                    web.j(crashInfo, null, null);
+                    seb.h.put(crashInfo.crashId, 7);
+                    seb.h(crashInfo, arrayList, arrayList2, arrayList3);
+                    seb.u(crashInfo, arrayList, "2");
+                    seb.u(crashInfo, arrayList2, "3");
+                }
+                seb.j();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements web.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.web.f
+        public void onResult(String str, boolean z, int i, String str2) {
+            String str3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), str2}) == null) {
+                Object[] objArr = new Object[4];
+                objArr[0] = this.a;
+                if (z) {
+                    str3 = "success";
+                } else {
+                    str3 = "failed";
+                }
+                objArr[1] = str3;
+                objArr[2] = Integer.valueOf(i);
+                objArr[3] = str2;
+                reb.d("CrashReport", String.format("crash[id = %s] report %s [status code = %s, ret = %s]", objArr));
+                seb.c.b();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d implements web.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CrashInfo a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ List c;
+
+        public d(CrashInfo crashInfo, String str, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {crashInfo, str, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = crashInfo;
+            this.b = str;
+            this.c = list;
+        }
+
+        @Override // com.baidu.tieba.web.f
+        public void onResult(String str, boolean z, int i, String str2) {
+            String str3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), str2}) == null) {
+                Object[] objArr = new Object[5];
+                objArr[0] = this.a.crashId;
+                if (z) {
+                    str3 = "success";
+                } else {
+                    str3 = "failed";
+                }
+                objArr[1] = str3;
+                objArr[2] = this.b;
+                objArr[3] = Integer.valueOf(i);
+                objArr[4] = str2;
+                ueb.d("CrashReport", String.format("upload crash report[id = %s] %s [stage = %s, status code = %s, ret = %s]", objArr));
+                String d = web.d(this.a.crashId, this.b);
+                if (!TextUtils.isEmpty(d)) {
+                    new File(d).delete();
+                }
+                if (z) {
+                    this.a.clearFiles(this.c);
+                    Integer num = (Integer) seb.h.get(this.a.crashId);
+                    if (num != null) {
+                        int intValue = num.intValue();
+                        if ("2".equals(this.b)) {
+                            intValue &= -2;
+                        } else if ("3".equals(this.b)) {
+                            intValue &= -3;
+                        }
+                        if (intValue == 0) {
+                            seb.a.delete(this.a.crashId);
+                            seb.h.remove(this.a.crashId);
+                        } else {
+                            seb.h.put(this.a.crashId, Integer.valueOf(intValue));
+                        }
+                    }
+                }
+                seb.c.b();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public teb f;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = "default";
+            this.c = "default";
+            this.d = "";
+            this.e = "default";
+            this.f = null;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.e;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public teb d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.f;
+            }
+            return (teb) invokeV.objValue;
+        }
+
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.d;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public Context getContext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.a;
+            }
+            return (Context) invokeV.objValue;
+        }
+
+        public f f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (f) invokeL.objValue;
+        }
+
+        public f g(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+                this.a = context;
+                return this;
+            }
+            return (f) invokeL.objValue;
+        }
+
+        public f h(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (f) invokeL.objValue;
         }
     }
 
@@ -89,1097 +380,400 @@ public class seb {
                 return;
             }
         }
-        j = new HashMap();
-        l = null;
-        m = 0;
-        o = BaseStatisContent.GUID;
-        p = false;
+        h = new ConcurrentHashMap<>();
+        i = new a();
+        j = Boolean.FALSE;
     }
 
-    public static String B() {
-        InterceptResult invokeV;
+    public seb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                return String.format("%s %s", Build.MANUFACTURER, Build.MODEL);
-            } catch (Exception unused) {
-                meb.d("CrashUtils", "get phone model info failed!");
-                return "unknown";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static long F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
-            } catch (Throwable unused) {
-                meb.d("CrashUtils", "get tatal internal storge size");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static long G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                try {
-                    ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                    ((ActivityManager) a.getSystemService("activity")).getMemoryInfo(memoryInfo);
-                    return memoryInfo.totalMem / 1024;
-                } catch (Throwable unused) {
-                    meb.d("CrashUtils", "get total memory failed");
-                    return 0L;
-                }
-            }
-            return H();
-        }
-        return invokeV.longValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            String str = c;
-            if (str == null) {
-                try {
-                    return a.getPackageManager().getPackageInfo(a.getPackageName(), 0).versionName;
-                } catch (Throwable th) {
-                    Log.i("CrashUtils", C(th));
-                    return "unknown";
-                }
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
-            try {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                ((ActivityManager) a.getSystemService("activity")).getMemoryInfo(memoryInfo);
-                return memoryInfo.availMem / 1024;
-            } catch (Throwable unused) {
-                meb.d("CrashUtils", "get avail memory failed!");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
-            } catch (Throwable unused) {
-                meb.d("CrashUtils", "get available internal storge size failed");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String w() {
-        InterceptResult invokeV;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                i2 = ActivityHistory.INSTANCE.getLastTrimLevel();
-            } else {
-                try {
-                    ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                    ((ActivityManager) a.getSystemService("activity")).getMemoryInfo(memoryInfo);
-                    i2 = memoryInfo.lowMemory;
-                } catch (Exception unused) {
-                    meb.d("CrashUtils", "get low memory failed");
-                    i2 = -1;
-                }
-            }
-            return String.valueOf(i2);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.getPackageName();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean J() {
+    public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return p;
+            List<String> list = f;
+            if (list != null && list.size() != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static void S() {
+    public static void k() {
+        List<String> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, null) == null) {
-            f = D(System.currentTimeMillis());
+        if ((interceptable != null && interceptable.invokeV(65548, null) != null) || (list = d) == null) {
+            return;
+        }
+        for (String str : list) {
+            xeb.P(str);
         }
     }
 
-    public static String e() {
+    public static List<String> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            return e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            return d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
-            return l;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             return f;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static String p() {
-        InterceptResult invokeV;
+    public static void u(CrashInfo crashInfo, List<String> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
-            return String.valueOf(Process.myPid());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
-            String str = i;
-            if (str != null) {
-                return str;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
-            if (m == 0) {
-                m = Process.myPid();
-            }
-            return String.valueOf(m);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
-            try {
-                return String.format("Android %s", Build.VERSION.RELEASE);
-            } catch (Exception e2) {
-                meb.d("CrashUtils", C(e2));
-                return "unknown";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String C(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            PrintWriter printWriter = new PrintWriter(stringWriter);
-            if (th != null) {
-                th.printStackTrace(printWriter);
-            }
-            String obj = stringWriter.toString();
-            printWriter.close();
-            return obj.trim();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String D(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2)) == null) {
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(j2));
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static void R(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65554, null, i2) == null) {
-            m = i2;
+        if (interceptable == null || interceptable.invokeLLL(65558, null, crashInfo, list, str) == null) {
+            web.k(crashInfo, str, list, new d(crashInfo, str, list));
         }
     }
 
-    public static void T(Throwable th) {
+    public static void g(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, th) == null) {
-            i = C(th);
+        if (interceptable == null || interceptable.invokeL(65544, null, map) == null) {
+            xeb.a(map);
         }
     }
 
-    public static void U(boolean z) {
+    public static void q(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65557, null, z) == null) {
-            p = z;
+        if (interceptable == null || interceptable.invokeL(65554, null, eVar) == null) {
+            e = eVar;
         }
     }
 
-    public static void V(Map<String, String> map) {
+    public static void r(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, map) == null) {
-            try {
-                j.clear();
-                j.putAll(map);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(65555, null, map) == null) {
+            xeb.V(map);
         }
     }
 
-    public static void W(String str) {
+    public static void t(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
-            o = str;
+        if (interceptable == null || interceptable.invokeL(65557, null, context) == null) {
+            ueb.d("CrashReport", "upload all dumps");
+            new Thread(new b()).start();
         }
     }
 
-    public static void a(Map<String, String> map) {
+    public static void h(CrashInfo crashInfo, List<String> list, List<String> list2, List<String> list3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, map) == null) {
-            try {
-                j.putAll(map);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static String m(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65574, null, j2)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-            return simpleDateFormat.format(new Date(j2));
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static String x(CrashInfo crashInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, crashInfo)) == null) {
-            return y(crashInfo.crashId, crashInfo.crashType, m(System.currentTimeMillis()), o(), q(), 0);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static long E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            try {
-                if (!Environment.getExternalStorageState().equals("mounted")) {
-                    return 0L;
-                }
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
-            } catch (Throwable unused) {
-                meb.d("CrashUtils", "get total external storge size failed!");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
-            String str = h;
-            if (str == null) {
-                try {
-                    PackageInfo packageInfo = a.getPackageManager().getPackageInfo(a.getPackageName(), 64);
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    messageDigest.update(packageInfo.signatures[0].toByteArray());
-                    return Y(messageDigest.digest());
-                } catch (Throwable th) {
-                    meb.d("CrashUtils", C(th));
-                    return "unknown";
-                }
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            try {
-                if (!Environment.getExternalStorageState().equals("mounted")) {
-                    return 0L;
-                }
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
-            } catch (Throwable unused) {
-                meb.d("CrashUtils", "get available external storge size failed!");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
-            String str = g;
-            if (str != null) {
-                return str;
-            }
-            File file = new File(web.b().a(a), "crash");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            g = file.getAbsolutePath();
-            peb.d("CrashUtils", "getDumpDirectory: " + g);
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
-            if (TextUtils.isEmpty(o) || o.equals("default")) {
-                SharedPreferences sharedPreferences = a.getSharedPreferences("CrashUtils_preferences", 0);
-                String string = sharedPreferences.getString("uuid", "default");
-                if (TextUtils.isEmpty(string) || string.equals("default")) {
-                    if (TextUtils.isEmpty(string)) {
-                        string = UUID.randomUUID().toString();
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, crashInfo, list, list2, list3) == null) {
+            list.clear();
+            list2.clear();
+            boolean z = false;
+            int i2 = 0;
+            for (String str : crashInfo.fileList) {
+                if (str != null) {
+                    File file = new File(str);
+                    String name = file.getName();
+                    if (!name.endsWith(".dmp") && !name.endsWith(".symbol")) {
+                        if (!z && ((name.contains(crashInfo.crashId) || name.endsWith(".syslog")) && file.exists())) {
+                            i2 |= 2;
+                            z = true;
+                        }
+                        if (name.endsWith(".hprof") && file.exists()) {
+                            list3.add(str);
+                            i2 |= 4;
+                        }
+                    } else if (file.exists()) {
+                        list.add(str);
+                        i2 |= 1;
                     }
-                    string = X(string);
-                    sharedPreferences.edit().putString("uuid", string).apply();
                 }
-                o = string;
             }
-            return o;
+            if (z) {
+                list2.addAll(crashInfo.fileList);
+                list2.removeAll(list);
+            }
+            if (i2 != 0) {
+                h.put(crashInfo.crashId, Integer.valueOf(i2));
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    public static void j() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            try {
+                File file = new File(xeb.s());
+                if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
+                    Date date = new Date();
+                    for (File file2 : listFiles) {
+                        if (!file2.isDirectory() && file2.getName().endsWith(".syslog")) {
+                            if (date.getTime() - new Date(file2.lastModified()).getTime() > 432000000) {
+                                file2.delete();
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:59:0x01c6 A[Catch: all -> 0x01d9, TryCatch #4 {all -> 0x01d9, blocks: (B:57:0x01c2, B:59:0x01c6, B:63:0x01ce), top: B:83:0x01c2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x01e3  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01eb  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static long H() {
-        InterceptResult invokeV;
-        RandomAccessFile randomAccessFile;
-        Exception e2;
+    public static void m(int i2, String str, String str2, String str3) {
+        String str4;
+        CrashInfo crashInfo;
+        boolean z;
+        List<String> a2;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            RandomAccessFile randomAccessFile2 = null;
+        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i2), str, str2, str3}) == null) {
+            String str5 = str;
+            String str6 = str2;
+            boolean z3 = true;
             try {
-                randomAccessFile = new RandomAccessFile(HardwareInfoUtils.MEM_INFO_FILE, "r");
-                try {
-                    try {
-                        Matcher matcher = Pattern.compile("(\\d+)").matcher(randomAccessFile.readLine());
-                        String str = "";
-                        while (matcher.find()) {
-                            str = matcher.group(1);
-                        }
-                        randomAccessFile.close();
-                        long parseLong = Long.parseLong(str);
-                        try {
-                            randomAccessFile.close();
-                            return parseLong;
-                        } catch (Exception unused) {
-                            meb.d("CrashUtils", "close file failed");
-                            return parseLong;
-                        }
-                    } catch (Exception e3) {
-                        e2 = e3;
-                        meb.d("CrashUtils", "get mem from file failed");
-                        peb.c("CrashUtils", "get mem from file failed", e2);
-                        if (randomAccessFile != null) {
-                            try {
-                                randomAccessFile.close();
-                            } catch (Exception unused2) {
-                                meb.d("CrashUtils", "close file failed");
-                            }
-                        }
-                        return 0L;
+                if (e != null) {
+                    e eVar = e;
+                    if (i2 == 1) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    randomAccessFile2 = randomAccessFile;
-                    if (randomAccessFile2 != null) {
-                        try {
-                            randomAccessFile2.close();
-                        } catch (Exception unused3) {
-                            meb.d("CrashUtils", "close file failed");
-                        }
-                    }
-                    throw th;
+                    eVar.c(z2, str5, str6, str3);
                 }
-            } catch (Exception e4) {
-                randomAccessFile = null;
-                e2 = e4;
+            } catch (Throwable th) {
+                ueb.e("CrashReport", "mCrashCallback.preCrashCallback error!", th);
+            }
+            try {
+                File file = new File(str5);
+                File file2 = new File(file.getParent() + File.separator + xeb.n() + ".dmp");
+                str5 = file2.getAbsolutePath();
+                file.renameTo(file2);
             } catch (Throwable th2) {
-                th = th2;
-                if (randomAccessFile2 != null) {
-                }
-                throw th;
+                ueb.e("CrashReport", "NullPointerException!", th2);
             }
-        } else {
-            return invokeV.longValue;
-        }
-    }
-
-    public static void I(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, str2) == null) {
-            a = context;
-            d = str2;
-            b = str;
-            e = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
-            l = UUID.randomUUID().toString();
-        }
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(9:3|(2:5|(4:7|(1:73)|11|(4:15|(2:17|(1:19))|20|(3:27|28|(2:30|31)(5:32|33|35|36|(4:50|51|52|53)(4:42|43|44|45)))(2:24|25))))|74|(0)|20|(1:22)|27|28|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x015b, code lost:
-        r12 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x015c, code lost:
-        r12.printStackTrace();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x008a  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:56:0x015c -> B:78:0x015f). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean K(Context context, String str, ClassLoader classLoader) {
-        InterceptResult invokeLLL;
-        String str2;
-        File file;
-        ZipFile zipFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, classLoader)) == null) {
-            File file2 = new File(context.getApplicationInfo().nativeLibraryDir);
-            ZipFile zipFile2 = null;
-            if (PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equals(Build.CPU_ABI)) {
-                File file3 = new File(file2, "lib" + str + "-v7a.so");
-                if (file3.exists()) {
-                    File file4 = new File(context.getDir("lib_v7a", 0), "lib" + str + ".so");
-                    if (!file4.exists() || file3.length() != file4.length()) {
-                        c(file3, file4);
-                    }
-                    if (file4.exists() && file4.length() == file3.length()) {
-                        str2 = file4.getAbsolutePath();
-                        if (str2 == null) {
-                            File file5 = new File(file2, "lib" + str + ".so");
-                            if (file5.exists()) {
-                                str2 = file5.getAbsolutePath();
-                            }
-                        }
-                        if (str2 == null && L(str2, classLoader)) {
-                            peb.d("CrashUtils", str2 + " loaded");
-                            return true;
-                        } else if (!N(str, classLoader)) {
-                            peb.d("CrashUtils", str + " loaded");
-                            return true;
-                        } else {
-                            try {
-                                file = new File(context.getDir("lib_ext", 0), "lib" + str + ".so");
-                                zipFile = new ZipFile(new File(context.getApplicationInfo().sourceDir));
-                            } catch (Throwable th) {
-                                th = th;
-                            }
-                            try {
-                            } catch (Throwable th2) {
-                                th = th2;
-                                zipFile2 = zipFile;
-                                try {
-                                    th.printStackTrace();
-                                    if (zipFile2 != null) {
-                                        zipFile2.close();
-                                    }
-                                    peb.b("CrashUtils", str + " load failed");
-                                    return false;
-                                } catch (Throwable th3) {
-                                    if (zipFile2 != null) {
-                                        try {
-                                            zipFile2.close();
-                                        } catch (Throwable th4) {
-                                            th4.printStackTrace();
-                                        }
-                                    }
-                                    throw th3;
-                                }
-                            }
-                            if (d(zipFile, str, file) && file.length() > 0 && L(file.getAbsolutePath(), classLoader)) {
-                                peb.d("CrashUtils", file.getAbsolutePath() + " loaded");
-                                try {
-                                    zipFile.close();
-                                } catch (Throwable th5) {
-                                    th5.printStackTrace();
-                                }
-                                return true;
-                            }
-                            zipFile.close();
-                            peb.b("CrashUtils", str + " load failed");
-                            return false;
-                        }
+            String str7 = str5;
+            try {
+                File file3 = new File(str6);
+                File file4 = new File(file3.getParent() + File.separator + xeb.n() + ".symbol");
+                str6 = file4.getAbsolutePath();
+                file3.renameTo(file4);
+            } catch (Throwable th3) {
+                ueb.e("CrashReport", "mCrashCallback.preCrashCallback error!", th3);
+            }
+            String str8 = str6;
+            reb.d("CrashReport", (CrashInfo.CrashType.valueOf(i2).toString() + " heppen") + ", dumpFile = " + str7 + ", dumpSymbolFile = " + str8);
+            CrashInfo generateCrashInfo = CrashInfo.generateCrashInfo(CrashInfo.CrashType.valueOf(i2), str7, str3, str8, b);
+            String str9 = generateCrashInfo.crashId;
+            if (i()) {
+                generateCrashInfo.fileList.addAll(l());
+            }
+            HashSet hashSet = new HashSet(generateCrashInfo.fileList);
+            h hVar = g;
+            if (hVar != null && (a2 = hVar.a()) != null) {
+                for (int i3 = 0; i3 < a2.size(); i3++) {
+                    String str10 = a2.get(i3);
+                    if (!hashSet.contains(str10)) {
+                        generateCrashInfo.fileList.add(str10);
+                        reb.d("CrashReport", "newCrash.fileList.add = " + str10);
                     }
                 }
             }
-            str2 = null;
-            if (str2 == null) {
+            String a3 = a.a(generateCrashInfo);
+            try {
+                if (e != null) {
+                    e eVar2 = e;
+                    String str11 = generateCrashInfo.crashId;
+                    if (i2 == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    str4 = str9;
+                    crashInfo = generateCrashInfo;
+                    try {
+                        eVar2.b(str11, z, str7, str8, str3);
+                    } catch (Throwable th4) {
+                        th = th4;
+                        ueb.e("CrashReport", "mCrashCallback.crashCallback error!", th);
+                        k();
+                        reb.d("CrashReport", String.format("start report crash[crash id = %s]", str4));
+                        c.a(3);
+                        CrashInfo crashInfo2 = crashInfo;
+                        web.j(crashInfo2, a3, new c(str4));
+                        h.put(crashInfo2.crashId, 7);
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(str7);
+                        arrayList.add(str8);
+                        u(crashInfo2, arrayList, "2");
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.addAll(crashInfo2.fileList);
+                        arrayList2.removeAll(arrayList);
+                        u(crashInfo2, arrayList2, "3");
+                        if (e != null) {
+                        }
+                        if (Build.VERSION.SDK_INT >= 22) {
+                        }
+                    }
+                } else {
+                    str4 = str9;
+                    crashInfo = generateCrashInfo;
+                }
+                if (i2 == 1) {
+                    ueb.e("CrashReport", "Native Crash Happen!", new Throwable("NativeCrashException"));
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                str4 = str9;
+                crashInfo = generateCrashInfo;
             }
-            if (str2 == null) {
+            k();
+            reb.d("CrashReport", String.format("start report crash[crash id = %s]", str4));
+            c.a(3);
+            CrashInfo crashInfo22 = crashInfo;
+            web.j(crashInfo22, a3, new c(str4));
+            h.put(crashInfo22.crashId, 7);
+            ArrayList arrayList3 = new ArrayList();
+            arrayList3.add(str7);
+            arrayList3.add(str8);
+            u(crashInfo22, arrayList3, "2");
+            ArrayList arrayList22 = new ArrayList();
+            arrayList22.addAll(crashInfo22.fileList);
+            arrayList22.removeAll(arrayList3);
+            u(crashInfo22, arrayList22, "3");
+            try {
+                if (e != null) {
+                    e eVar3 = e;
+                    String str12 = crashInfo22.crashId;
+                    if (i2 != 1) {
+                        z3 = false;
+                    }
+                    eVar3.a(str12, z3, str7, str8, str3);
+                }
+            } catch (Throwable th6) {
+                ueb.c("CrashReport", "mCrashCallback.preCrashCallback error!", th6);
             }
-            if (!N(str, classLoader)) {
+            if (Build.VERSION.SDK_INT >= 22) {
+                c.c(3000);
+            } else {
+                c.c(4000);
             }
-        } else {
-            return invokeLLL.booleanValue;
         }
     }
 
-    public static boolean L(String str, ClassLoader classLoader) {
-        InterceptResult invokeLL;
+    public static synchronized boolean n(f fVar) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, classLoader)) == null) {
-            try {
-                Runtime runtime = Runtime.getRuntime();
-                Method declaredMethod = runtime.getClass().getDeclaredMethod("load", String.class, ClassLoader.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(runtime, str, classLoader);
-                return true;
-            } catch (InvocationTargetException e2) {
-                peb.e("CrashUtils", "Fail to load library", e2.getTargetException());
-                return false;
-            } catch (Throwable th) {
-                peb.e("CrashUtils", "Fail to load library", th);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean N(String str, ClassLoader classLoader) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, classLoader)) == null) {
-            try {
-                Runtime runtime = Runtime.getRuntime();
-                Method declaredMethod = runtime.getClass().getDeclaredMethod("loadLibrary", String.class, ClassLoader.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(runtime, str, classLoader);
-                return true;
-            } catch (InvocationTargetException e2) {
-                peb.e("CrashUtils", "Fail to load library", e2.getTargetException());
-                return false;
-            } catch (Throwable th) {
-                peb.e("CrashUtils", "Fail to load library", th);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean M(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
-            peb.d("CrashUtils", String.format("load library: %s", str));
-            try {
-                System.loadLibrary(str);
-                peb.d("CrashUtils", String.format("load library: %s success", str));
-                return true;
-            } catch (UnsatisfiedLinkError e2) {
-                peb.c("CrashUtils", String.format("System.loadLibrary %s failed", str), e2);
-                if (Build.VERSION.SDK_INT > 24) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, fVar)) == null) {
+            synchronized (seb.class) {
+                if (j.booleanValue()) {
+                    ueb.d("CrashReport", "crashreport has init, please check!");
                     return false;
                 }
-                boolean K = K(context, str, context.getClassLoader());
-                if (K) {
-                    peb.d("CrashUtils", String.format("load library: %s success", str));
+                if ((fVar.getContext().getApplicationInfo().flags & 2) != 0) {
+                    z = true;
                 } else {
-                    peb.b("CrashUtils", String.format("load library: %s failed", str));
+                    z = false;
                 }
-                return K;
+                xeb.U(z);
+                ueb.f(fVar.d());
+                ActivityHistory.INSTANCE.init(fVar.getContext());
+                xeb.I(fVar.getContext(), fVar.a(), fVar.b());
+                xeb.W(fVar.c());
+                CrashHandler.e(i);
+                o(fVar.getContext());
+                c = new qeb();
+                web.e(fVar.getContext());
+                if (p(fVar.e(), fVar.getContext())) {
+                    xeb.Q(true);
+                    CrashHandler.initNativeHandler(xeb.s());
+                    ueb.d("CrashReport", "crashreport init, use native catch 3.0.25-baidu");
+                } else {
+                    xeb.Q(false);
+                    ueb.d("CrashReport", "crashreport init by 3.0.25-baidu");
+                }
+                t(fVar.getContext());
+                j = Boolean.TRUE;
+                if (xeb.J()) {
+                    StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectLeakedSqlLiteObjects().detectLeakedClosableObjects().penaltyLog().build());
+                }
+                return j.booleanValue();
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean O(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists()) {
-                meb.d("so_md5", String.format("%s so md5 : %s", str, u(file)));
-                return true;
-            }
-            meb.d("so_md5", String.format("%s file path not exist", str));
-            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static String X(String str) {
-        InterceptResult invokeL;
+    public static void o(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            try {
-                sb.append(b(MessageDigest.getInstance("MD5").digest(str.getBytes())));
-            } catch (NoSuchAlgorithmException e2) {
-                peb.c("CrashReport", "Exception when MD5 %s", e2);
+        if (interceptable == null || interceptable.invokeL(65552, null, context) == null) {
+            a = new veb<>(context, "CrashDB_" + xeb.e());
+            veb vebVar = new veb(context, "CrashSharedPref");
+            List<CrashInfo> c2 = vebVar.c();
+            for (CrashInfo crashInfo : c2) {
+                ueb.a("hqq", "oldCrash: " + crashInfo.nyyData);
+                a.a(crashInfo);
             }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (bArr != null) {
-                for (byte b2 : bArr) {
-                    sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
-                }
+            if (!c2.isEmpty()) {
+                vebVar.b();
             }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void P(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            meb.d("CrashUtils", String.format("dump so md5 : %s", str));
-            String str2 = a.getApplicationInfo().nativeLibraryDir + File.separator;
-            O(str2 + "lib" + str + "-v7a.so");
-            O(str2 + "lib" + str + ".so");
-            O(a.getFilesDir().toString() + File.separator + "lib" + str + ".so");
-            O(a.getExternalCacheDir().toString() + File.separator + "lib" + str + ".so");
         }
     }
 
-    public static String Y(byte[] bArr) {
-        InterceptResult invokeL;
+    public static boolean p(String str, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, bArr)) == null) {
-            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            StringBuffer stringBuffer = new StringBuffer();
-            int length = bArr.length;
-            int i2 = 0;
-            while (i2 < length) {
-                stringBuffer.append(cArr[(bArr[i2] & 240) >> 4]);
-                stringBuffer.append(cArr[bArr[i2] & 15]);
-                i2++;
-                if (i2 < length) {
-                    stringBuffer.append(':');
-                }
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String u(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, file)) == null) {
-            if (!file.isFile()) {
-                return null;
-            }
-            byte[] bArr = new byte[1024];
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                FileInputStream fileInputStream = new FileInputStream(file);
-                while (true) {
-                    int read = fileInputStream.read(bArr, 0, 1024);
-                    if (read != -1) {
-                        messageDigest.update(bArr, 0, read);
-                    } else {
-                        fileInputStream.close();
-                        return new BigInteger(1, messageDigest.digest()).toString(16);
-                    }
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(File file, File file2) {
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65564, null, file, file2) == null) {
-            FileInputStream fileInputStream = null;
-            try {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, context)) == null) {
+            if (str != null) {
                 try {
-                    if (file2.exists()) {
-                        file2.delete();
-                    }
-                    if (file.exists()) {
-                        byte[] bArr = new byte[2048];
-                        FileInputStream fileInputStream2 = new FileInputStream(file);
-                        try {
-                            fileOutputStream2 = new FileOutputStream(file2);
-                            while (true) {
-                                try {
-                                    int read = fileInputStream2.read(bArr);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    fileOutputStream2.write(bArr, 0, read);
-                                } catch (Exception e2) {
-                                    fileOutputStream = fileOutputStream2;
-                                    e = e2;
-                                    fileInputStream = fileInputStream2;
-                                    try {
-                                        peb.c("CrashUtils", "Fail to load library", e);
-                                        file2.delete();
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (Exception e3) {
-                                                peb.c("CrashUtils", "Fail to load library", e3);
-                                            }
-                                        }
-                                        if (fileOutputStream != null) {
-                                            fileOutputStream.close();
-                                        }
-                                        return;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (Exception e4) {
-                                                peb.c("CrashUtils", "Fail to load library", e4);
-                                            }
-                                        }
-                                        if (fileOutputStream != null) {
-                                            try {
-                                                fileOutputStream.close();
-                                            } catch (Exception e5) {
-                                                peb.c("CrashUtils", "Fail to load library", e5);
-                                            }
-                                        }
-                                        throw th;
-                                    }
-                                } catch (Throwable th2) {
-                                    fileOutputStream = fileOutputStream2;
-                                    th = th2;
-                                    fileInputStream = fileInputStream2;
-                                    if (fileInputStream != null) {
-                                    }
-                                    if (fileOutputStream != null) {
-                                    }
-                                    throw th;
-                                }
-                            }
-                            fileInputStream = fileInputStream2;
-                        } catch (Exception e6) {
-                            e = e6;
-                            fileOutputStream = null;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            fileOutputStream = null;
-                        }
-                    } else {
-                        fileOutputStream2 = null;
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e7) {
-                            peb.c("CrashUtils", "Fail to load library", e7);
-                        }
-                    }
-                } catch (Exception e8) {
-                    peb.c("CrashUtils", "Fail to load library", e8);
-                    return;
-                }
-            } catch (Exception e9) {
-                e = e9;
-                fileOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-            }
-            if (fileOutputStream2 != null) {
-                fileOutputStream2.close();
-            }
-        }
-    }
-
-    public static boolean d(ZipFile zipFile, String str, File file) {
-        InterceptResult invokeLLL;
-        ZipEntry zipEntry;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65565, null, zipFile, str, file)) == null) {
-            InputStream inputStream = null;
-            if (PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equals(Build.CPU_ABI)) {
-                zipEntry = zipFile.getEntry("lib/armeabi-v7a/lib" + str + ".so");
-                if (zipEntry == null) {
-                    zipEntry = zipFile.getEntry("lib/armeabi/lib" + str + "-v7a.so");
-                }
-            } else {
-                zipEntry = null;
-            }
-            if (zipEntry == null) {
-                zipEntry = zipFile.getEntry("lib/armeabi/lib" + str + ".so");
-            }
-            if (zipEntry == null) {
-                return false;
-            }
-            if (zipEntry.getSize() == file.length()) {
-                return true;
-            }
-            if (file.exists()) {
-                file.delete();
-            }
-            try {
-                InputStream inputStream2 = zipFile.getInputStream(zipEntry);
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                    try {
-                        byte[] bArr = new byte[2048];
-                        while (true) {
-                            int read = inputStream2.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                        }
-                        if (inputStream2 != null) {
-                            try {
-                                inputStream2.close();
-                            } catch (Exception e2) {
-                                peb.c("CrashUtils", "Fail to load library", e2);
-                            }
-                        }
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e3) {
-                            peb.c("CrashUtils", "Fail to load library", e3);
-                        }
+                    if (!str.isEmpty()) {
+                        System.load(str);
                         return true;
-                    } catch (Throwable th) {
-                        th = th;
-                        inputStream = inputStream2;
-                        try {
-                            th.printStackTrace();
-                            return false;
-                        } finally {
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e4) {
-                                    peb.c("CrashUtils", "Fail to load library", e4);
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (Exception e5) {
-                                    peb.c("CrashUtils", "Fail to load library", e5);
-                                }
-                            }
-                        }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream = null;
+                } catch (UnsatisfiedLinkError e2) {
+                    if (!xeb.J()) {
+                        ueb.c("CrashReport", "load yycrashreport.so failed, native crash will not report", e2);
+                        return false;
+                    }
+                    throw new UnsatisfiedLinkError("load yycrashreport failed");
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                fileOutputStream = null;
             }
-        } else {
-            return invokeLLL.booleanValue;
+            if (!xeb.M(context, "yycrashreport")) {
+                throw new UnsatisfiedLinkError("load yycrashreport failed");
+            }
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static JSONObject t() throws JSONException {
-        InterceptResult invokeV;
-        Map<String, String> extInfo;
+    public static void s(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            StringBuilder sb = new StringBuilder();
-            Map<String, String> map = j;
-            if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (sb.length() > 0) {
-                        sb.append(",");
+        if (interceptable == null || interceptable.invokeL(65556, null, list) == null) {
+            synchronized (seb.class) {
+                if (f == null) {
+                    f = new ArrayList();
+                } else {
+                    f.clear();
+                }
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    String str = list.get(i2);
+                    if (b != null && !b.equals(str)) {
+                        f.add(str);
                     }
-                    sb.append(entry.getKey());
-                    sb.append(":");
-                    sb.append(entry.getValue());
                 }
             }
-            neb.g gVar = k;
-            if (gVar != null && (extInfo = gVar.getExtInfo()) != null) {
-                for (Map.Entry<String, String> entry2 : extInfo.entrySet()) {
-                    if (sb.length() > 0) {
-                        sb.append(",");
-                    }
-                    sb.append(entry2.getKey());
-                    sb.append(":");
-                    sb.append(entry2.getValue());
-                }
-            }
-            jSONObject.put("description", sb.toString());
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static String y(String str, String str2, String str3, String str4, String str5, int i2) {
-        InterceptResult invokeCommon;
-        String C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{str, str2, str3, str4, str5, Integer.valueOf(i2)})) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("report_id", str);
-                    jSONObject.put("sdk_version", "3.0.25-baidu");
-                    jSONObject.put("launch_time", f());
-                    jSONObject.put("crash_time", str3);
-                    jSONObject.put(CrashHianalyticsData.CRASH_TYPE, str2);
-                    jSONObject.put("localTime", str4);
-                    jSONObject.put("pkg_name", A());
-                    jSONObject.put("app_version", i());
-                    jSONObject.put("auth_md5", h());
-                    jSONObject.put("app_market", g());
-                    jSONObject.put("sys_os_ver", z());
-                    jSONObject.put("crash_process", p());
-                    jSONObject.put("crash_thread", r());
-                    jSONObject.put("crash_device", v());
-                    jSONObject.put("crash_device_model", B());
-                    jSONObject.put("is_low_mem", w());
-                    jSONObject.put("crash_vss", veb.e());
-                    jSONObject.put("flow_tracks", ActivityHistory.INSTANCE.getHistory());
-                    jSONObject.put(MigrateStatisticUtils.EXT_INFO, t());
-                    jSONObject.put("uid", n);
-                    if (i2 > 0) {
-                        jSONObject.put("feedback_module_id", String.valueOf(i2));
-                    }
-                    if (str5.length() > 512) {
-                        str5 = str5.substring(0, 510);
-                    }
-                    jSONObject.put("exception_description", str5);
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("RAM", j());
-                    jSONObject2.put("ROM", l());
-                    jSONObject2.put("SD", k());
-                    jSONObject2.put("VSS", veb.e());
-                    jSONObject.put("runtime_avail", jSONObject2);
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("RAM", G());
-                    jSONObject3.put("ROM", F());
-                    jSONObject3.put("SD", E());
-                    jSONObject.put("runtime_total", jSONObject3);
-                    C = jSONObject.toString();
-                } catch (Exception e2) {
-                    String C2 = C(e2);
-                    if (C2.length() == 0) {
-                        C2 = "add report id error , error msg is null";
-                    }
-                    meb.d("CrashUtils", C2);
-                    return C2;
-                }
-            } catch (Throwable th) {
-                C = C(th);
-                C = (C == null || C.isEmpty()) ? "json error, msg is null" : "json error, msg is null";
-                meb.d("CrashUtils", C);
-            }
-            peb.b("CrashReport", String.format("%s crash info : %s", e(), C));
-            return C;
-        }
-        return (String) invokeCommon.objValue;
     }
 }

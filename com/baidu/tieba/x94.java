@@ -50,14 +50,14 @@ public class x94 extends hx2 {
 
         /* renamed from: com.baidu.tieba.x94$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0518a implements Runnable {
+        public class RunnableC0524a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ru2 a;
             public final /* synthetic */ int b;
             public final /* synthetic */ a c;
 
-            public RunnableC0518a(a aVar, ru2 ru2Var, int i) {
+            public RunnableC0524a(a aVar, ru2 ru2Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class x94 extends hx2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, ru2Var) == null) {
                 sp3.d0(this.c.m);
-                this.c.m = new RunnableC0518a(this, ru2Var, i);
+                this.c.m = new RunnableC0524a(this, ru2Var, i);
                 sp3.g0(this.c.m);
             }
         }

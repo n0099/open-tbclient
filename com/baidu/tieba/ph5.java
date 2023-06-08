@@ -1,8 +1,15 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import java.util.List;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes7.dex */
 public interface ph5 {
-    void a(List<Bitmap> list);
+    void onFileDownloadFailed(DownloadData downloadData, int i, String str);
+
+    void onFileDownloadSucceed(DownloadData downloadData);
+
+    boolean onFileDownloaded(DownloadData downloadData);
+
+    void onFileUpdateProgress(DownloadData downloadData);
+
+    boolean onPreDownload(DownloadData downloadData);
 }

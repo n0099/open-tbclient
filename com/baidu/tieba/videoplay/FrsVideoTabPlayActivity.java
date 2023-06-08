@@ -39,10 +39,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.du4;
-import com.baidu.tieba.e46;
 import com.baidu.tieba.eu4;
+import com.baidu.tieba.g46;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
@@ -76,11 +76,11 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public VideoVerticalPageFragment o;
     public NavigationBar p;
     public TextView q;
-    public e46 r;
+    public g46 r;
     public CustomMessageListener s;
     public CustomMessageListener t;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.qr5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -462,7 +462,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             NavigationBar navigationBar = this.p;
             if (navigationBar != null && this.q != null) {
                 navigationBar.setBackgroundResource(R.drawable.transparent_bg);
-                m75 d = m75.d(this.q);
+                o75 d = o75.d(this.q);
                 d.C(R.string.F_X01);
                 d.w(R.color.CAM_X0101);
                 d.B(R.dimen.T_X05);
@@ -497,7 +497,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO);
             this.d = System.currentTimeMillis();
             setContentView(R.layout.obfuscated_res_0x7f0d09aa);
-            this.r = new e46(getPageContext(), "client_videomiddle");
+            this.r = new g46(getPageContext(), "client_videomiddle");
             C1();
             D1();
             addNoAdjustSoftInputHeightListener();
@@ -525,9 +525,9 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            e46 e46Var = this.r;
-            if (e46Var != null) {
-                e46Var.h();
+            g46 g46Var = this.r;
+            if (g46Var != null) {
+                g46Var.h();
             }
             if (!TextUtils.isEmpty(this.f)) {
                 str = "1";

@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class i3a extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public final l1a a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i3a(MainTabActivity mainTabActivity, v0a v0aVar) {
-        super(2921561);
+    public i3a(MainTabActivity mainTabActivity) {
+        super(2921764);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, v0aVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,18 +31,22 @@ public class i3a extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.a = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        l1a l1aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            Object data = customResponsedMessage.getData();
-            if (data instanceof Integer) {
-                ((Integer) data).intValue();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (l1aVar = this.a) != null && l1aVar.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.k().d;
+                wg.a().removeCallbacks(runnable);
+                wg.a().post(runnable);
+                return;
             }
+            wg.a().removeCallbacks(this.a.k().d);
         }
     }
 }

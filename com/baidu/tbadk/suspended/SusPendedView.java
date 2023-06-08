@@ -15,8 +15,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ft5;
-import com.baidu.tieba.gt5;
+import com.baidu.tieba.ht5;
+import com.baidu.tieba.it5;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public gt5 d;
+    public it5 d;
     public float e;
     public float f;
     public boolean g;
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(gt5 gt5Var) {
+    public void setContentViewTop(it5 it5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, gt5Var) == null) {
-            this.d = gt5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, it5Var) == null) {
+            this.d = it5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gt5 gt5Var = this.d;
-            if (gt5Var == null) {
+            it5 it5Var = this.d;
+            if (it5Var == null) {
                 return false;
             }
-            return gt5Var.z();
+            return it5Var.z();
         }
         return invokeV.booleanValue;
     }
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    gt5 gt5Var = this.d;
-                    if (gt5Var instanceof ft5) {
-                        ((ft5) gt5Var).P(f - f2);
+                    it5 it5Var = this.d;
+                    if (it5Var instanceof ht5) {
+                        ((ht5) it5Var).P(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bl7;
-import com.baidu.tieba.cl7;
+import com.baidu.tieba.dl7;
+import com.baidu.tieba.el7;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes5.dex */
-public class HeaderComponentMultiView extends FrameLayout implements cl7 {
+public class HeaderComponentMultiView extends FrameLayout implements el7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,7 +33,7 @@ public class HeaderComponentMultiView extends FrameLayout implements cl7 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.cl7
+    @Override // com.baidu.tieba.el7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,19 +108,19 @@ public class HeaderComponentMultiView extends FrameLayout implements cl7 {
         c();
     }
 
-    @Override // com.baidu.tieba.cl7
-    public void a(List<LiveFuseForumData> list, bl7 bl7Var) {
+    @Override // com.baidu.tieba.el7
+    public void a(List<LiveFuseForumData> list, dl7 dl7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, bl7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, dl7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.m(bl7Var);
+        this.d.m(dl7Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.cl7
+    @Override // com.baidu.tieba.el7
     public void b() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;

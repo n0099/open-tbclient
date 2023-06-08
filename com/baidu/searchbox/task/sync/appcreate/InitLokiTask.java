@@ -21,12 +21,12 @@ import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.util.TBCrashHandler;
 import com.baidu.searchbox.util.TBCrashHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.c95;
-import com.baidu.tieba.d95;
 import com.baidu.tieba.e95;
 import com.baidu.tieba.f05;
+import com.baidu.tieba.f95;
+import com.baidu.tieba.g95;
 import com.baidu.tieba.hl1;
-import com.baidu.tieba.i95;
+import com.baidu.tieba.k95;
 import com.baidu.tieba.q20;
 import com.baidu.tieba.sm;
 import java.io.File;
@@ -56,7 +56,7 @@ public class InitLokiTask extends LaunchTask {
         if (!f05.e() && !userIgnore()) {
             if (Loki.isLokiService(hl1.b())) {
                 ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler = new ForwardingDeviceEventSceneHandler();
-                forwardingDeviceEventSceneHandler.addEventHandleCallback(new d95());
+                forwardingDeviceEventSceneHandler.addEventHandleCallback(new f95());
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(new LogSystemUploaderStrategy(true, true));
                 Loki.initService(new LogSystemProcessor(forwardingDeviceEventSceneHandler, linkedList));
@@ -92,7 +92,7 @@ public class InitLokiTask extends LaunchTask {
             @Override // com.baidu.android.common.others.java.Supplier
             public List<ProcessEventSceneHandler> get() {
                 LinkedList linkedList = new LinkedList();
-                linkedList.add(new e95());
+                linkedList.add(new g95());
                 return linkedList;
             }
         };
@@ -126,9 +126,9 @@ public class InitLokiTask extends LaunchTask {
             public void onAttachExtra(@NonNull Context context2, @NonNull JSONObject jSONObject) {
                 super.onAttachExtra(context2, jSONObject);
                 if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    i95.q().h();
+                    k95.q().h();
                 }
-                c95.a(jSONObject);
+                e95.a(jSONObject);
             }
 
             @Override // com.baidu.searchbox.logsystem.basic.javacrash.BUncaughtExceptionHandler
@@ -145,7 +145,7 @@ public class InitLokiTask extends LaunchTask {
                 @Override // com.baidu.android.common.others.java.Supplier
                 public List<ProcessEventSceneHandler> get() {
                     LinkedList linkedList2 = new LinkedList();
-                    linkedList2.add(new e95());
+                    linkedList2.add(new g95());
                     return linkedList2;
                 }
             };
@@ -157,9 +157,9 @@ public class InitLokiTask extends LaunchTask {
             public void onAttachExtra(@NonNull Context context2, @NonNull JSONObject jSONObject) {
                 super.onAttachExtra(context2, jSONObject);
                 if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    i95.q().h();
+                    k95.q().h();
                 }
-                c95.a(jSONObject);
+                e95.a(jSONObject);
             }
 
             @Override // com.baidu.tieba.q20

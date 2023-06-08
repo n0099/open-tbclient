@@ -1,69 +1,91 @@
 package com.baidu.tieba;
 
+import android.text.Html;
 import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.URLUtil;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
+import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.flyweight.FlyWeightConfig;
-import com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader;
-import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import java.util.Set;
+import okhttp3.MediaType;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okhttp3.internal.Util;
+import okhttp3.internal.http2.Http2Codec;
 /* loaded from: classes7.dex */
-public class ok6 implements qk6 {
+public class ok6 extends nk6<WebResourceResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nk6 a;
+    public final dk6<Pair<String, Map<String, String>>, Response> b;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements cnb<Response, Exception> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public nk6 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ ok6 c;
 
-        public a() {
+        public a(ok6 ok6Var, String str, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ok6Var, str, map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = ok6Var;
+            this.a = str;
+            this.b = map;
         }
 
-        public qk6 b() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cnb
+        public void call(Response response, Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new ok6(this);
-            }
-            return (qk6) invokeV.objValue;
-        }
-
-        public void c(nk6 nk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nk6Var) == null) {
-                this.a = nk6Var;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, exc) == null) {
+                if (this.c.l(response) && response.body() != null && exc == null) {
+                    try {
+                        this.c.j(this.a, response, this.b);
+                        DefaultLog.getInstance().c("WebViewNetworkLoader", "sendASyncRequest， 预取成功");
+                    } catch (IOException e) {
+                        BdLog.e(e);
+                    }
+                }
+                gk6.b().e(this.a);
             }
         }
     }
 
-    public ok6(a aVar) {
+    public ok6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,82 +95,178 @@ public class ok6 implements qk6 {
                 return;
             }
         }
-        this.a = aVar.a;
+        this.b = new hk6();
     }
 
-    @Override // com.baidu.tieba.qk6
-    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
-        InterceptResult invokeLL;
+    public void p(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
-            if (webResourceRequest == null || !TextUtils.equals("GET", webResourceRequest.getMethod())) {
-                return null;
-            }
-            String uri = webResourceRequest.getUrl().toString();
-            if (!URLUtil.isNetworkUrl(uri)) {
-                return null;
-            }
-            if (wj6.isOn() && !uri.contains("tieba-ares.cdn") && !uri.contains("bdstatic.com") && !uri.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE) && !uri.contains("tieba.com")) {
-                wq8 hybridLog = HybridLog.getInstance();
-                hybridLog.c("ResourceProxyImpl", "非贴吧url，不代理网络请求：" + uri);
-                return null;
-            }
-            nk6 nk6Var = this.a;
-            if (nk6Var != null && !nk6Var.a(str)) {
-                return null;
-            }
-            return c(str, uri, webResourceRequest.getRequestHeaders());
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, map) == null) {
+            gk6.b().a(str);
+            Map<String, String> h = h(map);
+            this.b.b(Pair.create(str, h), new a(this, str, h));
         }
-        return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public final WebResourceResponse b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            pk6 pk6Var = dk6.b().get(str);
-            if (pk6Var != null) {
-                wq8 hybridLog = HybridLog.getInstance();
-                hybridLog.c("ResourceProxyImpl", "命中预请求缓存，返回数据：" + pk6Var);
-                if (pk6Var.b()) {
-                    dk6.b().remove(str);
-                }
-                if (pk6Var.c()) {
-                    return pk6Var.a();
-                }
-                dk6.b().remove(str);
-                return null;
-            }
-            return null;
-        }
-        return (WebResourceResponse) invokeL.objValue;
-    }
-
-    public final WebResourceResponse c(String str, String str2, Map<String, String> map) {
+    @Override // com.baidu.tieba.nk6
+    public boolean e(String str, String str2, Map<String, String> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, map)) == null) {
-            if (ek6.b().c(str2)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                ek6.b().d(str2, 5000L);
-                fm6.b("newHybrid", "fetch-url: waitTime = " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                return b(str2);
-            } else if (dk6.b().contains(str2)) {
-                return b(str2);
-            } else {
-                if (FlyWeightConfig.c(str2, map)) {
-                    String c = mm6.c(str2);
-                    if (dk6.b().contains(c)) {
-                        return b(c);
-                    }
-                    return kk6.g().b(str, str2, map);
-                } else if (FlyWeightConfig.a(str2)) {
-                    return ImageLoader.c(str, str2, map);
-                } else {
-                    return null;
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+            if (!URLUtil.isHttpsUrl(str2) && !URLUtil.isHttpUrl(str2)) {
+                return false;
             }
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void o(String str, WebResourceResponse webResourceResponse, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048585, this, str, webResourceResponse, bArr) == null) && !jm6.d(bArr)) {
+            fk6.b().put(str, new rk6(webResourceResponse, bArr));
+        }
+    }
+
+    public final Map<String, String> h(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
+            if (map == null) {
+                map = new HashMap<>();
+            }
+            CookieSyncManager.createInstance(jl6.getContext());
+            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
+            if (!TextUtils.isEmpty(cookie)) {
+                String str = map.get("Cookie");
+                if (!TextUtils.isEmpty(str)) {
+                    if (str.endsWith(ParamableElem.DIVIDE_PARAM)) {
+                        cookie = str + cookie;
+                    } else {
+                        cookie = str + ParamableElem.DIVIDE_PARAM + cookie;
+                    }
+                }
+                map.put("Cookie", cookie);
+            }
+            return map;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final Map<String, String> i(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, response)) == null) {
+            Set<String> names = response.headers().names();
+            HashMap hashMap = new HashMap();
+            for (String str : names) {
+                hashMap.put(str, response.header(str));
+            }
+            hashMap.put("access-control-allow-origin", "*");
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final String k(ResponseBody responseBody) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, responseBody)) == null) {
+            MediaType contentType = responseBody.contentType();
+            if (contentType == null) {
+                return "";
+            }
+            String mediaType = contentType.toString();
+            if (TextUtils.isEmpty(mediaType) || (split = mediaType.split(ParamableElem.DIVIDE_PARAM)) == null || split.length <= 0 || TextUtils.isEmpty(split[0])) {
+                return "";
+            }
+            return split[0].trim();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final WebResourceResponse j(String str, Response response, Map<String, String> map) throws IOException {
+        InterceptResult invokeLLL;
+        ResponseBody body;
+        WebResourceResponse webResourceResponse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, response, map)) == null) {
+            if (response == null || !response.isSuccessful() || (body = response.body()) == null) {
+                return null;
+            }
+            byte[] bytes = body.bytes();
+            String k = k(body);
+            if (zj6.isOn()) {
+                webResourceResponse = new WebResourceResponse(k, response.header(Http2Codec.ENCODING, null), new ByteArrayInputStream(bytes));
+            } else {
+                webResourceResponse = new WebResourceResponse(k, response.header(Http2Codec.ENCODING, Util.UTF_8.name()), new ByteArrayInputStream(bytes));
+            }
+            webResourceResponse.setStatusCodeAndReasonPhrase(response.code(), "OK");
+            Map<String, String> i = i(response);
+            if (map.containsKey("tieba-response-via")) {
+                i.put("tieba-response-via", PrefetchEvent.MODULE);
+                i.put("tieba-response-time", String.valueOf(System.currentTimeMillis()));
+            }
+            webResourceResponse.setResponseHeaders(i);
+            o(str, webResourceResponse, bytes);
+            if (response.cacheResponse() != null) {
+                hm6.c("newHybrid", "hit network cache：" + str);
+            } else {
+                hm6.c("newHybrid", "hit network：" + str);
+            }
+            if (map.containsKey("BdLoadMode") && TextUtils.equals(SapiWebView.DATA_MIME_TYPE, k)) {
+                n(response, bytes);
+            }
+            return webResourceResponse;
         }
         return (WebResourceResponse) invokeLLL.objValue;
+    }
+
+    public final boolean l(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, response)) == null) {
+            if (response == null || !response.isSuccessful() || response.isRedirect() || response.body() == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nk6
+    /* renamed from: m */
+    public WebResourceResponse c(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        WebResourceResponse webResourceResponse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, map)) == null) {
+            gk6.b().a(str2);
+            try {
+                Map<String, String> h = h(map);
+                webResourceResponse = j(str2, this.b.a(Pair.create(str2, h)), h);
+            } catch (Exception e) {
+                e.printStackTrace();
+                webResourceResponse = null;
+            }
+            gk6.b().e(str2);
+            return webResourceResponse;
+        }
+        return (WebResourceResponse) invokeLLL.objValue;
+    }
+
+    public final void n(Response response, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, response, bArr) == null) {
+            try {
+                kk6 kk6Var = new kk6(response.request().isHttps());
+                kk6Var.c("link", new jk6());
+                kk6Var.c(ARPMessageType.ARPMessageParamKeys.MAP_NPC_KEY_NAME, new lk6());
+                Html.fromHtml(new String(bArr), null, kk6Var);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -1,91 +1,67 @@
 package com.baidu.tieba;
 
 import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ce7 extends SparseArray<ne7> {
+public class ce7 {
     public static /* synthetic */ Interceptable $ic;
+    public static ce7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public SparseArray<de7> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671956, "Lcom/baidu/tieba/ce7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947671956, "Lcom/baidu/tieba/ce7;");
+                return;
+            }
+        }
+        b = new ce7();
+    }
 
     public ce7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.a = new SparseArray<>();
     }
 
-    public void b() {
+    public static ce7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                ne7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.R(null);
-                    valueAt.s();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (ce7) invokeV.objValue;
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                ne7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-            }
-        }
-    }
-
-    public void a(int i, ne7 ne7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, ne7Var) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            put(i, ne7Var);
-        }
-    }
-
-    public ne7 c(int i) {
+    public de7 b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            return get(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.get(i);
         }
-        return (ne7) invokeI.objValue;
-    }
-
-    public void e(re7 re7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, re7Var) == null) {
-            for (int i = 0; i < size(); i++) {
-                ne7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.R(re7Var);
-                }
-            }
-        }
+        return (de7) invokeI.objValue;
     }
 }

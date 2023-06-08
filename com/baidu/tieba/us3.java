@@ -16,7 +16,7 @@ public class us3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new q86();
+            return new s86();
         }
         return (bt3) invokeV.objValue;
     }

@@ -24,18 +24,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ly4 implements sl6 {
+public class ly4 implements ul6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        rl6.a(this, webView, str, jSONObject);
+        tl6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void onDestroy() {
-        rl6.b(this);
+        tl6.b(this);
     }
 
     public ly4() {
@@ -52,7 +52,7 @@ public class ly4 implements sl6 {
         }
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -93,19 +93,19 @@ public class ly4 implements sl6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public wy9 c(WebView webView, String str, String str2) {
+    public bz9 c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            wy9 wy9Var = new wy9();
-            Context a = hl6.a(webView.getContext());
+            bz9 bz9Var = new bz9();
+            Context a = jl6.a(webView.getContext());
             if (a == null) {
                 a = webView.getContext();
             }
             UtilHelper.smsTo(a, str, str2);
-            return wy9Var;
+            return bz9Var;
         }
-        return (wy9) invokeLLL.objValue;
+        return (bz9) invokeLLL.objValue;
     }
 
     public final String d(WebView webView) {
@@ -130,20 +130,20 @@ public class ly4 implements sl6 {
         return (String) invokeL.objValue;
     }
 
-    public wy9 e(WebView webView, boolean z) {
+    public bz9 e(WebView webView, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, webView, z)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             if (z) {
-                gr5.d();
+                ir5.d();
             }
-            return wy9Var;
+            return bz9Var;
         }
-        return (wy9) invokeLZ.objValue;
+        return (bz9) invokeLZ.objValue;
     }
 
-    public wy9 f(WebView webView, ArrayList<String> arrayList) {
+    public bz9 f(WebView webView, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         char c;
         Interceptable interceptable = $ic;
@@ -152,9 +152,9 @@ public class ly4 implements sl6 {
                 Iterator<String> it = arrayList.iterator();
                 c = 65535;
                 while (it.hasNext()) {
-                    String a = ly5.a(it.next());
+                    String a = ny5.a(it.next());
                     if (a != null) {
-                        if (!ly5.d(webView.getContext(), a, null)) {
+                        if (!ny5.d(webView.getContext(), a, null)) {
                             c = 2;
                         }
                     } else {
@@ -164,38 +164,38 @@ public class ly4 implements sl6 {
             } else {
                 c = 65535;
             }
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             if (c == 65535) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("resultCode", 0);
-                    wy9Var.o(jSONObject.toString());
-                    return wy9Var;
+                    bz9Var.o(jSONObject.toString());
+                    return bz9Var;
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
             } else if (c == 1) {
-                wy9Var.r("url不支持预热");
+                bz9Var.r("url不支持预热");
             } else if (c == 2) {
-                wy9Var.r("预热池已存在该url");
+                bz9Var.r("预热池已存在该url");
             } else {
-                wy9Var.r("其它错误");
+                bz9Var.r("其它错误");
             }
-            return wy9Var;
+            return bz9Var;
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 g(WebView webView, String str, String str2, String str3, String str4, String str5) {
+    public bz9 g(WebView webView, String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, str4, str5})) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.W(true);
-            gr5.e(str2, readRecordsData);
-            return wy9Var;
+            ir5.e(str2, readRecordsData);
+            return bz9Var;
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 }

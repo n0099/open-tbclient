@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.opengl.EGLContext;
+import android.graphics.SurfaceTexture;
 /* loaded from: classes7.dex */
 public interface pua {
-    void a(EGLContext eGLContext);
-
-    void b(int i, int i2, int i3);
-
-    void release();
+    void a(jua juaVar, SurfaceTexture surfaceTexture);
 }

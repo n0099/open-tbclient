@@ -1,94 +1,103 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.channels.ReadableByteChannel;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.turbonet.net.impl.CronetUploadDataStream;
+import org.chromium.base.NativeLibraryLoadedStatus;
+import org.chromium.base.annotations.CheckDiscard;
+import org.chromium.base.natives.GEN_JNI;
+@CheckDiscard("crbug.com/993421")
 /* loaded from: classes8.dex */
-public final class wla implements ReadableByteChannel {
+public final class wla implements CronetUploadDataStream.d {
     public static /* synthetic */ Interceptable $ic;
+    public static CronetUploadDataStream.d a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InputStream a;
-    public final AtomicBoolean b;
 
-    public wla(@NonNull InputStream inputStream) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948275805, "Lcom/baidu/tieba/wla;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948275805, "Lcom/baidu/tieba/wla;");
+        }
+    }
+
+    public wla() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new AtomicBoolean(true);
-        this.a = inputStream;
     }
 
-    public static ReadableByteChannel a(@NonNull InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            if (inputStream instanceof FileInputStream) {
-                return ((FileInputStream) inputStream).getChannel();
-            }
-            return new wla(inputStream);
-        }
-        return (ReadableByteChannel) invokeL.objValue;
-    }
-
-    @Override // java.nio.channels.Channel, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.compareAndSet(true, false)) {
-            this.a.close();
-        }
-    }
-
-    @Override // java.nio.channels.Channel
-    public boolean isOpen() {
+    public static CronetUploadDataStream.d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (GEN_JNI.TESTING_ENABLED) {
+                CronetUploadDataStream.d dVar = a;
+                if (dVar != null) {
+                    return dVar;
+                }
+                if (GEN_JNI.REQUIRE_MOCK) {
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUploadDataStream.Natives. The current configuration requires all native implementations to have a mock instance.");
+                }
+            }
+            NativeLibraryLoadedStatus.checkLoaded(false);
+            return new wla();
         }
-        return invokeV.booleanValue;
+        return (CronetUploadDataStream.d) invokeV.objValue;
     }
 
-    @Override // java.nio.channels.ReadableByteChannel
-    public int read(ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
+    public void a(long j, CronetUploadDataStream cronetUploadDataStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) {
-            if (byteBuffer.hasArray()) {
-                int read = this.a.read(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), byteBuffer.remaining());
-                if (read > 0) {
-                    byteBuffer.position(byteBuffer.position() + read);
-                    return read;
-                }
-                return read;
-            }
-            byte[] bArr = new byte[Math.min(16384, Math.min(Math.max(this.a.available(), 4096), byteBuffer.remaining()))];
-            int read2 = this.a.read(bArr);
-            if (read2 > 0) {
-                byteBuffer.put(bArr, 0, read2);
-            }
-            return read2;
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, cronetUploadDataStream) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_onRewindSucceeded(j, cronetUploadDataStream);
         }
-        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
+    public void b(long j, CronetUploadDataStream cronetUploadDataStream, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetUploadDataStream, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_onReadSucceeded(j, cronetUploadDataStream, i, z);
+        }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
+    public long c(CronetUploadDataStream cronetUploadDataStream, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{cronetUploadDataStream, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_attachUploadDataToRequest(cronetUploadDataStream, j, j2);
+        }
+        return invokeCommon.longValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
+    public void destroy(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_destroy(j);
+        }
     }
 }

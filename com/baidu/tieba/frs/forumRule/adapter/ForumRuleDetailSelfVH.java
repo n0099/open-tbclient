@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.level.TbLevelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.sx5;
 import com.baidu.tieba.ux5;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.wx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,13 +88,13 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sx5 sx5Var = sx5.a;
+                ux5 ux5Var = ux5.a;
                 int i = this.a;
                 String str = this.b.name_show;
                 ForumRuleDetailSelfVH forumRuleDetailSelfVH = this.d;
-                sx5.c(i, str, forumRuleDetailSelfVH.c, forumRuleDetailSelfVH.e, this.c, null);
+                ux5.c(i, str, forumRuleDetailSelfVH.c, forumRuleDetailSelfVH.e, this.c, null);
                 ForumRuleDetailSelfVH forumRuleDetailSelfVH2 = this.d;
-                ux5.a(forumRuleDetailSelfVH2.c, null, null, forumRuleDetailSelfVH2.e, null, 4);
+                wx5.a(forumRuleDetailSelfVH2.c, null, null, forumRuleDetailSelfVH2.e, null, 4);
             }
         }
     }
@@ -162,17 +162,17 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            m75 d = m75.d(this.c);
+            o75 d = o75.d(this.c);
             d.C(R.string.F_X01);
             d.w(R.color.CAM_X0105);
-            m75 d2 = m75.d(this.g);
+            o75 d2 = o75.d(this.g);
             d2.C(R.string.F_X01);
             d2.w(R.color.CAM_X0109);
-            m75 d3 = m75.d(this.l);
+            o75 d3 = o75.d(this.l);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0107);
-            m75.d(this.k).w(R.color.CAM_X0105);
-            m75 d4 = m75.d(this.j);
+            o75.d(this.k).w(R.color.CAM_X0105);
+            o75 d4 = o75.d(this.j);
             d4.C(R.string.F_X02);
             d4.w(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);

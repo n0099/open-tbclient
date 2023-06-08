@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface mfb {
-    void onPlayerInfo(zfb zfbVar, int i, long j);
+    void onPlayerCachePositionUpdate(egb egbVar, long j);
 
-    void onPlayerVideoSizeUpdate(zfb zfbVar, int i, int i2);
+    void onPlayerCacheWriteToDiskCompleted(egb egbVar, String str);
 }

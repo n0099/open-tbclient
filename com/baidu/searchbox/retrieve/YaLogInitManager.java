@@ -10,8 +10,8 @@ import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
 import com.baidu.tieba.b20;
 import com.baidu.tieba.hl1;
-import com.baidu.tieba.ixa;
 import com.baidu.tieba.ll1;
+import com.baidu.tieba.nxa;
 import com.baidu.tieba.s90;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
@@ -43,9 +43,9 @@ public class YaLogInitManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        ixa ixaVar;
-        if (z && (ixaVar = (ixa) ServiceManager.getService(ixa.a)) != null) {
-            ixaVar.retry();
+        nxa nxaVar;
+        if (z && (nxaVar = (nxa) ServiceManager.getService(nxa.a)) != null) {
+            nxaVar.retry();
         }
     }
 

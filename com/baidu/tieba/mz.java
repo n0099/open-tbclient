@@ -19,7 +19,7 @@ public class mz extends by {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout h;
     public BjhArticleLayout i;
-    public f15 j;
+    public h15 j;
     public int k;
 
     /* loaded from: classes6.dex */
@@ -86,13 +86,13 @@ public class mz extends by {
     }
 
     @Override // com.baidu.tieba.ux
-    public void p(eo6<f15> eo6Var) {
+    public void p(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eo6Var) == null) {
-            super.p(eo6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, go6Var) == null) {
+            super.p(go6Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(eo6Var);
+                bjhArticleLayout.setSubClickListener(go6Var);
             }
         }
     }
@@ -100,13 +100,13 @@ public class mz extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: z */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f15Var) == null) {
-            this.j = f15Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, h15Var) == null) {
+            this.j = h15Var;
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.a(f15Var);
+                bjhArticleLayout.a(h15Var);
             }
         }
     }

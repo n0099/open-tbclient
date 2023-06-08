@@ -3,139 +3,104 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public final class lab {
+public class lab extends kab {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Class<?>, hab> b;
-    public static Map<Class<?>, Object> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, hab> a;
+    public final Map<String, String> c;
+    public final Object d;
+    public hab e;
+    public boolean f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947937564, "Lcom/baidu/tieba/lab;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947937564, "Lcom/baidu/tieba/lab;");
-                return;
-            }
-        }
-        b = new HashMap();
-        c = new HashMap();
-    }
-
-    public lab(List<hab> list, Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lab(Context context, String str) {
+        super(context, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        new HashMap();
-        c(list, context);
-    }
-
-    public static Constructor a(Class cls, Class... clsArr) {
-        InterceptResult invokeLL;
-        Constructor<?>[] declaredConstructors;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
-            boolean z = false;
-            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
-                Class<?>[] parameterTypes = constructor.getParameterTypes();
-                if (parameterTypes.length == clsArr.length) {
-                    for (int i = 0; i < clsArr.length; i++) {
-                        z = parameterTypes[i] == clsArr[i];
-                    }
-                    if (z) {
-                        return constructor;
-                    }
-                }
-            }
-            return null;
-        }
-        return (Constructor) invokeLL.objValue;
-    }
-
-    public final void b(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
-            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("cause message:");
-            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
-            Log.e("ServiceRepository", sb.toString());
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(List<hab> list, Context context) {
-        Map<Class<?>, hab> map;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
-            return;
-        }
-        for (hab habVar : list) {
-            if (habVar.c()) {
-                if (!b.containsKey(habVar.a())) {
-                    map = b;
-                }
-                if (habVar.b() && habVar.getType() != null && !c.containsKey(habVar.a())) {
-                    try {
-                        Constructor a = a(habVar.getType(), Context.class);
-                        c.put(habVar.a(), a == null ? a.newInstance(context) : habVar.getType().newInstance());
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        str = "AccessException";
-                        b(str, e);
-                    } catch (InstantiationException e2) {
-                        e = e2;
-                        str = "InstantiationException";
-                        b(str, e);
-                    } catch (InvocationTargetException e3) {
-                        e = e3;
-                        str = "TargetException";
-                        b(str, e);
-                    }
-                }
+        this.c = new HashMap();
+        this.d = new Object();
+        this.f = true;
+        try {
+            String a = a("/AD91D45E3E72DB6989DDCB13287E75061FABCB933D886E6C6ABEF0939B577138");
+            String a2 = a("/B314B3BF013DF5AC4134E880AF3D2B7C9FFBE8F0305EAC1C898145E2BCF1F21C");
+            String a3 = a("/C767BD8FDF53E53D059BE95B09E2A71056F5F180AECC62836B287ACA5793421B");
+            String a4 = a("/DCB3E6D4C2CF80F30D89CDBC412C964DA8381BB84668769391FBCC3E329AD0FD");
+            if (a == null || a2 == null || a3 == null || a4 == null) {
+                this.f = false;
             } else {
-                map = this.a;
+                this.e = new gab(a, a2, a3, a4);
             }
-            map.put(habVar.a(), habVar);
-            if (habVar.b()) {
-                Constructor a2 = a(habVar.getType(), Context.class);
-                c.put(habVar.a(), a2 == null ? a2.newInstance(context) : habVar.getType().newInstance());
+        } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+            Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");
+            this.e = null;
+        }
+    }
+
+    private String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? super.a(str, null) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kab, com.baidu.tieba.eab
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (!this.f) {
+                String a = a(str);
+                return a != null ? a : str2;
+            } else if (this.e == null) {
+                Log.e("SecurityResourcesReader", "KEY is null return def directly");
+                return str2;
+            } else {
+                synchronized (this.d) {
+                    String str3 = this.c.get(str);
+                    if (str3 != null) {
+                        return str3;
+                    }
+                    String a2 = a(str);
+                    if (a2 == null) {
+                        return str2;
+                    }
+                    String a3 = this.e.a(a2, str2);
+                    this.c.put(str, a3);
+                    return a3;
+                }
             }
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SecurityResourcesReader{mKey=, encrypt=" + this.f + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

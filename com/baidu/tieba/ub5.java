@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,64 +15,64 @@ public class ub5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (ub5.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            File file = new File(str);
+            try {
+                if (!file.exists()) {
+                    return false;
                 }
+                return file.delete();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "FileHelper DelFile error: " + th.getMessage(), str);
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return FileHelper.getStoreFile(str, 1);
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static tb5 c(String str) {
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return qi.s(c(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            tb5 tb5Var = new tb5();
-            if (str == null) {
-                tb5Var.f(6);
-                tb5Var.g(tb5.a(tb5Var.b()));
-                return tb5Var;
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                tb5Var.f(7);
-                tb5Var.g(tb5.a(tb5Var.b()));
-                return tb5Var;
-            }
-            String b = cj.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                tb5Var.f(5);
-                tb5Var.g(tb5.a(tb5Var.b()));
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    tb5Var.i(filePath);
-                    tb5Var.h(b);
-                } else {
-                    tb5Var.f(1);
-                    tb5Var.g(tb5.a(tb5Var.b()));
-                }
-            }
-            return tb5Var;
+            return "tb/voice/" + str;
         }
-        return (tb5) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return zi.a();
+        }
+        return (String) invokeV.objValue;
     }
 }

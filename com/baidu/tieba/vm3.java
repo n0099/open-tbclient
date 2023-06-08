@@ -93,12 +93,12 @@ public class vm3 extends sm3 {
 
         /* renamed from: com.baidu.tieba.vm3$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0483b implements pm3 {
+        public class C0495b implements pm3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0483b(b bVar) {
+            public C0495b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -299,9 +299,9 @@ public class vm3 extends sm3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0483b c0483b = new C0483b(this);
-            this.g = c0483b;
-            vm3Var.c.setConnectListener(c0483b);
+            C0495b c0495b = new C0495b(this);
+            this.g = c0495b;
+            vm3Var.c.setConnectListener(c0495b);
         }
 
         @Override // com.baidu.tieba.tm3

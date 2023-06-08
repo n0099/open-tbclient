@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.ll;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.ws5;
+import com.baidu.tieba.ys5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,8 +75,8 @@ public class FlutterPluginStatic {
                     if (!TextUtils.isEmpty(versionName) && versionName.equals(e)) {
                         if (customResponsedMessage.getData() instanceof IntentConfig) {
                             FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                        } else if (customResponsedMessage.getData() instanceof ws5) {
-                            FlutterPluginManager.getInstance().init((ws5) customResponsedMessage.getData());
+                        } else if (customResponsedMessage.getData() instanceof ys5) {
+                            FlutterPluginManager.getInstance().init((ys5) customResponsedMessage.getData());
                         } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                             FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                         } else {

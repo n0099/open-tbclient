@@ -1,48 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.util.TiePlusHelper;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.TiebaPlusInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f16 {
+public class f16 extends e16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MultiDelPostMenuView c;
+    public ViewGroup d;
 
-    public static boolean a(Context context, fx9 fx9Var) {
-        InterceptResult invokeLL;
+    public f16(TbPageContext tbPageContext, ViewGroup viewGroup, u06 u06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, fx9Var)) == null) {
-            if (context == null || fx9Var == null || !fx9Var.b()) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup, u06Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
-            TiebaPlusInfo a = fx9Var.a();
-            if (a == null) {
-                return false;
-            }
-            tiePlusHelper.F(a.app_id);
-            tiePlusHelper.G(a.title);
-            tiePlusHelper.M(true);
-            tiePlusHelper.K(a.download_url);
-            tiePlusHelper.O(a.app_package);
-            tiePlusHelper.P(a.app_power);
-            tiePlusHelper.Q(a.app_privacy);
-            v16 v16Var = new v16(context, tiePlusHelper, true);
-            tiePlusHelper.J(v16Var);
-            ItemData itemData = new ItemData();
-            itemData.parseProto(a);
-            tiePlusHelper.N(itemData);
-            v16Var.f(a.app_company);
-            v16Var.g(a.app_icon);
-            v16Var.h(a.title);
-            v16Var.i(a.app_version);
-            v16Var.show();
-            return true;
         }
-        return invokeLL.booleanValue;
+        this.d = viewGroup;
+        c16 c16Var = new c16(tbPageContext, new v06(u06Var));
+        this.b = c16Var;
+        c16Var.d(this);
+        this.c = new MultiDelPostMenuView(tbPageContext, this);
+    }
+
+    @Override // com.baidu.tieba.e16
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a) {
+            return;
+        }
+        this.a = false;
+        MultiDelPostMenuView multiDelPostMenuView = this.c;
+        if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
+            this.d.removeView(this.c);
+        }
+        b16 b16Var = this.b;
+        if (b16Var != null) {
+            b16Var.dismiss();
+        }
+        this.c = null;
+        this.d = null;
+        this.b = null;
+    }
+
+    @Override // com.baidu.tieba.e16
+    public void d(int i) {
+        MultiDelPostMenuView multiDelPostMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (multiDelPostMenuView = this.c) != null) {
+            multiDelPostMenuView.setDelCount(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.e16
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a) {
+            return;
+        }
+        this.a = true;
+        ViewGroup viewGroup = this.d;
+        if (viewGroup != null) {
+            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
+        }
     }
 }

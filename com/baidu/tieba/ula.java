@@ -1,117 +1,97 @@
 package com.baidu.tieba;
 
-import android.os.RemoteException;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.TurbonetEngine;
-import java.net.BindException;
-import java.net.ConnectException;
-import java.net.NoRouteToHostException;
-import java.net.PortUnreachableException;
-import java.net.ProtocolException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLKeyException;
-import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.net.ssl.SSLProtocolException;
+import com.baidu.turbonet.net.impl.CronetLibraryLoader;
+import org.chromium.base.NativeLibraryLoadedStatus;
+import org.chromium.base.annotations.CheckDiscard;
+import org.chromium.base.natives.GEN_JNI;
+@CheckDiscard("crbug.com/993421")
 /* loaded from: classes8.dex */
-public class ula {
+public final class ula implements CronetLibraryLoader.b {
     public static /* synthetic */ Interceptable $ic;
+    public static CronetLibraryLoader.b a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
-    public long i;
 
-    public ula(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948216223, "Lcom/baidu/tieba/ula;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948216223, "Lcom/baidu/tieba/ula;");
+        }
+    }
+
+    public ula() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = -14;
-        this.d = -1;
-        this.e = -1L;
-        this.f = -1L;
-        this.g = -1L;
-        this.h = -1L;
-        this.i = -1L;
-        this.a = str;
-        this.g = System.nanoTime() / 1000;
-        this.f = System.currentTimeMillis();
-    }
-
-    public void a(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            if (exc instanceof SocketTimeoutException) {
-                this.c = -1;
-            } else if (exc instanceof UnknownHostException) {
-                this.c = -2;
-            } else if (exc instanceof ConnectException) {
-                this.c = -5;
-            } else if (exc instanceof ProtocolException) {
-                this.c = -3;
-            } else if (exc instanceof BindException) {
-                this.c = -4;
-            } else if (exc instanceof SSLHandshakeException) {
-                this.c = -8;
-            } else if (exc instanceof SSLProtocolException) {
-                this.c = -9;
-            } else if (exc instanceof RemoteException) {
-                this.c = -13;
-            } else if (exc instanceof NoRouteToHostException) {
-                this.c = -6;
-            } else if (exc instanceof PortUnreachableException) {
-                this.c = -7;
-            } else if (exc instanceof SSLKeyException) {
-                this.c = -10;
-            } else if (exc instanceof SSLPeerUnverifiedException) {
-                this.c = -11;
-            } else {
-                this.c = -14;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void d(TurbonetEngine turbonetEngine) {
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, turbonetEngine) == null) {
-            Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.a, this.b, Integer.valueOf(this.c), Integer.valueOf(this.d), Long.valueOf(this.e), Long.valueOf(this.f), Long.valueOf(this.h), Long.valueOf(this.i)));
-            turbonetEngine.e(this.a, this.b, this.c, this.d, this.e, this.f, this.h, this.i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_cronetInitOnInitThread();
         }
     }
 
-    public void b() {
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.h = (System.nanoTime() / 1000) - this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetVersion();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.i = (System.nanoTime() / 1000) - this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetHandler();
         }
+        return invokeV.longValue;
+    }
+
+    public static CronetLibraryLoader.b d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (GEN_JNI.TESTING_ENABLED) {
+                CronetLibraryLoader.b bVar = a;
+                if (bVar != null) {
+                    return bVar;
+                }
+                if (GEN_JNI.REQUIRE_MOCK) {
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetLibraryLoader.Natives. The current configuration requires all native implementations to have a mock instance.");
+                }
+            }
+            NativeLibraryLoadedStatus.checkLoaded(false);
+            return new ula();
+        }
+        return (CronetLibraryLoader.b) invokeV.objValue;
     }
 }

@@ -1,43 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class nr9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static Context b;
+    public static volatile mr9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012212, "Lcom/baidu/tieba/nr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948012212, "Lcom/baidu/tieba/nr9;");
-                return;
-            }
-        }
-        a = AppConfig.isDebug();
-        b = AppRuntime.getAppContext();
-    }
-
-    public static Context a() {
+    public static synchronized mr9 a() {
         InterceptResult invokeV;
+        mr9 mr9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (nr9.class) {
+                if (a == null) {
+                    a = new mr9();
+                }
+                mr9Var = a;
+            }
+            return mr9Var;
         }
-        return (Context) invokeV.objValue;
+        return (mr9) invokeV.objValue;
     }
 }

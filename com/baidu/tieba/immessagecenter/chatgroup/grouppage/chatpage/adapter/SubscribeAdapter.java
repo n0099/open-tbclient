@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SubscribeSysMsg;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -118,15 +118,15 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, subscribeSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            m75 d = m75.d(holder.c);
+            o75 d = o75.d(holder.c);
             d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            m75 d2 = m75.d(holder.a);
+            o75 d2 = o75.d(holder.a);
             int i3 = R.color.CAM_X0101;
             d2.w(R.color.CAM_X0101);
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X09);
-            m75 d3 = m75.d(holder.b);
+            o75 d3 = o75.d(holder.b);
             d3.B(R.dimen.T_X09);
             if (!this.k) {
                 i3 = R.color.CAM_X0304;

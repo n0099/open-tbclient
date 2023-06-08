@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac9;
+import com.baidu.tieba.dc9;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
-import com.baidu.tieba.ic9;
-import com.baidu.tieba.jc9;
+import com.baidu.tieba.lc9;
+import com.baidu.tieba.mc9;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public View b;
     public TextView c;
     public HTypeListView d;
-    public ic9 e;
+    public lc9 e;
     public int f;
     public TbPageContext g;
 
@@ -59,15 +59,15 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e4);
         HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091512);
         this.d = hTypeListView;
-        this.e = new ic9(this.g, hTypeListView);
+        this.e = new lc9(this.g, hTypeListView);
     }
 
-    public void a(jc9 jc9Var) {
+    public void a(mc9 mc9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jc9Var) != null) || jc9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, mc9Var) != null) || mc9Var == null) {
             return;
         }
-        this.e.c(c(jc9Var.a()));
+        this.e.c(c(mc9Var.a()));
     }
 
     public void b() {
@@ -89,9 +89,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            ac9 ac9Var = new ac9(vi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), vi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07035e));
-            ListUtils.add(arrayList, 0, ac9Var);
-            ListUtils.add(arrayList, ac9Var);
+            dc9 dc9Var = new dc9(vi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), vi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07035e));
+            ListUtils.add(arrayList, 0, dc9Var);
+            ListUtils.add(arrayList, dc9Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

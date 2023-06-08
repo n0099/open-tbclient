@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
-import com.baidu.tieba.i38;
-import com.baidu.tieba.m38;
+import com.baidu.tieba.k38;
+import com.baidu.tieba.o38;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vn;
@@ -45,7 +45,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements i38 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements k38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -55,7 +55,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public long e;
     public boolean f;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.qr5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.i38
+    @Override // com.baidu.tieba.k38
     public void L0(int i, boolean z, List<vn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
@@ -168,7 +168,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.i38
+    @Override // com.baidu.tieba.k38
     public void a() {
         int i;
         String substring;
@@ -278,14 +278,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.i38
-    public void t(int i, m38 m38Var) {
+    @Override // com.baidu.tieba.k38
+    public void t(int i, o38 o38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, m38Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, o38Var) == null) {
             this.b.r();
-            if (i == 0 && m38Var != null && !ListUtils.isEmpty(m38Var.f)) {
+            if (i == 0 && o38Var != null && !ListUtils.isEmpty(o38Var.f)) {
                 this.b.s();
-                this.b.setData(m38Var);
+                this.b.setData(o38Var);
                 return;
             }
             this.b.D(true);

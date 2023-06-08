@@ -16,16 +16,16 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a95;
-import com.baidu.tieba.b0a;
-import com.baidu.tieba.bm5;
+import com.baidu.tieba.c95;
 import com.baidu.tieba.cj;
-import com.baidu.tieba.cm5;
-import com.baidu.tieba.co5;
 import com.baidu.tieba.dm5;
+import com.baidu.tieba.e0a;
+import com.baidu.tieba.em5;
+import com.baidu.tieba.eo5;
+import com.baidu.tieba.fm5;
+import com.baidu.tieba.g0a;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.zz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class ImageUploader {
     public boolean isCancelled;
     public boolean isFromBJH;
     public NetWork mNetwork;
-    public bm5 mUploadStrategy;
+    public dm5 mUploadStrategy;
     public b multiProgressCallback;
     public a progressCallback;
     public Object progressObject;
@@ -105,11 +105,11 @@ public class ImageUploader {
                 return null;
             }
             if (this.mUploadStrategy == null) {
-                this.mUploadStrategy = new bm5();
+                this.mUploadStrategy = new dm5();
             }
             ImageUploadResult uploadInBackground = uploadInBackground(this.mUploadStrategy.j(this.writeData, imageFileInfo, z), z, z2, i, i2);
             String filePath = imageFileInfo.getFilePath();
-            if (co5.b.a(filePath)) {
+            if (eo5.b.a(filePath)) {
                 uploadInBackground.setSharpText(filePath);
             }
             return uploadInBackground;
@@ -329,7 +329,7 @@ public class ImageUploader {
     /* JADX WARN: Code restructure failed: missing block: B:167:0x03e3, code lost:
         r10.append("|startChunk=");
         r10.append(r9);
-        com.baidu.tieba.b0a.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
+        com.baidu.tieba.g0a.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
      */
     /* JADX WARN: Code restructure failed: missing block: B:168:0x03fe, code lost:
         r15 = r3;
@@ -512,7 +512,7 @@ public class ImageUploader {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             String str5 = str;
             String str6 = "    p = ";
-            b0a.a("发帖：正在上传图片 = " + str5);
+            g0a.a("发帖：正在上传图片 = " + str5);
             BitmapFactory.Options options2 = new BitmapFactory.Options();
             boolean z3 = true;
             options2.inJustDecodeBounds = true;
@@ -556,7 +556,7 @@ public class ImageUploader {
                             try {
                                 imageUploadResult5.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                                 imageUploadResult5.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_size_over);
-                                b0a.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
+                                g0a.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
                                 sg.b(null);
                                 this.mNetwork = null;
                                 return imageUploadResult5;
@@ -571,7 +571,7 @@ public class ImageUploader {
                                 r2 = null;
                             }
                         } else {
-                            b0a.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
+                            g0a.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
                             String b2 = cj.b(FileHelper.GetStreamFromFile(file));
                             sb3.append("path=");
                             sb3.append(str5);
@@ -615,7 +615,7 @@ public class ImageUploader {
                                         Object[] objArr = new Object[i3];
                                         objArr[c] = "comment";
                                         objArr[1] = sb.toString();
-                                        a95.a("img", -1L, -1, "imageUpload", i7, message, objArr);
+                                        c95.a("img", -1L, -1, "imageUpload", i7, message, objArr);
                                         StringBuilder sb4 = new StringBuilder();
                                         sb4.append("发帖：正在上传图片 上传失败 = ");
                                         sb4.append(i7);
@@ -625,11 +625,11 @@ public class ImageUploader {
                                         netWork2 = r2;
                                         str3 = str;
                                         sb4.append(str3);
-                                        b0a.a(sb4.toString());
+                                        g0a.a(sb4.toString());
                                         sg.b(randomAccessFile3);
                                         this.mNetwork = netWork2;
                                         imageUploadResult = imageUploadResult2;
-                                        b0a.a("发帖：上传图片 结束      p = " + str3);
+                                        g0a.a("发帖：上传图片 结束      p = " + str3);
                                         return imageUploadResult;
                                     }
                                 } catch (Throwable th4) {
@@ -725,7 +725,7 @@ public class ImageUploader {
                                                                     Object[] objArr2 = new Object[i3];
                                                                     objArr2[c] = "comment";
                                                                     objArr2[1] = sb.toString();
-                                                                    a95.a("img", -1L, -1, "imageUpload", i72, message, objArr2);
+                                                                    c95.a("img", -1L, -1, "imageUpload", i72, message, objArr2);
                                                                     StringBuilder sb42 = new StringBuilder();
                                                                     sb42.append("发帖：正在上传图片 上传失败 = ");
                                                                     sb42.append(i72);
@@ -735,11 +735,11 @@ public class ImageUploader {
                                                                     netWork2 = r2;
                                                                     str3 = str;
                                                                     sb42.append(str3);
-                                                                    b0a.a(sb42.toString());
+                                                                    g0a.a(sb42.toString());
                                                                     sg.b(randomAccessFile3);
                                                                     this.mNetwork = netWork2;
                                                                     imageUploadResult = imageUploadResult2;
-                                                                    b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                    g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                     return imageUploadResult;
                                                                 }
                                                             } else if (i10 == 0) {
@@ -775,7 +775,7 @@ public class ImageUploader {
                                                                     Object[] objArr22 = new Object[i3];
                                                                     objArr22[c] = "comment";
                                                                     objArr22[1] = sb.toString();
-                                                                    a95.a("img", -1L, -1, "imageUpload", i722, message, objArr22);
+                                                                    c95.a("img", -1L, -1, "imageUpload", i722, message, objArr22);
                                                                     StringBuilder sb422 = new StringBuilder();
                                                                     sb422.append("发帖：正在上传图片 上传失败 = ");
                                                                     sb422.append(i722);
@@ -785,11 +785,11 @@ public class ImageUploader {
                                                                     netWork2 = r2;
                                                                     str3 = str;
                                                                     sb422.append(str3);
-                                                                    b0a.a(sb422.toString());
+                                                                    g0a.a(sb422.toString());
                                                                     sg.b(randomAccessFile3);
                                                                     this.mNetwork = netWork2;
                                                                     imageUploadResult = imageUploadResult2;
-                                                                    b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                    g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                     return imageUploadResult;
                                                                 }
                                                             }
@@ -823,7 +823,7 @@ public class ImageUploader {
                                                                 Object[] objArr222 = new Object[i3];
                                                                 objArr222[c] = "comment";
                                                                 objArr222[1] = sb.toString();
-                                                                a95.a("img", -1L, -1, "imageUpload", i7222, message, objArr222);
+                                                                c95.a("img", -1L, -1, "imageUpload", i7222, message, objArr222);
                                                                 StringBuilder sb4222 = new StringBuilder();
                                                                 sb4222.append("发帖：正在上传图片 上传失败 = ");
                                                                 sb4222.append(i7222);
@@ -833,11 +833,11 @@ public class ImageUploader {
                                                                 netWork2 = r2;
                                                                 str3 = str;
                                                                 sb4222.append(str3);
-                                                                b0a.a(sb4222.toString());
+                                                                g0a.a(sb4222.toString());
                                                                 sg.b(randomAccessFile3);
                                                                 this.mNetwork = netWork2;
                                                                 imageUploadResult = imageUploadResult2;
-                                                                b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                 return imageUploadResult;
                                                             }
                                                         }
@@ -888,7 +888,7 @@ public class ImageUploader {
                                                                     Object[] objArr2222 = new Object[i3];
                                                                     objArr2222[c] = "comment";
                                                                     objArr2222[1] = sb.toString();
-                                                                    a95.a("img", -1L, -1, "imageUpload", i72222, message, objArr2222);
+                                                                    c95.a("img", -1L, -1, "imageUpload", i72222, message, objArr2222);
                                                                     StringBuilder sb42222 = new StringBuilder();
                                                                     sb42222.append("发帖：正在上传图片 上传失败 = ");
                                                                     sb42222.append(i72222);
@@ -898,11 +898,11 @@ public class ImageUploader {
                                                                     netWork2 = r2;
                                                                     str3 = str;
                                                                     sb42222.append(str3);
-                                                                    b0a.a(sb42222.toString());
+                                                                    g0a.a(sb42222.toString());
                                                                     sg.b(randomAccessFile3);
                                                                     this.mNetwork = netWork2;
                                                                     imageUploadResult = imageUploadResult2;
-                                                                    b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                    g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                     return imageUploadResult;
                                                                 }
                                                             } catch (Exception e10) {
@@ -1009,7 +1009,7 @@ public class ImageUploader {
                                                                                     Object[] objArr22222 = new Object[i3];
                                                                                     objArr22222[c] = "comment";
                                                                                     objArr22222[1] = sb.toString();
-                                                                                    a95.a("img", -1L, -1, "imageUpload", i722222, message, objArr22222);
+                                                                                    c95.a("img", -1L, -1, "imageUpload", i722222, message, objArr22222);
                                                                                     StringBuilder sb422222 = new StringBuilder();
                                                                                     sb422222.append("发帖：正在上传图片 上传失败 = ");
                                                                                     sb422222.append(i722222);
@@ -1019,11 +1019,11 @@ public class ImageUploader {
                                                                                     netWork2 = r2;
                                                                                     str3 = str;
                                                                                     sb422222.append(str3);
-                                                                                    b0a.a(sb422222.toString());
+                                                                                    g0a.a(sb422222.toString());
                                                                                     sg.b(randomAccessFile3);
                                                                                     this.mNetwork = netWork2;
                                                                                     imageUploadResult = imageUploadResult2;
-                                                                                    b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                                    g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                                     return imageUploadResult;
                                                                                 }
                                                                             }
@@ -1037,7 +1037,7 @@ public class ImageUploader {
                                                                         try {
                                                                             try {
                                                                                 if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
-                                                                                    b0a.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + str6 + str5);
+                                                                                    g0a.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + str6 + str5);
                                                                                     if (i8 == parser.chunkNo || parser.chunkNo <= 0) {
                                                                                         break;
                                                                                     }
@@ -1093,7 +1093,7 @@ public class ImageUploader {
                                                                                                     Object[] objArr222222 = new Object[i3];
                                                                                                     objArr222222[c] = "comment";
                                                                                                     objArr222222[1] = sb.toString();
-                                                                                                    a95.a("img", -1L, -1, "imageUpload", i7222222, message, objArr222222);
+                                                                                                    c95.a("img", -1L, -1, "imageUpload", i7222222, message, objArr222222);
                                                                                                     StringBuilder sb4222222 = new StringBuilder();
                                                                                                     sb4222222.append("发帖：正在上传图片 上传失败 = ");
                                                                                                     sb4222222.append(i7222222);
@@ -1103,11 +1103,11 @@ public class ImageUploader {
                                                                                                     netWork2 = r2;
                                                                                                     str3 = str;
                                                                                                     sb4222222.append(str3);
-                                                                                                    b0a.a(sb4222222.toString());
+                                                                                                    g0a.a(sb4222222.toString());
                                                                                                     sg.b(randomAccessFile3);
                                                                                                     this.mNetwork = netWork2;
                                                                                                     imageUploadResult = imageUploadResult2;
-                                                                                                    b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                                                    g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                                                     return imageUploadResult;
                                                                                                 }
                                                                                             } else {
@@ -1117,7 +1117,7 @@ public class ImageUploader {
                                                                                                 if (this.imagesInfo != null) {
                                                                                                     this.imagesInfo.hasUploadFileSize += i4;
                                                                                                 }
-                                                                                                b0a.a("发帖：正在上传图片 已上传 = " + j2 + str6 + str5);
+                                                                                                g0a.a("发帖：正在上传图片 已上传 = " + j2 + str6 + str5);
                                                                                                 if (this.progressCallback != null) {
                                                                                                     try {
                                                                                                         RandomAccessFile randomAccessFile19 = randomAccessFile14;
@@ -1159,7 +1159,7 @@ public class ImageUploader {
                                                                                                         Object[] objArr2222222 = new Object[i3];
                                                                                                         objArr2222222[c] = "comment";
                                                                                                         objArr2222222[1] = sb.toString();
-                                                                                                        a95.a("img", -1L, -1, "imageUpload", i72222222, message, objArr2222222);
+                                                                                                        c95.a("img", -1L, -1, "imageUpload", i72222222, message, objArr2222222);
                                                                                                         StringBuilder sb42222222 = new StringBuilder();
                                                                                                         sb42222222.append("发帖：正在上传图片 上传失败 = ");
                                                                                                         sb42222222.append(i72222222);
@@ -1169,11 +1169,11 @@ public class ImageUploader {
                                                                                                         netWork2 = r2;
                                                                                                         str3 = str;
                                                                                                         sb42222222.append(str3);
-                                                                                                        b0a.a(sb42222222.toString());
+                                                                                                        g0a.a(sb42222222.toString());
                                                                                                         sg.b(randomAccessFile3);
                                                                                                         this.mNetwork = netWork2;
                                                                                                         imageUploadResult = imageUploadResult2;
-                                                                                                        b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                                                        g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                                                         return imageUploadResult;
                                                                                                     }
                                                                                                 } else {
@@ -1244,7 +1244,7 @@ public class ImageUploader {
                                                                                                     Object[] objArr22222222 = new Object[i3];
                                                                                                     objArr22222222[c] = "comment";
                                                                                                     objArr22222222[1] = sb.toString();
-                                                                                                    a95.a("img", -1L, -1, "imageUpload", i722222222, message, objArr22222222);
+                                                                                                    c95.a("img", -1L, -1, "imageUpload", i722222222, message, objArr22222222);
                                                                                                     StringBuilder sb422222222 = new StringBuilder();
                                                                                                     sb422222222.append("发帖：正在上传图片 上传失败 = ");
                                                                                                     sb422222222.append(i722222222);
@@ -1254,11 +1254,11 @@ public class ImageUploader {
                                                                                                     netWork2 = r2;
                                                                                                     str3 = str;
                                                                                                     sb422222222.append(str3);
-                                                                                                    b0a.a(sb422222222.toString());
+                                                                                                    g0a.a(sb422222222.toString());
                                                                                                     sg.b(randomAccessFile3);
                                                                                                     this.mNetwork = netWork2;
                                                                                                     imageUploadResult = imageUploadResult2;
-                                                                                                    b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                                                    g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                                                     return imageUploadResult;
                                                                                                 }
                                                                                             } catch (Exception e17) {
@@ -1286,7 +1286,7 @@ public class ImageUploader {
                                                                                                 Object[] objArr222222222 = new Object[i3];
                                                                                                 objArr222222222[c] = "comment";
                                                                                                 objArr222222222[1] = sb.toString();
-                                                                                                a95.a("img", -1L, -1, "imageUpload", i7222222222, message, objArr222222222);
+                                                                                                c95.a("img", -1L, -1, "imageUpload", i7222222222, message, objArr222222222);
                                                                                                 StringBuilder sb4222222222 = new StringBuilder();
                                                                                                 sb4222222222.append("发帖：正在上传图片 上传失败 = ");
                                                                                                 sb4222222222.append(i7222222222);
@@ -1296,11 +1296,11 @@ public class ImageUploader {
                                                                                                 netWork2 = r2;
                                                                                                 str3 = str;
                                                                                                 sb4222222222.append(str3);
-                                                                                                b0a.a(sb4222222222.toString());
+                                                                                                g0a.a(sb4222222222.toString());
                                                                                                 sg.b(randomAccessFile3);
                                                                                                 this.mNetwork = netWork2;
                                                                                                 imageUploadResult = imageUploadResult2;
-                                                                                                b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                                                g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                                                 return imageUploadResult;
                                                                                             }
                                                                                         }
@@ -1342,7 +1342,7 @@ public class ImageUploader {
                                                                             Object[] objArr2222222222 = new Object[i3];
                                                                             objArr2222222222[c] = "comment";
                                                                             objArr2222222222[1] = sb.toString();
-                                                                            a95.a("img", -1L, -1, "imageUpload", i72222222222, message, objArr2222222222);
+                                                                            c95.a("img", -1L, -1, "imageUpload", i72222222222, message, objArr2222222222);
                                                                             StringBuilder sb42222222222 = new StringBuilder();
                                                                             sb42222222222.append("发帖：正在上传图片 上传失败 = ");
                                                                             sb42222222222.append(i72222222222);
@@ -1352,11 +1352,11 @@ public class ImageUploader {
                                                                             netWork2 = r2;
                                                                             str3 = str;
                                                                             sb42222222222.append(str3);
-                                                                            b0a.a(sb42222222222.toString());
+                                                                            g0a.a(sb42222222222.toString());
                                                                             sg.b(randomAccessFile3);
                                                                             this.mNetwork = netWork2;
                                                                             imageUploadResult = imageUploadResult2;
-                                                                            b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                            g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                             return imageUploadResult;
                                                                         }
                                                                         bArr2 = bArr;
@@ -1411,7 +1411,7 @@ public class ImageUploader {
                                                                 Object[] objArr22222222222 = new Object[i3];
                                                                 objArr22222222222[c] = "comment";
                                                                 objArr22222222222[1] = sb.toString();
-                                                                a95.a("img", -1L, -1, "imageUpload", i722222222222, message, objArr22222222222);
+                                                                c95.a("img", -1L, -1, "imageUpload", i722222222222, message, objArr22222222222);
                                                                 StringBuilder sb422222222222 = new StringBuilder();
                                                                 sb422222222222.append("发帖：正在上传图片 上传失败 = ");
                                                                 sb422222222222.append(i722222222222);
@@ -1421,11 +1421,11 @@ public class ImageUploader {
                                                                 netWork2 = r2;
                                                                 str3 = str;
                                                                 sb422222222222.append(str3);
-                                                                b0a.a(sb422222222222.toString());
+                                                                g0a.a(sb422222222222.toString());
                                                                 sg.b(randomAccessFile3);
                                                                 this.mNetwork = netWork2;
                                                                 imageUploadResult = imageUploadResult2;
-                                                                b0a.a("发帖：上传图片 结束      p = " + str3);
+                                                                g0a.a("发帖：上传图片 结束      p = " + str3);
                                                                 return imageUploadResult;
                                                             }
                                                         } catch (Throwable th9) {
@@ -1477,15 +1477,15 @@ public class ImageUploader {
                             sg.b(randomAccessFile6);
                             this.mNetwork = null;
                             str3 = str;
-                            b0a.a("发帖：上传图片 结束      p = " + str3);
+                            g0a.a("发帖：上传图片 结束      p = " + str3);
                             return imageUploadResult;
                         }
                         sb422222222222.append(str3);
-                        b0a.a(sb422222222222.toString());
+                        g0a.a(sb422222222222.toString());
                         sg.b(randomAccessFile3);
                         this.mNetwork = netWork2;
                         imageUploadResult = imageUploadResult2;
-                        b0a.a("发帖：上传图片 结束      p = " + str3);
+                        g0a.a("发帖：上传图片 结束      p = " + str3);
                         return imageUploadResult;
                     } catch (Throwable th12) {
                         th = th12;
@@ -1532,7 +1532,7 @@ public class ImageUploader {
                     Object[] objArr222222222222 = new Object[i3];
                     objArr222222222222[c] = "comment";
                     objArr222222222222[1] = sb.toString();
-                    a95.a("img", -1L, -1, "imageUpload", i7222222222222, message, objArr222222222222);
+                    c95.a("img", -1L, -1, "imageUpload", i7222222222222, message, objArr222222222222);
                     StringBuilder sb4222222222222 = new StringBuilder();
                     sb4222222222222.append("发帖：正在上传图片 上传失败 = ");
                     sb4222222222222.append(i7222222222222);
@@ -1546,7 +1546,7 @@ public class ImageUploader {
                     netWork2 = r2;
                 }
             } else {
-                b0a.a("发帖：正在上传图片 失败 = " + str5);
+                g0a.a("发帖：正在上传图片 失败 = " + str5);
                 ImageUploadResult imageUploadResult6 = new ImageUploadResult();
                 imageUploadResult6.error_code = -1007;
                 imageUploadResult6.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_size_over);
@@ -1591,7 +1591,7 @@ public class ImageUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048602, this, writeImagesInfo, z)) == null) {
             ImageUploader imageUploader = this;
-            b0a.a("发帖： 上传批量图片到server");
+            g0a.a("发帖： 上传批量图片到server");
             ErrorData errorData = new ErrorData();
             if (writeImagesInfo != null && writeImagesInfo.size() != 0) {
                 LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
@@ -1615,28 +1615,28 @@ public class ImageUploader {
                 imageUploader.imageChunkRetry = writeImagesInfo.imageChunkRetry;
                 if (imageUploader.writeData.getAsyncPublishStatData() != null && imageUploader.writeData.startPublishTime() > 0 && writeImagesInfo.needImageParallel) {
                     ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(writeImagesInfo.imageUploadConcurrency);
-                    dm5 dm5Var = new dm5();
+                    fm5 fm5Var = new fm5();
                     ArrayList arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
                     while (i < linkedList.size()) {
-                        cm5 cm5Var = new cm5(dm5Var, linkedList, writeImagesInfo, z, i);
-                        cm5Var.c(imageUploader.writeData);
+                        em5 em5Var = new em5(fm5Var, linkedList, writeImagesInfo, z, i);
+                        em5Var.c(imageUploader.writeData);
                         ArrayList arrayList3 = arrayList;
-                        cm5Var.b(imageUploader.chunkSize, imageUploader.bigWidth, imageUploader.bigHeight, imageUploader.smallWidth, imageUploader.smallHeight, imageUploader.isCancelled, imageUploader.waterMaskType, imageUploader.groupId, imageUploader.progressCallback, imageUploader.multiProgressCallback, imageUploader.progressObject, imageUploader.isFromBJH, imageUploader.imageChunkRetry);
-                        arrayList2.add(cm5Var);
-                        arrayList3.add(new FutureTask<>(cm5Var));
+                        em5Var.b(imageUploader.chunkSize, imageUploader.bigWidth, imageUploader.bigHeight, imageUploader.smallWidth, imageUploader.smallHeight, imageUploader.isCancelled, imageUploader.waterMaskType, imageUploader.groupId, imageUploader.progressCallback, imageUploader.multiProgressCallback, imageUploader.progressObject, imageUploader.isFromBJH, imageUploader.imageChunkRetry);
+                        arrayList2.add(em5Var);
+                        arrayList3.add(new FutureTask<>(em5Var));
                         i++;
                         imageUploader = this;
                         arrayList = arrayList3;
                         linkedList = linkedList;
                         newFixedThreadPool = newFixedThreadPool;
-                        dm5Var = dm5Var;
+                        fm5Var = fm5Var;
                     }
                     ExecutorService executorService = newFixedThreadPool;
-                    dm5 dm5Var2 = dm5Var;
+                    fm5 fm5Var2 = fm5Var;
                     ArrayList<FutureTask<Boolean>> arrayList4 = arrayList;
-                    dm5Var2.c(arrayList4);
-                    dm5Var2.b(arrayList2);
+                    fm5Var2.c(arrayList4);
+                    fm5Var2.b(arrayList2);
                     for (FutureTask<Boolean> futureTask : arrayList4) {
                         executorService.submit(futureTask);
                     }
@@ -1647,7 +1647,7 @@ public class ImageUploader {
                         }
                     }
                     executorService.shutdown();
-                    return dm5Var2.c;
+                    return fm5Var2.c;
                 }
                 LinkedList linkedList2 = linkedList;
                 int i3 = 0;
@@ -1655,7 +1655,7 @@ public class ImageUploader {
                     LinkedList linkedList3 = linkedList2;
                     ImageFileInfo imageFileInfo2 = (ImageFileInfo) linkedList3.get(i3);
                     imageFileInfo2.setTempUploadFileName(null);
-                    b0a.a("发帖：发送图片 上传图片 = " + i3 + " = " + imageFileInfo2.toJson().toString());
+                    g0a.a("发帖：发送图片 上传图片 = " + i3 + " = " + imageFileInfo2.toJson().toString());
                     if (this.isCancelled) {
                         break;
                     }
@@ -1664,10 +1664,10 @@ public class ImageUploader {
                     } else {
                         isOriginalImg = writeImagesInfo.isOriginalImg();
                     }
-                    zz9.m(this.writeData, imageFileInfo2);
+                    e0a.m(this.writeData, imageFileInfo2);
                     int i4 = i3 + 1;
                     ImageUploadResult uploadInBackground = uploadInBackground(imageFileInfo2, isOriginalImg, z, i4, linkedList3.size());
-                    zz9.d(this.writeData, imageFileInfo2, uploadInBackground);
+                    e0a.d(this.writeData, imageFileInfo2, uploadInBackground);
                     if (uploadInBackground != null) {
                         UploadedImageInfo uploadedPicInfo = uploadInBackground.getUploadedPicInfo();
                         if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
@@ -1679,22 +1679,22 @@ public class ImageUploader {
                         } else {
                             errorData.setError_code(uploadInBackground.error_code);
                             errorData.setError_msg(uploadInBackground.error_msg);
-                            b0a.a("发帖：发送图片 上传图片 错误 1= " + i3 + " = " + imageFileInfo2.toJson().toString());
+                            g0a.a("发帖：发送图片 上传图片 错误 1= " + i3 + " = " + imageFileInfo2.toJson().toString());
                             return errorData;
                         }
                     } else {
                         errorData.setError_code(-52);
                         errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
-                        b0a.a("发帖：发送图片 上传图片 错误 2= " + i3 + " = " + imageFileInfo2.toJson().toString());
+                        g0a.a("发帖：发送图片 上传图片 错误 2= " + i3 + " = " + imageFileInfo2.toJson().toString());
                         return errorData;
                     }
                 }
-                b0a.a("发帖：发送图片 上传图片 成功返回");
+                g0a.a("发帖：发送图片 上传图片 成功返回");
                 return null;
             }
             errorData.setError_code(-1002);
             errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
-            b0a.a("发帖：发送图片 上传图片 错误 无图");
+            g0a.a("发帖：发送图片 上传图片 错误 无图");
             return errorData;
         }
         return (ErrorData) invokeLZ.objValue;

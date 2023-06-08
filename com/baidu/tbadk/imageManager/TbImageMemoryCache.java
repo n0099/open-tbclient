@@ -9,12 +9,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e06;
+import com.baidu.tieba.b06;
+import com.baidu.tieba.g06;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.i56;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.k56;
 import com.baidu.tieba.kg;
-import com.baidu.tieba.zz5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,11 +29,11 @@ public class TbImageMemoryCache implements LifecycleObserver {
     public transient /* synthetic */ FieldHolder $fh;
     public jg<String, gn> a;
     public jg<String, gn> b;
-    public i56<String, gn> c;
+    public k56<String, gn> c;
     public jg<String, Bitmap> d;
     public jg<String, gn> e;
-    public kg<zz5> f;
-    public e06 g;
+    public kg<b06> f;
+    public g06 g;
 
     /* loaded from: classes4.dex */
     public class a extends jg<String, gn> {
@@ -196,7 +196,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
     }
 
     public void H() {
-        kg<zz5> kgVar;
+        kg<b06> kgVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (kgVar = this.f) != null) {
             kgVar.g(0);
@@ -241,7 +241,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         this.d = null;
         this.e = null;
         this.a = new a(this, 0);
-        this.c = new i56<>();
+        this.c = new k56<>();
         this.b = new b(this, 0);
         this.d = new c(this, 0);
         this.e = new jg<>(Integer.MAX_VALUE);
@@ -350,20 +350,20 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (gn) invokeL.objValue;
     }
 
-    public kg<zz5> E(int i) {
+    public kg<b06> E(int i) {
         InterceptResult invokeI;
-        e06 e06Var;
+        g06 g06Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (this.f != null && (e06Var = this.g) != null) {
-                if (e06Var.g() == i) {
+            if (this.f != null && (g06Var = this.g) != null) {
+                if (g06Var.g() == i) {
                     return this.f;
                 }
                 this.g.j(i);
                 this.f.c();
             }
             if (this.g == null) {
-                this.g = new e06(i);
+                this.g = new g06(i);
             }
             if (this.f == null) {
                 this.f = new kg<>(this.g, 6, 0);

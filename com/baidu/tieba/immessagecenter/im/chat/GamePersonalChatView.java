@@ -23,20 +23,20 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gx5;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.kw5;
-import com.baidu.tieba.kx5;
-import com.baidu.tieba.li8;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.m88;
-import com.baidu.tieba.r78;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.ix5;
+import com.baidu.tieba.mw5;
+import com.baidu.tieba.mx5;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.o88;
+import com.baidu.tieba.oi8;
+import com.baidu.tieba.t78;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.th5;
+import com.baidu.tieba.uh5;
+import com.baidu.tieba.vh5;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.view.gameim.GameContactsView;
@@ -59,8 +59,8 @@ public class GamePersonalChatView extends PersonalChatView {
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public r78 C;
-    public th5 D;
+    public t78 C;
+    public vh5 D;
     public final GamePersonalChatActivity r;
     public boolean s;
     public GameContactsView t;
@@ -72,7 +72,7 @@ public class GamePersonalChatView extends PersonalChatView {
     public String z;
 
     /* loaded from: classes6.dex */
-    public class a implements kw5<Void> {
+    public class a implements mw5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -98,7 +98,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kw5
+        @Override // com.baidu.tieba.mw5
         /* renamed from: a */
         public void onReturnDataInUI(Void r5) {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class GamePersonalChatView extends PersonalChatView {
                         this.a.z0();
                         return;
                     }
-                    List<r78> h = r78.h(hashMap);
+                    List<t78> h = t78.h(hashMap);
                     if (!h.isEmpty()) {
                         this.a.D0(h);
                         return;
@@ -309,20 +309,20 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         @Override // com.baidu.tieba.view.gameim.GameContactsView.a
-        public void a(View view2, r78 r78Var, int i) {
+        public void a(View view2, t78 t78Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLI(1048576, this, view2, r78Var, i) != null) || r78Var == null) {
+            if ((interceptable != null && interceptable.invokeLLI(1048576, this, view2, t78Var, i) != null) || t78Var == null) {
                 return;
             }
-            this.a.C = r78Var;
+            this.a.C = t78Var;
             if (i != 3) {
-                this.a.u.h(r78Var);
+                this.a.u.h(t78Var);
                 this.a.r.K = false;
-                this.a.K0(r78Var);
-                li8.h(this.a.B, this.a.A, r78Var.d(), r78Var.b(), r78Var.e());
+                this.a.K0(t78Var);
+                oi8.h(this.a.B, this.a.A, t78Var.d(), t78Var.b(), t78Var.e());
             }
             if (i != 1) {
-                li8.e(this.a.B, this.a.A, r78Var.d(), r78Var.b(), r78Var.e());
+                oi8.e(this.a.B, this.a.A, t78Var.d(), t78Var.b(), t78Var.e());
             }
         }
     }
@@ -352,18 +352,18 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         @Override // com.baidu.tieba.view.gameim.GamePersonalChatTitleView.b
-        public void a(@NonNull r78 r78Var) {
+        public void a(@NonNull t78 t78Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, r78Var) == null) {
-                li8.a(this.a.B, this.a.A, r78Var.d(), r78Var.b(), r78Var.e());
-                if (r78Var.e()) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, t78Var) == null) {
+                oi8.a(this.a.B, this.a.A, t78Var.d(), t78Var.b(), t78Var.e());
+                if (t78Var.e()) {
                     if (this.a.r.E1() != null && !TextUtils.isEmpty(this.a.z)) {
                         this.a.r.E1().sendTextMessage(this.a.z);
                         return;
                     }
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921713, r78Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921713, t78Var));
             }
         }
     }
@@ -399,9 +399,9 @@ public class GamePersonalChatView extends PersonalChatView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object obj;
-            r78 g;
+            t78 g;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921712 || !(customResponsedMessage.getData() instanceof HashMap) || (obj = ((HashMap) customResponsedMessage.getData()).get("imUser")) == null || (g = r78.g(obj)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921712 || !(customResponsedMessage.getData() instanceof HashMap) || (obj = ((HashMap) customResponsedMessage.getData()).get("imUser")) == null || (g = t78.g(obj)) == null) {
                 return;
             }
             if (this.a.t.b(g)) {
@@ -467,7 +467,7 @@ public class GamePersonalChatView extends PersonalChatView {
     }
 
     /* loaded from: classes6.dex */
-    public class j implements th5 {
+    public class j implements vh5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GamePersonalChatView a;
@@ -490,18 +490,18 @@ public class GamePersonalChatView extends PersonalChatView {
             this.a = gamePersonalChatView;
         }
 
-        @Override // com.baidu.tieba.th5
-        public void C(sh5 sh5Var) {
+        @Override // com.baidu.tieba.vh5
+        public void C(uh5 uh5Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, sh5Var) == null) && sh5Var != null && this.a.C != null) {
-                int i = sh5Var.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, uh5Var) == null) && uh5Var != null && this.a.C != null) {
+                int i = uh5Var.a;
                 if (i == 14) {
-                    li8.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    oi8.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                     return;
                 }
                 int i2 = 1;
                 if (i == 63) {
-                    Object obj = sh5Var.c;
+                    Object obj = uh5Var.c;
                     if (obj instanceof Boolean) {
                         boolean booleanValue = ((Boolean) obj).booleanValue();
                         String str = this.a.B;
@@ -511,10 +511,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue) {
                             i2 = 2;
                         }
-                        li8.f(str, str2, b, e, i2);
+                        oi8.f(str, str2, b, e, i2);
                     }
                 } else if (i == 62) {
-                    Object obj2 = sh5Var.c;
+                    Object obj2 = uh5Var.c;
                     if (obj2 instanceof Boolean) {
                         boolean booleanValue2 = ((Boolean) obj2).booleanValue();
                         String str3 = this.a.B;
@@ -524,10 +524,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue2) {
                             i2 = 2;
                         }
-                        li8.c(str3, str4, b2, e2, i2);
+                        oi8.c(str3, str4, b2, e2, i2);
                     }
                 } else if (i == 64) {
-                    li8.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    oi8.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                 }
             }
         }
@@ -569,7 +569,7 @@ public class GamePersonalChatView extends PersonalChatView {
     }
 
     /* loaded from: classes6.dex */
-    public class l extends gx5<Void> {
+    public class l extends ix5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -593,13 +593,13 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gx5
+        @Override // com.baidu.tieba.ix5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return m88.w().a(this.a);
+                return o88.w().a(this.a);
             }
             return (Void) invokeV.objValue;
         }
@@ -718,7 +718,7 @@ public class GamePersonalChatView extends PersonalChatView {
         B0();
     }
 
-    public final void D0(@NonNull List<r78> list) {
+    public final void D0(@NonNull List<t78> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.t.a(list);
@@ -739,7 +739,7 @@ public class GamePersonalChatView extends PersonalChatView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             super.onChangeSkinType(i2);
-            m75.d(this.t).f(R.color.CAM_X0204);
+            o75.d(this.t).f(R.color.CAM_X0204);
             this.u.g();
         }
     }
@@ -835,7 +835,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
         GamePersonalChatActivity gamePersonalChatActivity = this.r;
         vi.z(gamePersonalChatActivity, gamePersonalChatActivity.getCurrentFocus());
-        this.mTool.C(new sh5(5, -1, null));
+        this.mTool.C(new uh5(5, -1, null));
     }
 
     public final void C0() {
@@ -916,17 +916,17 @@ public class GamePersonalChatView extends PersonalChatView {
         this.z = sb2.toString();
     }
 
-    public final void K0(@NonNull r78 r78Var) {
+    public final void K0(@NonNull t78 t78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, r78Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t78Var) == null) {
             UserData userData = new UserData();
-            userData.setPortrait(r78Var.a());
-            userData.setName_show(r78Var.c());
-            userData.setUserId(r78Var.d());
-            userData.setUserIdLong(tg.g(r78Var.d(), 0L));
+            userData.setPortrait(t78Var.a());
+            userData.setName_show(t78Var.c());
+            userData.setUserId(t78Var.d());
+            userData.setUserIdLong(tg.g(t78Var.d(), 0L));
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            kx5.c(new l(this, linkedList), new a(this, userData));
+            mx5.c(new l(this, linkedList), new a(this, userData));
         }
     }
 

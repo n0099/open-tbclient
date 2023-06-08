@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class w9b extends n9b {
+public final class w9b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, n9b> a;
-    public static final Object b;
-    public static String c;
+    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        String a(u9b u9bVar);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,58 +32,18 @@ public class w9b extends n9b {
             }
         }
         a = new HashMap();
-        b = new Object();
     }
 
-    public w9b(Context context, String str) {
+    public static Map<String, a> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        s9b.d(context, str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
     }
 
-    public static n9b a(Context context) {
-        InterceptResult invokeL;
+    public static void b(String str, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            String packageName = context.getPackageName();
-            c = packageName;
-            return b(context, packageName);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
+            a.put(str, aVar);
         }
-        return (n9b) invokeL.objValue;
-    }
-
-    public static n9b b(Context context, String str) {
-        InterceptResult invokeLL;
-        n9b n9bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("packageName can not be empty");
-            }
-            synchronized (b) {
-                n9bVar = a.get(str);
-                if (n9bVar == null) {
-                    a.put(str, new w9b(context, str));
-                }
-            }
-            return n9bVar;
-        }
-        return (n9b) invokeLL.objValue;
     }
 }

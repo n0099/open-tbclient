@@ -21,7 +21,7 @@ public class j42 extends i42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public omb c;
+    public tmb c;
 
     /* loaded from: classes6.dex */
     public class a implements rq3<bh3<dh3.e>> {
@@ -174,7 +174,7 @@ public class j42 extends i42 {
                 return false;
             }
             s42 s42Var = (s42) r(unitedSchemeEntity);
-            omb w = new x72(context, s42Var).w();
+            tmb w = new x72(context, s42Var).w();
             this.c = w;
             if (w == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -198,12 +198,12 @@ public class j42 extends i42 {
                 String str = s42Var.b;
                 e23 e23Var = s42Var.h;
                 if (!TextUtils.isEmpty(str) && e23Var != null && e23Var.h()) {
-                    omb ombVar = this.c;
-                    if (ombVar == null) {
+                    tmb tmbVar = this.c;
+                    if (tmbVar == null) {
                         r82.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    ombVar.onCompleted();
+                    tmbVar.onCompleted();
                     y82.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

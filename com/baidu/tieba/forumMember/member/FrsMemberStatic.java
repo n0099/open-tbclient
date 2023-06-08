@@ -5,20 +5,20 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumMemberActivityConfig;
-import com.baidu.tieba.ce7;
-import com.baidu.tieba.db7;
-import com.baidu.tieba.de7;
+import com.baidu.tieba.ab7;
+import com.baidu.tieba.bb7;
+import com.baidu.tieba.ee7;
 import com.baidu.tieba.fb7;
+import com.baidu.tieba.fe7;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.gb7;
 import com.baidu.tieba.hb7;
 import com.baidu.tieba.ib7;
 import com.baidu.tieba.jb7;
-import com.baidu.tieba.jd7;
 import com.baidu.tieba.kb7;
 import com.baidu.tieba.lb7;
-import com.baidu.tieba.wa7;
-import com.baidu.tieba.xa7;
+import com.baidu.tieba.ld7;
+import com.baidu.tieba.mb7;
+import com.baidu.tieba.nb7;
 import com.baidu.tieba.ya7;
 import com.baidu.tieba.za7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -64,12 +64,12 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new gb7(null, hb7.d));
-                absDelegateAdapterList.add(new ib7(null, jb7.c));
-                absDelegateAdapterList.add(new fb7(null, jd7.c));
-                absDelegateAdapterList.add(new wa7(null, xa7.b));
-                absDelegateAdapterList.add(new ya7(null, za7.g));
-                absDelegateAdapterList.add(new kb7(null, lb7.e));
+                absDelegateAdapterList.add(new ib7(null, jb7.d));
+                absDelegateAdapterList.add(new kb7(null, lb7.c));
+                absDelegateAdapterList.add(new hb7(null, ld7.c));
+                absDelegateAdapterList.add(new ya7(null, za7.b));
+                absDelegateAdapterList.add(new ab7(null, bb7.g));
+                absDelegateAdapterList.add(new mb7(null, nb7.e));
             }
         }
     }
@@ -103,11 +103,11 @@ public class FrsMemberStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ce7)) {
-                ce7 ce7Var = (ce7) customResponsedMessage.getData();
-                db7 db7Var = new db7();
-                db7Var.C(ce7Var.a);
-                ce7Var.a(3, db7Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ee7)) {
+                ee7 ee7Var = (ee7) customResponsedMessage.getData();
+                fb7 fb7Var = new fb7();
+                fb7Var.C(ee7Var.a);
+                ee7Var.a(3, fb7Var);
             }
         }
     }
@@ -126,7 +126,7 @@ public class FrsMemberStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        de7.a().c(3);
+        fe7.a().c(3);
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerListener(new b(2003011));
     }

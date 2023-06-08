@@ -6,13 +6,13 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ks5;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.os5;
-import com.baidu.tieba.ps5;
+import com.baidu.tieba.ms5;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.qs5;
 import com.baidu.tieba.rs5;
+import com.baidu.tieba.ss5;
 import com.baidu.tieba.tg;
+import com.baidu.tieba.ts5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +75,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = l95.m().o(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = n95.m().o(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -360,7 +360,7 @@ public class PerformanceLoggerHelper {
         return (String) invokeV.objValue;
     }
 
-    public ps5 getLoggerWithType(int i) {
+    public rs5 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -369,57 +369,57 @@ public class PerformanceLoggerHelper {
             }
             switch (i) {
                 case 1000:
-                    rs5 rs5Var = new rs5();
-                    rs5Var.a = "frs";
-                    return rs5Var;
+                    ts5 ts5Var = new ts5();
+                    ts5Var.a = "frs";
+                    return ts5Var;
                 case 1001:
-                    rs5 rs5Var2 = new rs5();
-                    rs5Var2.a = "pb";
-                    return rs5Var2;
+                    ts5 ts5Var2 = new ts5();
+                    ts5Var2.a = "pb";
+                    return ts5Var2;
                 case 1002:
-                    os5 os5Var = new os5();
-                    os5Var.a = "im";
-                    return os5Var;
+                    qs5 qs5Var = new qs5();
+                    qs5Var.a = "im";
+                    return qs5Var;
                 case 1003:
                 case 1006:
                 case 1007:
                 default:
                     return null;
                 case 1004:
-                    rs5 rs5Var3 = new rs5();
-                    rs5Var3.a = "photo_live";
-                    return rs5Var3;
+                    ts5 ts5Var3 = new ts5();
+                    ts5Var3.a = "photo_live";
+                    return ts5Var3;
                 case 1005:
-                    ks5 ks5Var = new ks5();
-                    ks5Var.a = "home_page";
-                    return ks5Var;
+                    ms5 ms5Var = new ms5();
+                    ms5Var.a = "home_page";
+                    return ms5Var;
                 case 1008:
-                    rs5 rs5Var4 = new rs5();
-                    rs5Var4.a = "user_center";
-                    return rs5Var4;
+                    ts5 ts5Var4 = new ts5();
+                    ts5Var4.a = "user_center";
+                    return ts5Var4;
                 case 1009:
-                    rs5 rs5Var5 = new rs5();
-                    rs5Var5.a = "sign_all";
-                    return rs5Var5;
+                    ts5 ts5Var5 = new ts5();
+                    ts5Var5.a = "sign_all";
+                    return ts5Var5;
                 case 1010:
-                    rs5 rs5Var6 = new rs5();
-                    rs5Var6.a = "person_center";
-                    return rs5Var6;
+                    ts5 ts5Var6 = new ts5();
+                    ts5Var6.a = "person_center";
+                    return ts5Var6;
                 case 1011:
-                    rs5 rs5Var7 = new rs5();
-                    rs5Var7.a = "person_center_home";
-                    return rs5Var7;
+                    ts5 ts5Var7 = new ts5();
+                    ts5Var7.a = "person_center_home";
+                    return ts5Var7;
                 case 1012:
-                    rs5 rs5Var8 = new rs5();
-                    rs5Var8.a = "person_center_post";
-                    return rs5Var8;
+                    ts5 ts5Var8 = new ts5();
+                    ts5Var8.a = "person_center_post";
+                    return ts5Var8;
                 case 1013:
-                    rs5 rs5Var9 = new rs5();
-                    rs5Var9.a = "person_center_dynamic";
-                    return rs5Var9;
+                    ts5 ts5Var9 = new ts5();
+                    ts5Var9.a = "person_center_dynamic";
+                    return ts5Var9;
             }
         }
-        return (ps5) invokeI.objValue;
+        return (rs5) invokeI.objValue;
     }
 
     public String getNetType() {
@@ -455,17 +455,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    l95.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    n95.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                l95.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                n95.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                qs5.b().f();
+                ss5.b().f();
             }
         }
     }

@@ -39,16 +39,16 @@ import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b6a;
+import com.baidu.tieba.g6a;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.ja5;
 import com.baidu.tieba.jo;
-import com.baidu.tieba.jw9;
 import com.baidu.tieba.k9;
+import com.baidu.tieba.la5;
 import com.baidu.tieba.og;
-import com.baidu.tieba.pf5;
+import com.baidu.tieba.ow9;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.q9;
+import com.baidu.tieba.rf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,14 +163,14 @@ public final class BottomCommonTipLayout extends FrameLayout {
                     if (i == 2) {
                         BottomCommonTipLayout bottomCommonTipLayout = this.a.get();
                         Intrinsics.checkNotNull(bottomCommonTipLayout);
-                        b6a.b(bottomCommonTipLayout, this.b);
+                        g6a.b(bottomCommonTipLayout, this.b);
                         return;
                     }
                     return;
                 }
                 BottomCommonTipLayout bottomCommonTipLayout2 = this.a.get();
                 Intrinsics.checkNotNull(bottomCommonTipLayout2);
-                b6a.d(bottomCommonTipLayout2, this.b);
+                g6a.d(bottomCommonTipLayout2, this.b);
             }
         }
     }
@@ -217,7 +217,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class c implements pf5.a {
+    public static final class c implements rf5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BottomCommonTipLayout a;
@@ -242,7 +242,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             this.b = memberBroadcastData;
         }
 
-        @Override // com.baidu.tieba.pf5.a
+        @Override // com.baidu.tieba.rf5.a
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getVisibility() == 0 || this.a.h.hasMessages(1) || this.a.h.hasMessages(2)) {
@@ -404,13 +404,13 @@ public final class BottomCommonTipLayout extends FrameLayout {
             } else {
                 this.g.setText("去看看");
             }
-            ja5 ja5Var = new ja5();
+            la5 la5Var = new la5();
             if (!TextUtils.isEmpty(memberBroadcastData.getBtnBackgroundColor()) && !TextUtils.isEmpty(memberBroadcastData.getBtnTextColor())) {
-                ja5Var.q(jw9.f(memberBroadcastData.getBtnBackgroundColor()), jw9.f(memberBroadcastData.getBtnTextColor()));
+                la5Var.q(ow9.f(memberBroadcastData.getBtnBackgroundColor()), ow9.f(memberBroadcastData.getBtnTextColor()));
             } else {
-                ja5Var.w(R.color.CAM_X0108);
+                la5Var.w(R.color.CAM_X0108);
             }
-            this.g.setConfig(ja5Var);
+            this.g.setConfig(la5Var);
             this.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xz
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -424,7 +424,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             });
             if (!TextUtils.isEmpty(memberBroadcastData.getTextColor())) {
-                this.f.setTextColor(jw9.f(memberBroadcastData.getTextColor()));
+                this.f.setTextColor(ow9.f(memberBroadcastData.getTextColor()));
             }
             m(memberBroadcastData.getTbRichText());
         }
@@ -581,7 +581,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             ArrayList arrayList = new ArrayList();
             arrayList.add(memberBroadcastData.getBackgroundSrc());
             arrayList.add(memberBroadcastData.getLeftIconSrc());
-            new pf5().c(arrayList, new c(this, memberBroadcastData), 33);
+            new rf5().c(arrayList, new c(this, memberBroadcastData), 33);
         }
     }
 }

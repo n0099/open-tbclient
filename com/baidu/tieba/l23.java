@@ -37,14 +37,14 @@ public final class l23 {
 
         /* renamed from: com.baidu.tieba.l23$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0362a implements Runnable {
+        public class RunnableC0375a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ Bitmap b;
             public final /* synthetic */ Rect c;
 
-            public RunnableC0362a(a aVar, int i, Bitmap bitmap, Rect rect) {
+            public RunnableC0375a(a aVar, int i, Bitmap bitmap, Rect rect) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public final class l23 {
                 return;
             }
             Bitmap p = pp3.p();
-            so3.f().execute(new RunnableC0362a(this, h23.d(o), p, h23.b(p, o, lx2.T().B(this.a))), "SwanNAArrivalCheck");
+            so3.f().execute(new RunnableC0375a(this, h23.d(o), p, h23.b(p, o, lx2.T().B(this.a))), "SwanNAArrivalCheck");
         }
     }
 

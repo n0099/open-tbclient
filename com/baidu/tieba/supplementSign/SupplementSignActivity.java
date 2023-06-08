@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.TBWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
-import com.baidu.tieba.sy9;
+import com.baidu.tieba.xy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
     public int c;
     public int d;
     public CustomMessageListener e;
-    public sy9 f;
+    public xy9 f;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -83,7 +83,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
         this.c = 0;
         this.d = 0;
         this.e = new a(this, 2001194);
-        this.f = new sy9(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.f = new xy9(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -106,7 +106,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.sy9
+            @Override // com.baidu.tieba.xy9
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;

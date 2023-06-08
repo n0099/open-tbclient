@@ -124,13 +124,13 @@ public class bb2 extends eb2 implements View.OnClickListener {
 
             /* renamed from: com.baidu.tieba.bb2$n$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0255a implements Runnable {
+            public class RunnableC0253a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
                 public final /* synthetic */ a b;
 
-                public RunnableC0255a(a aVar, String str) {
+                public RunnableC0253a(a aVar, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -186,7 +186,7 @@ public class bb2 extends eb2 implements View.OnClickListener {
             public void c(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.a.a.c0.runOnUiThread(new RunnableC0255a(this, str));
+                    this.a.a.c0.runOnUiThread(new RunnableC0253a(this, str));
                 }
             }
         }
@@ -229,11 +229,11 @@ public class bb2 extends eb2 implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.bb2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class DialogInterface$OnClickListenerC0254a implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0252a implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public DialogInterface$OnClickListenerC0254a(a aVar) {
+            public DialogInterface$OnClickListenerC0252a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -297,7 +297,7 @@ public class bb2 extends eb2 implements View.OnClickListener {
                 aVar.U(R.string.obfuscated_res_0x7f0f14a1);
                 aVar.v(R.string.obfuscated_res_0x7f0f14a0);
                 aVar.n(new gr3());
-                aVar.O(R.string.obfuscated_res_0x7f0f0144, new DialogInterface$OnClickListenerC0254a(this));
+                aVar.O(R.string.obfuscated_res_0x7f0f0144, new DialogInterface$OnClickListenerC0252a(this));
                 aVar.X();
             }
         }

@@ -42,12 +42,12 @@ public final class bw extends aw {
 
             /* renamed from: com.baidu.tieba.bw$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class View$OnClickListenerC0259a implements View.OnClickListener {
+            public class View$OnClickListenerC0260a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0259a(a aVar) {
+                public View$OnClickListenerC0260a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class bw extends aw {
                     bw.b.setView(this.a.b);
                     bw.b.setGravity(81, 0, this.a.c);
                     jw.m(bw.b, R.style.obfuscated_res_0x7f10043c);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0259a(this));
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0260a(this));
                     bw.b.show();
                 }
             }
@@ -147,12 +147,12 @@ public final class bw extends aw {
 
         /* renamed from: com.baidu.tieba.bw$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0258a implements Runnable {
+        public class RunnableC0259a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0258a(a aVar) {
+            public RunnableC0259a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -207,7 +207,7 @@ public final class bw extends aw {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bw.c.post(new RunnableC0258a(this));
+                bw.c.post(new RunnableC0259a(this));
             }
         }
     }

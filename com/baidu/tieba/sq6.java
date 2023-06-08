@@ -10,15 +10,16 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class sq6 implements k87 {
+public final class sq6 implements m87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.k87
+    @Override // com.baidu.tieba.m87
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13693" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13565" : (String) invokeV.objValue;
     }
 
     public sq6() {
@@ -31,28 +32,31 @@ public final class sq6 implements k87 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "0";
     }
 
-    @Override // com.baidu.tieba.k87
-    public Map<String, String> a(w47 businessInfo) {
+    @Override // com.baidu.tieba.m87
+    public Map<String, String> a(y47 businessInfo) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_locate", "2");
-            if (tg.e(a.get("is_video_work"), 0) == 1) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("obj_source", str);
+            businessInfo.a();
+            hashMap.put("obj_source", this.a);
             return hashMap;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
+        }
     }
 }

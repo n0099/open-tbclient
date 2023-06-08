@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -32,7 +32,7 @@ public class ChannelInitHelper {
     }
 
     public static String getFromByShare() {
-        return l95.m().s("from_id", null);
+        return n95.m().s("from_id", null);
     }
 
     public static boolean hasInitFinish() {
@@ -120,6 +120,6 @@ public class ChannelInitHelper {
         if (str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        l95.m().B("from_id", str);
+        n95.m().B("from_id", str);
     }
 }

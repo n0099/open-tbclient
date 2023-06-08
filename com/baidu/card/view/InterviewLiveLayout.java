@@ -30,10 +30,10 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo6;
-import com.baidu.tieba.f15;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.j45;
+import com.baidu.tieba.go6;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.l45;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.oy;
 import com.baidu.tieba.pg;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class InterviewLiveLayout extends FrameLayout implements oy<f15> {
+public class InterviewLiveLayout extends FrameLayout implements oy<h15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public eo6<f15> c;
-    public f15 d;
+    public go6<h15> c;
+    public h15 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -307,10 +307,10 @@ public class InterviewLiveLayout extends FrameLayout implements oy<f15> {
         }
     }
 
-    public void setSubClickListener(eo6<f15> eo6Var) {
+    public void setSubClickListener(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eo6Var) == null) {
-            this.c = eo6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, go6Var) == null) {
+            this.c = go6Var;
         }
     }
 
@@ -333,14 +333,14 @@ public class InterviewLiveLayout extends FrameLayout implements oy<f15> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: k */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f15Var) == null) {
-            this.d = f15Var;
-            if (f15Var != null && this.e != null) {
-                ThreadData threadData = f15Var.getThreadData();
-                j45 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) {
+            this.d = h15Var;
+            if (h15Var != null && this.e != null) {
+                ThreadData threadData = h15Var.getThreadData();
+                l45 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;

@@ -24,15 +24,15 @@ public class tz extends by {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f15 a;
+        public final /* synthetic */ h15 a;
         public final /* synthetic */ tz b;
 
-        public a(tz tzVar, f15 f15Var) {
+        public a(tz tzVar, h15 h15Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tzVar, f15Var};
+                Object[] objArr = {tzVar, h15Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class tz extends by {
                 }
             }
             this.b = tzVar;
-            this.a = f15Var;
+            this.a = h15Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -80,13 +80,13 @@ public class tz extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: B */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f15Var) == null) {
-            if (A(f15Var)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h15Var) == null) {
+            if (A(h15Var)) {
                 this.j.setVisibility(0);
-                this.j.setThreadData(f15Var.getThreadData());
-                this.j.setOnItemClickListener(new a(this, f15Var));
+                this.j.setThreadData(h15Var.getThreadData());
+                this.j.setOnItemClickListener(new a(this, h15Var));
                 return;
             }
             this.j.setVisibility(8);
@@ -108,11 +108,11 @@ public class tz extends by {
         }
     }
 
-    public final boolean A(f15 f15Var) {
+    public final boolean A(h15 h15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f15Var)) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getPollData() != null && f15Var.getThreadData().getPollData().getOptions() != null && f15Var.getThreadData().getPollData().getOptions().size() > 0 && !f15Var.getThreadData().isVideoThreadType()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h15Var)) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getPollData() != null && h15Var.getThreadData().getPollData().getOptions() != null && h15Var.getThreadData().getPollData().getOptions().size() > 0 && !h15Var.getThreadData().isVideoThreadType()) {
                 return true;
             }
             return false;

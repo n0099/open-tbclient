@@ -1,44 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class so9 extends BroadcastReceiver {
+public class so9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ro9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public so9() {
+    public static synchronized ro9 a() {
+        InterceptResult invokeV;
+        ro9 ro9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (so9.class) {
+                if (a == null) {
+                    a = new ro9();
+                }
+                ro9Var = a;
             }
+            return ro9Var;
         }
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            if (action.equals("android.intent.action.SCREEN_ON")) {
-                ro9.j().e = 1;
-            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-                ro9.j().e = 1;
-                ro9.j().d.d();
-            } else if (action.equals("android.intent.action.USER_PRESENT")) {
-                ro9.j().e = 0;
-            }
-        }
+        return (ro9) invokeV.objValue;
     }
 }

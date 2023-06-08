@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
+import com.baidu.tieba.gameassist.permission.PermissionFragmentActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Esport;
-import tbclient.EsportRank;
-import tbclient.EsportStatic;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class qt7 implements vn {
+public class qt7 implements PermissionService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static Map<Integer, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<pt7> b;
-    public String c;
-    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +36,7 @@ public class qt7 implements vn {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        a = new HashMap();
     }
 
     public qt7() {
@@ -56,57 +53,28 @@ public class qt7 implements vn {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
+    public void requestFloatWindowPermission(@NonNull Activity activity, @Nullable PermissionService.IGrantCallback iGrantCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, iGrantCallback) == null) && iGrantCallback != null) {
+            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
+            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
+            intent.putExtra("request", "requestFloatPermission");
+            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
+            activity.startActivity(intent);
         }
-        return invokeV.intValue;
     }
 
-    public List<pt7> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
+    public void requestPermission(@NonNull Activity activity, @NonNull String[] strArr, @Nullable PermissionService.IGrantCallback iGrantCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(Esport esport) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) && esport != null) {
-            this.a = esport.floor_no.intValue();
-            EsportStatic esportStatic = esport._static;
-            if (esportStatic != null) {
-                this.c = esportStatic.img;
-                this.d = esportStatic.url;
-            }
-            this.b = new ArrayList();
-            if (!StringUtils.isNull(this.c)) {
-                pt7 pt7Var = new pt7();
-                pt7Var.i(this.c);
-                pt7Var.j(this.d);
-                this.b.add(pt7Var);
-            }
-            if (!ListUtils.isEmpty(esport.billboard)) {
-                for (EsportRank esportRank : esport.billboard) {
-                    pt7 pt7Var2 = new pt7();
-                    pt7Var2.h(esportRank);
-                    this.b.add(pt7Var2);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, strArr, iGrantCallback) == null) && iGrantCallback != null) {
+            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
+            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
+            intent.putExtra("request", "requestPermissions");
+            intent.putExtra("permissions", strArr);
+            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
+            activity.startActivity(intent);
         }
     }
 }

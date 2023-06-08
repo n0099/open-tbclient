@@ -34,8 +34,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tieba.R;
 import com.baidu.tieba.du4;
-import com.baidu.tieba.e46;
 import com.baidu.tieba.eu4;
+import com.baidu.tieba.g46;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
@@ -60,7 +60,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public List<VideoItemData> f;
     public VideoVerticalPageFragment g;
     public ImageView h;
-    public e46 i;
+    public g46 i;
     public boolean j;
     public CustomMessageListener k;
 
@@ -345,9 +345,9 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            e46 e46Var = this.i;
-            if (e46Var != null) {
-                e46Var.h();
+            g46 g46Var = this.i;
+            if (g46Var != null) {
+                g46Var.h();
             }
         }
     }
@@ -482,7 +482,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d09aa);
-            this.i = new e46(getPageContext(), "client_videomiddle");
+            this.i = new g46(getPageContext(), "client_videomiddle");
             y1();
             addNoAdjustSoftInputHeightListener();
             if (!K1() && !M1() && !J1() && !A1() && !z1() && !L1() && !F1() && !D1() && !N1() && !I1() && !H1() && !C1() && !E1() && getWindow() != null) {

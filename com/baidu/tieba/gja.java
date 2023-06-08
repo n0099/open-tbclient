@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,64 +16,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class gja extends zia {
+public class gja extends eja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gja a;
-
-        public a(gja gjaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gjaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gjaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.o0()) {
-                    this.a.e.U0(9, false);
-                    this.a.p0(1);
-                    return;
-                }
-                gja gjaVar = this.a;
-                gjaVar.e.c(gjaVar.a.getString(R.string.obfuscated_res_0x7f0f0609));
-                this.a.p0(0);
-            }
-        }
-    }
+    @Nullable
+    public nia V;
+    public mia W;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gja(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull lha lhaVar, boolean z) {
-        super(tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, z);
+    public gja(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull qha qhaVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, qhaVar, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, qhaVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (lha) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (qha) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -78,61 +44,102 @@ public class gja extends zia {
         }
     }
 
-    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
-    public void M(@NonNull List<mha<?>> list) {
+    public final void A0(@NonNull List<rha<?>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            uga f = pia.f(this.a);
-            list.add(f);
-            vga g = pia.g(this.a);
-            f.w(g);
-            list.add(g);
-            list.add(pia.o(this.a));
-            cha n = pia.n(this.a, this, this.s, this.J);
-            this.D = n;
-            list.add(n);
-            bha m = pia.m(this.a, this, this.d, this.C, this.s, this.J);
-            this.F = m;
-            f.w(m);
-            list.add(this.F);
+            for (rha<?> rhaVar : list) {
+                if (rhaVar instanceof hha) {
+                    this.D = (hha) rhaVar;
+                } else if (rhaVar instanceof wga) {
+                    this.E = (wga) rhaVar;
+                } else if (rhaVar instanceof gha) {
+                    this.F = (gha) rhaVar;
+                } else if (rhaVar instanceof jha) {
+                    this.G = (jha) rhaVar;
+                } else if (rhaVar instanceof kha) {
+                    this.H = (kha) rhaVar;
+                } else if (rhaVar instanceof vga) {
+                    this.I = (vga) rhaVar;
+                }
+                if (rhaVar != null) {
+                    rhaVar.q(list);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    @Override // com.baidu.tieba.eja, com.baidu.tieba.fja
+    public void M(@NonNull List<rha<?>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.V == null) {
+            return;
+        }
+        if (this.W == null) {
+            this.W = new mia(this.a, this, this.d, this.s, this.J, this.C, this.p);
+        }
+        list.addAll(this.W.a(this.V.d));
+        A0(list);
+    }
+
+    @Override // com.baidu.tieba.eja, com.baidu.tieba.fja
     public void O(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
-            editorTools.setBarMaxLauCount(3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(5);
             editorTools.setMoreButtonAtEnd(true);
-            editorTools.setMoreVipIcon(true);
             editorTools.setBarLauncherType(1);
             editorTools.E(true);
             editorTools.F(false);
             editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            ria.h(this.a, editorTools, this);
-            ria.d(editorTools, this);
-            ria.a(this.a, editorTools, this);
-            ria.b(this.a, editorTools, this);
-            ria.i(this.a, editorTools);
-            ria.m(this.a, editorTools, this.p.getCallFrom(), this);
+            z0(editorTools);
+            wia.m(this.a, editorTools, this.p.getCallFrom(), this);
             editorTools.f();
             super.O(editorTools);
         }
     }
 
-    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
-    public void P(@NonNull NavigationBar navigationBar) {
+    @Override // com.baidu.tieba.eja, com.baidu.tieba.fja
+    public void U(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
-            super.P(navigationBar);
-            if (this.q) {
-                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f121e));
-                r0(0, 0);
-                s0(R.drawable.obfuscated_res_0x7f080b83, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
-                this.j.setOnClickListener(new a(this));
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.U(bundle);
+            if (this.a.getPageActivity() == null) {
                 return;
             }
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f10cf));
+            nia a = nia.a(this.a.getPageActivity().getIntent().getStringExtra(WriteActivityConfig.DYNAMIC_PARAMS));
+            this.V = a;
+            if (a == null) {
+                this.e.U0(9, true);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.eja, com.baidu.tieba.fja
+    public void P(@NonNull NavigationBar navigationBar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, navigationBar) == null) {
+            super.P(navigationBar);
+            nia niaVar = this.V;
+            if (niaVar != null) {
+                if (TextUtils.isEmpty(niaVar.a)) {
+                    str = this.a.getString(R.string.obfuscated_res_0x7f0f10e5);
+                } else {
+                    str = this.V.a;
+                }
+                navigationBar.setCenterTextTitle(str);
+            }
+        }
+    }
+
+    public final void z0(@NonNull EditorTools editorTools) {
+        nia niaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, editorTools) != null) || (niaVar = this.V) == null) {
+            return;
+        }
+        for (String str : niaVar.e) {
+            oia.a(this.a, editorTools, this, str);
         }
     }
 }

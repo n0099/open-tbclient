@@ -1,29 +1,26 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.RecomTopicList;
 /* loaded from: classes8.dex */
-public final class z28 {
+public class z28 extends ey7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragment a;
-    public boolean b;
-    public String c;
+    public String b;
 
-    public z28(BaseFragment fragment) {
+    public z28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,66 +30,28 @@ public final class z28 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        this.a = fragment;
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11c1);
     }
 
-    @SuppressLint({"UseRequireInsteadOfGet"})
-    public final void a(Bundle bundle) {
+    public void e(HotTopic hotTopic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            if (this.a.getArguments() != null) {
-                Bundle arguments = this.a.getArguments();
-                Intrinsics.checkNotNull(arguments);
-                this.b = arguments.getBoolean("tab_is_second_tab");
-                Bundle arguments2 = this.a.getArguments();
-                Intrinsics.checkNotNull(arguments2);
-                this.c = arguments2.getString("tab_code");
-            } else if (bundle != null) {
-                this.b = bundle.getBoolean("tab_is_second_tab");
-                this.c = bundle.getString("tab_code");
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x55.n(w55.h);
-            x55.n(w55.a(this.c));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hotTopic) != null) || hotTopic == null) {
             return;
         }
-        if (this.a.isPrimary()) {
-            c();
-        } else {
-            b();
-        }
+        this.floorPosition = hotTopic.floor_position.intValue();
+        parserProtobuf(hotTopic.topic_list);
     }
 
-    @SuppressLint({"UseRequireInsteadOfGet"})
-    public final void c() {
+    public void parserProtobuf(List<RecomTopicList> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a.getContext() == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        Context context = this.a.getContext();
-        Intrinsics.checkNotNull(context);
-        x55.o(context, w55.h);
-        Context context2 = this.a.getContext();
-        Intrinsics.checkNotNull(context2);
-        x55.o(context2, w55.a(this.c));
+        int min = Math.min(list.size(), 6);
+        ArrayList arrayList = new ArrayList(list.size());
+        for (int i = 0; i < min; i++) {
+            arrayList.add(new dy7(list.get(i), i));
+        }
+        d(arrayList);
     }
 }

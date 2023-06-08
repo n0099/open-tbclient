@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
+import com.google.ar.core.ArCoreApk;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public final class b7b implements View.OnClickListener {
+public class b7b implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
+    public final /* synthetic */ AtomicReference a;
 
-    public b7b(InstallActivity installActivity) {
+    public b7b(AtomicReference atomicReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {atomicReference};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,16 +27,14 @@ public final class b7b implements View.OnClickListener {
                 return;
             }
         }
-        this.a = installActivity;
+        this.a = atomicReference;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
+    @Override // com.google.ar.core.ArCoreApk.a
+    public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
+            this.a.set(availability);
         }
-        this.a.h();
-        this.a.n();
     }
 }

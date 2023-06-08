@@ -112,11 +112,11 @@ public final class si2 implements nx2 {
 
         /* renamed from: com.baidu.tieba.si2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0453a implements Runnable {
+        public class RunnableC0457a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0453a(a aVar) {
+            public RunnableC0457a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public final class si2 implements nx2 {
                 y82.k("SwanAppCoreRuntime", "sReleaseCallback:isSwanAppRunning" + z);
                 if (!z) {
                     xb3.K().y().Y(15);
-                    sp3.e0(new RunnableC0453a(this));
+                    sp3.e0(new RunnableC0457a(this));
                 }
             }
         }

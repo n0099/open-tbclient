@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fz9;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.k78;
-import com.baidu.tieba.n68;
+import com.baidu.tieba.kz9;
+import com.baidu.tieba.m78;
+import com.baidu.tieba.p68;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 /* loaded from: classes6.dex */
-public class MsgPhotoLiveCardVew extends n68 {
+public class MsgPhotoLiveCardVew extends p68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long H;
@@ -50,7 +50,7 @@ public class MsgPhotoLiveCardVew extends n68 {
     public TextView S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1122T;
+    public int f1121T;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -80,7 +80,7 @@ public class MsgPhotoLiveCardVew extends n68 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.H > 0) {
-                fz9 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+                kz9 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
                 if (this.a.J == 1) {
                     TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
                     if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.a.H)) > 0) {
@@ -155,8 +155,8 @@ public class MsgPhotoLiveCardVew extends n68 {
         }
         this.H = 0L;
         this.J = 0;
-        this.f1122T = 0;
-        this.f1122T = vi.g(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+        this.f1121T = 0;
+        this.f1121T = vi.g(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0701e8);
         v0();
     }
 
@@ -232,7 +232,7 @@ public class MsgPhotoLiveCardVew extends n68 {
         if ((interceptable != null && interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        k78.a a2 = k78.a(chatMessage.getContent());
+        m78.a a2 = m78.a(chatMessage.getContent());
         if (a2 == null) {
             this.H = 0L;
             return;
@@ -287,7 +287,7 @@ public class MsgPhotoLiveCardVew extends n68 {
             }
             this.P.setText(decode);
             layoutParams.height = vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07026a);
-            this.R.setPadding(this.f1122T, 0, 0, 0);
+            this.R.setPadding(this.f1121T, 0, 0, 0);
             this.L.setVisibility(0);
             this.L.setOnClickListener(new b(this));
             this.L.setTag(a2.b);

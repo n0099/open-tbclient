@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface lq5 extends kq5 {
-    boolean C();
+public interface lq5 extends mq5 {
+    boolean initByByteArray(byte[] bArr);
 
-    String T();
-
-    boolean isNeedUid();
+    byte[] toCacheByteArray();
 }

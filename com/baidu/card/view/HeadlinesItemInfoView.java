@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.f45;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,27 +110,27 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(d45 d45Var) {
+    public void b(f45 f45Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d45Var) != null) || d45Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f45Var) != null) || f45Var == null) {
             return;
         }
-        this.b.N(d45Var.f(), 10, false);
-        this.c.setText(d45Var.l());
-        this.e.setText(d45Var.b());
-        this.d.setData(tg.g(d45Var.d(), 0L), d45Var.c(), d45Var.k());
+        this.b.N(f45Var.f(), 10, false);
+        this.c.setText(f45Var.l());
+        this.e.setText(f45Var.b());
+        this.d.setData(tg.g(f45Var.d(), 0L), f45Var.c(), f45Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            m75 d = m75.d(this);
+            o75 d = o75.d(this);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0201);
-            m75.d(this.c).w(R.color.CAM_X0107);
+            o75.d(this.c).w(R.color.CAM_X0107);
             this.d.i(i);
-            m75 d2 = m75.d(this.e);
+            o75 d2 = o75.d(this.e);
             d2.w(R.color.CAM_X0304);
             d2.m(R.dimen.L_X01);
             d2.l(R.color.CAM_X0304);

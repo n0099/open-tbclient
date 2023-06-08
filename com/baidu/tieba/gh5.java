@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.UserGrowth;
 import tbclient.UserTaskInfo;
 /* loaded from: classes5.dex */
 public class gh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public String f;
-    public String g;
+    public int a;
+    public long b;
+    public long c;
+    public double d;
+    public List<ih5> e;
 
     public gh5() {
         Interceptable interceptable = $ic;
@@ -32,106 +34,99 @@ public class gh5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = new ArrayList();
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public String c() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public int d() {
+    public List<ih5> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            return this.e;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public String e() {
+    public double e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return invokeV.doubleValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        jSONObject.optLong("id");
-        this.a = jSONObject.optString("name");
-        this.b = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
-        this.c = jSONObject.optString("task_icon_url");
-        this.d = jSONObject.optInt("status");
-        jSONObject.optInt("target_num");
-        jSONObject.optInt("curr_num");
-        jSONObject.optInt("task_type");
-        this.e = jSONObject.optInt("weight");
-        this.f = jSONObject.optString("act_type");
-        this.g = jSONObject.optString("target_scheme");
-    }
-
-    public void i(UserTaskInfo userTaskInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userTaskInfo) != null) || userTaskInfo == null) {
+        this.a = jSONObject.optInt("level_id");
+        this.b = jSONObject.optLong("score");
+        this.c = jSONObject.optLong("target_score");
+        this.d = jSONObject.optDouble("tmoney");
+        this.e.clear();
+        JSONArray optJSONArray = jSONObject.optJSONArray("task_info");
+        if (optJSONArray == null) {
             return;
         }
-        userTaskInfo.id.longValue();
-        this.a = userTaskInfo.name;
-        this.b = userTaskInfo.brief;
-        this.c = userTaskInfo.task_icon_url;
-        this.d = userTaskInfo.status.intValue();
-        userTaskInfo.target_num.intValue();
-        userTaskInfo.curr_num.intValue();
-        userTaskInfo.task_type.intValue();
-        this.e = userTaskInfo.weight.intValue();
-        this.f = userTaskInfo.act_type;
-        this.g = userTaskInfo.target_scheme;
+        int length = optJSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject jSONObject2 = null;
+            try {
+                jSONObject2 = optJSONArray.getJSONObject(i);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            ih5 ih5Var = new ih5();
+            ih5Var.h(jSONObject2);
+            this.e.add(ih5Var);
+        }
+    }
+
+    public void g(UserGrowth userGrowth) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, userGrowth) != null) || userGrowth == null) {
+            return;
+        }
+        this.a = userGrowth.level_id.intValue();
+        this.b = userGrowth.score.longValue();
+        this.c = userGrowth.target_score.longValue();
+        this.d = userGrowth.tmoney.doubleValue();
+        this.e.clear();
+        for (UserTaskInfo userTaskInfo : userGrowth.task_info) {
+            ih5 ih5Var = new ih5();
+            ih5Var.i(userTaskInfo);
+            this.e.add(ih5Var);
+        }
     }
 }

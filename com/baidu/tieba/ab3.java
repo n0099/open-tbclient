@@ -38,13 +38,13 @@ public class ab3 extends cb3 {
 
         /* renamed from: com.baidu.tieba.ab3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class DialogInterface$OnKeyListenerC0234a implements DialogInterface.OnKeyListener {
+        public class DialogInterface$OnKeyListenerC0235a implements DialogInterface.OnKeyListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public DialogInterface$OnKeyListenerC0234a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public DialogInterface$OnKeyListenerC0235a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,7 +308,7 @@ public class ab3 extends cb3 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC0234a(this, onClickListener));
+                super.M(new DialogInterface$OnKeyListenerC0235a(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;

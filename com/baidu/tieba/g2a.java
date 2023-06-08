@@ -12,16 +12,16 @@ public class g2a extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final g1a b;
+    public final a1a b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g2a(MainTabActivity mainTabActivity, v0a v0aVar) {
-        super(2921543);
+    public g2a(MainTabActivity mainTabActivity, a1a a1aVar) {
+        super(2921348);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, v0aVar};
+            Object[] objArr = {mainTabActivity, a1aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,16 +33,20 @@ public class g2a extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.b = a1aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        g1a g1aVar;
+        a1a a1aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (g1aVar = this.b) != null && g1aVar.i() != null) {
-            this.b.i().a();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (a1aVar = this.b) != null && a1aVar.y() != null) {
+            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                this.b.y().getTabWrapper().animate().translationY(this.b.y().getTabWrapper().getHeight()).setDuration(200L).start();
+            } else {
+                this.b.y().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
+            }
         }
     }
 }

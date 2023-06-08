@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public interface wi6 {
-    public static final ServiceReference a = new ServiceReference("Frames", "ISafetyConfig");
-
-    boolean a();
-
-    String b();
+public interface wi6<R> extends Callable<R> {
+    @Override // java.util.concurrent.Callable
+    R call();
 }

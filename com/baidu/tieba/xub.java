@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
+import android.content.res.Resources;
+import android.util.TypedValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes8.dex */
 public class xub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Dialog dialog, PayDialogType payDialogType) {
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
-            if (dialog != null && dialog.isShowing()) {
-                dialog.dismiss();
-            }
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics());
         }
-    }
-
-    public static void b(Dialog dialog, PayDialogType payDialogType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
-            if (dialog != null && dialog.isShowing()) {
-                dialog.cancel();
-            }
-        }
+        return invokeF.intValue;
     }
 }

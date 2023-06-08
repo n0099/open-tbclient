@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Pair;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,70 +10,68 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.turbonet.net.ExperimentalUrlRequest;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UrlRequest;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class qma extends InputStream {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String e;
+public class qma extends ExperimentalUrlRequest.Builder {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String B = "qma";
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public rma b;
-    public long c;
-    public boolean d;
+    public String A;
+    public final sla a;
+    public final String b;
+    public final UrlRequest.Callback c;
+    public final Executor d;
+    public String e;
+    public final ArrayList<Pair<String, String>> f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public Collection<Object> j;
+    public UploadDataProvider k;
+    public Executor l;
+    public boolean m;
+    public boolean n;
+    public int o;
+    public boolean p;
+    public int q;
+    public RequestFinishedInfo.Listener r;
+    public int s;
+    public boolean t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public Object y;
+    public String z;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098020, "Lcom/baidu/tieba/qma;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948098020, "Lcom/baidu/tieba/qma;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948098020, "Lcom/baidu/tieba/qma;")) == null) {
+            return;
         }
-        e = qma.class.getName();
-    }
-
-    @Override // java.io.InputStream
-    public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return this.a.available();
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                try {
-                    this.a.reset();
-                } catch (IOException e2) {
-                    this.b.b(e2, this.c);
-                    throw e2;
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948098020, "Lcom/baidu/tieba/qma;");
         }
     }
 
-    public qma(InputStream inputStream, rma rmaVar) {
+    public qma(String str, UrlRequest.Callback callback, Executor executor, sla slaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, rmaVar};
+            Object[] objArr = {str, callback, executor, slaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,132 +81,300 @@ public class qma extends InputStream {
                 return;
             }
         }
-        this.a = inputStream;
-        this.b = rmaVar;
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d) {
-            this.d = true;
-            try {
-                try {
-                    if (this.a.read() == -1) {
-                        this.b.onComplete(this.c);
-                    } else {
-                        this.b.a(this.c);
+        this.f = new ArrayList<>();
+        this.i = 3;
+        this.s = 0;
+        if (str != null) {
+            if (callback != null) {
+                if (executor != null) {
+                    if (slaVar != null) {
+                        this.b = str;
+                        this.c = callback;
+                        this.d = executor;
+                        this.a = slaVar;
+                        this.t = false;
+                        this.u = 0;
+                        this.v = 0;
+                        this.w = 0;
+                        this.x = 0;
+                        this.y = null;
+                        this.z = null;
+                        this.A = null;
+                        return;
                     }
-                    this.a.close();
-                } catch (Exception unused) {
-                    this.a.close();
-                } catch (Throwable th) {
-                    try {
-                        this.a.close();
-                    } catch (Exception e2) {
-                        this.b.b(e2, this.c);
-                    }
-                    throw th;
+                    throw new NullPointerException("TurbonetEngine is required.");
                 }
-            } catch (Exception e3) {
-                this.b.b(e3, this.c);
+                throw new NullPointerException("Executor is required.");
             }
+            throw new NullPointerException("Callback is required.");
         }
+        throw new NullPointerException("URL is required.");
     }
 
-    @Override // java.io.InputStream
-    public int read() throws IOException {
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder a(String str, String str2) {
+        n(str, str2);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder m(UploadDataProvider uploadDataProvider, Executor executor) {
+        y(uploadDataProvider, executor);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder c() {
+        p();
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder d() {
+        q();
+        return this;
+    }
+
+    public qma p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read();
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            this.g = true;
+            return this;
         }
-        return invokeV.intValue;
+        return (qma) invokeV.objValue;
     }
 
-    @Override // java.io.InputStream
-    public int read(byte[] bArr) throws IOException {
+    public qma q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            this.t = true;
+            return this;
+        }
+        return (qma) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder e(String str) {
+        r(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public ExperimentalUrlRequest.Builder f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (this.d) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (str != null) {
+                this.e = str;
+                return this;
             }
-            try {
-                int read = this.a.read(bArr, 0, bArr.length);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
+            throw new NullPointerException("Method is required.");
         }
-        return invokeL.intValue;
+        return (ExperimentalUrlRequest.Builder) invokeL.objValue;
     }
 
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, i, i2);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeLII.intValue;
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder g(String str) {
+        s(str);
+        return this;
     }
 
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder h(int i) {
+        t(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder i(int i) {
+        u(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder j(int i) {
+        v(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder k(int i) {
+        w(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder l(int i) {
+        x(i);
+        return this;
+    }
+
+    public qma r(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            long skip = this.a.skip(j);
-            this.c += skip;
-            return skip;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            this.z = str;
+            return this;
         }
-        return invokeJ.longValue;
+        return (qma) invokeL.objValue;
+    }
+
+    public qma s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            this.A = str;
+            return this;
+        }
+        return (qma) invokeL.objValue;
+    }
+
+    public qma t(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.w = i;
+            return this;
+        }
+        return (qma) invokeI.objValue;
+    }
+
+    public qma u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            this.v = i;
+            return this;
+        }
+        return (qma) invokeI.objValue;
+    }
+
+    public qma v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            this.u = i;
+            return this;
+        }
+        return (qma) invokeI.objValue;
+    }
+
+    public qma w(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            this.n = true;
+            this.o = i;
+            return this;
+        }
+        return (qma) invokeI.objValue;
+    }
+
+    public qma x(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
+            this.p = true;
+            this.q = i;
+            return this;
+        }
+        return (qma) invokeI.objValue;
+    }
+
+    public qma n(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            if (str != null) {
+                if (str2 != null) {
+                    if ("Accept-Encoding".equalsIgnoreCase(str)) {
+                        Log.w(B, "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
+                        return this;
+                    }
+                    this.f.add(Pair.create(str, str2));
+                    return this;
+                }
+                throw new NullPointerException("Invalid header value.");
+            }
+            throw new NullPointerException("Invalid header name.");
+        }
+        return (qma) invokeLL.objValue;
+    }
+
+    public qma y(UploadDataProvider uploadDataProvider, Executor executor) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, uploadDataProvider, executor)) == null) {
+            if (uploadDataProvider != null) {
+                if (executor != null) {
+                    if (this.e == null) {
+                        this.e = "POST";
+                    }
+                    this.k = uploadDataProvider;
+                    this.l = executor;
+                    return this;
+                }
+                throw new NullPointerException("Invalid UploadDataProvider Executor.");
+            }
+            throw new NullPointerException("Invalid UploadDataProvider.");
+        }
+        return (qma) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    /* renamed from: o */
+    public pma b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            pma g = this.a.g(this.b, this.c, this.d, this.i, this.j, this.g, this.h, this.m, this.n, this.o, this.p, this.q, this.r, this.s);
+            String str = this.e;
+            if (str != null) {
+                g.p(str);
+            }
+            Iterator<Pair<String, String>> it = this.f.iterator();
+            while (it.hasNext()) {
+                Pair<String, String> next = it.next();
+                g.n((String) next.first, (String) next.second);
+            }
+            UploadDataProvider uploadDataProvider = this.k;
+            if (uploadDataProvider != null) {
+                g.q(uploadDataProvider, this.l);
+            }
+            if (this.t) {
+                g.b();
+            }
+            int i = this.u;
+            if (i > 0) {
+                g.l(i);
+            }
+            int i2 = this.v;
+            if (i2 > 0) {
+                g.j(i2);
+            }
+            int i3 = this.w;
+            if (i3 > 0) {
+                g.i(i3);
+            }
+            int i4 = this.x;
+            if (i4 > 0) {
+                g.h(i4);
+            }
+            Object obj = this.y;
+            if (obj != null) {
+                g.k(obj);
+            }
+            if (!TextUtils.isEmpty(this.z)) {
+                g.f(this.z);
+            }
+            if (!TextUtils.isEmpty(this.A)) {
+                g.g(this.A);
+            }
+            return g;
+        }
+        return (pma) invokeV.objValue;
     }
 }

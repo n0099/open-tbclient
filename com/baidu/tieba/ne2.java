@@ -74,7 +74,7 @@ public class ne2 implements v83 {
 
         /* renamed from: com.baidu.tieba.ne2$c$c  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0383c extends yd2 {
+        public class C0394c extends yd2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c f;
@@ -84,16 +84,16 @@ public class ne2 implements v83 {
             public class a extends xd2 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0383c e;
+                public final /* synthetic */ C0394c e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public a(C0383c c0383c, String str, String str2) {
+                public a(C0394c c0394c, String str, String str2) {
                     super(str, str2);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0383c, str, str2};
+                        Object[] objArr = {c0394c, str, str2};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -105,7 +105,7 @@ public class ne2 implements v83 {
                             return;
                         }
                     }
-                    this.e = c0383c;
+                    this.e = c0394c;
                 }
 
                 @Override // com.baidu.tieba.xd2
@@ -123,7 +123,7 @@ public class ne2 implements v83 {
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0383c(c cVar, Context context) {
+            public C0394c(c cVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -282,7 +282,7 @@ public class ne2 implements v83 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new C0383c(this, AppRuntime.getAppContext());
+                return new C0394c(this, AppRuntime.getAppContext());
             }
             return (ud2) invokeV.objValue;
         }

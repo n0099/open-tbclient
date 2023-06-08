@@ -9,10 +9,10 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nb5;
-import com.baidu.tieba.ob5;
+import com.baidu.tieba.pb5;
 import com.baidu.tieba.qb5;
-import com.baidu.tieba.rb5;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.tb5;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public nb5 c;
-    public rb5 d;
+    public pb5 c;
+    public tb5 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,8 +89,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new nb5(context, this.a, this.b, null);
-            this.d = new rb5(context, qb5.a);
+            this.c = new pb5(context, this.a, this.b, null);
+            this.d = new tb5(context, sb5.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -122,11 +122,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(ob5.a<qb5, rb5.a> aVar) {
-        rb5 rb5Var;
+    public void setOnItemClickListener(qb5.a<sb5, tb5.a> aVar) {
+        tb5 tb5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (rb5Var = this.d) != null) {
-            rb5Var.e(aVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (tb5Var = this.d) != null) {
+            tb5Var.e(aVar);
         }
     }
 }

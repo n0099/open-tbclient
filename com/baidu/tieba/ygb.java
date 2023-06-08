@@ -1,10 +1,16 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.media.AudioManager;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Looper;
+import android.telephony.TelephonyManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,268 +18,293 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.core.TransVodProxy;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class ygb {
-    public static /* synthetic */ Interceptable $ic;
-    public static long o;
-    public static int p;
+public class ygb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String f = "ygb";
+    public static ConnectivityManager g;
+    public static NetworkInfo h;
+    public static final Handler i;
     public transient /* synthetic */ FieldHolder $fh;
-    public TransVodProxy a;
-    public AudioManager b;
-    public boolean c;
-    public ArrayList<MediaSample> d;
-    public boolean e;
-    public boolean f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public long l;
-    public AtomicLong m;
-    public AtomicLong n;
+    public Context a;
+    public ExecutorService b;
+    public bhb c;
+    public AtomicBoolean d;
+    public BroadcastReceiver e;
+
+    /* loaded from: classes8.dex */
+    public class a extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ygb this$0;
+
+        public a(ygb ygbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ygbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = ygbVar;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                TLog.h("[tinyvideo]", "[netrecv] NetworkStateService onReceive pid " + Thread.currentThread().getId());
+                if (intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
+                    TLog.h("[tinyvideo]", "[netrecv]  current network connectivity action begin");
+                    this.this$0.j();
+                    TLog.h("[tinyvideo]", "[netrecv] current network connectivity action end");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ygb a;
+
+        public b(ygb ygbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ygbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ygbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (this.a.d) {
+                if (!this.a.d.get()) {
+                    return;
+                }
+                ygb.g(this.a.a, this.a.c);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ygb a;
+
+        public c(ygb ygbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ygbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ygbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b.shutdownNow();
+                this.a.b = null;
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948330613, "Lcom/baidu/tieba/ygb;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948330613, "Lcom/baidu/tieba/ygb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948330613, "Lcom/baidu/tieba/ygb;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948330613, "Lcom/baidu/tieba/ygb;");
-        }
+        i = new Handler(Looper.getMainLooper());
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv]  updateNetInfo");
+            ExecutorService executorService = this.b;
+            if (executorService != null) {
+                executorService.submit(new b(this));
+            }
         }
-        return invokeV.intValue;
     }
 
-    public ygb(TransVodProxy transVodProxy, Context context) {
+    public ygb(Context context, bhb bhbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {transVodProxy, context};
+            Object[] objArr = {context, bhbVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
         this.b = null;
-        this.c = false;
-        this.d = new ArrayList<>();
-        this.e = false;
-        this.f = false;
-        this.g = 0L;
-        this.h = 0L;
-        this.i = 0L;
-        this.j = 0L;
-        this.k = 0;
-        this.l = 50L;
-        this.m = new AtomicLong(0L);
-        this.n = new AtomicLong(0L);
-        this.a = transVodProxy;
-        long b = b();
-        this.l = b;
-        if (b == 0) {
-            this.l = ggb.a();
-            TLog.l(this, "jitter set avdelta " + this.l);
-        }
-        TLog.l(this, "jitter avdelta " + this.l);
-        this.b = (AudioManager) context.getSystemService("audio");
+        this.c = null;
+        this.d = new AtomicBoolean(false);
+        this.e = new a(this);
+        this.a = context;
+        this.c = bhbVar;
     }
 
-    public static void c(MediaSample mediaSample, int i) {
+    public static void g(Context context, bhb bhbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, mediaSample, i) == null) {
-            d(mediaSample, i, zeb.a() - o);
-        }
-    }
-
-    public static void d(MediaSample mediaSample, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{mediaSample, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            switch (i) {
-                case 0:
-                    mediaSample.r = (int) j;
-                    return;
-                case 1:
-                    mediaSample.j = j;
-                    return;
-                case 2:
-                    mediaSample.k = j;
-                    return;
-                case 3:
-                    mediaSample.l = j;
-                    return;
-                case 4:
-                    mediaSample.v = j;
-                    return;
-                case 5:
-                    mediaSample.x = j;
-                    return;
-                case 6:
-                    mediaSample.w = j;
-                    return;
-                case 7:
-                default:
-                    return;
-                case 8:
-                    mediaSample.y = j;
-                    return;
-                case 9:
-                    mediaSample.A = j;
-                    return;
-                case 10:
-                    mediaSample.z = j;
-                    return;
-                case 11:
-                    mediaSample.B = j;
-                    return;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, bhbVar) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo");
+            if (context == null) {
+                return;
             }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                for (int i = 0; i < this.d.size(); i++) {
-                    fgb.f().e(this.d.get(i));
-                }
-                this.d.clear();
-            }
-        }
-    }
-
-    public void e(MediaSample mediaSample) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample) == null) {
-            synchronized (this) {
-                this.k++;
-                if (mediaSample.c) {
-                    this.n.set(mediaSample.z - mediaSample.l);
-                    if (mediaSample.l <= this.g) {
-                        TLog.h("[avsync]", "^^^^^^^^^^^^^^^^^^^^[avsync] audio pts error lastAduioPts=" + this.g + " sample.Pts=" + mediaSample.l);
-                    } else if (this.k % 50 == 0) {
-                        TLog.h("[avsync]", "audio pts: " + mediaSample.l + " audio delta: " + this.n.get());
-                    }
-                    this.f = true;
-                    this.h = mediaSample.z;
-                    this.g = mediaSample.l;
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo begin");
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            g = connectivityManager;
+            h = connectivityManager.getActiveNetworkInfo();
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo end");
+            NetworkInfo networkInfo = h;
+            if (networkInfo != null && networkInfo.isAvailable()) {
+                int type = h.getType();
+                if (type == 0) {
+                    byte h2 = h(context);
+                    bhbVar.e(h2);
+                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName() + ", mobileNetType:" + ((int) h2));
+                    return;
+                } else if (type == 1) {
+                    bhbVar.e(0);
+                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName());
+                    return;
                 } else {
-                    this.m.set(mediaSample.z - mediaSample.l);
-                    this.e = true;
-                    if (mediaSample.l + 150 <= this.i) {
-                        TLog.h("[avsync]", "^^^^^^^^^^^^^^^^^^^^[avsync] video pts error lastVideo=" + this.i + " sample.Pts=" + mediaSample.l);
-                    } else if (this.k % 50 == 0) {
-                        TLog.h("[avsync]", "video pts: " + mediaSample.l + " video delta: " + this.m.get());
-                    }
-                    this.i = mediaSample.l;
-                    this.j = mediaSample.z;
-                }
-                int i2 = 30;
-                if (ugb.w() < 12) {
-                    i2 = 60;
-                    i = -90;
-                } else {
-                    i = 0;
-                }
-                if (this.k > i2) {
-                    if (this.e && this.f) {
-                        long j = (this.n.get() + this.l) - this.m.get();
-                        if (Math.abs(this.j - this.h) > 500 || Math.abs(this.g - this.i) > 1000) {
-                            TLog.h("[avsync]", "[avsync] detla: " + j + " arender: " + this.h + "vrender: " + this.j + " apts: " + this.g + " vpts: " + this.i + " renderDiff:" + (this.h - this.j) + " ptsDiff:" + (this.g - this.i));
-                        }
-                        TLog.h("[avsync]", "updateAVDelta, audio delta: " + this.n.get() + " mDelta:" + this.l + " video delta: " + this.m.get() + " extraDelta " + ((this.n.get() + this.l) - this.m.get()) + " xDelta " + i);
-                        this.a.w(this.n.get() + this.l + ((long) i), this.m.get());
-                    }
-                    this.k = 0;
-                    this.e = false;
-                    this.f = false;
-                }
-                g();
-                MediaSample a = fgb.f().a(null);
-                a.b(mediaSample);
-                a.F = this.c;
-                this.d.add(a);
-                if (mediaSample.e || this.d.size() > 200 || mediaSample.N > 0 || mediaSample.O) {
-                    this.a.m((MediaSample[]) this.d.toArray(new MediaSample[this.d.size()]));
-                    a();
+                    String str = f;
+                    TLog.h(str, "[netrecv] current network: " + h.getTypeName());
+                    return;
                 }
             }
+            TLog.h("[tinyvideo]", "[netrecv] current network No usable network!!");
+            bhbVar.e(2);
         }
+    }
+
+    public static byte h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            try {
+                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                    case 1:
+                    case 2:
+                        return (byte) 3;
+                    case 3:
+                        return (byte) 4;
+                    case 4:
+                        return (byte) 3;
+                    case 5:
+                    case 6:
+                        return (byte) 4;
+                    case 7:
+                        return (byte) 3;
+                    case 8:
+                    case 9:
+                    case 10:
+                        return (byte) 4;
+                    case 11:
+                        return (byte) 3;
+                    case 12:
+                        return (byte) 4;
+                    case 13:
+                        return (byte) 5;
+                    case 14:
+                    case 15:
+                        return (byte) 4;
+                    default:
+                        return (byte) 1;
+                }
+            } catch (SecurityException e) {
+                e.printStackTrace();
+                return (byte) 1;
+            }
+        }
+        return invokeL.byteValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                a();
-                this.e = false;
-                this.f = false;
-                this.g = 0L;
-                this.i = 0L;
-                this.h = 0L;
-                this.j = 0L;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] NetStatManager deInit ");
+            if (this.a != null) {
+                synchronized (this.d) {
+                    if (this.d.get()) {
+                        this.d.set(false);
+                        this.a.unregisterReceiver(this.e);
+                    }
+                }
+                i.post(new c(this));
             }
         }
     }
 
-    public final void g() {
-        int i;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i2 = p + 1;
-            p = i2;
-            if (i2 > 1000) {
-                try {
-                    i = this.b.getStreamVolume(3);
-                } catch (Exception unused) {
-                    TLog.l(this, "getStreamVolume Exception");
-                    i = 0;
-                }
-                String str = YYOption.IsLive.VALUE_TRUE;
-                if (i == 0) {
-                    this.c = true;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("audio playback is mute ");
-                    if (!this.c) {
-                        str = "false";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup");
+            if (this.a != null) {
+                synchronized (this.d) {
+                    if (!this.d.get()) {
+                        IntentFilter intentFilter = new IntentFilter();
+                        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+                        this.a.registerReceiver(this.e, intentFilter);
+                        this.b = Executors.newSingleThreadExecutor();
+                        this.d.set(true);
+                        TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup done");
                     }
-                    sb.append(str);
-                    TLog.l(this, sb.toString());
-                } else {
-                    this.c = false;
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("audio playback is mute ");
-                    if (!this.c) {
-                        str = "false";
-                    }
-                    sb2.append(str);
-                    TLog.l(this, sb2.toString());
                 }
-                p = 0;
             }
         }
     }

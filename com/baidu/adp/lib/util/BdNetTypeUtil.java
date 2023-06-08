@@ -19,8 +19,8 @@ import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.tieba.sf;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vk;
-import com.baidu.tieba.wq8;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,7 +133,7 @@ public class BdNetTypeUtil {
                     networkState.mCurChangedTime = currentTimeMillis;
                     BdNetTypeUtil.setNetWorkChangedTime(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
-                    wq8 a = vk.a();
+                    zq8 a = vk.a();
                     a.c(Config.DEVICE_PART, "net status: " + networkState.toString());
                 } catch (Exception e) {
                     e.printStackTrace();

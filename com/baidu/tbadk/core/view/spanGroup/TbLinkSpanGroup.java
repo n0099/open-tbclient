@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d25;
-import com.baidu.tieba.db5;
+import com.baidu.tieba.f25;
+import com.baidu.tieba.fb5;
 import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TbLinkSpanGroup extends db5<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public d25 i;
+    public f25 i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -156,13 +156,13 @@ public class TbLinkSpanGroup extends db5<TbLinkSpanGroup> {
         }
     }
 
-    public d25 v() {
+    public f25 v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.i;
         }
-        return (d25) invokeV.objValue;
+        return (f25) invokeV.objValue;
     }
 
     public LINK_TYPE w() {
@@ -179,8 +179,8 @@ public class TbLinkSpanGroup extends db5<TbLinkSpanGroup> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            d25 d25Var = this.i;
-            if (d25Var != null && d25Var.o == 5) {
+            f25 f25Var = this.i;
+            if (f25Var != null && f25Var.o == 5) {
                 return R.drawable.icon_group_chat_icon;
             }
             return R.drawable.icon_pure_post_link16;
@@ -226,7 +226,7 @@ public class TbLinkSpanGroup extends db5<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.db5
+    @Override // com.baidu.tieba.fb5
     /* renamed from: u */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -255,10 +255,10 @@ public class TbLinkSpanGroup extends db5<TbLinkSpanGroup> {
         return (TbLinkSpanGroup) invokeLL.objValue;
     }
 
-    public void B(d25 d25Var) {
+    public void B(f25 f25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-            this.i = d25Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, f25Var) == null) {
+            this.i = f25Var;
         }
     }
 
@@ -317,7 +317,7 @@ public class TbLinkSpanGroup extends db5<TbLinkSpanGroup> {
         n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.baidu.tieba.db5
+    @Override // com.baidu.tieba.fb5
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048582, this, editable, i, i2, i3) == null) {
@@ -332,13 +332,13 @@ public class TbLinkSpanGroup extends db5<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.db5
+    @Override // com.baidu.tieba.fb5
     public void r(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable) == null) {
-            d25 d25Var = this.i;
-            if (d25Var != null && d25Var.b == 2) {
-                if (d25Var.h != null) {
+            f25 f25Var = this.i;
+            if (f25Var != null && f25Var.b == 2) {
+                if (f25Var.h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
                     sb.append(this.i.h);
@@ -355,7 +355,7 @@ public class TbLinkSpanGroup extends db5<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.db5
+    @Override // com.baidu.tieba.fb5
     public void s(Editable editable, int i) {
         String str;
         String str2;

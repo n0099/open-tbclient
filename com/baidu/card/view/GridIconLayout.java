@@ -17,16 +17,16 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.extend.XGridLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz5;
 import com.baidu.tieba.ez5;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.gz5;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.oy;
 import com.baidu.tieba.py;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.s15;
 import com.baidu.tieba.sz4;
-import com.baidu.tieba.t25;
+import com.baidu.tieba.u15;
 import com.baidu.tieba.uz4;
+import com.baidu.tieba.v25;
 import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,17 +34,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class GridIconLayout extends FrameLayout implements py, oy<t25> {
+public class GridIconLayout extends FrameLayout implements py, oy<v25> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public XGridLayout a;
-    public vz4<s15> b;
+    public vz4<u15> b;
     public sz4 c;
-    public uz4<s15> d;
-    public cz5 e;
+    public uz4<u15> d;
+    public ez5 e;
 
     /* loaded from: classes3.dex */
-    public class a implements uz4<s15> {
+    public class a implements uz4<u15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GridIconLayout a;
@@ -70,21 +70,21 @@ public class GridIconLayout extends FrameLayout implements py, oy<t25> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.uz4
         /* renamed from: a */
-        public void d(View view2, s15 s15Var, int i, long j) {
+        public void d(View view2, u15 u15Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, s15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (s15Var != null) {
-                    this.a.c(s15Var.a());
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, u15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (u15Var != null) {
+                    this.a.c(u15Var.a());
                 }
                 if (this.a.b != null) {
-                    this.a.b.d(view2, s15Var, i, j);
+                    this.a.b.d(view2, u15Var, i, j);
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends cz5<s15> {
+    public class b extends ez5<u15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GridIconLayout g;
@@ -112,22 +112,22 @@ public class GridIconLayout extends FrameLayout implements py, oy<t25> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cz5
+        @Override // com.baidu.tieba.ez5
         /* renamed from: i */
-        public void f(ez5 ez5Var, s15 s15Var, int i) {
+        public void f(gz5 gz5Var, u15 u15Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ez5Var, s15Var, i) == null) {
-                TbImageView tbImageView = (TbImageView) ez5Var.b(R.id.iv_icon);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gz5Var, u15Var, i) == null) {
+                TbImageView tbImageView = (TbImageView) gz5Var.b(R.id.iv_icon);
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setPlaceHolder(1);
-                tbImageView.N(s15Var.b(), 10, false);
+                tbImageView.N(u15Var.b(), 10, false);
                 tbImageView.setUseNightOrDarkMask(false);
-                TextView textView = (TextView) ez5Var.b(R.id.tv_title);
+                TextView textView = (TextView) gz5Var.b(R.id.tv_title);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-                textView.setText(s15Var.c());
+                textView.setText(u15Var.c());
                 if (this.g.b != null) {
-                    this.g.b.c(ez5Var.a(), s15Var, i, i);
+                    this.g.b.c(gz5Var.a(), u15Var, i, i);
                 }
             }
         }
@@ -229,7 +229,7 @@ public class GridIconLayout extends FrameLayout implements py, oy<t25> {
         }
     }
 
-    public void setOnItemCoverListener(vz4<s15> vz4Var) {
+    public void setOnItemCoverListener(vz4<u15> vz4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, vz4Var) == null) {
             this.b = vz4Var;
@@ -264,13 +264,13 @@ public class GridIconLayout extends FrameLayout implements py, oy<t25> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: e */
-    public void a(t25 t25Var) {
+    public void a(v25 v25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t25Var) == null) {
-            if (t25Var != null && !ListUtils.isEmpty(t25Var.a)) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, v25Var) == null) {
+            if (v25Var != null && !ListUtils.isEmpty(v25Var.a)) {
                 int i = 0;
                 setVisibility(0);
-                List<s15> list = t25Var.a;
+                List<u15> list = v25Var.a;
                 if (list != null) {
                     i = list.size();
                 }
@@ -292,7 +292,7 @@ public class GridIconLayout extends FrameLayout implements py, oy<t25> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            m75 d = m75.d(this);
+            o75 d = o75.d(this);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0205);
             XGridLayout xGridLayout = this.a;

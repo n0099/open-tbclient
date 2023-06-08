@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.ro8;
-import com.baidu.tieba.so8;
-import com.baidu.tieba.to8;
+import com.baidu.tieba.uo8;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.vo8;
 import com.baidu.tieba.wo8;
+import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements ro8<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements uo8<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -41,8 +41,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements ro8<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public to8 c;
-        public so8 d;
+        public wo8 c;
+        public vo8 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements ro8<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                to8 to8Var = new to8();
-                this.c = to8Var;
-                to8Var.d = jSONObject.optString("rText");
+                wo8 wo8Var = new wo8();
+                this.c = wo8Var;
+                wo8Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    so8 so8Var = new so8(optJSONObject);
-                    this.d = so8Var;
-                    if (!so8Var.j()) {
+                    vo8 vo8Var = new vo8(optJSONObject);
+                    this.d = vo8Var;
+                    if (!vo8Var.j()) {
                         this.d = null;
                     }
                 }
@@ -226,8 +226,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements ro8<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = wo8.b(optJSONObject.optString("descColor", ""));
-                bVar.f = wo8.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = zo8.b(optJSONObject.optString("descColor", ""));
+                bVar.f = zo8.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -248,7 +248,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements ro8<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ro8
+    @Override // com.baidu.tieba.uo8
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {

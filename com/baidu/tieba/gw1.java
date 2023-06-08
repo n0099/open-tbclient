@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface gw1 {
     long a(Context context);
 

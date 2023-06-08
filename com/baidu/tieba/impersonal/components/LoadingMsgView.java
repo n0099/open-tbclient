@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.impersonal.components.LoadingMsgView;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -141,7 +141,7 @@ public final class LoadingMsgView extends FrameLayout {
                     Handler handler = this.a.e;
                     final LoadingMsgView loadingMsgView = this.a;
                     final ValueAnimator valueAnimator = this.b;
-                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.bk8
+                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ek8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -279,7 +279,7 @@ public final class LoadingMsgView extends FrameLayout {
             ofFloat.setDuration(8000L);
             ofFloat.setRepeatCount(-1);
             ofFloat.setInterpolator(new LinearInterpolator());
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zj8
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ck8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -329,7 +329,7 @@ public final class LoadingMsgView extends FrameLayout {
             this.c.setVisibility(8);
             this.c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             this.c.setSingleLine();
-            m75.d(this.c).B(R.dimen.T_X05);
+            o75.d(this.c).B(R.dimen.T_X05);
             this.c.setPadding(0, vi.g(getContext(), R.dimen.M_H_X003), 0, vi.g(getContext(), R.dimen.M_H_X003));
             addView(this.c, layoutParams);
         }
@@ -342,7 +342,7 @@ public final class LoadingMsgView extends FrameLayout {
             this.d.setVisibility(8);
             this.d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             this.d.setSingleLine();
-            m75.d(this.d).B(R.dimen.T_X05);
+            o75.d(this.d).B(R.dimen.T_X05);
             this.d.setPadding(0, vi.g(getContext(), R.dimen.M_H_X003), 0, vi.g(getContext(), R.dimen.M_H_X003));
             addView(this.d, layoutParams);
         }

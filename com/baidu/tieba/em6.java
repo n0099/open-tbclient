@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebView;
 /* loaded from: classes5.dex */
 public interface em6 {
-    void b(int i, int i2, int i3, int i4);
-
-    void d(int i, int i2, int i3, int i4);
-
-    void onScrollChanged(int i, int i2, int i3, int i4);
+    void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
 }

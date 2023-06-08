@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.oo9;
-import com.baidu.tieba.qw5;
+import com.baidu.tieba.sw5;
 import com.baidu.tieba.tg;
+import com.baidu.tieba.to9;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class VideoPlayDispatcher implements oo9 {
+public class VideoPlayDispatcher implements to9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class VideoPlayDispatcher implements oo9 {
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x017e  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
-    @Override // com.baidu.tieba.oo9
+    @Override // com.baidu.tieba.to9
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -130,7 +130,7 @@ public class VideoPlayDispatcher implements oo9 {
                         new VideoRecommentPlayActivityConfig(context, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE, z2).start();
                         return;
                     } else {
-                        qw5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, tg.g(videoItemData.forum_id, 0L));
+                        sw5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, tg.g(videoItemData.forum_id, 0L));
                         return;
                     }
                 }

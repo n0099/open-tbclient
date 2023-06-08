@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.app.ActivityManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,14 +11,26 @@ public final class t6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Application a() {
+    public static final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
-            return inst;
+            try {
+                String e = x6a.e();
+                Object systemService = TbadkCoreApplication.getInst().getContext().getSystemService("activity");
+                if (systemService != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) systemService).getRunningAppProcesses()) {
+                        if (Intrinsics.areEqual(runningAppProcessInfo.processName, e)) {
+                            return runningAppProcessInfo.pid;
+                        }
+                    }
+                    return -1;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.app.ActivityManager");
+            } catch (Exception unused) {
+                return -1;
+            }
         }
-        return (Application) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

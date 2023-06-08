@@ -1,71 +1,65 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class t65 {
+public final class t65 extends j65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Class<? extends h65>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133174, "Lcom/baidu/tieba/t65;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948133174, "Lcom/baidu/tieba/t65;");
-                return;
-            }
-        }
-        ArrayMap arrayMap = new ArrayMap();
-        a = arrayMap;
-        arrayMap.put("WebViewYunDialog", s65.class);
-        a.put("userIcon", r65.class);
-        a.put("userGrowth", q65.class);
-        a.put("newGod", n65.class);
-        a.put("operateNew", o65.class);
-        a.put("homeLiveRemind", m65.class);
-        a.put("updateDialog", p65.class);
-        a.put("lcUpdateDialog", l65.class);
-        i65 i65Var = new i65();
-        gl1<j65> gl1Var = i65Var.a;
-        if (gl1Var != null && !ListUtils.isEmpty(gl1Var.getList())) {
-            for (j65 j65Var : i65Var.a.getList()) {
-                a.put(j65Var.name(), j65Var.a());
+    public t65() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
+    public static final void b(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
-            z55 b = z55.b(str, str2);
-            try {
-                String a2 = b.a("yun_dialogClass");
-                if (TextUtils.isEmpty(a2)) {
-                    return;
-                }
-                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
-            } catch (Exception e) {
-                wq8 yunDialogLog = YunDialogLog.getInstance();
-                yunDialogLog.b("YunDialogManager", "云弹窗 " + str + " 渲染失败：" + e.getMessage());
-                x55.s(str);
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(65537, null, dialogInterface) == null) {
+            z55.s("userIcon");
+        }
+    }
+
+    @Override // com.baidu.tieba.j65
+    public void a(Context context, b65 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!PollingModel.y0()) {
+                z55.s("userIcon");
+                return;
             }
+            jv9 jv9Var = new jv9();
+            jv9Var.f(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.d65
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.content.DialogInterface.OnDismissListener
+                public final void onDismiss(DialogInterface dialogInterface) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                        t65.b(dialogInterface);
+                    }
+                }
+            });
+            jv9Var.d(TbSingleton.getInstance().getIconPopData());
+            z55.m("userIcon");
         }
     }
 }

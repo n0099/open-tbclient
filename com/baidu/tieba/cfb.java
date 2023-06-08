@@ -1,36 +1,94 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.log.TLog;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public class cfb {
     public static /* synthetic */ Interceptable $ic;
+    public static AtomicBoolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
 
-    public cfb(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947674250, "Lcom/baidu/tieba/cfb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947674250, "Lcom/baidu/tieba/cfb;");
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
+        a = new AtomicBoolean(false);
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (cfb.class) {
+                TLog.h("[LibraryLoad]", "loadAllLibrary return for this version need dynamic download library!");
+            }
+        }
+    }
+
+    public static synchronized void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (cfb.class) {
+                TLog.h("[LibraryLoad]", "loadAllLibrary with context");
+                if (a.get()) {
+                    TLog.h("[LibraryLoad]", "loadAllLibrary with context is loading or already loaded");
+                    return;
+                }
+                if (a.compareAndSet(false, true)) {
+                    d();
+                    boolean y = ehb.y(context);
+                    a.set(y);
+                    if (y) {
+                        TLog.h("[LibraryLoad]", "load transvod success, processId:" + Process.myPid());
+                    }
+                }
+            }
+        }
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String[] strArr = {SwanKV.LIB_CPP_SHARED, "cyber-ffmpeg", "ssl.1.1.1j", "crypto.1.1.1j"};
+            boolean z = true;
+            for (int i = 0; i < strArr.length; i++) {
+                try {
+                    TLog.h("[LibraryLoad]", "loadLibrary: " + strArr[i]);
+                    System.loadLibrary(strArr[i]);
+                } catch (UnsatisfiedLinkError e) {
+                    TLog.d("[LibraryLoad]", "load transvod failed, UnsatisfiedLinkError " + e.getMessage());
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 }

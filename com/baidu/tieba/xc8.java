@@ -4,9 +4,14 @@ import androidx.annotation.NonNull;
 import java.util.List;
 /* loaded from: classes8.dex */
 public interface xc8 {
-    void a(int i, int i2);
+    void c(@NonNull zc8 zc8Var);
 
-    void b(int i, @NonNull List<tc8> list);
+    @NonNull
+    List<vc8> d();
 
-    void f(int i, @NonNull List<tc8> list);
+    void detach();
+
+    void e();
+
+    int getItemsCount();
 }

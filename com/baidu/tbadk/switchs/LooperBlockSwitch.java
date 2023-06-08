@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,7 +67,7 @@ public class LooperBlockSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int n = l95.m().n("key_looper_block_opt_switch", 0);
+                int n = n95.m().n("key_looper_block_opt_switch", 0);
                 type = n;
                 if (n == 2) {
                     switchOn = true;

@@ -13,13 +13,13 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.g09;
-import com.baidu.tieba.i09;
+import com.baidu.tieba.j09;
 import com.baidu.tieba.l09;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel;
-import com.baidu.tieba.oz8;
-import com.baidu.tieba.p09;
+import com.baidu.tieba.o09;
 import com.baidu.tieba.rz8;
+import com.baidu.tieba.s09;
+import com.baidu.tieba.uz8;
 import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<List<EmotionPackageData>, Integer>> {
+public class MyEmotionManagerFragment extends BaseFragment implements o09<Pair<List<EmotionPackageData>, Integer>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p09 a;
+    public s09 a;
     public MyEmotionManagerModel b;
-    public i09 c;
+    public l09 c;
     public CustomMessageListener d;
     public CustomMessageListener e;
     public CustomMessageListener f;
@@ -47,13 +47,13 @@ public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<L
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0386a implements Runnable {
+        public class RunnableC0397a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0386a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0397a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<L
                     String valueOf = String.valueOf(this.a.getData());
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(valueOf);
-                    if (rz8.i().c(arrayList, true) && BdNetTypeUtil.isNetWorkAvailable()) {
+                    if (uz8.i().c(arrayList, true) && BdNetTypeUtil.isNetWorkAvailable()) {
                         if (this.b.a.b != null) {
                             this.b.a.b.loadData();
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
@@ -117,7 +117,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                oz8.b().a(new RunnableC0386a(this, customResponsedMessage));
+                rz8.b().a(new RunnableC0397a(this, customResponsedMessage));
             }
         }
     }
@@ -324,15 +324,15 @@ public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<L
     }
 
     public void L1(boolean z) {
-        i09 i09Var;
+        l09 l09Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (i09Var = this.c) != null) {
-            i09Var.onUpdate(Boolean.valueOf(z));
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (l09Var = this.c) != null) {
+            l09Var.onUpdate(Boolean.valueOf(z));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l09
+    @Override // com.baidu.tieba.o09
     /* renamed from: M1 */
     public void onSuccess(Pair<List<EmotionPackageData>, Integer> pair) {
         Interceptable interceptable = $ic;
@@ -341,10 +341,10 @@ public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<L
         }
     }
 
-    public void N1(i09 i09Var) {
+    public void N1(l09 l09Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, i09Var) == null) && i09Var != null) {
-            this.c = i09Var;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, l09Var) == null) && l09Var != null) {
+            this.c = l09Var;
         }
     }
 
@@ -353,9 +353,9 @@ public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<L
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            p09 p09Var = this.a;
-            if (p09Var != null) {
-                p09Var.f(i);
+            s09 s09Var = this.a;
+            if (s09Var != null) {
+                s09Var.f(i);
             }
         }
     }
@@ -367,16 +367,16 @@ public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<L
         }
     }
 
-    @Override // com.baidu.tieba.l09
+    @Override // com.baidu.tieba.o09
     public void W0() {
-        p09 p09Var;
+        s09 s09Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (p09Var = this.a) != null) {
-            p09Var.g();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (s09Var = this.a) != null) {
+            s09Var.g();
         }
     }
 
-    @Override // com.baidu.tieba.l09
+    @Override // com.baidu.tieba.o09
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -398,11 +398,11 @@ public class MyEmotionManagerFragment extends BaseFragment implements l09<Pair<L
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            g09.b().c();
+            j09.b().c();
             registerListener(this.e);
             registerListener(this.f);
             registerListener(this.d);
-            this.a = new p09(getPageContext());
+            this.a = new s09(getPageContext());
             MyEmotionManagerModel myEmotionManagerModel = new MyEmotionManagerModel(getPageContext());
             this.b = myEmotionManagerModel;
             myEmotionManagerModel.m0(this);

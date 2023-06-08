@@ -7,11 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class al5 extends xk5 {
+public class al5 extends zk5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public short g;
+    public short h;
+    public byte i;
+    public byte j;
 
     static {
         InterceptResult invokeClinit;
@@ -26,7 +35,7 @@ public class al5 extends xk5 {
                 return;
             }
         }
-        c = xk5.a("IDAT");
+        k = zk5.a("fcTL");
     }
 
     public al5() {
@@ -40,6 +49,22 @@ public class al5 extends xk5 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.zk5
+    public void b(gl5 gl5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gl5Var) == null) {
+            gl5Var.e();
+            this.c = gl5Var.e();
+            this.d = gl5Var.e();
+            this.e = gl5Var.e();
+            this.f = gl5Var.e();
+            this.g = gl5Var.f();
+            this.h = gl5Var.f();
+            this.i = gl5Var.peek();
+            this.j = gl5Var.peek();
         }
     }
 }

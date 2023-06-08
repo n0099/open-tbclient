@@ -26,14 +26,14 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do8;
-import com.baidu.tieba.dx9;
+import com.baidu.tieba.bo8;
+import com.baidu.tieba.go8;
+import com.baidu.tieba.ix9;
 import com.baidu.tieba.lego.card.model.HorRankCard;
-import com.baidu.tieba.qn8;
+import com.baidu.tieba.tn8;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.wo8;
-import com.baidu.tieba.xn6;
-import com.baidu.tieba.yn8;
+import com.baidu.tieba.zn6;
+import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -153,9 +153,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.j)) {
                 return;
             }
-            xn6.b().d(true);
-            yn8.e(this.a.l).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.l);
-            dx9.c(this.b.h, this.a.j);
+            zn6.b().d(true);
+            bo8.e(this.a.l).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.l);
+            ix9.c(this.b.h, this.a.j);
         }
     }
 
@@ -191,7 +191,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            do8 a = do8.a();
+            go8 a = go8.a();
             HorRankCard.a aVar = this.a;
             a.e(aVar, aVar.f, null, null);
         }
@@ -385,13 +385,13 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             } else {
                 itemViewHolder.k.setVisibility(0);
                 itemViewHolder.k.setText(String.valueOf(aVar.a));
-                if (!wo8.a(aVar.k)) {
+                if (!zo8.a(aVar.k)) {
                     itemViewHolder.k.setBackgroundColor(aVar.k);
                 } else {
                     if (i <= 3) {
                         i2 = i;
                     }
-                    SkinManager.setBackgroundColor(itemViewHolder.k, qn8.a[i2]);
+                    SkinManager.setBackgroundColor(itemViewHolder.k, tn8.a[i2]);
                 }
             }
             itemViewHolder.f.setRadius(0);

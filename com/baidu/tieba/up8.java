@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import com.squareup.wire.Message;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
 public interface up8 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
+    mp8 a(qp8 qp8Var);
 
-    void b(long j, String str, String str2, int i);
+    qo8 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i);
 
-    void c(long j, String str, Message message, boolean z);
+    wp8 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 }

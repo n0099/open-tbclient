@@ -10,7 +10,7 @@ import com.baidu.tbadk.util.gson.JavaGsonWidget;
 import com.baidu.tbadk.util.gson.KotlinGsonWidget;
 import com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory;
 import com.baidu.tieba.f05;
-import com.baidu.tieba.gw5;
+import com.baidu.tieba.iw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,8 +79,8 @@ public final class DataExt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
                 Intrinsics.checkNotNullParameter(f, "f");
-                gw5 gw5Var = (gw5) f.getAnnotation(gw5.class);
-                if (gw5Var != null && !gw5Var.serialize()) {
+                iw5 iw5Var = (iw5) f.getAnnotation(iw5.class);
+                if (iw5Var != null && !iw5Var.serialize()) {
                     return true;
                 }
                 return false;
@@ -124,8 +124,8 @@ public final class DataExt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
                 Intrinsics.checkNotNullParameter(f, "f");
-                gw5 gw5Var = (gw5) f.getAnnotation(gw5.class);
-                if (gw5Var != null && !gw5Var.deserialize()) {
+                iw5 iw5Var = (iw5) f.getAnnotation(iw5.class);
+                if (iw5Var != null && !iw5Var.deserialize()) {
                     return true;
                 }
                 return false;

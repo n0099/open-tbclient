@@ -55,13 +55,13 @@ public class qg3 extends vd3 {
 
             /* renamed from: com.baidu.tieba.qg3$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0425a implements Runnable {
+            public class RunnableC0434a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Boolean a;
                 public final /* synthetic */ a b;
 
-                public RunnableC0425a(a aVar, Boolean bool) {
+                public RunnableC0434a(a aVar, Boolean bool) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,14 +123,14 @@ public class qg3 extends vd3 {
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
                     b bVar = this.c;
                     bVar.f.O(bVar.e, this.a, bool);
-                    sp3.a0(new RunnableC0425a(this, bool));
+                    sp3.a0(new RunnableC0434a(this, bool));
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.qg3$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0426b implements rq3<String> {
+        public class C0435b implements rq3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yg3 a;
@@ -142,14 +142,14 @@ public class qg3 extends vd3 {
             public class a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0426b a;
+                public final /* synthetic */ C0435b a;
 
-                public a(C0426b c0426b) {
+                public a(C0435b c0435b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0426b};
+                        Object[] objArr = {c0435b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -159,21 +159,21 @@ public class qg3 extends vd3 {
                             return;
                         }
                     }
-                    this.a = c0426b;
+                    this.a = c0435b;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        C0426b c0426b = this.a;
-                        b bVar = c0426b.c;
-                        bVar.f.P(c0426b.a, c0426b.b, false, bVar.e, bVar.d, bVar.a, bVar.b);
+                        C0435b c0435b = this.a;
+                        b bVar = c0435b.c;
+                        bVar.f.P(c0435b.a, c0435b.b, false, bVar.e, bVar.d, bVar.a, bVar.b);
                     }
                 }
             }
 
-            public C0426b(b bVar, yg3 yg3Var, List list) {
+            public C0435b(b bVar, yg3 yg3Var, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,7 +249,7 @@ public class qg3 extends vd3 {
                 if (!this.d.N().e(this.e)) {
                     fv2.Z().a(this.e, new a(this, y, w));
                 } else {
-                    this.f.z(new C0426b(this, y, w));
+                    this.f.z(new C0435b(this, y, w));
                 }
             }
         }

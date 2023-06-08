@@ -21,7 +21,7 @@ public class ly extends by {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HeadlinesAgreeCardView h;
-    public f15 i;
+    public h15 i;
     public int j;
     public final uz.b k;
     public yz l;
@@ -68,15 +68,15 @@ public class ly extends by {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f15 a;
+        public final /* synthetic */ h15 a;
         public final /* synthetic */ ly b;
 
-        public b(ly lyVar, f15 f15Var) {
+        public b(ly lyVar, h15 h15Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lyVar, f15Var};
+                Object[] objArr = {lyVar, h15Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,7 +87,7 @@ public class ly extends by {
                 }
             }
             this.b = lyVar;
-            this.a = f15Var;
+            this.a = h15Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -191,11 +191,11 @@ public class ly extends by {
         }
     }
 
-    public final boolean C(f15 f15Var) {
+    public final boolean C(h15 h15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f15Var)) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getTaskInfoData() != null && f15Var.getThreadData().getTaskInfoData().f() != null && f15Var.getThreadData().getTaskInfoData().j() == 3) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h15Var)) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getTaskInfoData() != null && h15Var.getThreadData().getTaskInfoData().f() != null && h15Var.getThreadData().getTaskInfoData().j() == 3) {
                 return true;
             }
             return false;
@@ -206,14 +206,14 @@ public class ly extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: D */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f15Var) == null) {
-            this.i = f15Var;
-            if (C(f15Var)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h15Var) == null) {
+            this.i = h15Var;
+            if (C(h15Var)) {
                 this.h.setVisibility(0);
-                this.h.a(f15Var);
-                this.h.setItemBtnClickListener(new b(this, f15Var));
+                this.h.a(h15Var);
+                this.h.setItemBtnClickListener(new b(this, h15Var));
                 return;
             }
             this.h.setVisibility(8);

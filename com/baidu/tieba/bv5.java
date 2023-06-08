@@ -4,14 +4,14 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.cv5;
+import com.baidu.tieba.ev5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bv5 extends yu5<tm5, cv5.d> {
+public class bv5 extends av5<xu5, ev5.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> e;
@@ -35,26 +35,24 @@ public class bv5 extends yu5<tm5, cv5.d> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yu5
+    @Override // com.baidu.tieba.av5
     /* renamed from: g */
-    public void d(ViewType viewType, tm5 tm5Var, cv5.d dVar) {
+    public void d(ViewType viewType, xu5 xu5Var, ev5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, tm5Var, dVar) == null) {
-            tm5Var.t(dVar.b);
-            tm5Var.k().setText(dVar.a);
-            tm5Var.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, xu5Var, aVar) == null) {
+            xu5Var.b(aVar);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yu5
+    @Override // com.baidu.tieba.av5
     /* renamed from: h */
-    public tm5 f(ViewType viewType, ViewGroup viewGroup) {
+    public xu5 f(ViewType viewType, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
-            return new tm5(this.e.getPageActivity());
+            return new xu5(this.e.getPageActivity());
         }
-        return (tm5) invokeLL.objValue;
+        return (xu5) invokeLL.objValue;
     }
 }

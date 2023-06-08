@@ -1,262 +1,355 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.RequestTimeInfo;
-import com.baidu.turbonet.net.impl.CronetUrlRequest;
-import java.nio.ByteBuffer;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
+import com.baidu.turbonet.net.ICronetEngineBuilder;
+import com.baidu.turbonet.net.impl.VersionSafeCallbacks;
+import com.baidu.webkit.internal.ETAG;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class tla implements CronetUrlRequest.i {
+public abstract class tla extends ICronetEngineBuilder {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetUrlRequest.i a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public String b;
+    public String c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public long h;
+    public boolean i;
+    public int j;
+    public String k;
+    public JSONObject l;
+    public String m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948186432, "Lcom/baidu/tieba/tla;")) == null) {
-            return;
+    public VersionSafeCallbacks.c v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return null;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948186432, "Lcom/baidu/tieba/tla;");
-        }
+        return (VersionSafeCallbacks.c) invokeV.objValue;
     }
 
-    public tla() {
+    public tla(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.j = 20;
+        this.a = context.getApplicationContext();
+        this.l = new JSONObject();
+        m(true);
+        k(true);
+        j(false);
+        l(false, "");
+    }
+
+    public final void A(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
+            try {
+                JSONObject optJSONObject = this.l.optJSONObject(str);
+                if (optJSONObject == null) {
+                    optJSONObject = new JSONObject();
+                }
+                optJSONObject.put(str2, obj);
+                this.l.put(str, optJSONObject);
+            } catch (JSONException e) {
+                throw new IllegalStateException("JSON expcetion:", e);
             }
         }
     }
 
-    public static CronetUrlRequest.i v() {
+    public tla B(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (new File(str).isDirectory()) {
+                this.c = str;
+                return this;
+            }
+            throw new IllegalArgumentException("Storage path must be set to existing directory");
+        }
+        return (tla) invokeL.objValue;
+    }
+
+    public tla C(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            A(SchemeCollecter.CLASSIFY_BASE, HttpRequest.USER_AGENT, str);
+            this.b = str;
+            return this;
+        }
+        return (tla) invokeL.objValue;
+    }
+
+    public int E(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            int i2 = this.j;
+            if (i2 != 20) {
+                return i2;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
+        g(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
+        y(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
+        z(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
+        B(str);
+        return this;
+    }
+
+    public tla g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            this.m = str;
+            return this;
+        }
+        return (tla) invokeL.objValue;
+    }
+
+    public tla j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
+            this.f = z;
+            return this;
+        }
+        return (tla) invokeZ.objValue;
+    }
+
+    public tla k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+            A(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
+            this.e = z;
+            return this;
+        }
+        return (tla) invokeZ.objValue;
+    }
+
+    public tla m(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
+            A(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
+            this.d = z;
+            return this;
+        }
+        return (tla) invokeZ.objValue;
+    }
+
+    public tla y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+            A("app", "cuid", str);
+            return this;
+        }
+        return (tla) invokeL.objValue;
+    }
+
+    public tla z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+            A("app", "app_name", str);
+            return this;
+        }
+        return (tla) invokeL.objValue;
+    }
+
+    public String D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetUrlRequest.i iVar = a;
-                if (iVar != null) {
-                    return iVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUrlRequest.Natives. The current configuration requires all native implementations to have a mock instance.");
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.l.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return sma.b(this.a);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.h;
+        }
+        return invokeV.longValue;
+    }
+
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            JSONObject optJSONObject = this.l.optJSONObject(SchemeCollecter.CLASSIFY_BASE);
+            if (optJSONObject == null) {
+                return 0;
             }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new tla();
+            return optJSONObject.optInt("http_cache_mode", 0);
         }
-        return (CronetUrlRequest.i) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void a(long j, CronetUrlRequest cronetUrlRequest, String str) {
+    public boolean w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), cronetUrlRequest, str}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setRequestTag(j, cronetUrlRequest, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.i;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void b(long j, CronetUrlRequest cronetUrlRequest, int i) {
+    public boolean x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setTCPConnectTimeout(j, cronetUrlRequest, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.d;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String e(long j, CronetUrlRequest cronetUrlRequest, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Boolean.valueOf(z)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getConnectionAttempts(j, cronetUrlRequest, z);
-        }
-        return (String) invokeCommon.objValue;
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
+        l(z, str);
+        return this;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public boolean f(long j, CronetUrlRequest cronetUrlRequest, String str) {
-        InterceptResult invokeCommon;
+    public tla l(boolean z, String str) {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), cronetUrlRequest, str})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setHttpMethod(j, cronetUrlRequest, str);
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048592, this, z, str)) == null) {
+            A("nq", "network_quality_enabled", Boolean.valueOf(z));
+            A("nq", "watched_groups", str);
+            this.i = z;
+            return this;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public long g(long j, CronetUrlRequest cronetUrlRequest, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_requestTimeGap(j, cronetUrlRequest, i);
-        }
-        return invokeCommon.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void h(long j, CronetUrlRequest cronetUrlRequest, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setResponseBodyReadTimeout(j, cronetUrlRequest, i);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void m(long j, CronetUrlRequest cronetUrlRequest, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setTimeout(j, cronetUrlRequest, i);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void n(long j, CronetUrlRequest cronetUrlRequest, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Boolean.valueOf(z)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_destroy(j, cronetUrlRequest, z);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void p(long j, CronetUrlRequest cronetUrlRequest, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setResponseHeaderRecvTimeout(j, cronetUrlRequest, i);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void u(long j, CronetUrlRequest cronetUrlRequest, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), cronetUrlRequest, str}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setDestinationAddress(j, cronetUrlRequest, str);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void c(long j, CronetUrlRequest cronetUrlRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, cronetUrlRequest) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_disableResponseAutoUngzip(j, cronetUrlRequest);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public RequestTimeInfo i(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, cronetUrlRequest)) == null) {
-            return (RequestTimeInfo) GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getRequestTimeInfo(j, cronetUrlRequest);
-        }
-        return (RequestTimeInfo) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String j(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, cronetUrlRequest)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getDNSResults(j, cronetUrlRequest);
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void k(long j, CronetUrlRequest cronetUrlRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048586, this, j, cronetUrlRequest) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_followDeferredRedirect(j, cronetUrlRequest);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void o(long j, CronetUrlRequest cronetUrlRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048590, this, j, cronetUrlRequest) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_start(j, cronetUrlRequest);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String r(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048593, this, j, cronetUrlRequest)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getDNSErrorCode(j, cronetUrlRequest);
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String s(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048594, this, j, cronetUrlRequest)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getDNSNameServers(j, cronetUrlRequest);
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String t(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048595, this, j, cronetUrlRequest)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getRemoteEndpoint(j, cronetUrlRequest);
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public boolean d(long j, CronetUrlRequest cronetUrlRequest, ByteBuffer byteBuffer, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), cronetUrlRequest, byteBuffer, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_readData(j, cronetUrlRequest, byteBuffer, i, i2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public boolean l(long j, CronetUrlRequest cronetUrlRequest, String str, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), cronetUrlRequest, str, str2})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_addRequestHeader(j, cronetUrlRequest, str, str2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public long q(CronetUrlRequest cronetUrlRequest, long j, String str, int i, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{cronetUrlRequest, Long.valueOf(j), str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i2), Boolean.valueOf(z5), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_createRequestAdapter(cronetUrlRequest, j, str, i, z, z2, z3, z4, i2, z5, i3, i4);
-        }
-        return invokeCommon.longValue;
+        return (tla) invokeZL.objValue;
     }
 }

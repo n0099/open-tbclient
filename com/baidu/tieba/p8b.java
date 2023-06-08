@@ -1,42 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.q8b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
 /* loaded from: classes7.dex */
 public class p8b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
-    public final /* synthetic */ q8b.a b;
+    public final /* synthetic */ w8b a;
+    public final /* synthetic */ r8b b;
 
-    public p8b(q8b.a aVar, int i) {
+    public p8b(r8b r8bVar, w8b w8bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Integer.valueOf(i)};
+            Object[] objArr = {r8bVar, w8bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = aVar;
-        this.a = i;
+        this.b = r8bVar;
+        this.a = w8bVar;
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.b(HonorPushErrorEnum.fromCode(this.a));
+            synchronized (this.b.c) {
+                Object obj = this.b.a;
+                if (obj != null) {
+                    this.a.d();
+                    ((a9b) obj).a.countDown();
+                }
+            }
         }
     }
 }

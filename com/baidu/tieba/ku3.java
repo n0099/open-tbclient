@@ -15,7 +15,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.imb;
+import com.baidu.tieba.nmb;
 import com.baidu.tieba.yv2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ public abstract class ku3 extends vd3 {
     public abstract String r();
 
     /* loaded from: classes6.dex */
-    public class c implements imb.a<ou3> {
+    public class c implements nmb.a<ou3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,14 +45,14 @@ public abstract class ku3 extends vd3 {
         public class a implements yv2.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ omb a;
+            public final /* synthetic */ tmb a;
 
-            public a(c cVar, omb ombVar) {
+            public a(c cVar, tmb tmbVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, ombVar};
+                    Object[] objArr = {cVar, tmbVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -62,7 +62,7 @@ public abstract class ku3 extends vd3 {
                         return;
                     }
                 }
-                this.a = ombVar;
+                this.a = tmbVar;
             }
 
             @Override // com.baidu.tieba.yv2.a
@@ -108,17 +108,17 @@ public abstract class ku3 extends vd3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super ou3> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super ou3> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ombVar) == null) {
-                fv2.I().b("bd09", true, false, new a(this, ombVar));
+            if (interceptable == null || interceptable.invokeL(1048576, this, tmbVar) == null) {
+                fv2.I().b("bd09", true, false, new a(this, tmbVar));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements wmb<ou3> {
+    public class a implements bnb<ou3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nu3 a;
@@ -150,7 +150,7 @@ public abstract class ku3 extends vd3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.bnb
         public void call(ou3 ou3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, ou3Var) == null) {
@@ -161,7 +161,7 @@ public abstract class ku3 extends vd3 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements wmb<Throwable> {
+    public class b implements bnb<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -193,7 +193,7 @@ public abstract class ku3 extends vd3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.bnb
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -443,7 +443,7 @@ public abstract class ku3 extends vd3 {
         return (ResponseCallback) invokeL.objValue;
     }
 
-    public final imb<ou3> q(Context context) {
+    public final nmb<ou3> q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
@@ -453,9 +453,9 @@ public abstract class ku3 extends vd3 {
             if (fo3.h() && (context.checkSelfPermission(com.kuaishou.weapon.p0.h.g) != 0 || context.checkSelfPermission(com.kuaishou.weapon.p0.h.h) != 0)) {
                 return null;
             }
-            return imb.a(new c(this));
+            return nmb.a(new c(this));
         }
-        return (imb) invokeL.objValue;
+        return (nmb) invokeL.objValue;
     }
 
     public final void s(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull String str, @NonNull JSONObject jSONObject) {
@@ -463,7 +463,7 @@ public abstract class ku3 extends vd3 {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, callbackHandler, str, jSONObject) == null) {
             y82.i("recommend", "get request params");
             nu3 nu3Var = new nu3(context, jSONObject);
-            imb<ou3> q = q(context);
+            nmb<ou3> q = q(context);
             if (q != null) {
                 q.B(60L, TimeUnit.MILLISECONDS).z(new a(this, nu3Var, context, callbackHandler, str), new b(this, context, callbackHandler, str, nu3Var));
                 return;

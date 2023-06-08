@@ -34,18 +34,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vy4 implements sl6 {
+public class vy4 implements ul6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        rl6.a(this, webView, str, jSONObject);
+        tl6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void onDestroy() {
-        rl6.b(this);
+        tl6.b(this);
     }
 
     public vy4() {
@@ -62,7 +62,7 @@ public class vy4 implements sl6 {
         }
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -133,17 +133,17 @@ public class vy4 implements sl6 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public wy9 e(WebView webView, String str) {
+    public bz9 e(WebView webView, String str) {
         InterceptResult invokeLL;
         String f;
         JSONObject newGodDataJson;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             JSONObject jSONObject = null;
             int i = 0;
             try {
-                f = ne5.c().f();
+                f = pe5.c().f();
                 newGodDataJson = TbSingleton.getInstance().getNewGodDataJson();
             } catch (Exception e) {
                 BdLog.e(e);
@@ -156,8 +156,8 @@ public class vy4 implements sl6 {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
                 jSONObject2.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-                wy9Var.o(jSONObject2.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject2.toString());
+                return bz9Var;
             }
             if (!TextUtils.isEmpty(f)) {
                 jSONObject = new JSONObject(f);
@@ -165,23 +165,23 @@ public class vy4 implements sl6 {
             JSONObject jSONObject22 = new JSONObject();
             jSONObject22.put("resultCode", i);
             jSONObject22.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-            wy9Var.o(jSONObject22.toString());
-            return wy9Var;
+            bz9Var.o(jSONObject22.toString());
+            return bz9Var;
             i = 1;
             JSONObject jSONObject222 = new JSONObject();
             jSONObject222.put("resultCode", i);
             jSONObject222.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-            wy9Var.o(jSONObject222.toString());
-            return wy9Var;
+            bz9Var.o(jSONObject222.toString());
+            return bz9Var;
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+    public bz9 f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             hv4 hv4Var = new hv4();
             hv4Var.c = i;
             hv4Var.d = i2;
@@ -197,13 +197,13 @@ public class vy4 implements sl6 {
             hv4Var.p = str8;
             hv4Var.q = str9;
             if (i == hv4.y) {
-                i55.h(TbadkCoreApplication.getInst().getCurrentActivity(), hv4Var).j();
+                k55.h(TbadkCoreApplication.getInst().getCurrentActivity(), hv4Var).j();
             } else if (i == hv4.z) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                b15 b15Var = new b15(currentActivity);
+                d15 d15Var = new d15(currentActivity);
                 if (currentActivity != null) {
-                    b15Var.d(currentActivity, hv4Var);
-                    b15Var.i();
+                    d15Var.d(currentActivity, hv4Var);
+                    d15Var.i();
                 }
             } else if (i == hv4.A) {
                 if (i2 == hv4.E) {
@@ -214,13 +214,13 @@ public class vy4 implements sl6 {
                     c(hv4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                 }
             } else if (i == hv4.C) {
-                Activity a = hl6.a(webView.getContext());
+                Activity a = jl6.a(webView.getContext());
                 if (i6 == 1 && a != null) {
                     a.finish();
                 }
-                gp5.i(new TopToastEvent(i5, str, 1500));
+                ip5.i(new TopToastEvent(i5, str, 1500));
             } else if (i == hv4.D) {
-                Activity a2 = hl6.a(webView.getContext());
+                Activity a2 = jl6.a(webView.getContext());
                 if (i6 == 1 && a2 != null) {
                     a2.finish();
                 }
@@ -233,22 +233,22 @@ public class vy4 implements sl6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 
-    public wy9 g(WebView webView, String str, String str2, String str3, int i, int i2) {
+    public bz9 g(WebView webView, String str, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            wy9 wy9Var = new wy9();
-            Activity a = hl6.a(webView.getContext());
+            bz9 bz9Var = new bz9();
+            Activity a = jl6.a(webView.getContext());
             int i3 = 0;
             boolean z = false;
             boolean z2 = false;
@@ -256,21 +256,21 @@ public class vy4 implements sl6 {
             if (!TextUtils.isEmpty(str) && a != null) {
                 if (!TextUtils.isEmpty(str3)) {
                     String str4 = "showToast_" + str3;
-                    int n = l95.m().n(str4, 0);
+                    int n = n95.m().n(str4, 0);
                     if (n < i) {
-                        l95.m().z(str4, n);
+                        n95.m().z(str4, n);
                         Intent intent = a.getIntent();
                         if (i2 == 1) {
                             z = true;
                         }
-                        gp5.i(new TipEvent(intent, str, str2, z));
+                        ip5.i(new TipEvent(intent, str, str2, z));
                     }
                 } else {
                     Intent intent2 = a.getIntent();
                     if (i2 == 1) {
                         z2 = true;
                     }
-                    gp5.i(new TipEvent(intent2, str, str2, z2));
+                    ip5.i(new TipEvent(intent2, str, str2, z2));
                 }
                 if (i2 == 1) {
                     a.finish();
@@ -280,13 +280,13 @@ public class vy4 implements sl6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i3);
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 }

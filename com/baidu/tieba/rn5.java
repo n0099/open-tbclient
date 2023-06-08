@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
+import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
 /* loaded from: classes7.dex */
 public interface rn5 {
-    void a(ChatMsg chatMsg);
-
-    void b(int i, String str, SendMsgResponse sendMsgResponse);
+    void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse);
 }

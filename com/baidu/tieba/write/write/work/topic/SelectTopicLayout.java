@@ -24,14 +24,14 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b68;
+import com.baidu.tieba.a68;
+import com.baidu.tieba.d68;
 import com.baidu.tieba.hottopicselect.HotTopicSelectModel;
-import com.baidu.tieba.k75;
 import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicListLayout;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicSuggestLayout;
-import com.baidu.tieba.y58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +65,7 @@ public class SelectTopicLayout extends RelativeLayout {
     public int t;
     public int u;
     public int v;
-    public List<b68> w;
+    public List<d68> w;
     public float x;
     public float y;
     public final View.OnClickListener z;
@@ -695,57 +695,57 @@ public class SelectTopicLayout extends RelativeLayout {
         return invokeLII.booleanValue;
     }
 
-    public void s(y58 y58Var, y58 y58Var2, y58 y58Var3) {
+    public void s(a68 a68Var, a68 a68Var2, a68 a68Var3) {
         SelectTopicListLayout selectTopicListLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048589, this, y58Var, y58Var2, y58Var3) == null) && (selectTopicListLayout = this.l) != null) {
-            selectTopicListLayout.a(y58Var, y58Var2, y58Var3);
+        if ((interceptable == null || interceptable.invokeLLL(1048589, this, a68Var, a68Var2, a68Var3) == null) && (selectTopicListLayout = this.l) != null) {
+            selectTopicListLayout.a(a68Var, a68Var2, a68Var3);
         }
     }
 
-    public void u(y58 y58Var) {
+    public void u(a68 a68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, y58Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, a68Var) == null) {
             this.w.clear();
             String searchKey = getSearchKey();
-            y58 y58Var2 = new y58();
-            this.w.add(new b68(searchKey, 0L, false));
-            if (y58Var == null) {
-                y58Var = y58Var2;
+            a68 a68Var2 = new a68();
+            this.w.add(new d68(searchKey, 0L, false));
+            if (a68Var == null) {
+                a68Var = a68Var2;
             }
-            y58Var.c().addAll(0, this.w);
-            this.m.b(getSearchKey(), y58Var.c());
+            a68Var.c().addAll(0, this.w);
+            this.m.b(getSearchKey(), a68Var.c());
         }
     }
 
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            m75.d(this.b).p(new int[]{R.color.CAM_X0803, R.color.CAM_X0601});
-            m75 d2 = m75.d(this.d);
+            o75.d(this.b).p(new int[]{R.color.CAM_X0803, R.color.CAM_X0601});
+            o75 d2 = o75.d(this.d);
             d2.o(R.string.J_X14);
             d2.f(R.color.CAM_X0207);
-            m75.d(this.e).f(R.color.CAM_X0207);
-            m75 d3 = m75.d(this.g);
+            o75.d(this.e).f(R.color.CAM_X0207);
+            o75 d3 = o75.d(this.g);
             d3.w(R.color.CAM_X0108);
             d3.B(R.dimen.T_X09);
             d3.C(R.string.F_X01);
-            m75 d4 = m75.d(this.h);
+            o75 d4 = o75.d(this.h);
             d4.o(R.string.J_X07);
             d4.f(R.color.CAM_X0209);
-            m75 d5 = m75.d(this.i);
+            o75 d5 = o75.d(this.i);
             d5.w(R.color.CAM_X0110);
             d5.B(R.dimen.T_X07);
             d5.C(R.string.F_X01);
-            this.k.setHintTextColor(k75.i(R.color.CAM_X0110));
-            m75 d6 = m75.d(this.k);
+            this.k.setHintTextColor(m75.i(R.color.CAM_X0110));
+            o75 d6 = o75.d(this.k);
             d6.w(R.color.CAM_X0105);
             d6.B(R.dimen.T_X07);
             d6.C(R.string.F_X01);
             this.l.d();
             this.m.d();
             SkinManager.setImageResource(this.j, R.drawable.del_search_btn);
-            m75 d7 = m75.d(this.f);
+            o75 d7 = o75.d(this.f);
             d7.o(R.string.J_X01);
             d7.f(R.color.CAM_X0209);
             this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b8e, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));

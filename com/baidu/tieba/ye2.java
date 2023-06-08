@@ -13,7 +13,7 @@ import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.tieba.cc3;
 import com.baidu.tieba.il3;
-import com.baidu.tieba.imb;
+import com.baidu.tieba.nmb;
 import com.baidu.tieba.ue2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -36,13 +36,13 @@ public abstract class ye2 extends cf2 {
     public static final boolean C;
     public transient /* synthetic */ FieldHolder $fh;
     public sj4 A;
-    public omb<wk4> B;
+    public tmb<wk4> B;
     public String c;
-    public omb<? super xk4> d;
-    public omb<? super yk4> e;
-    public omb<? super vk4> f;
-    public omb<? super tk4> g;
-    public omb<? super zk4> h;
+    public tmb<? super xk4> d;
+    public tmb<? super yk4> e;
+    public tmb<? super vk4> f;
+    public tmb<? super tk4> g;
+    public tmb<? super zk4> h;
     public gp4 i;
     public xk4 j;
     public List<yk4> k;
@@ -83,12 +83,12 @@ public abstract class ye2 extends cf2 {
 
         /* renamed from: com.baidu.tieba.ye2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0525a implements rq3<cc3.a> {
+        public class C0530a implements rq3<cc3.a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0525a(a aVar) {
+            public C0530a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -281,18 +281,18 @@ public abstract class ye2 extends cf2 {
                 if (ye2.C) {
                     dx2.d(l0).f(xk4Var.toString()).d(1);
                 }
-                C0525a c0525a = new C0525a(this);
+                C0530a c0530a = new C0530a(this);
                 Bundle bundle = new Bundle();
                 bundle.putLong("length", j);
                 bundle.putFloat("progress_granularity", 0.1f);
                 wu2 wu2Var = new wu2();
-                wu2Var.u(c0525a);
+                wu2Var.u(c0530a);
                 wu2Var.K(bundle);
                 wu2Var.J(new vu2(xk4Var, this.a));
                 wu2Var.J(new tu2(xk4Var.m, this.a));
                 wu2Var.M(readableByteChannel);
                 boolean N = wu2Var.N();
-                wu2Var.o(c0525a);
+                wu2Var.o(c0530a);
                 if (ye2.C) {
                     Log.i("SwanAppPkgDownloadCallback", this.a.i0() + ": onProcessStream: installOk=" + N);
                 }
@@ -700,7 +700,7 @@ public abstract class ye2 extends cf2 {
     }
 
     /* loaded from: classes8.dex */
-    public class j extends omb<wk4> {
+    public class j extends tmb<wk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye2 e;
@@ -724,7 +724,7 @@ public abstract class ye2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         /* renamed from: g */
         public void onNext(wk4 wk4Var) {
             Interceptable interceptable = $ic;
@@ -733,7 +733,7 @@ public abstract class ye2 extends cf2 {
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -742,7 +742,7 @@ public abstract class ye2 extends cf2 {
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -753,7 +753,7 @@ public abstract class ye2 extends cf2 {
     }
 
     /* loaded from: classes8.dex */
-    public class k implements imb.a<xk4> {
+    public class k implements nmb.a<xk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye2 a;
@@ -777,18 +777,18 @@ public abstract class ye2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super xk4> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super xk4> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ombVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, tmbVar) != null) {
                 return;
             }
-            this.a.d = ombVar;
+            this.a.d = tmbVar;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class l implements imb.a<yk4> {
+    public class l implements nmb.a<yk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye2 a;
@@ -812,18 +812,18 @@ public abstract class ye2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super yk4> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super yk4> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ombVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, tmbVar) != null) {
                 return;
             }
-            this.a.e = ombVar;
+            this.a.e = tmbVar;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class m implements imb.a<vk4> {
+    public class m implements nmb.a<vk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye2 a;
@@ -847,18 +847,18 @@ public abstract class ye2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super vk4> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super vk4> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ombVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, tmbVar) != null) {
                 return;
             }
-            this.a.f = ombVar;
+            this.a.f = tmbVar;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class n implements imb.a<tk4> {
+    public class n implements nmb.a<tk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye2 a;
@@ -882,18 +882,18 @@ public abstract class ye2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super tk4> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super tk4> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ombVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, tmbVar) != null) {
                 return;
             }
-            this.a.g = ombVar;
+            this.a.g = tmbVar;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class o implements imb.a<zk4> {
+    public class o implements nmb.a<zk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye2 a;
@@ -917,13 +917,13 @@ public abstract class ye2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super zk4> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super zk4> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ombVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, tmbVar) != null) {
                 return;
             }
-            this.a.h = ombVar;
+            this.a.h = tmbVar;
         }
     }
 
@@ -1841,10 +1841,10 @@ public abstract class ye2 extends cf2 {
     }
 
     public final void q0(tk4 tk4Var) {
-        omb<? super tk4> ombVar;
+        tmb<? super tk4> tmbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048602, this, tk4Var) == null) && (ombVar = this.g) != null) {
-            ombVar.onNext(tk4Var);
+        if ((interceptable == null || interceptable.invokeL(1048602, this, tk4Var) == null) && (tmbVar = this.g) != null) {
+            tmbVar.onNext(tk4Var);
             this.g.onCompleted();
         }
     }
@@ -2064,22 +2064,22 @@ public abstract class ye2 extends cf2 {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.i.f()) {
-                arrayList.add(imb.a(new k(this)));
+                arrayList.add(nmb.a(new k(this)));
             }
             if (this.i.h()) {
-                arrayList.add(imb.a(new l(this)));
+                arrayList.add(nmb.a(new l(this)));
             }
             if (this.i.e()) {
-                arrayList.add(imb.a(new m(this)));
+                arrayList.add(nmb.a(new m(this)));
             }
             if (this.i.d()) {
-                arrayList.add(imb.a(new n(this)));
+                arrayList.add(nmb.a(new n(this)));
             }
             if (this.i.b()) {
-                arrayList.add(imb.a(new o(this)));
+                arrayList.add(nmb.a(new o(this)));
             }
             if (!arrayList.isEmpty()) {
-                imb.k(arrayList).w(this.B);
+                nmb.k(arrayList).w(this.B);
             }
         }
     }

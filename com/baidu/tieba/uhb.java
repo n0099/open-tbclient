@@ -1,144 +1,185 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cgb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
+import com.yy.transvod.player.common.AVframe;
 import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaSample;
 import java.nio.ByteBuffer;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public abstract class uhb extends ohb implements cgb.a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String n = "uhb";
+public final class uhb extends thb {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cgb l;
-    public ConcurrentLinkedQueueX<ByteBuffer> m;
+    public AtomicBoolean l;
+    public MediaFormat m;
+    public long n;
+    public long o;
+    public boolean p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948212410, "Lcom/baidu/tieba/uhb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948212410, "Lcom/baidu/tieba/uhb;");
-        }
-    }
-
-    @Override // com.baidu.tieba.cgb.a
-    public void onPause() {
+    @Override // com.baidu.tieba.thb
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public abstract void y();
-
-    public uhb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.m = new ConcurrentLinkedQueueX<>();
-        this.l = new lgb(n);
-    }
-
-    public uhb(boolean z) {
+    public uhb(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = new ConcurrentLinkedQueueX<>();
-        if (z) {
-            this.l = new kgb(n);
-        } else {
-            this.l = new lgb(n);
-        }
+        this.l = new AtomicBoolean(false);
+        this.m = null;
+        this.n = -1L;
+        this.o = -1L;
+        this.p = false;
+        this.b = i;
     }
 
+    @Override // com.baidu.tieba.rhb
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TLog.g(this, "ThreadFilter.setup enter.");
-            this.l.b(this);
-            this.l.start();
-            TLog.g(this, "ThreadFilter.setup leave.");
+            TLog.g(this, "MediaInputFilter.setup enter");
+            this.l.set(true);
+            this.j = false;
         }
     }
 
-    @Override // com.baidu.tieba.cgb.a
-    public void onResume() {
+    @Override // com.baidu.tieba.thb
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TLog.g(this, "ThreadFilter.onResume enter.");
-            if (!this.f.isEmpty()) {
-                this.l.f(2102);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TLog.g(this, "MediaInputFilter.stop enter");
+            this.n = -1L;
+            this.o = -1L;
+            this.m = null;
+            this.p = false;
+            this.l.set(false);
+        }
+    }
+
+    @Override // com.baidu.tieba.thb, com.baidu.tieba.rhb
+    public void d(String str, Object obj, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !this.j) {
+            synchronized (this.k) {
+                if (this.d != null) {
+                    this.d.d("setFormat", (MediaFormat) obj, i, true);
+                }
             }
-            TLog.g(this, "ThreadFilter.onResume leave.");
+            this.j = true;
         }
     }
 
-    public void onStop() {
+    /* JADX WARN: Removed duplicated region for block: B:96:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.thb, com.baidu.tieba.rhb
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void f(MediaSample mediaSample) {
+        int g;
+        MediaFormat mediaFormat;
+        ByteBuffer byteBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TLog.l(this, "ThreadFilter.onStop mFreeQueue.size() = " + this.m.getElementCount());
-        }
-    }
-
-    @Override // com.baidu.tieba.ohb
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TLog.g(this, "ThreadFilter.release enter.");
-            this.l.c();
-            TLog.g(this, "ThreadFilter.release leave.");
-        }
-    }
-
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 2102) {
-            if (this.e.g() == 6) {
-                y();
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample) == null) {
+            if (this.e.g() != 9) {
+                if (!this.l.get()) {
+                    TLog.g(this, "render processAVFrame error");
+                    return;
+                }
+                if (mediaSample.f && mediaSample.g != null) {
+                    TLog.g(this, "got bForVideoCodecConfigfOnly, playTaskId=" + mediaSample.g.e);
+                }
+                boolean z = false;
+                if (mediaSample.G && mediaSample.d && !this.p) {
+                    this.p = true;
+                    aib aibVar = (aib) this.d;
+                    if (aibVar != null) {
+                        aibVar.y();
+                    }
+                    TLog.g(this, "MediaInputFilter forceToSoftDecode");
+                    z = true;
+                }
+                ByteBuffer byteBuffer2 = null;
+                MediaFormat mediaFormat2 = null;
+                byteBuffer2 = null;
+                if (mediaSample.c) {
+                    AVframe aVframe = mediaSample.g;
+                    int i = aVframe.f;
+                    if (i != this.o) {
+                        this.o = i;
+                        if (mhb.i(i)) {
+                            mediaFormat2 = mhb.a(aVframe);
+                            this.j = true;
+                        }
+                        MediaFormat mediaFormat3 = this.m;
+                        if (mediaFormat3 == null || !mediaFormat3.equals(mediaFormat2)) {
+                            this.m = mediaFormat2;
+                            synchronized (this.k) {
+                                if (this.d != null) {
+                                    this.d.d("setFormat", mediaFormat2, aVframe.e, true);
+                                    TLog.g(this, "MediaInputFilter audioConfig taskId " + aVframe.e + " netCodec " + aVframe.f);
+                                }
+                            }
+                        }
+                        synchronized (this.k) {
+                            if (this.d != null) {
+                                this.d.f(mediaSample);
+                            }
+                        }
+                        return;
+                    }
+                }
+                if (!mediaSample.c && (mediaSample.g.f != this.n || z)) {
+                    AVframe aVframe2 = mediaSample.g;
+                    if (aVframe2.f == 2000) {
+                        if (aVframe2.a && !aVframe2.b) {
+                            byteBuffer = ByteBuffer.wrap(aVframe2.q);
+                        } else {
+                            byteBuffer = null;
+                        }
+                        mediaFormat = mhb.b((int) aVframe2.j, (int) aVframe2.k, byteBuffer, true);
+                        this.n = aVframe2.f;
+                    } else {
+                        mediaFormat = null;
+                    }
+                    if (aVframe2.f == 2002) {
+                        if (aVframe2.a && !aVframe2.b) {
+                            byteBuffer2 = ByteBuffer.wrap(aVframe2.q);
+                        }
+                        mediaFormat = mhb.c((int) aVframe2.j, (int) aVframe2.k, byteBuffer2, true);
+                        this.n = aVframe2.f;
+                    }
+                    synchronized (this.k) {
+                        if (this.d != null) {
+                            this.d.b(aVframe2.f);
+                            this.d.d("setFormat", mediaFormat, aVframe2.e, true);
+                            TLog.g(this, "MediaInputFilter videoConfig taskId " + aVframe2.e + " netCodec " + aVframe2.f);
+                        }
+                    }
+                }
+                synchronized (this.k) {
+                }
+            } else {
+                mediaSample.g.a();
+                TLog.c(this, "fatal error, ignore all frames. mCurrentState:" + ogb.a[g]);
             }
-            this.l.g(2102);
-            TLog.l(this, String.format("player is not running. mCurrentState:%s", jgb.a[this.e.g()]));
         }
     }
 }

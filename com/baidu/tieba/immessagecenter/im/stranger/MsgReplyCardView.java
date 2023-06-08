@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.mi8;
-import com.baidu.tieba.n68;
+import com.baidu.tieba.p68;
+import com.baidu.tieba.pi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class MsgReplyCardView extends n68 {
+public class MsgReplyCardView extends p68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout H;
@@ -109,7 +109,7 @@ public class MsgReplyCardView extends n68 {
         return (String) invokeI.objValue;
     }
 
-    public final String n0(mi8.a aVar, String str) {
+    public final String n0(pi8.a aVar, String str) {
         InterceptResult invokeLL;
         String p0;
         Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class MsgReplyCardView extends n68 {
         return (String) invokeLL.objValue;
     }
 
-    public final String o0(mi8.a aVar, String str) {
+    public final String o0(pi8.a aVar, String str) {
         InterceptResult invokeLL;
         String string;
         String p0;
@@ -167,7 +167,7 @@ public class MsgReplyCardView extends n68 {
         if ((interceptable != null && interceptable.invokeLLL(1048580, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        mi8.a a2 = mi8.a(chatMessage.getContent());
+        pi8.a a2 = pi8.a(chatMessage.getContent());
         String valueOf = String.valueOf(chatMessage.getUserId());
         this.I.setText(o0(a2, valueOf));
         this.J.setText(a2.b);

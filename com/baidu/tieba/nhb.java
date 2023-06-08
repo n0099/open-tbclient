@@ -1,249 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.core.TransVodProxy;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import com.yy.transvod.player.mediafilter.MediaCodecFilter;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+@TargetApi(16)
 /* loaded from: classes7.dex */
-public class nhb {
+public final class nhb extends MediaCodecFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ygb a;
-    public xgb b;
-    public List<ohb> c;
-    public List<ohb> d;
-    public AtomicInteger e;
-    public WeakReference<TransVodProxy> f;
-    public AtomicBoolean g;
-    public AtomicBoolean h;
-    public long i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948003873, "Lcom/baidu/tieba/nhb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948003873, "Lcom/baidu/tieba/nhb;");
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
-
-    public nhb() {
+    public nhb(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = new xgb();
-        this.c = new LinkedList();
-        this.d = new LinkedList();
-        this.e = new AtomicInteger(4);
-        this.f = null;
-        this.g = new AtomicBoolean(false);
-        this.h = new AtomicBoolean(false);
-        this.i = 0L;
+        this.b = i;
     }
 
-    public void c() {
-        ohb ohbVar;
+    @Override // com.yy.transvod.player.mediafilter.MediaCodecFilter
+    public int N(long j) {
+        InterceptResult invokeJ;
+        MediaInfo mediaInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Iterator<ohb> it = this.c.iterator();
-            ohb ohbVar2 = null;
-            if (it.hasNext()) {
-                ohbVar = it.next();
-            } else {
-                ohbVar = null;
-            }
-            while (it.hasNext()) {
-                ohb next = it.next();
-                ohbVar.k(next);
-                ohbVar = next;
-            }
-            Iterator<ohb> it2 = this.d.iterator();
-            if (it2.hasNext()) {
-                ohbVar2 = it2.next();
-            }
-            while (it2.hasNext()) {
-                ohb next2 = it2.next();
-                ohbVar2.k(next2);
-                ohbVar2 = next2;
-            }
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.set(6);
-            for (ohb ohbVar : this.c) {
-                ohbVar.a();
-            }
-            for (ohb ohbVar2 : this.d) {
-                ohbVar2.a();
-            }
-            this.g.set(true);
-            this.h.set(true);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.e.set(1);
-            for (ohb ohbVar : this.c) {
-                ohbVar.x();
-            }
-            for (ohb ohbVar2 : this.d) {
-                ohbVar2.x();
-            }
-            this.g.set(false);
-            this.h.set(false);
-            ygb ygbVar = this.a;
-            if (ygbVar != null) {
-                ygbVar.f();
-            }
-            xgb xgbVar = this.b;
-            if (xgbVar != null) {
-                xgbVar.h();
-            }
-        }
-    }
-
-    public nhb a(int i, ohb ohbVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, ohbVar)) == null) {
-            ohbVar.t(i);
-            ohbVar.q(this);
-            if (i == 0) {
-                this.c.add(ohbVar);
-            } else if (i == 1) {
-                this.d.add(ohbVar);
-            }
-            return this;
-        }
-        return (nhb) invokeIL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.clear();
-            this.d.clear();
-        }
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.longValue;
-    }
-
-    public final ygb f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (ygb) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e.get();
-        }
-        return invokeV.intValue;
-    }
-
-    public final xgb h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (xgb) invokeV.objValue;
-    }
-
-    public final TransVodProxy i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f.get();
-        }
-        return (TransVodProxy) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (ohb ohbVar : this.c) {
-                ohbVar.l();
-            }
-            for (ohb ohbVar2 : this.d) {
-                ohbVar2.l();
-            }
-        }
-    }
-
-    public void k(Handler handler, TransVodProxy transVodProxy, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, handler, transVodProxy, context) == null) {
-            if (handler != null) {
-                if (transVodProxy != null) {
-                    this.f = new WeakReference<>(transVodProxy);
-                    this.a = new ygb(this.f.get(), context);
-                    this.b.b(this.f.get());
-                    return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            int dequeueOutputBuffer = this.B.dequeueOutputBuffer(this.C, j);
+            if (dequeueOutputBuffer >= 0) {
+                ByteBuffer byteBuffer = this.E[dequeueOutputBuffer];
+                int remaining = byteBuffer.remaining();
+                MediaCodec.BufferInfo bufferInfo = this.C;
+                if (remaining != bufferInfo.size) {
+                    Buffer position = byteBuffer.position(bufferInfo.offset);
+                    MediaCodec.BufferInfo bufferInfo2 = this.C;
+                    position.limit(bufferInfo2.offset + bufferInfo2.size);
                 }
-                throw new RuntimeException("proxy MUST not be null.");
+                MediaSample c = this.r.c();
+                if (c != null && (mediaInfo = c.i) != null) {
+                    mediaInfo.c(this.q);
+                    c.i.k = byteBuffer;
+                    this.u++;
+                    dhb.c(c, 6);
+                    synchronized (this.k) {
+                        if (this.d != null) {
+                            this.d.f(c);
+                        }
+                    }
+                    this.B.releaseOutputBuffer(dequeueOutputBuffer, false);
+                } else {
+                    return -1;
+                }
+            } else if (dequeueOutputBuffer == -3) {
+                this.E = this.B.getOutputBuffers();
+                TLog.g(this, "output buffers have been changed.");
+            } else if (dequeueOutputBuffer == -2) {
+                MediaFormat outputFormat = this.B.getOutputFormat();
+                TLog.g(this, "output format has been changed from " + this.p + " to " + outputFormat);
+                this.p = outputFormat;
+                MediaInfo mediaInfo2 = this.q;
+                mediaInfo2.a = 1;
+                mediaInfo2.j = outputFormat.getInteger("sample-rate");
+                this.q.h = this.p.getInteger("channel-count");
+                MediaInfo mediaInfo3 = this.q;
+                mediaInfo3.f = (mediaInfo3.h << 1) * 2048;
+                synchronized (this.k) {
+                    if (this.d != null) {
+                        this.d.d("setFormat", outputFormat, this.a, false);
+                    }
+                }
             }
-            throw new RuntimeException("handler MUST not be null.");
+            if (dequeueOutputBuffer < 0) {
+                return 0;
+            }
+            return 1;
         }
+        return invokeJ.intValue;
     }
 
-    public void l(long j) {
+    @Override // com.baidu.tieba.qhb
+    public void z(MediaFormat mediaFormat, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.i = j;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaFormat, i) == null) {
+            this.w = false;
+            this.r.e(true);
+            this.p = mediaFormat;
+            if (mediaFormat != null) {
+                MediaCodec mediaCodec = this.B;
+                if (mediaCodec != null) {
+                    mediaCodec.stop();
+                    this.B.release();
+                    this.B = null;
+                }
+                this.a = i;
+                this.B = J(null, mediaFormat);
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jc8;
+import com.baidu.tieba.lc8;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -133,7 +133,7 @@ public class GroupChatKeyboardLayout extends ViewGroup {
         vi.j(getContext());
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, jc8.GroupChatKeyboardLayout, 0, 0);
+            typedArray = context.obtainStyledAttributes(attributeSet, lc8.GroupChatKeyboardLayout, 0, 0);
             this.g = typedArray.getResourceId(1, -1);
             this.h = typedArray.getResourceId(0, -1);
         } finally {

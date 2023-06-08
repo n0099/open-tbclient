@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zy extends wx implements oy<e35>, py {
+public class zy extends wx implements oy<g35>, py {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,14 +108,14 @@ public class zy extends wx implements oy<e35>, py {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: o */
-    public void a(e35 e35Var) {
+    public void a(g35 g35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, e35Var) == null) {
-            if (e35Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, g35Var) == null) {
+            if (g35Var == null) {
                 this.e.setVisibility(8);
                 return;
             }
-            this.e.setData(e35Var);
+            this.e.setData(g35Var);
             this.e.setFirstRowSingleColumn(true);
             this.e.setVisibility(0);
         }
@@ -215,15 +215,15 @@ public class zy extends wx implements oy<e35>, py {
         this.f = align;
     }
 
-    public void m(f15 f15Var) {
+    public void m(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, f15Var) == null) && f15Var != null && f15Var.getNegFeedBackData() != null) {
-            if (f15Var.getNegFeedBackData().h() <= 0 && f15Var.getThreadData() != null) {
-                if (!f15Var.showCardBottomOpWeight() && !f15Var.isFromFrs()) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, h15Var) == null) && h15Var != null && h15Var.getNegFeedBackData() != null) {
+            if (h15Var.getNegFeedBackData().h() <= 0 && h15Var.getThreadData() != null) {
+                if (!h15Var.showCardBottomOpWeight() && !h15Var.isFromFrs()) {
                     l(Align.ALIGN_RIGHT_BOTTOM);
-                } else if (f15Var.isSupportTop()) {
+                } else if (h15Var.isSupportTop()) {
                     t(UtilHelper.getDimenPixelSize(R.dimen.tbds50));
-                } else if (f15Var.isSupportBottom()) {
+                } else if (h15Var.isSupportBottom()) {
                     jz jzVar = this.d;
                     if (jzVar != null) {
                         jzVar.o(this);
@@ -234,7 +234,7 @@ public class zy extends wx implements oy<e35>, py {
             } else if (this.g) {
                 k();
             } else {
-                p(f15Var);
+                p(h15Var);
             }
         }
     }
@@ -268,10 +268,10 @@ public class zy extends wx implements oy<e35>, py {
         }
     }
 
-    public final void p(f15 f15Var) {
+    public final void p(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f15Var) == null) {
-            if (f15Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h15Var) == null) {
+            if (h15Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);

@@ -1,36 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.imb;
+import com.baidu.tieba.nmb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleDelayedProducer;
+import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes7.dex */
-public final class nnb<T> implements imb.b<Boolean, T> {
+public final class nnb<T> implements nmb.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final anb<? super T, Boolean> a;
-    public final boolean b;
+    public final nmb<T> a;
+    public final fnb<? super T, Boolean> b;
 
     /* loaded from: classes7.dex */
-    public class a extends omb<T> {
+    public static final class a<T> extends tmb<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public boolean f;
-        public final /* synthetic */ SingleDelayedProducer g;
-        public final /* synthetic */ omb h;
-        public final /* synthetic */ nnb i;
+        public final tmb<? super T> e;
+        public final fnb<? super T, Boolean> f;
+        public boolean g;
 
-        public a(nnb nnbVar, SingleDelayedProducer singleDelayedProducer, omb ombVar) {
+        public a(tmb<? super T> tmbVar, fnb<? super T, Boolean> fnbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nnbVar, singleDelayedProducer, ombVar};
+                Object[] objArr = {tmbVar, fnbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,62 +37,67 @@ public final class nnb<T> implements imb.b<Boolean, T> {
                     return;
                 }
             }
-            this.i = nnbVar;
-            this.g = singleDelayedProducer;
-            this.h = ombVar;
+            this.e = tmbVar;
+            this.f = fnbVar;
+            e(0L);
         }
 
-        @Override // com.baidu.tieba.jmb
-        public void onCompleted() {
+        @Override // com.baidu.tieba.tmb
+        public void f(pmb pmbVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
-                this.f = true;
-                if (this.e) {
-                    this.g.setValue(Boolean.FALSE);
-                } else {
-                    this.g.setValue(Boolean.valueOf(this.i.b));
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, pmbVar) == null) {
+                super.f(pmbVar);
+                this.e.f(pmbVar);
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f) {
-                    this.f = true;
-                    this.h.onError(th);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (this.g) {
+                    xqb.j(th);
                     return;
                 }
-                sqb.j(th);
+                this.g = true;
+                this.e.onError(th);
             }
         }
 
-        @Override // com.baidu.tieba.jmb
-        public void onNext(T t) {
+        @Override // com.baidu.tieba.omb
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
                 return;
             }
-            this.e = true;
-            try {
-                if (this.i.a.call(t).booleanValue()) {
-                    this.f = true;
-                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
+            this.e.onCompleted();
+        }
+
+        @Override // com.baidu.tieba.omb
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                try {
+                    if (this.f.call(t).booleanValue()) {
+                        this.e.onNext(t);
+                    } else {
+                        e(1L);
+                    }
+                } catch (Throwable th) {
+                    zmb.e(th);
                     unsubscribe();
+                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
                 }
-            } catch (Throwable th) {
-                umb.g(th, this, t);
             }
         }
     }
 
-    public nnb(anb<? super T, Boolean> anbVar, boolean z) {
+    public nnb(nmb<T> nmbVar, fnb<? super T, Boolean> fnbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {anbVar, Boolean.valueOf(z)};
+            Object[] objArr = {nmbVar, fnbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,22 +107,21 @@ public final class nnb<T> implements imb.b<Boolean, T> {
                 return;
             }
         }
-        this.a = anbVar;
-        this.b = z;
+        this.a = nmbVar;
+        this.b = fnbVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.imb.b, com.baidu.tieba.anb
-    public omb<? super T> call(omb<? super Boolean> ombVar) {
-        InterceptResult invokeL;
+    public void call(tmb<? super T> tmbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ombVar)) == null) {
-            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(ombVar);
-            a aVar = new a(this, singleDelayedProducer, ombVar);
-            ombVar.b(aVar);
-            ombVar.f(singleDelayedProducer);
-            return aVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tmbVar) == null) {
+            a aVar = new a(tmbVar, this.b);
+            tmbVar.b(aVar);
+            this.a.F(aVar);
         }
-        return (omb) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((tmb) ((tmb) obj));
     }
 }

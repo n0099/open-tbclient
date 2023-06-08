@@ -35,18 +35,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 /* loaded from: classes6.dex */
-public class ky4 implements sl6 {
+public class ky4 implements ul6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        rl6.a(this, webView, str, jSONObject);
+        tl6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void onDestroy() {
-        rl6.b(this);
+        tl6.b(this);
     }
 
     public ky4() {
@@ -66,7 +66,7 @@ public class ky4 implements sl6 {
     public static /* synthetic */ void l(WebView webView) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH, Float.valueOf(RefreshRateManager.getInstance().getRefreshRate()));
-        tl6.a().d(webView, "deviceRefreshRate", hashMap);
+        vl6.a().d(webView, "deviceRefreshRate", hashMap);
     }
 
     public final void c(String str) {
@@ -80,7 +80,7 @@ public class ky4 implements sl6 {
         }
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class ky4 implements sl6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public wy9 d(WebView webView, String str, String str2) {
+    public bz9 d(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
@@ -124,62 +124,62 @@ public class ky4 implements sl6 {
             } else {
                 SensorGyroscopeManager.getSensor().stop();
             }
-            return new wy9();
+            return new bz9();
         }
-        return (wy9) invokeLLL.objValue;
+        return (bz9) invokeLLL.objValue;
     }
 
-    public wy9 e(WebView webView, HashMap<String, Object> hashMap) {
+    public bz9 e(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("x", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Y));
                 jSONObject.put("y", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_X));
                 jSONObject.put("z", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Z));
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 f(WebView webView, HashMap<String, Object> hashMap) {
+    public bz9 f(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("refreshRate", hashMap.get(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH));
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 g(final WebView webView, String str) {
+    public bz9 g(final WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
             if (TextUtils.equals(str, "1")) {
                 RefreshRateManager.getInstance().start();
-                kl6.a().c(new Runnable() { // from class: com.baidu.tieba.dy4
+                ml6.a().c(new Runnable() { // from class: com.baidu.tieba.dy4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -194,12 +194,12 @@ public class ky4 implements sl6 {
             } else {
                 RefreshRateManager.getInstance().stop();
             }
-            return new wy9();
+            return new bz9();
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 h(WebView webView) {
+    public bz9 h(WebView webView) {
         InterceptResult invokeL;
         String str;
         String str2;
@@ -214,7 +214,7 @@ public class ky4 implements sl6 {
         String str10;
         String str11;
         String str12;
-        wy9 wy9Var;
+        bz9 bz9Var;
         String clientId;
         String version;
         String str13;
@@ -224,7 +224,7 @@ public class ky4 implements sl6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, webView)) == null) {
             String str15 = "model";
-            wy9 wy9Var2 = new wy9();
+            bz9 bz9Var2 = new bz9();
             StringBuilder sb2 = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb2.append("imei=");
@@ -400,9 +400,9 @@ public class ky4 implements sl6 {
                                     jSONObject2.put("baiduId", str8);
                                     jSONObject2.put("publicParams", jSONObject);
                                     jSONObject2.put("sign", c);
-                                    wy9Var = wy9Var2;
-                                    wy9Var.o(jSONObject2.toString());
-                                    return wy9Var;
+                                    bz9Var = bz9Var2;
+                                    bz9Var.o(jSONObject2.toString());
+                                    return bz9Var;
                                 }
                                 try {
                                     String valueOf2 = String.valueOf(ScheduleStrategy.getDeviceScore());
@@ -410,8 +410,8 @@ public class ky4 implements sl6 {
                                         String data = TbSingleton.getInstance().getData();
                                         String framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
                                         String naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
-                                        int i = a85.f;
-                                        String e6 = a85.e();
+                                        int i = c85.f;
+                                        String e6 = c85.e();
                                         String from = TbadkCoreApplication.getFrom();
                                         String legoLibVersion = TbConfig.getLegoLibVersion();
                                         String localMacAddress2 = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
@@ -429,7 +429,7 @@ public class ky4 implements sl6 {
                                             String a = r05.a(TbadkCoreApplication.getCurrentAccountInfo());
                                             String subappType = TbConfig.getSubappType();
                                             String tbs = TbadkCoreApplication.getInst().getTbs();
-                                            String b = zx5.b();
+                                            String b = by5.b();
                                             String zid2 = TbadkCoreApplication.getInst().getZid();
                                             jSONObject.put("clientType", "2");
                                             str4 = "clientType";
@@ -513,9 +513,9 @@ public class ky4 implements sl6 {
                                                                 jSONObject22.put("baiduId", str8);
                                                                 jSONObject22.put("publicParams", jSONObject);
                                                                 jSONObject22.put("sign", c2);
-                                                                wy9Var = wy9Var2;
-                                                                wy9Var.o(jSONObject22.toString());
-                                                                return wy9Var;
+                                                                bz9Var = bz9Var2;
+                                                                bz9Var.o(jSONObject22.toString());
+                                                                return bz9Var;
                                                             }
                                                         } catch (JSONException e9) {
                                                             e = e9;
@@ -550,9 +550,9 @@ public class ky4 implements sl6 {
                                                             jSONObject222.put("baiduId", str8);
                                                             jSONObject222.put("publicParams", jSONObject);
                                                             jSONObject222.put("sign", c22);
-                                                            wy9Var = wy9Var2;
-                                                            wy9Var.o(jSONObject222.toString());
-                                                            return wy9Var;
+                                                            bz9Var = bz9Var2;
+                                                            bz9Var.o(jSONObject222.toString());
+                                                            return bz9Var;
                                                         }
                                                     } catch (JSONException e10) {
                                                         e = e10;
@@ -588,9 +588,9 @@ public class ky4 implements sl6 {
                                                         jSONObject2222.put("baiduId", str8);
                                                         jSONObject2222.put("publicParams", jSONObject);
                                                         jSONObject2222.put("sign", c222);
-                                                        wy9Var = wy9Var2;
-                                                        wy9Var.o(jSONObject2222.toString());
-                                                        return wy9Var;
+                                                        bz9Var = bz9Var2;
+                                                        bz9Var.o(jSONObject2222.toString());
+                                                        return bz9Var;
                                                     }
                                                 } catch (JSONException e11) {
                                                     e = e11;
@@ -628,9 +628,9 @@ public class ky4 implements sl6 {
                                                     jSONObject22222.put("baiduId", str8);
                                                     jSONObject22222.put("publicParams", jSONObject);
                                                     jSONObject22222.put("sign", c2222);
-                                                    wy9Var = wy9Var2;
-                                                    wy9Var.o(jSONObject22222.toString());
-                                                    return wy9Var;
+                                                    bz9Var = bz9Var2;
+                                                    bz9Var.o(jSONObject22222.toString());
+                                                    return bz9Var;
                                                 }
                                             } catch (JSONException e12) {
                                                 e = e12;
@@ -669,9 +669,9 @@ public class ky4 implements sl6 {
                                                 jSONObject222222.put("baiduId", str8);
                                                 jSONObject222222.put("publicParams", jSONObject);
                                                 jSONObject222222.put("sign", c22222);
-                                                wy9Var = wy9Var2;
-                                                wy9Var.o(jSONObject222222.toString());
-                                                return wy9Var;
+                                                bz9Var = bz9Var2;
+                                                bz9Var.o(jSONObject222222.toString());
+                                                return bz9Var;
                                             }
                                         } catch (JSONException e13) {
                                             e = e13;
@@ -720,9 +720,9 @@ public class ky4 implements sl6 {
                                     jSONObject2222222.put("baiduId", str8);
                                     jSONObject2222222.put("publicParams", jSONObject);
                                     jSONObject2222222.put("sign", c222222);
-                                    wy9Var = wy9Var2;
-                                    wy9Var.o(jSONObject2222222.toString());
-                                    return wy9Var;
+                                    bz9Var = bz9Var2;
+                                    bz9Var.o(jSONObject2222222.toString());
+                                    return bz9Var;
                                 }
                             } catch (JSONException e16) {
                                 e = e16;
@@ -775,17 +775,17 @@ public class ky4 implements sl6 {
                         jSONObject22222222.put("baiduId", str8);
                         jSONObject22222222.put("publicParams", jSONObject);
                         jSONObject22222222.put("sign", c2222222);
-                        wy9Var = wy9Var2;
-                        wy9Var.o(jSONObject22222222.toString());
-                        return wy9Var;
+                        bz9Var = bz9Var2;
+                        bz9Var.o(jSONObject22222222.toString());
+                        return bz9Var;
                     }
-                    wy9Var.o(jSONObject22222222.toString());
-                    return wy9Var;
+                    bz9Var.o(jSONObject22222222.toString());
+                    return bz9Var;
                 } catch (JSONException e19) {
                     e = e19;
                     BdLog.e(e);
-                    wy9Var.o("");
-                    return wy9Var;
+                    bz9Var.o("");
+                    return bz9Var;
                 }
                 JSONObject jSONObject222222222 = new JSONObject();
                 jSONObject222222222.put("imei", str6);
@@ -813,63 +813,63 @@ public class ky4 implements sl6 {
                 jSONObject222222222.put("baiduId", str8);
                 jSONObject222222222.put("publicParams", jSONObject);
                 jSONObject222222222.put("sign", c2222222);
-                wy9Var = wy9Var2;
+                bz9Var = bz9Var2;
             } catch (JSONException e20) {
                 e = e20;
-                wy9Var = wy9Var2;
+                bz9Var = bz9Var2;
             }
             StringBuilder sb322222222 = sb;
             sb322222222.append("tiebaclient!!!");
             String c22222222 = cj.c(sb322222222.toString());
         } else {
-            return (wy9) invokeL.objValue;
+            return (bz9) invokeL.objValue;
         }
     }
 
-    public wy9 i(WebView webView) {
+    public bz9 i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("hdid", TbadkCoreApplication.getInst().getHdid());
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 k(WebView webView) {
+    public bz9 k(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, webView)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             String zid = TbadkCoreApplication.getInst().getZid();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("zid", zid);
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 j(WebView webView) {
+    public bz9 j(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, webView)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -903,22 +903,22 @@ public class ky4 implements sl6 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                wy9Var.o("");
-                return wy9Var;
+                bz9Var.o("");
+                return bz9Var;
             }
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
+    public bz9 m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{webView, Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -928,13 +928,13 @@ public class ky4 implements sl6 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                m5a.h(build);
-                m5a.g(build);
+                r5a.h(build);
+                r5a.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return wy9Var;
+            return bz9Var;
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 }

@@ -1,71 +1,130 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jy5 {
+public final class jy5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WebView a;
-    public String b;
-    public int c;
-    public long d;
+    public final ArrayList<iy5> a;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947899651, "Lcom/baidu/tieba/jy5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947899651, "Lcom/baidu/tieba/jy5;");
+                return;
+            }
+        }
+        b = new a(null);
+    }
+
+    public /* synthetic */ jy5(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    @JvmStatic
+    public static final jy5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a() : (jy5) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a extends WebViewClient {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ jy5 b;
 
-        public a(jy5 jy5Var, b bVar) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jy5Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final jy5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (jy5) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final jy5 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-674195451, "Lcom/baidu/tieba/jy5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-674195451, "Lcom/baidu/tieba/jy5$b;");
                     return;
                 }
             }
-            this.b = jy5Var;
-            this.a = bVar;
+            a = new b();
+            b = new jy5(null);
         }
 
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
+        public b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                if (str.startsWith("http://notify/ready")) {
-                    this.b.c = 2;
-                    b bVar = this.a;
-                    if (bVar != null) {
-                        bVar.a();
-                        return true;
-                    }
-                    return true;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
-                return false;
             }
-            return invokeLL.booleanValue;
+        }
+
+        public final jy5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (jy5) invokeV.objValue;
         }
     }
 
@@ -73,48 +132,54 @@ public class jy5 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = 0;
-        this.d = 0L;
-        this.d = System.currentTimeMillis();
+        this.a = new ArrayList<>();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public final void a(iy5 provider) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == 2) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, provider) == null) {
+            Intrinsics.checkNotNullParameter(provider, "provider");
+            if (this.a.contains(provider)) {
+                return;
             }
-            return false;
+            this.a.add(provider);
         }
-        return invokeV.booleanValue;
     }
 
-    public void b(b bVar) {
-        WebView webView;
+    public final void d(iy5 provider) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) != null) || (webView = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, provider) == null) {
+            Intrinsics.checkNotNullParameter(provider, "provider");
+            this.a.remove(provider);
         }
-        webView.setWebViewClient(new a(this, bVar));
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.b);
-        if (ui.isEmpty(Uri.parse(this.b).getQuery())) {
-            sb.append("?");
-        } else {
-            sb.append("&");
+    }
+
+    public final String c(String viewId, String str) {
+        InterceptResult invokeLL;
+        String c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewId, str)) == null) {
+            Intrinsics.checkNotNullParameter(viewId, "viewId");
+            for (iy5 iy5Var : this.a) {
+                if (iy5Var.a().contains(viewId)) {
+                    ky5 b2 = iy5Var.b(viewId, str);
+                    if (b2 == null || (c = b2.c()) == null) {
+                        return ky5.f.a().c();
+                    }
+                    return c;
+                }
+            }
+            return ky5.f.a().c();
         }
-        sb.append("page_lifecycle_type=preheat_enabled");
-        this.a.loadUrl(sb.toString());
-        this.c = 1;
+        return (String) invokeLL.objValue;
     }
 }

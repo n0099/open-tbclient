@@ -37,23 +37,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ny4 implements sl6 {
+public class ny4 implements ul6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final dz4 a;
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        rl6.a(this, webView, str, jSONObject);
+        tl6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void onDestroy() {
-        rl6.b(this);
+        tl6.b(this);
     }
 
     /* loaded from: classes7.dex */
-    public class a extends gx5<String> {
+    public class a extends ix5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -77,12 +77,12 @@ public class ny4 implements sl6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gx5
+        @Override // com.baidu.tieba.ix5
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                dz9.h(this.a);
+                iz9.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -90,7 +90,7 @@ public class ny4 implements sl6 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements kw5<String> {
+    public class b implements mw5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -111,7 +111,7 @@ public class ny4 implements sl6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kw5
+        @Override // com.baidu.tieba.mw5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class ny4 implements sl6 {
     }
 
     /* loaded from: classes7.dex */
-    public class c extends gx5 {
+    public class c extends ix5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -142,12 +142,12 @@ public class ny4 implements sl6 {
             }
         }
 
-        @Override // com.baidu.tieba.gx5
+        @Override // com.baidu.tieba.ix5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dz9.b();
+                iz9.b();
                 return null;
             }
             return invokeV.objValue;
@@ -155,7 +155,7 @@ public class ny4 implements sl6 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements kw5 {
+    public class d implements mw5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,7 +175,7 @@ public class ny4 implements sl6 {
             }
         }
 
-        @Override // com.baidu.tieba.kw5
+        @Override // com.baidu.tieba.mw5
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -235,7 +235,7 @@ public class ny4 implements sl6 {
                         }
                         return netWork.postNetData();
                     } catch (Exception e) {
-                        wq8 hybridLog = HybridLog.getInstance();
+                        zq8 hybridLog = HybridLog.getInstance();
                         hybridLog.b("nativeNetworkProxy", "request Exception:" + e);
                         BdLog.e(e.getMessage());
                         return "";
@@ -256,7 +256,7 @@ public class ny4 implements sl6 {
                 linkedHashMap.put("result", str);
                 linkedHashMap.put("NotificationKey", this.a);
                 if (this.d.get() != null) {
-                    tl6.a().d(this.d.get(), "nativeNetworkProxyResult", linkedHashMap);
+                    vl6.a().d(this.d.get(), "nativeNetworkProxyResult", linkedHashMap);
                 }
             }
         }
@@ -278,7 +278,7 @@ public class ny4 implements sl6 {
         this.a = new dz4();
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -336,62 +336,62 @@ public class ny4 implements sl6 {
         }
     }
 
-    public wy9 d(WebView webView) {
+    public bz9 d(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            wy9 wy9Var = new wy9();
-            kx5.b(new c(this), new d(this));
-            return wy9Var;
+            bz9 bz9Var = new bz9();
+            mx5.b(new c(this), new d(this));
+            return bz9Var;
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 f(WebView webView) {
+    public bz9 f(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
-            wy9 wy9Var = new wy9();
-            wy9Var.o(h());
-            return wy9Var;
+            bz9 bz9Var = new bz9();
+            bz9Var.o(h());
+            return bz9Var;
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 e(WebView webView, String str) {
+    public bz9 e(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            wy9 wy9Var = new wy9();
-            kx5.b(new a(this, str), new b(this));
-            return wy9Var;
+            bz9 bz9Var = new bz9();
+            mx5.b(new a(this, str), new b(this));
+            return bz9Var;
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
     public /* synthetic */ void i(WebView webView, OfflineBridgeData offlineBridgeData) {
         this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
     }
 
-    public wy9 g(WebView webView) {
+    public bz9 g(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             List<String> b2 = kz4.c().b();
             int count = ListUtils.getCount(b2);
             if (count == 0) {
-                wy9Var.o("");
+                bz9Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(b2.get(i));
             }
-            wy9Var.o(jSONArray.toString());
+            bz9Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return wy9Var;
+            return bz9Var;
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
     public final String h() {
@@ -431,11 +431,11 @@ public class ny4 implements sl6 {
         return (String) invokeV.objValue;
     }
 
-    public wy9 j(WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
+    public bz9 j(WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048585, this, webView, str, str2, str3, jSONObject)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             HashMap hashMap = new HashMap();
             if (jSONObject != null) {
                 Iterator<String> keys = jSONObject.keys();
@@ -445,17 +445,17 @@ public class ny4 implements sl6 {
                 }
             }
             new e(str + str2, str3, hashMap, webView).execute(new Object[0]);
-            wy9Var.x(str + str2);
-            return wy9Var;
+            bz9Var.x(str + str2);
+            return bz9Var;
         }
-        return (wy9) invokeLLLLL.objValue;
+        return (bz9) invokeLLLLL.objValue;
     }
 
-    public wy9 m(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
+    public bz9 m(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048588, this, webView, str, str2, str3, jSONObject)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
             offlineBridgeData.url = str;
             offlineBridgeData.type = str2;
@@ -482,62 +482,62 @@ public class ny4 implements sl6 {
                     }
                 }
             });
-            wy9Var.x(str);
-            return wy9Var;
+            bz9Var.x(str);
+            return bz9Var;
         }
-        return (wy9) invokeLLLLL.objValue;
+        return (bz9) invokeLLLLL.objValue;
     }
 
-    public wy9 k(WebView webView, HashMap<String, String> hashMap) {
+    public bz9 k(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             if (hashMap != null && hashMap.get("result") != null) {
-                wy9Var.o(OfflineWebViewHttpResMsg.quote(hashMap.get("result")));
-                wy9Var.x(hashMap.get("NotificationKey"));
+                bz9Var.o(OfflineWebViewHttpResMsg.quote(hashMap.get("result")));
+                bz9Var.x(hashMap.get("NotificationKey"));
             }
-            wy9Var.A(true);
-            return wy9Var;
+            bz9Var.A(true);
+            return bz9Var;
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 n(WebView webView, HashMap<String, String> hashMap) {
+    public bz9 n(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, hashMap)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             if (hashMap != null && hashMap.get("result") != null) {
-                wy9Var.o(hashMap.get("result"));
-                wy9Var.x(hashMap.get("NotificationKey"));
+                bz9Var.o(hashMap.get("result"));
+                bz9Var.x(hashMap.get("NotificationKey"));
             }
-            wy9Var.A(true);
-            return wy9Var;
+            bz9Var.A(true);
+            return bz9Var;
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 o(WebView webView, HashMap hashMap) {
+    public bz9 o(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, webView, hashMap)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             try {
-                wy9Var.o(new JSONArray(hashMap.get("data").toString()).toString());
+                bz9Var.o(new JSONArray(hashMap.get("data").toString()).toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return wy9Var;
+            return bz9Var;
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 l(WebView webView, String str, int i) {
+    public bz9 l(WebView webView, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048587, this, webView, str, i)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -546,8 +546,8 @@ public class ny4 implements sl6 {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return wy9Var;
+            return bz9Var;
         }
-        return (wy9) invokeLLI.objValue;
+        return (bz9) invokeLLI.objValue;
     }
 }

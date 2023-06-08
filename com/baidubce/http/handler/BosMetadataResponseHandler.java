@@ -10,7 +10,7 @@ import com.baidubce.http.BceHttpResponse;
 import com.baidubce.http.Headers;
 import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.services.bos.model.BosResponseMetadata;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BosMetadataResponseHandler implements HttpResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

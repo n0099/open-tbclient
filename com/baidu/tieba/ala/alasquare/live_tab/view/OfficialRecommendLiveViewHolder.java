@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.zb6;
+import com.baidu.tieba.bc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class OfficialRecommendLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zb6 a;
+    public bc6 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OfficialRecommendLiveViewHolder(zb6 zb6Var) {
-        super(zb6Var.h());
+    public OfficialRecommendLiveViewHolder(bc6 bc6Var) {
+        super(bc6Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zb6Var};
+            Object[] objArr = {bc6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class OfficialRecommendLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = zb6Var;
+        this.a = bc6Var;
     }
 }

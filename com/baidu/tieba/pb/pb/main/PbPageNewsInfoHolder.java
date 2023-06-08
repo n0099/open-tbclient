@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d05;
-import com.baidu.tieba.d79;
-import com.baidu.tieba.l35;
+import com.baidu.tieba.g79;
+import com.baidu.tieba.n35;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,18 +42,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public LinearLayout j;
     public ImageView k;
     public TextView l;
-    public l35 m;
-    public l35 n;
-    public l35 o;
+    public n35 m;
+    public n35 n;
+    public n35 o;
     public TbPageContext p;
     public int q;
-    public d79 r;
+    public g79 r;
     public b s;
     public View.OnClickListener t;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(d79 d79Var);
+        void a(g79 g79Var);
     }
 
     /* loaded from: classes7.dex */
@@ -170,18 +170,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(d79 d79Var) {
+    public void g(g79 g79Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, d79Var) != null) || d79Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, g79Var) != null) || g79Var == null) {
             return;
         }
-        this.r = d79Var;
-        l35 l35Var = d79Var.b1;
-        this.m = l35Var;
-        this.n = d79Var.c1;
-        this.o = d79Var.d1;
-        if (l35Var != null) {
-            this.c.N(l35Var.d, 10, false);
+        this.r = g79Var;
+        n35 n35Var = g79Var.b1;
+        this.m = n35Var;
+        this.n = g79Var.c1;
+        this.o = g79Var.d1;
+        if (n35Var != null) {
+            this.c.N(n35Var.d, 10, false);
             this.e.setText(this.m.b);
             this.f.setText(this.m.e);
             this.d.setText(this.m.f);
@@ -190,24 +190,24 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         } else {
             this.b.setVisibility(8);
         }
-        l35 l35Var2 = this.n;
-        if (l35Var2 != null) {
-            this.i.setText(l35Var2.b);
+        n35 n35Var2 = this.n;
+        if (n35Var2 != null) {
+            this.i.setText(n35Var2.b);
             SkinManager.setBackgroundResource(this.h, R.drawable.icon_frs_news);
         } else {
             this.g.setVisibility(8);
             this.i.setVisibility(8);
             this.h.setVisibility(8);
         }
-        l35 l35Var3 = this.o;
-        if (l35Var3 != null) {
-            this.l.setText(l35Var3.b);
+        n35 n35Var3 = this.o;
+        if (n35Var3 != null) {
+            this.l.setText(n35Var3.b);
             SkinManager.setBackgroundResource(this.k, R.drawable.icon_frs_game);
         } else {
             this.j.setVisibility(8);
             this.l.setVisibility(8);
             this.l.setVisibility(8);
         }
-        this.a.setTag(d79Var);
+        this.a.setTag(g79Var);
     }
 }

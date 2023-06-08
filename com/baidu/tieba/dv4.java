@@ -82,7 +82,7 @@ public class dv4 {
                 if (missionInfo != null) {
                     du4 du4Var = new du4(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        j95.e().g(missionInfo);
+                        l95.e().g(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
                         ru4.c().f(du4Var);
                     } else if (du4Var.L()) {

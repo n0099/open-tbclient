@@ -33,10 +33,10 @@ import com.baidu.tieba.lb;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
-import com.baidu.tieba.sg9;
-import com.baidu.tieba.tg9;
+import com.baidu.tieba.vg9;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.vn;
+import com.baidu.tieba.wg9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +71,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public sg9 mCardNullPolymericData;
+    public vg9 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -1110,15 +1110,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new tg9());
+            this.postList.add(new wg9());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            sg9 sg9Var = new sg9();
-            this.mCardNullPolymericData = sg9Var;
-            this.postList.add(sg9Var);
+            vg9 vg9Var = new vg9();
+            this.mCardNullPolymericData = vg9Var;
+            this.postList.add(vg9Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

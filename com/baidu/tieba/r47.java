@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.SocialUiStateKt;
+import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,18 +15,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Unit;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class r47 {
+public final class r47 extends h87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z57 a;
-    public a67 b;
-    public final Function1<z57, Unit> c;
-    public final Function3<Context, z57, a67, Boolean> d;
-    public final Function1<z57, Unit> e;
+    public final b57 c;
+    public d67 d;
+    public d67 e;
+    public String f;
+    public final fa7 g;
+    public c67 h;
+    public final Function1<c67, Unit> i;
+    public final Function2<View, String, Unit> j;
 
     static {
         InterceptResult invokeClinit;
@@ -41,13 +46,55 @@ public final class r47 {
         }
     }
 
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof r47) {
+                r47 r47Var = (r47) obj;
+                return Intrinsics.areEqual(this.c, r47Var.c) && Intrinsics.areEqual(this.d, r47Var.d) && Intrinsics.areEqual(this.e, r47Var.e) && Intrinsics.areEqual(this.f, r47Var.f) && Intrinsics.areEqual(this.g, r47Var.g) && Intrinsics.areEqual(this.h, r47Var.h) && Intrinsics.areEqual(this.i, r47Var.i) && Intrinsics.areEqual(this.j, r47Var.j);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int hashCode = this.c.hashCode() * 31;
+            d67 d67Var = this.d;
+            int hashCode2 = (hashCode + (d67Var == null ? 0 : d67Var.hashCode())) * 31;
+            d67 d67Var2 = this.e;
+            int hashCode3 = (hashCode2 + (d67Var2 == null ? 0 : d67Var2.hashCode())) * 31;
+            String str = this.f;
+            int hashCode4 = (((hashCode3 + (str == null ? 0 : str.hashCode())) * 31) + this.g.hashCode()) * 31;
+            c67 c67Var = this.h;
+            return ((((hashCode4 + (c67Var != null ? c67Var.hashCode() : 0)) * 31) + this.i.hashCode()) * 31) + this.j.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "RecommendPersonAttentionCardUiState(headData=" + this.c + ", userName=" + this.d + ", userDesc=" + this.e + ", schema=" + this.f + ", personAttentionUiState=" + this.g + ", statData=" + this.h + ", onStat=" + this.i + ", onItemClick=" + this.j + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
     @JvmOverloads
-    public r47(z57 data, a67 statData, Function1<? super z57, Unit> onShareClick, Function3<? super Context, ? super z57, ? super a67, Boolean> onCommentClick, Function1<? super z57, Unit> onPraiseClick) {
+    public r47(b57 headData, d67 d67Var, d67 d67Var2, String str, fa7 personAttentionUiState, c67 c67Var, Function1<? super c67, Unit> onStat, Function2<? super View, ? super String, Unit> onItemClick) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data, statData, onShareClick, onCommentClick, onPraiseClick};
+            Object[] objArr = {headData, d67Var, d67Var2, str, personAttentionUiState, c67Var, onStat, onItemClick};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,92 +104,133 @@ public final class r47 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(statData, "statData");
-        Intrinsics.checkNotNullParameter(onShareClick, "onShareClick");
-        Intrinsics.checkNotNullParameter(onCommentClick, "onCommentClick");
-        Intrinsics.checkNotNullParameter(onPraiseClick, "onPraiseClick");
-        this.a = data;
-        this.b = statData;
-        this.c = onShareClick;
-        this.d = onCommentClick;
-        this.e = onPraiseClick;
+        Intrinsics.checkNotNullParameter(headData, "headData");
+        Intrinsics.checkNotNullParameter(personAttentionUiState, "personAttentionUiState");
+        Intrinsics.checkNotNullParameter(onStat, "onStat");
+        Intrinsics.checkNotNullParameter(onItemClick, "onItemClick");
+        this.c = headData;
+        this.d = d67Var;
+        this.e = d67Var2;
+        this.f = str;
+        this.g = personAttentionUiState;
+        this.h = c67Var;
+        this.i = onStat;
+        this.j = onItemClick;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ r47(z57 z57Var, a67 a67Var, Function1 function1, Function3 function3, Function1 function12, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(z57Var, r0, r1, r2, r3);
-        a67 a67Var2;
-        Function1 function13;
-        Function3 function32;
-        Function1 function14;
+    public /* synthetic */ r47(b57 b57Var, d67 d67Var, d67 d67Var2, String str, fa7 fa7Var, c67 c67Var, Function1 function1, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(b57Var, r5, r6, r7, fa7Var, r9, r10, r11);
+        d67 d67Var3;
+        d67 d67Var4;
+        String str2;
+        c67 c67Var2;
+        Function1<c67, Unit> function12;
+        Function2<View, String, Unit> function22;
         if ((i & 2) != 0) {
-            a67Var2 = new a67(null, null, null, 7, null);
+            d67Var3 = null;
         } else {
-            a67Var2 = a67Var;
+            d67Var3 = d67Var;
         }
         if ((i & 4) != 0) {
-            function13 = SocialUiStateKt.a;
+            d67Var4 = null;
         } else {
-            function13 = function1;
+            d67Var4 = d67Var2;
         }
         if ((i & 8) != 0) {
-            function32 = SocialUiStateKt.b;
+            str2 = null;
         } else {
-            function32 = function3;
+            str2 = str;
         }
-        if ((i & 16) != 0) {
-            function14 = SocialUiStateKt.c;
+        if ((i & 32) != 0) {
+            c67Var2 = null;
         } else {
-            function14 = function12;
+            c67Var2 = c67Var;
+        }
+        if ((i & 64) != 0) {
+            function12 = CardUiStateKt.b();
+        } else {
+            function12 = function1;
+        }
+        if ((i & 128) != 0) {
+            function22 = CommonOnClickKt.b();
+        } else {
+            function22 = function2;
         }
     }
 
-    public final z57 a() {
+    public final b57 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (z57) invokeV.objValue;
+        return (b57) invokeV.objValue;
     }
 
-    public final Function3<Context, z57, a67, Boolean> b() {
+    public final Function2<View, String, Unit> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.j;
         }
-        return (Function3) invokeV.objValue;
+        return (Function2) invokeV.objValue;
     }
 
-    public final Function1<z57, Unit> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final Function1<z57, Unit> d() {
+    public final Function1<c67, Unit> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+            return this.i;
         }
         return (Function1) invokeV.objValue;
     }
 
-    public final a67 e() {
+    public final fa7 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            return this.g;
         }
-        return (a67) invokeV.objValue;
+        return (fa7) invokeV.objValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final c67 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (c67) invokeV.objValue;
+    }
+
+    public final d67 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return (d67) invokeV.objValue;
+    }
+
+    public final d67 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (d67) invokeV.objValue;
     }
 }

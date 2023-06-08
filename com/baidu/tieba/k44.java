@@ -35,11 +35,11 @@ public class k44 {
 
         /* renamed from: com.baidu.tieba.k44$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0356a extends TypeToken<ResultData<ReservationGameResultData>> {
+        public class C0370a extends TypeToken<ResultData<ReservationGameResultData>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0356a(a aVar) {
+            public C0370a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +89,7 @@ public class k44 {
         public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && !TextUtils.isEmpty(str) && this.a != null) {
-                ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0356a(this).getType());
+                ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0370a(this).getType());
                 if (resultData == null) {
                     this.a.onFail("result is null");
                 } else if (resultData.errno == 0) {

@@ -8,12 +8,12 @@ import com.airbnb.lottie.L;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
-import com.baidu.tieba.ca5;
-import com.baidu.tieba.da5;
 import com.baidu.tieba.ea5;
 import com.baidu.tieba.fa5;
 import com.baidu.tieba.ga5;
 import com.baidu.tieba.ha5;
+import com.baidu.tieba.ia5;
+import com.baidu.tieba.ja5;
 import com.baidu.tieba.kf;
 import com.baidu.tieba.lf;
 import com.baidu.tieba.mf;
@@ -32,10 +32,10 @@ public class BreatheTipWidget {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public lf b;
-    public ga5 c;
+    public ia5 c;
     public BreatheTipView d;
     public View e;
-    public ha5 f;
+    public ja5 f;
     public FromType g;
     public boolean h;
     public final Runnable i;
@@ -457,26 +457,26 @@ public class BreatheTipWidget {
         }
     }
 
-    public BreatheTipWidget h(da5 da5Var, ca5 ca5Var) {
+    public BreatheTipWidget h(fa5 fa5Var, ea5 ea5Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, da5Var, ca5Var)) == null) {
-            PointType pointType = ca5Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fa5Var, ea5Var)) == null) {
+            PointType pointType = ea5Var.a;
             if (pointType == PointType.LOTTIE) {
-                this.c = new ea5(this.a);
+                this.c = new ga5(this.a);
             } else if (pointType == PointType.DRAWABLE) {
-                this.c = new fa5(this.a);
+                this.c = new ha5(this.a);
             }
             if (this.d == null) {
                 this.d = new BreatheTipView(this.a);
             }
-            ga5 ga5Var = this.c;
-            if (ga5Var != null) {
-                ga5Var.a(ca5Var);
+            ia5 ia5Var = this.c;
+            if (ia5Var != null) {
+                ia5Var.a(ea5Var);
             }
             BreatheTipView breatheTipView = this.d;
             if (breatheTipView != null) {
-                breatheTipView.setData(da5Var);
+                breatheTipView.setData(fa5Var);
             }
             return this;
         }
@@ -491,9 +491,9 @@ public class BreatheTipWidget {
                 return false;
             }
             j = true;
-            ha5 ha5Var = new ha5();
-            this.f = ha5Var;
-            ha5Var.h(this.d, this.c, this.e);
+            ja5 ja5Var = new ja5();
+            this.f = ja5Var;
+            ja5Var.h(this.d, this.c, this.e);
             mf mfVar = new mf();
             mfVar.c(0);
             mfVar.k(this.e);

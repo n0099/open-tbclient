@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.co;
 import com.baidu.tieba.in;
-import com.baidu.tieba.tm5;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.vm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.LinkedList;
 public class LoadingViewAdapter extends in<co, TabLoadingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<Pair<RelativeLayout, tm5>> a;
+    public final LinkedList<Pair<RelativeLayout, vm5>> a;
     public int b;
     public int c;
 
@@ -33,7 +33,7 @@ public class LoadingViewAdapter extends in<co, TabLoadingViewHolder> {
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public tm5 a;
+        public vm5 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TabLoadingViewHolder(View view2) {
@@ -109,19 +109,19 @@ public class LoadingViewAdapter extends in<co, TabLoadingViewHolder> {
             generateLayoutParamsByParent.height = -1;
             relativeLayout.setLayoutParams(generateLayoutParamsByParent);
             relativeLayout.setGravity(1);
-            tm5 tm5Var = new tm5(this.mContext, 0);
-            tm5Var.attachView(relativeLayout);
-            tm5Var.t(this.b);
-            tm5Var.p(this.c);
-            View view2 = tm5Var.getView();
+            vm5 vm5Var = new vm5(this.mContext, 0);
+            vm5Var.attachView(relativeLayout);
+            vm5Var.t(this.b);
+            vm5Var.p(this.c);
+            View view2 = vm5Var.getView();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -2;
             layoutParams.addRule(14);
             view2.setLayoutParams(layoutParams);
-            this.a.add(new Pair<>(relativeLayout, tm5Var));
+            this.a.add(new Pair<>(relativeLayout, vm5Var));
             TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-            tabLoadingViewHolder.a = tm5Var;
+            tabLoadingViewHolder.a = vm5Var;
             return tabLoadingViewHolder;
         }
         return (TabLoadingViewHolder) invokeL.objValue;
@@ -129,11 +129,11 @@ public class LoadingViewAdapter extends in<co, TabLoadingViewHolder> {
 
     public View u(int i, View view2, ViewGroup viewGroup, co coVar, TabLoadingViewHolder tabLoadingViewHolder) {
         InterceptResult invokeCommon;
-        tm5 tm5Var;
+        vm5 vm5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, coVar, tabLoadingViewHolder})) == null) {
-            if (tabLoadingViewHolder != null && (tm5Var = tabLoadingViewHolder.a) != null) {
-                tm5Var.m(TbadkCoreApplication.getInst().getSkinType());
+            if (tabLoadingViewHolder != null && (vm5Var = tabLoadingViewHolder.a) != null) {
+                vm5Var.m(TbadkCoreApplication.getInst().getSkinType());
             }
             return view2;
         }

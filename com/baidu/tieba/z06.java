@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class z06 implements y06 {
+public class z06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c16 a;
-    public r06 b;
-
-    @Override // com.baidu.tieba.y06
-    public abstract void dismiss();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g();
-
-    public abstract void h(w06 w06Var);
+    public List<String> a;
+    public List<String> b;
+    public int c;
+    public String d;
 
     public z06() {
         Interceptable interceptable = $ic;
@@ -36,10 +32,30 @@ public abstract class z06 implements y06 {
         }
     }
 
-    public void d(c16 c16Var) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c16Var) == null) {
-            this.a = c16Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        JSONArray optJSONArray = jSONObject.optJSONArray("del_success");
+        if (optJSONArray != null) {
+            this.a = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
+                    this.a.add(optJSONArray.optString(i));
+                }
+            }
+        }
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("del_fail");
+        if (optJSONArray2 != null) {
+            this.b = new ArrayList();
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
+                    this.b.add(optJSONArray2.optString(i2));
+                }
+            }
+        }
+        this.c = jSONObject.optInt("ret_type");
+        this.d = jSONObject.optString("text");
     }
 }

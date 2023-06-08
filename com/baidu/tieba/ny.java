@@ -20,7 +20,7 @@ public class ny extends by {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadlinesCardView h;
-    public f15 i;
+    public h15 i;
     public int j;
     public yz k;
 
@@ -110,13 +110,13 @@ public class ny extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: B */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f15Var) == null) {
-            this.i = f15Var;
-            if (A(f15Var)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h15Var) == null) {
+            this.i = h15Var;
+            if (A(h15Var)) {
                 this.h.setVisibility(0);
-                this.h.a(f15Var);
+                this.h.a(h15Var);
                 return;
             }
             this.h.setVisibility(8);
@@ -130,11 +130,11 @@ public class ny extends by {
         }
     }
 
-    public final boolean A(f15 f15Var) {
+    public final boolean A(h15 h15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f15Var)) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getTaskInfoData() != null && f15Var.getThreadData().getTaskInfoData().f() != null && f15Var.getThreadData().getTaskInfoData().j() == 2) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h15Var)) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getTaskInfoData() != null && h15Var.getThreadData().getTaskInfoData().f() != null && h15Var.getThreadData().getTaskInfoData().j() == 2) {
                 return true;
             }
             return false;

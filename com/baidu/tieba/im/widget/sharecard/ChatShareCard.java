@@ -34,12 +34,12 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ab8;
+import com.baidu.tieba.cb8;
 import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.o16;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.q16;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
@@ -86,7 +86,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public ShareThreadMsgData S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ShareForumMsgData f1124T;
+    public ShareForumMsgData f1123T;
     public short U;
     public int V;
     public short a;
@@ -281,7 +281,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.b.setVisibility(0);
                 if (ormObject instanceof ShareForumMsgData) {
                     ShareForumMsgData shareForumMsgData = (ShareForumMsgData) ormObject;
-                    this.f1124T = shareForumMsgData;
+                    this.f1123T = shareForumMsgData;
                     b(shareForumMsgData);
                     return;
                 }
@@ -354,15 +354,15 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                     }
                 }
-                ab8.d("c15286", 1, this.V);
+                cb8.d("c15286", 1, this.V);
                 return;
             }
-            if (this.f1124T != null) {
+            if (this.f1123T != null) {
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getContext());
-                frsActivityConfig.createNormalCfg(this.f1124T.getForum_name(), "");
+                frsActivityConfig.createNormalCfg(this.f1123T.getForum_name(), "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, frsActivityConfig));
             }
-            ab8.d("c15286", 2, this.V);
+            cb8.d("c15286", 2, this.V);
         }
     }
 
@@ -432,14 +432,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            m75 d = m75.d(this.d);
+            o75 d = o75.d(this.d);
             d.C(R.string.F_X02);
             d.w(R.color.CAM_X0105);
-            m75.d(this.e).w(R.color.CAM_X0107);
-            m75.d(this.f).w(R.color.CAM_X0109);
-            m75.d(this.j).w(R.color.CAM_X0107);
-            m75.d(this.R).w(R.color.CAM_X0109);
-            m75 d2 = m75.d(this.z);
+            o75.d(this.e).w(R.color.CAM_X0107);
+            o75.d(this.f).w(R.color.CAM_X0109);
+            o75.d(this.j).w(R.color.CAM_X0107);
+            o75.d(this.R).w(R.color.CAM_X0109);
+            o75 d2 = o75.d(this.z);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0204);
         }
@@ -604,7 +604,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 threadData.threadType = 40;
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
                 threadData.setTitle(shareThreadMsgData.title);
-            } else if (!StringUtils.isNull(o16.H(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
+            } else if (!StringUtils.isNull(q16.H(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
                 threadData.setRichAbstractList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract()));
             } else if (!ListUtils.isEmpty(shareThreadMsgData.getRich_title())) {
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));

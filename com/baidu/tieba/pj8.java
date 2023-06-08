@@ -1,85 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleRegistry;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.slice.Slice;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class pj8 {
+public class pj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Slice a;
-    public final LifecycleRegistry b;
-    public final Map<Slice, a> c;
+    public k9 a;
+    public View b;
+    public ImageView c;
+    public TextView d;
+    public TBSpecificationBtn e;
+    public b f;
+    public View.OnClickListener g;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public interface b {
+        void onClose();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Slice a;
-        public boolean b;
+        public final /* synthetic */ pj8 a;
 
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj instanceof a) {
-                    a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && this.b == aVar.b;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
-        /* JADX WARN: Multi-variable type inference failed */
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int hashCode = this.a.hashCode() * 31;
-                boolean z = this.b;
-                int i = z;
-                if (z != 0) {
-                    i = 1;
-                }
-                return hashCode + i;
-            }
-            return invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "SliceRecord(slice=" + this.a + ", isShowing=" + this.b + ')';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public a(Slice slice, boolean z) {
+        public a(pj8 pj8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {slice, Boolean.valueOf(z)};
+                Object[] objArr = {pj8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,18 +55,33 @@ public final class pj8 {
                     return;
                 }
             }
-            Intrinsics.checkNotNullParameter(slice, "slice");
-            this.a = slice;
-            this.b = z;
+            this.a = pj8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == this.a.e.getId()) {
+                    pf5.e(this.a.a);
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
+                } else if (view2.getId() == this.a.c.getId()) {
+                    n95.m().A("key_im_open_notification_close_time", System.currentTimeMillis());
+                    if (this.a.f != null) {
+                        this.a.f.onClose();
+                    }
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
+                }
+            }
         }
     }
 
-    public pj8(Slice owner) {
+    public pj8(k9 k9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {owner};
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -110,131 +91,44 @@ public final class pj8 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(owner, "owner");
-        this.a = owner;
-        this.b = new LifecycleRegistry(owner);
-        this.c = new LinkedHashMap();
+        this.g = new a(this);
+        this.a = k9Var;
+        View inflate = LayoutInflater.from(k9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0722, (ViewGroup) null);
+        this.b = inflate;
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.img_close);
+        this.c = imageView;
+        imageView.setOnClickListener(this.g);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09194e);
+        this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f0904cd);
+        this.e.setConfig(new la5());
+        this.e.setText(k9Var.getString(R.string.go_to_open));
+        this.e.setOnClickListener(this.g);
+        TiebaStatic.log("c13704");
+        f(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void k(Bundle outState) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, outState) == null) {
-            Intrinsics.checkNotNullParameter(outState, "outState");
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().R(outState);
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0206);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
         }
     }
 
-    public void a(ViewGroup container, Slice child) {
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, container, child) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(child, "child");
-            tj8.a.a();
-            this.b.addObserver(child);
-            this.c.put(child, new a(child, true));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
         }
     }
 
-    public final LifecycleRegistry b() {
+    public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (LifecycleRegistry) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().I();
-            }
-        }
-    }
-
-    public final void c(Lifecycle.Event event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            this.b.handleLifecycleEvent(event);
-        }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().L(z);
-            }
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().onChangeSkinType(i);
-            }
-        }
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().O(z);
-            }
-        }
-    }
-
-    public final void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().S(z);
-            }
-        }
-    }
-
-    public final void d(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().J(i, i2, intent);
-            }
-        }
-    }
-
-    public final boolean h(int i, KeyEvent event) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, event)) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            Map<Slice, a> map = this.c;
-            if (map.isEmpty()) {
-                return false;
-            }
-            for (Map.Entry<Slice, a> entry : map.entrySet()) {
-                if (entry.getKey().onKeyDown(i, event)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public final void j(int i, String[] permissions, int[] grantResults) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048585, this, i, permissions, grantResults) == null) {
-            Intrinsics.checkNotNullParameter(permissions, "permissions");
-            Intrinsics.checkNotNullParameter(grantResults, "grantResults");
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().Q(i, permissions, grantResults);
-            }
-        }
+        return (View) invokeV.objValue;
     }
 }

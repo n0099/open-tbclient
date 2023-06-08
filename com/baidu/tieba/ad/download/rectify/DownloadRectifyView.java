@@ -14,9 +14,9 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a66;
-import com.baidu.tieba.fm9;
-import com.baidu.tieba.h15;
+import com.baidu.tieba.c66;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.km9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,10 +41,10 @@ public class DownloadRectifyView extends RelativeLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h15.b a;
+        public final /* synthetic */ j15.b a;
         public final /* synthetic */ DownloadRectifyView b;
 
-        public a(DownloadRectifyView downloadRectifyView, h15.b bVar) {
+        public a(DownloadRectifyView downloadRectifyView, j15.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,8 +68,8 @@ public class DownloadRectifyView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
-                h15.b bVar = this.a;
-                fm9.a(context, bVar.b, null, null, bVar.c);
+                j15.b bVar = this.a;
+                km9.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }
@@ -78,10 +78,10 @@ public class DownloadRectifyView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h15.a a;
+        public final /* synthetic */ j15.a a;
         public final /* synthetic */ DownloadRectifyView b;
 
-        public b(DownloadRectifyView downloadRectifyView, h15.a aVar) {
+        public b(DownloadRectifyView downloadRectifyView, j15.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,8 +105,8 @@ public class DownloadRectifyView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
-                h15.a aVar = this.a;
-                fm9.a(context, aVar.b, null, null, aVar.c);
+                j15.a aVar = this.a;
+                km9.a(context, aVar.b, null, null, aVar.c);
             }
         }
     }
@@ -154,29 +154,29 @@ public class DownloadRectifyView extends RelativeLayout {
         b(context);
     }
 
-    public void a(a66 a66Var) {
+    public void a(c66 c66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, a66Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, c66Var) == null) {
             int i = 8;
-            if (a66Var != null && a66Var.b != null) {
-                this.i.setText(a66Var.c);
+            if (c66Var != null && c66Var.b != null) {
+                this.i.setText(c66Var.c);
                 TextView textView = this.i;
-                if (a66Var.a != 2) {
+                if (c66Var.a != 2) {
                     i = 0;
                 }
                 textView.setVisibility(i);
-                h15 h15Var = a66Var.b;
-                this.b.N(h15Var.b, 30, false);
-                this.c.setText(h15Var.c);
-                this.d.setText(h15Var.i);
-                this.f.setText(h15Var.d);
-                this.e.setText(h15Var.f);
-                h15.b bVar = h15Var.g;
+                j15 j15Var = c66Var.b;
+                this.b.N(j15Var.b, 30, false);
+                this.c.setText(j15Var.c);
+                this.d.setText(j15Var.i);
+                this.f.setText(j15Var.d);
+                this.e.setText(j15Var.f);
+                j15.b bVar = j15Var.g;
                 if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(bVar.a)) {
                     this.g.setText(bVar.a);
                     this.g.setOnClickListener(new a(this, bVar));
                 }
-                h15.a aVar = h15Var.h;
+                j15.a aVar = j15Var.h;
                 if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
                     this.h.setText(aVar.a);
                     this.h.setOnClickListener(new b(this, aVar));

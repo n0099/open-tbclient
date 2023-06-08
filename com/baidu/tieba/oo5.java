@@ -1,20 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
+import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.data.ChatRoomEntranceData;
 /* loaded from: classes7.dex */
 public interface oo5 {
     @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatFloatEntranceService");
 
-    void a(@NonNull Context context, long j, int i, String str);
+    /* loaded from: classes7.dex */
+    public interface a {
+    }
 
-    void b(@NonNull Context context, long j);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void C1(long j, String str, boolean z, boolean z2);
 
-    void c(@NonNull Context context, long j, String str);
+        void F(ChatRoomEntranceData chatRoomEntranceData);
 
-    void d(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z);
+        void G0(boolean z);
+
+        boolean R();
+
+        void S0();
+
+        void U0(MotionEvent motionEvent);
+
+        boolean Y0();
+
+        void d();
+
+        void destroy();
+
+        Fragment e();
+
+        int getState();
+
+        boolean p0();
+
+        void p1(boolean z);
+
+        void s1();
+
+        boolean v1(String str);
+    }
+
+    void a(@Nullable a aVar);
+
+    @NonNull
+    b b(String str, ro5 ro5Var);
+
+    void onChangeSkinType(int i);
 }

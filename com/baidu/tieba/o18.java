@@ -1,105 +1,191 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import tbclient.GodInfo;
+import tbclient.Personalized.DataRes;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class o18 extends ux<f15> {
+public class o18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaRecommendLayout f;
-    public int g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o18(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a extends ix5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ fz7 c;
+
+        public a(String str, boolean z, fz7 fz7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z), fz7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = str;
+            this.b = z;
+            this.c = fz7Var;
         }
-        this.g = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof AlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
-            this.f = (AlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
-        } else {
-            this.f = new AlaRecommendLayout(tbPageContext.getPageActivity());
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.ix5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            int i;
+            int i2;
+            int intValue;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    b55.d();
+                    we<byte[]> c = b55.c("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
+                    if (c == null) {
+                        return Boolean.FALSE;
+                    }
+                    byte[] bArr = c.get("0");
+                    if (bArr != null && bArr.length != 0) {
+                        DataRes.Builder builder = new DataRes.Builder((DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class));
+                        if (builder.thread_list != null && builder.thread_list.size() > 0) {
+                            for (int i3 = 0; i3 < builder.thread_list.size(); i3++) {
+                                ThreadInfo threadInfo = builder.thread_list.get(i3);
+                                if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == tg.g(this.a, -1L)) {
+                                    ThreadInfo.Builder builder2 = new ThreadInfo.Builder(threadInfo);
+                                    User.Builder builder3 = new User.Builder(builder2.author);
+                                    if (this.b) {
+                                        i = 1;
+                                    } else {
+                                        i = 0;
+                                    }
+                                    builder3.is_like = Integer.valueOf(i);
+                                    if (this.b) {
+                                        i2 = 1;
+                                    } else {
+                                        i2 = 0;
+                                    }
+                                    builder3.has_concerned = Integer.valueOf(i2);
+                                    GodInfo.Builder builder4 = new GodInfo.Builder(builder3.god_data);
+                                    if (this.b) {
+                                        intValue = builder3.fans_num.intValue() + 1;
+                                        builder4.followed = 1;
+                                    } else {
+                                        intValue = builder3.fans_num.intValue() - 1;
+                                        builder4.followed = 0;
+                                    }
+                                    builder3.fans_num = Integer.valueOf(intValue);
+                                    builder3.god_data = builder4.build(true);
+                                    builder2.author = builder3.build(true);
+                                    builder.thread_list.set(i3, builder2.build(true));
+                                }
+                            }
+                            DataRes.Builder builder5 = new DataRes.Builder(builder.build(true));
+                            if (this.c != null) {
+                                this.c.g(builder5.thread_list);
+                            }
+                            c.g("0", builder5.build(true).toByteArray());
+                            return Boolean.TRUE;
+                        }
+                        return Boolean.FALSE;
+                    }
+                    return Boolean.FALSE;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return Boolean.FALSE;
+                }
+            }
+            return (Boolean) invokeV.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.ux
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class b implements mw5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.py
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.d(i);
-                q(this.f, 3);
-            }
-            this.g = i;
-        }
-    }
-
-    public io6 s(f15 f15Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, f15Var)) == null) {
-            if (f15Var instanceof u08) {
-                u08 u08Var = (u08) f15Var;
-                return new io6(u08Var.getType(), u08Var.c(), "recommend");
-            } else if (f15Var instanceof aw7) {
-                aw7 aw7Var = (aw7) f15Var;
-                return new io6(aw7Var.getType(), aw7Var.c(), ImageViewerConfig.FROM_CONCERN);
-            } else {
-                return new io6();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mw5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
             }
         }
-        return (io6) invokeL.objValue;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oy
-    /* renamed from: t */
-    public void a(f15 f15Var) {
+    public static void a(UpdateAttentionMessage updateAttentionMessage, fz7 fz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, f15Var) == null) {
-            io6 s = s(f15Var);
-            if (s != null && !ListUtils.isEmpty(s.c())) {
-                this.f.setData(s);
-                this.f.d(TbadkCoreApplication.getInst().getSkinType());
-                this.f.setVisibility(0);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, updateAttentionMessage, fz7Var) == null) && updateAttentionMessage != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().c)) {
+            mx5.b(new a(updateAttentionMessage.getData().c, updateAttentionMessage.getData().d, fz7Var), new b());
+        }
+    }
+
+    public static void b(DataRes.Builder builder, UpdateAttentionMessage updateAttentionMessage, fz7 fz7Var) {
+        User user;
+        int intValue;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, builder, updateAttentionMessage, fz7Var) == null) && builder != null && updateAttentionMessage != null) {
+            int i = 0;
+            while (true) {
+                if (i >= builder.thread_list.size()) {
+                    break;
+                }
+                ThreadInfo threadInfo = builder.thread_list.get(i);
+                if (threadInfo != null && (user = threadInfo.author) != null && user.id.longValue() == tg.g(updateAttentionMessage.getData().c, -1L)) {
+                    ThreadInfo.Builder builder2 = new ThreadInfo.Builder(threadInfo);
+                    User.Builder builder3 = new User.Builder(builder2.author);
+                    builder3.is_like = Integer.valueOf(updateAttentionMessage.getData().d ? 1 : 0);
+                    builder3.has_concerned = Integer.valueOf(updateAttentionMessage.getData().d ? 1 : 0);
+                    GodInfo.Builder builder4 = new GodInfo.Builder(builder3.god_data);
+                    if (updateAttentionMessage.getData().d) {
+                        intValue = builder3.fans_num.intValue() + 1;
+                        builder4.followed = 1;
+                    } else {
+                        builder4.followed = 0;
+                        intValue = builder3.fans_num.intValue() - 1;
+                    }
+                    builder3.fans_num = Integer.valueOf(intValue);
+                    builder3.god_data = builder4.build(true);
+                    builder2.author = builder3.build(true);
+                    builder.thread_list.set(i, builder2.build(true));
+                } else {
+                    i++;
+                }
             }
-            this.f.setVisibility(8);
+            a(updateAttentionMessage, fz7Var);
         }
     }
 }

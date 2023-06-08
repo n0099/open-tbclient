@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.kh6;
-import com.baidu.tieba.lh6;
 import com.baidu.tieba.mh6;
+import com.baidu.tieba.nh6;
+import com.baidu.tieba.oh6;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.vh6;
+import com.baidu.tieba.xh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public mh6 c;
-    public kh6 d;
+    public oh6 c;
+    public mh6 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -167,12 +167,12 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        kh6 kh6Var;
+        mh6 mh6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (kh6Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (mh6Var = this.d) == null) {
             return;
         }
-        if (kh6Var.i() > 3) {
+        if (mh6Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -183,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(mh6 mh6Var) {
-        kh6 kh6Var;
+    public void setData(oh6 oh6Var) {
+        mh6 mh6Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mh6Var) == null) {
-            this.c = mh6Var;
-            if (mh6Var != null && mh6Var.a() != null) {
-                lh6 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, oh6Var) == null) {
+            this.c = oh6Var;
+            if (oh6Var != null && oh6Var.a() != null) {
+                nh6 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (kh6Var = this.d) != null && this.b == vh6.c) {
-                int i = kh6Var.i();
+            if (this.c != null && (mh6Var = this.d) != null && this.b == xh6.c) {
+                int i = mh6Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

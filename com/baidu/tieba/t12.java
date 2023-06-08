@@ -45,14 +45,14 @@ public class t12 extends p12 {
 
         /* renamed from: com.baidu.tieba.t12$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0461a implements nf3.e {
+        public class C0463a implements nf3.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ yb3 b;
             public final /* synthetic */ a c;
 
-            public C0461a(a aVar, Activity activity, yb3 yb3Var) {
+            public C0463a(a aVar, Activity activity, yb3 yb3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +138,7 @@ public class t12 extends p12 {
                         return;
                     }
                     this.a.a();
-                    nf3.g(M, this.c, "", new C0461a(this, activity, M), this.d);
+                    nf3.g(M, this.c, "", new C0463a(this, activity, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new y32(1001, "swan activity is null"));

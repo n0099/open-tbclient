@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.g95;
+import com.baidu.tieba.i95;
 import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -235,7 +235,7 @@ public class DealIntentService extends BdBaseService {
                 }
                 if (g9.f().b() != null) {
                     if (5 == this.a.getIntExtra("class", -1)) {
-                        if (g9.f().b().getClass().getName().equalsIgnoreCase(g95.c())) {
+                        if (g9.f().b().getClass().getName().equalsIgnoreCase(i95.c())) {
                             this.a.putExtra("class", 5);
                         } else {
                             this.a.putExtra("class", 21);

@@ -46,7 +46,7 @@ public class i05 {
             pg.h().o(27, new BigImageLoaderProc(27));
             pg.h().o(29, new SimpleForeverLoaderProc(true, 29));
             pg.h().o(32, new LocalFileDrawableLoaderProc(32));
-            pg.h().o(23, new vb5());
+            pg.h().o(23, new xb5());
             pg.h().o(33, new MemeLoaderProc2());
             pg.h().o(34, new EmotionShareLoaderProc());
             pg.h().o(35, new LocalFileImageLoaderProc(160, 160));

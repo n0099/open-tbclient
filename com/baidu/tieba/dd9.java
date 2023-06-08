@@ -7,18 +7,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.personCenter.data.PersonVipCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dd9 extends in<PersonVipCardData, CardViewHolder<ne9>> {
+public class dd9 extends in<sd9, CardViewHolder<je9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ne9 b;
+    public je9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dd9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -45,56 +44,32 @@ public class dd9 extends in<PersonVipCardData, CardViewHolder<ne9>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: s */
-    public CardViewHolder<ne9> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<je9> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            this.b = new ne9(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new je9(this.a);
             return new CardViewHolder<>(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     public void u(boolean z) {
-        ne9 ne9Var;
+        je9 je9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (ne9Var = this.b) != null) {
-            ne9Var.x(z);
-        }
-    }
-
-    public void onDestroy() {
-        ne9 ne9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ne9Var = this.b) != null) {
-            ne9Var.t();
-        }
-    }
-
-    public void onPause() {
-        ne9 ne9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ne9Var = this.b) != null) {
-            ne9Var.u();
-        }
-    }
-
-    public void onResume() {
-        ne9 ne9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (ne9Var = this.b) != null) {
-            ne9Var.y();
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (je9Var = this.b) != null) {
+            je9Var.u(z);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonVipCardData personVipCardData, CardViewHolder<ne9> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sd9 sd9Var, CardViewHolder<je9> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, personVipCardData, cardViewHolder})) == null) {
-            cardViewHolder.a().i(personVipCardData);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sd9Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(sd9Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

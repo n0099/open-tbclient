@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.searchbox.v8engine.JsObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface nb4 {
     void a(JsObject jsObject);
 

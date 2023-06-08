@@ -34,8 +34,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l29;
 import com.baidu.tieba.nw4;
+import com.baidu.tieba.o29;
 import com.baidu.tieba.ow4;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.q9;
@@ -631,9 +631,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 String name_show = this.p.getAuthor().getName_show();
                 String userName = this.p.getAuthor().getUserName();
                 if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
-                    this.c.setText(l29.b(this.q, this.c.getText().toString()));
+                    this.c.setText(o29.b(this.q, this.c.getText().toString()));
                     this.c.setGravity(16);
-                    this.c.setTag(R.id.tag_nick_name_activity, l29.a());
+                    this.c.setTag(R.id.tag_nick_name_activity, o29.a());
                     SkinManager.setViewTextColor(this.c, R.color.CAM_X0312, 1);
                 }
             }

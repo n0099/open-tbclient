@@ -13,11 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ad9 extends in<pd9, CardViewHolder<ge9>> {
+public class ad9 extends in<rd9, CardViewHolder<he9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ge9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -44,32 +43,23 @@ public class ad9 extends in<pd9, CardViewHolder<ge9>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: s */
-    public CardViewHolder<ge9> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<he9> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new ge9(this.a);
-            return new CardViewHolder<>(this.b);
+            return new CardViewHolder<>(new he9(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(boolean z) {
-        ge9 ge9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (ge9Var = this.b) != null) {
-            ge9Var.u(z);
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pd9 pd9Var, CardViewHolder<ge9> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rd9 rd9Var, CardViewHolder<he9> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pd9Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(pd9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rd9Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(rd9Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

@@ -36,7 +36,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Cache implements Closeable, Flushable {
     public static final int ENTRY_BODY = 1;
     public static final int ENTRY_COUNT = 2;
@@ -50,7 +50,7 @@ public final class Cache implements Closeable, Flushable {
     public int writeAbortCount;
     public int writeSuccessCount;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class CacheRequestImpl implements CacheRequest {
         public Sink body;
         public Sink cacheOut;
@@ -99,7 +99,7 @@ public final class Cache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class CacheResponseBody extends ResponseBody {
         public final BufferedSource bodySource;
         @Nullable
@@ -170,7 +170,7 @@ public final class Cache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Entry {
         public final int code;
         @Nullable

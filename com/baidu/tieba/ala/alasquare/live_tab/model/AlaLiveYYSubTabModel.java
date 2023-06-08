@@ -15,14 +15,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ac6;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import com.baidu.tieba.bb6;
-import com.baidu.tieba.ic6;
-import com.baidu.tieba.io6;
-import com.baidu.tieba.na6;
+import com.baidu.tieba.db6;
+import com.baidu.tieba.kc6;
+import com.baidu.tieba.ko6;
+import com.baidu.tieba.pa6;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.vn;
-import com.baidu.tieba.yb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public yb6 f;
+    public ac6 f;
     public long g;
     public int h;
     public int i;
@@ -110,18 +110,18 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() == 0 && alaTabLiveResponsedMessage.isSuccess()) {
-                    bb6 bb6Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    db6 db6Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
                         if (this.a.f != null) {
-                            this.a.f.a(bb6Var);
+                            this.a.f.a(db6Var);
                         }
                     } else {
-                        na6.a(this.a.h);
+                        pa6.a(this.a.h);
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f = new yb6(bb6Var, alaLiveYYSubTabModel.j, this.a.k);
+                        alaLiveYYSubTabModel.f = new ac6(db6Var, alaLiveYYSubTabModel.j, this.a.k);
                         this.a.g0();
                     }
                     if (this.a.f != null) {
@@ -220,7 +220,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.g = currentTimeMillis;
             }
             this.d = true;
-            h0(1, na6.b(this.h) - 1);
+            h0(1, pa6.b(this.h) - 1);
         }
     }
 
@@ -238,17 +238,17 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         } else {
             str = "";
         }
-        ic6 ic6Var = new ic6();
-        ic6Var.a = new io6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
-        this.f.g(ic6Var);
+        kc6 kc6Var = new kc6();
+        kc6Var.a = new ko6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        this.f.g(kc6Var);
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            yb6 yb6Var = this.f;
-            if (yb6Var != null && !ListUtils.isEmpty(yb6Var.d())) {
+            ac6 ac6Var = this.f;
+            if (ac6Var != null && !ListUtils.isEmpty(ac6Var.d())) {
                 return true;
             }
             return false;
@@ -283,7 +283,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if (pollingModel != null) {
                 pollingModel.C0(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
             }
-            h0(0, na6.b(this.h));
+            h0(0, pa6.b(this.h));
         }
     }
 

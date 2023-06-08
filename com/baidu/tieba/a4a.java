@@ -1,213 +1,242 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.ThemeCardPropMain;
 /* loaded from: classes4.dex */
-public class a4a extends i9<AvatarPendantActivity> {
-    public static /* synthetic */ Interceptable $ic;
+public class a4a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long k = 1350000;
     public transient /* synthetic */ FieldHolder $fh;
-    public b4a a;
-    public BdListView b;
-    public NoNetworkView c;
-    public MemberRecommendView d;
-    public NavigationBar e;
-    public int f;
-    public TextView g;
-    public TextView h;
-    public AvatarPendantActivity i;
-    public View j;
-    public TextView k;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void R0(DressItemData dressItemData);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947566587, "Lcom/baidu/tieba/a4a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947566587, "Lcom/baidu/tieba/a4a;");
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a4a(AvatarPendantActivity avatarPendantActivity) {
-        super(avatarPendantActivity.getPageContext());
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        }
+    }
+
+    public a4a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {avatarPendantActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = 0;
-        this.i = avatarPendantActivity;
-        avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d0130);
-        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091ed0);
-        this.f = vi.g(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703b6);
-        this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090320);
-        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
-        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.view_navigation_bar);
-        this.e = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.setTitleText(R.string.obfuscated_res_0x7f0f0300);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090322);
-        this.d = memberRecommendView;
-        memberRecommendView.setFromType(8);
-        this.d.getButton().setOnClickListener(avatarPendantActivity);
-        TextView textView = new TextView(avatarPendantActivity.getActivity());
-        this.g = textView;
-        textView.setHeight(vi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        this.k = new TextView(avatarPendantActivity.getActivity());
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + vi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f070282));
-        TextView textView2 = new TextView(avatarPendantActivity.getActivity());
-        this.h = textView2;
-        textView2.setHeight(vi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0703e6));
-        this.k.setLayoutParams(layoutParams);
-        this.b.w(this.k, 0);
-        this.b.addFooterView(this.h);
-        b4a b4aVar = new b4a(avatarPendantActivity);
-        this.a = b4aVar;
-        this.b.setAdapter((ListAdapter) b4aVar);
+        this.j = 0;
     }
 
-    public TextView A() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.k;
+            return this.a;
         }
-        return (TextView) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public void x() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.i.hideNetRefreshView(this.j);
-            this.b.setVisibility(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public MemberRecommendView y() {
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
+            return this.b;
         }
-        return (MemberRecommendView) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public View z() {
-        InterceptResult invokeV;
+    public void k(ThemeCardPropMain themeCardPropMain) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.j;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, themeCardPropMain) != null) || themeCardPropMain == null) {
+            return;
         }
-        return (View) invokeV.objValue;
+        this.a = themeCardPropMain.props_id.longValue();
+        this.b = themeCardPropMain.title;
+        this.c = themeCardPropMain.description;
+        this.d = themeCardPropMain.example_url;
+        this.e = themeCardPropMain.permission;
+        this.f = themeCardPropMain.props_state_img;
+        this.g = themeCardPropMain.in_use.intValue();
+        this.h = themeCardPropMain.free_user_level.intValue();
+        String str = themeCardPropMain.activity_url;
+        this.i = themeCardPropMain.is_finished.intValue();
     }
 
-    public void B() {
+    public void m(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            et5.a(this.i.getPageContext(), this.j);
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            this.a.notifyDataSetChanged();
-            this.e.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.c.d(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.d.d();
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
-        }
-    }
-
-    public void C(List<y3a> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.b.setVisibility(0);
-                this.a.c(list);
-                this.a.notifyDataSetChanged();
-                return;
-            }
-            this.b.setVisibility(8);
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void E(a aVar) {
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a.b(aVar);
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.f = str;
         }
     }
 
-    public void u(NoNetworkView.b bVar) {
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.c.a(bVar);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.j = i;
         }
     }
 
-    public final boolean D(a5a a5aVar) {
-        InterceptResult invokeL;
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, a5aVar)) == null) {
-            if (a5aVar != null && !StringUtils.isNull(a5aVar.c())) {
-                this.d.setVisibility(0);
-                this.d.e(a5aVar);
-                return true;
-            }
-            this.d.setVisibility(8);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.setVisibility(8);
-            String string = this.i.getPageContext().getResources().getString(R.string.no_data_text);
-            this.i.setNetRefreshViewTopMargin(this.f);
-            this.i.showNetRefreshView(this.j, string, false);
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void G(a5a a5aVar, List<y3a> list) {
+    public void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, a5aVar, list) == null) {
-            if ((a5aVar != null && !StringUtils.isNull(a5aVar.c())) || (list != null && list.size() > 0)) {
-                x();
-                if (D(a5aVar)) {
-                    this.b.removeHeaderView(this.g);
-                    this.b.addHeaderView(this.g);
-                } else {
-                    this.b.removeHeaderView(this.g);
-                }
-                C(list);
-                return;
-            }
-            F();
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.b = str;
         }
     }
 }

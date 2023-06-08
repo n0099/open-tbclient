@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class m05 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lw6 a;
+    public nw6 a;
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
@@ -93,7 +93,7 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.a = new lw6();
+        this.a = new nw6();
     }
 
     public final void a(Activity activity) {
@@ -102,16 +102,16 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
             return;
         }
         String name = activity.getClass().getName();
-        if (e85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+        if (g85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
             if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
                 if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    e85.a().k(true);
+                    g85.a().k(true);
                     return;
                 } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
                     return;
                 }
             }
-            e85.a().h(name);
+            g85.a().h(name);
         }
     }
 
@@ -121,16 +121,16 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
             return;
         }
         String name = activity.getClass().getName();
-        if (e85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+        if (g85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
             if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
                 if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    e85.a().l(true);
+                    g85.a().l(true);
                     return;
                 } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
                     return;
                 }
             }
-            e85.a().g(name);
+            g85.a().g(name);
         }
     }
 
@@ -142,13 +142,13 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
             c(activity, Lifecycle.Event.ON_PAUSE);
             boolean z = false;
             if (activity.isFinishing()) {
-                r55.i();
+                t55.i();
                 if (((activity instanceof TBWebViewActivity) && activity.getIntent() != null && !TextUtils.isEmpty(activity.getIntent().getStringExtra(WebViewActivityConfig.TAG_WEB_DIALOG_NAME))) || activity.getClass().getName().equals("com.baidu.tieba.UpdateDialog")) {
                     z = true;
                 }
-                x55.l(z);
+                z55.l(z);
             } else {
-                x55.l(false);
+                z55.l(false);
             }
             TbadkCoreApplication.getInst().setCurGlobalActivity(null);
             this.a.a(activity);
@@ -180,16 +180,16 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, activity, event) == null) && activity != null && !BaseActivity.class.isAssignableFrom(activity.getClass()) && !BaseFragmentActivity.class.isAssignableFrom(activity.getClass())) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                k45 k45Var = new k45();
-                k45Var.a = TbadkCoreApplication.getInst();
-                k45Var.b = activity;
-                k45Var.c = event;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921698, k45Var));
+                m45 m45Var = new m45();
+                m45Var.a = TbadkCoreApplication.getInst();
+                m45Var.b = activity;
+                m45Var.c = event;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921698, m45Var));
                 return;
             }
             ThirdPartyActivityLifecycleEvent thirdPartyActivityLifecycleEvent = new ThirdPartyActivityLifecycleEvent();
             thirdPartyActivityLifecycleEvent.event = event;
-            gp5.i(thirdPartyActivityLifecycleEvent);
+            ip5.i(thirdPartyActivityLifecycleEvent);
         }
     }
 
@@ -222,7 +222,7 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
             } else if (BaseActivity.class.isAssignableFrom(activity.getClass()) || BaseFragmentActivity.class.isAssignableFrom(activity.getClass())) {
                 pageType = CurrentPageTypeHelper.PageType.NATIVE;
             }
-            gp5.i(new CurrentPageTypeEvent(pageType));
+            ip5.i(new CurrentPageTypeEvent(pageType));
         }
     }
 
@@ -231,29 +231,29 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (activity != null && currentActivity != null && yo5.b().h(activity) && !yo5.b().h(currentActivity)) {
-                yo5.b().o();
-                if (!yo5.b().g(currentActivity.getClass().getName())) {
-                    yo5.b().l(false);
+            if (activity != null && currentActivity != null && ap5.b().h(activity) && !ap5.b().h(currentActivity)) {
+                ap5.b().o();
+                if (!ap5.b().g(currentActivity.getClass().getName())) {
+                    ap5.b().l(false);
                 }
             }
-            if (of5.i() != null && activity == of5.i().getActivity()) {
-                of5.i().m();
+            if (qf5.i() != null && activity == qf5.i().getActivity()) {
+                qf5.i().m();
             }
-            if (of5.k() != null && activity == of5.k().getActivity()) {
-                of5.l();
+            if (qf5.k() != null && activity == qf5.k().getActivity()) {
+                qf5.l();
             }
-            if (he5.b() != null && activity == he5.b().getActivity()) {
-                he5.b().t();
+            if (je5.b() != null && activity == je5.b().getActivity()) {
+                je5.b().t();
             }
             d(activity, Lifecycle.Event.ON_DESTROY);
             c(activity, Lifecycle.Event.ON_DESTROY);
             if (activity instanceof TbPageContextSupport) {
                 TbPageContext pageContext = ((TbPageContextSupport) activity).getPageContext();
-                ur6.b().unregister(pageContext);
+                wr6.b().unregister(pageContext);
                 BdUniqueId uniqueId = pageContext.getUniqueId();
                 if (uniqueId != null) {
-                    ur6.a(uniqueId);
+                    wr6.a(uniqueId);
                 }
             }
         }
@@ -265,34 +265,34 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
         if ((interceptable != null && interceptable.invokeLL(1048582, this, activity, bundle) != null) || activity == null) {
             return;
         }
-        i95.q().w(activity);
-        if (i95.q().v(activity)) {
+        k95.q().w(activity);
+        if (k95.q().v(activity)) {
             return;
         }
         String name = activity.getClass().getName();
-        if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !x55.k(activity) && ((!"com.baidu.tieba.pb.pb.main.PbActivity".equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name)) || !d85.a().a)) {
+        if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !z55.k(activity) && ((!"com.baidu.tieba.pb.pb.main.PbActivity".equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name)) || !f85.a().a)) {
             ac.b().e();
         }
-        if (yo5.b().e(name)) {
-            yo5.b().a();
-        } else if (yo5.b().h(activity)) {
-            yo5.b().c();
-            if (yo5.b().g(name)) {
-                yo5.b().l(true);
+        if (ap5.b().e(name)) {
+            ap5.b().a();
+        } else if (ap5.b().h(activity)) {
+            ap5.b().c();
+            if (ap5.b().g(name)) {
+                ap5.b().l(true);
             }
-        } else if (yo5.b().f(name)) {
-            yo5.b().o();
-            if (!yo5.b().g(name)) {
-                yo5.b().l(false);
+        } else if (ap5.b().f(name)) {
+            ap5.b().o();
+            if (!ap5.b().g(name)) {
+                ap5.b().l(false);
             } else {
-                yo5.b().l(true);
+                ap5.b().l(true);
             }
         }
-        d85.a().e(activity);
+        f85.a().e(activity);
         d(activity, Lifecycle.Event.ON_CREATE);
         c(activity, Lifecycle.Event.ON_CREATE);
-        r55.i();
-        x55.l(false);
+        t55.i();
+        z55.l(false);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -304,12 +304,12 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
                     ac.b().a("BdTokenController", new a(this, UtilHelper.isActivityStartFromScheme(activity)));
                 }
                 String name = activity.getClass().getName();
-                if (yo5.b().e(name)) {
-                    yo5.b().a();
-                } else if (yo5.b().h(activity)) {
-                    yo5.b().c();
-                    if (yo5.b().g(name)) {
-                        yo5.b().l(true);
+                if (ap5.b().e(name)) {
+                    ap5.b().a();
+                } else if (ap5.b().h(activity)) {
+                    ap5.b().c();
+                    if (ap5.b().g(name)) {
+                        ap5.b().l(true);
                     }
                 }
             }
@@ -343,7 +343,7 @@ public class m05 implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
             TbadkCoreApplication.getInst().setStartType(1);
-            i95.q().x(activity);
+            k95.q().x(activity);
             d(activity, Lifecycle.Event.ON_STOP);
             c(activity, Lifecycle.Event.ON_STOP);
         }

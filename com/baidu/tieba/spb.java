@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class spb<E> extends opb<E> {
+public abstract class spb<E> extends upb<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long f;
+    public static final long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long producerIndex;
+    public volatile long consumerIndex;
 
     static {
         InterceptResult invokeClinit;
@@ -28,14 +28,14 @@ public abstract class spb<E> extends opb<E> {
                 return;
             }
         }
-        f = iqb.a(spb.class, "producerIndex");
+        g = nqb.a(spb.class, "consumerIndex");
     }
 
-    public final long h() {
+    public final long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.producerIndex;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.consumerIndex;
         }
         return invokeV.longValue;
     }
@@ -60,10 +60,12 @@ public abstract class spb<E> extends opb<E> {
         }
     }
 
-    public final void i(long j) {
+    public final boolean j(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            iqb.a.i(this, f, j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return nqb.a.c(this, g, j, j2);
         }
+        return invokeCommon.booleanValue;
     }
 }

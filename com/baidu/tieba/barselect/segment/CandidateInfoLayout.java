@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
-import com.baidu.tieba.kh6;
 import com.baidu.tieba.mh6;
+import com.baidu.tieba.oh6;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.th6;
+import com.baidu.tieba.vh6;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -67,10 +67,10 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            kh6 kh6Var;
+            mh6 mh6Var;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (kh6Var = this.a.c) != null && kh6Var.l() != 0) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (mh6Var = this.a.c) != null && mh6Var.l() != 0) {
                 long g = tg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
                 long l = this.a.c.l();
                 if ((this.a.getContext() instanceof Activity) && this.a.c.f() != 2) {
@@ -167,9 +167,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
-            kh6 kh6Var = this.c;
-            if (kh6Var != null) {
-                setGrade(kh6Var.d());
+            mh6 mh6Var = this.c;
+            if (mh6Var != null) {
+                setGrade(mh6Var.d());
             }
         }
     }
@@ -182,14 +182,14 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, mh6 mh6Var) {
+    public void setData(int i, oh6 oh6Var) {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, mh6Var) == null) {
-            super.setData(i, mh6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, oh6Var) == null) {
+            super.setData(i, oh6Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == th6.c) {
+                if (i2 == vh6.c) {
                     int g = vi.g(this.d, R.dimen.tbds191);
                     int g2 = vi.g(this.d, R.dimen.tbds157);
                     int g3 = vi.g(this.d, R.dimen.tbds6);

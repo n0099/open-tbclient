@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.ThreadCardView;
-import com.baidu.tieba.f15;
+import com.baidu.tieba.h15;
 import com.baidu.tieba.uz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class ux<T extends f15> implements py, oy<T> {
+public abstract class ux<T extends h15> implements py, oy<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public jz a;
     public Context b;
     public Boolean c;
-    public eo6<T> d;
+    public go6<T> d;
     public a e;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void a(f15 f15Var);
+        void a(h15 h15Var);
     }
 
     public void f(int i) {
@@ -67,13 +67,13 @@ public abstract class ux<T extends f15> implements py, oy<T> {
         this.b = context;
     }
 
-    public eo6<T> h() {
+    public go6<T> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (eo6) invokeV.objValue;
+        return (go6) invokeV.objValue;
     }
 
     public Boolean j() {
@@ -122,7 +122,7 @@ public abstract class ux<T extends f15> implements py, oy<T> {
         ThreadCardView i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) && (i2 = i(view2, i)) != null) {
-            m75 d = m75.d(i2);
+            o75 d = o75.d(i2);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0205);
         }
@@ -135,10 +135,10 @@ public abstract class ux<T extends f15> implements py, oy<T> {
         }
     }
 
-    public void p(eo6<T> eo6Var) {
+    public void p(go6<T> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, eo6Var) == null) {
-            this.d = eo6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, go6Var) == null) {
+            this.d = go6Var;
         }
     }
 

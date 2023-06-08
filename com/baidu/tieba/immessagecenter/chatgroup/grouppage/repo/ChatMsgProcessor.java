@@ -22,9 +22,9 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
-import com.baidu.tieba.ln5;
-import com.baidu.tieba.vn5;
-import com.baidu.tieba.wd8;
+import com.baidu.tieba.nn5;
+import com.baidu.tieba.xn5;
+import com.baidu.tieba.yd8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatMsgProcessor implements vn5 {
+public class ChatMsgProcessor implements xn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Class<? extends BaseMsg>> a;
@@ -585,7 +585,7 @@ public class ChatMsgProcessor implements vn5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            TreeSet<ChatMsg> treeSet = new TreeSet<>(ln5.b);
+            TreeSet<ChatMsg> treeSet = new TreeSet<>(nn5.b);
             treeSet.add(chatMsg);
             return treeSet;
         }
@@ -803,7 +803,7 @@ public class ChatMsgProcessor implements vn5 {
         }
     }
 
-    @Override // com.baidu.tieba.vn5
+    @Override // com.baidu.tieba.xn5
     public void a(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
@@ -1090,7 +1090,7 @@ public class ChatMsgProcessor implements vn5 {
                                 z4.add(j4);
                             }
                         } catch (Exception e2) {
-                            wd8.g("parse_msg_exception", j2, e2);
+                            yd8.g("parse_msg_exception", j2, e2);
                         }
                     }
                 }

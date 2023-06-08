@@ -1,46 +1,30 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VoteSchema;
+import org.json.JSONObject;
+import tbclient.VideoDesc;
 /* loaded from: classes8.dex */
 public class v45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public v45() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static v45 a(VoteSchema voteSchema) {
+    public static VideoDesc a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voteSchema)) == null) {
-            if (voteSchema == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            VideoDesc.Builder builder = new VideoDesc.Builder();
+            if (jSONObject != null) {
+                builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));
+                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                builder.video_url = jSONObject.optString("video_url");
+                builder.video_width = jSONObject.optString("video_width");
+                builder.video_height = jSONObject.optString("video_height");
             }
-            v45 v45Var = new v45();
-            v45Var.a = voteSchema.text_before_vote;
-            v45Var.b = voteSchema.text_after_vote;
-            v45Var.c = voteSchema.jump_url;
-            return v45Var;
+            return builder.build(true);
         }
-        return (v45) invokeL.objValue;
+        return (VideoDesc) invokeL.objValue;
     }
 }

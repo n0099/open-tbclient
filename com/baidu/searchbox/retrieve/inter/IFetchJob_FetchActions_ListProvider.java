@@ -6,7 +6,7 @@ import com.baidu.searchbox.retrieve.log.FetchLogJob;
 import com.baidu.searchbox.retrieve.timer.FetchTimerCancelJob;
 import com.baidu.searchbox.retrieve.timer.FetchTimerJob;
 import com.baidu.tieba.cl1;
-import com.baidu.tieba.hla;
+import com.baidu.tieba.mla;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class IFetchJob_FetchActions_ListProvider implements cl1 {
@@ -18,7 +18,7 @@ public class IFetchJob_FetchActions_ListProvider implements cl1 {
         arrayList.add(new FetchLogJob());
         arrayList.add(new FetchTimerCancelJob());
         arrayList.add(new FetchTimerJob());
-        arrayList.add(new hla());
+        arrayList.add(new mla());
         return arrayList;
     }
 }

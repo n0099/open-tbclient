@@ -1,40 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsJVMKt;
+import kotlin.collections.SetsKt__SetsKt;
 import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ChatUtil")
 /* loaded from: classes7.dex */
-public final class ne8 {
+public abstract class ne8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public le8 a;
 
-    public static final long a(String str) {
-        InterceptResult invokeL;
+    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
+
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            try {
-                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
-                Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
-                return Long.parseLong(bdUidFromBdUK);
-            } catch (NumberFormatException unused) {
-                return 0L;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
         }
-        return invokeL.longValue;
+        return invokeV.booleanValue;
     }
 
-    public static final String b(String str) {
-        InterceptResult invokeL;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            return BIMManager.getBdUKFromBdUid(str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public ne8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeL.objValue;
+    }
+
+    public Set<String> e() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String d = d();
+            if (d.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return SetsKt__SetsKt.emptySet();
+            }
+            return SetsKt__SetsJVMKt.setOf(d);
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            le8 le8Var = this.a;
+            if (le8Var != null) {
+                le8Var.b(abilityItem, baseMsg);
+            }
+        }
     }
 }

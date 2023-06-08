@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
-import com.baidu.tieba.kh8;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.nh8;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,22 +133,22 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, noticeModifySysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            m75 d = m75.d(holder.a);
+            o75 d = o75.d(holder.a);
             d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            m75 d2 = m75.d(holder.b);
+            o75 d2 = o75.d(holder.b);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X09);
             d2.C(R.string.F_X01);
-            m75 d3 = m75.d(holder.c);
+            o75 d3 = o75.d(holder.c);
             d3.w(R.color.CAM_X0101);
             d3.B(R.dimen.T_X09);
             d3.C(R.string.F_X01);
-            m75 d4 = m75.d(holder.d);
+            o75 d4 = o75.d(holder.d);
             d4.w(R.color.CAM_X0101);
             d4.B(R.dimen.T_X09);
             d4.C(R.string.F_X01);
-            m75 d5 = m75.d(holder.e);
+            o75 d5 = o75.d(holder.e);
             d5.B(R.dimen.T_X09);
             d5.w(R.color.CAM_X0304);
             d5.C(R.string.F_X01);
@@ -162,7 +162,7 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                 }
                 holder.d.setText(R.string.obfuscated_res_0x7f0f0937);
                 holder.e.setText(R.string.obfuscated_res_0x7f0f17e4);
-                kh8.b("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
+                nh8.b("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

@@ -17,7 +17,7 @@ public class p84 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return z86.a();
+            return b96.a();
         }
         return (f94) invokeV.objValue;
     }

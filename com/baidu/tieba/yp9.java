@@ -1,30 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
+import android.util.Log;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.sharesdk.ShareHandlerActivity;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class yp9 implements if5 {
+public class yp9 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public boolean a;
+    public final String b;
+    public Process c;
+    public BufferedReader d;
+    public FileOutputStream e;
+    public a f;
 
-    public yp9(Context context, hf5 hf5Var) {
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a();
+    }
+
+    public yp9(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, hf5Var};
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,70 +47,93 @@ public class yp9 implements if5 {
                 return;
             }
         }
-        this.a = null;
-        this.a = context;
-    }
-
-    @Override // com.baidu.tieba.if5
-    public void a(ShareItem shareItem, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            b(shareItem, i);
+        this.a = true;
+        this.d = null;
+        this.e = null;
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
+            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + ".txt"), true);
+        } catch (FileNotFoundException e) {
+            BdLog.e(Log.getStackTraceString(e));
+        }
+        if (z) {
+            this.b = "logcat -v threadtime *:v -d";
+        } else {
+            this.b = "logcat -v threadtime *:v";
         }
     }
 
-    public final void b(ShareItem shareItem, int i) {
-        boolean z;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
-            IntentConfig intentConfig = new IntentConfig(this.a);
-            ShareEntity shareEntity = new ShareEntity();
-            shareEntity.setTitle(shareItem.v);
-            shareEntity.setContent(shareItem.w);
-            shareEntity.setReadCount(shareItem.W);
-            int i2 = shareItem.R;
-            if (i2 != 2 && i2 != 6 && i2 != 8) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Process process = this.c;
+            if (process != null) {
+                process.destroy();
+                this.c = null;
             }
-            shareEntity.setIsVideoThread(z);
-            shareEntity.setFestivalTaskTid(shareItem.Y);
-            shareEntity.setFestivalTaskType(shareItem.Z);
-            shareEntity.setImageUri(shareItem.z);
-            shareEntity.canShareBySmartApp = shareItem.v0;
-            String str = shareItem.x;
-            if (i == 6 && !StringUtils.isNull(shareItem.y)) {
-                str = shareItem.y;
+            BufferedReader bufferedReader = this.d;
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                    this.d = null;
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
+                }
             }
-            shareEntity.setLinkUrl(str);
-            shareEntity.setLocalFile(shareItem.B);
-            shareEntity.setLocation(shareItem.F);
-            shareEntity.setShareTo(i);
-            shareEntity.setStats(shareItem.g());
-            shareEntity.setPreferImageToLink(shareItem.k0);
-            shareEntity.setTid(shareItem.O);
-            shareEntity.setFloorAuthorUid(shareItem.P);
-            shareEntity.setfName(shareItem.t);
-            shareEntity.setTypeShareToSmallApp(shareItem.C);
-            shareEntity.topic = shareItem.f1080T;
-            if (i == 6 && !StringUtils.isNull(shareItem.V)) {
-                shareEntity.topic = shareItem.U + shareItem.V;
-                shareEntity.setContent("");
+            FileOutputStream fileOutputStream = this.e;
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e2) {
+                    BdLog.e(Log.getStackTraceString(e2));
+                }
+                this.e = null;
             }
-            shareEntity.taskCompleteId = shareItem.X;
-            shareEntity.diskPicOperate = shareItem.E;
-            shareEntity.setExtLiveInfo(shareItem.A0);
-            shareEntity.setFromDuXiaoMan(shareItem.m);
-            shareEntity.setTopicId(shareItem.B0);
-            shareEntity.groupData = shareItem.L0;
-            shareEntity.shareMediaType = shareItem.N0;
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("extra_share_data", shareEntity);
-            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
-            intentConfig.getIntent().putExtras(bundle);
-            shareItem.q(true);
-            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = false;
+            a();
+            interrupt();
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String readLine;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                try {
+                    this.c = Runtime.getRuntime().exec(this.b);
+                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
+                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
+                        if (readLine.length() != 0 && this.e != null) {
+                            FileOutputStream fileOutputStream = this.e;
+                            fileOutputStream.write((readLine + "\n").getBytes());
+                        }
+                    }
+                    BdLog.d("collector complete.");
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
+                }
+            } finally {
+                a();
+            }
         }
     }
 }

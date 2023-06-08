@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tieba.f05;
-import com.baidu.tieba.p16;
+import com.baidu.tieba.r16;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.wq8;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -290,7 +290,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new p16(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new r16(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -547,7 +547,7 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            wq8 activityLog = ActivityLog.getInstance();
+            zq8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithDialog:" + str2);
             if (str2.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
                 try {
@@ -639,7 +639,7 @@ public class UrlManager {
                 return 3;
             }
             String str = strArr[0];
-            wq8 activityLog = ActivityLog.getInstance();
+            zq8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithOutJumpWebView:" + str);
             UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
             if (urlSchemaHandler != null) {

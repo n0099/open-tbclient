@@ -5,7 +5,7 @@ import androidx.annotation.UiThread;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.tieba.fy1;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface gy1<T extends fy1> extends TypedCallbackHandler {
     @UiThread
     void L();

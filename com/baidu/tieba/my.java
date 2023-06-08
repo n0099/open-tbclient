@@ -16,8 +16,8 @@ import kotlin.jvm.internal.Intrinsics;
 public final class my extends by {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f15 h;
-    public eo6<f15> i;
+    public h15 h;
+    public go6<h15> i;
     public CustomFitFrameCard j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,11 +42,11 @@ public final class my extends by {
         x(UtilHelper.getDimenPixelSize(R.dimen.tbds17));
     }
 
-    public final boolean z(f15 f15Var) {
+    public final boolean z(h15 h15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, f15Var)) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getTaskInfoData() != null && f15Var.getThreadData().getTaskInfoData().f() != null && f15Var.getThreadData().getTaskInfoData().j() == 4) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, h15Var)) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getTaskInfoData() != null && h15Var.getThreadData().getTaskInfoData().f() != null && h15Var.getThreadData().getTaskInfoData().j() == 4) {
                 return true;
             }
             return false;
@@ -58,9 +58,9 @@ public final class my extends by {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            eo6<f15> eo6Var = this$0.i;
-            if (eo6Var != null) {
-                eo6Var.a(view2, this$0.h);
+            go6<h15> go6Var = this$0.i;
+            if (go6Var != null) {
+                go6Var.a(view2, this$0.h);
             }
         }
     }
@@ -77,14 +77,14 @@ public final class my extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: A */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f15Var) == null) {
-            this.h = f15Var;
-            if (z(f15Var)) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, h15Var) == null) {
+            this.h = h15Var;
+            if (z(h15Var)) {
                 CustomFitFrameCard customFitFrameCard = this.j;
                 if (customFitFrameCard != null) {
-                    customFitFrameCard.setData(f15Var);
+                    customFitFrameCard.setData(h15Var);
                 }
                 CustomFitFrameCard customFitFrameCard2 = this.j;
                 if (customFitFrameCard2 != null) {
@@ -101,10 +101,10 @@ public final class my extends by {
     }
 
     @Override // com.baidu.tieba.ux
-    public void p(eo6<f15> eo6Var) {
+    public void p(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eo6Var) == null) {
-            this.i = eo6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, go6Var) == null) {
+            this.i = go6Var;
         }
     }
 

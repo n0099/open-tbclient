@@ -18,8 +18,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jw9;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.ow9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -193,20 +193,20 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (StringUtils.isNull(this.g)) {
-                m75 d = m75.d(this.c);
+                o75 d = o75.d(this.c);
                 d.o(R.string.J_X07);
                 d.f(R.color.CAM_X0303);
             } else {
-                m75 d2 = m75.d(this.c);
+                o75 d2 = o75.d(this.c);
                 d2.o(R.string.J_X07);
-                d2.h(jw9.f(this.g));
+                d2.h(ow9.f(this.g));
             }
-            m75.d(this.d).z(R.color.CAM_X0101);
-            m75.d(this.e).f(R.color.CAM_X0617);
-            m75 d3 = m75.d(this);
+            o75.d(this.d).z(R.color.CAM_X0101);
+            o75.d(this.e).f(R.color.CAM_X0617);
+            o75 d3 = o75.d(this);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
-            m75.d(this.b).w(R.color.CAM_X0105);
+            o75.d(this.b).w(R.color.CAM_X0105);
         }
     }
 
@@ -217,7 +217,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(vi.g(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams);
-            m75.d(this.b).B(R.dimen.T_X07);
+            o75.d(this.b).B(R.dimen.T_X07);
             this.b.setText(R.string.obfuscated_res_0x7f0f005f);
             addView(this.b);
         }
@@ -271,7 +271,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             this.d.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.d.setGravity(16);
             this.d.setPadding(vi.g(getContext(), R.dimen.M_W_X006), 0, vi.g(getContext(), R.dimen.M_W_X005), 0);
-            m75.d(this.d).B(R.dimen.T_X08);
+            o75.d(this.d).B(R.dimen.T_X08);
             this.d.setText(R.string.obfuscated_res_0x7f0f005a);
             this.c.addView(this.d);
             this.e = new View(getContext());

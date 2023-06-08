@@ -1,188 +1,53 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
+import android.os.Message;
+import android.text.TextUtils;
+import android.view.View;
+import android.webkit.ConsoleMessage;
+import android.webkit.GeolocationPermissions;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.tbadk.browser.TBWebContainerActivity;
+import com.baidu.tbadk.browser.TBWebViewActivity;
+import com.baidu.tbadk.core.hybrid.WebViewBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class k85 {
+public class k85 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public final a a;
+    public WebChromeClient b;
+    public WebViewBridge c;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final k85 a;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Class<?> a;
-        public final Object b;
-        public final Class<?> c;
-        public final Method d;
-        public final Object e;
-        public final Method f;
-        public final c g;
-        public final int h;
-        public final n85 i;
-        public int j;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.i.a(this.a.f());
-                    this.a.g.c();
-                    this.a.g();
-                }
-            }
-        }
-
-        public b(int i, n85 n85Var) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+        public a(k85 k85Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), n85Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.j = 0;
-            this.c = Class.forName("android.view.Choreographer");
-            this.a = Class.forName("android.view.Choreographer$FrameCallback");
-            this.g = new c(this);
-            this.b = Proxy.newProxyInstance(this.a.getClassLoader(), new Class[]{this.a}, this.g);
-            Method method = this.c.getMethod("getInstance", new Class[0]);
-            this.d = method;
-            this.e = method.invoke(null, new Object[0]);
-            this.f = this.c.getMethod("postFrameCallback", this.a);
-            this.h = i <= 0 ? 16 : i;
-            this.i = n85Var;
-        }
-
-        public /* synthetic */ b(int i, n85 n85Var, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-            this(i, n85Var);
-        }
-
-        public final List<Long> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList arrayList = new ArrayList(24);
-                List<Long> h = h();
-                int size = h.size();
-                int i = 0;
-                while (i < size - 1) {
-                    long longValue = h.get(i).longValue();
-                    i++;
-                    arrayList.add(Long.valueOf(h.get(i).longValue() - longValue));
-                }
-                return arrayList;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public final void g() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.g.c();
-            }
-        }
-
-        public final List<Long> h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.g.a;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public final void i() throws InvocationTargetException, IllegalAccessException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f.invoke(this.e, this.b);
-            }
-        }
-
-        public final void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i = this.j;
-                if (i >= this.h) {
-                    wg.a().post(new a(this));
-                    return;
-                }
-                this.j = i + 1;
-                try {
-                    i();
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements InvocationHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<Long> a;
-        public final List<Integer> b;
-        public b c;
-
-        public c(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {k85Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -192,69 +57,34 @@ public class k85 {
                     return;
                 }
             }
-            this.c = bVar;
-            this.a = new ArrayList(240);
-            this.b = new ArrayList(15);
+            this.a = k85Var;
         }
 
-        public final void d(long j) {
+        public boolean a(String str, String str2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.a.add(Long.valueOf(j));
-                this.c.j();
-            }
-        }
-
-        public final void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c = null;
-                this.a.clear();
-                this.b.clear();
-            }
-        }
-
-        @Override // java.lang.reflect.InvocationHandler
-        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
-                String name = method.getName();
-                Class<?>[] parameterTypes = method.getParameterTypes();
-                if ("doFrame".equals(name) && parameterTypes.length == 1 && parameterTypes[0] == Long.TYPE) {
-                    d(((Long) objArr[0]).longValue());
-                    return null;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+                if (TextUtils.isEmpty(str2) || !u85.b(str) || !str2.startsWith("ctieba://")) {
+                    return false;
                 }
-                return null;
+                return true;
             }
-            return invokeLLL.objValue;
+            return invokeLL.booleanValue;
+        }
+
+        public String b(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) != null) {
+                return (String) invokeLL.objValue;
+            }
+            return this.a.b(str, str2.substring(9));
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final k85 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-705595103, "Lcom/baidu/tieba/k85$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-705595103, "Lcom/baidu/tieba/k85$d;");
-                    return;
-                }
-            }
-            a = new k85();
-        }
-    }
-
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public k85() {
+        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -262,34 +92,466 @@ public class k85 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this((WebChromeClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
     }
 
-    public static k85 a() {
+    @Override // android.webkit.WebChromeClient
+    public Bitmap getDefaultVideoPoster() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return d.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                return oz4.b(webChromeClient.getDefaultVideoPoster());
+            }
+            return oz4.b(super.getDefaultVideoPoster());
         }
-        return (k85) invokeV.objValue;
+        return (Bitmap) invokeV.objValue;
     }
 
-    public void b(int i, n85 n85Var) {
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, n85Var) != null) || Build.VERSION.SDK_INT < 16) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                return webChromeClient.getVideoLoadingProgressView();
+            }
+            return super.getVideoLoadingProgressView();
         }
-        try {
-            b bVar = new b(i, n85Var, null);
-            this.a = bVar;
-            bVar.j();
-        } catch (Throwable th) {
-            BdLog.e(th);
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onGeolocationPermissionsHidePrompt() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onGeolocationPermissionsHidePrompt();
+            } else {
+                super.onGeolocationPermissionsHidePrompt();
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onHideCustomView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onHideCustomView();
+            } else {
+                super.onHideCustomView();
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                return webChromeClient.onJsTimeout();
+            }
+            return super.onJsTimeout();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public k85(WebChromeClient webChromeClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webChromeClient};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new a(this);
+        this.b = webChromeClient;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    @Deprecated
+    public void onConsoleMessage(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048583, this, str, i, str2) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onConsoleMessage(str, i, str2);
+            } else {
+                super.onConsoleMessage(str, i, str2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048599, this, webView, str, z) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onReceivedTouchIconUrl(webView, str, z);
+            } else {
+                super.onReceivedTouchIconUrl(webView, str, z);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onShowCustomView(View view2, int i, WebChromeClient.CustomViewCallback customViewCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048601, this, view2, i, customViewCallback) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onShowCustomView(view2, i, customViewCallback);
+            } else {
+                super.onShowCustomView(view2, i, customViewCallback);
+            }
+        }
+    }
+
+    public final String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return this.c.o(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, callback) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onGeolocationPermissionsShowPrompt(str, callback);
+            } else {
+                super.onGeolocationPermissionsShowPrompt(str, callback);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048595, this, webView, i) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onProgressChanged(webView, i);
+            } else {
+                super.onProgressChanged(webView, i);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedIcon(WebView webView, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, webView, bitmap) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onReceivedIcon(webView, bitmap);
+            } else {
+                super.onReceivedIcon(webView, bitmap);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, webView, str) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onReceivedTitle(webView, str);
+            } else {
+                super.onReceivedTitle(webView, str);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onShowCustomView(View view2, WebChromeClient.CustomViewCallback customViewCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048602, this, view2, customViewCallback) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onShowCustomView(view2, customViewCallback);
+            } else {
+                super.onShowCustomView(view2, customViewCallback);
+            }
+        }
+    }
+
+    public void c(WebViewBridge webViewBridge) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webViewBridge) == null) {
+            this.c = webViewBridge;
+        }
+    }
+
+    public void d(WebChromeClient webChromeClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webChromeClient) == null) {
+            this.b = webChromeClient;
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void getVisitedHistory(ValueCallback<String[]> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, valueCallback) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.getVisitedHistory(valueCallback);
+            } else {
+                super.getVisitedHistory(valueCallback);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onCloseWindow(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, webView) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onCloseWindow(webView);
+            } else {
+                super.onCloseWindow(webView);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, consoleMessage)) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                return webChromeClient.onConsoleMessage(consoleMessage);
+            }
+            return super.onConsoleMessage(consoleMessage);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onRequestFocus(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, webView) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onRequestFocus(webView);
+            } else {
+                super.onRequestFocus(webView);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                return webChromeClient.onCreateWindow(webView, z, z2, message);
+            }
+            return super.onCreateWindow(webView, z, z2, message);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            } else {
+                super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, webView, str, str2, jsResult)) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                return webChromeClient.onJsAlert(webView, str, str2, jsResult);
+            }
+            return super.onJsAlert(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048591, this, webView, str, str2, jsResult)) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                return webChromeClient.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048592, this, webView, str, str2, jsResult)) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                return webChromeClient.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return super.onJsConfirm(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048593, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (this.a.a(str, str2)) {
+                jsPromptResult.confirm(this.a.b(str, str2));
+                return true;
+            }
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient == null) {
+                return true;
+            }
+            return webChromeClient.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
+            WebChromeClient webChromeClient = this.b;
+            if (webChromeClient != null) {
+                webChromeClient.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+            } else {
+                super.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048603, this, webView, valueCallback, fileChooserParams)) == null) {
+            boolean z = false;
+            if (Build.VERSION.SDK_INT < 21) {
+                return false;
+            }
+            if (fileChooserParams.getMode() == 1) {
+                z = true;
+            }
+            Intent intent = new Intent("android.intent.action.GET_CONTENT");
+            intent.addCategory("android.intent.category.OPENABLE");
+            if (z) {
+                intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
+            }
+            intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
+            Activity a2 = jl6.a(this.c.getContext());
+            WebViewBridge webViewBridge = this.c;
+            if (webViewBridge != null && (webViewBridge.getContext() instanceof TBWebViewActivity)) {
+                TBWebViewActivity tBWebViewActivity = (TBWebViewActivity) this.c.getContext();
+                tBWebViewActivity.setUploadMessageAboveL(valueCallback);
+                tBWebViewActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+            } else if (this.c != null && (a2 instanceof TBWebContainerActivity)) {
+                ((TBWebContainerActivity) a2).setUploadMessageAboveL(valueCallback);
+                a2.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void openFileChooser(ValueCallback<Uri> valueCallback) {
+        WebChromeClient webChromeClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048604, this, valueCallback) == null) && (webChromeClient = this.b) != null) {
+            try {
+                webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class).invoke(this.b, valueCallback);
+            } catch (IllegalAccessException e) {
+                l85.a(e.getMessage());
+            } catch (NoSuchMethodException e2) {
+                l85.a(e2.getMessage());
+            } catch (InvocationTargetException e3) {
+                l85.a(e3.getMessage());
+            } catch (Throwable th) {
+                l85.a(th.getMessage());
+            }
+        }
+    }
+
+    public void openFileChooser(ValueCallback valueCallback, String str) {
+        WebChromeClient webChromeClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048605, this, valueCallback, str) == null) && (webChromeClient = this.b) != null) {
+            try {
+                webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class).invoke(this.b, valueCallback, str);
+            } catch (IllegalAccessException e) {
+                l85.a(e.getMessage());
+            } catch (NoSuchMethodException e2) {
+                l85.a(e2.getMessage());
+            } catch (InvocationTargetException e3) {
+                l85.a(e3.getMessage());
+            } catch (Throwable th) {
+                l85.a(th.getMessage());
+            }
+        }
+    }
+
+    public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
+        WebChromeClient webChromeClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048606, this, valueCallback, str, str2) == null) && (webChromeClient = this.b) != null) {
+            try {
+                webChromeClient.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class, String.class).invoke(this.b, valueCallback, str, str2);
+            } catch (IllegalAccessException e) {
+                l85.a(e.getMessage());
+            } catch (NoSuchMethodException e2) {
+                l85.a(e2.getMessage());
+            } catch (InvocationTargetException e3) {
+                l85.a(e3.getMessage());
+            } catch (Throwable th) {
+                l85.a(th.getMessage());
+            }
         }
     }
 }

@@ -1,88 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ru6;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class iu6 implements ku6 {
+public final class iu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ru6 a;
-    public final ru6.a b;
 
-    public iu6(ru6 retainer, ru6.a locator) {
+    public static final nt6 a(g0 g0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {retainer, locator};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, g0Var)) == null) {
+            Intrinsics.checkNotNullParameter(g0Var, "<this>");
+            return (nt6) g0Var.d(nt6.class);
+        }
+        return (nt6) invokeL.objValue;
+    }
+
+    public static final kt6 b(g0 g0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g0Var)) == null) {
+            Intrinsics.checkNotNullParameter(g0Var, "<this>");
+            return (kt6) g0Var.d(kt6.class);
+        }
+        return (kt6) invokeL.objValue;
+    }
+
+    public static final long c(g0 g0Var) {
+        InterceptResult invokeL;
+        ys6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, g0Var)) == null) {
+            Intrinsics.checkNotNullParameter(g0Var, "<this>");
+            kt6 b = b(g0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.g();
             }
+            return 0L;
         }
-        Intrinsics.checkNotNullParameter(retainer, "retainer");
-        Intrinsics.checkNotNullParameter(locator, "locator");
-        this.a = retainer;
-        this.b = locator;
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.tieba.ku6
-    public void a(ws6 item, long j, wu6 displayer, qs6 config) {
+    public static final jt6 d(g0 g0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.b.a(item, j, displayer, config);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, g0Var)) == null) {
+            Intrinsics.checkNotNullParameter(g0Var, "<this>");
+            return (jt6) g0Var.d(jt6.class);
         }
+        return (jt6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ku6
-    public void b(ws6 item) {
+    public static final lt6 e(g0 g0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            this.a.b(item);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, g0Var)) == null) {
+            Intrinsics.checkNotNullParameter(g0Var, "<this>");
+            return (lt6) g0Var.d(lt6.class);
         }
+        return (lt6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ku6
-    public void c(int i, int i2) {
+    public static final long f(g0 g0Var) {
+        InterceptResult invokeL;
+        ys6 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.update(i, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, g0Var)) == null) {
+            Intrinsics.checkNotNullParameter(g0Var, "<this>");
+            kt6 b = b(g0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.j();
+            }
+            return 0L;
         }
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.tieba.ku6
-    public void clear() {
+    public static final boolean g(g0 g0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.clear();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, g0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(g0Var, "<this>");
+            if (j - f(g0Var) < 0) {
+                return true;
+            }
+            return false;
         }
+        return invokeLJ.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ku6
-    public boolean d(ws6 item, long j, wu6 displayer, qs6 config) {
-        InterceptResult invokeCommon;
+    public static final boolean h(g0 g0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            item.f().B(this.a.a(item, j, displayer, config));
-            return item.f().p();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, g0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(g0Var, "<this>");
+            if (j - f(g0Var) > c(g0Var)) {
+                return true;
+            }
+            return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeLJ.booleanValue;
     }
 }

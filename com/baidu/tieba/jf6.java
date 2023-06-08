@@ -4,9 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaLoveFamilyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jf6 extends in<zf6, CardViewHolder<yg6>> {
+public class jf6 extends in<yf6, CardViewHolder<ah6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -26,15 +23,14 @@ public class jf6 extends in<zf6, CardViewHolder<yg6>> {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf6 a;
-        public final /* synthetic */ jf6 b;
+        public final /* synthetic */ jf6 a;
 
-        public a(jf6 jf6Var, zf6 zf6Var) {
+        public a(jf6 jf6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jf6Var, zf6Var};
+                Object[] objArr = {jf6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,22 +40,22 @@ public class jf6 extends in<zf6, CardViewHolder<yg6>> {
                     return;
                 }
             }
-            this.b = jf6Var;
-            this.a = zf6Var;
+            this.a = jf6Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.u(this.a);
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.u();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jf6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), zf6.b);
+        super(tbPageContext.getPageActivity(), yf6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,47 +75,46 @@ public class jf6 extends in<zf6, CardViewHolder<yg6>> {
         this.a = tbPageContext;
     }
 
-    public final void u(zf6 zf6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, zf6Var) == null) && zf6Var != null && zf6Var.c() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.mContext, zf6Var.c().b().user_id)));
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: x */
-    public CardViewHolder<yg6> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<ah6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new yg6(this.a));
+            return new CardViewHolder<>(new ah6(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void t(zf6 zf6Var, yg6 yg6Var) {
+    public final void t(yf6 yf6Var, ah6 ah6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, zf6Var, yg6Var) != null) || zf6Var.c() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, yf6Var, ah6Var) == null) {
+            ah6Var.y(8);
+            ah6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f024b));
+            ah6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
-        yg6Var.y(8);
-        yg6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f026c));
-        yg6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            qx4.D(this.a.getPageActivity(), true, n95.m().s("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f024b));
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zf6 zf6Var, CardViewHolder<yg6> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yf6 yf6Var, CardViewHolder<ah6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zf6Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yf6Var, cardViewHolder})) == null) {
             if (cardViewHolder.a() == null) {
                 return null;
             }
-            t(zf6Var, cardViewHolder.a());
-            cardViewHolder.a().h().setOnClickListener(new a(this, zf6Var));
+            t(yf6Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this));
             return cardViewHolder.a().h();
         }
         return (View) invokeCommon.objValue;

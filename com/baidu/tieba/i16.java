@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.drawable.Drawable;
 /* loaded from: classes6.dex */
-public class i16 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface i16 {
+    void setLastUpdatedLabel(CharSequence charSequence);
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-        }
-    }
+    void setLoadingDrawable(Drawable drawable);
+
+    void setPullLabel(CharSequence charSequence);
+
+    void setRefreshingLabel(CharSequence charSequence);
+
+    void setReleaseLabel(CharSequence charSequence);
 }

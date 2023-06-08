@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f09;
+import com.baidu.tieba.i09;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public NavigationBar c;
     public View d;
     public TextView e;
-    public f09 f;
+    public i09 f;
     public List<BazhuInfoData.BaInfo> g;
     public View h;
     public View i;
@@ -218,9 +218,9 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 }
             }
             this.b.setOnItemClickListener(this.l);
-            f09 f09Var = new f09(getActivity());
-            this.f = f09Var;
-            this.b.setAdapter((ListAdapter) f09Var);
+            i09 i09Var = new i09(getActivity());
+            this.f = i09Var;
+            this.b.setAdapter((ListAdapter) i09Var);
             this.f.b(this.g);
             E1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

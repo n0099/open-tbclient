@@ -40,13 +40,13 @@ public class zn2 {
 
         /* renamed from: com.baidu.tieba.zn2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0538a implements Runnable {
+        public class RunnableC0540a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ xn2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0538a(a aVar, xn2 xn2Var) {
+            public RunnableC0540a(a aVar, xn2 xn2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class zn2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0538a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0540a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

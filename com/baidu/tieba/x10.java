@@ -48,7 +48,7 @@ public class x10 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return yq9.a();
+            return dr9.a();
         }
         return (y10) invokeV.objValue;
     }

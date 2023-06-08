@@ -1,55 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public final class akb {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int[] b;
+    public int[] c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947619473, "Lcom/baidu/tieba/akb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947619473, "Lcom/baidu/tieba/akb;");
-                return;
-            }
-        }
-        a = new byte[1024];
-        b = new int[1024];
-    }
-
-    public static void a(byte[] bArr, int i, int i2) {
+    public akb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int min = Math.min(i3 + 1024, i2) - i3;
-                System.arraycopy(a, 0, bArr, i + i3, min);
-                i3 += min;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(int[] iArr, int i, int i2) {
+    public static void a(akb akbVar, ujb ujbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int min = Math.min(i3 + 1024, i2) - i3;
-                System.arraycopy(b, 0, iArr, i + i3, min);
-                i3 += min;
+        if (interceptable == null || interceptable.invokeLL(65537, null, akbVar, ujbVar) == null) {
+            int length = akbVar.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                akbVar.c[i2] = i;
+                xjb.n(akbVar.a, akbVar.b, i, ujbVar);
+                i += 1080;
             }
+        }
+    }
+
+    public static void b(akb akbVar, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, akbVar, i, i2) == null) {
+            akbVar.a = i;
+            akbVar.b = new int[i2 * 1080];
+            akbVar.c = new int[i2];
         }
     }
 }

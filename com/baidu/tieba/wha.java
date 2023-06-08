@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class wha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsTabInfoData a;
-    public FrsTabItemData b;
+    public int a;
+    public List<eu7> b;
+    public List<String> c;
+    public int d;
+    public List<f25> e;
 
     public wha() {
         Interceptable interceptable = $ic;
@@ -23,7 +25,9 @@ public class wha {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 }

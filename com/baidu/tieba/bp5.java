@@ -1,5 +1,13 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes5.dex */
 public interface bp5 {
-    void a(zo5 zo5Var);
+    int getPid();
+
+    int getTag();
+
+    int getType();
+
+    void setTag(BdUniqueId bdUniqueId);
 }

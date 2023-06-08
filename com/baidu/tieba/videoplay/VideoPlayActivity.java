@@ -27,12 +27,12 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.du4;
-import com.baidu.tieba.e46;
 import com.baidu.tieba.eu4;
-import com.baidu.tieba.fy5;
+import com.baidu.tieba.g46;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.hp6;
-import com.baidu.tieba.qs7;
+import com.baidu.tieba.hy5;
+import com.baidu.tieba.jp6;
+import com.baidu.tieba.ss7;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
@@ -53,7 +53,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean b;
     public List<VideoItemData> c;
     public VideoMiddleFragment d;
-    public e46 e;
+    public g46 e;
     public boolean f;
     public Rect g;
     public String h;
@@ -114,12 +114,12 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            e46 e46Var = this.e;
-            if (e46Var != null) {
-                e46Var.h();
+            g46 g46Var = this.e;
+            if (g46Var != null) {
+                g46Var.h();
             }
-            qs7.m().c(qs7.s());
-            hp6.a();
+            ss7.m().c(ss7.s());
+            jp6.a();
         }
     }
 
@@ -208,7 +208,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048579, this, i, i2, intent) != null) || fy5.c(i, i2, intent)) {
+        if ((interceptable != null && interceptable.invokeIIL(1048579, this, i, i2, intent) != null) || hy5.c(i, i2, intent)) {
             return;
         }
         super.onActivityResult(i, i2, intent);
@@ -241,7 +241,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
             setContentView(R.layout.obfuscated_res_0x7f0d09aa);
-            this.e = new e46(getPageContext(), "client_videomiddle");
+            this.e = new g46(getPageContext(), "client_videomiddle");
             w1();
             x1();
             addNoAdjustSoftInputHeightListener();

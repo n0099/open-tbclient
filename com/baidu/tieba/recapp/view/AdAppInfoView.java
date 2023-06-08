@@ -20,10 +20,10 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm9;
-import com.baidu.tieba.h15;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.km9;
 import com.baidu.tieba.n31;
-import com.baidu.tieba.r46;
+import com.baidu.tieba.t46;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public h15 i;
+    public j15 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -145,7 +145,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.ad_privacy) {
-                    h15.b bVar = this.a.i.g;
+                    j15.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -155,7 +155,7 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.ad_permission) {
-                        h15.a aVar = this.a.i.h;
+                        j15.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
@@ -168,7 +168,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                fm9.a(this.a.getContext(), str3, null, null, str);
+                km9.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -180,7 +180,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, r46.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, t46.SimpleAdInfoView);
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -319,60 +319,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(h15 h15Var) {
+    public void setAppInfo(j15 j15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, h15Var) == null) {
-            if (h15Var != null && h15.c(h15Var)) {
-                this.i = h15Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, j15Var) == null) {
+            if (j15Var != null && j15.c(j15Var)) {
+                this.i = j15Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(h15Var.c)) {
+                    if (!TextUtils.isEmpty(j15Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(h15Var.c);
+                        this.a.setText(j15Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = h15Var.e;
+                    float f = j15Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(h15Var.e);
+                        this.b.setRating(j15Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(h15Var.f)) {
+                    if (!TextUtils.isEmpty(j15Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(h15Var.f);
+                        this.c.setText(j15Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(h15Var.d)) {
+                    if (!TextUtils.isEmpty(j15Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(h15Var.d);
+                        this.d.setText(j15Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    h15.b bVar = h15Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(h15Var.g.a)) {
+                    j15.b bVar = j15Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(j15Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(h15Var.g.a);
+                        this.e.setText(j15Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.f != null) {
-                    h15.a aVar = h15Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(h15Var.h.a)) {
+                    j15.a aVar = j15Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(j15Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(h15Var.h.a);
+                        this.f.setText(j15Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }

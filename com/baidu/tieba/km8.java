@@ -1,124 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ik8;
+import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public abstract class km8<SdkMsg extends ChatMsg, T> implements nm8<SdkMsg, qk8<T>> {
+public abstract class km8<T, V extends View, M extends ik8<T>> implements i87<PersonalMsgContainer<T, V>, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public abstract int c();
+    public abstract void d(V v, M m);
 
-    public abstract SdkMsg e(T t);
+    public void f(ViewGroup container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+        }
+    }
 
-    public abstract T g(SdkMsg sdkmsg);
+    public abstract V g(ViewGroup viewGroup);
 
-    public km8() {
+    public km8(String name) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.a = name;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nm8
-    /* renamed from: d */
-    public SdkMsg b(qk8<T> msg) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i87
+    /* renamed from: e */
+    public void b(PersonalMsgContainer<T, V> view2, M data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            SdkMsg e = e(msg.f());
-            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("type", c());
-            jSONObject.put("from", "android");
-            e.setContentExtra(jSONObject.toString());
-            return e;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.h(data);
+            d(view2.getChild(), data);
+            f(view2.getChildContainer());
         }
-        return (SdkMsg) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.i87
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nm8
-    /* renamed from: f */
-    public qk8<T> a(SdkMsg msg) {
+    @Override // com.baidu.tieba.i87
+    /* renamed from: h */
+    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            qk8<T> qk8Var = new qk8<>();
-            qk8Var.i(g(msg));
-            qk8Var.c(msg.getMsgId());
-            String msgKey = msg.getMsgKey();
-            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
-            qk8Var.d(msgKey);
-            qk8Var.e().l(msg.getContacterUk());
-            qk8Var.e().k(xua.c(msg.getSenderUid(), 0L));
-            qk8Var.e().i(msg.getStatus());
-            qk8Var.j(msg);
-            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
-            qk8Var.e().h(isSelf);
-            if (!isSelf) {
-                qk8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
-                qk8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            if (i()) {
+                Context context = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
+                personalMsgContainer.e(g(parent));
+                return personalMsgContainer;
+            } else if (j()) {
+                Context context2 = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
+                personalMsgContainer2.e(g(parent));
+                return personalMsgContainer2;
             } else {
-                qk8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
-                qk8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
+                throw new IllegalArgumentException("unknown template: " + c());
             }
-            if (!StringUtils.isNull(msg.getContentExtra())) {
-                try {
-                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
-                    qk8Var.e().j(jSONObject.optInt("type"));
-                    qk8Var.e().e(jSONObject.optString("from"));
-                } catch (JSONException e) {
-                    if (!TbadkApplication.getInst().isDebugMode()) {
-                        e.printStackTrace();
-                    } else {
-                        throw e;
-                    }
-                }
-            }
-            String msgContent = msg.getMsgContent();
-            if (msgContent == null) {
-                msgContent = "";
-            } else {
-                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
-            }
-            if (!ui.isEmpty(msgContent)) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(msgContent);
-                    pk8 g = qk8Var.g();
-                    String optString = jSONObject2.optString("origin_msg_key");
-                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
-                    g.b(optString);
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
-                }
-            }
-            return qk8Var;
         }
-        return (qk8) invokeL.objValue;
+        return (PersonalMsgContainer) invokeL.objValue;
     }
 }

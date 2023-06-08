@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd8;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.tc8;
+import com.baidu.tieba.hd8;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.vc8;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +34,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView d;
     public View e;
-    public fd8 f;
+    public hd8 f;
     public String g;
     public String h;
 
@@ -115,13 +115,13 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull tc8 tc8Var, @NonNull TbPageContext tbPageContext, int i2) {
+    public void d(@NonNull vc8 vc8Var, @NonNull TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, tc8Var, tbPageContext, i2) == null) {
-            if (tc8Var instanceof fd8) {
-                fd8 fd8Var = (fd8) tc8Var;
-                this.f = fd8Var;
-                this.g = fd8Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, vc8Var, tbPageContext, i2) == null) {
+            if (vc8Var instanceof hd8) {
+                hd8 hd8Var = (hd8) vc8Var;
+                this.f = hd8Var;
+                this.g = hd8Var.b();
                 this.h = this.f.c();
                 this.d.setOnClickListener(new a(this, tbPageContext));
             }
@@ -152,8 +152,8 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
             this.e.setVisibility(0);
-            m75.d(this.e).f(R.color.CAM_X0503);
-            m75.d(this.e).o(R.string.J_X06);
+            o75.d(this.e).f(R.color.CAM_X0503);
+            o75.d(this.e).o(R.string.J_X06);
         }
     }
 

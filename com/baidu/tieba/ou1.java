@@ -25,7 +25,7 @@ public class ou1 implements ww1 {
 
         /* renamed from: com.baidu.tieba.ou1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0395a implements rq3<String> {
+        public class C0404a implements rq3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File a;
@@ -34,18 +34,18 @@ public class ou1 implements ww1 {
 
             /* renamed from: com.baidu.tieba.ou1$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0396a implements Runnable {
+            public class RunnableC0405a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ File a;
-                public final /* synthetic */ C0395a b;
+                public final /* synthetic */ C0404a b;
 
-                public RunnableC0396a(C0395a c0395a, File file) {
+                public RunnableC0405a(C0404a c0404a, File file) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0395a, file};
+                        Object[] objArr = {c0404a, file};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -55,7 +55,7 @@ public class ou1 implements ww1 {
                             return;
                         }
                     }
-                    this.b = c0395a;
+                    this.b = c0404a;
                     this.a = file;
                 }
 
@@ -68,7 +68,7 @@ public class ou1 implements ww1 {
                 }
             }
 
-            public C0395a(a aVar, File file, String str) {
+            public C0404a(a aVar, File file, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class ou1 implements ww1 {
                         cs4.j(file2);
                         cs4.X(file.getAbsolutePath(), file2.getAbsolutePath());
                         cs4.L(file);
-                        sp3.a0(new RunnableC0396a(this, file2));
+                        sp3.a0(new RunnableC0405a(this, file2));
                     } catch (Exception e) {
                         y82.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
                         qb3.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f148d)).G();
@@ -140,7 +140,7 @@ public class ou1 implements ww1 {
                 } else if (!Z2.exists() && !Z2.mkdirs()) {
                     y82.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + Z2.getAbsolutePath());
                 } else {
-                    ro3.i(this.a, new C0395a(this, Z2, ro3.l(this.a) + "===== 启动信息 =====\n"));
+                    ro3.i(this.a, new C0404a(this, Z2, ro3.l(this.a) + "===== 启动信息 =====\n"));
                 }
             }
         }

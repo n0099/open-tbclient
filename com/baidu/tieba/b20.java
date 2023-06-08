@@ -106,7 +106,7 @@ public class b20 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return yq9.a();
+            return dr9.a();
         }
         return (e20) invokeV.objValue;
     }
@@ -126,7 +126,7 @@ public class b20 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return ar9.a();
+            return fr9.a();
         }
         return (g20) invokeV.objValue;
     }

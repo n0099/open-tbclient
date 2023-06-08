@@ -31,11 +31,11 @@ public final class jc3 {
 
         /* renamed from: com.baidu.tieba.jc3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0354a extends mc3<a> {
+        public static class C0366a extends mc3<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0354a() {
+            public C0366a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class jc3 {
                     return;
                 }
             }
-            e = new C0354a();
+            e = new C0366a();
             f = new b();
         }
 

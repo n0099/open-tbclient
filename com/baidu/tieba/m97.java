@@ -2,13 +2,13 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.card.FeedCardView;
+import com.baidu.tieba.feed.component.CardSocialBarView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m97 extends r77<FeedCardView, x47<?>> {
+public class m97 extends t77<CardSocialBarView, t47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,12 +33,12 @@ public class m97 extends r77<FeedCardView, x47<?>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g87
+    @Override // com.baidu.tieba.i87
     /* renamed from: e */
-    public void b(@NonNull FeedCardView feedCardView, @NonNull x47<?> x47Var) {
+    public void b(@NonNull CardSocialBarView cardSocialBarView, @NonNull t47 t47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, x47Var) == null) {
-            feedCardView.f(x47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardSocialBarView, t47Var) == null) {
+            cardSocialBarView.update(t47Var);
         }
     }
 }

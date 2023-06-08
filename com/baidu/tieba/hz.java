@@ -15,7 +15,7 @@ public class hz extends by {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout h;
-    public f15 i;
+    public h15 i;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -76,11 +76,11 @@ public class hz extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: z */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f15Var) == null) {
-            this.i = f15Var;
-            this.h.a(f15Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h15Var) == null) {
+            this.i = h15Var;
+            this.h.a(h15Var);
         }
     }
 

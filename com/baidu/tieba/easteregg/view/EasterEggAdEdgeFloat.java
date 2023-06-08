@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.at9;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
+import com.baidu.tieba.ft9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -231,19 +231,19 @@ public final class EasterEggAdEdgeFloat {
                 }
                 c2 = this.this$0.c();
                 c2.addView(this.$view);
-                at9 at9Var = new at9(this.$activity);
+                ft9 ft9Var = new ft9(this.$activity);
                 c3 = this.this$0.c();
-                at9Var.M(c3);
-                at9Var.y(this.$gravity);
-                at9Var.I(this.$startX);
-                at9Var.J(this.$startY);
-                at9Var.d(this.$canDrag);
-                at9Var.N(vi.l(TbadkCoreApplication.getInst()));
-                at9Var.z(EasterEggAdEdgeFloat.c.a());
-                at9Var.D(this.$pageSupportList);
-                at9Var.H(false);
-                at9Var.G(this.$onScreenSizeChangedCallback);
-                return at9Var.c();
+                ft9Var.M(c3);
+                ft9Var.y(this.$gravity);
+                ft9Var.I(this.$startX);
+                ft9Var.J(this.$startY);
+                ft9Var.d(this.$canDrag);
+                ft9Var.N(vi.l(TbadkCoreApplication.getInst()));
+                ft9Var.z(EasterEggAdEdgeFloat.c.a());
+                ft9Var.D(this.$pageSupportList);
+                ft9Var.H(false);
+                ft9Var.G(this.$onScreenSizeChangedCallback);
+                return ft9Var.c();
             }
         });
     }

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e35;
-import com.baidu.tieba.g46;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.i46;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,16 +36,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public g46 h;
+    public i46 h;
     public View.OnClickListener i;
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, e35 e35Var);
+        void a(ArrayList<Integer> arrayList, String str, g35 g35Var);
 
-        void b(e35 e35Var, CompoundButton compoundButton, boolean z);
+        void b(g35 g35Var, CompoundButton compoundButton, boolean z);
 
-        void c(e35 e35Var);
+        void c(g35 g35Var);
     }
 
     public void setACRotateAnimation() {
@@ -132,10 +132,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(e35 e35Var) {
+    public void setData(g35 g35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, e35Var) == null) {
-            this.h.u(e35Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, g35Var) == null) {
+            this.h.u(g35Var);
         }
     }
 
@@ -201,7 +201,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void t(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, tbPageContext) == null) {
-            this.h = new g46(tbPageContext, this);
+            this.h = new i46(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             u();

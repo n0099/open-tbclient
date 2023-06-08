@@ -16,30 +16,31 @@ import java.lang.ref.WeakReference;
 public class qy5 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public WeakReference<Drawable> a;
     public int b;
     public int c;
-    public WeakReference<Drawable> d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qy5(Drawable drawable) {
+    public qy5(Drawable drawable, int i) {
         super(drawable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
+        this.b = 0;
+        this.c = 1;
+        this.c = i;
     }
 
     public final Drawable a() {
@@ -47,7 +48,7 @@ public class qy5 extends ImageSpan {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.d;
+            WeakReference<Drawable> weakReference = this.a;
             if (weakReference != null) {
                 drawable = weakReference.get();
             } else {
@@ -55,7 +56,7 @@ public class qy5 extends ImageSpan {
             }
             if (drawable == null) {
                 Drawable drawable2 = getDrawable();
-                this.d = new WeakReference<>(drawable2);
+                this.a = new WeakReference<>(drawable2);
                 return drawable2;
             }
             return drawable;
@@ -63,37 +64,35 @@ public class qy5 extends ImageSpan {
         return (Drawable) invokeV.objValue;
     }
 
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Drawable a;
+        float f2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
             return;
         }
+        int i6 = this.c;
+        float f3 = 0.0f;
+        if (i6 != 0) {
+            if (i6 != 1) {
+                if (i6 != 2) {
+                    f2 = 0.0f;
+                } else {
+                    f2 = 0.2f;
+                }
+            } else {
+                f2 = 0.15f;
+            }
+        } else {
+            f2 = 0.1f;
+        }
+        if (f2 != 0.0f) {
+            f3 = ((i4 - i5) + (a.getBounds().height() * f2)) - this.b;
+        }
         canvas.save();
-        canvas.translate(f + this.b, ((((i5 - i3) - a.getBounds().bottom) / 2) + i3) - this.a);
-        a.draw(canvas);
+        canvas.translate(a.getBounds().width() * 0.15f, f3);
+        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
         canvas.restore();
     }
 
@@ -101,7 +100,7 @@ public class qy5 extends ImageSpan {
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
             Drawable a = a();
             if (a == null) {
                 return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
@@ -119,7 +118,7 @@ public class qy5 extends ImageSpan {
                 fontMetricsInt.bottom = i6;
                 fontMetricsInt.descent = i6;
             }
-            return bounds.right + this.b + this.c;
+            return bounds.right;
         }
         return invokeCommon.intValue;
     }

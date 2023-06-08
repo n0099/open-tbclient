@@ -79,7 +79,7 @@ public class n05 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            l95 m = l95.m();
+            n95 m = n95.m();
             int n = m.n(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
             this.b = n;
             return n;
@@ -91,7 +91,7 @@ public class n05 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int n = l95.m().n("image_quality", 0);
+            int n = n95.m().n("image_quality", 0);
             this.a = n;
             return n;
         }
@@ -119,15 +119,15 @@ public class n05 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = l95.m().n("image_quality", 0);
-            l95.m().n("new_abstract_state", 0);
-            this.e = l95.m().n("view_image_quality", 0);
-            boolean i = l95.m().i("show_images", true);
+            this.a = n95.m().n("image_quality", 0);
+            n95.m().n("new_abstract_state", 0);
+            this.e = n95.m().n("view_image_quality", 0);
+            boolean i = n95.m().i("show_images", true);
             this.d = i;
             if (!i) {
                 this.d = true;
-                l95.m().H("show_images");
-                l95.m().z("view_image_quality", 0);
+                n95.m().H("show_images");
+                n95.m().z("view_image_quality", 0);
                 this.e = 0;
             }
         }
@@ -146,7 +146,7 @@ public class n05 {
             return;
         }
         this.e = i;
-        l95.m().z("view_image_quality", i);
+        n95.m().z("view_image_quality", i);
         TbImageHelper.getInstance().updateFrsShowBigImage();
         TbImageHelper.getInstance().updateUrlQuality();
     }
@@ -157,7 +157,7 @@ public class n05 {
             return;
         }
         this.b = i;
-        l95 m = l95.m();
+        n95 m = n95.m();
         m.z(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
     }
 }

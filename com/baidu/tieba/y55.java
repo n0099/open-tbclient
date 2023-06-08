@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.yun.YunTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,65 +8,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.concurrent.PriorityBlockingQueue;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class y55 {
+public class y55 {
     public static /* synthetic */ Interceptable $ic;
+    public static final y55 c;
+    public static final y55 d;
+    public static final y55 e;
+    public static final y55 f;
+    public static final y55 g;
+    public static final y55 h;
+    public static final y55 i;
+    public static final y55 j;
+    public static final y55 k;
+    public static final y55 l;
+    public static final y55 m;
+    public static final y55 n;
+    public static final y55 o;
+    public static final y55 p;
+    public static final y55 q;
+    public static final y55 r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Comparator<YunTask> b;
-    public final PriorityBlockingQueue<YunTask> c;
-
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-307557645, "Lcom/baidu/tieba/y55$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-307557645, "Lcom/baidu/tieba/y55$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[YunTask.Type.values().length];
-            iArr[YunTask.Type.DIRECT_EXECUTE.ordinal()] = 1;
-            iArr[YunTask.Type.ENQUEUE.ordinal()] = 2;
-            $EnumSwitchMapping$0 = iArr;
-        }
-    }
+    public final String a;
+    public final boolean b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948281168, "Lcom/baidu/tieba/y55;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281168, "Lcom/baidu/tieba/y55;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948281168, "Lcom/baidu/tieba/y55;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948281168, "Lcom/baidu/tieba/y55;");
-        }
+        c = new y55("sync_finish", false);
+        d = new y55("main_page_load_finish", false);
+        e = new y55("pb_load_finish", false);
+        f = new y55("frs_load_finish", false);
+        g = new y55("main_page_recommend", true);
+        h = new y55("main_page_common_tab", true);
+        i = new y55("main_page_hot_topic", true);
+        j = new y55("main_page_concern", true);
+        k = new y55("main_page_enter_forum", true);
+        l = new y55("main_page_message", true);
+        m = new y55("main_page_person_info", true);
+        n = new y55("write_page", true);
+        o = new y55("pb_page", true);
+        p = new y55("frs_page", true);
+        q = new y55("main_page_idle", false);
+        r = new y55("splash_close", false);
     }
 
-    public y55(int i) {
+    public y55(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -77,83 +77,34 @@ public final class y55 {
                 return;
             }
         }
-        this.a = i;
-        this.b = new Comparator() { // from class: com.baidu.tieba.v55
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.util.Comparator
-            public final int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? y55.b((YunTask) obj, (YunTask) obj2) : invokeLL.intValue;
-            }
-        };
-        this.c = new PriorityBlockingQueue<>(11, this.b);
+        this.a = str;
+        this.b = z;
     }
 
-    public final void c(YunTask yunTask) {
+    public static y55 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yunTask) == null) {
-            yunTask.b(this);
-            this.c.add(yunTask);
-            int size = this.c.size();
-            int i = this.a;
-            if (size > i) {
-                int size2 = this.c.size();
-                while (i < size2) {
-                    YunTask yunTask2 = (YunTask) CollectionsKt___CollectionsKt.elementAt(this.c, i);
-                    this.c.remove(yunTask2);
-                    yunTask2.g();
-                    i++;
-                }
-            }
-            d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new y55("main_page_common_tab_" + str, true);
         }
+        return (y55) invokeL.objValue;
     }
 
-    public static final int b(YunTask yunTask, YunTask yunTask2) {
-        InterceptResult invokeLL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, yunTask, yunTask2)) == null) {
-            if (yunTask2.f().isExecuting()) {
-                return Integer.MAX_VALUE;
-            }
-            return yunTask2.e() - yunTask.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLL.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void a(YunTask task) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            int i = a.$EnumSwitchMapping$0[task.getType().ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    c(task);
-                    return;
-                }
-                return;
-            }
-            task.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-    }
-
-    public final void e(YunTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            this.c.remove(task);
-            d();
-        }
-    }
-
-    public final void d() {
-        YunTask peek;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (peek = this.c.peek()) != null && peek.f().isUnStart()) {
-            peek.c();
-        }
+        return invokeV.booleanValue;
     }
 }

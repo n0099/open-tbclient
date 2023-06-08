@@ -23,6 +23,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ae8;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
@@ -32,9 +33,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.Tex
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vn;
-import com.baidu.tieba.yd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public class UpBubbleSlice extends Slice {
     public ChatPage r;
 
     /* loaded from: classes6.dex */
-    public class a implements yd8 {
+    public class a implements ae8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpBubbleSlice a;
@@ -82,7 +82,7 @@ public class UpBubbleSlice extends Slice {
             this.a = upBubbleSlice;
         }
 
-        @Override // com.baidu.tieba.yd8
+        @Override // com.baidu.tieba.ae8
         public void a(BdTypeRecyclerView bdTypeRecyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) {
@@ -94,7 +94,7 @@ public class UpBubbleSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.yd8
+        @Override // com.baidu.tieba.ae8
         public void b(BdTypeRecyclerView bdTypeRecyclerView, GroupChatRepo groupChatRepo, GroupChatRepo.s<TreeSet<ChatMsg>> sVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdTypeRecyclerView, groupChatRepo, sVar) == null) {
@@ -412,10 +412,10 @@ public class UpBubbleSlice extends Slice {
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             super.onChangeSkinType(i);
             this.k.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.up_positioning_bubble_icon, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            m75 d2 = m75.d(this.k.d);
+            o75 d2 = o75.d(this.k.d);
             d2.o(R.string.deprecated_J_X20);
             d2.f(R.color.CAM_X0207);
-            m75 d3 = m75.d(this.k.b);
+            o75 d3 = o75.d(this.k.b);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0105);
             d3.B(R.dimen.T_X07);

@@ -7,18 +7,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
+import com.baidu.tieba.frs.gametabs.NewSpecialFrsWebFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tk7 extends zm5 {
+public class tk7 extends bn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zm5
+    @Override // com.baidu.tieba.bn5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class tk7 extends zm5 {
                 return;
             }
         }
-        an5 an5Var = this.a;
-        an5Var.e = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) an5Var.a;
-        specialFrsWebFragment.z2(i);
+        cn5 cn5Var = this.a;
+        cn5Var.e = i;
+        NewSpecialFrsWebFragment newSpecialFrsWebFragment = (NewSpecialFrsWebFragment) cn5Var.a;
+        newSpecialFrsWebFragment.w2(i);
         if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
             if (str.contains("&ufanS=1")) {
                 str = str + "&_client_version=" + TbConfig.getVersion();
@@ -54,24 +54,24 @@ public class tk7 extends zm5 {
                 str = str + "&_client_version=" + TbConfig.getVersion();
             }
         }
-        specialFrsWebFragment.P1(str);
+        newSpecialFrsWebFragment.P1(str);
     }
 
-    @Override // com.baidu.tieba.zm5
-    public an5 a() {
+    @Override // com.baidu.tieba.bn5
+    public cn5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            an5 an5Var = new an5();
-            an5Var.a = new SpecialFrsWebFragment();
-            an5Var.e = 101;
-            an5Var.i = an5.k;
-            return an5Var;
+            cn5 cn5Var = new cn5();
+            cn5Var.a = new NewSpecialFrsWebFragment();
+            cn5Var.e = 101;
+            cn5Var.i = cn5.k;
+            return cn5Var;
         }
-        return (an5) invokeV.objValue;
+        return (cn5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zm5
+    @Override // com.baidu.tieba.bn5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

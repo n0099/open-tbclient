@@ -1,150 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class mh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static jg0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements jg0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.mh5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0377a implements nh5 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ig0 a;
-
-            @Override // com.baidu.tieba.nh5
-            public boolean onFileDownloaded(DownloadData downloadData) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-
-            public C0377a(a aVar, ig0 ig0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ig0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = ig0Var;
-            }
-
-            @Override // com.baidu.tieba.nh5
-            public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-                ig0 ig0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && (ig0Var = this.a) != null) {
-                    ig0Var.onFailed(new Exception(str));
-                }
-            }
-
-            @Override // com.baidu.tieba.nh5
-            public void onFileDownloadSucceed(DownloadData downloadData) {
-                ig0 ig0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && (ig0Var = this.a) != null) {
-                    ig0Var.b(downloadData.getPath());
-                }
-            }
-
-            @Override // com.baidu.tieba.nh5
-            public void onFileUpdateProgress(DownloadData downloadData) {
-                ig0 ig0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && (ig0Var = this.a) != null) {
-                    ig0Var.a(0L, 100L, (int) (downloadData.getLength() / downloadData.getSize()));
-                }
-            }
-
-            @Override // com.baidu.tieba.nh5
-            public boolean onPreDownload(DownloadData downloadData) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                    ig0 ig0Var = this.a;
-                    if (ig0Var != null) {
-                        ig0Var.onStarted();
-                        return true;
-                    }
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jg0
-        public void a(String str, String str2, String str3, ig0 ig0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, ig0Var) == null) {
-                DownloadData downloadData = new DownloadData();
-                downloadData.setPath(str2 + "/" + str3);
-                downloadData.setUrl(str);
-                downloadData.setCallback(new C0377a(this, ig0Var));
-                oh5.k().l(downloadData);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947972687, "Lcom/baidu/tieba/mh5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947972687, "Lcom/baidu/tieba/mh5;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    public static void a() {
+    public static void a(DownloadData downloadData) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            cg0.q(a);
+        if ((interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+            bdTopToast.h(false);
+            bdTopToast.g(currentActivity.getString(R.string.item_download_fail));
+            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        }
+    }
+
+    public static void b(DownloadData downloadData) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+            bdTopToast.h(false);
+            bdTopToast.g(currentActivity.getString(R.string.item_download_no_net));
+            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        }
+    }
+
+    public static void c(DownloadData downloadData) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+            bdTopToast.h(true);
+            bdTopToast.g(currentActivity.getString(R.string.item_download_success));
+            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
         }
     }
 }

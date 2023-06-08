@@ -49,22 +49,22 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad5;
+import com.baidu.tieba.bfa;
 import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.tieba.ei5;
-import com.baidu.tieba.fga;
+import com.baidu.tieba.cd5;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.gi5;
 import com.baidu.tieba.hu4;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.ox5;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.ii5;
+import com.baidu.tieba.kga;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.qx5;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.uh5;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wea;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.tieba.yg;
@@ -121,7 +121,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.qr5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -244,7 +244,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.showToast(R.string.obfuscated_res_0x7f0f0def);
                 }
-                if (ox5.a() || this.a.W2()) {
+                if (qx5.a() || this.a.W2()) {
                     return;
                 }
                 if (this.a.X2()) {
@@ -306,7 +306,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
                     view2.requestFocus();
-                    this.a.S.C(new sh5(5, -1, null));
+                    this.a.S.C(new uh5(5, -1, null));
                     this.a.E.requestFocus();
                     return false;
                 }
@@ -497,7 +497,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (this.V == null) {
-                this.V = new fga(getPageContext());
+                this.V = new kga(getPageContext());
             }
             this.V.c(this.S);
         }
@@ -795,18 +795,18 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            this.S.d(new gi5(getActivity(), 2));
+            this.S.d(new ii5(getActivity(), 2));
             if (this.U == null) {
-                wea weaVar = new wea(getActivity(), this.k);
-                this.U = weaVar;
-                weaVar.h();
+                bfa bfaVar = new bfa(getActivity(), this.k);
+                this.U = bfaVar;
+                bfaVar.h();
                 this.U.i();
                 this.U.m("from_share_write");
                 this.U.j(this.p.getForumId(), this.j);
             }
             this.S.d(this.U);
             this.S.h(arrayList);
-            ei5 p = this.S.p(5);
+            gi5 p = this.S.p(5);
             if (p != null) {
                 p.l = 1;
             }
@@ -1045,11 +1045,11 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
-    public void q2(@NonNull sh5 sh5Var) {
+    public void q2(@NonNull uh5 uh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, sh5Var) == null) {
-            if (sh5Var.a == 31) {
-                Object obj = sh5Var.c;
+        if (interceptable == null || interceptable.invokeL(1048616, this, uh5Var) == null) {
+            if (uh5Var.a == 31) {
+                Object obj = uh5Var.c;
                 if (obj instanceof Integer) {
                     int i = 0;
                     int intValue = ((Integer) obj).intValue();
@@ -1067,7 +1067,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     }
                 }
             }
-            int i2 = sh5Var.a;
+            int i2 = uh5Var.a;
             if (i2 == 29) {
                 this.p.setVideoInfo(null);
             } else if (i2 == 24) {
@@ -1075,19 +1075,19 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     showToast(R.string.over_limit_tip);
                     return;
                 }
-                Object obj2 = sh5Var.c;
-                if (!(obj2 instanceof ad5)) {
+                Object obj2 = uh5Var.c;
+                if (!(obj2 instanceof cd5)) {
                     return;
                 }
-                ad5 ad5Var = (ad5) obj2;
-                if (EmotionGroupType.isSendAsPic(ad5Var.getType())) {
+                cd5 cd5Var = (cd5) obj2;
+                if (EmotionGroupType.isSendAsPic(cd5Var.getType())) {
                     this.S.s();
                 }
-                n2(ad5Var);
+                n2(cd5Var);
             } else if (i2 != 12 && i2 != 13 && i2 != 46 && i2 != 49) {
                 if (i2 == 43) {
-                    l95.m().w("hot_topic_has_click", true);
-                    this.S.C(new sh5(2, 26, null));
+                    n95.m().w("hot_topic_has_click", true);
+                    this.S.C(new uh5(2, 26, null));
                     this.n = true;
                     u2(true);
                     if (X1().isFocused()) {

@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.en;
-import com.baidu.tieba.eo6;
-import com.baidu.tieba.f15;
+import com.baidu.tieba.go6;
+import com.baidu.tieba.h15;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.oy;
 import com.baidu.tieba.vi;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MutiImgSingleHorizontalLayout extends LinearLayout implements oy<f15> {
+public class MutiImgSingleHorizontalLayout extends LinearLayout implements oy<h15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -48,7 +48,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements oy<f1
     public TbImageView b;
     public ImageView c;
     public boolean d;
-    public eo6<f15> e;
+    public go6<h15> e;
 
     public void setPreloadSizeReadyCallback(en enVar) {
         Interceptable interceptable = $ic;
@@ -154,10 +154,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements oy<f1
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: c */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f15Var) == null) {
-            ThreadData threadData = f15Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) {
+            ThreadData threadData = h15Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData);
             setImageData(threadData);
         }
@@ -170,10 +170,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements oy<f1
         }
     }
 
-    public void setSubClickListener(eo6<f15> eo6Var) {
+    public void setSubClickListener(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, eo6Var) == null) {
-            this.e = eo6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, go6Var) == null) {
+            this.e = go6Var;
         }
     }
 
@@ -219,13 +219,13 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements oy<f1
         }
     }
 
-    public eo6<f15> getSubClickListener() {
+    public go6<h15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
-        return (eo6) invokeV.objValue;
+        return (go6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

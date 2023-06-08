@@ -1,48 +1,134 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vvb;
+import com.baidu.tieba.awb;
+import com.baidu.tieba.yvb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayFlowModel;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class aub implements usb {
+public class aub implements tsb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public int c;
-    public Context d;
-    public PayUIKitConfig e;
-    public hsb f;
-    public nsb g;
-    public SparseArray<Integer> h;
-    public SparseArray<msb> i;
-    public SparseArray<PayFlowModel> j;
+    public ssb b;
+    public PayUIKitConfig c;
+    public PayFlowType d;
+    public rsb e;
+    public int f;
+    public int g;
+    public long h;
 
-    public aub(Context context, int i, int i2, hsb hsbVar, PayUIKitConfig payUIKitConfig) {
+    /* loaded from: classes5.dex */
+    public class a implements IPayCallback<CurrencyChargeMessage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IPayCallback a;
+        public final /* synthetic */ nub b;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ jub d;
+        public final /* synthetic */ Dialog e;
+        public final /* synthetic */ tvb f;
+        public final /* synthetic */ AppCustomExpand g;
+        public final /* synthetic */ awb.b h;
+        public final /* synthetic */ aub i;
+
+        public a(aub aubVar, IPayCallback iPayCallback, nub nubVar, Activity activity, jub jubVar, Dialog dialog, tvb tvbVar, AppCustomExpand appCustomExpand, awb.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aubVar, iPayCallback, nubVar, activity, jubVar, dialog, tvbVar, appCustomExpand, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = aubVar;
+            this.a = iPayCallback;
+            this.b = nubVar;
+            this.c = activity;
+            this.d = jubVar;
+            this.e = dialog;
+            this.f = tvbVar;
+            this.g = appCustomExpand;
+            this.h = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
+            IPayCallback iPayCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
+                iPayCallback.onSuccess(currencyChargeMessage, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IPayCallback iPayCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
+                iPayCallback.onFail(i, str, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+        public void onPayStart() {
+            IPayCallback iPayCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iPayCallback = this.a) != null) {
+                iPayCallback.onPayStart();
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
+                if (purchaseStatus == PurchaseStatus.ORDER_FAIL && this.b.a == PayType.ALI_PAY_SIGN) {
+                    RLog.info(this.i.a, "prepareShowPaySignDialog onPayStatus ORDER_FAIL, payWay.payType=PayType.ALI_PAY_SIGN");
+                    nub nubVar = this.b;
+                    nubVar.a = PayType.ALI_PAY;
+                    this.i.e(this.c, this.d, nubVar, this.e, this.f, this.g, this.h, this.a);
+                    return;
+                }
+                IPayCallback iPayCallback = this.a;
+                if (iPayCallback != null) {
+                    iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
+                }
+            }
+        }
+    }
+
+    public aub(int i, int i2, ssb ssbVar, PayUIKitConfig payUIKitConfig, PayFlowType payFlowType, rsb rsbVar) {
+        MiddleRevenueConfig middleRevenueConfig;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), hsbVar, payUIKitConfig};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), ssbVar, payUIKitConfig, payFlowType, rsbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -52,369 +138,61 @@ public class aub implements usb {
                 return;
             }
         }
-        this.a = "YYPayController";
-        this.h = new SparseArray<>(2);
-        this.i = new SparseArray<>();
-        this.j = new SparseArray<>();
-        this.a += "@" + hashCode();
-        this.b = i;
-        this.d = context;
-        this.c = i2;
-        this.f = hsbVar;
-        this.e = payUIKitConfig;
-        this.g = new ttb(i, i2, payUIKitConfig);
-        this.h.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), 0);
-        this.h.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), 0);
-        RLog.info(this.a, "create YYPayController:" + this + " appId:" + i + " userChannel:" + i2);
-    }
-
-    @Override // com.baidu.tieba.usb
-    public synchronized void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            synchronized (this) {
-                RLog.info(this.a, "startWalletActivity");
-                i(activity, null);
-            }
+        this.a = "PaySignManager";
+        this.h = 0L;
+        RLog.info("PaySignManager", "create PaySignManager:" + this);
+        this.f = i;
+        this.g = i2;
+        this.b = ssbVar;
+        this.c = payUIKitConfig;
+        this.d = payFlowType;
+        this.e = rsbVar;
+        if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null) {
+            this.h = middleRevenueConfig.getUid();
         }
     }
 
-    @Override // com.baidu.tieba.jsb
-    public synchronized PayFlowModel j(PayFlowType payFlowType) {
-        InterceptResult invokeL;
-        PayFlowModel payFlowModel;
+    @Override // com.baidu.tieba.tsb
+    public void a(Activity activity, jub jubVar, nub nubVar, Dialog dialog, tvb tvbVar, AppCustomExpand appCustomExpand, awb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, payFlowType)) == null) {
-            synchronized (this) {
-                payFlowModel = this.j.get(payFlowType.getTypeId());
-            }
-            return payFlowModel;
-        }
-        return (PayFlowModel) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.usb
-    public void m(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, jubVar, nubVar, dialog, tvbVar, appCustomExpand, bVar, iPayCallback}) == null) {
             String str = this.a;
-            RLog.info(str, "startWebPayActivity currentActivity:" + activity);
-            p(activity, null, gub.e(this.e), "红宝石充值");
-        }
-    }
-
-    public final void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            String str = this.a;
-            RLog.info(str, "releaseAllPayFlow innerRelease:" + z);
-            c(PayFlowType.WALLET_PAY_FLOW, z);
-            c(PayFlowType.DIOALOG_PAY_FLOW, z);
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            String str = this.a;
-            RLog.info(str, "release() innerRelease:" + z);
-            q(z);
-            this.i.clear();
-            this.j.clear();
-        }
-    }
-
-    public void o(PayFlowType payFlowType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, payFlowType) == null) {
-            String str = this.a;
-            RLog.info(str, "innerReleasePayFlow payFlowType:" + payFlowType);
-            c(payFlowType, true);
-            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
-                bvb.c(this.d);
-            } else if (payFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
-                bvb.b(this.d);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public void refreshWindow(WindowParams windowParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, windowParams) == null) {
-            msb msbVar = this.i.get(PayFlowType.DIOALOG_PAY_FLOW.getTypeId());
-            if (msbVar != null && windowParams != null) {
-                msbVar.refreshWindow(windowParams);
-            }
-            String str = this.a;
-            RLog.info(str, "refreshWindow windowParams:" + windowParams + " handler:" + msbVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public synchronized void c(PayFlowType payFlowType, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, payFlowType, z) == null) {
-            synchronized (this) {
-                msb msbVar = this.i.get(payFlowType.getTypeId());
-                if (msbVar != null) {
-                    msbVar.b(z);
-                }
-                this.i.remove(payFlowType.getTypeId());
-                this.j.remove(payFlowType.getTypeId());
-                r("releasePayFlow payFlowType:" + payFlowType + " payFlowHandler:" + msbVar + " innerRelease:" + z);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public synchronized void d(String str, PayFlowType payFlowType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, payFlowType) == null) {
-            synchronized (this) {
-                int intValue = this.h.get(payFlowType.getTypeId()).intValue();
-                int i = intValue + 1;
-                String str2 = this.a;
-                RLog.info(str2, "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCount:" + i);
-                this.h.put(payFlowType.getTypeId(), Integer.valueOf(i));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public synchronized void l(String str, PayFlowType payFlowType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, payFlowType) == null) {
-            synchronized (this) {
-                int intValue = this.h.get(payFlowType.getTypeId()).intValue();
-                int i = intValue - 1;
-                RLog.info(this.a, "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCountt:" + i);
-                this.h.put(payFlowType.getTypeId(), Integer.valueOf(i));
-            }
-        }
-    }
-
-    public final void t(PayFlowType payFlowType, IYYPayAmountView.ViewParams viewParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, payFlowType, viewParams) == null) {
-            String str = this.a;
-            RLog.info(str, "updatePayFlowModel payFlowType :" + payFlowType + " viewParams:" + viewParams);
-            if (viewParams == null) {
-                RLog.info(this.a, "updatePayFlowModel with value null");
-                this.j.put(payFlowType.getTypeId(), null);
-                return;
-            }
-            PayFlowModel n = n(viewParams);
-            String str2 = this.a;
-            RLog.info(str2, "updatePayFlowModel payFlowModel :" + n);
-            if (n != null) {
-                this.j.put(payFlowType.getTypeId(), n);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (k(PayFlowType.WALLET_PAY_FLOW) && k(PayFlowType.DIOALOG_PAY_FLOW)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.usb
-    public void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, viewParams, iPayCallback) == null) {
-            String str = this.a;
-            RLog.info(str, "innerPayAmountDialogForWeb viewParams:" + viewParams);
-            if (viewParams == null) {
-                viewParams = new IYYPayAmountView.ViewParams();
-            }
-            PayFlowModel payFlowModel = this.j.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
-            if (payFlowModel != null) {
-                viewParams.appCustomExpand = payFlowModel.appCustomExpand;
-                viewParams.viewEventListener = payFlowModel.viewEventListener;
-                viewParams.clientInfoExpand = payFlowModel.clientInfoExpand;
+            RLog.info(str, "prepareShowPaySignDialog:" + this);
+            a aVar = new a(this, iPayCallback, nubVar, activity, jubVar, dialog, tvbVar, appCustomExpand, bVar);
+            boolean z = false;
+            if (!nubVar.g) {
+                z = ivb.b(activity, this.h + "").a("pay_sp_key_sign_pay_skip_remind", false);
             }
             String str2 = this.a;
-            RLog.info(str2, "innerPayAmountDialogForWeb payFlowModel:" + payFlowModel);
-            msb msbVar = this.i.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
-            if (msbVar == null) {
-                RLog.error(this.a, "innerPayAmountDialogForWeb error walletPayFlowHandler null", new Object[0]);
+            RLog.info(str2, "prepareShowPaySignDialog, isSkipShowSignDialog=" + z);
+            if (z) {
+                e(activity, jubVar, nubVar, dialog, tvbVar, appCustomExpand, bVar, aVar);
                 return;
             }
-            msbVar.h().release();
-            msbVar.j(activity, iPayCallback, viewParams);
+            yvb.b bVar2 = new yvb.b();
+            bVar2.a = nubVar.g;
+            bVar2.b = jubVar;
+            bVar2.c = bVar.f;
+            yvb f = this.b.f(activity, bVar2, this.c);
+            f.setCallback(new ptb(activity, d(activity, f, bVar2), this.e, jubVar, nubVar, dialog, tvbVar, appCustomExpand, bVar, aVar));
         }
     }
 
-    @Override // com.baidu.tieba.usb
-    public synchronized void g(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback iPayCallback) {
+    public final Dialog d(Activity activity, yvb yvbVar, yvb.b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, activity, viewParams, iPayCallback) == null) {
-            synchronized (this) {
-                String str = this.a;
-                RLog.info(str, "startPayDialog viewParams:" + viewParams);
-                o(PayFlowType.DIOALOG_PAY_FLOW);
-                t(PayFlowType.DIOALOG_PAY_FLOW, viewParams);
-                ytb.d(this.b, this.c, PayFlowType.DIOALOG_PAY_FLOW);
-                stb stbVar = new stb(this.d, this.b, this.c, this.f, this.g, new qtb(PayFlowType.DIOALOG_PAY_FLOW, this.g), PayFlowType.DIOALOG_PAY_FLOW, this.e, this.j.get(PayFlowType.DIOALOG_PAY_FLOW.getTypeId()));
-                this.i.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), stbVar);
-                r("startPayDialog showPayAmountDialog");
-                stbVar.j(activity, iPayCallback, viewParams);
-                nub.b(this.b, this.c, PayUIEventType.purchaseshow);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, yvbVar, bVar)) == null) {
+            return jwb.b.e(activity, "title", yvbVar.getContentView(), new otb(this.f, this.g), bVar.c, PayDialogType.PAY_SIGN_DIALOG, this.d);
         }
+        return (Dialog) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.usb
-    public synchronized void h(Activity activity, vvb.b bVar, dub dubVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public final void e(Activity activity, jub jubVar, nub nubVar, Dialog dialog, tvb tvbVar, AppCustomExpand appCustomExpand, awb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048583, this, activity, bVar, dubVar, iPayCallback) == null) {
-            synchronized (this) {
-                String str = this.a;
-                RLog.info(str, "innerPayWayDialogForWeb viewParams:" + bVar + " openPayParams:" + dubVar);
-                if (bVar == null) {
-                    bVar = new vvb.b();
-                }
-                PayFlowModel payFlowModel = this.j.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
-                if (payFlowModel != null) {
-                    bVar.d = payFlowModel.appCustomExpand;
-                    bVar.f = payFlowModel.viewEventListener;
-                    bVar.e = payFlowModel.clientInfoExpand;
-                }
-                String str2 = this.a;
-                RLog.info(str2, "innerPayWayDialogForWeb payFlowModel:" + payFlowModel);
-                msb msbVar = this.i.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
-                if (msbVar == null) {
-                    RLog.error(this.a, "innerPayWayDialogForWeb error walletPayFlowHandler null", new Object[0]);
-                    return;
-                }
-                msbVar.h().release();
-                eub eubVar = bVar.c;
-                if (eubVar != null && dubVar != null && dubVar.a == 1 && evb.c(dubVar.b, (int) eubVar.c())) {
-                    s(msbVar, activity, bVar, iPayCallback);
-                } else {
-                    msbVar.d(activity, bVar, iPayCallback);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public synchronized void i(Activity activity, IYYPayAmountView.ViewParams viewParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewParams) == null) {
-            synchronized (this) {
-                String str = this.a;
-                RLog.info(str, "startWalletActivity viewParams:" + viewParams);
-                p(activity, viewParams, gub.f(this.e), "我的钱包");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public synchronized boolean k(PayFlowType payFlowType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, payFlowType)) == null) {
-            synchronized (this) {
-                msb msbVar = this.i.get(payFlowType.getTypeId());
-                boolean z = true;
-                if (msbVar == null) {
-                    String str = this.a;
-                    RLog.info(str, "isReleasePayFlow payFlowHandler null return true payFlowType:" + payFlowType);
-                    return true;
-                } else if (payFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
-                    if (msbVar.v() != PayDialogType.PAY_NONE_DIALOG) {
-                        z = false;
-                    }
-                    int intValue = this.h.get(payFlowType.getTypeId()).intValue();
-                    String str2 = this.a;
-                    RLog.info(str2, "isReleasePayFlow  payFlowType:" + payFlowType + " activityCount:" + intValue + " payDialogType:" + msbVar.v() + " release:" + z);
-                    return z;
-                } else {
-                    int intValue2 = this.h.get(payFlowType.getTypeId()).intValue();
-                    if (intValue2 != 0 || msbVar.v() != PayDialogType.PAY_NONE_DIALOG) {
-                        z = false;
-                    }
-                    String str3 = this.a;
-                    RLog.info(str3, "isReleasePayFlow payFlowType:" + payFlowType + " activityCount:" + intValue2 + " PayDialogType:" + msbVar.v() + " release:" + z);
-                    return z;
-                }
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final PayFlowModel n(IYYPayAmountView.ViewParams viewParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, viewParams)) == null) {
-            if (viewParams != null) {
-                PayFlowModel payFlowModel = new PayFlowModel();
-                payFlowModel.appCustomExpand = viewParams.appCustomExpand;
-                payFlowModel.viewEventListener = viewParams.viewEventListener;
-                payFlowModel.clientInfoExpand = viewParams.clientInfoExpand;
-                payFlowModel.payResultViewRetryApi = viewParams.payResultViewRetryApi;
-                payFlowModel.payFailedRetryCode = viewParams.payFailedRetryCode;
-                String str = this.a;
-                RLog.info(str, "createPayFlowModel PayFlowModel:" + payFlowModel);
-                return payFlowModel;
-            }
-            RLog.info(this.a, "createPayFlowModel but viewParams null");
-            return null;
-        }
-        return (PayFlowModel) invokeL.objValue;
-    }
-
-    public final synchronized void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            synchronized (this) {
-                int size = this.i.size();
-                int size2 = this.j.size();
-                String str2 = this.a;
-                RLog.info(str2, ("reportPayFlowMapSize from: " + str) + " payFlowHanderMapSize:" + size + " payFlowModelMapSize:" + size2);
-            }
-        }
-    }
-
-    public final synchronized void p(Activity activity, IYYPayAmountView.ViewParams viewParams, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048591, this, activity, viewParams, str, str2) == null) {
-            synchronized (this) {
-                o(PayFlowType.WALLET_PAY_FLOW);
-                t(PayFlowType.WALLET_PAY_FLOW, viewParams);
-                ytb.d(this.b, this.c, PayFlowType.WALLET_PAY_FLOW);
-                this.i.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), new stb(this.d, this.b, this.c, this.f, this.g, new qtb(PayFlowType.WALLET_PAY_FLOW, this.g), PayFlowType.WALLET_PAY_FLOW, this.e, this.j.get(PayFlowType.WALLET_PAY_FLOW.getTypeId())));
-                r("innerStartWebActivity webUrl:" + lvb.a(str));
-                vub.a(PayFlowType.WALLET_PAY_FLOW, this.b, this.c, this.e, activity, str, str2);
-                nub.b(this.b, this.c, PayUIEventType.walletshow);
-            }
-        }
-    }
-
-    public final void s(msb msbVar, Activity activity, vvb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048595, this, msbVar, activity, bVar, iPayCallback) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, jubVar, nubVar, dialog, tvbVar, appCustomExpand, bVar, iPayCallback}) == null) {
             String str = this.a;
-            RLog.info(str, "showPaySplitOrderView viewParams:" + bVar);
-            IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-            viewParams.splitOrderPayScene = "1";
-            viewParams.showFaqPage = false;
-            viewParams.windowParams = bVar.h;
-            viewParams.appCustomExpand = bVar.d;
-            viewParams.viewEventListener = bVar.f;
-            viewParams.clientInfoExpand = bVar.e;
-            viewParams.targetAmount = (int) bVar.c.c();
-            msbVar.a(activity, bVar.c, null, null, PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG, viewParams, iPayCallback);
+            RLog.info(str, "prepareShowPaySignDialog startPay payType=" + nubVar.a);
+            this.e.k(activity, nubVar, jubVar, dialog, tvbVar, appCustomExpand, bVar, iPayCallback);
         }
     }
 }

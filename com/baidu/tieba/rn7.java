@@ -1,145 +1,128 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
 /* loaded from: classes7.dex */
-public abstract class rn7 implements tn7 {
+public class rn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
 
-    @Override // com.baidu.tieba.tn7
-    @Nullable
-    @CallSuper
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
+    public static void a(StatisticItem statisticItem, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tn7
-    public void b(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
         }
     }
 
-    @Override // com.baidu.tieba.zn7
-    public void d(int i, @NonNull String str) {
+    public static void b(Context context, px9 px9Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.tn7
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zn7
-    public void i(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zn7
-    public void j(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zn7
-    public void k(@NonNull LogicField logicField, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.tn7
-    public int l(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
-            return 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public abstract void m();
-
-    @Override // com.baidu.tieba.zn7
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
-
-    public rn7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        jw9.b();
-    }
-
-    @Override // com.baidu.tieba.tn7
-    @NonNull
-    public xn7 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.y1().j0();
-        }
-        return (xn7) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zn7
-    public void onDestory() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
-            this.a = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.tn7
-    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) != null) || this.c != null) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, px9Var) != null) || px9Var == null) {
             return;
         }
-        this.a = frsFragment;
-        this.b = view2.getContext();
-        this.c = view2;
-        m();
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
+        }
+        if (tbPageContext == null) {
+            return;
+        }
+        qx9 qx9Var = px9Var.f;
+        if (qx9Var != null) {
+            n86.b(qx9Var.b, qx9Var.c, "1191003700000000", qx9Var.d);
+        } else {
+            if (YYLiveUtil.isYYLiveLink(px9Var.d)) {
+                str = px9Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            } else {
+                str = px9Var.d;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        }
+        wq7.a(tbPageContext, px9Var.e);
+    }
+
+    public static void c(px9 px9Var) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, px9Var) != null) || px9Var == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", px9Var.g);
+        if (px9Var.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", px9Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        qx9 qx9Var = px9Var.f;
+        if (qx9Var != null) {
+            str = qx9Var.c;
+        } else {
+            str = px9Var.d;
+        }
+        qx9 qx9Var2 = px9Var.f;
+        if (qx9Var2 != null) {
+            String str2 = qx9Var2.a;
+        } else {
+            String str3 = px9Var.c;
+        }
+        statisticItem.param("obj_name", px9Var.c);
+        statisticItem.param("obj_param1", px9Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(px9Var.i, 1));
+    }
+
+    public static void d(px9 px9Var) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, px9Var) != null) || px9Var == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", px9Var.g);
+        if (px9Var.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", px9Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        qx9 qx9Var = px9Var.f;
+        if (qx9Var != null) {
+            str = qx9Var.c;
+        } else {
+            str = px9Var.d;
+        }
+        qx9 qx9Var2 = px9Var.f;
+        if (qx9Var2 != null) {
+            String str2 = qx9Var2.a;
+        } else {
+            String str3 = px9Var.c;
+        }
+        statisticItem.param("obj_name", px9Var.c);
+        statisticItem.param("obj_param1", px9Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(px9Var.i, 0));
     }
 }

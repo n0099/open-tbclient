@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface bnb<T1, T2, R> {
-    R call(T1 t1, T2 t2);
+public interface bnb<T> {
+    void call(T t);
 }

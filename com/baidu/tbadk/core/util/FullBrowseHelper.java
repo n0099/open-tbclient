@@ -26,10 +26,10 @@ import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
+import com.baidu.tieba.c55;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.qx4;
 import com.baidu.tieba.za;
@@ -190,7 +190,7 @@ public class FullBrowseHelper {
             TextView textView = (TextView) inflate.findViewById(R.id.private_title);
             inflate.findViewById(R.id.protocol_layout).setVisibility(0);
             TextView textView2 = (TextView) inflate.findViewById(R.id.protocol_scrollable_textview);
-            m75.d(textView2).w(R.color.CAM_X0107);
+            o75.d(textView2).w(R.color.CAM_X0107);
             textView2.setHighlightColor(0);
             TextView textView3 = (TextView) inflate.findViewById(R.id.private_yes);
             TextView textView4 = (TextView) inflate.findViewById(R.id.private_no);
@@ -272,28 +272,28 @@ public class FullBrowseHelper {
             }
             textView2.setMovementMethod(LinkMovementMethod.getInstance());
             textView2.setText(spannableString);
-            a55 a55Var = new a55(k9Var.getPageActivity());
-            a55Var.setContentView(inflate);
-            a55Var.setContentViewSize(8);
-            a55Var.setCanceledOnTouchOutside(false);
-            a55Var.setAutoNight(true);
-            a55Var.setCancelable(false);
-            m75 d = m75.d(textView3);
+            c55 c55Var = new c55(k9Var.getPageActivity());
+            c55Var.setContentView(inflate);
+            c55Var.setContentViewSize(8);
+            c55Var.setCanceledOnTouchOutside(false);
+            c55Var.setAutoNight(true);
+            c55Var.setCancelable(false);
+            o75 d = o75.d(textView3);
             d.o(R.string.J_X07);
             d.f(R.color.CAM_X0303);
             SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
             SkinManager.setViewTextColorSelector(textView4, R.color.CAM_X0110, R.color.CAM_X0110, 0);
-            textView3.setOnClickListener(new View.OnClickListener(a55Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.3
+            textView3.setOnClickListener(new View.OnClickListener(c55Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a55 val$mPrivateDialog;
+                public final /* synthetic */ c55 val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {a55Var};
+                        Object[] objArr = {c55Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -303,7 +303,7 @@ public class FullBrowseHelper {
                             return;
                         }
                     }
-                    this.val$mPrivateDialog = a55Var;
+                    this.val$mPrivateDialog = c55Var;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -316,17 +316,17 @@ public class FullBrowseHelper {
                     }
                 }
             });
-            textView4.setOnClickListener(new View.OnClickListener(a55Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
+            textView4.setOnClickListener(new View.OnClickListener(c55Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a55 val$mPrivateDialog;
+                public final /* synthetic */ c55 val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {a55Var};
+                        Object[] objArr = {c55Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -336,7 +336,7 @@ public class FullBrowseHelper {
                             return;
                         }
                     }
-                    this.val$mPrivateDialog = a55Var;
+                    this.val$mPrivateDialog = c55Var;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -349,16 +349,16 @@ public class FullBrowseHelper {
                     this.val$mPrivateDialog.dismiss();
                 }
             });
-            a55Var.create(k9Var);
-            a55Var.show();
+            c55Var.create(k9Var);
+            c55Var.show();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4));
-            m75.d(textView).w(R.color.CAM_X0105);
+            o75.d(textView).w(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image1), R.drawable.full_mode_icon_mask_recommend1, null);
-            m75.d((TextView) inflate.findViewById(R.id.full_browse_image_text1)).w(R.color.CAM_X0105);
+            o75.d((TextView) inflate.findViewById(R.id.full_browse_image_text1)).w(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image2), R.drawable.full_mode_icon_mask_interaction2, null);
-            m75.d((TextView) inflate.findViewById(R.id.full_browse_image_text2)).w(R.color.CAM_X0105);
+            o75.d((TextView) inflate.findViewById(R.id.full_browse_image_text2)).w(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image3), R.drawable.full_mode_icon_mask_lssue3, null);
-            m75.d((TextView) inflate.findViewById(R.id.full_browse_image_text3)).w(R.color.CAM_X0105);
+            o75.d((TextView) inflate.findViewById(R.id.full_browse_image_text3)).w(R.color.CAM_X0105);
         }
     }
 }

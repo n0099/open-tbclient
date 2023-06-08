@@ -906,7 +906,7 @@ public class eu4 {
         this.p.setPriority(Integer.MIN_VALUE);
         this.p.setTag(this.h);
         MessageManager.getInstance().registerListener(this.p);
-        j95.e().f();
+        l95.e().f();
         ru4.c().d(this.h);
         R();
         if (A()) {
@@ -993,7 +993,7 @@ public class eu4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int n = l95.m().n("app_restart_times", 0);
+            int n = n95.m().n("app_restart_times", 0);
             if (TbSingleton.getInstance().isNewUserRedPackageShowed() || n <= 1) {
                 return false;
             }
@@ -1053,7 +1053,7 @@ public class eu4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return UtilHelper.isSameDay(l95.m().o("pref_key_last_active_config", 0L), System.currentTimeMillis());
+            return UtilHelper.isSameDay(n95.m().o("pref_key_last_active_config", 0L), System.currentTimeMillis());
         }
         return invokeV.booleanValue;
     }
@@ -1080,7 +1080,7 @@ public class eu4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            long o = l95.m().o("pref_key_active_config_info", 0L);
+            long o = n95.m().o("pref_key_active_config_info", 0L);
             this.n = o;
             return o;
         }

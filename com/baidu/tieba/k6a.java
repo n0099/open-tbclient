@@ -1,128 +1,43 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
-public final class k6a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "databases";
-    public static final String b = "shared_prefs";
+public class k6a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947866419, "Lcom/baidu/tieba/k6a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947866419, "Lcom/baidu/tieba/k6a;");
-        }
-    }
-
-    public static final void a() {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            c(s6a.f());
-            e();
-            d();
-            s6a.a();
-        }
-    }
-
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a();
-            f();
-            h();
-            g();
-        }
-    }
-
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && s6a.c(s6a.d().getExternalCacheDir())) {
-                return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return 2038;
             }
-            return false;
+            return i;
         }
-        return invokeV.booleanValue;
+        return invokeI.intValue;
     }
 
-    public static final boolean e() {
-        InterceptResult invokeV;
+    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return s6a.c(s6a.d().getCacheDir());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean f() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File filesDir = s6a.d().getFilesDir();
-            if (filesDir != null) {
-                str = filesDir.getParent();
-            } else {
-                str = null;
+        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
+            try {
+                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+                if (declaredField != null) {
+                    declaredField.set(layoutParams, Integer.valueOf(i));
+                    window.setAttributes(layoutParams);
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e2) {
+                e2.printStackTrace();
             }
-            return s6a.c(new File(str, a));
         }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return s6a.c(s6a.d().getFilesDir());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return s6a.c(s6a.g(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            File filesDir = s6a.d().getFilesDir();
-            if (filesDir != null) {
-                str = filesDir.getParent();
-            } else {
-                str = null;
-            }
-            boolean c = s6a.c(new File(str, b));
-            if (c) {
-                s6a.b();
-            }
-            return c;
-        }
-        return invokeV.booleanValue;
     }
 }

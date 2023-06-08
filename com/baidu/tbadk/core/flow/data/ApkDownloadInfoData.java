@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.flow.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.tieba.q75;
+import com.baidu.tieba.s75;
 import com.baidu.tieba.zl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
-public class ApkDownloadInfoData implements q75, Serializable, Comparable<ApkDownloadInfoData> {
+public class ApkDownloadInfoData implements s75, Serializable, Comparable<ApkDownloadInfoData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public zl0 adDownloadBean;
@@ -24,7 +24,7 @@ public class ApkDownloadInfoData implements q75, Serializable, Comparable<ApkDow
     public File mApkPath;
     public AdDownloadStatus status;
 
-    @Override // com.baidu.tieba.q75
+    @Override // com.baidu.tieba.s75
     public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class ApkDownloadInfoData implements q75, Serializable, Comparable<ApkDow
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q75
+    @Override // com.baidu.tieba.s75
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

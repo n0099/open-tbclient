@@ -16,9 +16,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.be8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.zd8;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -219,24 +219,24 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
             TextView textView = excellentHolder.e;
             textView.setText(topBubbleData.getUserName() + "：" + topBubbleData.getContent());
             excellentHolder.d.setText(R.string.obfuscated_res_0x7f0f0405);
-            if (!zd8.a(topBubbleData.getVersionKey())) {
+            if (!be8.a(topBubbleData.getVersionKey())) {
                 excellentHolder.f.setVisibility(0);
             } else {
                 excellentHolder.f.setVisibility(8);
             }
-            m75 d = m75.d(excellentHolder.b);
+            o75 d = o75.d(excellentHolder.b);
             d.m(R.dimen.L_X02);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0207);
-            m75 d2 = m75.d(excellentHolder.d);
+            o75 d2 = o75.d(excellentHolder.d);
             d2.w(R.color.CAM_X0101);
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X10);
-            m75 d3 = m75.d(excellentHolder.e);
+            o75 d3 = o75.d(excellentHolder.e);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0107);
             d3.B(R.dimen.T_X08);
-            m75 d4 = m75.d(excellentHolder.c);
+            o75 d4 = o75.d(excellentHolder.c);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0303);
             SkinManager.setImageResource(excellentHolder.g, R.drawable.top_bubble_excellent_bg);

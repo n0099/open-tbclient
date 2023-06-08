@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be8;
-import com.baidu.tieba.bf8;
+import com.baidu.tieba.de8;
+import com.baidu.tieba.df8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.TextGenImageView;
-import com.baidu.tieba.p68;
+import com.baidu.tieba.r68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
-    public p68 m;
+    public r68 m;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     public boolean X() {
@@ -121,7 +121,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
     }
 
     /* loaded from: classes6.dex */
-    public class a implements be8 {
+    public class a implements de8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -148,7 +148,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
             this.b = singleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.be8
+        @Override // com.baidu.tieba.de8
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
@@ -156,7 +156,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
             }
         }
 
-        @Override // com.baidu.tieba.be8
+        @Override // com.baidu.tieba.de8
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -290,9 +290,9 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
             if (StringUtils.isNull(str)) {
                 return;
             }
-            p68 p68Var = new p68(this.mContext, str, forumId, this.l, roomId, false);
-            this.m = p68Var;
-            p68Var.execute(new String[0]);
+            r68 r68Var = new r68(this.mContext, str, forumId, this.l, roomId, false);
+            this.m = r68Var;
+            r68Var.execute(new String[0]);
             e0(roomId, forumId, this.l);
         }
     }
@@ -303,7 +303,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
     public void T(int i, @NonNull ViewGroup viewGroup, @NonNull T t, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, t, holder, list, Integer.valueOf(i2)}) == null) {
-            bf8.r(this.mType, t, viewGroup, new a(this, viewGroup, t));
+            df8.r(this.mType, t, viewGroup, new a(this, viewGroup, t));
             holder.b.b(holder, t, i2);
             CommonMsgField commonMsgField = t.getCommonMsgField();
             f0(commonMsgField.getRoomId(), commonMsgField.getForumId(), this.l);

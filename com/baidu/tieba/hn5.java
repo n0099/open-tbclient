@@ -1,59 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hn5 implements gn5 {
+public class hn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public ConcurrentHashMap<String, en5> c;
-    public int d;
-    public boolean e;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hn5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-741612515, "Lcom/baidu/tieba/hn5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-741612515, "Lcom/baidu/tieba/hn5$a;");
-                    return;
-                }
-            }
-            a = new hn5();
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public hn5() {
         Interceptable interceptable = $ic;
@@ -65,209 +30,87 @@ public class hn5 implements gn5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
     }
 
-    public static final hn5 f() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (hn5) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.e && currentTimeMillis > h() && currentTimeMillis < g()) {
-                return true;
-            }
-            return false;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (z21.c(this.c) || this.d != this.c.hashCode()) {
-                return false;
-            }
-            return true;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public Map<String, en5> e() {
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (StringUtils.isNull(this.e)) {
+                return this.d;
+            }
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+            return this.d;
         }
-        return (Map) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public long g() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+            return this.f;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public long h() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+            return this.g;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public void l() {
+    public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.c.clear();
-            this.d = 0;
-            this.a = 0L;
-            this.b = 0L;
-            this.e = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.gn5
-    public void a() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<Map.Entry<String, en5>> it = this.c.entrySet().iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Map.Entry<String, en5> next = it.next();
-                    if (next.getValue() != null && !next.getValue().v()) {
-                        z = false;
-                        break;
-                    }
-                } else {
-                    z = true;
-                    break;
-                }
-            }
-            this.e = z;
-            if (z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
-            }
-        }
-    }
-
-    public en5 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c.get(str);
-        }
-        return (en5) invokeL.objValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public fn5 i() {
-        InterceptResult invokeV;
-        fn5 r;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            en5 d = f().d("style");
-            if (d != null && (r = d.r()) != null && StringUtils.isNotNull(r.b()) && StringUtils.isNotNull(r.c()) && StringUtils.isNotNull(r.a())) {
-                return r;
-            }
-            return null;
-        }
-        return (fn5) invokeV.objValue;
-    }
-
-    public void j() {
-        BdUniqueId bdUniqueId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity instanceof BaseActivity) {
-                bdUniqueId = ((BaseActivity) currentActivity).getUniqueId();
-            } else if (currentActivity instanceof BaseFragmentActivity) {
-                bdUniqueId = ((BaseFragmentActivity) currentActivity).getUniqueId();
-            } else {
-                bdUniqueId = null;
-            }
-            for (Map.Entry<String, en5> entry : this.c.entrySet()) {
-                if (entry.getValue() != null) {
-                    entry.getValue().A(bdUniqueId);
-                    entry.getValue().z(this);
-                    entry.getValue().x();
-                }
-            }
-        }
-    }
-
-    public void k(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            this.c.clear();
-            this.a = jSONObject.optLong("start_time");
-            this.b = jSONObject.optLong("end_time");
-            JSONObject optJSONObject = jSONObject.optJSONObject("feed");
-            if (optJSONObject != null) {
-                en5 en5Var = new en5();
-                en5Var.y(optJSONObject);
-                this.c.put("homePage", en5Var);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
-            if (optJSONObject2 != null) {
-                en5 en5Var2 = new en5();
-                en5Var2.y(optJSONObject2);
-                this.c.put("enterForum", en5Var2);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
-            if (optJSONObject3 != null) {
-                en5 en5Var3 = new en5();
-                en5Var3.y(optJSONObject3);
-                this.c.put("channel", en5Var3);
-            }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject(CommonToolbarStatisticConstants.TOOLBAR_MENU_NEW_DETAIL_BROWSER);
-            if (optJSONObject4 != null) {
-                en5 en5Var4 = new en5();
-                en5Var4.y(optJSONObject4);
-                this.c.put("message", en5Var4);
-            }
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
-            if (optJSONObject5 != null) {
-                en5 en5Var5 = new en5();
-                en5Var5.y(optJSONObject5);
-                this.c.put("person", en5Var5);
-            }
-            JSONObject optJSONObject6 = jSONObject.optJSONObject("write");
-            if (optJSONObject6 != null) {
-                en5 en5Var6 = new en5();
-                en5Var6.y(optJSONObject6);
-                this.c.put("write", en5Var6);
-            }
-            JSONObject optJSONObject7 = jSONObject.optJSONObject("style");
-            if (optJSONObject7 != null) {
-                en5 en5Var7 = new en5();
-                en5Var7.y(optJSONObject7);
-                this.c.put("style", en5Var7);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) && jSONObject != null) {
+            this.a = jSONObject.optString("background_day_img");
+            this.b = jSONObject.optString("background_night_img");
+            this.c = jSONObject.optString("background_dark_img");
+            this.d = jSONObject.optString("nav_bar_day_color");
+            jSONObject.optString("nav_bar_night_color");
+            this.e = jSONObject.optString("nav_bar_dark_color");
+            this.f = jSONObject.optString("text_normal_color");
+            this.g = jSONObject.optString("text_selected_color");
         }
     }
 }

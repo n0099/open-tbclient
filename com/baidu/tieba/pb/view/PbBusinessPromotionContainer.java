@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h45;
+import com.baidu.tieba.j45;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -295,19 +295,19 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         }
     }
 
-    public void f(ThreadData threadData, h45 h45Var, boolean z) {
+    public void f(ThreadData threadData, j45 j45Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, h45Var, z) == null) {
-            if (threadData != null && h45Var != null && !StringUtils.isNull(h45Var.d())) {
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, j45Var, z) == null) {
+            if (threadData != null && j45Var != null && !StringUtils.isNull(j45Var.d())) {
                 this.e = threadData;
                 i(z);
                 this.i = true;
                 setVisibility(0);
-                this.b.N(h45Var.a(), 10, false);
-                this.c.setText(h45Var.d());
+                this.b.N(j45Var.a(), 10, false);
+                this.c.setText(j45Var.d());
                 if (!this.g) {
                     this.g = true;
-                    this.h = h45Var.f();
+                    this.h = j45Var.f();
                     j();
                     return;
                 }

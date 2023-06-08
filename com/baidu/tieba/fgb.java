@@ -1,137 +1,119 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import java.nio.ByteBuffer;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public final class fgb {
+public class fgb {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fgb c;
+    public static fgb b;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicLong a;
-    public ConcurrentLinkedQueueX<MediaSample> b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947764584, "Lcom/baidu/tieba/fgb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947764584, "Lcom/baidu/tieba/fgb;");
-        }
-    }
+    public ConcurrentHashMap<String, egb> a;
 
     public fgb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicLong(0L);
-        this.b = new ConcurrentLinkedQueueX<>();
-        c(512L);
+        this.a = new ConcurrentHashMap<>();
     }
 
-    public static fgb f() {
+    public static fgb b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
                 synchronized (fgb.class) {
-                    if (c == null) {
-                        c = new fgb();
+                    if (b == null) {
+                        b = new fgb();
                     }
                 }
             }
-            return c;
+            return b;
         }
         return (fgb) invokeV.objValue;
     }
 
-    public MediaSample a(String str) {
-        InterceptResult invokeL;
+    public void a(String str, egb egbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            MediaSample poll = this.b.poll();
-            if (poll == null) {
-                if (this.a.get() < 1024) {
-                    c(1024 - this.a.get());
-                    poll = this.b.poll();
-                } else {
-                    poll = MediaSample.a(this.a.getAndIncrement());
-                }
-            }
-            poll.d();
-            poll.a = str;
-            return poll;
-        }
-        return (MediaSample) invokeL.objValue;
-    }
-
-    public MediaSample b(String str, ByteBuffer byteBuffer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, byteBuffer)) == null) {
-            MediaSample a = a(str);
-            a.i.k = byteBuffer;
-            return a;
-        }
-        return (MediaSample) invokeLL.objValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            for (int i = 0; i < j; i++) {
-                this.b.add(MediaSample.a(this.a.getAndIncrement()));
-            }
-            d();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int elementCount = this.b.getElementCount();
-            int i = (int) this.a.get();
-            TLog.g(this, String.format("MediaAllocator check capacity:%d, realCapacity:%d, sizeInQueue:%d, lostSize:%d", 1024L, Integer.valueOf(i), Integer.valueOf(elementCount), Integer.valueOf(i - elementCount)));
-        }
-    }
-
-    public void e(MediaSample mediaSample) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mediaSample) == null) {
-            mediaSample.d();
-            if (this.b.size() <= 1536.0d) {
-                if (!this.b.contains(mediaSample)) {
-                    this.b.add(mediaSample);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, egbVar) == null) {
+            TLog.h("[VodPlayerManager]", "bindUniqueKeyForPlayer key:" + str + "-vodPlayer:" + egbVar);
+            if (!TextUtils.isEmpty(str) && egbVar != null) {
+                if (this.a.containsKey(str) && this.a.get(str) != null) {
+                    TLog.h("[VodPlayerManager]", "bindUniqueKeyForPlayer contain key and player");
                     return;
                 }
+                if (this.a.containsValue(egbVar)) {
+                    Iterator<Map.Entry<String, egb>> it = this.a.entrySet().iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        Map.Entry<String, egb> next = it.next();
+                        if (egbVar == next.getValue()) {
+                            this.a.remove(next.getKey());
+                            break;
+                        }
+                    }
+                }
+                this.a.put(str, egbVar);
+                TLog.h("[VodPlayerManager]", "player bind suc, tastId:" + egbVar.d());
                 return;
             }
-            this.a.decrementAndGet();
+            TLog.h("[VodPlayerManager]", "player or key is null");
+        }
+    }
+
+    public egb c(String str, boolean z) {
+        InterceptResult invokeLZ;
+        xfb f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            TLog.h("[VodPlayerManager]", "obtainPlayer key:" + str);
+            if (!TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                egb egbVar = this.a.get(str);
+                TLog.h("[VodPlayerManager]", "TaskID:" + egbVar.d() + "-obtainPlayer vodPlayer:" + egbVar);
+                if (z && (f = egbVar.f()) != null) {
+                    f.onPlayerStateUpdate(egbVar, 10, 0);
+                }
+                return egbVar;
+            }
+            TLog.h("[VodPlayerManager]", "player is null");
+            return null;
+        }
+        return (egb) invokeLZ.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str, "");
+        }
+    }
+
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            TLog.h("[VodPlayerManager]", "removePlayerUniqueKey key:" + str + ", source:" + str2);
+            if (!TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                this.a.remove(str);
+            }
         }
     }
 }

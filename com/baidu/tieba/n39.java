@@ -1,201 +1,130 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.PbPage.SimilarContent;
-import tbclient.SimpleForum;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public final class n39 extends uo6 {
+public class n39 {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
-    public static final BdUniqueId V0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimilarContent Q0;
-    public int R0;
-    public final List<String> S0;
-    public final String T0;
-    public final ThreadData U0;
 
-    public boolean equals(Object obj) {
+    public static String a(TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
+            if (tbRichTextData == null) {
+                return null;
             }
-            return (obj instanceof n39) && Intrinsics.areEqual(this.Q0, ((n39) obj).Q0);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.Q0.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PbFirstFloorSimilarData(similarContent=" + this.Q0 + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951669, "Lcom/baidu/tieba/n39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            StringBuilder sb = new StringBuilder(150);
+            TbRichTextImageInfo c0 = tbRichTextData.c0();
+            if (c0 == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947951669, "Lcom/baidu/tieba/n39;");
-                return;
+            if (!StringUtils.isNull(c0.U())) {
+                return c0.U();
             }
-        }
-        BdUniqueId gen = BdUniqueId.gen();
-        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        V0 = gen;
-    }
-
-    public final List<String> b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.S0;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.T0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final ThreadData d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.U0;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public final boolean e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.R0 == 1) {
-                return true;
+            if (c0.getHeight() * c0.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (c0.getHeight() * c0.getWidth()));
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (c0.getWidth() * sqrt)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) (c0.getHeight() * sqrt)));
+            } else {
+                double width = c0.getWidth() / c0.getHeight();
+                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (width * sqrt2)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) sqrt2));
             }
-            return false;
+            sb.append("&src=");
+            sb.append(ui.getUrlEncode(c0.getSrc()));
+            return sb.toString();
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final boolean f0() {
-        InterceptResult invokeV;
+    public static void b(jy9 jy9Var, AbsPbActivity.e eVar) {
+        ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.R0 == 2) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, jy9Var, eVar) != null) || jy9Var == null || jy9Var.a0() == null || jy9Var.a0().W() == null || eVar == null || eVar.a == null || eVar.b == null || jy9Var.a0().W().size() == 0) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mo6, com.baidu.tieba.f15
-    public e35 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new e35();
+        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
+        if (StringUtils.isNull(str)) {
+            return;
         }
-        return (e35) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uo6, com.baidu.tieba.mo6, com.baidu.tieba.f15
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.U0;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uo6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return V0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public n39(SimilarContent similarContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {similarContent};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        eVar.a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
+        eVar.b = new ConcurrentHashMap<>();
+        Iterator<TbRichTextData> it = jy9Var.a0().W().iterator();
+        while (it.hasNext()) {
+            TbRichTextData next = it.next();
+            if (next != null && next.getType() == 8) {
+                String a = a(next);
+                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
+                    eVar.a.add(a);
+                    eVar.b.put(a, imageUrlData);
+                }
             }
         }
-        Intrinsics.checkNotNullParameter(similarContent, "similarContent");
-        this.Q0 = similarContent;
-        this.S0 = new ArrayList();
-        if (ListUtils.isNotEmpty(this.Q0.similar_label_list)) {
-            ((ArrayList) this.S0).addAll(this.Q0.similar_label_list);
+        eVar.j = ListUtils.getPosition(eVar.a, str);
+    }
+
+    public static jy9 c(m39 m39Var, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{m39Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (z) {
+                if (m39Var != null && m39Var.F() != null && m39Var.F().size() > 0) {
+                    jy9 jy9Var = m39Var.F().get(0);
+                    if (jy9Var.D() != 1) {
+                        return d(m39Var);
+                    }
+                    return jy9Var;
+                }
+                return null;
+            }
+            return d(m39Var);
         }
-        ThreadData threadData = new ThreadData();
-        this.U0 = threadData;
-        threadData.parserProtobuf(this.Q0.similar_thread);
-        SimpleForum simpleForum = this.Q0.similar_forum;
-        if (simpleForum != null) {
-            ThreadData threadData2 = this.U0;
-            Long l = simpleForum.id;
-            Intrinsics.checkNotNullExpressionValue(l, "similarContent.similar_forum.id");
-            threadData2.setFid(l.longValue());
-            h45 h45Var = new h45();
-            h45Var.l(this.Q0.similar_forum);
-            this.U0.setForumData(h45Var);
+        return (jy9) invokeCommon.objValue;
+    }
+
+    public static jy9 d(m39 m39Var) {
+        InterceptResult invokeL;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, m39Var)) == null) {
+            if (m39Var != null && m39Var.N() != null && m39Var.N().getAuthor() != null) {
+                jy9 jy9Var = new jy9();
+                MetaData author = m39Var.N().getAuthor();
+                String userId = author.getUserId();
+                HashMap<String, MetaData> userMap = m39Var.N().getUserMap();
+                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
+                    author = metaData;
+                }
+                jy9Var.L0(1);
+                jy9Var.R0(m39Var.N().getFirstPostId());
+                jy9Var.i1(m39Var.N().getTitle());
+                jy9Var.h1(m39Var.N().getCreateTime());
+                jy9Var.I0(author);
+                return jy9Var;
+            }
+            return null;
         }
-        this.U0.setSimilarPageType(true);
-        String str = this.Q0.similar_url;
-        Intrinsics.checkNotNullExpressionValue(str, "similarContent.similar_url");
-        this.T0 = str;
-        Integer num = this.Q0.user_type;
-        Intrinsics.checkNotNullExpressionValue(num, "similarContent.user_type");
-        this.R0 = num.intValue();
+        return (jy9) invokeL.objValue;
     }
 }

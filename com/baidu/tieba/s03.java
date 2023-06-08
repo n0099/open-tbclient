@@ -42,7 +42,7 @@ public class s03 extends o72 {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public String f1167T;
+    public String f1166T;
     public boolean U;
     public String V;
     public String W;
@@ -103,7 +103,7 @@ public class s03 extends o72 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TextUtils.equals("auto", this.f1167T);
+            return TextUtils.equals("auto", this.f1166T);
         }
         return invokeV.booleanValue;
     }
@@ -202,7 +202,7 @@ public class s03 extends o72 {
         this.Q = false;
         this.R = true;
         this.S = false;
-        this.f1167T = "";
+        this.f1166T = "";
         this.U = true;
         this.V = "";
         this.W = "";
@@ -250,7 +250,7 @@ public class s03 extends o72 {
                 s03Var2.O = jSONObject.optBoolean("isAlwaysOnlyShowTopView", s03Var.O);
                 s03Var2.R = jSONObject.optBoolean("showVslideBtnInFullscreen", s03Var.R);
                 s03Var2.S = jSONObject.optBoolean("silentPlay", s03Var.S);
-                s03Var2.f1167T = jSONObject.optString("preload", s03Var.f1167T);
+                s03Var2.f1166T = jSONObject.optString("preload", s03Var.f1166T);
                 s03Var2.U = jSONObject.optBoolean("showSilentPlayMutedIcon", s03Var.U);
                 s03Var2.V = jSONObject.optString("silentPlayTips", s03Var.V);
                 s03Var2.W = jSONObject.optString("rate", s03Var.W);

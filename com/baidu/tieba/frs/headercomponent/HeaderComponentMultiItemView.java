@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bl7;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.dl7;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -45,7 +45,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public TbImageView d;
     public ViewGroup e;
     public TbImageAutoSwitch f;
-    public bl7 g;
+    public dl7 g;
     public List<String> h;
     public LiveFuseForumData i;
     public boolean j;
@@ -66,13 +66,13 @@ public class HeaderComponentMultiItemView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentMultiItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0300a implements View.OnClickListener {
+        public class View$OnClickListenerC0311a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0300a(a aVar, int i) {
+            public View$OnClickListenerC0311a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.N((String) this.a.h.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0300a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0311a(this, i));
             }
         }
 
@@ -228,7 +228,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
         this.c.m0(this.i.icon_url, 38);
         this.c.setAlpha(1.0f);
-        m75 d = m75.d(this.e);
+        o75 d = o75.d(this.e);
         d.o(R.string.J_X06);
         d.f(R.color.CAM_X0201);
     }
@@ -236,7 +236,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            m75.d(this.b).w(R.color.CAM_X0105);
+            o75.d(this.b).w(R.color.CAM_X0105);
             if (!ListUtils.isEmpty(this.f.getChildViews())) {
                 for (View view2 : this.f.getChildViews()) {
                     if (view2 instanceof HeadImageView) {
@@ -297,14 +297,14 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         h();
     }
 
-    public void g(LiveFuseForumData liveFuseForumData, bl7 bl7Var) {
+    public void g(LiveFuseForumData liveFuseForumData, dl7 dl7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, bl7Var) != null) || liveFuseForumData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, dl7Var) != null) || liveFuseForumData == null) {
             return;
         }
         this.i = liveFuseForumData;
-        this.g = bl7Var;
+        this.g = dl7Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -322,9 +322,9 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
         j();
         setOnClickListener(new b(this, liveFuseForumData));
-        bl7 bl7Var2 = this.g;
-        if (bl7Var2 != null) {
-            bl7Var2.a(2, liveFuseForumData);
+        dl7 dl7Var2 = this.g;
+        if (dl7Var2 != null) {
+            dl7Var2.a(2, liveFuseForumData);
         }
     }
 

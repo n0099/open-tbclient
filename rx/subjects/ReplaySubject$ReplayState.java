@@ -1,18 +1,18 @@
 package rx.subjects;
 
-import com.baidu.tieba.brb;
-import com.baidu.tieba.imb;
-import com.baidu.tieba.jmb;
+import com.baidu.tieba.grb;
+import com.baidu.tieba.nmb;
 import com.baidu.tieba.omb;
-import com.baidu.tieba.umb;
+import com.baidu.tieba.tmb;
+import com.baidu.tieba.zmb;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements imb.a<T>, jmb<T> {
+public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements nmb.a<T>, omb<T> {
     public static final ReplaySubject$ReplayProducer[] EMPTY = new ReplaySubject$ReplayProducer[0];
     public static final ReplaySubject$ReplayProducer[] TERMINATED = new ReplaySubject$ReplayProducer[0];
     public static final long serialVersionUID = 5952362471246910544L;
-    public final brb<T> buffer;
+    public final grb<T> buffer;
 
     public boolean isTerminated() {
         if (get() == TERMINATED) {
@@ -21,17 +21,17 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return false;
     }
 
-    @Override // com.baidu.tieba.jmb
+    @Override // com.baidu.tieba.omb
     public void onCompleted() {
-        brb<T> brbVar = this.buffer;
-        brbVar.complete();
+        grb<T> grbVar = this.buffer;
+        grbVar.complete();
         for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
-            brbVar.a(replaySubject$ReplayProducer);
+            grbVar.a(replaySubject$ReplayProducer);
         }
     }
 
-    public ReplaySubject$ReplayState(brb<T> brbVar) {
-        this.buffer = brbVar;
+    public ReplaySubject$ReplayState(grb<T> grbVar) {
+        this.buffer = grbVar;
         lazySet(EMPTY);
     }
 
@@ -51,10 +51,10 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return true;
     }
 
-    public void call(omb<? super T> ombVar) {
-        ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(ombVar, this);
-        ombVar.b(replaySubject$ReplayProducer);
-        ombVar.f(replaySubject$ReplayProducer);
+    public void call(tmb<? super T> tmbVar) {
+        ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(tmbVar, this);
+        tmbVar.b(replaySubject$ReplayProducer);
+        tmbVar.f(replaySubject$ReplayProducer);
         if (add(replaySubject$ReplayProducer) && replaySubject$ReplayProducer.isUnsubscribed()) {
             remove(replaySubject$ReplayProducer);
         } else {
@@ -62,14 +62,14 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         }
     }
 
-    @Override // com.baidu.tieba.jmb
+    @Override // com.baidu.tieba.omb
     public void onError(Throwable th) {
-        brb<T> brbVar = this.buffer;
-        brbVar.error(th);
+        grb<T> grbVar = this.buffer;
+        grbVar.error(th);
         ArrayList arrayList = null;
         for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
             try {
-                brbVar.a(replaySubject$ReplayProducer);
+                grbVar.a(replaySubject$ReplayProducer);
             } catch (Throwable th2) {
                 if (arrayList == null) {
                     arrayList = new ArrayList();
@@ -77,21 +77,21 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                 arrayList.add(th2);
             }
         }
-        umb.d(arrayList);
+        zmb.d(arrayList);
     }
 
-    @Override // com.baidu.tieba.jmb
+    @Override // com.baidu.tieba.omb
     public void onNext(T t) {
-        brb<T> brbVar = this.buffer;
-        brbVar.next(t);
+        grb<T> grbVar = this.buffer;
+        grbVar.next(t);
         for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : get()) {
-            brbVar.a(replaySubject$ReplayProducer);
+            grbVar.a(replaySubject$ReplayProducer);
         }
     }
 
-    @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
+    @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((omb) ((omb) obj));
+        call((tmb) ((tmb) obj));
     }
 
     public void remove(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer) {

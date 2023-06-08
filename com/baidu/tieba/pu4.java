@@ -112,7 +112,7 @@ public class pu4 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            l95.m().A("pref_key_new_task_complete_time", System.currentTimeMillis());
+            n95.m().A("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
@@ -139,15 +139,15 @@ public class pu4 {
     public final void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            l95.m().B("pref_key_strategy_json", str);
-            l95.m().z("pref_key_float_tip_num", 0);
+            n95.m().B("pref_key_strategy_json", str);
+            n95.m().z("pref_key_float_tip_num", 0);
         }
     }
 
     public void h(du4 du4Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, du4Var) == null) && du4Var != null && c(du4Var)) {
-            l95.m().A("pref_key_new_task_complete_time", System.currentTimeMillis());
+            n95.m().A("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
@@ -160,25 +160,25 @@ public class pu4 {
             if (!this.a) {
                 return;
             }
-            boolean i = l95.m().i("pref_key_task_first_open", true);
-            int n = l95.m().n("pref_key_float_tip_num", 0);
-            long o = l95.m().o("pref_key_new_task_complete_time", 0L);
+            boolean i = n95.m().i("pref_key_task_first_open", true);
+            int n = n95.m().n("pref_key_float_tip_num", 0);
+            long o = n95.m().o("pref_key_new_task_complete_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (i) {
                 if (e(bVar)) {
                     this.c = true;
-                    l95.m().w("pref_key_task_first_open", false);
+                    n95.m().w("pref_key_task_first_open", false);
                 }
             } else if (!d(bVar, currentTimeMillis / 1000, o / 1000)) {
             } else {
                 if (z) {
                     if (e(bVar)) {
                         this.c = true;
-                        l95.m().z("pref_key_float_tip_num", 0);
+                        n95.m().z("pref_key_float_tip_num", 0);
                     }
                 } else if (n < bVar.f.intValue() && e(bVar)) {
                     this.c = true;
-                    l95.m().z("pref_key_float_tip_num", n + 1);
+                    n95.m().z("pref_key_float_tip_num", n + 1);
                 }
             }
         } catch (Exception unused) {
@@ -272,7 +272,7 @@ public class pu4 {
                     f("");
                     return;
                 }
-                if (!jSONObject2.equals(l95.m().s("pref_key_strategy_json", null))) {
+                if (!jSONObject2.equals(n95.m().s("pref_key_strategy_json", null))) {
                     f(jSONObject2);
                 }
                 a(bVar, true);
@@ -293,7 +293,7 @@ public class pu4 {
             if (this.c || !eu4.w().s()) {
                 return;
             }
-            String s = l95.m().s("pref_key_strategy_json", null);
+            String s = n95.m().s("pref_key_strategy_json", null);
             if (TextUtils.isEmpty(s)) {
                 return;
             }

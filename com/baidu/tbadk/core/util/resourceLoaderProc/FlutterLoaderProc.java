@@ -22,7 +22,7 @@ import com.baidu.tieba.gn;
 import com.baidu.tieba.ic;
 import com.baidu.tieba.ig;
 import com.baidu.tieba.ng;
-import com.baidu.tieba.ow5;
+import com.baidu.tieba.qw5;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -183,8 +183,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i3, i4);
             }
-            ow5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = ow5.d(urlbyClientServerAddr);
+            qw5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = qw5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 urlbyClientServerAddr = (String) d.second;
                 z = true;

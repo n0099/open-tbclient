@@ -1,100 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.app.Activity;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.ev5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ov5 {
+public class ov5 extends jv5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ov5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ec5 a;
-    public ABTestExtraData b;
+    public ev5.c a;
+    public TbPageContext b;
+    public BdRecyclerView c;
+    public PbListView d;
 
-    public ov5() {
+    public ov5(TbPageContext tbPageContext, BdRecyclerView bdRecyclerView, ev5.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdRecyclerView, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = tbPageContext;
+        this.c = bdRecyclerView;
+        this.a = cVar;
+        PbListView pbListView = new PbListView(getActivity());
+        this.d = pbListView;
+        pbListView.c();
+        this.d.s(R.color.transparent);
+        this.d.w(this.a.a);
+        this.d.P(this.a.b);
+        this.d.B();
+        this.d.L(R.dimen.tbfontsize33);
+        this.d.J(SkinManager.getColor(R.color.CAM_X0107));
+        this.d.F(R.color.CAM_X0110);
+        this.d.v();
     }
 
-    public static ov5 d() {
+    private Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ov5.class) {
-                    if (c == null) {
-                        c = new ov5();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return this.b.getPageActivity();
         }
-        return (ov5) invokeV.objValue;
+        return (Activity) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jv5
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == null) {
-                ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.b = aBTestExtraData;
-                aBTestExtraData.parserABTestExtraFormSharedPref();
-            }
-            return this.b.getABTestResult();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void a(ec5 ec5Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ec5Var) == null) {
-            if (ec5Var != null && this.a != null && ec5Var.a() == this.a.a()) {
-                z = false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a.g) {
+                e();
             } else {
-                z = true;
-            }
-            this.a = ec5Var;
-            if (z) {
-                b("zan_or_cai_smallflow");
+                d();
             }
         }
     }
 
-    public final void b(String str) {
+    @Override // com.baidu.tieba.jv5
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.U();
+            this.d.H(this.a.c);
+            this.d.G(null);
         }
     }
 
-    public void e(ec5 ec5Var) {
+    @Override // com.baidu.tieba.jv5
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ec5Var) == null) {
-            a(ec5Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.H(this.a.e);
+            this.d.G(null);
         }
     }
 
-    public void f(ABTestExtraData aBTestExtraData) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.b = aBTestExtraData;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.H(this.a.d);
+            this.d.G(null);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.H(this.a.f);
+            this.d.G(this.a.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.mv5
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.d.e(i);
         }
     }
 }

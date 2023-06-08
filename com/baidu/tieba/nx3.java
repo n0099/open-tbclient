@@ -16,7 +16,7 @@ public class nx3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return n96.a();
+            return p96.a();
         }
         return (ox3) invokeV.objValue;
     }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tieba.impersonal.typewriter.TextTypeWriter;
 import com.baidu.tieba.impersonal.typewriter.TextTypeWriter$attachStateChangeListener$2;
-import com.baidu.tieba.tm8;
+import com.baidu.tieba.wm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public final class TextTypeWriter {
                 if (textView2 != null) {
                     final TextTypeWriter textTypeWriter3 = this.a;
                     textView2.setText(textTypeWriter3.e);
-                    textView2.post(new Runnable() { // from class: com.baidu.tieba.sm8
+                    textView2.post(new Runnable() { // from class: com.baidu.tieba.vm8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -263,7 +263,7 @@ public final class TextTypeWriter {
             this.d = text;
             this.e = "";
             this.f = 0;
-            a aVar = new a(this, tm8.a.a(text));
+            a aVar = new a(this, wm8.a.a(text));
             this.b = aVar;
             if (aVar != null) {
                 aVar.run();
@@ -277,7 +277,7 @@ public final class TextTypeWriter {
             final TextView textView = this.c;
             if (textView != null) {
                 final String str = this.d;
-                textView.post(new Runnable() { // from class: com.baidu.tieba.rm8
+                textView.post(new Runnable() { // from class: com.baidu.tieba.um8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

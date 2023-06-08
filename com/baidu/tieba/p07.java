@@ -1,125 +1,36 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import androidx.annotation.Nullable;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class p07 implements w07 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public r07 a;
-    public boolean b;
-    public boolean c;
-    public o07 d;
-    public boolean e;
+public interface p07 {
+    void c();
 
-    public p07(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = false;
-        this.e = false;
-        this.a = new r07();
-        this.e = z;
-    }
+    void d(q07 q07Var);
 
-    @Override // com.baidu.tieba.w07
-    public void a(String str, x07 x07Var) {
-        o07 o07Var;
-        o07 o07Var2;
-        float f;
-        float f2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, x07Var) != null) || x07Var == null) {
-            return;
-        }
-        if (this.b) {
-            File file = new File(x07Var.a);
-            Bitmap decodeFile = BitmapFactory.decodeFile(x07Var.a);
-            if (file.exists() && decodeFile != null) {
-                float height = decodeFile.getHeight();
-                float width = decodeFile.getWidth();
-                float f3 = height * 1.0f;
-                float f4 = f3 / width;
-                if (f4 > 1.0f) {
-                    f = 1.7777778f;
-                } else {
-                    f = 0.75f;
-                }
-                float f5 = 0.0f;
-                if (f4 > f) {
-                    float f6 = f * width;
-                    f2 = (height - f6) * 0.5f;
-                    height = f6;
-                } else {
-                    float f7 = f3 / f;
-                    f5 = (width - f7) * 0.5f;
-                    width = f7;
-                    f2 = 0.0f;
-                }
-                x07Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
-            }
-        }
-        if ("default".equals(str)) {
-            if (!this.c && (o07Var2 = this.d) != null) {
-                o07Var2.b0(x07Var.a);
-            }
-        } else if ("manual".equals(str) && (o07Var = this.d) != null) {
-            o07Var.b0(x07Var.a);
-        }
-    }
+    void e(VlogEditManager vlogEditManager, MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter);
 
-    public void b(y07 y07Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y07Var, str) == null) {
-            this.a.a(str, this.e).a(y07Var, this);
-        }
-    }
+    void f();
 
-    @Override // com.baidu.tieba.w07
-    public void onError(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
-        }
-    }
+    void i(float f);
 
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c = z;
-        }
-    }
+    @Nullable
+    List<MultiMediaData> j();
 
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
+    void l();
 
-    public void e(o07 o07Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, o07Var) == null) {
-            this.d = o07Var;
-        }
-    }
+    void m(String str);
+
+    boolean o();
+
+    void onDestroy();
+
+    float p();
+
+    void q(@Nullable List<MultiMediaData> list);
+
+    void reset();
 }

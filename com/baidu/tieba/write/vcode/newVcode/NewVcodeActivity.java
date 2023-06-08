@@ -8,14 +8,14 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.kfa;
-import com.baidu.tieba.lfa;
-import com.baidu.tieba.mfa;
-import com.baidu.tieba.nfa;
+import com.baidu.tieba.pfa;
+import com.baidu.tieba.qfa;
+import com.baidu.tieba.rfa;
+import com.baidu.tieba.sfa;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.xd5;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public lfa c;
+    public qfa c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -72,9 +72,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, xd5 xd5Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, zd5 zd5Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, xd5Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
+                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, zd5Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
                     if (postWriteCallBackData.getErrorCode() == 220015) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
@@ -90,15 +90,15 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                         intent2.putExtras(bundle2);
                         this.a.setResult(0, intent2);
                         this.a.finish();
-                    } else if (xd5Var == null || writeData == null) {
+                    } else if (zd5Var == null || writeData == null) {
                     } else {
                         this.a.e = tg.e("4", 0);
                         this.a.c.d();
                         this.a.c.onDestroy();
                         this.a.d = writeData;
-                        this.a.d.setVcodeMD5(xd5Var.b());
-                        this.a.d.setVcodeUrl(xd5Var.c());
-                        this.a.d.setVcodeExtra(xd5Var.a());
+                        this.a.d.setVcodeMD5(zd5Var.b());
+                        this.a.d.setVcodeUrl(zd5Var.c());
+                        this.a.d.setVcodeExtra(zd5Var.a());
                         this.a.a.setWriteData(this.a.d);
                         NewVcodeActivity newVcodeActivity = this.a;
                         newVcodeActivity.c = newVcodeActivity.I1();
@@ -150,22 +150,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final lfa I1() {
+    public final qfa I1() {
         InterceptResult invokeV;
-        lfa mfaVar;
+        qfa rfaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == tg.e("5", 0)) {
-                mfaVar = new kfa(this.b, this.a);
+                rfaVar = new pfa(this.b, this.a);
             } else if (this.e == tg.e("4", 0)) {
-                mfaVar = new nfa(this.b, this.a);
+                rfaVar = new sfa(this.b, this.a);
             } else {
-                mfaVar = new mfa(this.b, this.a);
+                rfaVar = new rfa(this.b, this.a);
             }
-            mfaVar.c(this.f);
-            return mfaVar;
+            rfaVar.c(this.f);
+            return rfaVar;
         }
-        return (lfa) invokeV.objValue;
+        return (qfa) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -215,7 +215,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.q0(z);
             }
-            lfa I1 = I1();
+            qfa I1 = I1();
             this.c = I1;
             this.b.setPresenter(I1);
             this.c.a(this.g);

@@ -4,27 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestLiveViewHolder;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestCommonViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qr8 extends in<vr8, SearchSuggestLiveViewHolder> {
+public class qr8 extends in<vr8, SearchSuggestCommonViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -34,7 +31,6 @@ public class qr8 extends in<vr8, SearchSuggestLiveViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
-        public final /* synthetic */ qr8 b;
 
         public a(qr8 qr8Var, Context context) {
             Interceptable interceptable = $ic;
@@ -51,7 +47,6 @@ public class qr8 extends in<vr8, SearchSuggestLiveViewHolder> {
                     return;
                 }
             }
-            this.b = qr8Var;
             this.a = context;
         }
 
@@ -62,46 +57,16 @@ public class qr8 extends in<vr8, SearchSuggestLiveViewHolder> {
                 return;
             }
             vr8 vr8Var = (vr8) vnVar;
-            this.b.u(vr8Var);
-            TbPageContext tbPageContext = (TbPageContext) q9.a(this.a);
-            String c = vr8Var.c();
-            String d = vr8Var.d();
-            String f = vr8Var.f();
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, c, d, f, "" + vr8Var.b(), "search_sug_live");
-            vi.z(this.a, view2);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public b(qr8 qr8Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qr8Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            String a = vr8Var.a();
+            String b = vr8Var.b();
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921595, b);
+            Context context = this.a;
+            if (context instanceof BdBaseActivity) {
+                customResponsedMessage.setmOrginalMessage(new CustomMessage(2921595, ((BdBaseActivity) context).getUniqueId()));
             }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.playAnimation();
-            }
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+            TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
+            TiebaStatic.log(new StatisticItem("c12842").param("obj_name", a).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", b));
         }
     }
 
@@ -129,109 +94,48 @@ public class qr8 extends in<vr8, SearchSuggestLiveViewHolder> {
         setOnAdapterItemClickListener(new a(this, context));
     }
 
-    public final void t(StatisticItem statisticItem, vr8 vr8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, statisticItem, vr8Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
-            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, vr8Var.h());
-            statisticItem.param(TiebaStatic.Params.ZHIBO_TYPE, vr8Var.k());
-            statisticItem.param(TiebaStatic.YYParams.YYSID, vr8Var.c());
-            statisticItem.param(TiebaStatic.YYParams.YYSSID, vr8Var.d());
-            statisticItem.param("yyuid", vr8Var.i());
-            statisticItem.param("template_id", vr8Var.f());
-        }
-    }
-
-    public final void A(SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, searchSuggestLiveViewHolder) == null) {
-            m75 d = m75.d(searchSuggestLiveViewHolder.b);
-            d.w(R.color.CAM_X0105);
-            d.B(R.dimen.T_X06);
-            m75 d2 = m75.d(searchSuggestLiveViewHolder.f);
-            d2.w(R.color.CAM_X0101);
-            d2.B(R.dimen.T_X10);
-            SkinManager.setBackgroundResource(searchSuggestLiveViewHolder.a, R.drawable.addresslist_item_bg);
-            m75.d(searchSuggestLiveViewHolder.g).f(R.color.CAM_X0203);
-        }
-    }
-
-    public final void B(vr8 vr8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vr8Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_SHOW);
-            t(statisticItem, vr8Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void C(TBLottieAnimationView tBLottieAnimationView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) == null) {
-            tBLottieAnimationView.cancelAnimation();
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110052);
-            tBLottieAnimationView.setRepeatCount(-1);
-            tBLottieAnimationView.post(new b(this, tBLottieAnimationView));
-        }
-    }
-
-    public final void u(vr8 vr8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vr8Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_CLICK);
-            t(statisticItem, vr8Var);
-            statisticItem.param("source", "search_sug_live");
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void x(TextView textView) {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, textView) == null) && (context = this.a) != null && textView != null) {
-            textView.setMaxWidth(vi.l(context) - vi.g(this.a, R.dimen.tbds297));
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
-    /* renamed from: y */
-    public SearchSuggestLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: s */
+    public SearchSuggestCommonViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            return new SearchSuggestLiveViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0852, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new SearchSuggestCommonViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d084e, viewGroup, false));
         }
-        return (SearchSuggestLiveViewHolder) invokeL.objValue;
+        return (SearchSuggestCommonViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.in
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vr8 vr8Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
-        z(i, view2, viewGroup, vr8Var, searchSuggestLiveViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vr8 vr8Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
+        t(i, view2, viewGroup, vr8Var, searchSuggestCommonViewHolder);
         return view2;
     }
 
-    public View z(int i, View view2, ViewGroup viewGroup, vr8 vr8Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+    public View t(int i, View view2, ViewGroup viewGroup, vr8 vr8Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vr8Var, searchSuggestLiveViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vr8Var, searchSuggestCommonViewHolder})) == null) {
             if (vr8Var == null) {
                 return view2;
             }
-            A(searchSuggestLiveViewHolder);
-            WebPManager.setPureDrawable(searchSuggestLiveViewHolder.c, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
-            m75 d = m75.d(searchSuggestLiveViewHolder.e);
-            d.o(R.string.J_X01);
-            d.f(R.color.CAM_X0308);
-            mr8.a(searchSuggestLiveViewHolder.b, vr8Var.e(), vr8Var.a());
-            x(searchSuggestLiveViewHolder.b);
-            C(searchSuggestLiveViewHolder.d);
-            B(vr8Var);
+            u(searchSuggestCommonViewHolder);
+            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
+            pr8.a(searchSuggestCommonViewHolder.b, vr8Var.b(), vr8Var.a());
             return view2;
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public final void u(SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, searchSuggestCommonViewHolder) == null) {
+            o75 d = o75.d(searchSuggestCommonViewHolder.b);
+            d.w(R.color.CAM_X0105);
+            d.B(R.dimen.T_X06);
+            SkinManager.setBackgroundResource(searchSuggestCommonViewHolder.a, R.drawable.addresslist_item_bg);
+            o75.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
+        }
     }
 }

@@ -154,7 +154,7 @@ public class mm extends DefaultPackageCallback {
         }
         BdBaseApplication.getInst().getResHashMap().clear();
         b();
-        wq8 defaultLog = DefaultLog.getInstance();
+        zq8 defaultLog = DefaultLog.getInstance();
         defaultLog.c("PMS", "onFetchError: " + BdBaseApplication.getInst().getResHashMap().toString());
         BdLog.e(errorInfo.errorMsg);
     }
@@ -217,10 +217,10 @@ public class mm extends DefaultPackageCallback {
                 wg.a().post(new a(this, arrayList));
             }
         }
-        wq8 defaultLog = DefaultLog.getInstance();
+        zq8 defaultLog = DefaultLog.getInstance();
         defaultLog.c("PMS", "检索数据库前Map：" + BdBaseApplication.getInst().getResHashMap().toString());
         b();
-        wq8 defaultLog2 = DefaultLog.getInstance();
+        zq8 defaultLog2 = DefaultLog.getInstance();
         defaultLog2.c("PMS", "检索数据库后Map：" + BdBaseApplication.getInst().getResHashMap().toString());
         if (!resultData.invalidList.isEmpty()) {
             ArrayList arrayList2 = new ArrayList();
@@ -229,7 +229,7 @@ public class mm extends DefaultPackageCallback {
                 boolean z2 = true;
                 for (PackageInfo packageInfo4 : finishedPackageInfo.values()) {
                     if (!TextUtils.isEmpty(packageInfo3.name) && !TextUtils.isEmpty(packageInfo4.name) && packageInfo4.name.equals(packageInfo3.name)) {
-                        wq8 defaultLog3 = DefaultLog.getInstance();
+                        zq8 defaultLog3 = DefaultLog.getInstance();
                         defaultLog3.c("PMS", "本地数据库中已有资源：" + packageInfo3.name);
                         if (packageInfo4.version == packageInfo3.version) {
                             z2 = false;
@@ -243,7 +243,7 @@ public class mm extends DefaultPackageCallback {
             if (arrayList2.isEmpty()) {
                 return;
             }
-            wq8 defaultLog4 = DefaultLog.getInstance();
+            zq8 defaultLog4 = DefaultLog.getInstance();
             defaultLog4.c("PMS", "删除已经废弃资源:" + arrayList2.toString());
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
             if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {

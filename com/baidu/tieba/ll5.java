@@ -1,111 +1,132 @@
 package com.baidu.tieba;
 
+import android.os.HandlerThread;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class ll5 implements ml5 {
-    public static /* synthetic */ Interceptable $ic;
+public class ll5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public ml5 a;
+    public final ArrayList<HandlerThread> a;
+    public final AtomicInteger b;
 
-    public ll5(ml5 ml5Var) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947946740, "Lcom/baidu/tieba/ll5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947946740, "Lcom/baidu/tieba/ll5;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ll5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-628942922, "Lcom/baidu/tieba/ll5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-628942922, "Lcom/baidu/tieba/ll5$b;");
+                    return;
+                }
+            }
+            a = new ll5(null);
+        }
+    }
+
+    public ll5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ml5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = ml5Var;
+        this.a = new ArrayList<>();
+        this.b = new AtomicInteger(0);
     }
 
-    @Override // com.baidu.tieba.ml5
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
+    public static ll5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            return this.a.skip(j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return invokeJ.longValue;
+        return (ll5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ml5
-    public InputStream a() throws IOException {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            reset();
-            return this.a.a();
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ml5
-    public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.available();
+            return this.b.getAndIncrement();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ml5
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.close();
-        }
+    public /* synthetic */ ll5(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.ml5
-    public byte peek() throws IOException {
-        InterceptResult invokeV;
+    public Looper c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.peek();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = i % c;
+            if (i2 >= this.a.size()) {
+                HandlerThread handlerThread = new HandlerThread("FrameDecoderExecutor-" + i2);
+                handlerThread.start();
+                this.a.add(handlerThread);
+                Looper looper = handlerThread.getLooper();
+                if (looper == null) {
+                    return Looper.getMainLooper();
+                }
+                return looper;
+            } else if (this.a.get(i2) != null) {
+                Looper looper2 = this.a.get(i2).getLooper();
+                if (looper2 == null) {
+                    return Looper.getMainLooper();
+                }
+                return looper2;
+            } else {
+                return Looper.getMainLooper();
+            }
         }
-        return invokeV.byteValue;
-    }
-
-    @Override // com.baidu.tieba.ml5
-    public int position() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.position();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ml5
-    public void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.reset();
-        }
-    }
-
-    @Override // com.baidu.tieba.ml5
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
-            return this.a.read(bArr, i, i2);
-        }
-        return invokeLII.intValue;
+        return (Looper) invokeI.objValue;
     }
 }

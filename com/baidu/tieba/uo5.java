@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragment;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
-public interface uo5 {
-    long m();
+public interface uo5 extends kn5 {
+    public static final String b = "com.baidu.tieba.uo5";
 
-    void p(int i, int i2, Intent intent);
-
-    boolean r();
-
-    BaseFragment s();
-
-    void setUniqueId(BdUniqueId bdUniqueId);
-
-    void setUserVisibleHint(boolean z);
-
-    void t(boolean z);
+    @NonNull
+    vo5 a(@NonNull TbPageContext tbPageContext);
 }

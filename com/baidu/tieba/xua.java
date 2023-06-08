@@ -1,58 +1,33 @@
 package com.baidu.tieba;
 
+import android.media.MediaMetadataRetriever;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes8.dex */
-public abstract class xua {
+public class xua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(String str, float f) {
-        InterceptResult invokeLF;
+    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, str, f)) == null) {
-            if (str == null) {
-                return f;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) && mediaMetadataRetriever != null) {
             try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
+                mediaMetadataRetriever.release();
+            } catch (Exception e) {
+                yua.g(e);
             }
         }
-        return invokeLF.floatValue;
     }
 
-    public static int b(String str, int i) {
-        InterceptResult invokeLI;
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            if (str == null) {
-                return i;
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
             try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
+                closeable.close();
+            } catch (Throwable th) {
+                yua.d(th.getMessage());
             }
         }
-        return invokeLI.intValue;
-    }
-
-    public static long c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            if (str == null) {
-                return j;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
-            }
-        }
-        return invokeLJ.longValue;
     }
 }

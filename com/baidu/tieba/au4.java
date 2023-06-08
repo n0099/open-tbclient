@@ -40,12 +40,12 @@ public final class au4 implements xo4 {
 
         /* renamed from: com.baidu.tieba.au4$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0245a implements Runnable {
+        public class RunnableC0243a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0245a(a aVar) {
+            public RunnableC0243a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class au4 implements xo4 {
                             z = false;
                         }
                     }
-                    if (z && xb3.M().postDelayed(new RunnableC0245a(this), 1000L)) {
+                    if (z && xb3.M().postDelayed(new RunnableC0243a(this), 1000L)) {
                         return;
                     }
                 }

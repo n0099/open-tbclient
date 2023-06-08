@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class da6 {
+public class da6 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ca6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ca6 a() {
-        InterceptResult invokeV;
-        ca6 ca6Var;
+    public da6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (da6.class) {
-                if (a == null) {
-                    a = new ca6();
-                }
-                ca6Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ca6Var;
         }
-        return (ca6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("result", ea6.b(AppRuntime.getAppContext()));
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.lb5;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.nb5;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements lb5 {
+public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements nb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,17 +86,17 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements l
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ja5 ja5Var = new ja5();
+            la5 la5Var = new la5();
             if (z) {
-                ja5Var.v(R.color.CAM_X0109);
-                setConfig(ja5Var);
+                la5Var.v(R.color.CAM_X0109);
+                setConfig(la5Var);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                ja5Var.t(R.color.CAM_X0302);
-                ja5Var.i(R.drawable.obfuscated_res_0x7f080ae6, 0, TBSpecificationButtonConfig.IconType.SVG);
-                ja5Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                setConfig(ja5Var);
+                la5Var.t(R.color.CAM_X0302);
+                la5Var.i(R.drawable.obfuscated_res_0x7f080ae6, 0, TBSpecificationButtonConfig.IconType.SVG);
+                la5Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                setConfig(la5Var);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5));
             }

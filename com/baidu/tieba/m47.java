@@ -1,68 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
+import android.text.SpannableStringBuilder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardVideoUiStateKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class m47 extends l47 {
+public final class m47 extends s47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c67 b;
-    public final d67 c;
-    public a67 d;
-    public final Function3<Context, Rect, d67, Unit> e;
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof m47) {
-                m47 m47Var = (m47) obj;
-                return Intrinsics.areEqual(this.b, m47Var.b) && Intrinsics.areEqual(this.c, m47Var.c) && Intrinsics.areEqual(this.d, m47Var.d) && Intrinsics.areEqual(this.e, m47Var.e);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((((this.b.hashCode() * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardVideoUiState(videoData=" + this.b + ", schemaData=" + this.c + ", statData=" + this.d + ", onVideoClick=" + this.e + ')';
-        }
-        return (String) invokeV.objValue;
-    }
+    public final SpannableStringBuilder e;
+    public final boolean f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m47(c67 videoData, d67 schemaData, a67 statData, Function3<? super Context, ? super Rect, ? super d67, Unit> onVideoClick) {
+    public m47(SpannableStringBuilder titleBuilder, boolean z) {
         super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {videoData, schemaData, statData, onVideoClick};
+            Object[] objArr = {titleBuilder, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -74,53 +37,26 @@ public final class m47 extends l47 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(videoData, "videoData");
-        Intrinsics.checkNotNullParameter(schemaData, "schemaData");
-        Intrinsics.checkNotNullParameter(statData, "statData");
-        Intrinsics.checkNotNullParameter(onVideoClick, "onVideoClick");
-        this.b = videoData;
-        this.c = schemaData;
-        this.d = statData;
-        this.e = onVideoClick;
+        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+        this.e = titleBuilder;
+        this.f = z;
     }
 
-    public /* synthetic */ m47(c67 c67Var, d67 d67Var, a67 a67Var, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(c67Var, d67Var, (i & 4) != 0 ? new a67(null, null, null, 7, null) : a67Var, (i & 8) != 0 ? CardVideoUiStateKt.a() : function3);
-    }
-
-    public final Function3<Context, Rect, d67, Unit> d() {
+    public final SpannableStringBuilder f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.e;
         }
-        return (Function3) invokeV.objValue;
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public final d67 e() {
+    public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.f;
         }
-        return (d67) invokeV.objValue;
-    }
-
-    public final a67 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (a67) invokeV.objValue;
-    }
-
-    public final c67 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (c67) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

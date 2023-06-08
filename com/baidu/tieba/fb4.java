@@ -36,13 +36,13 @@ public class fb4 extends eb4 {
 
         /* renamed from: com.baidu.tieba.fb4$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0292a implements Runnable {
+        public class RunnableC0303a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ kb4 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0292a(a aVar, kb4 kb4Var) {
+            public RunnableC0303a(a aVar, kb4 kb4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class fb4 extends eb4 {
                 if (eb4.a) {
                     Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.c.b.post(new RunnableC0292a(this, kb4Var));
+                this.c.b.post(new RunnableC0303a(this, kb4Var));
             }
         }
 

@@ -12,7 +12,7 @@ public class n56 extends AbsDataRecorder {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n56() {
-        super(AbsDataRecorder.Scene.RECOMMEND);
+        super(AbsDataRecorder.Scene.FRS_NEW);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

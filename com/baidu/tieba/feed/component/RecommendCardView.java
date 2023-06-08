@@ -20,18 +20,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a67;
 import com.baidu.tieba.a87;
-import com.baidu.tieba.b87;
+import com.baidu.tieba.c67;
+import com.baidu.tieba.c87;
+import com.baidu.tieba.d87;
 import com.baidu.tieba.feed.component.RecommendCardView;
 import com.baidu.tieba.feed.list.FeedTemplateAdapter;
-import com.baidu.tieba.j97;
-import com.baidu.tieba.l57;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.o47;
+import com.baidu.tieba.l97;
+import com.baidu.tieba.n57;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.q47;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.x77;
-import com.baidu.tieba.y77;
+import com.baidu.tieba.z77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,13 +48,13 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\u0010\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u0016H\u0007R\u000e\u0010\b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0017"}, d2 = {"Lcom/baidu/tieba/feed/component/RecommendCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "adapter", "Lcom/baidu/tieba/feed/list/ITemplateAdapter;", "feedbackView", "Landroid/widget/ImageView;", "mRecyclerView", "Landroidx/recyclerview/widget/RecyclerView;", "mTitleColorId", "", "mTitleView", "Landroid/widget/TextView;", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/component/uistate/RecommendCardUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendCardView extends LinearLayout implements a87 {
+public final class RecommendCardView extends LinearLayout implements c87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public RecyclerView c;
-    public x77 d;
+    public z77 d;
     public final ImageView e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -125,11 +125,11 @@ public final class RecommendCardView extends LinearLayout implements a87 {
             setOrientation(1);
             FeedTemplateAdapter feedTemplateAdapter = new FeedTemplateAdapter();
             this.d = feedTemplateAdapter;
-            feedTemplateAdapter.j(new y77() { // from class: com.baidu.tieba.k37
+            feedTemplateAdapter.j(new a87() { // from class: com.baidu.tieba.m37
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.y77
+                @Override // com.baidu.tieba.a87
                 public final List a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -154,31 +154,31 @@ public final class RecommendCardView extends LinearLayout implements a87 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return CollectionsKt__CollectionsJVMKt.listOf(new j97("recommend_card_person_attention"));
+            return CollectionsKt__CollectionsJVMKt.listOf(new l97("recommend_card_person_attention"));
         }
         return (List) invokeV.objValue;
     }
 
-    public static final void c(o47 state, View it) {
+    public static final void c(q47 state, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, state, it) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            Function2<l57, View, Unit> g = state.g();
-            l57 d = state.d();
+            Function2<n57, View, Unit> g = state.g();
+            n57 d = state.d();
             Intrinsics.checkNotNullExpressionValue(it, "it");
             g.invoke(d, it);
         }
     }
 
-    @Override // com.baidu.tieba.a87
+    @Override // com.baidu.tieba.c87
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.a, this.b);
-            if (b87.a(this)) {
+            if (d87.a(this)) {
                 return;
             }
-            m75 d = m75.d(this);
+            o75 d = o75.d(this);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0205);
             this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
@@ -187,7 +187,7 @@ public final class RecommendCardView extends LinearLayout implements a87 {
     }
 
     @SuppressLint({"NotifyDataSetChanged"})
-    public final void update(final o47 state) {
+    public final void update(final q47 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
@@ -205,16 +205,16 @@ public final class RecommendCardView extends LinearLayout implements a87 {
                 this.b = R.color.CAM_X0105;
             }
             this.d.setList(state.e().a);
-            a67 a67Var = state.e().b;
-            if (a67Var != null) {
-                state.c().invoke(a67Var);
+            c67 c67Var = state.e().b;
+            if (c67Var != null) {
+                state.c().invoke(c67Var);
             }
             if (state.d() == null) {
                 this.e.setVisibility(8);
                 this.e.setOnClickListener(null);
             } else {
                 this.e.setVisibility(0);
-                this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.u37
+                this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w37
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -222,7 +222,7 @@ public final class RecommendCardView extends LinearLayout implements a87 {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            RecommendCardView.c(o47.this, view2);
+                            RecommendCardView.c(q47.this, view2);
                         }
                     }
                 });

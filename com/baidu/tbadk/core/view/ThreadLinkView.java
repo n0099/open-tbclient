@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qn6;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.sn6;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.z25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -145,9 +145,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            qn6.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            qn6.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            qn6.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            sn6.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            sn6.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            sn6.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
         }
     }
 
@@ -162,8 +162,8 @@ public class ThreadLinkView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
             if (threadData != null && threadData.getLinkThreadData() != null && !ui.isEmpty(threadData.getLinkThreadData().e())) {
-                z25 linkThreadData = threadData.getLinkThreadData();
-                if (!linkThreadData.f() && linkThreadData.c() != z25.g) {
+                b35 linkThreadData = threadData.getLinkThreadData();
+                if (!linkThreadData.f() && linkThreadData.c() != b35.g) {
                     setVisibility(8);
                     return;
                 }

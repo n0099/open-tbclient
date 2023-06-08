@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class o1b extends b1b<TTNativeExpressAd> {
+public class o1b extends g1b<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +34,7 @@ public class o1b extends b1b<TTNativeExpressAd> {
         }
     }
 
-    @Override // com.baidu.tieba.b1b
+    @Override // com.baidu.tieba.g1b
     public double a() {
         InterceptResult invokeV;
         Map<String, Object> mediaExtraInfo;
@@ -53,7 +53,7 @@ public class o1b extends b1b<TTNativeExpressAd> {
         return invokeV.doubleValue;
     }
 
-    @Override // com.baidu.tieba.b1b
+    @Override // com.baidu.tieba.g1b
     public void b(String str, double d, double d2, boolean z, int i) {
         A a;
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class o1b extends b1b<TTNativeExpressAd> {
         }
     }
 
-    @Override // com.baidu.tieba.b1b
+    @Override // com.baidu.tieba.g1b
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

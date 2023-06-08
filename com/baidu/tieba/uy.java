@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uy extends ux<f15> {
+public class uy extends ux<h15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgMutiPicLayout f;
-    public f15 g;
+    public h15 g;
     public int h;
     public String i;
     public boolean j;
@@ -302,11 +302,11 @@ public class uy extends ux<f15> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    qn6.a(this.a.g.getThreadData().getId());
+                    sn6.a(this.a.g.getThreadData().getId());
                     TextView textView = this.a.f.a;
                     TextView textView2 = this.a.f.b;
-                    qn6.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    qn6.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sn6.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sn6.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -354,10 +354,10 @@ public class uy extends ux<f15> {
     }
 
     @Override // com.baidu.tieba.ux
-    public void p(eo6<f15> eo6Var) {
+    public void p(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eo6Var) == null) {
-            this.f.setSubClickListener(eo6Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, go6Var) == null) {
+            this.f.setSubClickListener(go6Var);
         }
     }
 
@@ -371,13 +371,13 @@ public class uy extends ux<f15> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: x */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, f15Var) == null) {
-            this.g = f15Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, h15Var) == null) {
+            this.g = h15Var;
             this.f.setSupportClickImage(this.j);
             this.f.setFrom(this.i);
-            this.f.a(f15Var);
+            this.f.a(h15Var);
         }
     }
 

@@ -1,77 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public final class uqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a extends nqa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.nqa
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (qqa.a(com.baidu.ubs.analytics.d.a.b)) {
-                    for (File file : uqa.a(com.baidu.ubs.analytics.d.a.b)) {
-                        if (xpa.c(xpa.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
-                            qqa.b(file.getPath());
-                        }
-                    }
-                }
-                if (qqa.a(com.baidu.ubs.analytics.d.a.c)) {
-                    for (File file2 : uqa.a(com.baidu.ubs.analytics.d.a.c)) {
-                        if (!file2.getName().equals(lqa.e()) && xpa.c(xpa.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
-                            qqa.b(file2.getPath());
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public static /* synthetic */ List a(String str) {
-        ArrayList arrayList = new ArrayList();
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-                String name = listFiles[i].getName();
-                if (name.endsWith("txt") || name.endsWith(LocalFilesFilterKt.FILTER_NAME_LOG)) {
-                    arrayList.add(listFiles[i]);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static void b() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            mqa.a(new a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && str.length() != 0) {
+                char[] charArray = str.toCharArray();
+                StringBuilder sb = new StringBuilder();
+                for (char c : charArray) {
+                    String binaryString = Integer.toBinaryString(c);
+                    while (binaryString.length() < 8) {
+                        binaryString = "0" + binaryString;
+                    }
+                    sb.append(binaryString);
+                }
+                while (sb.length() % 6 != 0) {
+                    sb.append("0");
+                }
+                String valueOf = String.valueOf(sb);
+                int length = valueOf.length() / 6;
+                char[] cArr = new char[length];
+                for (int i = 0; i < length; i++) {
+                    int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
+                    valueOf = valueOf.substring(6);
+                    cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
+                }
+                StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
+                if (str.length() % 3 == 1) {
+                    sb2.append("==");
+                } else if (str.length() % 3 == 2) {
+                    sb2.append("=");
+                }
+                for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
+                    sb2.insert(i2, "\r\n");
+                }
+                sb2.append("\r\n");
+                return String.valueOf(sb2);
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 }

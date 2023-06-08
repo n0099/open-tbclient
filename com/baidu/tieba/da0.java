@@ -104,13 +104,13 @@ public final class da0 extends Observable {
 
         /* renamed from: com.baidu.tieba.da0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0272a implements z90.d {
+        public class C0276a implements z90.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0272a(a aVar, long j) {
+            public C0276a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,7 +184,7 @@ public final class da0 extends Observable {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 l90.h(this.d.p).g(601110).c("dns_begin", System.currentTimeMillis());
-                z90.c(this.d.p).b(this.a, new C0272a(this, currentTimeMillis));
+                z90.c(this.d.p).b(this.a, new C0276a(this, currentTimeMillis));
             }
         }
     }

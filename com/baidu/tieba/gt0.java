@@ -13,11 +13,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
 import okhttp3.Dns;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface gt0 extends Dns {
     public static final ServiceReference d = new ServiceReference("nad.core", "httpdns");
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements gt0 {
         public static /* synthetic */ Interceptable $ic;
         public static final gt0 a;

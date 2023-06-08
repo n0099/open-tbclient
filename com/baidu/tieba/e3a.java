@@ -1,16 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.downloadball.DownloadFloatBallManager;
-import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,17 +13,16 @@ public class e3a extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final g1a b;
-    public final v0a c;
+    public final a1a b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e3a(MainTabActivity mainTabActivity, v0a v0aVar) {
-        super(2001371);
+    public e3a(MainTabActivity mainTabActivity, a1a a1aVar) {
+        super(2001304);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, v0aVar};
+            Object[] objArr = {mainTabActivity, a1aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,60 +34,37 @@ public class e3a extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
-        this.c = v0aVar;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
-            cn0.l().p();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.X) {
-            a();
-            wx5.a(1);
-            of5.u(HotEventData.getInstance());
-        }
+        this.b = a1aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        g1a g1aVar;
+        a1a a1aVar;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-            b();
-            TbadkCoreApplication.getInst().syncHasFinish = true;
-            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                if (!TbSingleton.getInstance().mIsSplashClick && (g1aVar = this.b) != null && g1aVar.b() != null) {
-                    if (UbsABTestHelper.isNewInterestShowTestA()) {
-                        this.b.b().d();
-                    } else {
-                        this.b.b().a();
-                    }
-                }
-                g1a g1aVar2 = this.b;
-                if (g1aVar2 != null && g1aVar2.h() != null) {
-                    this.b.h().a();
-                }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (a1aVar = this.b) != null && a1aVar.y() != null) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
+            boolean z2 = false;
+            if (intValue != 2 && oldSkinType != 2) {
+                z = true;
+            } else {
+                z = false;
             }
-            if (!MainTabActivity.X) {
-                new rv5(this.a).o();
+            if (z) {
+                return;
             }
-            j3a g0 = this.a.g0();
-            if (g0 != null) {
-                g0.c();
+            if ((intValue == 3 || intValue == 0) && oldSkinType == 2) {
+                z2 = true;
             }
-            if (l95.m().i(l95.q("key_new_god_pop_is_show"), false)) {
-                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+            if (z2) {
+                this.b.y().e(1);
+            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
+                this.b.y().e(2);
+            } else {
+                this.b.y().e(1);
             }
-            MainTabActivity.X = true;
-            this.c.O();
-            DownloadFloatBallManager.k().r(false, true);
         }
     }
 }

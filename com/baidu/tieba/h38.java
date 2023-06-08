@@ -5,16 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f38 a;
-    public ArrayList<g38> b;
+    public String a;
+    public String b;
 
     public h38() {
         Interceptable interceptable = $ic;
@@ -38,22 +35,8 @@ public class h38 {
                 return null;
             }
             h38 h38Var = new h38();
-            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
-            h38Var.a = f38.a(optJSONObject);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                h38Var.b = new ArrayList<>();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    try {
-                        g38 a = g38.a(optJSONArray.getJSONObject(i));
-                        if (a != null) {
-                            h38Var.b.add(a);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+            h38Var.a = jSONObject.optString("content");
+            h38Var.b = jSONObject.optString("tid");
             return h38Var;
         }
         return (h38) invokeL.objValue;

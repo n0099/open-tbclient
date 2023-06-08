@@ -39,13 +39,13 @@ public class ft3 extends b02 {
 
         /* renamed from: com.baidu.tieba.ft3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0305a implements rq3<bh3<dh3.e>> {
+        public class C0316a implements rq3<bh3<dh3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a02.b a;
             public final /* synthetic */ a b;
 
-            public C0305a(a aVar, a02.b bVar) {
+            public C0316a(a aVar, a02.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class ft3 extends b02 {
                 if (b0 == null) {
                     return new y32(1001, "null swan runtime");
                 }
-                b0.e0().g(xb3.K(), "mapp_i_get_bduss", new C0305a(this, bVar));
+                b0.e0().g(xb3.K(), "mapp_i_get_bduss", new C0316a(this, bVar));
                 return y32.f();
             }
             return (y32) invokeLL.objValue;

@@ -1,39 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import android.app.Activity;
+import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes5.dex */
-public final class ft9 implements af5 {
+public final class ft9 extends EdgeFloat.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ft9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ft9(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.af5
-    public void parseJson(JSONObject json) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            l95.m().z("key_sprite_show_text_len_limit", json.optInt("sprite_show_text_len"));
-            l95.m().z("key_sprite_show_line_num_limit", json.optInt("sprite_show_line_num"));
-        }
+        int l = vi.l(activity);
+        int j = vi.j(activity);
+        int u = vi.u(activity);
+        E(j);
+        F(l);
+        K(u);
     }
 }

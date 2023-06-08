@@ -137,13 +137,13 @@ public abstract class sm3 implements tm3, um3 {
 
         /* renamed from: com.baidu.tieba.sm3$c$c  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0455c implements Runnable {
+        public class RunnableC0458c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ rq3 a;
             public final /* synthetic */ c b;
 
-            public RunnableC0455c(c cVar, rq3 rq3Var) {
+            public RunnableC0458c(c cVar, rq3 rq3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +268,7 @@ public abstract class sm3 implements tm3, um3 {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rq3Var) != null) || rq3Var == null) {
                 return;
             }
-            so3.k(new RunnableC0455c(this, rq3Var), "wifiScan");
+            so3.k(new RunnableC0458c(this, rq3Var), "wifiScan");
         }
 
         @Override // com.baidu.tieba.um3

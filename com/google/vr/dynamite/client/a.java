@@ -3,7 +3,7 @@ package com.google.vr.dynamite.client;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.tieba.r6b;
+import com.baidu.tieba.w6b;
 /* loaded from: classes9.dex */
 public final class a extends com.google.a.a.a implements ILoadedInstanceCreator {
     public a(IBinder iBinder) {
@@ -14,8 +14,8 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
     public final INativeLibraryLoader newNativeLibraryLoader(IObjectWrapper iObjectWrapper, IObjectWrapper iObjectWrapper2) {
         INativeLibraryLoader bVar;
         Parcel a = a();
-        r6b.b(a, iObjectWrapper);
-        r6b.b(a, iObjectWrapper2);
+        w6b.b(a, iObjectWrapper);
+        w6b.b(a, iObjectWrapper2);
         Parcel a2 = a(1, a);
         IBinder readStrongBinder = a2.readStrongBinder();
         if (readStrongBinder == null) {

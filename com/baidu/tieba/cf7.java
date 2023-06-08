@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cf7 extends xe7 {
+public class cf7 implements b58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public MetaData a;
 
     public cf7() {
         Interceptable interceptable = $ic;
@@ -27,7 +25,10 @@ public class cf7 extends xe7 {
                 return;
             }
         }
-        this.g = true;
-        this.i = true;
+        MetaData metaData = new MetaData();
+        this.a = metaData;
+        if (metaData.getGodUserData() == null) {
+            this.a.setGodUserData(new GodUserData());
+        }
     }
 }

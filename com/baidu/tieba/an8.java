@@ -1,130 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.n55;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class an8 {
+public final class an8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final an8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public List<bn8> c;
-    public ArrayList<Integer> d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621054, "Lcom/baidu/tieba/an8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947621054, "Lcom/baidu/tieba/an8;");
+                return;
+            }
+        }
+        a = new an8();
+    }
 
     public an8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public ArrayList<Integer> a() {
-        InterceptResult invokeV;
+    public static final void b(Function1 switchVoiceMode, l55 builder, n55 n55Var, int i, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{switchVoiceMode, builder, n55Var, Integer.valueOf(i), view2}) == null) {
+            Intrinsics.checkNotNullParameter(switchVoiceMode, "$switchVoiceMode");
+            Intrinsics.checkNotNullParameter(builder, "$builder");
+            switchVoiceMode.invoke(Integer.valueOf(i));
+            builder.dismiss();
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public List<bn8> b() {
-        InterceptResult invokeV;
+    public final void a(TbPageContext<?> context, final Function1<? super Integer, Unit> switchVoiceMode) {
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static an8 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, switchVoiceMode) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(switchVoiceMode, "switchVoiceMode");
+            ArrayList arrayList = new ArrayList();
+            if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
+                string = TbadkCoreApplication.getInst().getString(R.string.group_close_receiver);
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.group_open_receiver);
             }
-            an8 an8Var = new an8();
-            an8Var.h(jSONObject.optInt("follow_forum_number"));
-            an8Var.i(jSONObject.optInt("interest_board_stage"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("day_config");
-            if (optJSONArray != null) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    arrayList.add(bn8.c(optJSONArray.optJSONObject(i)));
-                }
-                an8Var.g(arrayList);
+            arrayList.add(string);
+            final l55 l55Var = new l55(context);
+            Object[] array = arrayList.toArray(new String[0]);
+            if (array != null) {
+                l55Var.i(null, (String[]) array, new n55.f() { // from class: com.baidu.tieba.xm8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.n55.f
+                    public final void M0(n55 n55Var, int i, View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, n55Var, i, view2) == null) {
+                            an8.b(Function1.this, l55Var, n55Var, i, view2);
+                        }
+                    }
+                });
+                l55Var.l();
+                return;
             }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("class_id");
-            if (optJSONArray2 != null) {
-                ArrayList<Integer> arrayList2 = new ArrayList<>();
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    arrayList2.add(Integer.valueOf(optJSONArray2.optInt(i2)));
-                }
-                an8Var.f(arrayList2);
-            }
-            return an8Var;
-        }
-        return (an8) invokeL.objValue;
-    }
-
-    public void f(ArrayList<Integer> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.d = arrayList;
-        }
-    }
-
-    public void g(List<bn8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.c = list;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
+            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
         }
     }
 }

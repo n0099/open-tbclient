@@ -1,16 +1,44 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.n29;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
-import com.baidu.tieba.w49;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface v49<V extends w49, D extends IBaseDialogData> {
-    int a();
+public class v49 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
-
-    boolean c();
-
-    void dismiss();
-
-    void show();
+    public static y49 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
+            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
+                return null;
+            }
+            StatisticItem statisticItem = new StatisticItem(n29.a.a);
+            int i = 0;
+            int from = iBaseDialogData.getFrom();
+            if (from != 0) {
+                if (from != 1) {
+                    if (from == 2) {
+                        i = 4;
+                    }
+                } else {
+                    i = 3;
+                }
+            } else {
+                i = 2;
+            }
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
+            return new w49(tbPageContext, (CustomDialogData) iBaseDialogData);
+        }
+        return (y49) invokeLL.objValue;
+    }
 }

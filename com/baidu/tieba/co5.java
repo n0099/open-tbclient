@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: SecondFloorService.java */
 /* loaded from: classes5.dex */
-public interface co5 {
-    @NonNull
-    public static final ServiceReference a;
-    @NonNull
-    public static final co5 b;
+public final /* synthetic */ class co5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(@NonNull String str);
-
-    @NonNull
-    String b(@NonNull String str);
-
-    @NonNull
-    String c();
-
-    @NonNull
-    String d(@NonNull String str, boolean z);
-
-    @NonNull
-    String e(@NonNull String str, @NonNull String str2);
-
-    static {
-        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
-        a = serviceReference;
-        b = (co5) ServiceManager.getService(serviceReference);
+    public static do5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (do5) ServiceManager.getService(do5.a);
+        }
+        return (do5) invokeV.objValue;
     }
 }

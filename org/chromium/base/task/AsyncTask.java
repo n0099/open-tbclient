@@ -26,7 +26,7 @@ import org.chromium.base.task.TaskTraits;
 /* loaded from: classes2.dex */
 public abstract class AsyncTask<Result> {
     public static final String TAG = "AsyncTask";
-    public static final Executor THREAD_POOL_EXECUTOR = new Executor() { // from class: com.baidu.tieba.tkb
+    public static final Executor THREAD_POOL_EXECUTOR = new Executor() { // from class: com.baidu.tieba.ykb
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -182,7 +182,7 @@ public abstract class AsyncTask<Result> {
         if (this instanceof BackgroundOnlyAsyncTask) {
             this.mStatus = 2;
         } else {
-            ThreadUtils.postOnUiThread(new Runnable() { // from class: com.baidu.tieba.skb
+            ThreadUtils.postOnUiThread(new Runnable() { // from class: com.baidu.tieba.xkb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

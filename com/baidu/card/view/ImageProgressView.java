@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.RadiusProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.e45;
-import com.baidu.tieba.jw9;
+import com.baidu.tieba.f45;
+import com.baidu.tieba.g45;
+import com.baidu.tieba.ow9;
 import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -98,15 +98,15 @@ public class ImageProgressView extends FrameLayout {
         b();
     }
 
-    public final ImageProgressItemView a(e45 e45Var) {
+    public final ImageProgressItemView a(g45 g45Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e45Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g45Var)) == null) {
             ImageProgressItemView imageProgressItemView = new ImageProgressItemView(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.weight = 1.0f;
             this.b.addView(imageProgressItemView, layoutParams);
-            imageProgressItemView.b(e45Var);
+            imageProgressItemView.b(g45Var);
             return imageProgressItemView;
         }
         return (ImageProgressItemView) invokeL.objValue;
@@ -122,22 +122,22 @@ public class ImageProgressView extends FrameLayout {
         }
     }
 
-    public void c(d45 d45Var) {
+    public void c(f45 f45Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d45Var) != null) || d45Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f45Var) != null) || f45Var == null) {
             return;
         }
-        int count = ListUtils.getCount(d45Var.j());
+        int count = ListUtils.getCount(f45Var.j());
         if (count > 0) {
-            int e = tg.e(d45Var.m(), 0);
+            int e = tg.e(f45Var.m(), 0);
             this.a.setMax(e);
-            this.a.setProgress(tg.e(d45Var.g(), 0) - (e / (count * 2)));
+            this.a.setProgress(tg.e(f45Var.g(), 0) - (e / (count * 2)));
         }
         this.c.clear();
         this.b.removeAllViews();
-        if (!ListUtils.isEmpty(d45Var.j())) {
-            for (int i = 0; i < d45Var.j().size(); i++) {
-                this.c.add(a(d45Var.j().get(i)));
+        if (!ListUtils.isEmpty(f45Var.j())) {
+            for (int i = 0; i < f45Var.j().size(); i++) {
+                this.c.add(a(f45Var.j().get(i)));
             }
         }
         d(TbadkCoreApplication.getInst().getSkinType());
@@ -147,9 +147,9 @@ public class ImageProgressView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a.setSolidColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.a.setProgressColor(jw9.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorRight(jw9.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorLeft(jw9.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
+            this.a.setProgressColor(ow9.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorRight(ow9.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorLeft(ow9.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 this.c.get(i2).c(i);
             }

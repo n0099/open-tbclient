@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class o9b {
+public class o9b<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final w8b<TResult> a;
 
     public o9b() {
         Interceptable interceptable = $ic;
@@ -22,35 +21,39 @@ public abstract class o9b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new w8b<>();
+    }
+
+    public void a(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            w8b<TResult> w8bVar = this.a;
+            synchronized (w8bVar.a) {
+                if (!w8bVar.b) {
+                    w8bVar.b = true;
+                    w8bVar.d = exc;
+                    w8bVar.a.notifyAll();
+                    w8bVar.b();
+                }
             }
         }
     }
 
-    public static o9b a(p9b p9bVar) {
-        InterceptResult invokeL;
+    public void b(TResult tresult) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, p9bVar)) == null) ? kab.f(p9bVar) : (o9b) invokeL.objValue;
-    }
-
-    public static o9b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? kab.e() : (o9b) invokeV.objValue;
-    }
-
-    public static synchronized void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (o9b.class) {
-                Log.i("AGConnectInstance", "AGConnectInstance#initialize");
-                kab.i(context);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+            w8b<TResult> w8bVar = this.a;
+            synchronized (w8bVar.a) {
+                if (!w8bVar.b) {
+                    w8bVar.b = true;
+                    w8bVar.c = tresult;
+                    w8bVar.a.notifyAll();
+                    w8bVar.b();
+                }
             }
         }
     }
-
-    public abstract p9b c();
-
-    public abstract Context getContext();
-
-    public abstract String getIdentifier();
 }

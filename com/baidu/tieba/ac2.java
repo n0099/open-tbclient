@@ -70,12 +70,12 @@ public final class ac2 {
 
         /* renamed from: com.baidu.tieba.ac2$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0235b implements rq3<String> {
+        public class C0236b implements rq3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ rq3 a;
 
-            public C0235b(b bVar, rq3 rq3Var) {
+            public C0236b(b bVar, rq3 rq3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public final class ac2 {
         public void e(@NonNull rq3<String> rq3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rq3Var) == null) {
-                this.e.e(new C0235b(this, rq3Var));
+                this.e.e(new C0236b(this, rq3Var));
             }
         }
 

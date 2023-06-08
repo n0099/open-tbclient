@@ -8,15 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.CronetUploadDataStream;
+import com.baidu.turbonet.net.impl.CronetBidirectionalStream;
+import java.nio.ByteBuffer;
 import org.chromium.base.NativeLibraryLoadedStatus;
 import org.chromium.base.annotations.CheckDiscard;
 import org.chromium.base.natives.GEN_JNI;
 @CheckDiscard("crbug.com/993421")
 /* loaded from: classes7.dex */
-public final class rla implements CronetUploadDataStream.d {
+public final class rla implements CronetBidirectionalStream.f {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetUploadDataStream.d a;
+    public static CronetBidirectionalStream.f a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,56 +49,40 @@ public final class rla implements CronetUploadDataStream.d {
         }
     }
 
-    public static CronetUploadDataStream.d d() {
+    public static CronetBidirectionalStream.f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (GEN_JNI.TESTING_ENABLED) {
-                CronetUploadDataStream.d dVar = a;
-                if (dVar != null) {
-                    return dVar;
+                CronetBidirectionalStream.f fVar = a;
+                if (fVar != null) {
+                    return fVar;
                 }
                 if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUploadDataStream.Natives. The current configuration requires all native implementations to have a mock instance.");
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetBidirectionalStream.Natives. The current configuration requires all native implementations to have a mock instance.");
                 }
             }
             NativeLibraryLoadedStatus.checkLoaded(false);
             return new rla();
         }
-        return (CronetUploadDataStream.d) invokeV.objValue;
+        return (CronetBidirectionalStream.f) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
-    public void a(long j, CronetUploadDataStream cronetUploadDataStream) {
+    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
+    public void a(long j, CronetBidirectionalStream cronetBidirectionalStream, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, cronetUploadDataStream) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_onRewindSucceeded(j, cronetUploadDataStream);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, Boolean.valueOf(z)}) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_destroy(j, cronetBidirectionalStream, z);
         }
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
-    public void b(long j, CronetUploadDataStream cronetUploadDataStream, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetUploadDataStream, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_onReadSucceeded(j, cronetUploadDataStream, i, z);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
-    public long c(CronetUploadDataStream cronetUploadDataStream, long j, long j2) {
+    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
+    public boolean b(long j, CronetBidirectionalStream cronetBidirectionalStream, ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{cronetUploadDataStream, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_attachUploadDataToRequest(cronetUploadDataStream, j, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, byteBufferArr, iArr, iArr2, Boolean.valueOf(z)})) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_writevData(j, cronetBidirectionalStream, byteBufferArr, iArr, iArr2, z);
         }
-        return invokeCommon.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
-    public void destroy(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_destroy(j);
-        }
+        return invokeCommon.booleanValue;
     }
 }

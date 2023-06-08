@@ -550,7 +550,7 @@ public class CyberCfgManager {
             return false;
         }
         try {
-            return "7.39.93".equals(str.substring(0, str.lastIndexOf(".")));
+            return "7.39.94".equals(str.substring(0, str.lastIndexOf(".")));
         } catch (Exception unused) {
             return false;
         }

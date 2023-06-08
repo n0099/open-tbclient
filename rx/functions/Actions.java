@@ -1,24 +1,24 @@
 package rx.functions;
 
-import com.baidu.tieba.vmb;
-import com.baidu.tieba.wmb;
-import com.baidu.tieba.xmb;
+import com.baidu.tieba.anb;
+import com.baidu.tieba.bnb;
+import com.baidu.tieba.cnb;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes2.dex */
 public final class Actions {
     public static final a a = new a();
 
     /* loaded from: classes2.dex */
-    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements vmb, wmb<T0>, xmb<T0, T1> {
-        @Override // com.baidu.tieba.vmb
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements anb, bnb<T0>, cnb<T0, T1> {
+        @Override // com.baidu.tieba.anb
         public void call() {
         }
 
-        @Override // com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.bnb
         public void call(T0 t0) {
         }
 
-        @Override // com.baidu.tieba.xmb
+        @Override // com.baidu.tieba.cnb
         public void call(T0 t0, T1 t1) {
         }
 
@@ -51,16 +51,16 @@ public final class Actions {
         return a;
     }
 
-    public static wmb<Throwable> b() {
+    public static bnb<Throwable> b() {
         return NotImplemented.INSTANCE;
     }
 
     /* loaded from: classes2.dex */
-    public enum NotImplemented implements wmb<Throwable> {
+    public enum NotImplemented implements bnb<Throwable> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.bnb
         public void call(Throwable th) {
             throw new OnErrorNotImplementedException(th);
         }

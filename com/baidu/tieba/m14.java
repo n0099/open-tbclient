@@ -18,7 +18,7 @@ import rx.subjects.PublishSubject;
 public final class m14 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
-    public static final wmb b;
+    public static final bnb b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -27,7 +27,7 @@ public final class m14 {
     }
 
     /* loaded from: classes6.dex */
-    public static class a implements wmb<Pair<Runnable, String>> {
+    public static class a implements bnb<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +46,7 @@ public final class m14 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.bnb
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -63,7 +63,7 @@ public final class m14 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements anb<Pair<Runnable, String>, imb<?>> {
+    public static class b implements fnb<Pair<Runnable, String>, nmb<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,35 +82,35 @@ public final class m14 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.anb
-        public imb<?> call(Pair<Runnable, String> pair) {
+        @Override // com.baidu.tieba.fnb
+        public nmb<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return mmb.g(pair).h(Schedulers.io()).f(m14.b).l();
+                return rmb.g(pair).h(Schedulers.io()).f(m14.b).l();
             }
-            return (imb) invokeL.objValue;
+            return (nmb) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d extends crb<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+    public static class d extends hrb<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(drb drbVar) {
-            super(drbVar);
+        public d(irb irbVar) {
+            super(irbVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {drbVar};
+                Object[] objArr = {irbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((drb) newInitContext.callArgs[0]);
+                    super((irb) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

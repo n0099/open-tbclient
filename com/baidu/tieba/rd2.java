@@ -43,11 +43,11 @@ public class rd2 extends gj2 {
 
         /* renamed from: com.baidu.tieba.rd2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0438a implements Runnable {
+        public class RunnableC0447a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0438a(a aVar) {
+            public RunnableC0447a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class rd2 extends gj2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 y82.k("SwanAppV8DaemonEngine", "reload");
-                sp3.a0(new RunnableC0438a(this));
+                sp3.a0(new RunnableC0447a(this));
             }
         }
 

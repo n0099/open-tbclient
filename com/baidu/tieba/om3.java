@@ -55,12 +55,12 @@ public class om3 extends b02 {
 
         /* renamed from: com.baidu.tieba.om3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0392a implements rq3<ym3<xm3>> {
+        public class C0402a implements rq3<ym3<xm3>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0392a(a aVar) {
+            public C0402a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class om3 extends b02 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                vm3.s(this.a).a(this.b, new C0392a(this));
+                vm3.s(this.a).a(this.b, new C0402a(this));
             }
         }
 

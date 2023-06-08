@@ -20,7 +20,7 @@ public class k32 {
     public transient /* synthetic */ FieldHolder $fh;
     public s32 a;
     public boolean b;
-    public pmb c;
+    public umb c;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {

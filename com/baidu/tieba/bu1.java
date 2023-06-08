@@ -45,22 +45,22 @@ public class bu1 implements fw1 {
         public boolean c;
         public String d;
         public uz2 e;
-        public HandlerC0257b f;
+        public HandlerC0258b f;
         public a g;
 
         /* loaded from: classes5.dex */
         public class a extends gx2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public HandlerC0257b a;
+            public HandlerC0258b a;
             public final /* synthetic */ b b;
 
-            public a(b bVar, HandlerC0257b handlerC0257b) {
+            public a(b bVar, HandlerC0258b handlerC0258b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, handlerC0257b};
+                    Object[] objArr = {bVar, handlerC0258b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -71,7 +71,7 @@ public class bu1 implements fw1 {
                     }
                 }
                 this.b = bVar;
-                this.a = handlerC0257b;
+                this.a = handlerC0258b;
             }
 
             @Override // com.baidu.tieba.gx2, android.app.Application.ActivityLifecycleCallbacks
@@ -83,9 +83,9 @@ public class bu1 implements fw1 {
                             this.a.b.cancel();
                             this.a.b = null;
                         }
-                        HandlerC0257b handlerC0257b = this.a;
-                        if (handlerC0257b != null) {
-                            handlerC0257b.removeMessages(1);
+                        HandlerC0258b handlerC0258b = this.a;
+                        if (handlerC0258b != null) {
+                            handlerC0258b.removeMessages(1);
                             this.a.removeMessages(2);
                             this.a = null;
                         }
@@ -97,13 +97,13 @@ public class bu1 implements fw1 {
 
         /* renamed from: com.baidu.tieba.bu1$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class HandlerC0257b extends Handler {
+        public static class HandlerC0258b extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public Dialog b;
 
-            public HandlerC0257b(Context context) {
+            public HandlerC0258b(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class bu1 implements fw1 {
                 this.a = new WeakReference<>(context);
             }
 
-            public /* synthetic */ HandlerC0257b(Context context, a aVar) {
+            public /* synthetic */ HandlerC0258b(Context context, a aVar) {
                 this(context);
             }
 
@@ -184,7 +184,7 @@ public class bu1 implements fw1 {
             this.c = xo3.c(bundle, "compressed", false);
             this.d = xo3.g(bundle, "swanTmpPath");
             this.e = uz2Var;
-            this.f = new HandlerC0257b(context, null);
+            this.f = new HandlerC0258b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i) {
@@ -255,9 +255,9 @@ public class bu1 implements fw1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0257b handlerC0257b = this.f;
-                if (handlerC0257b != null) {
-                    handlerC0257b.sendEmptyMessage(1);
+                HandlerC0258b handlerC0258b = this.f;
+                if (handlerC0258b != null) {
+                    handlerC0258b.sendEmptyMessage(1);
                 }
                 if (this.c) {
                     Iterator<MediaModel> it = this.b.iterator();
@@ -288,9 +288,9 @@ public class bu1 implements fw1 {
                         }
                     }
                 }
-                HandlerC0257b handlerC0257b2 = this.f;
-                if (handlerC0257b2 != null) {
-                    handlerC0257b2.sendEmptyMessage(2);
+                HandlerC0258b handlerC0258b2 = this.f;
+                if (handlerC0258b2 != null) {
+                    handlerC0258b2.sendEmptyMessage(2);
                 }
                 uz2 uz2Var = this.e;
                 if (uz2Var != null) {

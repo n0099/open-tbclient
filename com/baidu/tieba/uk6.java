@@ -1,173 +1,65 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public class uk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, cl6> a;
-    public final Map<String, cl6> b;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static il9 a(el6 el6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, el6Var)) == null) {
+            il9 il9Var = new il9();
+            if (el6Var != null) {
+                il9Var.b = el6Var.c;
+                il9Var.e = el6Var.g;
+                il9Var.f = el6Var.i;
+                il9Var.c = el6Var.d;
+                if (!jm6.a(el6Var.b)) {
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    il9Var.a = arrayList;
+                    arrayList.addAll(el6Var.b);
+                }
+                if (!jm6.a(el6Var.f)) {
+                    ArrayList<String> arrayList2 = new ArrayList<>();
+                    il9Var.d = arrayList2;
+                    arrayList2.addAll(el6Var.f);
+                }
+            }
+            return il9Var;
+        }
+        return (il9) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final uk6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-372174293, "Lcom/baidu/tieba/uk6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-372174293, "Lcom/baidu/tieba/uk6$b;");
+    public static void b(zk6 zk6Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, zk6Var, str) == null) {
+            try {
+                if (zk6Var != null) {
+                    gl9.n().z(str, zk6Var.b());
+                    gl9.n().x();
+                    if (!jm6.b(zk6Var.a())) {
+                        HashMap<String, il9> hashMap = new HashMap<>();
+                        for (Map.Entry<String, el6> entry : zk6Var.a().entrySet()) {
+                            hashMap.put(entry.getKey(), a(entry.getValue()));
+                        }
+                        hl9.a().l(str, hashMap);
+                    }
+                    hl9.a().h(true, str);
                     return;
                 }
-            }
-            a = new uk6(null);
-        }
-    }
-
-    public uk6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap();
-        this.b = new ConcurrentHashMap();
-    }
-
-    public static uk6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (uk6) invokeV.objValue;
-    }
-
-    public /* synthetic */ uk6(a aVar) {
-        this();
-    }
-
-    public cl6 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.b.get(str);
-        }
-        return (cl6) invokeL.objValue;
-    }
-
-    public cl6 f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
-            if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
-                return this.a.get(uri.getPath());
-            }
-            return null;
-        }
-        return (cl6) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b.remove(str);
-        }
-    }
-
-    public void i(Map<String, cl6> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            this.a.clear();
-            if (!hm6.b(map)) {
-                this.a.putAll(map);
-            }
-        }
-    }
-
-    public void a(String str, cl6 cl6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cl6Var) == null) {
-            this.b.put(str, cl6Var);
-        }
-    }
-
-    public void j(String str, Map<String, cl6> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
-            h(str);
-            this.a.putAll(map);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !hm6.b(this.a)) {
-            for (String str : this.a.keySet()) {
-                cl6 cl6Var = this.a.get(str);
-                if (cl6Var != null) {
-                    cl6Var.g = true;
-                }
-            }
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (String str2 : this.a.keySet()) {
-            cl6 cl6Var = this.a.get(str2);
-            if (cl6Var != null && str.equals(cl6Var.c)) {
-                cl6Var.g = true;
-            }
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Iterator<String> it = this.a.keySet().iterator();
-        while (it.hasNext()) {
-            cl6 cl6Var = this.a.get(it.next());
-            if (cl6Var != null && str.equals(cl6Var.c)) {
-                it.remove();
+                gl9.n().h(str);
+                gl9.n().x();
+                hl9.a().f(str);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
     }

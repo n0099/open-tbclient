@@ -37,7 +37,7 @@ import com.baidu.tieba.oy;
 import com.baidu.tieba.py;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.vz4;
-import com.baidu.tieba.x18;
+import com.baidu.tieba.z18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -295,7 +295,7 @@ public class SpecialTopicLayout extends LinearLayout implements py, oy<SpecialCo
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
                 return;
             }
-            x18.b("c13754", specialColumnItemData, i + 1, this.a.j);
+            z18.b("c13754", specialColumnItemData, i + 1, this.a.j);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -319,10 +319,10 @@ public class SpecialTopicLayout extends LinearLayout implements py, oy<SpecialCo
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
                     this.a.a.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                 }
-                x18.a("c13754", specialColumnItemData, i + 1, this.a.j);
+                z18.a("c13754", specialColumnItemData, i + 1, this.a.j);
             }
             this.a.a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getContext()).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
-            x18.a("c13754", specialColumnItemData, i + 1, this.a.j);
+            z18.a("c13754", specialColumnItemData, i + 1, this.a.j);
         }
     }
 

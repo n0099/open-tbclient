@@ -51,8 +51,8 @@ import com.baidu.tieba.rh;
 import com.baidu.tieba.sf;
 import com.baidu.tieba.v9;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.wq8;
 import com.baidu.tieba.z9;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1331,7 +1331,7 @@ public class MessageManager {
                 return this.mHttpManager.c((HttpMessage) message, null);
             } else if (message instanceof SocketMessage) {
                 v9.h("Request_Socket", message);
-                wq8 netLog = NetLog.getInstance();
+                zq8 netLog = NetLog.getInstance();
                 netLog.c("Request_Http", "触发请求： ClientLogId : " + message.getClientLogID());
                 return this.mSocketManager.c((SocketMessage) message, null);
             } else if (message instanceof CustomMessage) {
@@ -1378,12 +1378,12 @@ public class MessageManager {
             }
             if ((message instanceof HttpMessage) && (messageTask instanceof HttpMessageTask)) {
                 v9.h("Request_Http", message);
-                wq8 netLog = NetLog.getInstance();
+                zq8 netLog = NetLog.getInstance();
                 netLog.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mHttpManager.c((HttpMessage) message, (HttpMessageTask) messageTask);
             } else if ((message instanceof SocketMessage) && (messageTask instanceof SocketMessageTask)) {
                 v9.h("Request_Socket", message);
-                wq8 netLog2 = NetLog.getInstance();
+                zq8 netLog2 = NetLog.getInstance();
                 netLog2.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mSocketManager.c((SocketMessage) message, (SocketMessageTask) messageTask);
             } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {

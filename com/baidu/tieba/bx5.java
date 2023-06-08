@@ -1,67 +1,62 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
 import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class bx5<KEY> {
+public final class bx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap<KEY, Long> a;
-    public final long b;
 
-    public bx5(int i, @NonNull TimeUnit timeUnit) {
+    public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), timeUnit};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeZ(65536, null, z) != null) || z) {
+            return;
         }
-        this.a = new ArrayMap<>();
-        this.b = timeUnit.toMillis(i);
+        throw new IllegalArgumentException();
     }
 
-    public static <T> bx5<T> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new bx5<>(1000, TimeUnit.MILLISECONDS);
-        }
-        return (bx5) invokeV.objValue;
-    }
-
-    public synchronized boolean a(@NonNull KEY key) {
+    @NonNull
+    public static <T> T b(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            synchronized (this) {
-                Long l = this.a.get(key);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                if (l == null) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else if (uptimeMillis - l.longValue() > this.b) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else {
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
+            throw null;
         }
-        return invokeL.booleanValue;
+        return (T) invokeL.objValue;
+    }
+
+    public static void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            e(z, null);
+        }
+    }
+
+    @NonNull
+    public static <T> T c(@Nullable T t, @NonNull Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new NullPointerException(String.valueOf(obj));
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static void e(boolean z, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, str) != null) || z) {
+            return;
+        }
+        throw new IllegalStateException(str);
     }
 }

@@ -1,68 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
 public class dvb {
     public static /* synthetic */ Interceptable $ic;
-    public static dvb a;
-    public static SharedPreferences b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dvb(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-847400356, "Lcom/baidu/tieba/dvb$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-847400356, "Lcom/baidu/tieba/dvb$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[PayDialogType.values().length];
+            a = iArr;
+            try {
+                iArr[PayDialogType.PAY_AMOUNT_DIALOG.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PayDialogType.PAY_INPUT_DIALOG.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PayDialogType.PAY_WAY_DIALOG.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[PayDialogType.PAY_SPLIT_ORDER_DIALOG.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
-        c = str;
-        b = context.getSharedPreferences(str, 0);
     }
 
-    public static dvb b(Context context, String str) {
-        InterceptResult invokeLL;
+    public static PayFinishInfo a(PayDialogType payDialogType, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (str == null) {
-                str = "midPay";
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, payDialogType, i, str)) == null) {
+            return b(payDialogType, i, str, false);
+        }
+        return (PayFinishInfo) invokeLIL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00c5  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static PayFinishInfo b(PayDialogType payDialogType, int i, String str, boolean z) {
+        InterceptResult invokeCommon;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{payDialogType, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            int i2 = a.a[payDialogType.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 == 4) {
+                            payFinishInfo.step = lsb.h;
+                            if (TextUtils.isEmpty(str)) {
+                                str2 = "支付拆单选择面板";
+                            } else {
+                                str2 = "支付拆单选择面板," + str;
+                            }
+                        }
+                        if (TextUtils.isEmpty(str)) {
+                            str = "";
+                        }
+                        payFinishInfo.message = str;
+                        payFinishInfo.code = i;
+                        return payFinishInfo;
+                    } else if (z) {
+                        payFinishInfo.step = lsb.g;
+                        if (TextUtils.isEmpty(str)) {
+                            str2 = "支付渠道选择面板(快捷)";
+                        } else {
+                            str2 = "支付渠道选择面板(快捷)," + str;
+                        }
+                    } else {
+                        payFinishInfo.step = lsb.c;
+                        if (TextUtils.isEmpty(str)) {
+                            str2 = "支付渠道选择面板";
+                        } else {
+                            str2 = "支付渠道选择面板," + str;
+                        }
+                    }
+                } else {
+                    payFinishInfo.step = lsb.b;
+                    if (TextUtils.isEmpty(str)) {
+                        str2 = "支付金额输入面板";
+                    } else {
+                        str2 = "支付金额输入面板," + str;
+                    }
+                }
+            } else {
+                payFinishInfo.step = lsb.a;
+                if (TextUtils.isEmpty(str)) {
+                    str2 = "支付金额选择面板";
+                } else {
+                    str2 = "支付金额选择面板," + str;
+                }
             }
-            if (a == null || !str.equals(c)) {
-                a = new dvb(context, str);
+            str = str2;
+            if (TextUtils.isEmpty(str)) {
             }
-            return a;
+            payFinishInfo.message = str;
+            payFinishInfo.code = i;
+            return payFinishInfo;
         }
-        return (dvb) invokeLL.objValue;
+        return (PayFinishInfo) invokeCommon.objValue;
     }
 
-    public boolean a(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public static PayFinishInfo c(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            return b.getBoolean(str, z);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = lsb.e;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
         }
-        return invokeLZ.booleanValue;
+        return (PayFinishInfo) invokeIL.objValue;
     }
 
-    public void c(String str, boolean z) {
+    public static PayFinishInfo d(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            b.edit().putBoolean(str, z).apply();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = lsb.d;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
         }
+        return (PayFinishInfo) invokeIL.objValue;
+    }
+
+    public static PayFinishInfo e(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = lsb.f;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
+        }
+        return (PayFinishInfo) invokeIL.objValue;
     }
 }

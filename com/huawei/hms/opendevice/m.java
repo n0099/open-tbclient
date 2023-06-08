@@ -2,7 +2,7 @@ package com.huawei.hms.opendevice;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tieba.s9b;
+import com.baidu.tieba.x9b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +60,7 @@ public class m extends Thread {
                 HMSLog.d("ReportAaidToken", "This time need not report.");
                 return;
             }
-            String a2 = s9b.c(this.a).a("region");
+            String a2 = x9b.c(this.a).a("region");
             if (TextUtils.isEmpty(a2)) {
                 HMSLog.i("ReportAaidToken", "The data storage region is empty.");
                 return;

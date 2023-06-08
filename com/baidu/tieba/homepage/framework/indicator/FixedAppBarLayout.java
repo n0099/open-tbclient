@@ -40,10 +40,10 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ac;
-import com.baidu.tieba.ee5;
 import com.baidu.tieba.f05;
+import com.baidu.tieba.ge5;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.wg;
@@ -446,7 +446,7 @@ public class FixedAppBarLayout extends AppBarLayout {
                 AlaLiveTipView alaLiveTipView = new AlaLiveTipView(getContext());
                 this.e = alaLiveTipView;
                 viewGroup.addView(alaLiveTipView);
-                ee5.f();
+                ge5.f();
             }
             AlaLiveTipView alaLiveTipView2 = this.e;
             if (alaLiveTipView2 != null) {
@@ -682,10 +682,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = l95.m().s("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = n95.m().s("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
             if (split.length < 7 && !TimeHelper.isSameDay(tg.g(split[split.length - 1], 0L), currentTimeMillis)) {
-                l95 m = l95.m();
+                n95 m = n95.m();
                 if (split.length == 6) {
                     str = String.valueOf(currentTimeMillis);
                 } else {

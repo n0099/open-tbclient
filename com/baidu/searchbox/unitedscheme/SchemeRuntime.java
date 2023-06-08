@@ -5,7 +5,7 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.tieba.i90;
-import com.baidu.tieba.lo9;
+import com.baidu.tieba.qo9;
 import com.baidu.tieba.xy3;
 import com.baidu.tieba.zy3;
 @Autowired
@@ -18,7 +18,7 @@ public class SchemeRuntime {
 
     @Inject
     public static IFlyingScheduleIoc getFlyingScheduleIoc() {
-        return lo9.a();
+        return qo9.a();
     }
 
     @Inject

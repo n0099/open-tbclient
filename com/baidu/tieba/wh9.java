@@ -1,26 +1,30 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wh9 extends gn6<ug9> {
+public class wh9 extends in6<ug9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
+    public TbImageView i;
+    public View j;
+    public View k;
 
-    @Override // com.baidu.tieba.gn6
+    @Override // com.baidu.tieba.in6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ce : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c8 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,7 +35,7 @@ public class wh9 extends gn6<ug9> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wh9(TbPageContext<?> tbPageContext) {
+    public wh9(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,29 +52,44 @@ public class wh9 extends gn6<ug9> {
                 return;
             }
         }
-        this.i = (TextView) h();
+        View h = h();
+        this.j = h;
+        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090685);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f09175f);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn6
+    @Override // com.baidu.tieba.in6
     /* renamed from: r */
     public void i(ug9 ug9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, ug9Var) != null) || ug9Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ug9Var) == null) {
+            if (ug9Var == null) {
+                this.j.setVisibility(8);
+            }
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = ug9Var.a;
+                }
+                if (layoutParams.height > 0) {
+                    layoutParams.height = ug9Var.b;
+                }
+            }
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            j(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
-        this.i.setPadding(ug9Var.b, ug9Var.c, 0, ug9Var.d);
-        this.i.setText(this.c.getString(ug9Var.a));
     }
 
-    @Override // com.baidu.tieba.gn6
+    @Override // com.baidu.tieba.in6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
             return;
         }
         this.a = i;
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 }

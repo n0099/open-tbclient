@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -94,10 +94,10 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            m75 d = m75.d(this.b);
+            o75 d = o75.d(this.b);
             d.o(R.string.deprecated_J_X18);
             d.f(R.color.CAM_X0207);
-            m75 d2 = m75.d(this.e);
+            o75 d2 = o75.d(this.e);
             d2.w(R.color.CAM_X0107);
             d2.B(R.dimen.T_X06);
         }

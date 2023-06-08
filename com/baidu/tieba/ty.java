@@ -126,18 +126,18 @@ public class ty extends wx implements py, oy<ThreadData> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null && this.a.l != null && this.a.k != null && !this.a.l.isTransportThread() && this.a.n) {
-                if (!this.a.l.isMarkToDel() && xc7.f().i()) {
-                    if (xc7.f().a(this.a.l)) {
+                if (!this.a.l.isMarkToDel() && zc7.f().i()) {
+                    if (zc7.f().a(this.a.l)) {
                         this.a.l.setMarkToDel(true);
                     }
-                } else if (!this.a.l.isMarkToMove() && wc7.h().j()) {
-                    if (wc7.h().a(this.a.l)) {
+                } else if (!this.a.l.isMarkToMove() && yc7.h().j()) {
+                    if (yc7.h().a(this.a.l)) {
                         this.a.l.setMarkToMove(true);
                     }
                 } else {
-                    xc7.f().l(this.a.l);
+                    zc7.f().l(this.a.l);
                     this.a.l.setMarkToDel(false);
-                    wc7.h().l(this.a.l);
+                    yc7.h().l(this.a.l);
                     this.a.l.setMarkToMove(false);
                 }
                 this.a.r();
@@ -184,7 +184,7 @@ public class ty extends wx implements py, oy<ThreadData> {
         } else if (context instanceof BaseFragmentActivity) {
             ((BaseFragmentActivity) context).registerListener(this.o);
         }
-        w95.b(this.f);
+        y95.b(this.f);
     }
 
     public void q(boolean z) {
@@ -205,7 +205,7 @@ public class ty extends wx implements py, oy<ThreadData> {
             } else {
                 WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
             }
-            m75 d = m75.d(this.h);
+            o75 d = o75.d(this.h);
             d.o(R.string.J_X06);
             if (this.m) {
                 i2 = 2;
@@ -214,11 +214,11 @@ public class ty extends wx implements py, oy<ThreadData> {
             }
             d.n(i2);
             d.f(R.color.CAM_X0201);
-            m75 d2 = m75.d(this.i);
+            o75 d2 = o75.d(this.i);
             d2.o(R.string.J_X06);
             d2.n(2);
             d2.f(R.color.CAM_X0201);
-            m75.d(this.k).C(R.string.F_X01);
+            o75.d(this.k).C(R.string.F_X01);
             TextView textView = this.k;
             if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
                 i3 = R.drawable.selector_comment_and_prise_item_text_color;
@@ -243,7 +243,7 @@ public class ty extends wx implements py, oy<ThreadData> {
                 z = false;
             }
             this.n = z;
-            if (!xc7.f().i() && !wc7.h().j()) {
+            if (!zc7.f().i() && !yc7.h().j()) {
                 this.d.p(new uz.a(4, Boolean.TRUE));
                 this.g.setVisibility(8);
                 return;

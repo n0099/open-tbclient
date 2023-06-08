@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.je5;
+import com.baidu.tieba.le5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -54,7 +54,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
                 String string = context.getString(R.string.sign_notification_content);
                 String string2 = context.getString(R.string.obfuscated_res_0x7f0f029e);
-                je5.h0().i(je5.h0().C(12), 12);
+                le5.h0().i(le5.h0().C(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_PUSH_SHOW);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());

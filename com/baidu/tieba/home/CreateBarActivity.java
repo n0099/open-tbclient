@@ -31,7 +31,7 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d05;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.xd5;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -355,14 +355,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        xd5 xd5Var = new xd5();
-                        xd5Var.e(postNetData);
-                        if (xd5Var.c() != null && xd5Var.c().length() > 0) {
-                            this.c.n = xd5Var.b();
+                        zd5 zd5Var = new zd5();
+                        zd5Var.e(postNetData);
+                        if (zd5Var.c() != null && zd5Var.c().length() > 0) {
+                            this.c.n = zd5Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(xd5Var.c());
+                            NetWork netWork2 = new NetWork(zd5Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }

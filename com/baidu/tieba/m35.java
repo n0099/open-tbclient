@@ -1,98 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.PbPage.RecommendBook;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes6.dex */
-public class m35 extends ey9 {
+public class m35 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId k1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b1;
-    public String c1;
-    public String d1;
-    public String e1;
-    public String f1;
-    public String g1;
-    public List<String> h1;
-    public String i1;
-    public String j1;
+    public int a;
+    public ArrayList<a> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921754, "Lcom/baidu/tieba/m35;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947921754, "Lcom/baidu/tieba/m35;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        k1 = BdUniqueId.gen();
     }
 
     public m35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ey9, com.baidu.tieba.vn
-    public BdUniqueId getType() {
+    public ArrayList<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return k1;
+            return this.b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public boolean s1() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!StringUtils.isNull(this.e1)) {
-                return true;
-            }
-            return false;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void t1(RecommendBook recommendBook) {
+    public void c(PbPresent pbPresent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendBook) != null) || recommendBook == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbPresent) != null) || pbPresent == null) {
             return;
         }
-        this.b1 = recommendBook.recommend_text;
-        this.c1 = recommendBook.suggest_text;
-        this.d1 = recommendBook.suggest_url;
-        this.e1 = recommendBook.book_id;
-        recommendBook.book_type.intValue();
-        this.f1 = recommendBook.book_cover;
-        this.g1 = recommendBook.book_title;
-        this.h1 = recommendBook.book_tips;
-        this.i1 = recommendBook.botton_text;
-        this.j1 = recommendBook.subscript_icon;
+        this.a = pbPresent.total.intValue();
+        List<PbPresentList> list = pbPresent.list;
+        if (list != null && list.size() > 0) {
+            this.b = new ArrayList<>();
+            for (PbPresentList pbPresentList : pbPresent.list) {
+                if (pbPresentList != null) {
+                    a aVar = new a();
+                    pbPresentList.gift_id.intValue();
+                    String str = pbPresentList.gift_name;
+                    aVar.a = pbPresentList.thumbnail_url;
+                    pbPresentList.num.intValue();
+                    this.b.add(aVar);
+                }
+            }
+        }
+    }
+
+    public void d(ArrayList<a> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b = arrayList;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
+        }
     }
 }

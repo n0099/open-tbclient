@@ -1,146 +1,159 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
-import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ChatroomSignInfo;
 /* loaded from: classes5.dex */
-public class d25 implements Comparable<d25> {
+public final class d25 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public boolean n;
-    public int o;
-    public CardLinkInfoData p;
-    public int q;
+    public final long a;
+    public final String b;
+    public final String c;
 
-    public d25(int i, int i2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652674, "Lcom/baidu/tieba/d25;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947652674, "Lcom/baidu/tieba/d25;");
+                return;
+            }
+        }
+        d = new a(null);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof d25) {
+                d25 d25Var = (d25) obj;
+                return this.a == d25Var.a && Intrinsics.areEqual(this.b, d25Var.b) && Intrinsics.areEqual(this.c, d25Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((com.baidu.tieba.a.a(this.a) * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ChatRoomGuideData(chatRoomId=" + this.a + ", jumpSchema=" + this.b + ", guideText=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final d25 a(ChatroomSignInfo chatroomSignInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatroomSignInfo)) == null) {
+                Intrinsics.checkNotNullParameter(chatroomSignInfo, "chatroomSignInfo");
+                Long l = chatroomSignInfo.chatroom_id;
+                Intrinsics.checkNotNullExpressionValue(l, "chatroomSignInfo.chatroom_id");
+                long longValue = l.longValue();
+                String str = chatroomSignInfo.jump_scheme;
+                Intrinsics.checkNotNullExpressionValue(str, "chatroomSignInfo.jump_scheme");
+                String str2 = chatroomSignInfo.guide_text;
+                Intrinsics.checkNotNullExpressionValue(str2, "chatroomSignInfo.guide_text");
+                return new d25(longValue, str, str2);
+            }
+            return (d25) invokeL.objValue;
+        }
+    }
+
+    public d25(long j, String jumpSchema, String guideText) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {Long.valueOf(j), jumpSchema, guideText};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
+        Intrinsics.checkNotNullParameter(guideText, "guideText");
+        this.a = j;
+        this.b = jumpSchema;
+        this.c = guideText;
     }
 
-    public static d25 b(TbLinkSpanGroup tbLinkSpanGroup, cu7 cu7Var) {
-        InterceptResult invokeLL;
-        String str;
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, cu7Var)) == null) {
-            if (tbLinkSpanGroup == null) {
-                return null;
-            }
-            d25 d25Var = new d25(tbLinkSpanGroup.e(), 2);
-            if (cu7Var == null) {
-                return d25Var;
-            }
-            if (TextUtils.isEmpty(cu7Var.f())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
-            } else {
-                str = cu7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
-            }
-            d25Var.d = str;
-            d25Var.c = cu7Var.c();
-            d25Var.m = cu7Var.a();
-            if (!ListUtils.isEmpty(cu7Var.b()) && cu7Var.b().get(0) != null) {
-                d25Var.e = cu7Var.b().get(0).a();
-            }
-            d25Var.l = cu7Var.f();
-            d25Var.f = cu7Var.d();
-            if (cu7Var.e() != null) {
-                d25Var.j = cu7Var.e().a();
-                d25Var.k = cu7Var.e().b();
-            }
-            tbLinkSpanGroup.B(d25Var);
-            return d25Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (d25) invokeLL.objValue;
+        return invokeV.longValue;
     }
 
-    public static d25 c(TbLinkSpanGroup tbLinkSpanGroup, jb5 jb5Var) {
-        InterceptResult invokeLL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, jb5Var)) == null) {
-            if (tbLinkSpanGroup == null) {
-                return null;
-            }
-            boolean z = true;
-            d25 d25Var = new d25(tbLinkSpanGroup.e(), 1);
-            if (jb5Var == null) {
-                return d25Var;
-            }
-            int i = jb5Var.b;
-            if (i == 4) {
-                CardLinkInfoData cardLinkInfoData = jb5Var.j;
-                if (cardLinkInfoData != null) {
-                    d25Var.p = cardLinkInfoData;
-                    d25Var.c = cardLinkInfoData.title;
-                    d25Var.e = cardLinkInfoData.imageUrl;
-                    d25Var.l = cardLinkInfoData.tagText;
-                    d25Var.g = cardLinkInfoData.url;
-                    d25Var.i = false;
-                    d25Var.o = i;
-                }
-            } else {
-                d25Var.p = jb5Var.j;
-                d25Var.c = jb5Var.e;
-                d25Var.e = jb5Var.d;
-                d25Var.l = jb5Var.f;
-                d25Var.f = jb5Var.g;
-                d25Var.g = jb5Var.c;
-                d25Var.n = jb5Var.h;
-                String str = jb5Var.i;
-                if (i != 1 && i != 5) {
-                    z = false;
-                }
-                d25Var.i = z;
-                d25Var.o = jb5Var.b;
-            }
-            tbLinkSpanGroup.B(d25Var);
-            return d25Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (d25) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull d25 d25Var) {
-        InterceptResult invokeL;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d25Var)) == null) {
-            return this.q - d25Var.q;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return invokeL.intValue;
+        return (String) invokeV.objValue;
     }
 }

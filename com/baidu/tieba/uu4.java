@@ -46,20 +46,20 @@ public class uu4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
-            if (jk9.b()) {
+            if (ok9.b()) {
                 httpMessage.addParam("brand", Build.BRAND);
             } else {
-                httpMessage.addParam(HttpRequest.NEED_DECRYPT, jk9.c());
-                String g = jk9.g("brand");
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, ok9.c());
+                String g = ok9.g("brand");
                 if (!TextUtils.isEmpty(g)) {
-                    httpMessage.addParam(g, jk9.e());
+                    httpMessage.addParam(g, ok9.e());
                 }
             }
             httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
             httpMessage.addParam("client_version", TbConfig.getVersion());
             httpMessage.addParam("client_type", "Android");
             httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addParam("ua", zx5.b());
+            httpMessage.addParam("ua", by5.b());
             httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

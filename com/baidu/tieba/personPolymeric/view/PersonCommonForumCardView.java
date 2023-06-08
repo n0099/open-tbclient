@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.layout.FlowLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.kg;
-import com.baidu.tieba.pg9;
+import com.baidu.tieba.sg9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context e;
-    public List<pg9> f;
+    public List<sg9> f;
     public List<PersonCommonForumItemView> g;
     public kg<PersonCommonForumItemView> h;
 
@@ -51,10 +51,10 @@ public class PersonCommonForumCardView extends FlowLayout {
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || ListUtils.isEmpty(this.f)) {
             return;
         }
-        for (pg9 pg9Var : this.f) {
-            if (pg9Var != null) {
+        for (sg9 sg9Var : this.f) {
+            if (sg9Var != null) {
                 PersonCommonForumItemView b = this.h.b();
-                b.setData(pg9Var);
+                b.setData(sg9Var);
                 addView(b, new ViewGroup.LayoutParams(((vi.l(this.e) - vi.g(this.e, R.dimen.tbds88)) - vi.g(this.e, R.dimen.tbds96)) / 2, -2));
                 this.g.add(b);
             }
@@ -82,7 +82,7 @@ public class PersonCommonForumCardView extends FlowLayout {
         }
     }
 
-    public void setData(List<pg9> list) {
+    public void setData(List<sg9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.f = list;

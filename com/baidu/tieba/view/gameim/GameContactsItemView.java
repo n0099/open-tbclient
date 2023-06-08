@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.r78;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.t78;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public r78 d;
+    public t78 d;
 
     static {
         InterceptResult invokeClinit;
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public r78 getGameMatchUser() {
+    public t78 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (r78) invokeV.objValue;
+        return (t78) invokeV.objValue;
     }
 
     public void h() {
@@ -183,7 +183,7 @@ public class GameContactsItemView extends RelativeLayout {
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            m75 d = m75.d(this.c);
+            o75 d = o75.d(this.c);
             d.o(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -215,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull r78 r78Var) {
+    public void setGameMatchUser(@NonNull t78 t78Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, r78Var) != null) || r78Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, t78Var) != null) || t78Var.equals(this.d)) {
             return;
         }
-        this.d = r78Var;
+        this.d = t78Var;
         i();
     }
 }

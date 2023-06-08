@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class gv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public jb b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,8 +60,8 @@ public class gv4 {
                     fv4Var = ((BackUserSocketResMsg) responsedMessage).getData();
                 }
                 if (fv4Var != null && fv4Var.a) {
-                    l95.m().A(l95.q("pref_key_last_request_mission"), System.currentTimeMillis());
-                    j95.e().i();
+                    n95.m().A(n95.q("pref_key_last_request_mission"), System.currentTimeMillis());
+                    l95.e().i();
                 }
             }
         }
@@ -101,8 +101,8 @@ public class gv4 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            mx9.h(309689, BackUserSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, mx9.a(TbConfig.URL_BACK_USER, 309689));
+            rx9.h(309689, BackUserSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, rx9.a(TbConfig.URL_BACK_USER, 309689));
             tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -1,77 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+@Deprecated
 /* loaded from: classes6.dex */
-public interface ln5 {
+public final class ln5 {
+    public static /* synthetic */ Interceptable $ic;
     @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaLiveSdk", "IMSdkService");
-    public static final Comparator<ChatMsg> b = new a();
+    public static final ln5 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, kn5> a;
 
-    void a(@NonNull Context context, @NonNull List<Long> list, @NonNull vn5 vn5Var);
-
-    void b(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable yn5 yn5Var, @NonNull xn5 xn5Var);
-
-    void c(@NonNull Context context, @NonNull List<Long> list, @NonNull vn5 vn5Var);
-
-    void d(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull sn5 sn5Var);
-
-    void e(@NonNull wn5 wn5Var);
-
-    void f(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull tn5 tn5Var);
-
-    void g(@NonNull wn5 wn5Var);
-
-    void h(@NonNull Context context, @NonNull String str, @NonNull List<Long> list);
-
-    void i(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull zn5 zn5Var);
-
-    /* loaded from: classes6.dex */
-    public static class a implements Comparator<ChatMsg> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948662, "Lcom/baidu/tieba/ln5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947948662, "Lcom/baidu/tieba/ln5;");
+                return;
             }
         }
+        b = new ln5();
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ChatMsg chatMsg, ChatMsg chatMsg2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMsg, chatMsg2)) == null) {
-                if (TextUtils.equals(chatMsg.getMsgKey(), chatMsg2.getMsgKey())) {
-                    return 0;
-                }
-                if (chatMsg.getMsgId() - chatMsg2.getMsgId() > 0) {
-                    return 1;
-                }
-                return -1;
+    public ln5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return invokeLL.intValue;
         }
+        this.a = new HashMap();
+    }
+
+    public static void a(@NonNull String str, @NonNull kn5 kn5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, kn5Var) == null) {
+            b.a.put(str, kn5Var);
+        }
+    }
+
+    @Nullable
+    public static <T> T b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (T) b.a.get(str);
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @NonNull
+    public static <T> T c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (T) Objects.requireNonNull(b(str));
+        }
+        return (T) invokeL.objValue;
     }
 }

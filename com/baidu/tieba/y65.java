@@ -1,15 +1,25 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class y65 implements cl1 {
+public class y65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public gl1<z65> a;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            el1 b = el1.b();
+            this.a = b;
+            b.a(new a75());
+        }
+    }
 
     public y65() {
         Interceptable interceptable = $ic;
@@ -21,27 +31,9 @@ public class y65 implements cl1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.cl1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new tw6());
-            arrayList.add(new qo7());
-            arrayList.add(new uo7());
-            arrayList.add(new yo7());
-            arrayList.add(new cp7());
-            arrayList.add(new gp7());
-            arrayList.add(new kp7());
-            arrayList.add(new op7());
-            arrayList.add(new yt9());
-            return arrayList;
-        }
-        return invokeV.objValue;
+        a();
     }
 }

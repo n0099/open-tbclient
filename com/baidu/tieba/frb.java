@@ -1,109 +1,176 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.nmb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import rx.internal.operators.NotificationLite;
+import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes5.dex */
-public final class frb implements pmb {
+public final class frb<T> extends irb<T, T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<pmb> a;
-    public volatile boolean b;
+    public final SubjectSubscriptionManager<T> b;
 
-    public frb() {
+    /* loaded from: classes5.dex */
+    public static class a implements bnb<SubjectSubscriptionManager.c<T>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SubjectSubscriptionManager a;
+
+        public a(SubjectSubscriptionManager subjectSubscriptionManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subjectSubscriptionManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = subjectSubscriptionManager;
+        }
+
+        @Override // com.baidu.tieba.bnb
+        public /* bridge */ /* synthetic */ void call(Object obj) {
+            call((SubjectSubscriptionManager.c) ((SubjectSubscriptionManager.c) obj));
+        }
+
+        public void call(SubjectSubscriptionManager.c<T> cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+                cVar.b(this.a.getLatest());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775155, "Lcom/baidu/tieba/frb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947775155, "Lcom/baidu/tieba/frb;");
+                return;
+            }
+        }
+        c = new Object[0];
+    }
+
+    public static <T> frb<T> H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return J(null, false);
+        }
+        return (frb) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public frb(nmb.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
+        super(aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, subjectSubscriptionManager};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((nmb.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = subjectSubscriptionManager;
     }
 
-    @Override // com.baidu.tieba.pmb
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
+    public static <T> frb<T> I(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
+            return J(t, true);
         }
-        return invokeV.booleanValue;
+        return (frb) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pmb
-    public void unsubscribe() {
+    public static <T> frb<T> J(T t, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, t, z)) == null) {
+            SubjectSubscriptionManager subjectSubscriptionManager = new SubjectSubscriptionManager();
+            if (z) {
+                subjectSubscriptionManager.setLatest(NotificationLite.h(t));
+            }
+            a aVar = new a(subjectSubscriptionManager);
+            subjectSubscriptionManager.onAdded = aVar;
+            subjectSubscriptionManager.onTerminated = aVar;
+            return new frb<>(subjectSubscriptionManager, subjectSubscriptionManager);
+        }
+        return (frb) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.omb
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.b.getLatest() == null || this.b.active) {
+                Object b = NotificationLite.b();
+                for (SubjectSubscriptionManager.c<T> cVar : this.b.terminate(b)) {
+                    cVar.d(b);
                 }
-                this.b = true;
-                Set<pmb> set = this.a;
-                this.a = null;
-                c(set);
             }
         }
     }
 
-    public static void c(Collection<pmb> collection) {
+    @Override // com.baidu.tieba.omb
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, collection) != null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (pmb pmbVar : collection) {
-            try {
-                pmbVar.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        umb.d(arrayList);
-    }
-
-    public void a(pmb pmbVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, pmbVar) != null) || pmbVar.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    if (this.a == null) {
-                        this.a = new HashSet(4);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            if (this.b.getLatest() == null || this.b.active) {
+                Object c2 = NotificationLite.c(th);
+                ArrayList arrayList = null;
+                for (SubjectSubscriptionManager.c<T> cVar : this.b.terminate(c2)) {
+                    try {
+                        cVar.d(c2);
+                    } catch (Throwable th2) {
+                        if (arrayList == null) {
+                            arrayList = new ArrayList();
+                        }
+                        arrayList.add(th2);
                     }
-                    this.a.add(pmbVar);
-                    return;
                 }
+                zmb.d(arrayList);
             }
         }
-        pmbVar.unsubscribe();
     }
 
-    public void b(pmb pmbVar) {
+    @Override // com.baidu.tieba.omb
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pmbVar) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b && this.a != null) {
-                    boolean remove = this.a.remove(pmbVar);
-                    if (remove) {
-                        pmbVar.unsubscribe();
-                    }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (this.b.getLatest() == null || this.b.active) {
+                Object h = NotificationLite.h(t);
+                for (SubjectSubscriptionManager.c<T> cVar : this.b.next(h)) {
+                    cVar.d(h);
                 }
             }
         }

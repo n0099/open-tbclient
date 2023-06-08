@@ -1,91 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.advert.sdk.data.AdLoadState;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
-import com.baidu.tieba.r56;
-import com.baidu.tieba.xl1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.advert.sdk.data.AdType;
+import com.baidu.tieba.advert.sdk.data.RedirectType;
+import com.baidu.tieba.advert.sdk.view.SplashAdView;
+import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
 import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m76 implements c86 {
+public class m76 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jk1 l;
-    public static volatile boolean m;
-    public static volatile ek1 n;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public volatile AdLoadState c;
-    public WeakReference<ViewGroup> d;
-    public hx4 e;
-    public boolean f;
-    public long g;
-    public final SplashNativePolicy h;
-    public int i;
-    public boolean j;
-    public String k;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947925629, "Lcom/baidu/tieba/m76;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947925629, "Lcom/baidu/tieba/m76;");
-        }
-    }
-
-    @Override // com.baidu.tieba.c86
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "prologue_gd" : (String) invokeV.objValue;
-    }
+    public e a;
+    public String b;
+    public WeakReference<SplashAdView> c;
 
     /* loaded from: classes6.dex */
-    public class a implements ek1 {
+    public class a implements CustomMessageTask.CustomRunnable<sc5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m76 a;
-
-        @Override // com.baidu.tieba.ek1
-        public boolean c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
 
         public a(m76 m76Var) {
             Interceptable interceptable = $ic;
@@ -105,228 +59,111 @@ public class m76 implements c86 {
             this.a = m76Var;
         }
 
-        @Override // com.baidu.tieba.ek1
-        public void a() {
-            boolean z;
-            boolean z2;
-            boolean z3;
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<sc5> customMessage) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad onclick");
-                }
-                boolean z4 = true;
-                TbSingleton.getInstance().mIsSplashClick = true;
-                if (this.a.e != null) {
-                    if (m76.l != null && m76.l.b() != null) {
-                        if (m76.l.b().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1) {
-                            z3 = true;
-                        } else {
-                            z3 = false;
-                        }
-                        if (m76.l.b().optInt("full_type", 0) != 1) {
-                            z4 = false;
-                        }
-                        z = z3;
-                        z2 = z4;
-                    } else {
-                        z = false;
-                        z2 = false;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getCmd() == 2016310) {
+                    try {
+                        return new CustomResponsedMessage<>(2016310, this.a.f(customMessage.getData()));
+                    } catch (Exception unused) {
                     }
-                    hx4 hx4Var = this.a.e;
-                    m76 m76Var = this.a;
-                    hx4Var.e(z, z2, m76Var.b, null, pv5.m(m76Var.i), null);
                 }
+                return null;
             }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
+    }
 
-        @Override // com.baidu.tieba.ek1
-        public void b(String str) {
+    /* loaded from: classes6.dex */
+    public class b implements t76 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SplashAdView a;
+        public final /* synthetic */ m76 b;
+
+        @Override // com.baidu.tieba.t76
+        public void b(p76 p76Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                i86.h(i86.b, "1", str, null, 1, 0, this.a.f, this.a.g);
-                i86.i(i86.b, "1", str, null, null, null, this.a.g);
-                if (c86.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash prologue ad loaded failed: " + str);
-                }
-                if (this.a.e != null) {
-                    this.a.e.f(i86.b, false);
-                }
-                this.a.c = AdLoadState.FAILED;
-                h("advert_show", 0);
-                if (this.a.h != null) {
-                    this.a.h.onSplashEvent(66);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p76Var) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.ek1
+        @Override // com.baidu.tieba.t76
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.t76
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public b(m76 m76Var, SplashAdView splashAdView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m76Var, splashAdView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m76Var;
+            this.a = splashAdView;
+        }
+
+        @Override // com.baidu.tieba.t76
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str));
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_CLICK);
+                statisticItem.param("obj_source", str);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @Override // com.baidu.tieba.t76
         public void d() {
-            int hashCode;
+            q76 entryInfoData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad finish");
+                SplashAdView splashAdView = (SplashAdView) this.b.c.get();
+                if (splashAdView != null) {
+                    this.b.b = this.a.g();
+                    m76 m76Var = this.b;
+                    m76Var.h(m76Var.b);
                 }
-                int i = 1;
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1);
-                if (this.a.e == null) {
-                    hashCode = 0;
-                } else {
-                    hashCode = this.a.e.hashCode();
-                }
-                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, hashCode));
-                StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).param(TiebaStatic.Params.OBJ_TO, pv5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-                if (this.a.f) {
-                    i = 2;
-                }
-                param2.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
-                if (this.a.e != null) {
-                    this.a.e.onAdDismiss();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void onAdShow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad show");
-                }
-                int i = 0;
-                if (this.a.e != null) {
-                    this.a.e.g(true, false, this.a.b);
-                }
-                if (!this.a.j) {
-                    this.a.j = true;
-                    i86.i(i86.b, "0", null, pv5.m(this.a.i), null, null, this.a.g);
-                }
-                h("advert_show", 1);
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0);
-                if (this.a.e != null) {
-                    i = this.a.e.hashCode();
-                }
-                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, i));
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void onSkip() {
-            int hashCode;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                System.out.println("SplashTes=>PrologueAdSdkSplash=>onSkip");
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad onskip");
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
-                int i = 2;
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 2);
-                if (this.a.e == null) {
-                    hashCode = 0;
-                } else {
-                    hashCode = this.a.e.hashCode();
-                }
-                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, hashCode));
-                StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).param(TiebaStatic.Params.OBJ_TO, pv5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-                if (!this.a.f) {
-                    i = 1;
-                }
-                param2.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void e(pm1 pm1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, pm1Var) == null) {
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue gd loaded success");
-                }
-                this.a.c = AdLoadState.SUCCEED;
-                if (this.a.e != null) {
-                    this.a.e.f(i86.b, true);
-                }
-                h("advert_load", 1);
-                if (this.a.h != null) {
-                    if (pm1Var != null) {
-                        ok1 a = pm1Var.a();
-                        if (a != null) {
-                            this.a.k = a.j();
-                        }
-                        JSONObject b = pm1Var.b();
-                        m76 m76Var = this.a;
-                        int i = -1;
-                        if (b != null) {
-                            i = b.optInt("source", -1);
-                        }
-                        m76Var.i = i;
-                        this.a.h.onSplashEvent(65, this.a.i);
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
+                if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
+                    if (entryInfoData.d()) {
+                        statisticItem.param("obj_source", entryInfoData.e);
                     } else {
-                        this.a.h.onSplashEvent(66);
+                        statisticItem.param("obj_source", entryInfoData.b);
                     }
                 }
-                i86.h(i86.b, "0", null, pv5.m(this.a.i), 0, 0, this.a.f, this.a.g);
-                h86.f(this.a.i, this.a.g);
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad onAdPlayError");
-                }
-                if (this.a.e != null) {
-                    this.a.e.b("play error");
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        @NonNull
-        public ViewGroup g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return (ViewGroup) this.a.d.get();
-            }
-            return (ViewGroup) invokeV.objValue;
-        }
-
-        public final void h(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
-                bh a = ps5.a();
-                a.b("type", "prologue");
-                a.b("locate", SpeedStatsUtils.UBC_VALUE_SPLASH);
-                a.c("switch", Integer.valueOf(b86.d().c()));
-                a.c("isSuccess", Integer.valueOf(i));
-                BdStatisticsManager.getInstance().debug(str, a);
+                TiebaStatic.log(statisticItem);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ek1 {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m76 a;
 
-        @Override // com.baidu.tieba.ek1
-        public boolean c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public b(m76 m76Var) {
+        public c(m76 m76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -338,304 +175,203 @@ public class m76 implements c86 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m76Var;
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m76.n != null) {
-                m76.n.a();
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void d() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && m76.n != null) {
-                m76.n.d();
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void f() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && m76.n != null) {
-                m76.n.f();
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        @NonNull
-        public ViewGroup g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                if (m76.n != null) {
-                    return m76.n.g();
-                }
-                return new RelativeLayout(TbadkCoreApplication.getInst().getContext());
-            }
-            return (ViewGroup) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void onAdShow() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && m76.n != null) {
-                m76.n.onAdShow();
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void onSkip() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && m76.n != null) {
-                m76.n.onSkip();
-            }
-        }
-
-        @Override // com.baidu.tieba.ek1
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (m76.n == null) {
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("data", str);
-                    r56.c().a(this.a.f(), "onAdLoadFailed", hashMap);
-                } else if (m76.n != null) {
-                    m76.n.b(str);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.ek1
-        public void e(pm1 pm1Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, pm1Var) == null) {
-                if (m76.n == null) {
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("data", pm1Var);
-                    r56.c().a(this.a.f(), "onAdLoaded", hashMap);
-                } else if (m76.n != null) {
-                    m76.n.e(pm1Var);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
             }
         }
     }
 
-    public m76(SplashNativePolicy splashNativePolicy) {
+    /* loaded from: classes6.dex */
+    public class d implements CountDownTextView.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(m76 m76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.d
+        public void onTimeout(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<CountDownTextView> a;
+
+        public e(CountDownTextView countDownTextView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {countDownTextView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(countDownTextView);
+        }
+
+        public /* synthetic */ e(CountDownTextView countDownTextView, a aVar) {
+            this(countDownTextView);
+        }
+
+        public void a(String str) {
+            CountDownTextView countDownTextView;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (countDownTextView = this.a.get()) != null) {
+                countDownTextView.d(str, 0);
+            }
+        }
+    }
+
+    public m76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {splashNativePolicy};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 5;
-        this.c = AdLoadState.INIT;
-        this.e = null;
-        this.f = false;
-        this.g = -1L;
-        this.i = -1;
-        this.j = false;
-        this.k = null;
-        this.h = splashNativePolicy;
+        this.a = null;
+        this.b = null;
     }
 
-    @Override // com.baidu.tieba.c86
-    public void e(kx4 kx4Var) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, kx4Var) == null) && kx4Var != null && kx4Var.b() != null && kx4Var.b().getContext() != null) {
-            this.e = kx4Var.a();
-            this.f = kx4Var.d();
-            this.g = kx4Var.c();
-            this.d = new WeakReference<>(kx4Var.b());
-            if (n == null) {
-                n = new a(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new a(this));
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+        }
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.a(str);
+        }
+    }
+
+    public final View f(sc5 sc5Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sc5Var)) == null) {
+            if (sc5Var == null || !sc5Var.c()) {
+                return null;
             }
-            if (m) {
-                t();
-                m = false;
-                return;
-            }
-            x(n, this.e);
-        }
-    }
-
-    public static void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            o8.f().g();
-        }
-    }
-
-    @Override // com.baidu.tieba.c86
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m = true;
-            x(new b(this), null);
-        }
-    }
-
-    @Override // com.baidu.tieba.c86
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.d.get() != null && this.d.get().getChildCount() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c86
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return pv5.m(this.i);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c86
-    public AdLoadState d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (AdLoadState) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c86
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (l != null) {
-                l.i();
-                l = null;
-            }
-            n = null;
-        }
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return !r56.c().d(f()).isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void s() {
-        WeakReference<ViewGroup> weakReference;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (weakReference = this.d) != null && weakReference.get().getParent() != null && (this.d.get().getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.d.get().getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            this.d.get().setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.c86
-    public void show() {
-        WeakReference<ViewGroup> weakReference;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || l == null || (weakReference = this.d) == null || weakReference.get() == null || this.c != AdLoadState.SUCCEED) {
-            return;
-        }
-        s();
-        this.c = AdLoadState.SHOWED;
-        if (c86.a) {
-            System.out.println("IAdSdkSplash prologue ad start show");
-        }
-        try {
-            l.o(this.d.get());
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (!r56.c().d(f()).isEmpty()) {
-                for (r56.a aVar : r56.c().d(f())) {
-                    if ("onAdLoaded".equals(aVar.a)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && n != null && !r56.c().d(f()).isEmpty()) {
-            for (r56.a aVar : r56.c().d(f())) {
-                String str = aVar.a;
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != -610376507) {
-                    if (hashCode == 861234439 && str.equals("onAdLoaded")) {
-                        c = 0;
-                    }
-                } else if (str.equals("onAdLoadFailed")) {
-                    c = 1;
-                }
-                if (c != 0) {
-                    if (c == 1) {
-                        n.b((String) aVar.b.get("data"));
-                    }
-                } else {
-                    n.e((pm1) aVar.b.get("data"));
-                }
-            }
-            r56.c().b(f());
-        }
-    }
-
-    public final void x(ek1 ek1Var, hx4 hx4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, ek1Var, hx4Var) == null) {
+            Activity pageActivity = sc5Var.getContext().getPageActivity();
+            int a2 = sc5Var.a();
+            int b2 = sc5Var.b();
+            SplashAdView splashAdView = new SplashAdView(sc5Var.getContext(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
+            splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
+            this.c = new WeakReference<>(splashAdView);
+            splashAdView.setBCAdCallBack(new b(this, splashAdView));
             try {
-                Context context = TbadkCoreApplication.getInst().getContext();
-                xl1.b bVar = new xl1.b();
-                bVar.j(vi.l(context));
-                bVar.k(vi.j(context));
-                l = new jk1(context, nk1.l(), bVar.i(), ek1Var);
-                this.c = AdLoadState.LOADING;
-                l.j();
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad start load");
-                }
-            } catch (OutOfMemoryError unused) {
-                TbadkCoreApplication.getInst().onLowMemory();
-                if (hx4Var != null) {
-                    hx4Var.b("oom");
-                }
+                z = splashAdView.f();
+            } catch (Throwable unused) {
+                z = false;
             }
+            if (!z) {
+                return null;
+            }
+            try {
+                int dimension = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070393);
+                int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070215);
+                Activity pageActivity2 = sc5Var.getContext().getPageActivity();
+                if (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) {
+                    dimension2 += vi.u(pageActivity2);
+                }
+                int dimension3 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
+                int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070355);
+                int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703eb);
+                CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
+                this.a = new e(countDownTextView, null);
+                String str = this.b;
+                if (TextUtils.isEmpty(str)) {
+                    str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f13c0);
+                }
+                if (splashAdView.n) {
+                    countDownTextView.d(str, 6);
+                } else {
+                    countDownTextView.d(str, 3);
+                }
+                splashAdView.setTag(Boolean.valueOf(splashAdView.n));
+                float f = dimension;
+                countDownTextView.setTextSize(0, f);
+                countDownTextView.setTextColor(Color.parseColor("#ffffff"));
+                countDownTextView.setGravity(17);
+                countDownTextView.setAlpha(0.5f);
+                GradientDrawable gradientDrawable = new GradientDrawable();
+                gradientDrawable.setColor(Color.parseColor("#000000"));
+                gradientDrawable.setCornerRadius(pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
+                gradientDrawable.setStroke(1, Color.parseColor("#000000"));
+                countDownTextView.setBackgroundDrawable(gradientDrawable);
+                countDownTextView.setOnClickListener(new c(this));
+                countDownTextView.setTimeoutListener(new d(this));
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimension4, dimension5);
+                layoutParams.addRule(10);
+                layoutParams.addRule(11);
+                layoutParams.setMargins(0, dimension2, dimension3, 0);
+                int g = vi.g(pageActivity, R.dimen.obfuscated_res_0x7f07041b);
+                countDownTextView.setPadding(g, g, g, g);
+                splashAdView.addView(countDownTextView, layoutParams);
+                int dimension6 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);
+                TextView textView = new TextView(pageActivity);
+                textView.setText(R.string.advert_label);
+                textView.setTextSize(0, f);
+                textView.setAlpha(0.5f);
+                textView.setIncludeFontPadding(false);
+                textView.setGravity(17);
+                textView.setBackgroundDrawable(gradientDrawable.getConstantState().newDrawable());
+                int g2 = vi.g(pageActivity, R.dimen.obfuscated_res_0x7f0701d4);
+                textView.setPadding(g2, g2, g2, g2);
+                SkinManager.setViewTextColor(textView, (int) R.color.common_color_10013);
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams((int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070261), (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070225));
+                layoutParams2.setMargins(dimension6, 0, 0, dimension6);
+                layoutParams2.addRule(9);
+                layoutParams2.addRule(12);
+                splashAdView.addView(textView, layoutParams2);
+            } catch (Exception unused2) {
+            }
+            return splashAdView;
         }
+        return (View) invokeL.objValue;
     }
 }

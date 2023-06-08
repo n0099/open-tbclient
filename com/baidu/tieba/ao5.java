@@ -1,21 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: SecondFloorService.java */
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class ao5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ao5 {
+    void a(long j, List<? extends ChatMsg> list, Function1<? super List<? extends ChatMsg>, Unit> function1);
 
-    public static bo5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (bo5) ServiceManager.getService(bo5.a);
-        }
-        return (bo5) invokeV.objValue;
-    }
+    void onDestroy();
 }

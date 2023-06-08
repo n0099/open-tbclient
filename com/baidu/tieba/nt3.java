@@ -50,12 +50,12 @@ public class nt3 extends a33 {
 
         /* renamed from: com.baidu.tieba.nt3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0388a implements rq3<String> {
+        public class C0400a implements rq3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0388a(a aVar) {
+            public C0400a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class nt3 extends a33 {
                 if (!wg3.h(bh3Var)) {
                     wg3.q(bh3Var, this.a, this.b);
                 } else {
-                    nt3.z(this.c, new C0388a(this));
+                    nt3.z(this.c, new C0400a(this));
                 }
             }
         }

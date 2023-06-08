@@ -1,94 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.service.IPCService;
-@Singleton
-@Service
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class eoa implements qoa {
+public class eoa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public soa a;
-    public IPCService b;
-    public toa c;
 
-    public eoa() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+        }
+    }
+
+    public static void a(poa poaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, poaVar) == null) && poaVar != null && !poaVar.y()) {
+            JSONArray n = poaVar.n();
+            int length = n.length();
+            boolean B = poaVar.B();
+            for (int i = 0; i < length; i++) {
+                try {
+                    if (B != kna.o().e(n.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + B + "  content " + poaVar.u().toString());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
-    }
-
-    @Override // com.baidu.tieba.qoa
-    public noa a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new soa();
-            }
-            return this.a;
-        }
-        return (noa) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qoa
-    public poa b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = new IPCService();
-            }
-            return this.b;
-        }
-        return (poa) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qoa
-    public pna c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return loa.b();
-        }
-        return (pna) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qoa
-    public tna d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return loa.c();
-        }
-        return (tna) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qoa
-    public ooa e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c == null) {
-                this.c = new toa();
-            }
-            return this.c;
-        }
-        return (ooa) invokeV.objValue;
     }
 }

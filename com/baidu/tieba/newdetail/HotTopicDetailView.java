@@ -54,31 +54,31 @@ import com.baidu.tbadk.switchs.IColorSDKSwitch;
 import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d58;
-import com.baidu.tieba.e58;
+import com.baidu.tieba.f58;
+import com.baidu.tieba.g58;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.h58;
-import com.baidu.tieba.i58;
 import com.baidu.tieba.j58;
-import com.baidu.tieba.jw9;
+import com.baidu.tieba.k58;
 import com.baidu.tieba.kp1;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.l58;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.newdetail.adapter.HotTopicDetailPagerAdapter;
 import com.baidu.tieba.newdetail.view.HotTopicDetailHeadView;
 import com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout;
 import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialLayout;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.og;
+import com.baidu.tieba.ow9;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.tm5;
-import com.baidu.tieba.ty8;
-import com.baidu.tieba.um5;
-import com.baidu.tieba.uy8;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.vm5;
 import com.baidu.tieba.vn;
-import com.baidu.tieba.vy8;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.xa5;
+import com.baidu.tieba.wm5;
+import com.baidu.tieba.wy8;
+import com.baidu.tieba.xy8;
+import com.baidu.tieba.yy8;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,7 +92,7 @@ import java.util.List;
 import tbclient.RecomTopicList;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes7.dex */
-public class HotTopicDetailView extends RelativeLayout implements uy8 {
+public class HotTopicDetailView extends RelativeLayout implements xy8 {
     public static /* synthetic */ Interceptable $ic;
     public static int Q;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,9 +105,9 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
     public ImageView G;
     public boolean H;
     public ValueAnimator I;
-    public i58 J;
+    public k58 J;
     public AppBarLayout.OnOffsetChangedListener K;
-    public xa5 L;
+    public za5 L;
     public final og<gn> M;
     public Runnable N;
     public ClickableSpan O;
@@ -115,14 +115,14 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
     public int a;
     public int b;
     public TbPageContext<HotTopicDetailActivity> c;
-    public ty8 d;
+    public wy8 d;
     public View e;
     public NavigationBar f;
     public ImageView g;
     public boolean h;
     public ViewGroup i;
-    public tm5 j;
-    public um5 k;
+    public vm5 j;
+    public wm5 k;
     public LottieSlideLoadingLayout l;
     public HotTopicDetailHeadView m;
     public TextView n;
@@ -134,7 +134,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
     public View t;
     public HotTopicDetailPkLayout u;
     public HotTopicDetailSpecialLayout v;
-    public d58 w;
+    public f58 w;
     public CustomViewPager x;
     public HotTopicDetailPagerAdapter y;
     public TbTabLayout z;
@@ -333,7 +333,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                vy8.f(this.a.c, "c14389");
+                yy8.f(this.a.c, "c14389");
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.c.showToast(R.string.obfuscated_res_0x7f0f1687);
                     return;
@@ -494,12 +494,12 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
     }
 
     /* loaded from: classes7.dex */
-    public class j implements xa5 {
+    public class j implements za5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicDetailView a;
 
-        @Override // com.baidu.tieba.xa5
+        @Override // com.baidu.tieba.za5
         public void onLoadingEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -524,7 +524,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
             this.a = hotTopicDetailView;
         }
 
-        @Override // com.baidu.tieba.xa5
+        @Override // com.baidu.tieba.za5
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
@@ -575,14 +575,14 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
                     aVar.e(40, 80);
                     String e = SmartColorSDK.d().e(aVar.a(), p);
                     if (!TextUtils.isEmpty(e)) {
-                        int f = jw9.f(e);
+                        int f = ow9.f(e);
                         if (f != Integer.MAX_VALUE) {
                             z = true;
                             if (this.a.n != null) {
                                 HotTopicDetailView.setWriteViewStyle(this.a.n, f);
                             }
                             if (this.a.m != null) {
-                                this.a.m.setBgCoverViewColor(jw9.a(f, 0.5f));
+                                this.a.m.setBgCoverViewColor(ow9.a(f, 0.5f));
                             }
                         } else {
                             z = false;
@@ -670,10 +670,10 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
     }
 
     public final void U() {
-        i58 i58Var;
+        k58 k58Var;
         RecomTopicList recomTopicList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (i58Var = this.J) != null && (recomTopicList = i58Var.q) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (k58Var = this.J) != null && (recomTopicList = k58Var.q) != null) {
             this.d.O(recomTopicList);
         }
     }
@@ -686,27 +686,27 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void e() {
-        um5 um5Var;
+        wm5 wm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (um5Var = this.k) != null) {
-            um5Var.dettachView(this.i);
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (wm5Var = this.k) != null) {
+            wm5Var.dettachView(this.i);
             this.k = null;
         }
     }
 
-    @Override // com.baidu.tieba.uy8
-    public i58 h() {
+    @Override // com.baidu.tieba.xy8
+    public k58 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.J;
         }
-        return (i58) invokeV.objValue;
+        return (k58) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -716,7 +716,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.H) {
@@ -734,7 +734,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void pause() {
         HotTopicDetailPagerAdapter hotTopicDetailPagerAdapter;
         Interceptable interceptable = $ic;
@@ -743,16 +743,16 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void q() {
-        tm5 tm5Var;
+        vm5 vm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && (tm5Var = this.j) != null) {
-            tm5Var.dettachView(this.i);
+        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && (vm5Var = this.j) != null) {
+            vm5Var.dettachView(this.i);
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
@@ -760,7 +760,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void resume() {
         HotTopicDetailPagerAdapter hotTopicDetailPagerAdapter;
         Interceptable interceptable = $ic;
@@ -770,13 +770,13 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailView(TbPageContext<?> tbPageContext, ty8 ty8Var, Bundle bundle) {
+    public HotTopicDetailView(TbPageContext<?> tbPageContext, wy8 wy8Var, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ty8Var, bundle};
+            Object[] objArr = {tbPageContext, wy8Var, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -800,7 +800,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         this.O = new b(this);
         this.P = new c(this);
         this.c = tbPageContext;
-        this.d = ty8Var;
+        this.d = wy8Var;
         Z(bundle);
         a();
     }
@@ -819,18 +819,18 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         return (ShadowLayout) invokeL.objValue;
     }
 
-    public final void V(j58 j58Var) {
+    public final void V(l58 l58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j58Var) == null) {
-            if (StringUtils.isNull(j58Var.c)) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, l58Var) == null) {
+            if (StringUtils.isNull(l58Var.c)) {
                 this.o.setVisibility(8);
             } else {
-                this.o.setText(j58Var.c);
+                this.o.setText(l58Var.c);
             }
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
@@ -838,7 +838,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
@@ -846,17 +846,17 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
-    public h58 p(int i2) {
+    @Override // com.baidu.tieba.xy8
+    public j58 p(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
             return this.y.b(i2);
         }
-        return (h58) invokeI.objValue;
+        return (j58) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
@@ -867,7 +867,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
     public static void setWriteViewStyle(@NonNull TextView textView, @ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65556, null, textView, i2) == null) {
-            m75 d2 = m75.d(textView);
+            o75 d2 = o75.d(textView);
             d2.o(R.string.J_X01);
             d2.w(R.color.CAM_X0101);
             d2.h(i2);
@@ -877,13 +877,13 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
                 T2.e(R.dimen.obfuscated_res_0x7f070353);
                 T2.f(R.dimen.obfuscated_res_0x7f07041c);
                 T2.d(R.dimen.obfuscated_res_0x7f070352, R.dimen.obfuscated_res_0x7f070224);
-                T2.c(jw9.a(i2, 0.5f));
+                T2.c(ow9.a(i2, 0.5f));
                 T2.a();
             }
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void g(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
@@ -891,7 +891,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void j(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -947,7 +947,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -971,43 +971,43 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             if (this.j == null) {
-                tm5 tm5Var = new tm5(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ca));
-                this.j = tm5Var;
-                tm5Var.o(SkinManager.getColor(R.color.CAM_X0201));
+                vm5 vm5Var = new vm5(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ca));
+                this.j = vm5Var;
+                vm5Var.o(SkinManager.getColor(R.color.CAM_X0201));
             }
             this.j.attachView(this.i, false);
         }
     }
 
-    public final void X(@NonNull i58 i58Var) {
+    public final void X(@NonNull k58 k58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, i58Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, k58Var) == null) {
             a0();
-            this.m.setTopicInfo(i58Var.e());
-            if (SwitchManager.getInstance().findType(IColorSDKSwitch.KEY) == 1 && i58Var.e() != null && !TextUtils.isEmpty(i58Var.e().f)) {
-                pg.h().m(i58Var.e().f, 39, this.M, this.c.getUniqueId());
+            this.m.setTopicInfo(k58Var.e());
+            if (SwitchManager.getInstance().findType(IColorSDKSwitch.KEY) == 1 && k58Var.e() != null && !TextUtils.isEmpty(k58Var.e().f)) {
+                pg.h().m(k58Var.e().f, 39, this.M, this.c.getUniqueId());
             }
-            V(i58Var.e());
-            d(i58Var);
-            List<vn> f2 = i58Var.f();
+            V(k58Var.e());
+            d(k58Var);
+            List<vn> f2 = k58Var.f();
             if (ListUtils.isEmpty(f2)) {
                 this.v.setVisibility(8);
             } else {
                 this.v.setData(f2);
                 this.v.setVisibility(0);
             }
-            if (i58Var.e() != null) {
-                this.f.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f09f2), i58Var.e().b));
+            if (k58Var.e() != null) {
+                this.f.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f09f2), k58Var.e().b));
             }
-            if (i58Var.q != null) {
-                l95 m = l95.m();
+            if (k58Var.q != null) {
+                n95 m = n95.m();
                 if (!m.i("key_hot_topic_next_btn_show_" + TbadkCoreApplication.getCurrentAccount(), false)) {
-                    l95 m2 = l95.m();
+                    n95 m2 = n95.m();
                     m2.w("key_hot_topic_next_btn_show_" + TbadkCoreApplication.getCurrentAccount(), true);
                     this.E.setVisibility(0);
                     this.C.setVisibility(8);
@@ -1099,23 +1099,23 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
             this.A = findViewById(R.id.obfuscated_res_0x7f0908e6);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092592);
             this.n = textView;
-            this.w = new d58(textView, this.c);
+            this.w = new f58(textView, this.c);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             TbadkCoreApplication.getInst().setSkinTypeValue(0);
             this.C = findViewById(R.id.obfuscated_res_0x7f0918bd);
             this.D = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918bb);
             this.C.setOnClickListener(new g(this));
-            m75.d(this.C).v(R.array.S_O_X004);
+            o75.d(this.C).v(R.array.S_O_X004);
             this.E = findViewById(R.id.obfuscated_res_0x7f0918be);
             this.F = (TextView) findViewById(R.id.obfuscated_res_0x7f0918bf);
             this.G = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918bc);
             this.E.setOnClickListener(new h(this));
-            m75.d(this.E).v(R.array.S_O_X004);
+            o75.d(this.E).v(R.array.S_O_X004);
             TbadkCoreApplication.getInst().setSkinTypeValue(skinType);
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -1127,22 +1127,22 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207);
         SkinManager.setNavbarTitleColor(this.f.getCenterText(), R.color.CAM_X0105, R.color.s_navbar_title_color);
-        tm5 tm5Var = this.j;
-        if (tm5Var != null) {
-            tm5Var.o(SkinManager.getColor(R.color.CAM_X0201));
+        vm5 vm5Var = this.j;
+        if (vm5Var != null) {
+            vm5Var.o(SkinManager.getColor(R.color.CAM_X0201));
         }
         this.u.m(skinType);
         this.z.setTabTextColors(SkinManager.getColor(R.color.CAM_X0107), SkinManager.getColor(R.color.CAM_X0105));
         this.v.c(skinType);
         this.y.l(skinType);
-        m75 d2 = m75.d(this.C);
+        o75 d2 = o75.d(this.C);
         d2.o(R.string.J_X07);
         d2.f(R.color.CAM_X0213);
         WebPManager.setPureDrawable(this.D, R.drawable.obfuscated_res_0x7f080b14, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
-        m75 d3 = m75.d(this.E);
+        o75 d3 = o75.d(this.E);
         d3.o(R.string.J_X07);
         d3.f(R.color.CAM_X0213);
-        m75 d4 = m75.d(this.F);
+        o75 d4 = o75.d(this.F);
         d4.w(R.color.CAM_X0105);
         d4.B(R.dimen.T_X07);
         d4.C(R.string.F_X01);
@@ -1158,14 +1158,14 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setNavbarTitleColor(this.f.getCenterText(), R.color.CAM_X0105, R.color.s_navbar_title_color);
-            ty8 ty8Var = this.d;
-            if (ty8Var instanceof Activity) {
-                UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) ty8Var);
+            wy8 wy8Var = this.d;
+            if (wy8Var instanceof Activity) {
+                UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) wy8Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void resetView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
@@ -1189,7 +1189,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
@@ -1205,7 +1205,7 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
                 T2.setVisibility(8);
             }
             if (this.k == null) {
-                this.k = new um5(this.c.getPageActivity(), null);
+                this.k = new wm5(this.c.getPageActivity(), null);
             }
             this.k.k(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c2));
             this.k.e();
@@ -1213,50 +1213,50 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
             this.k.i(R.drawable.new_pic_emotion_06);
             this.k.o(this.c.getString(R.string.obfuscated_res_0x7f0f09ef));
             this.k.attachView(this.i, false);
-            ty8 ty8Var = this.d;
-            if ((ty8Var instanceof Activity) && this.a != 4) {
-                UtilHelper.changeStatusBarIconAndTextColor(false, (Activity) ty8Var);
+            wy8 wy8Var = this.d;
+            if ((wy8Var instanceof Activity) && this.a != 4) {
+                UtilHelper.changeStatusBarIconAndTextColor(false, (Activity) wy8Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.uy8
-    public void d(i58 i58Var) {
-        e58 e58Var;
+    @Override // com.baidu.tieba.xy8
+    public void d(k58 k58Var) {
+        g58 g58Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, i58Var) == null) {
-            if (i58Var.a() != null) {
-                e58Var = i58Var.a();
-                e58Var.e = 3;
-            } else if (i58Var.b() != null) {
-                e58Var = i58Var.b();
-                e58Var.e = 2;
-            } else if (i58Var.g() != null) {
-                e58Var = i58Var.g();
-                e58Var.e = 1;
+        if (interceptable == null || interceptable.invokeL(1048590, this, k58Var) == null) {
+            if (k58Var.a() != null) {
+                g58Var = k58Var.a();
+                g58Var.e = 3;
+            } else if (k58Var.b() != null) {
+                g58Var = k58Var.b();
+                g58Var.e = 2;
+            } else if (k58Var.g() != null) {
+                g58Var = k58Var.g();
+                g58Var.e = 1;
             } else {
-                e58Var = null;
+                g58Var = null;
             }
-            this.m.setBlessInfo(e58Var);
-            if (i58Var.d() == null) {
+            this.m.setBlessInfo(g58Var);
+            if (k58Var.d() == null) {
                 this.u.setVisibility(8);
                 return;
             }
             this.u.setVisibility(0);
-            this.u.i(i58Var.d());
+            this.u.i(k58Var.d());
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            um5 um5Var = this.k;
-            if (um5Var != null && um5Var.isViewAttached()) {
+            wm5 wm5Var = this.k;
+            if (wm5Var != null && wm5Var.isViewAttached()) {
                 return;
             }
             if (this.k == null) {
-                this.k = new um5(getContext(), new l(this));
+                this.k = new wm5(getContext(), new l(this));
             }
             this.k.k(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c2));
             this.k.attachView(this.i, false);
@@ -1265,20 +1265,20 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
-    public void n(@NonNull i58 i58Var) {
+    @Override // com.baidu.tieba.xy8
+    public void n(@NonNull k58 k58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, i58Var) == null) {
-            this.J = i58Var;
-            if (i58Var.e() != null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, k58Var) == null) {
+            this.J = k58Var;
+            if (k58Var.e() != null) {
                 this.w.e(this.J.e().a);
                 this.w.d(this.J.e().b);
             }
-            X(i58Var);
+            X(k58Var);
         }
     }
 
-    @Override // com.baidu.tieba.uy8
+    @Override // com.baidu.tieba.xy8
     public void o(long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
@@ -1286,15 +1286,15 @@ public class HotTopicDetailView extends RelativeLayout implements uy8 {
         }
     }
 
-    @Override // com.baidu.tieba.uy8
-    public void t(h58 h58Var, boolean z, int i2) {
+    @Override // com.baidu.tieba.xy8
+    public void t(j58 j58Var, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{h58Var, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            i58 i58Var = this.J;
-            if (i58Var != null) {
-                this.y.p(i58Var.c());
+        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{j58Var, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            k58 k58Var = this.J;
+            if (k58Var != null) {
+                this.y.p(k58Var.c());
             }
-            this.y.t(h58Var, z, i2);
+            this.y.t(j58Var, z, i2);
         }
     }
 }

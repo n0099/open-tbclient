@@ -62,12 +62,12 @@ public class pz extends wx implements oy<ThreadData>, py {
         k(align);
     }
 
-    public void l(f15 f15Var) {
+    public void l(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f15Var) == null) {
-            if (f15Var.isSupportTop()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) {
+            if (h15Var.isSupportTop()) {
                 k(Align.ALIGN_RIGHT_TOP);
-            } else if (f15Var.isSupportBottom()) {
+            } else if (h15Var.isSupportBottom()) {
                 jz jzVar = this.d;
                 if (jzVar != null) {
                     jzVar.o(this);

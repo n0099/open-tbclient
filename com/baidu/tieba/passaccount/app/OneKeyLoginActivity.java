@@ -9,13 +9,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q19;
-import com.baidu.tieba.r19;
-import com.baidu.tieba.s19;
 import com.baidu.tieba.t19;
 import com.baidu.tieba.u19;
 import com.baidu.tieba.v19;
 import com.baidu.tieba.w19;
+import com.baidu.tieba.x19;
+import com.baidu.tieba.y19;
+import com.baidu.tieba.z19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,9 +25,9 @@ public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public s19 b;
-    public r19 c;
-    public q19 d;
+    public v19 b;
+    public u19 c;
+    public t19 d;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            s19 s19Var = new s19();
-            this.b = s19Var;
-            s19Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            v19 v19Var = new v19();
+            this.b = v19Var;
+            v19Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.b.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
             this.b.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
             this.b.d = this.a;
@@ -85,11 +85,11 @@ public class OneKeyLoginActivity extends BaseActivity {
             View findViewById = findViewById(R.id.obfuscated_res_0x7f091ed0);
             initData();
             if (TextUtils.isEmpty(this.a)) {
-                this.c = new u19(getPageContext(), findViewById);
-                this.d = new t19(getPageContext(), this.c);
+                this.c = new x19(getPageContext(), findViewById);
+                this.d = new w19(getPageContext(), this.c);
             } else {
-                this.c = new w19(getPageContext(), findViewById);
-                this.d = new v19(getPageContext(), this.c);
+                this.c = new z19(getPageContext(), findViewById);
+                this.d = new y19(getPageContext(), this.c);
             }
             this.c.c(this.b);
             this.d.j(this.b);

@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-import com.baidu.tieba.imb;
+import com.baidu.tieba.nmb;
 import com.baidu.tieba.o72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class n72<V extends View, M extends o72> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean h;
@@ -39,7 +39,7 @@ public abstract class n72<V extends View, M extends o72> {
     @Nullable
     public SwanAppComponentContainerView e;
     @Nullable
-    public omb f;
+    public tmb f;
     public int g;
 
     public void A(@NonNull V v) {
@@ -57,8 +57,8 @@ public abstract class n72<V extends View, M extends o72> {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends omb<Object> {
+    /* loaded from: classes6.dex */
+    public class a extends tmb<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String e;
@@ -86,7 +86,7 @@ public abstract class n72<V extends View, M extends o72> {
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.n72 */
         /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.n72 */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -103,7 +103,7 @@ public abstract class n72<V extends View, M extends o72> {
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         @SuppressLint({"BDThrowableCheck"})
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public abstract class n72<V extends View, M extends o72> {
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -125,8 +125,8 @@ public abstract class n72<V extends View, M extends o72> {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements imb.a<Object> {
+    /* loaded from: classes6.dex */
+    public class b implements nmb.a<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -152,22 +152,22 @@ public abstract class n72<V extends View, M extends o72> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super Object> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super Object> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ombVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, tmbVar) == null) {
                 if (n72.h) {
                     Log.d("Component-Base", "insert delayed => save thread: " + Thread.currentThread().getName());
                 }
                 if (this.a != Thread.currentThread().getId()) {
                     r82.a("Component-Base", "save subscriber and return subscriber: nolinear !");
                 }
-                this.b.f = ombVar;
+                this.b.f = tmbVar;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c extends er3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,9 +226,9 @@ public abstract class n72<V extends View, M extends o72> {
     }
 
     public final void E() {
-        omb ombVar;
+        tmb tmbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (ombVar = this.f) != null && !ombVar.isUnsubscribed()) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (tmbVar = this.f) != null && !tmbVar.isUnsubscribed()) {
             this.f.unsubscribe();
         }
     }
@@ -578,7 +578,7 @@ public abstract class n72<V extends View, M extends o72> {
 
     @Nullable
     @UiThread
-    public final omb w() {
+    public final tmb w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -598,8 +598,8 @@ public abstract class n72<V extends View, M extends o72> {
             if (this.e != null) {
                 y82.o("Component-Base", o + " repeat insert delayed: container view repeat");
             }
-            omb ombVar = this.f;
-            if (ombVar != null && !ombVar.isUnsubscribed()) {
+            tmb tmbVar = this.f;
+            if (tmbVar != null && !tmbVar.isUnsubscribed()) {
                 this.f.unsubscribe();
                 this.f = null;
                 y82.o("Component-Base", o + " insert delayed repeat: subscriber repeat");
@@ -610,13 +610,13 @@ public abstract class n72<V extends View, M extends o72> {
                 if (h) {
                     Log.d("Component-Base", o + " insert delayed（container view）: success");
                 }
-                imb.a(new b(this, Thread.currentThread().getId())).w(new a(this, o));
+                nmb.a(new b(this, Thread.currentThread().getId())).w(new a(this, o));
                 return this.f;
             }
             y82.c("Component-Base", o + " insert delayed: attach fail");
             return null;
         }
-        return (omb) invokeV.objValue;
+        return (tmb) invokeV.objValue;
     }
 
     @NonNull

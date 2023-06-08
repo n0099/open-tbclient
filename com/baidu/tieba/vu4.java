@@ -80,7 +80,7 @@ public class vu4 {
         this.a = new wu4();
         MessageManager.getInstance().registerListener(this.c);
         g();
-        this.b = l95.m().o("key_redpacket_pop_last_time", 0L);
+        this.b = n95.m().o("key_redpacket_pop_last_time", 0L);
     }
 
     public final boolean e() {
@@ -107,7 +107,7 @@ public class vu4 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !ui.isEmpty(this.a.d())) {
             this.b = System.currentTimeMillis();
-            l95.m().A("key_redpacket_pop_last_time", this.b);
+            n95.m().A("key_redpacket_pop_last_time", this.b);
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
             String str = this.a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -139,7 +139,7 @@ public class vu4 {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.e(l95.m().s("key_redpacket_pop", ""));
+            this.a.e(n95.m().s("key_redpacket_pop", ""));
         }
     }
 

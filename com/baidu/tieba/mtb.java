@@ -1,35 +1,42 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Dialog;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uvb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
-public class mtb implements uvb.a {
+public class mtb implements kwb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public IPayCallback<CurrencyChargeMessage> c;
-    public msb d;
-    public uvb.b e;
+    public AbsViewEventHandler a;
+    public rsb b;
+    public Activity c;
+    public IYYPayResultView d;
 
-    public mtb(Activity activity, Dialog dialog, uvb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, msb msbVar) {
+    @Override // com.baidu.tieba.kwb
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public mtb(AbsViewEventHandler absViewEventHandler, rsb rsbVar, Activity activity, IYYPayResultView iYYPayResultView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, bVar, iPayCallback, msbVar};
+            Object[] objArr = {absViewEventHandler, rsbVar, activity, iYYPayResultView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,55 +46,22 @@ public class mtb implements uvb.a {
                 return;
             }
         }
-        this.a = activity;
-        this.b = dialog;
-        this.c = iPayCallback;
-        this.d = msbVar;
-        this.e = bVar;
+        RLog.info("PayResultDialogListener", "create PayResultDialogListener");
+        this.a = absViewEventHandler;
+        this.b = rsbVar;
+        this.c = activity;
+        this.d = iYYPayResultView;
     }
 
-    @Override // com.baidu.tieba.uvb.a
-    public void a(eub eubVar) {
+    @Override // com.baidu.tieba.kwb
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eubVar) == null) {
-            RLog.info("PaySplitOrderViewCallback", "toPayWayDialog amount:" + eubVar);
-            xub.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            uvb.b bVar = this.e;
-            IYYPayAmountView.ViewParams viewParams = bVar.f;
-            viewParams.splitOrderPayScene = "1";
-            this.d.t(this.a, eubVar, bVar.d, bVar.e, viewParams, this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.uvb.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PaySplitOrderViewCallback", "toInputNumberDialog");
-            xub.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            msb msbVar = this.d;
-            Activity activity = this.a;
-            uvb.b bVar = this.e;
-            msbVar.n(activity, bVar.d, bVar.e, bVar.f, this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.uvb.a
-    public void onRefreshViewFail(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            PaySplitOrderViewSource paySplitOrderViewSource = this.e.h;
-            if (paySplitOrderViewSource == PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG) {
-                RLog.info("PaySplitOrderViewCallback", "onRefreshViewFail code:" + i + " failReason:" + str + " source:" + paySplitOrderViewSource + " prepareShowPayWayDialog");
-                xub.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-                msb msbVar = this.d;
-                Activity activity = this.a;
-                uvb.b bVar = this.e;
-                msbVar.t(activity, bVar.a, bVar.d, bVar.e, bVar.f, this.c);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                this.d.a();
             }
-            RLog.info("PaySplitOrderViewCallback", "onRefreshViewFail code:" + i + " failReason:" + str + " source:" + paySplitOrderViewSource + " interruptePayFlow");
-            xub.b(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
+            this.b.g(cancelType, this.a);
         }
     }
 }

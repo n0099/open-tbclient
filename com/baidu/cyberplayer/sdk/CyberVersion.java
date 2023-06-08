@@ -34,7 +34,7 @@ public class CyberVersion {
 
     public static String getSDKVersion() {
         if (CyberCfgManager.getInstance().a("enable_version_for_short", true)) {
-            return "7.39.93";
+            return "7.39.94";
         }
         return SDKVersion.VERSION;
     }

@@ -22,7 +22,7 @@ public class ky extends by {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewGridImageLayout h;
-    public f15 i;
+    public h15 i;
     public int j;
     public String k;
     public int l;
@@ -92,9 +92,9 @@ public class ky extends by {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.j().booleanValue()) {
-                    qn6.a(this.a.i.getThreadData().getId());
-                    qn6.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    qn6.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sn6.a(this.a.i.getThreadData().getId());
+                    sn6.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sn6.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -127,14 +127,14 @@ public class ky extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: A */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f15Var) == null) {
-            this.i = f15Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, h15Var) == null) {
+            this.i = h15Var;
             this.h.setFrom(this.k);
             this.h.setFromForPb(this.l);
             this.h.setTransmit(j().booleanValue());
-            this.h.a(f15Var);
+            this.h.a(h15Var);
             this.h.setJumpToPbListener(new a(this));
         }
     }
@@ -199,10 +199,10 @@ public class ky extends by {
     }
 
     @Override // com.baidu.tieba.ux
-    public void p(eo6<f15> eo6Var) {
+    public void p(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, eo6Var) == null) {
-            this.h.setSubClickListener(eo6Var);
+        if (interceptable == null || interceptable.invokeL(1048591, this, go6Var) == null) {
+            this.h.setSubClickListener(go6Var);
         }
     }
 

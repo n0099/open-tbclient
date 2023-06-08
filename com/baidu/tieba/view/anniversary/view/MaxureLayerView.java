@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k75;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -266,7 +266,7 @@ public class MaxureLayerView extends View {
             this.l.reset();
             this.m.right = getWidth();
             this.m.bottom = getHeight();
-            this.l.addRoundRect(this.m, k75.B(this.j), Path.Direction.CW);
+            this.l.addRoundRect(this.m, m75.B(this.j), Path.Direction.CW);
             canvas.clipPath(this.l);
             float f = 1.0f - ((100 - i) / 100.0f);
             canvas.drawRect(0.0f, f * getHeight(), getWidth(), (getHeight() * f) + r, this.e);

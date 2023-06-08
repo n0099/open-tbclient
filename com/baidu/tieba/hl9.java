@@ -1,393 +1,187 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import tbclient.App;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class hl9 {
     public static /* synthetic */ Interceptable $ic;
+    public static hl9 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public ConcurrentHashMap<String, il9> c;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Comparator<w25> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(w25 w25Var, w25 w25Var2) {
-            InterceptResult invokeLL;
-            int g;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, w25Var, w25Var2)) == null) {
-                if (w25Var.j() && w25Var2.j()) {
-                    return w25Var.r() - w25Var2.r();
-                }
-                int i = -1;
-                if (!w25Var.j() && !w25Var2.j()) {
-                    if (w25Var.G() == null) {
-                        g = -1;
-                    } else {
-                        g = hl9.g(w25Var.G());
-                    }
-                    if (w25Var2.G() != null) {
-                        i = hl9.g(w25Var2.G());
-                    }
-                    return g - i;
-                } else if (w25Var.j()) {
-                    return -1;
-                } else {
-                    return 1;
-                }
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public static Set<vn> a(List<vn> list, int i, String str) {
-        InterceptResult invokeLIL;
-        AdvertAppInfo G;
-        AdvertAppInfo G2;
+    public hl9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, list, i, str)) == null) {
-            HashSet hashSet = new HashSet();
-            if (vo8.e(list)) {
-                return hashSet;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Set<vn> a2 = qn9.a(str);
-            if (a2 == null) {
-                a2 = new HashSet();
-            }
-            for (vn vnVar : list) {
-                if (vnVar != null) {
-                    for (vn vnVar2 : a2) {
-                        if ((vnVar instanceof w25) && (G2 = ((w25) vnVar).G()) != null && vnVar2.hashCode() == G2.hashCode()) {
-                            G2.i = ((AdvertAppInfo) vnVar2).i;
-                        }
-                    }
-                    if ((vnVar instanceof w25) && (G = ((w25) vnVar).G()) != null && G.i == null) {
-                        k15 k15Var = new k15();
-                        G.i = k15Var;
-                        k15Var.a = str;
-                        k15Var.b = i;
-                        k15Var.g = G.g;
-                        k15Var.h = false;
-                        hashSet.add(G);
-                    }
-                }
-            }
-            a2.addAll(hashSet);
-            qn9.b(str, a2);
-            return hashSet;
         }
-        return (Set) invokeLIL.objValue;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new ConcurrentHashMap<>();
     }
 
-    public static List<w25> i(List<w25> list, List<vn> list2, int i) {
-        InterceptResult invokeLLI;
-        int i2;
+    public static hl9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, list, list2, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (vo8.e(list)) {
-                return arrayList;
-            }
-            o(list);
-            int i3 = 0;
-            for (int i4 = 0; i4 < list.size(); i4++) {
-                w25 w25Var = (w25) vo8.d(list, i4);
-                if (w25Var != null && w25Var.G() != null) {
-                    int i5 = vo8.i(list2);
-                    int g = g(w25Var.G()) - 1;
-                    if (g < 0) {
-                        n(w25Var.G());
-                    } else {
-                        if (w25Var.j()) {
-                            i2 = w25Var.r();
-                        } else {
-                            i2 = g + i;
-                        }
-                        if (i2 > i5) {
-                            n(w25Var.G());
-                        } else {
-                            w25Var.setPosition(i2);
-                            vo8.b(list2, w25Var, i2);
-                            arrayList.add(w25Var);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (hl9.class) {
+                    if (d == null) {
+                        d = new hl9();
                     }
                 }
             }
-            while (i < vo8.i(list2)) {
-                vn vnVar = list2.get(i);
-                if (vnVar instanceof w25) {
-                    i3++;
-                } else if (vnVar instanceof BaseCardInfo) {
-                    ((BaseCardInfo) vnVar).position += i3;
-                }
-                i++;
-            }
-            return arrayList;
+            return d;
         }
-        return (List) invokeLLI.objValue;
+        return (hl9) invokeV.objValue;
     }
 
-    public static int b(@NonNull List<vn> list) {
+    public ConcurrentHashMap<String, il9> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (ConcurrentHashMap) invokeV.objValue;
+    }
+
+    public il9 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            int i = 0;
-            if (vo8.e(list)) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null || this.c == null) {
+                return null;
             }
-            int i2 = -1;
-            for (int i3 = vo8.i(list) - 1; i3 >= 0 && !(vo8.d(list, i3) instanceof w25); i3--) {
-                if (vo8.d(list, i3) instanceof l45) {
-                    int i4 = ((l45) vo8.d(list, i3)).position;
-                    if (i4 != i2) {
-                        i++;
-                        i2 = i4;
-                    }
-                } else {
-                    i++;
-                }
+            String str2 = hashMap.get(str);
+            if (TextUtils.isEmpty(str2)) {
+                return null;
             }
-            return i;
+            return this.c.get(str2);
         }
-        return invokeL.intValue;
+        return (il9) invokeL.objValue;
     }
 
-    public static void c(List<vn> list) {
+    public void f(String str) {
+        ConcurrentHashMap<String, il9> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || vo8.e(list)) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
+            Iterator<String> it = concurrentHashMap.keySet().iterator();
+            while (it.hasNext()) {
+                il9 il9Var = this.c.get(it.next());
+                if (il9Var != null && str.equals(il9Var.b)) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public void g(boolean z) {
+        ConcurrentHashMap<String, il9> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
             return;
         }
-        Iterator<vn> it = list.iterator();
-        while (it.hasNext()) {
-            if (it.next() instanceof w25) {
-                it.remove();
+        for (String str : concurrentHashMap.keySet()) {
+            il9 il9Var = this.c.get(str);
+            if (il9Var != null) {
+                il9Var.e = z;
             }
         }
     }
 
-    public static String f(@NonNull AdvertAppInfo advertAppInfo) {
+    public il9 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, advertAppInfo)) == null) {
-            return "#Nad=" + advertAppInfo.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            ConcurrentHashMap<String, il9> concurrentHashMap = this.c;
+            if (concurrentHashMap == null) {
+                return null;
+            }
+            return concurrentHashMap.get(str);
+        }
+        return (il9) invokeL.objValue;
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            HashMap<String, String> hashMap = this.b;
+            if (hashMap == null) {
+                return null;
+            }
+            return hashMap.get(str);
         }
         return (String) invokeL.objValue;
     }
 
-    public static int g(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
+    public void i(HashMap<String, il9> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
+            this.c.clear();
+            if (hashMap == null) {
+                return;
             }
-            if (TextUtils.isEmpty(advertAppInfo.f)) {
-                return -1;
-            }
-            return tg.e(advertAppInfo.f, -1);
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean j(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.startsWith("#Nad=");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int k(@Nullable AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, advertAppInfo)) == null) {
-            int i = advertAppInfo.i();
-            if (g(advertAppInfo) < 0) {
-                return 23;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean l(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, advertAppInfo)) == null) {
-            return advertAppInfo.b();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void n(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, advertAppInfo) == null) {
-            m(advertAppInfo, 23);
+            this.c.putAll(hashMap);
         }
     }
 
-    public static void o(List<w25> list) {
+    public void h(boolean z, String str) {
+        ConcurrentHashMap<String, il9> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, list) == null) {
-            Collections.sort(list, new a());
-        }
-    }
-
-    public static void p(List<vn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, list) == null) {
-            for (int i = 0; i < vo8.i(list); i++) {
-                if (vo8.d(list, i) instanceof w25) {
-                    ((w25) vo8.d(list, i)).setPosition(i);
+        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
+            for (String str2 : concurrentHashMap.keySet()) {
+                il9 il9Var = this.c.get(str2);
+                if (il9Var != null && str.equals(il9Var.b)) {
+                    il9Var.e = z;
                 }
             }
         }
     }
 
-    public static void d(String str, List list) {
-        ThreadData threadData;
-        cy9 cy9Var;
-        String str2;
+    public void j(String str, String str2) {
+        HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, str, list) != null) || vo8.e(list)) {
-            return;
-        }
-        Iterator it = list.iterator();
-        int i = 0;
-        int i2 = 0;
-        while (it.hasNext()) {
-            i++;
-            Object next = it.next();
-            if (StringUtils.isNull(str)) {
-                if (!(next instanceof App) && !(next instanceof w25)) {
-                    if ((next instanceof l45) && (threadData = ((l45) next).t) != null && (cy9Var = threadData.funAdData) != null) {
-                        cy9Var.p(true);
-                        it.remove();
-                    }
-                } else {
-                    it.remove();
-                }
-            } else {
-                if (i2 + 1 == i && (next instanceof k66)) {
-                    it.remove();
-                }
-                if (next instanceof App) {
-                    str2 = il9.a((App) next);
-                } else {
-                    if (next instanceof w25) {
-                        w25 w25Var = (w25) next;
-                        if (w25Var.G() != null) {
-                            str2 = w25Var.G().a;
-                        }
-                    }
-                    str2 = "";
-                }
-                if (TextUtils.equals(str, str2)) {
-                    it.remove();
-                    i2 = i;
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
+            hashMap.put(str, str2);
         }
     }
 
-    public static String e(List<vn> list, boolean z) {
-        InterceptResult invokeLZ;
-        w25 w25Var;
+    public void k(String str, String str2) {
+        HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, list, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!z && !vo8.e(list)) {
-                int i = 0;
-                for (int i2 = vo8.i(list) - 1; i2 >= 0 && i < 6; i2--) {
-                    if ((vo8.d(list, i2) instanceof w25) && (w25Var = (w25) vo8.d(list, i2)) != null && !l(w25Var.G())) {
-                        sb.append(w25Var.r() + 1);
-                        sb.append(",");
-                        i++;
-                    }
-                }
-                if (sb.length() <= 1) {
-                    return sb.toString();
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                return sb.toString();
-            }
-            return sb.toString();
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
+            hashMap.put(str, str2);
         }
-        return (String) invokeLZ.objValue;
     }
 
-    public static List<w25> h(List<App> list, String str) {
-        InterceptResult invokeLL;
+    public void l(String str, HashMap<String, il9> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (vo8.e(list)) {
-                return arrayList;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
+            if (this.c == null) {
+                this.c = new ConcurrentHashMap<>();
             }
-            Log.e("frs", "src ad list size " + list.size());
-            for (App app : list) {
-                AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                advertAppInfo.l(app);
-                advertAppInfo.j = str;
-                int k = k(advertAppInfo);
-                if (k != 0) {
-                    sn9.h(advertAppInfo, 1, k);
-                } else {
-                    arrayList.add(advertAppInfo);
-                }
-            }
-            Log.e("frs", "src ad jiaoyan size " + arrayList.size());
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static void m(AdvertAppInfo advertAppInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, null, advertAppInfo, i) == null) {
-            sn9.h(advertAppInfo, 1, i);
+            f(str);
+            this.c.putAll(hashMap);
         }
     }
 }

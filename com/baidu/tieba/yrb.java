@@ -1,40 +1,33 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Display;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes8.dex */
-public class yrb {
+public class yrb implements orb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final boolean c;
-    public final int d;
-    public final int e;
-    public final boolean f;
-    public final float g;
+    public MiddleRevenueConfig a;
 
-    public yrb(Activity activity) {
-        boolean z;
+    public yrb(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {middleRevenueConfig};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,183 +37,169 @@ public class yrb {
                 return;
             }
         }
-        Resources resources = activity.getResources();
-        if (resources.getConfiguration().orientation == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.f = z;
-        this.g = h(activity);
-        this.a = c(resources, "status_bar_height");
-        this.b = b(activity);
-        this.d = e(activity);
-        this.e = g(activity);
-        this.c = this.d > 0;
+        this.a = middleRevenueConfig;
     }
 
-    @TargetApi(14)
-    public static boolean j(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= 17) {
-                defaultDisplay.getRealMetrics(displayMetrics);
-            }
-            int i = displayMetrics.heightPixels;
-            int i2 = displayMetrics.widthPixels;
-            DisplayMetrics displayMetrics2 = new DisplayMetrics();
-            defaultDisplay.getMetrics(displayMetrics2);
-            int i3 = displayMetrics2.heightPixels;
-            if (i2 - displayMetrics2.widthPixels <= 0 && i - i3 <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @TargetApi(14)
-    public final int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                TypedValue typedValue = new TypedValue();
-                context.getTheme().resolveAttribute(16843499, typedValue, true);
-                return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @TargetApi(14)
-    public final int e(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            Resources resources = context.getResources();
-            if (Build.VERSION.SDK_INT >= 14 && j((Activity) context)) {
-                if (this.f) {
-                    str = "navigation_bar_height";
-                } else {
-                    str = "navigation_bar_height_landscape";
-                }
-                return c(resources, str);
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public final float h(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= 16) {
-                activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
-            } else {
-                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            }
-            float f = displayMetrics.density;
-            return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
-        }
-        return invokeL.floatValue;
-    }
-
-    public int a() {
+    @Override // com.baidu.tieba.orb
+    public GetBannerConfigReqParams a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
+            getBannerConfigReqParams.setAppId(this.a.getAppId());
+            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getBannerConfigReqParams.setUid(this.a.getUid());
+            getBannerConfigReqParams.setToken(this.a.getToken());
+            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            return getBannerConfigReqParams;
         }
-        return invokeV.intValue;
+        return (GetBannerConfigReqParams) invokeV.objValue;
     }
 
-    public int d() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "QueryParamsProviderImpl" + hashCode() + " revenueConfig:" + this.a.hashCode();
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int f() {
+    @Override // com.baidu.tieba.orb
+    public QueryCurrencyReqParams b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            queryCurrencyReqParams.setReturnYb(true);
+            return queryCurrencyReqParams;
         }
-        return invokeV.intValue;
+        return (QueryCurrencyReqParams) invokeV.objValue;
     }
 
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.g < 600.0f && !this.f) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int c(Resources resources, String str) {
+    @Override // com.baidu.tieba.orb
+    public rrb c(PayFlowType payFlowType, Map<String, String> map) {
         InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, resources, str)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                int parseInt = Integer.parseInt(cls.getField(str).get(cls.newInstance()).toString());
-                if (parseInt <= 0) {
-                    return 0;
-                }
-                return resources.getDimensionPixelSize(parseInt);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, payFlowType, map)) == null) {
+            rrb rrbVar = new rrb();
+            rrbVar.D(this.a.getUid());
+            rrbVar.A(this.a.getToken());
+            rrbVar.E(this.a.getUseChannel());
+            rrbVar.t(this.a.getCurrencyType());
+            rrbVar.B(this.a.getTokenCallback());
+            String deviceId = this.a.getDeviceId();
+            RLog.info("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
+            HashMap hashMap = new HashMap();
+            if (deviceId != null) {
+                hashMap.put("deviceId", deviceId);
+            } else {
+                RLog.error("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
             }
+            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("chargeScene", str);
+            JSONObject f = f(map);
+            if (f != null) {
+                hashMap.put("clientInfo", f);
+            }
+            rrbVar.u(hashMap);
+            return rrbVar;
         }
-        return invokeLL.intValue;
+        return (rrb) invokeLL.objValue;
     }
 
-    @TargetApi(14)
-    public final int g(Context context) {
+    @Override // com.baidu.tieba.orb
+    public QueryCurrencyReqParams d(PayFlowType payFlowType, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, payFlowType, map)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            HashMap hashMap = new HashMap();
+            JSONObject f = f(map);
+            if (f != null) {
+                hashMap.put("clientInfo", f);
+            }
+            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("chargeScene", str);
+            queryCurrencyReqParams.setExpandMap(hashMap);
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.orb
+    public GetSplitOrderConfigReqParams e(int i, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
+            GetSplitOrderConfigReqParams getSplitOrderConfigReqParams = new GetSplitOrderConfigReqParams();
+            getSplitOrderConfigReqParams.setAppId(this.a.getAppId());
+            getSplitOrderConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getSplitOrderConfigReqParams.setUid(this.a.getUid());
+            getSplitOrderConfigReqParams.setToken(this.a.getToken());
+            getSplitOrderConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            getSplitOrderConfigReqParams.setCurrencyType(this.a.getCurrencyType());
+            getSplitOrderConfigReqParams.setOrderId(str);
+            getSplitOrderConfigReqParams.setType(i);
+            getSplitOrderConfigReqParams.setAmount(j);
+            return getSplitOrderConfigReqParams;
+        }
+        return (GetSplitOrderConfigReqParams) invokeCommon.objValue;
+    }
+
+    public final JSONObject f(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            Resources resources = context.getResources();
-            if (Build.VERSION.SDK_INT >= 14 && j((Activity) context)) {
-                return c(resources, "navigation_bar_width");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
+            JSONObject jSONObject = null;
+            if (map == null) {
+                return null;
             }
-            return 0;
+            try {
+                if (map.size() <= 0) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        if (entry.getKey() != null && entry.getValue() != null) {
+                            jSONObject2.put(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    return jSONObject2;
+                } catch (JSONException e) {
+                    e = e;
+                    jSONObject = jSONObject2;
+                    RLog.error("QueryParamsProviderImpl", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
+                    return jSONObject;
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+        } else {
+            return (JSONObject) invokeL.objValue;
         }
-        return invokeL.intValue;
     }
 }

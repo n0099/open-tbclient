@@ -32,7 +32,7 @@ public class qb4 extends y73 implements v83 {
     public int f;
 
     /* loaded from: classes7.dex */
-    public class a implements wmb<String> {
+    public class a implements bnb<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class qb4 extends y73 implements v83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.bnb
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -168,7 +168,7 @@ public class qb4 extends y73 implements v83 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            imb.h("").m(Schedulers.io()).y(new a(this, checkProcessId, bundle));
+            nmb.h("").m(Schedulers.io()).y(new a(this, checkProcessId, bundle));
         }
     }
 }

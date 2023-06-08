@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mc9;
+import com.baidu.tieba.pc9;
 import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -52,14 +52,14 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void a(vn vnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, vnVar) != null) || !(vnVar instanceof mc9)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, vnVar) != null) || !(vnVar instanceof pc9)) {
             return;
         }
         this.e = vnVar;
-        mc9 mc9Var = (mc9) vnVar;
+        pc9 pc9Var = (pc9) vnVar;
         SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-        if (mc9Var.a() > 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0993), Integer.valueOf(mc9Var.a())));
+        if (pc9Var.a() > 0) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0993), Integer.valueOf(pc9Var.a())));
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());

@@ -48,7 +48,7 @@ public class g54 extends EventTargetImpl implements d54 {
 
         /* renamed from: com.baidu.tieba.g54$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0312a implements xq3 {
+        public class C0320a implements xq3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -60,7 +60,7 @@ public class g54 extends EventTargetImpl implements d54 {
                 }
             }
 
-            public C0312a(a aVar) {
+            public C0320a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,7 +176,7 @@ public class g54 extends EventTargetImpl implements d54 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0312a(this);
+                        this.a.k = new C0320a(this);
                         g54.L(this.a.k);
                     }
                 } else if (this.a.e != null) {

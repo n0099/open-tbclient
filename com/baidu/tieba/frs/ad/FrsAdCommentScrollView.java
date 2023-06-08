@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw9;
+import com.baidu.tieba.uw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<pw9> g;
+    public List<uw9> g;
     public int h;
     public Runnable i;
 
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<pw9> list) {
+    public void m(List<uw9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -324,25 +324,25 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        pw9 pw9Var;
+        uw9 uw9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            pw9 pw9Var2 = (pw9) ListUtils.getItem(this.g, this.h);
+            uw9 uw9Var2 = (uw9) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                pw9Var = (pw9) ListUtils.getItem(this.g, 0);
+                uw9Var = (uw9) ListUtils.getItem(this.g, 0);
             } else {
-                pw9Var = (pw9) ListUtils.getItem(this.g, this.h + 1);
+                uw9Var = (uw9) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && pw9Var2 != null) {
-                String a2 = pw9Var2.a();
-                if (pw9Var2.b()) {
+            if ((this.c.getTag() instanceof TextView) && uw9Var2 != null) {
+                String a2 = uw9Var2.a();
+                if (uw9Var2.b()) {
                     a2 = getContext().getString(R.string.obfuscated_res_0x7f0f0867, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && pw9Var != null) {
-                String a3 = pw9Var.a();
-                if (pw9Var.b()) {
+            if ((this.d.getTag() instanceof TextView) && uw9Var != null) {
+                String a3 = uw9Var.a();
+                if (uw9Var.b()) {
                     a3 = getContext().getString(R.string.obfuscated_res_0x7f0f0867, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);

@@ -24,7 +24,7 @@ public interface ox0 {
 
         /* renamed from: com.baidu.tieba.ox0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0397a implements qx0 {
+        public class C0406a implements qx0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public interface ox0 {
                 }
             }
 
-            public C0397a(a aVar) {
+            public C0406a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public interface ox0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-                return new C0397a(this);
+                return new C0406a(this);
             }
             return (qx0) invokeLL.objValue;
         }

@@ -94,12 +94,12 @@ public final class lz4 {
                 } else {
                     str3 = str2;
                 }
-                TbWebViewActivityConfig i = qx4.i(context, str, str3, z, z2, z3, !hm6.b(hashMap));
+                TbWebViewActivityConfig i = qx4.i(context, str, str3, z, z2, z3, !jm6.b(hashMap));
                 i.setNeedImmerSiveSticky(z6);
                 i.setFixTitle(z7);
                 i.setAutoPlay(z8);
                 i.setBundle(bundle);
-                if (!hm6.b(hashMap)) {
+                if (!jm6.b(hashMap)) {
                     i.setPageData(hashMap);
                 }
                 if (bundle != null) {

@@ -1,133 +1,209 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.view.Window;
+import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.im.data.ShareIMCommonCardData;
+import com.baidu.tieba.fa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ia8 extends ma8<ShareIMCommonCardData> {
+public class ia8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout m;
-    public BarImageView n;
-    public TextView o;
-    public TextView p;
+    public oa8<T> a;
+    public fa8 b;
+    public ga8 c;
+    public T d;
+    public b e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ia8(@NonNull Context context) {
-        super(context);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void onCancel();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ga8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ia8 b;
+
+        public a(ia8 ia8Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ia8Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ia8Var;
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.ga8
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
+                vi.z(this.a, this.b.a.j());
+                if (this.b.a != null) {
+                    this.b.a.h();
+                }
+                this.b.b.dismiss();
+                if (this.b.e != null) {
+                    this.b.e.onCancel();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ga8
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b.b != null) {
+                vi.z(this.a, this.b.a.j());
+                if (this.b.a != null) {
+                    this.b.a.h();
+                }
+                this.b.b.dismiss();
+                if (this.b.e != null) {
+                    this.b.e.a();
+                }
+            }
+        }
+    }
+
+    public ia8(Context context, oa8<T> oa8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, oa8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        e(context);
+        f(context, oa8Var);
     }
 
-    @Override // com.baidu.tieba.fa8
-    public void a(String str) {
-        boolean z;
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ShareIMCommonCardData shareIMCommonCardData = (ShareIMCommonCardData) this.j;
-            long userIdLong = this.k.getUserIdLong();
-            String userName = this.k.getUserName();
-            String name_show = this.k.getName_show();
-            String portrait = this.k.getPortrait();
-            if (this.k.getIsMyFriend() == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = new a(this, context);
+        }
+    }
+
+    public /* synthetic */ void h(Context context) {
+        if (g(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
+            vi.z(context, this.a.j());
+            return;
+        }
+        oa8<T> oa8Var = this.a;
+        if (oa8Var != null) {
+            oa8Var.h();
+        }
+        this.b.dismiss();
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d != null) {
+                return true;
             }
-            mb8.c(shareIMCommonCardData, str, userIdLong, userName, name_show, portrait, z);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null && d()) {
+            this.b.show();
         }
     }
 
-    @Override // com.baidu.tieba.fa8
-    public void b(String str) {
+    public final void f(final Context context, oa8<T> oa8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            mb8.e(str, this.k.groupData, (ShareIMCommonCardData) this.j);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, oa8Var) == null) {
+            this.a = oa8Var;
+            oa8Var.n(this.c);
+            fa8 fa8Var = new fa8(context, R.style.obfuscated_res_0x7f10010c);
+            this.b = fa8Var;
+            fa8Var.setContentView(this.a.j());
+            this.b.a(new fa8.a() { // from class: com.baidu.tieba.ea8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.fa8.a
+                public final void onClick() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ia8.this.h(context);
+                    }
+                }
+            });
+            Window window = this.b.getWindow();
+            window.addFlags(512);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.y = vi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
+            window.setAttributes(attributes);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f100419);
+            window.setGravity(80);
+            window.setLayout(-1, -2);
         }
     }
 
-    @Override // com.baidu.tieba.ma8
-    public void g() {
+    public final boolean g(Context context, View view2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.g();
-            m75 d = m75.d(this.m);
-            d.o(R.string.J_X05);
-            d.f(R.color.CAM_X0207);
-            m75 d2 = m75.d(this.o);
-            d2.w(R.color.CAM_X0105);
-            d2.C(R.string.F_X02);
-            m75.d(this.p).w(R.color.CAM_X0109);
-            this.n.setStrokeColorResId(R.color.CAM_X0401);
-        }
-    }
-
-    @Override // com.baidu.tieba.ma8
-    public void m(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            super.m(context);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_topic, i());
-            this.m = (LinearLayout) inflate.findViewById(R.id.im_share_topic_info_container);
-            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_topic_info_head);
-            this.n = barImageView;
-            barImageView.setPlaceHolder(1);
-            this.n.setAutoChangeStyle(true);
-            this.n.setShowInnerBorder(true);
-            this.n.setStrokeWith(vi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01));
-            this.n.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.n.setRadiusById(R.string.J_X04);
-            this.o = (TextView) inflate.findViewById(R.id.im_share_topic_info_title);
-            this.p = (TextView) inflate.findViewById(R.id.im_share_topic_info_desc);
-            g();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ma8
-    /* renamed from: q */
-    public void o(ShareIMCommonCardData shareIMCommonCardData, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, shareIMCommonCardData, metaData) == null) {
-            super.o(shareIMCommonCardData, metaData);
-            if (shareIMCommonCardData == null) {
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
+            if (view2 == null) {
+                return false;
             }
-            this.n.N(shareIMCommonCardData.getAvatar(), 10, false);
-            this.o.setText(shareIMCommonCardData.getTitle());
-            if (TextUtils.isEmpty(shareIMCommonCardData.getDesc())) {
-                this.p.setVisibility(8);
-                return;
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            if (iArr[1] >= context.getResources().getDisplayMetrics().heightPixels / 2) {
+                return false;
             }
-            this.p.setVisibility(0);
-            this.p.setText(shareIMCommonCardData.getDesc());
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void j(T t, MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, t, metaData) == null) {
+            this.d = t;
+            this.a.o(t, metaData);
         }
     }
 }

@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 
-import android.widget.EditText;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface nha {
-    void b(boolean z);
+    void l(@NonNull sha shaVar);
 
-    int f();
-
-    void l();
-
-    void n();
-
-    EditText p();
+    void q(@NonNull sha shaVar, boolean z);
 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.df;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public class WeChatShareSmallAppToH5Switch extends df {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (l95.m().n("key_wechat_small_app_to_h5", 0) != 1) {
+            if (n95.m().n("key_wechat_small_app_to_h5", 0) != 1) {
                 return false;
             }
             return true;

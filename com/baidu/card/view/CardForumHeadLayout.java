@@ -31,16 +31,16 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h45;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.jw9;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.n25;
-import com.baidu.tieba.pm6;
-import com.baidu.tieba.r6a;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.ow9;
+import com.baidu.tieba.p25;
+import com.baidu.tieba.rm6;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.view.TbLayerImageView;
+import com.baidu.tieba.w6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +71,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
     public int m;
     public ThreadData n;
     public boolean o;
-    public n25 p;
+    public p25 p;
     public TBSpecificationBtn q;
     public int r;
 
@@ -201,11 +201,11 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         d(context);
     }
 
-    public final boolean f(n25 n25Var) {
+    public final boolean f(p25 p25Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n25Var)) == null) {
-            if (n25Var != null && n25Var.d()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p25Var)) == null) {
+            if (p25Var != null && p25Var.d()) {
                 return true;
             }
             return false;
@@ -353,22 +353,22 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
         if (f(this.p) && this.p.b() != null) {
-            this.e.setTextColor(jw9.f(r6a.c(this.p.b().c())));
-            m75 d = m75.d(this.e);
+            this.e.setTextColor(ow9.f(w6a.c(this.p.b().c())));
+            o75 d = o75.d(this.e);
             d.B(R.dimen.T_X10);
             d.o(R.string.J_X04);
-            d.h(jw9.f(r6a.c(this.p.b().a())));
+            d.h(ow9.f(w6a.c(this.p.b().a())));
         } else {
-            m75 d2 = m75.d(this.e);
+            o75 d2 = o75.d(this.e);
             d2.B(R.dimen.T_X09);
             d2.o(R.string.J_X02);
             d2.w(R.color.CAM_X0109);
             this.e.setBackgroundDrawable(null);
         }
-        m75.d(this.q).B(R.dimen.T_X08);
-        ja5 ja5Var = new ja5();
-        ja5Var.q(jw9.a(SkinManager.getColor(R.color.CAM_X0341), 0.75f), SkinManager.getColor(R.color.CAM_X0101));
-        this.q.setConfig(ja5Var);
+        o75.d(this.q).B(R.dimen.T_X08);
+        la5 la5Var = new la5();
+        la5Var.q(ow9.a(SkinManager.getColor(R.color.CAM_X0341), 0.75f), SkinManager.getColor(R.color.CAM_X0101));
+        this.q.setConfig(la5Var);
         SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
@@ -465,7 +465,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     }
                     textView2.setText(str2);
                     i();
-                    h45 forumData = threadData.getForumData();
+                    j45 forumData = threadData.getForumData();
                     this.b.setPlaceHolder(1);
                     this.b.setVisibility(0);
                     this.b.N(forumData.a(), 10, false);
@@ -541,9 +541,9 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public void setData(String str, String str2, int i, int i2, List<String> list, n25 n25Var) {
+    public void setData(String str, String str2, int i, int i2, List<String> list, p25 p25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), list, n25Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), list, p25Var}) == null) {
             if (StringUtils.isNull(str)) {
                 j();
                 return;
@@ -554,38 +554,38 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.k = str;
             this.d.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.k));
             this.b.N(str2, 10, false);
-            if (UbsABTestHelper.isPbEnterForum() && f(n25Var)) {
-                this.p = n25Var;
-                this.f.setText(n25Var.a());
-                if (n25Var.b() != null && !ui.isEmpty(n25Var.b().b())) {
-                    this.e.setText(n25Var.b().b());
+            if (UbsABTestHelper.isPbEnterForum() && f(p25Var)) {
+                this.p = p25Var;
+                this.f.setText(p25Var.a());
+                if (p25Var.b() != null && !ui.isEmpty(p25Var.b().b())) {
+                    this.e.setText(p25Var.b().b());
                     TextView textView = this.e;
                     int i3 = s;
                     int i4 = t;
                     textView.setPadding(i3, i4, i3, i4);
-                    this.e.setTextColor(jw9.f(r6a.c(this.p.b().c())));
+                    this.e.setTextColor(ow9.f(w6a.c(this.p.b().c())));
                     setAttentionLineSpace(u);
-                    m75 d = m75.d(this.e);
+                    o75 d = o75.d(this.e);
                     d.B(R.dimen.T_X10);
                     d.o(R.string.J_X04);
-                    d.h(jw9.f(r6a.c(this.p.b().a())));
+                    d.h(ow9.f(w6a.c(this.p.b().a())));
                 } else {
-                    pm6.f(this.e, 8);
+                    rm6.f(this.e, 8);
                     this.e.setPadding(0, 0, 0, 0);
-                    m75 d2 = m75.d(this.e);
+                    o75 d2 = o75.d(this.e);
                     d2.B(R.dimen.T_X09);
                     d2.o(R.string.J_X02);
                     d2.w(R.color.CAM_X0109);
                     this.e.setBackgroundDrawable(null);
                 }
                 if (!ui.isEmpty(this.p.c())) {
-                    pm6.f(this.q, 0);
+                    rm6.f(this.q, 0);
                     this.q.setText(this.p.c());
                 } else {
-                    pm6.f(this.q, 8);
+                    rm6.f(this.q, 8);
                 }
             } else {
-                pm6.f(this.q, 8);
+                rm6.f(this.q, 8);
                 this.f.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
                 this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04af), StringHelper.numberUniformFormatExtra(i2)));
             }

@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.en8;
+import com.baidu.tieba.hn8;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -141,7 +141,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<en8> list, boolean z) {
+    public void setData(List<hn8> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -155,19 +155,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            en8 en8Var = list.get(i2);
-            if (en8Var != null && (getChildAt(i2) instanceof TextView)) {
+            hn8 hn8Var = list.get(i2);
+            if (hn8Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = en8Var.b;
-                if (!StringUtils.isNull(str) && en8Var.b.length() > 4) {
-                    str = en8Var.b.substring(0, 3) + "...";
+                String str = hn8Var.b;
+                if (!StringUtils.isNull(str) && hn8Var.b.length() > 4) {
+                    str = hn8Var.b.substring(0, 3) + "...";
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(en8Var.c);
-                textView.setTag(en8Var);
+                textView.setSelected(hn8Var.c);
+                textView.setTag(hn8Var);
             }
             i2++;
         }

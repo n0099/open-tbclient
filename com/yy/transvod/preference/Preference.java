@@ -2,24 +2,24 @@ package com.yy.transvod.preference;
 
 import com.baidu.tieba.bjb;
 import com.baidu.tieba.cjb;
-import com.baidu.tieba.fjb;
-import com.baidu.tieba.sib;
-import com.baidu.tieba.ufb;
-import com.baidu.tieba.wib;
+import com.baidu.tieba.djb;
+import com.baidu.tieba.gjb;
+import com.baidu.tieba.hjb;
+import com.baidu.tieba.kjb;
 import com.baidu.tieba.xib;
-import com.baidu.tieba.yib;
+import com.baidu.tieba.zfb;
 import com.yy.transvod.net.NetRequestClientFactory;
 import com.yy.transvod.player.log.TLog;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public class Preference {
-    public static yib a;
-    public static cjb b;
-    public static ufb c;
-    public static bjb d;
-    public static xib e;
-    public static wib f;
+    public static djb a;
+    public static hjb b;
+    public static zfb c;
+    public static gjb d;
+    public static cjb e;
+    public static bjb f;
     public static boolean g;
     public static boolean h;
     public static AtomicInteger i = new AtomicInteger(0);
@@ -30,19 +30,19 @@ public class Preference {
 
     public static native void registerNetClientFactory(int i2, NetRequestClientFactory netRequestClientFactory);
 
-    public static wib a() {
+    public static bjb a() {
         return f;
     }
 
-    public static yib b() {
+    public static djb b() {
         return a;
     }
 
-    public static ufb c() {
+    public static zfb c() {
         return c;
     }
 
-    public static bjb d() {
+    public static gjb d() {
         return d;
     }
 
@@ -59,28 +59,28 @@ public class Preference {
     }
 
     public static boolean h() {
-        return fjb.v.get();
+        return kjb.v.get();
     }
 
-    public static void i(wib wibVar) {
-        f = wibVar;
+    public static void i(bjb bjbVar) {
+        f = bjbVar;
     }
 
-    public static void j(xib xibVar) {
-        e = xibVar;
-        TLog.j(xibVar);
+    public static void j(cjb cjbVar) {
+        e = cjbVar;
+        TLog.j(cjbVar);
     }
 
-    public static void l(cjb cjbVar) {
-        b = cjbVar;
-        sib.a(cjbVar);
+    public static void l(hjb hjbVar) {
+        b = hjbVar;
+        xib.a(hjbVar);
     }
 
     public static void k(HashMap<String, String> hashMap) {
         if (hashMap == null) {
             TLog.d("[vod-java]", "setMediaConfig fail, configs is null");
         }
-        fjb.n().u(hashMap);
+        kjb.n().u(hashMap);
         StringBuilder sb = new StringBuilder("mediaConfig:");
         for (String str : hashMap.keySet()) {
             sb.append(" ");

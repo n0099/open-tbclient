@@ -142,12 +142,12 @@ public class ry extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: B */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f15Var) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getItem() != null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h15Var) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getItem() != null) {
                 this.h.setVisibility(0);
-                this.h.setData(f15Var.getThreadData().itemData, 13, f15Var.getThreadData().tid);
+                this.h.setData(h15Var.getThreadData().itemData, 13, h15Var.getThreadData().tid);
                 return;
             }
             this.h.setVisibility(8);

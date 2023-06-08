@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qmb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
 /* loaded from: classes7.dex */
-public final class pob<T> implements jmb<T> {
+public final class pob extends qmb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wmb<? super T> a;
-    public final wmb<? super Throwable> b;
-    public final vmb c;
+    public final ThreadFactory a;
 
-    public pob(wmb<? super T> wmbVar, wmb<? super Throwable> wmbVar2, vmb vmbVar) {
+    public pob(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wmbVar, wmbVar2, vmbVar};
+            Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,32 +28,16 @@ public final class pob<T> implements jmb<T> {
                 return;
             }
         }
-        this.a = wmbVar;
-        this.b = wmbVar2;
-        this.c = vmbVar;
+        this.a = threadFactory;
     }
 
-    @Override // com.baidu.tieba.jmb
-    public void onCompleted() {
+    @Override // com.baidu.tieba.qmb
+    public qmb.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.call();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new qob(this.a);
         }
-    }
-
-    @Override // com.baidu.tieba.jmb
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.b.call(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.jmb
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.a.call(t);
-        }
+        return (qmb.a) invokeV.objValue;
     }
 }

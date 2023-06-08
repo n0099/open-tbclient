@@ -829,22 +829,21 @@ public class CyberPlayerManager {
     }
 
     public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener2 installListener2) throws Exception {
+        int i3;
+        ICyberGlobalOptions cyberGlobalOptions;
         synchronized (CyberPlayerManager.class) {
-            install(context, str, str2, i2, cls, map, installListener2, r);
+            if (r > 0) {
+                install(context, str, str2, i2, cls, map, installListener2, r);
+            } else {
+                ICyberMediaContext cyberMediaContext = getCyberMediaContext();
+                if (cyberMediaContext != null && (cyberGlobalOptions = cyberMediaContext.getCyberGlobalOptions()) != null) {
+                    i3 = cyberGlobalOptions.getPcdnType();
+                } else {
+                    i3 = 0;
+                }
+                install(context, str, str2, i2, cls, map, installListener2, i3);
+            }
         }
-    }
-
-    @Deprecated
-    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4) {
-        String str5;
-        if (str4 == null) {
-            str5 = "";
-        } else {
-            str5 = str4;
-        }
-        PlayerConfigManager.setRequestSource(PlayerPolicyManager.REQ_SOURCE_PREFETCH);
-        PlayerConfigManager.startRequestPlayerServerCfg();
-        f.a(str, str2, str3, 1, i2, i3, httpDNS, str5, -1, -1, -1, -1, null);
     }
 
     public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener2 installListener2, int i3) throws Exception {
@@ -875,6 +874,34 @@ public class CyberPlayerManager {
                 throw th;
             }
         }
+    }
+
+    @Deprecated
+    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener installListener) throws Exception {
+        int i3;
+        ICyberGlobalOptions cyberGlobalOptions;
+        synchronized (CyberPlayerManager.class) {
+            ICyberMediaContext cyberMediaContext = getCyberMediaContext();
+            if (cyberMediaContext != null && (cyberGlobalOptions = cyberMediaContext.getCyberGlobalOptions()) != null) {
+                i3 = cyberGlobalOptions.getPcdnType();
+            } else {
+                i3 = 0;
+            }
+            install(context, str, str2, i2, cls, map, installListener, i3);
+        }
+    }
+
+    @Deprecated
+    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4) {
+        String str5;
+        if (str4 == null) {
+            str5 = "";
+        } else {
+            str5 = str4;
+        }
+        PlayerConfigManager.setRequestSource(PlayerPolicyManager.REQ_SOURCE_PREFETCH);
+        PlayerConfigManager.startRequestPlayerServerCfg();
+        f.a(str, str2, str3, 1, i2, i3, httpDNS, str5, -1, -1, -1, -1, null);
     }
 
     @Deprecated

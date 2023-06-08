@@ -9,23 +9,23 @@ import com.baidu.card.view.GridIconLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iv5;
-import com.baidu.tieba.ju5;
+import com.baidu.tieba.kv5;
+import com.baidu.tieba.lu5;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.qu7;
-import com.baidu.tieba.s15;
+import com.baidu.tieba.su7;
 import com.baidu.tieba.sz4;
-import com.baidu.tieba.t75;
+import com.baidu.tieba.u15;
+import com.baidu.tieba.v75;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.vz4;
-import com.baidu.tieba.x18;
+import com.baidu.tieba.z18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
+public class ActivityPageHeaderView extends LinearLayout implements kv5<su7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -33,9 +33,9 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
     public GridIconLayout c;
     public String d;
     public vz4 e;
-    public t75<s15> f;
+    public v75<u15> f;
 
-    @Override // com.baidu.tieba.iv5
+    @Override // com.baidu.tieba.kv5
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements vz4<s15> {
+    public class a implements vz4<u15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -51,9 +51,9 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.vz4
         /* renamed from: a */
-        public void c(View view2, s15 s15Var, int i, long j) {
+        public void c(View view2, u15 u15Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, s15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, u15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             }
         }
 
@@ -78,16 +78,16 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.vz4
         /* renamed from: b */
-        public void d(View view2, s15 s15Var, int i, long j) {
+        public void d(View view2, u15 u15Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, s15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                x18.a("c13751", s15Var, i + 1, this.a.d);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, u15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                z18.a("c13751", u15Var, i + 1, this.a.d);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements t75<s15> {
+    public class b implements v75<u15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -110,23 +110,23 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
             this.a = activityPageHeaderView;
         }
 
-        @Override // com.baidu.tieba.t75
+        @Override // com.baidu.tieba.v75
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                s15 s15Var = new s15();
-                s15Var.e(str);
-                x18.a("c13750", s15Var, i, this.a.d);
+                u15 u15Var = new u15();
+                u15Var.e(str);
+                z18.a("c13750", u15Var, i, this.a.d);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t75
+        @Override // com.baidu.tieba.v75
         /* renamed from: c */
-        public void a(int i, s15 s15Var) {
+        public void a(int i, u15 u15Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, s15Var) == null) {
-                x18.b("c13750", s15Var, i, this.a.d);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, u15Var) == null) {
+                z18.b("c13750", u15Var, i, this.a.d);
             }
         }
     }
@@ -192,7 +192,7 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                x18.c("c13751", this.a.d);
+                z18.c("c13751", this.a.d);
             }
         }
     }
@@ -221,7 +221,7 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
         d();
     }
 
-    @Override // com.baidu.tieba.kv5
+    @Override // com.baidu.tieba.mv5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -255,13 +255,13 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jv5
+    @Override // com.baidu.tieba.lv5
     /* renamed from: e */
-    public ju5 a(qu7 qu7Var) {
+    public lu5 a(su7 su7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qu7Var)) == null) {
-            if (qu7Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, su7Var)) == null) {
+            if (su7Var == null) {
                 return null;
             }
             setPadding(0, vi.g(getContext(), R.dimen.tbds44), 0, vi.g(getContext(), R.dimen.tbds60));
@@ -276,7 +276,7 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
                 addView(this.b);
                 this.b.setIWindowChangedListener(new c(this));
             }
-            this.b.a(qu7Var.f);
+            this.b.a(su7Var.f);
             if (this.c == null) {
                 GridIconLayout gridIconLayout = new GridIconLayout(getContext());
                 this.c = gridIconLayout;
@@ -287,9 +287,9 @@ public class ActivityPageHeaderView extends LinearLayout implements iv5<qu7> {
                 this.c.setVerticalSpace(vi.g(getContext(), R.dimen.tbds61));
                 this.c.setMaxItem(10);
             }
-            this.c.a(qu7Var.g);
-            return new ju5();
+            this.c.a(su7Var.g);
+            return new lu5();
         }
-        return (ju5) invokeL.objValue;
+        return (lu5) invokeL.objValue;
     }
 }

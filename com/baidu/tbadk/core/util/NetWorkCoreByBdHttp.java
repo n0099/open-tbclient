@@ -23,6 +23,7 @@ import com.baidu.tbadk.switchs.NetDeleteSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
 import com.baidu.tieba.bg;
+import com.baidu.tieba.by5;
 import com.baidu.tieba.cj;
 import com.baidu.tieba.hg;
 import com.baidu.tieba.uf;
@@ -30,7 +31,6 @@ import com.baidu.tieba.ui;
 import com.baidu.tieba.wf;
 import com.baidu.tieba.xf;
 import com.baidu.tieba.zf;
-import com.baidu.tieba.zx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,7 +108,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
         initNetWork();
         this.mContext = TbadkCoreApplication.getInst().getApp();
         this.netContext = httpNetContext;
-        hg.u(zx5.b());
+        hg.u(by5.b());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }

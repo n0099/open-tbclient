@@ -12,8 +12,8 @@ public class rd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
+    public long b;
+    public long c;
 
     public rd5() {
         Interceptable interceptable = $ic;
@@ -29,46 +29,40 @@ public class rd5 {
         }
     }
 
-    public String a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public String c() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static rd5 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            rd5 rd5Var = new rd5();
-            if (jSONObject != null) {
-                rd5Var.a = jSONObject.optString("scene_name");
-                jSONObject.optString("style");
-                rd5Var.b = jSONObject.optString("title");
-                rd5Var.c = jSONObject.optString("text");
-            }
-            return rd5Var;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (rd5) invokeL.objValue;
+        this.a = jSONObject.optString("link_url", "");
+        this.b = jSONObject.optLong("start_time", 0L);
+        this.c = jSONObject.optLong("end_time", 0L);
     }
 }

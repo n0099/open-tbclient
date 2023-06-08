@@ -153,7 +153,7 @@ public final class PbFirstFloorRecommendAdapter extends in<PbFirstFloorRecommend
             this.a.setText(this.d.mContext.getText(R.string.related_recommendation));
             RecommendCardView recommendCardView = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter = this.d;
-            recommendCardView.setRootOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a89
+            recommendCardView.setRootOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d89
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -167,7 +167,7 @@ public final class PbFirstFloorRecommendAdapter extends in<PbFirstFloorRecommend
             });
             RecommendCardView recommendCardView2 = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter2 = this.d;
-            recommendCardView2.setRightButtonOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.c89
+            recommendCardView2.setRightButtonOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f89
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -181,7 +181,7 @@ public final class PbFirstFloorRecommendAdapter extends in<PbFirstFloorRecommend
             });
             RecommendCardView recommendCardView3 = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter3 = this.d;
-            recommendCardView3.setBottomGroupOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d89
+            recommendCardView3.setBottomGroupOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g89
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

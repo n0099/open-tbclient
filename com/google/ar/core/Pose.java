@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.t6b;
+import com.baidu.tieba.y6b;
 import java.util.Locale;
 /* loaded from: classes9.dex */
 public class Pose {
-    public final t6b a;
+    public final y6b a;
     public final float[] b;
 
     static {
-        t6b t6bVar = t6b.e;
+        y6b y6bVar = y6b.e;
     }
 
     public String toString() {

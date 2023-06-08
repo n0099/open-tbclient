@@ -57,12 +57,12 @@ public class dh3 extends jh3<e> {
 
             /* renamed from: com.baidu.tieba.dh3$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0275a implements tg3 {
+            public class C0278a implements tg3 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0275a(a aVar) {
+                public C0278a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class dh3 extends jh3<e> {
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isFinishing()) {
                     return;
                 }
-                wg3.u(this.a, this.c.c.M(), this.b, null, new C0275a(this));
+                wg3.u(this.a, this.c.c.M(), this.b, null, new C0278a(this));
             }
         }
 

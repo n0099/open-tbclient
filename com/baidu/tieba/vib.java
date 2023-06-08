@@ -1,105 +1,214 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.os.Build;
+import android.os.Message;
+import android.view.Surface;
+import android.view.TextureView;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes8.dex */
-public class vib {
+public class vib extends pib implements TextureView.SurfaceTextureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String[] a;
-    public String[] b;
-    public int c;
-    public String d;
-    public boolean e;
+    public TextureView L;
+    public int M;
+    public boolean N;
+    public Surface O;
 
-    public vib() {
+    public vib(Context context, View view2, int i, int i2, zgb zgbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2, Integer.valueOf(i), Integer.valueOf(i2), zgbVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new String[0];
-        this.b = new String[0];
-        this.c = 0;
-        this.d = "";
-        this.e = false;
+        this.L = null;
+        this.M = 0;
+        this.N = false;
+        this.O = null;
+        A(context, view2, i, i2, zgbVar);
     }
 
-    public static vib a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pib
+    public void A(Context context, Object obj, int i, int i2, zgb zgbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            vib vibVar = new vib();
-            if (str != null && !str.isEmpty()) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    JSONArray optJSONArray = jSONObject.optJSONArray("ipsV4");
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        vibVar.a = new String[optJSONArray.length()];
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            vibVar.a[i] = optJSONArray.getString(i);
-                        }
-                    }
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("ipsV6");
-                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        vibVar.b = new String[optJSONArray2.length()];
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            vibVar.b[i2] = optJSONArray2.getString(i2);
-                        }
-                    }
-                    vibVar.c = jSONObject.optInt("dnsResolveType");
-                    vibVar.d = jSONObject.optString(StatConstants.KEY_EXT_ERR_MSG);
-                    vibVar.e = jSONObject.optBoolean("success");
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), zgbVar}) == null) {
+            super.A(context, obj, i, i2, zgbVar);
+            if (obj != null && (obj instanceof TextureView)) {
+                TextureView textureView = (TextureView) obj;
+                this.L = textureView;
+                textureView.setSurfaceTextureListener(this);
+                b0();
+                if (Build.MODEL.equals("OPPO A33t")) {
+                    this.L.setLayerType(1, null);
+                }
+                if (this.L.isAvailable()) {
+                    this.O = new Surface(this.L.getSurfaceTexture());
+                    Z(this.L.getSurfaceTexture());
+                    a0(this.L.getSurfaceTexture(), this.L.getWidth(), this.L.getHeight());
                 }
             }
-            return vibVar;
         }
-        return (vib) invokeL.objValue;
     }
 
-    public static String b(vib vibVar) {
+    public final void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            X(false);
+            synchronized (this.i) {
+                if (this.d != null && this.a.available()) {
+                    this.d.g(2402);
+                    this.d.f(2402);
+                }
+            }
+        }
+    }
+
+    public final void Z(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
+            X(true);
+            synchronized (this.i) {
+                if (this.d != null) {
+                    if (this.a.available()) {
+                        this.d.g(2402);
+                        this.d.f(2402);
+                    }
+                    TLog.l(this, "do send surfaceCreated, playerUID:" + this.r);
+                    this.d.g(2401);
+                    this.d.sendMessage(Message.obtain(null, 2401, surfaceTexture));
+                }
+            }
+        }
+    }
+
+    public final void a0(SurfaceTexture surfaceTexture, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) {
+            synchronized (this.i) {
+                if (this.d != null) {
+                    this.d.g(2404);
+                    this.d.sendMessage(Message.obtain(null, 2404, i, i2, surfaceTexture));
+                    TLog.l(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
+                }
+            }
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048587, this, surfaceTexture, i, i2) == null) {
+            if (this.M % 100 == 0) {
+                TLog.l(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
+            }
+            D();
+            this.J.set(true);
+            U();
+            this.M++;
+            a0(surfaceTexture, i, i2);
+        }
+    }
+
+    public final void b0() {
+        TextureView textureView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (textureView = this.L) != null) {
+            textureView.setOpaque(false);
+            if (Build.VERSION.SDK_INT < 24) {
+                this.L.setBackgroundColor(0);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.mib
+    public void c() {
+        Surface surface;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (surface = this.O) != null) {
+            surface.release();
+            this.O = null;
+        }
+    }
+
+    public void finalize() throws Throwable {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.finalize();
+        }
+    }
+
+    @Override // com.baidu.tieba.mib
+    public Object getWindow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.O;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mib
+    public void d(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+            this.O = new Surface(surfaceTexture);
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, surfaceTexture) == null) {
+            synchronized (this.i) {
+                if (this.d != null && this.a.available()) {
+                    this.d.g(2405);
+                    this.d.f(2405);
+                }
+            }
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i, i2) == null) {
+            TLog.l(this, "onSurfaceTextureAvailable() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
+            this.J.set(true);
+            Z(surfaceTexture);
+            a0(surfaceTexture, i, i2);
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, vibVar)) == null) {
-            if (vibVar == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < vibVar.a.length; i++) {
-                    jSONArray.put(vibVar.a[i]);
-                }
-                JSONArray jSONArray2 = new JSONArray();
-                for (int i2 = 0; i2 < vibVar.b.length; i2++) {
-                    jSONArray2.put(vibVar.b[i2]);
-                }
-                jSONObject.put("ipsV4", jSONArray);
-                jSONObject.put("ipsV6", jSONArray2);
-                jSONObject.put("dnsResolveType", vibVar.c);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, vibVar.d);
-                jSONObject.put("success", vibVar.e);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, surfaceTexture)) == null) {
+            TLog.l(this, "onSurfaceTextureDestroyed playerUID:" + this.r);
+            D();
+            this.J.set(false);
+            U();
+            Y();
+            return this.N;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

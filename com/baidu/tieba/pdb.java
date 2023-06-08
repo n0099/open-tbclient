@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.weibo.ssosdk.WeiboSsoSdk;
 /* loaded from: classes7.dex */
 public interface pdb {
-    void onCancel();
-
-    void onComplete(JSONObject jSONObject);
-
-    void onError(qdb qdbVar);
+    void handler(WeiboSsoSdk.d dVar);
 }

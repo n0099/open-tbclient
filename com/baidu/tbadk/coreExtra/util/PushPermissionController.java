@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.le5;
-import com.baidu.tieba.nf5;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.ne5;
+import com.baidu.tieba.pf5;
 import com.baidu.tieba.rz4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.sf5;
+import com.baidu.tieba.uf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -118,9 +118,9 @@ public class PushPermissionController {
                     new MsgRemindModel(this.c.mContext).Z(34, true, null);
                 }
                 if (this.b) {
-                    sf5.m(this.c.mActivity);
+                    uf5.m(this.c.mActivity);
                 } else {
-                    nf5.e(this.c.mContext);
+                    pf5.e(this.c.mContext);
                 }
             }
         }
@@ -158,8 +158,8 @@ public class PushPermissionController {
 
     private void onSubscribeFriendSuccess(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && !l95.m().i("subcribe_friend_msg_update_flag", false)) {
-            l95.m().w("subcribe_friend_msg_update_flag", true);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && !n95.m().i("subcribe_friend_msg_update_flag", false)) {
+            n95.m().w("subcribe_friend_msg_update_flag", true);
             BdToastData bdToastData = new BdToastData();
             ArrayList arrayList = new ArrayList(1);
             BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
@@ -178,14 +178,14 @@ public class PushPermissionController {
         if ((interceptable == null || interceptable.invokeI(65541, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(activity).areNotificationsEnabled();
             if (i == 10) {
-                boolean m = le5.d().m();
+                boolean m = ne5.d().m();
                 if (areNotificationsEnabled && m) {
                     onSubscribeFriendSuccess(this.mActivity);
                     return;
                 }
                 b bVar = new b(this, m, areNotificationsEnabled);
-                if (nf5.i(TbadkCoreApplication.getInst(), 7)) {
-                    sf5.l(this.mContext, this.mActivity, 10, bVar);
+                if (pf5.i(TbadkCoreApplication.getInst(), 7)) {
+                    uf5.l(this.mContext, this.mActivity, 10, bVar);
                 }
             }
         }

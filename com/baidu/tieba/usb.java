@@ -1,37 +1,19 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import com.baidu.tieba.vvb;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.List;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.WindowParams;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
 /* loaded from: classes8.dex */
-public interface usb extends jsb {
-    void a(Activity activity);
+public interface usb {
+    void a(Activity activity, jub jubVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    void b(boolean z);
+    mub b();
 
-    void c(PayFlowType payFlowType, boolean z);
+    void c(mub mubVar);
 
-    void d(String str, PayFlowType payFlowType);
-
-    boolean e();
-
-    void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void g(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void h(Activity activity, vvb.b bVar, dub dubVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
-
-    boolean k(PayFlowType payFlowType);
-
-    void l(String str, PayFlowType payFlowType);
-
-    void m(Activity activity);
-
-    void refreshWindow(WindowParams windowParams);
+    void release();
 }

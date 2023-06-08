@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.at9;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
+import com.baidu.tieba.ft9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,15 +139,15 @@ public final class SpriteNotificationEdgeFloat {
                 }
                 c = this.this$0.c();
                 c.addView(this.$view);
-                at9 at9Var = new at9(this.$activity);
+                ft9 ft9Var = new ft9(this.$activity);
                 c2 = this.this$0.c();
-                at9Var.M(c2);
-                at9Var.y(this.$gravity);
-                at9Var.I(this.$startX);
-                at9Var.J(this.$startY);
-                at9Var.d(this.$canDrag);
-                at9Var.D(this.$pageSupportList);
-                return at9Var.c();
+                ft9Var.M(c2);
+                ft9Var.y(this.$gravity);
+                ft9Var.I(this.$startX);
+                ft9Var.J(this.$startY);
+                ft9Var.d(this.$canDrag);
+                ft9Var.D(this.$pageSupportList);
+                return ft9Var.c();
             }
         });
     }

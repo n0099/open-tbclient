@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c69;
-import com.baidu.tieba.i39;
-import com.baidu.tieba.j39;
+import com.baidu.tieba.f69;
+import com.baidu.tieba.l39;
+import com.baidu.tieba.m39;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.rn9;
+import com.baidu.tieba.wn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public i39 mAppealInfo;
-    public j39 pbData;
+    public l39 mAppealInfo;
+    public m39 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,22 +49,22 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public i39 getAppealInfo() {
+    public l39 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mAppealInfo;
         }
-        return (i39) invokeV.objValue;
+        return (l39) invokeV.objValue;
     }
 
-    public j39 getPbData() {
+    public m39 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.pbData;
         }
-        return (j39) invokeV.objValue;
+        return (m39) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -84,12 +84,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             int i2 = this.updateType;
             if (i2 != 3) {
                 if (i2 == 4) {
-                    c69.b().f(this.cacheKey, bArr);
+                    f69.b().f(this.cacheKey, bArr);
                     return;
                 }
                 return;
             }
-            c69.b().e(this.cacheKey, this.isFromMark, bArr);
+            f69.b().e(this.cacheKey, this.isFromMark, bArr);
         }
     }
 
@@ -107,12 +107,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                     if (pbPageResIdl.data == null) {
                         return pbPageResIdl;
                     }
-                    i39 i39Var = new i39();
-                    this.mAppealInfo = i39Var;
+                    l39 l39Var = new l39();
+                    this.mAppealInfo = l39Var;
                     AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                     if (appealInfo != null) {
-                        i39Var.a = appealInfo.source;
-                        i39Var.c = appealInfo.appeal_url;
+                        l39Var.a = appealInfo.source;
+                        l39Var.c = appealInfo.appeal_url;
                     }
                     SimpleForum simpleForum = pbPageResIdl.data.forum;
                     if (simpleForum != null) {
@@ -121,18 +121,18 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 }
                 return pbPageResIdl;
             }
-            j39 j39Var = new j39();
-            this.pbData = j39Var;
-            j39Var.D0(2);
+            m39 m39Var = new m39();
+            this.pbData = m39Var;
+            m39Var.D0(2);
             this.pbData.C0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
-                JSONObject b = rn9.b(dataRes.thread);
+                JSONObject b = wn9.b(dataRes.thread);
                 ArrayList arrayList = new ArrayList();
                 if (b != null) {
                     arrayList.add(b);
                 }
-                rn9.f().h("PB", arrayList);
+                wn9.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
             return pbPageResIdl;

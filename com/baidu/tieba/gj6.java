@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
+import com.baidu.tieba.en6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Objects;
 /* loaded from: classes5.dex */
-public class gj6 extends ej6<MonitorWebView> {
+public abstract class gj6<T extends en6> implements hj6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final T[] b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gj6(int i) {
-        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,49 +26,89 @@ public class gj6 extends ej6<MonitorWebView> {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fj6
-    /* renamed from: h */
-    public synchronized void a(@NonNull MonitorWebView monitorWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, monitorWebView) == null) {
-            synchronized (this) {
-                if (e(monitorWebView)) {
-                    monitorWebView.s();
-                } else if (c()) {
-                    monitorWebView.s();
-                    f(monitorWebView);
-                } else {
-                    monitorWebView.destroy();
-                }
-            }
+        this.a = 0;
+        if (i > 0) {
+            this.b = (T[]) new en6[i];
+        } else {
+            this.b = (T[]) new en6[5];
         }
+        Arrays.fill(this.b, (Object) null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ej6
-    /* renamed from: g */
-    public synchronized MonitorWebView b() {
+    public synchronized T b() {
         InterceptResult invokeV;
-        MonitorWebView monitorWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                monitorWebView = (MonitorWebView) super.b();
-                if (monitorWebView != null) {
-                    monitorWebView.u();
+                if (this.a <= 0) {
+                    return null;
+                }
+                T[] tArr = this.b;
+                int i = this.a - 1;
+                this.a = i;
+                T t = tArr[i];
+                this.b[i] = null;
+                return t;
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a < this.b.length) {
+                    z = true;
+                } else {
+                    z = false;
                 }
             }
-            return monitorWebView;
+            return z;
         }
-        return (MonitorWebView) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Arrays.fill(this.b, (Object) null);
+                this.a = 0;
+            }
+        }
+    }
+
+    public boolean e(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            for (int i = 0; i < this.a; i++) {
+                if (Objects.equals(this.b[i], t)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void f(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            synchronized (this) {
+                T[] tArr = this.b;
+                int i = this.a;
+                this.a = i + 1;
+                tArr[i] = t;
+            }
+        }
     }
 }

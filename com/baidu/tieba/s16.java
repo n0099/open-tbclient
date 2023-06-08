@@ -1,51 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
-import com.baidu.tieba.view.festivalview.FestivalTipView;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Item;
 /* loaded from: classes7.dex */
-public interface s16 {
-    kg<LinearLayout> A();
+public class s16 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ItemData a;
 
-    int E();
+    public s16(Item item) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        if (item != null) {
+            ItemData itemData = new ItemData();
+            this.a = itemData;
+            itemData.parseProto(item);
+        }
+    }
 
-    kg<TiebaPlusRecommendCard> G1();
-
-    void I(Context context, String str);
-
-    void K(Context context, String str);
-
-    kg<RelativeLayout> S();
-
-    kg<FestivalTipView> U();
-
-    kg<ImageView> W();
-
-    kg<View> X();
-
-    void Y(Context context, String str);
-
-    void Z(Context context, String str, boolean z);
-
-    kg<TextView> Z0();
-
-    void e0(Context context, String str, String str2);
-
-    ListView getListView();
-
-    void i1(Context context, String str);
-
-    void j0(Context context, String str);
-
-    kg<ItemCardView> o0();
-
-    kg<GifView> x();
+    public ItemData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ItemData) invokeV.objValue;
+    }
 }

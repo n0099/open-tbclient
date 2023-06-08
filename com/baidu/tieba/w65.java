@@ -1,39 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: DialogStrategy.java */
 /* loaded from: classes8.dex */
-public class w65 {
+public final /* synthetic */ class w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public gl1<x65> a;
 
-    public void a() {
+    @NonNull
+    public static n95 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            el1 b = el1.b();
-            this.a = b;
-            b.a(new y65());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return n95.m();
         }
-    }
-
-    public w65() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a();
+        return (n95) invokeV.objValue;
     }
 }

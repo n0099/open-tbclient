@@ -1,39 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.tvb;
-import com.baidu.tieba.vvb;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.psb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
-public class ktb implements tvb.a {
+public class ktb implements kwb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public msb c;
-    public iub d;
-    public eub e;
-    public Dialog f;
-    public ovb g;
-    public AppCustomExpand h;
-    public vvb.b i;
-    public IPayCallback<CurrencyChargeMessage> j;
+    public psb.b a;
 
-    public ktb(Activity activity, Dialog dialog, msb msbVar, eub eubVar, iub iubVar, Dialog dialog2, ovb ovbVar, AppCustomExpand appCustomExpand, vvb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    @Override // com.baidu.tieba.kwb
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public ktb(psb.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, msbVar, eubVar, iubVar, dialog2, ovbVar, appCustomExpand, bVar, iPayCallback};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,26 +41,18 @@ public class ktb implements tvb.a {
                 return;
             }
         }
-        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
-        this.a = activity;
-        this.b = dialog;
-        this.c = msbVar;
-        this.d = iubVar;
-        this.e = eubVar;
-        this.f = dialog2;
-        this.g = ovbVar;
-        this.h = appCustomExpand;
-        this.i = bVar;
-        this.j = iPayCallback;
+        this.a = bVar;
     }
 
-    @Override // com.baidu.tieba.tvb.a
-    public void b() {
+    @Override // com.baidu.tieba.kwb
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PaySignViewCallback", "onBtnConfirm");
-            this.c.k(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-            xub.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
+            psb.b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(cancelType);
+            }
         }
     }
 }

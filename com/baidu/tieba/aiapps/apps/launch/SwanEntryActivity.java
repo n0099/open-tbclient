@@ -14,7 +14,7 @@ import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
 import com.baidu.tieba.by3;
 import com.baidu.tieba.f9;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.m86;
+import com.baidu.tieba.o86;
 import com.baidu.tieba.xo3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -109,7 +109,7 @@ public class SwanEntryActivity extends Activity {
             logoActivityConfig.getIntent().putExtra(LogoActivityConfig.IS_DEAL_INTENT, true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, logoActivityConfig));
         } else {
-            m86.a();
+            o86.a();
             by3.a(uri);
         }
     }

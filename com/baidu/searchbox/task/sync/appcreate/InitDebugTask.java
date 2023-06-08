@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BuildPackageInfo;
 import com.baidu.tieba.aa;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.va0;
-import com.baidu.tieba.w75;
-import com.baidu.tieba.x75;
+import com.baidu.tieba.y75;
+import com.baidu.tieba.z75;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class InitDebugTask extends LaunchTask {
@@ -27,8 +27,8 @@ public class InitDebugTask extends LaunchTask {
     private void initCmdConvertManager() {
         if (TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(x75.class.getName());
-            arrayList.add(w75.class.getName());
+            arrayList.add(z75.class.getName());
+            arrayList.add(y75.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
             aa.a().c(arrayList);
         }
@@ -48,7 +48,7 @@ public class InitDebugTask extends LaunchTask {
     }
 
     private void initUETool() {
-        if (TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && l95.m().i("key_ue_tool_switch", false)) {
+        if (TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && n95.m().i("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }

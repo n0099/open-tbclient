@@ -1,29 +1,16 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.View;
 /* loaded from: classes5.dex */
-public interface ca7 {
-    void setRadius(float f);
+public interface ca7 extends ea7 {
+    void f(int i, int i2);
 
-    void setRadius(float f, float f2, float f3, float f4);
+    void g(Canvas canvas);
 
-    void setRadiusBottom(float f);
+    void k(Canvas canvas);
 
-    void setRadiusBottomLeft(float f);
-
-    void setRadiusBottomRight(float f);
-
-    void setRadiusLeft(float f);
-
-    void setRadiusRight(float f);
-
-    void setRadiusTop(float f);
-
-    void setRadiusTopLeft(float f);
-
-    void setRadiusTopRight(float f);
-
-    void setStrokeColor(int i);
-
-    void setStrokeWidth(float f);
-
-    void setStrokeWidthColor(float f, int i);
+    void m(Context context, AttributeSet attributeSet, View view2);
 }

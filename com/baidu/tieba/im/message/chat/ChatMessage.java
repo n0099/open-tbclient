@@ -13,9 +13,9 @@ import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.ga;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.n68;
-import com.baidu.tieba.t78;
+import com.baidu.tieba.p68;
 import com.baidu.tieba.tg;
+import com.baidu.tieba.v78;
 import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -52,10 +52,10 @@ public abstract class ChatMessage extends TbSocketMessage implements ga, vn {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<t78> iceBreakEmotions;
+    public List<v78> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<n68> itemViewWeakReference;
+    public WeakReference<p68> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -281,7 +281,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ga, vn {
         return invokeV.intValue;
     }
 
-    public List<t78> getIceBreakEmotions() {
+    public List<v78> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -309,17 +309,17 @@ public abstract class ChatMessage extends TbSocketMessage implements ga, vn {
     }
 
     @Nullable
-    public n68 getItemView() {
+    public p68 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<n68> weakReference = this.itemViewWeakReference;
+            WeakReference<p68> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (n68) invokeV.objValue;
+        return (p68) invokeV.objValue;
     }
 
     public String getLink() {
@@ -636,24 +636,24 @@ public abstract class ChatMessage extends TbSocketMessage implements ga, vn {
         return invokeL.booleanValue;
     }
 
-    public void setItemView(@Nullable n68 n68Var) {
-        WeakReference<n68> weakReference;
+    public void setItemView(@Nullable p68 p68Var) {
+        WeakReference<p68> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, n68Var) == null) {
-            if (n68Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, p68Var) == null) {
+            if (p68Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<n68> weakReference2 = this.itemViewWeakReference;
+            WeakReference<p68> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == n68Var) {
+                if (weakReference2.get() == p68Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(n68Var);
+            this.itemViewWeakReference = new WeakReference<>(p68Var);
         }
     }
 
@@ -727,7 +727,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ga, vn {
         }
     }
 
-    public void setIceBreakEmotions(List<t78> list) {
+    public void setIceBreakEmotions(List<v78> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;

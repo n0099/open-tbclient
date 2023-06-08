@@ -1,38 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountToolsCallback;
-import com.baidu.sapi2.dto.AccountToolsDTO;
-import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.utils.ToastUtil;
-import com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService;
+import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 /* loaded from: classes6.dex */
-public class mt7 implements LoginModifyPwdServices {
+public class mt7 implements BZDxmRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements AccountToolsCallback {
+    public class a implements IDxmProxyCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
+        public final /* synthetic */ BZDxmRechargeService.PluginDxmCallback a;
 
-        public a(mt7 mt7Var, Function1 function1) {
+        public a(mt7 mt7Var, BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mt7Var, function1};
+                Object[] objArr = {mt7Var, pluginDxmCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,15 +35,22 @@ public class mt7 implements LoginModifyPwdServices {
                     return;
                 }
             }
-            this.a = function1;
+            this.a = pluginDxmCallback;
         }
 
-        @Override // com.baidu.sapi2.callback.SapiWebCallback
-        public void onFinish(SapiResult sapiResult) {
-            Function1 function1;
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
+        public void onFail(int i, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) && (function1 = this.a) != null) {
-                function1.invoke(sapiResult.getResultMsg());
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.a.onFail(i, str);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
+        public void onSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onSuccess(i, str);
             }
         }
     }
@@ -69,18 +69,11 @@ public class mt7 implements LoginModifyPwdServices {
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices
-    public void openModifyPwd(@NonNull Context context, @Nullable Function1<? super String, Unit> function1) {
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService
+    public void doBZPay(@NonNull String str, @NonNull BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, function1) == null) {
-            AccountToolsDTO accountToolsDTO = new AccountToolsDTO();
-            accountToolsDTO.context = context;
-            accountToolsDTO.toolsType = 5;
-            if (!SapiAccountManager.getInstance().isLogin()) {
-                ToastUtil.show(R.string.obfuscated_res_0x7f0f10a9 + "");
-                return;
-            }
-            PassportSDK.getInstance().loadAccountTools(accountToolsDTO, new a(this, function1));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, pluginDxmCallback) == null) {
+            WalletPluginManager.getInstance().doYYPay(str, new a(this, pluginDxmCallback));
         }
     }
 }

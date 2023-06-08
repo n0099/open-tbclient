@@ -30,8 +30,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.l15;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -217,17 +217,17 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m75 d = m75.d(this.a);
+            o75 d = o75.d(this.a);
             d.C(R.string.F_X02);
             d.B(R.dimen.T_X05);
             d.w(R.color.CAM_X0105);
-            m75 d2 = m75.d(this.b);
+            o75 d2 = o75.d(this.b);
             d2.B(R.dimen.T_X07);
             d2.w(R.color.CAM_X0107);
-            m75 d3 = m75.d(this.c);
+            o75 d3 = o75.d(this.c);
             d3.B(R.dimen.T_X08);
             d3.w(R.color.CAM_X0108);
-            m75 d4 = m75.d(this.d);
+            o75 d4 = o75.d(this.d);
             d4.w(R.color.CAM_X0101);
             d4.C(R.string.F_X02);
             d4.o(R.string.J_X01);
@@ -292,13 +292,13 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.g.setFrom(this.p);
             this.g.setIsAgreeNumClick(true);
             this.g.setAgreeAnimationResource();
-            l15 l15Var = new l15();
-            l15Var.b = 1;
-            l15Var.h = 1;
-            l15Var.g = 1;
-            l15Var.c = 7;
-            l15Var.f = this.q;
-            this.g.setStatisticData(l15Var);
+            n15 n15Var = new n15();
+            n15Var.b = 1;
+            n15Var.h = 1;
+            n15Var.g = 1;
+            n15Var.c = 7;
+            n15Var.f = this.q;
+            this.g.setStatisticData(n15Var);
         }
     }
 

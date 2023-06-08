@@ -1,15 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes5.dex */
-public abstract class b0a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface b0a {
+    void a(TbPageContext<?> tbPageContext);
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-        }
-    }
+    void b(String str);
+
+    boolean c(lj ljVar, int i);
+
+    void cancelRecord();
+
+    void d(int i);
+
+    void e(lj ljVar);
+
+    boolean f();
+
+    void release();
+
+    void stopRecord();
 }

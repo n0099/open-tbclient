@@ -126,9 +126,9 @@ public class bz extends wx implements oy<ThreadData>, py {
         i(new RelativeLayout.LayoutParams(-1, -1));
     }
 
-    public void n(f15 f15Var) {
+    public void n(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) {
             m(Align.ALIGN_RIGHT_TOP);
         }
     }

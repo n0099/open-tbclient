@@ -1,52 +1,246 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
+import tbclient.UniversalLabel;
 /* loaded from: classes7.dex */
-public class s45 {
+public final class s45 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
+    public final int g;
 
-    public s45() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101461, "Lcom/baidu/tieba/s45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948101461, "Lcom/baidu/tieba/s45;");
+                return;
+            }
+        }
+        h = new a(null);
+    }
+
+    @JvmStatic
+    public static final s45 g(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? h.a(jSONObject) : (s45) invokeL.objValue;
+    }
+
+    @JvmStatic
+    public static final s45 h(UniversalLabel universalLabel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, universalLabel)) == null) ? h.b(universalLabel) : (s45) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof s45) {
+                s45 s45Var = (s45) obj;
+                return Intrinsics.areEqual(this.a, s45Var.a) && Intrinsics.areEqual(this.b, s45Var.b) && Intrinsics.areEqual(this.c, s45Var.c) && Intrinsics.areEqual(this.d, s45Var.d) && Intrinsics.areEqual(this.e, s45Var.e) && Intrinsics.areEqual(this.f, s45Var.f) && this.g == s45Var.g;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "UniversalLabelInfo(labelId=" + this.a + ", labelText=" + this.b + ", textColor=" + this.c + ", textColorBlack=" + this.d + ", backgroundColor=" + this.e + ", backgroundColorBlack=" + this.f + ", roundRadius=" + this.g + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final s45 a(JSONObject label) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, label)) == null) {
+                Intrinsics.checkNotNullParameter(label, "label");
+                String optString = label.optString("label_id");
+                Intrinsics.checkNotNullExpressionValue(optString, "label.optString(\"label_id\")");
+                String optString2 = label.optString("label_text");
+                Intrinsics.checkNotNullExpressionValue(optString2, "label.optString(\"label_text\")");
+                String optString3 = label.optString("text_color'");
+                Intrinsics.checkNotNullExpressionValue(optString3, "label.optString(\"text_color'\")");
+                String optString4 = label.optString("text_color_black");
+                Intrinsics.checkNotNullExpressionValue(optString4, "label.optString(\"text_color_black\")");
+                String optString5 = label.optString("background_color");
+                Intrinsics.checkNotNullExpressionValue(optString5, "label.optString(\"background_color\")");
+                String optString6 = label.optString("background_color_black");
+                Intrinsics.checkNotNullExpressionValue(optString6, "label.optString(\"background_color_black\")");
+                return new s45(optString, optString2, optString3, optString4, optString5, optString6, label.optInt("round_radius"));
+            }
+            return (s45) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final s45 b(UniversalLabel label) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, label)) == null) {
+                Intrinsics.checkNotNullParameter(label, "label");
+                String str = label.label_id;
+                Intrinsics.checkNotNullExpressionValue(str, "label.label_id");
+                String str2 = label.label_text;
+                Intrinsics.checkNotNullExpressionValue(str2, "label.label_text");
+                String str3 = label.text_color;
+                Intrinsics.checkNotNullExpressionValue(str3, "label.text_color");
+                String str4 = label.text_color_black;
+                Intrinsics.checkNotNullExpressionValue(str4, "label.text_color_black");
+                String str5 = label.background_color;
+                Intrinsics.checkNotNullExpressionValue(str5, "label.background_color");
+                String str6 = label.background_color_black;
+                Intrinsics.checkNotNullExpressionValue(str6, "label.background_color_black");
+                Integer num = label.round_radius;
+                Intrinsics.checkNotNullExpressionValue(num, "label.round_radius");
+                return new s45(str, str2, str3, str4, str5, str6, num.intValue());
+            }
+            return (s45) invokeL.objValue;
+        }
+    }
+
+    public s45(String labelId, String labelText, String textColor, String textColorBlack, String backgroundColor, String backgroundColorBlack, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {labelId, labelText, textColor, textColorBlack, backgroundColor, backgroundColorBlack, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(labelId, "labelId");
+        Intrinsics.checkNotNullParameter(labelText, "labelText");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        Intrinsics.checkNotNullParameter(textColorBlack, "textColorBlack");
+        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
+        Intrinsics.checkNotNullParameter(backgroundColorBlack, "backgroundColorBlack");
+        this.a = labelId;
+        this.b = labelText;
+        this.c = textColor;
+        this.d = textColorBlack;
+        this.e = backgroundColor;
+        this.f = backgroundColorBlack;
+        this.g = i;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        try {
-            this.a = jSONObject.optLong("channel_id", 0L);
-            jSONObject.optString("channel_name");
-            jSONObject.optString("channel_avatar");
-        } catch (Exception unused) {
-        }
+        return (String) invokeV.objValue;
     }
 
-    public void b(VideoChannelInfo videoChannelInfo) {
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoChannelInfo) == null) && videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.a = videoChannelInfo.channel_id.longValue();
-            String str = videoChannelInfo.channel_name;
-            String str2 = videoChannelInfo.channel_avatar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

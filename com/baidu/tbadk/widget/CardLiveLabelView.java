@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -331,14 +331,14 @@ public class CardLiveLabelView extends RelativeLayout {
             int i = this.a;
             if (i != 1) {
                 if (i == 2) {
-                    m75 d2 = m75.d(this.c);
+                    o75 d2 = o75.d(this.c);
                     d2.o(R.string.J_X01);
                     d2.f(R.color.CAM_X0605);
-                    m75 d3 = m75.d(this.j);
+                    o75 d3 = o75.d(this.j);
                     d3.o(R.string.J_X07);
                     d3.f(R.color.CAM_X0310);
                     SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-                    m75.d(this.i).B(R.dimen.T_X09);
+                    o75.d(this.i).B(R.dimen.T_X09);
                     return;
                 }
                 return;
@@ -385,10 +385,10 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m75 d2 = m75.d(this.k);
+            o75 d2 = o75.d(this.k);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0605);
-            m75 d3 = m75.d(this.o);
+            o75 d3 = o75.d(this.o);
             d3.o(R.string.J_X07);
             d3.f(R.color.CAM_X0310);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
@@ -403,7 +403,7 @@ public class CardLiveLabelView extends RelativeLayout {
             SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0101);
-            m75 d2 = m75.d(this.q);
+            o75 d2 = o75.d(this.q);
             d2.o(R.string.J_X01);
             d2.q(new int[]{R.color.CAM_X0301, R.color.CAM_X0310}, Direction.LEFT);
         }

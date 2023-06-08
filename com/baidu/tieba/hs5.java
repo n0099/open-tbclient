@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hs5 extends ms5 {
+public class hs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gs5 b;
-    public boolean c;
-    public boolean d;
+    public Long a;
+    public int b;
+    public Long c;
+    public int d;
+    public String e;
+    public String f;
+    public int g;
+    public Long h;
+    public int i;
 
     public hs5() {
         Interceptable interceptable = $ic;
@@ -30,47 +33,12 @@ public class hs5 extends ms5 {
         }
     }
 
-    public int b() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gs5 gs5Var = this.b;
-            if (gs5Var != null) {
-                return gs5Var.b();
-            }
-            return -1;
+            return "YYPayResult{amount=" + this.a + ", appid=" + this.b + ", currencyAmount=" + this.c + ", currencyType=" + this.d + ", expand='" + this.e + "', orderId='" + this.f + "', status=" + this.g + ", uid=" + this.h + ", usedChannel=" + this.i + '}';
         }
-        return invokeV.intValue;
-    }
-
-    public void c() {
-        gs5 gs5Var;
-        rs5 rs5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (gs5Var = this.b) != null && gs5Var.b() >= 0 && (rs5Var = (rs5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
-            rs5Var.e(this);
-            this.d = true;
-        }
-    }
-
-    public void e() {
-        gs5 gs5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (gs5Var = this.b) != null) {
-            gs5Var.d();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            this.c = true;
-            if (Build.VERSION.SDK_INT >= 16) {
-                if (this.b == null) {
-                    this.b = new gs5();
-                }
-                this.b.c();
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

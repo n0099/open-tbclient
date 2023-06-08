@@ -1,9 +1,32 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface cw6 {
-    void a(List<xv6> list, List<xv6> list2, int i);
+public class cw6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, String str);
+    public static bw6 a(BaseFragment baseFragment, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragment, i)) == null) {
+            if (baseFragment == null) {
+                return null;
+            }
+            if (i == 1) {
+                return new gw6(baseFragment, i);
+            }
+            if (i == 2) {
+                return new fw6(baseFragment, i);
+            }
+            if (i != 3) {
+                return null;
+            }
+            return new dw6(baseFragment, i);
+        }
+        return (bw6) invokeLI.objValue;
+    }
 }

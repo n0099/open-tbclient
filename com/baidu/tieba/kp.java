@@ -198,7 +198,7 @@ public class kp {
                 d = mjVar;
                 if (b.j(str, i)) {
                     a = 3;
-                    is6.a(b, "AmrRecorder", 1);
+                    ks6.a(b, "AmrRecorder", 1);
                     return true;
                 }
                 b = null;

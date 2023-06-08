@@ -1,56 +1,51 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.app.Activity;
+import android.content.ComponentName;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "PageUtil")
 /* loaded from: classes6.dex */
-public class mp6 {
+public final class mp6 {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mp6() {
+    public static final boolean a(Activity activity) {
+        InterceptResult invokeL;
+        ComponentName componentName;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (activity != null) {
+                componentName = activity.getComponentName();
+            } else {
+                componentName = null;
             }
+            if (componentName == null) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
+    public static final boolean b(Activity activity, String activityClassName) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (mp6.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, activityClassName)) == null) {
+            Intrinsics.checkNotNullParameter(activityClassName, "activityClassName");
+            if (!a(activity)) {
+                Intrinsics.checkNotNull(activity);
+                ComponentName componentName = activity.getComponentName();
+                Intrinsics.checkNotNull(componentName);
+                if (Intrinsics.areEqual(activityClassName, componentName.getClassName())) {
+                    return true;
                 }
             }
-            return a;
+            return false;
         }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static void b(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
-            }
-        }
+        return invokeLL.booleanValue;
     }
 }

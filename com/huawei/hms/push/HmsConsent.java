@@ -2,8 +2,8 @@ package com.huawei.hms.push;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rab;
-import com.baidu.tieba.sab;
+import com.baidu.tieba.wab;
+import com.baidu.tieba.xab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,10 +59,10 @@ public class HmsConsent {
         return (HmsConsent) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r6v10. Raw type applied. Possible types: com.baidu.tieba.rab<TResult>, com.baidu.tieba.rab<java.lang.Void> */
-    public final rab<Void> a(boolean z) {
+    /* JADX DEBUG: Type inference failed for r6v10. Raw type applied. Possible types: com.baidu.tieba.wab<TResult>, com.baidu.tieba.wab<java.lang.Void> */
+    public final wab<Void> a(boolean z) {
         InterceptResult invokeZ;
-        sab sabVar;
+        xab xabVar;
         int externalCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -76,38 +76,38 @@ public class HmsConsent {
                 }
                 throw ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.toApiException();
             } catch (ApiException e) {
-                sab sabVar2 = new sab();
-                sabVar2.c(e);
+                xab xabVar2 = new xab();
+                xabVar2.c(e);
                 externalCode = e.getStatusCode();
-                sabVar = sabVar2;
+                xabVar = xabVar2;
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_CONSENT, reportEntry, externalCode);
-                return sabVar.b();
+                return xabVar.b();
             } catch (Exception unused) {
-                sabVar = new sab();
-                sabVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
+                xabVar = new xab();
+                xabVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
                 externalCode = ErrorEnum.ERROR_INTERNAL_ERROR.getExternalCode();
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_CONSENT, reportEntry, externalCode);
-                return sabVar.b();
+                return xabVar.b();
             }
         }
-        return (rab) invokeZ.objValue;
+        return (wab) invokeZ.objValue;
     }
 
-    public rab<Void> consentOff() {
+    public wab<Void> consentOff() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return a(false);
         }
-        return (rab) invokeV.objValue;
+        return (wab) invokeV.objValue;
     }
 
-    public rab<Void> consentOn() {
+    public wab<Void> consentOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return a(true);
         }
-        return (rab) invokeV.objValue;
+        return (wab) invokeV.objValue;
     }
 }

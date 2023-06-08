@@ -3,18 +3,18 @@ package com.baidu.card;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f15;
-import com.baidu.tieba.ii9;
+import com.baidu.tieba.dj9;
+import com.baidu.tieba.h15;
 import com.baidu.tieba.jz;
+import com.baidu.tieba.li9;
 import com.baidu.tieba.rz;
-import com.baidu.tieba.zi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder<T> implements ii9 {
+public class AutoVideoCardViewHolder<T extends h15> extends ThreadCardViewHolder<T> implements li9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public rz k;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public void startPlay() {
         rz rzVar;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public void stopPlay() {
         rz rzVar;
         Interceptable interceptable = $ic;
@@ -154,11 +154,11 @@ public class AutoVideoCardViewHolder<T extends f15> extends ThreadCardViewHolder
         return (rz) invokeV.objValue;
     }
 
-    public void x(zi9 zi9Var) {
+    public void x(dj9 dj9Var) {
         rz rzVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, zi9Var) == null) && (rzVar = this.k) != null) {
-            rzVar.D(zi9Var);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, dj9Var) == null) && (rzVar = this.k) != null) {
+            rzVar.D(dj9Var);
         }
     }
 }

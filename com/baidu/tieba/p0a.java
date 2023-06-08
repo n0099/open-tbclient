@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
@@ -8,21 +11,14 @@ public class p0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static void a(WriteData writeData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StringBuilder sb = new StringBuilder();
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace.length > 4) {
-                StackTraceElement stackTraceElement = stackTrace[4];
-                String methodName = stackTraceElement.getMethodName();
-                sb.append(stackTraceElement.getClassName());
-                sb.append(":");
-                sb.append(methodName);
-                sb.append(":");
-            }
-            sb.append(str);
-            DefaultLog.getInstance().c("MainTab", sb.toString());
+        if ((interceptable == null || interceptable.invokeLL(65536, null, writeData, str) == null) && writeData.getStatisticFrom() == 5) {
+            StatisticItem statisticItem = new StatisticItem("c14392");
+            statisticItem.addParam("topic_id", writeData.getTopicId());
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("tid", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

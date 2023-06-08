@@ -1,245 +1,112 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.q55;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.BdTokenController;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.s55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.List;
-import java.util.PriorityQueue;
 /* loaded from: classes7.dex */
-public class r55 {
+public class r55 extends s55 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static WeakReference<q55> b;
-    public static final PriorityQueue<q55> c;
-    public static final Handler d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext c;
+    public final UserData d;
+    public final BdTokenController.m e;
+    public zu4 f;
 
     /* loaded from: classes7.dex */
-    public static class a implements q55.a {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q55 a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ int c;
+        public final /* synthetic */ r55 a;
 
-        /* renamed from: com.baidu.tieba.r55$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0432a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0432a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    r55.k(this.a.a);
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.a;
-                    r55.h(aVar.b, aVar.c + 1);
-                }
-            }
-        }
-
-        public a(q55 q55Var, List list, int i) {
+        public a(r55 r55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q55Var, list, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q55Var;
-            this.b = list;
-            this.c = i;
-        }
-
-        @Override // com.baidu.tieba.q55.a
-        public void callback(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    r55.d.post(new RunnableC0432a(this));
-                } else {
-                    r55.d.post(new b(this));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
+                Object[] objArr = {r55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = r55Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r55(TbPageContext tbPageContext, Activity activity, UserData userData, BdTokenController.m mVar) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, activity, userData, mVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            boolean unused = r55.a = false;
-            WeakReference unused2 = r55.b = null;
-            r55.k((q55) r55.c.poll());
         }
+        this.c = tbPageContext;
+        this.d = userData;
+        this.e = mVar;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072631, "Lcom/baidu/tieba/r55;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948072631, "Lcom/baidu/tieba/r55;");
-                return;
-            }
-        }
-        c = new PriorityQueue<>();
-        d = new Handler(Looper.getMainLooper());
-    }
-
-    public static void i() {
-        q55 q55Var;
+    @Override // com.baidu.tieba.s55
+    public void b() {
+        zu4 zu4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            a = false;
-            WeakReference<q55> weakReference = b;
-            if (weakReference != null && (q55Var = weakReference.get()) != null) {
-                q55Var.b();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (zu4Var = this.f) != null) {
+            zu4Var.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.s55
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            zu4 c = zu4.c();
+            this.f = c;
+            c.b();
+            this.f.d(new a(this));
+            this.f.e(this.c, this.b, this.d, this.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.s55
+    public void d(@NonNull s55.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (z55.j()) {
+                aVar.callback(false);
+            } else {
+                aVar.callback(true);
             }
-            b = null;
-            c.clear();
-            d.removeCallbacksAndMessages(null);
-        }
-    }
-
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            d.postDelayed(new b(), 500L);
-        }
-    }
-
-    public static void g(List<q55> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, list) == null) {
-            h(list, 0);
-        }
-    }
-
-    public static void h(List<q55> list, int i) {
-        q55 q55Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65544, null, list, i) != null) || list == null || list.size() <= i || (q55Var = list.get(i)) == null) {
-            return;
-        }
-        if (q55Var.b != TbadkCoreApplication.getInst().getCurrentActivity()) {
-            for (q55 q55Var2 : list) {
-                q55Var2.f();
-            }
-            return;
-        }
-        q55Var.d(new a(q55Var, list, i));
-    }
-
-    public static void k(q55 q55Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65547, null, q55Var) != null) || q55Var == null) {
-            return;
-        }
-        if (q55Var.b != TbadkCoreApplication.getInst().getCurrentActivity()) {
-            q55Var.f();
-            if (!a) {
-                j();
-            }
-        } else if (a) {
-            c.offer(q55Var);
-        } else {
-            a = true;
-            q55Var.e();
-            b = new WeakReference<>(q55Var);
         }
     }
 }

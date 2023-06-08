@@ -36,20 +36,20 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gpa;
+import com.baidu.tieba.be8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.adapter.ExcellentAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.j55;
 import com.baidu.tieba.l55;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.nh8;
+import com.baidu.tieba.lpa;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.qh8;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.zd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -258,7 +258,7 @@ public class TopBubbleSlice extends Slice {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.t != null && this.a.t.isNotice()) {
                 boolean z = true;
-                zd8.b(this.a.t.getVersionKey(), true);
+                be8.b(this.a.t.getVersionKey(), true);
                 this.a.m.remove(this.a.t);
                 if (this.a.m.size() > 0) {
                     TopBubbleSlice topBubbleSlice = this.a;
@@ -421,7 +421,7 @@ public class TopBubbleSlice extends Slice {
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (topBubbleData = this.a.n.get(i)) == null) {
                 return;
             }
-            zd8.b(topBubbleData.getVersionKey(), true);
+            be8.b(topBubbleData.getVersionKey(), true);
             this.a.l.d1(topBubbleData);
             this.a.l.Y0(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
             this.a.u.dismiss();
@@ -464,18 +464,18 @@ public class TopBubbleSlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public class h implements l55.f {
+    public class h implements n55.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j55 a;
+        public final /* synthetic */ l55 a;
         public final /* synthetic */ TopBubbleSlice b;
 
-        public h(TopBubbleSlice topBubbleSlice, j55 j55Var) {
+        public h(TopBubbleSlice topBubbleSlice, l55 l55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {topBubbleSlice, j55Var};
+                Object[] objArr = {topBubbleSlice, l55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -486,13 +486,13 @@ public class TopBubbleSlice extends Slice {
                 }
             }
             this.b = topBubbleSlice;
-            this.a = j55Var;
+            this.a = l55Var;
         }
 
-        @Override // com.baidu.tieba.l55.f
-        public void M0(l55 l55Var, int i, View view2) {
+        @Override // com.baidu.tieba.n55.f
+        public void M0(n55 n55Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, l55Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, n55Var, i, view2) == null) {
                 if (i != 0) {
                     if (i != 1) {
                         return;
@@ -500,7 +500,7 @@ public class TopBubbleSlice extends Slice {
                     this.b.Q0();
                     this.a.dismiss();
                 } else if (!StringUtils.isNull(this.b.p) && !StringUtils.isNull(this.b.s)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.J0(gpa.a(gpa.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.J0(lpa.a(lpa.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
                     this.a.dismiss();
                 }
             }
@@ -538,7 +538,7 @@ public class TopBubbleSlice extends Slice {
                 return;
             }
             this.a.G0();
-            nh8.a(this.a.j.getPageActivity());
+            qh8.a(this.a.j.getPageActivity());
         }
     }
 
@@ -632,10 +632,10 @@ public class TopBubbleSlice extends Slice {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SkinManager.setBackgroundResource(this.b, R.drawable.pic_mask_chat_notice_bg);
                 SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f08060f);
-                m75 d = m75.d(this.c);
+                o75 d = o75.d(this.c);
                 d.m(R.dimen.L_X02);
                 d.o(R.string.J_X05);
-                m75 d2 = m75.d(this.d);
+                o75 d2 = o75.d(this.d);
                 d2.o(R.string.J_X01);
                 d2.f(R.color.CAM_X0207);
             }
@@ -789,7 +789,7 @@ public class TopBubbleSlice extends Slice {
                 if (topBubbleData != null) {
                     boolean isNotice = topBubbleData.isNotice();
                     this.v = isNotice;
-                    if (isNotice && zd8.a(this.t.getVersionKey())) {
+                    if (isNotice && be8.a(this.t.getVersionKey())) {
                         this.m.remove(this.t);
                         if (this.m.size() > 0) {
                             this.v = false;
@@ -859,8 +859,8 @@ public class TopBubbleSlice extends Slice {
             this.o.b.setExcellentRead();
             TopBubbleData topBubbleData2 = this.t;
             if (topBubbleData2 != null) {
-                if (!zd8.a(topBubbleData2.getVersionKey())) {
-                    zd8.b(this.t.getVersionKey(), true);
+                if (!be8.a(topBubbleData2.getVersionKey())) {
+                    be8.b(this.t.getVersionKey(), true);
                 }
                 this.l.Y0(this.t.getMsgId(), this.t.getMsgKey());
             }
@@ -878,7 +878,7 @@ public class TopBubbleSlice extends Slice {
             if (topBubbleData != null && !topBubbleData.isNotice()) {
                 String versionKey = topBubbleData.getVersionKey();
                 if (!StringUtils.isNull(versionKey) && (split = versionKey.split(":")) != null && split.length == 3) {
-                    l95.m().A(l95.q("excellent_" + this.s), tg.g(split[2].trim(), 0L));
+                    n95.m().A(n95.q("excellent_" + this.s), tg.g(split[2].trim(), 0L));
                 }
             }
         }
@@ -947,7 +947,7 @@ public class TopBubbleSlice extends Slice {
                 return true;
             }
             long g2 = tg.g(split[2].trim(), 0L);
-            if (g2 > l95.m().o(l95.q("excellent_" + this.s), 0L)) {
+            if (g2 > n95.m().o(n95.q("excellent_" + this.s), 0L)) {
                 return true;
             }
             return false;
@@ -987,9 +987,9 @@ public class TopBubbleSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             String[] strArr = {this.j.getString(R.string.obfuscated_res_0x7f0f041a), this.j.getString(R.string.obfuscated_res_0x7f0f09a6)};
-            j55 j55Var = new j55(this.j);
-            j55Var.i(null, strArr, new h(this, j55Var));
-            j55Var.l();
+            l55 l55Var = new l55(this.j);
+            l55Var.i(null, strArr, new h(this, l55Var));
+            l55Var.l();
         }
     }
 

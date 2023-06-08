@@ -12,10 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class sg9 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public long a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +33,7 @@ public class sg9 extends BaseCardInfo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public sg9() {
@@ -52,7 +55,7 @@ public class sg9 extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
     }

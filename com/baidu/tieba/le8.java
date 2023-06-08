@@ -5,34 +5,28 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Ability
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsJVMKt;
-import kotlin.collections.SetsKt__SetsKt;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class le8 {
+public final class le8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public je8 a;
+    public final Map<String, ne8> a;
+    public ne8 b;
+    public long c;
 
-    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
-
-    public boolean c() {
-        InterceptResult invokeV;
+    @JvmOverloads
+    public final void c(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            e(this, abilityItem, baseMsg, null, 4, null);
         }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     public le8() {
@@ -45,37 +39,70 @@ public abstract class le8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedHashMap();
+    }
+
+    public static /* synthetic */ void e(le8 le8Var, AbilityItem abilityItem, BaseMsg baseMsg, Object obj, int i, Object obj2) {
+        if ((i & 4) != 0) {
+            obj = null;
+        }
+        le8Var.d(abilityItem, baseMsg, obj);
+    }
+
+    public final void a(ne8 handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
+            Intrinsics.checkNotNullParameter(handler, "handler");
+            if (handler.c()) {
+                this.b = handler;
+            }
+            for (String str : handler.e()) {
+                this.a.put(str, handler);
             }
         }
     }
 
-    public Set<String> e() {
-        InterceptResult invokeV;
-        boolean z;
+    public final void b(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (d.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return SetsKt__SetsKt.emptySet();
-            }
-            return SetsKt__SetsJVMKt.setOf(d);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, baseMsg) == null) {
             Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            je8 je8Var = this.a;
-            if (je8Var != null) {
-                je8Var.b(abilityItem, baseMsg);
+            ne8 ne8Var = this.b;
+            if (ne8Var != null) {
+                ne8Var.b(abilityItem, baseMsg, null);
             }
+        }
+    }
+
+    @JvmOverloads
+    public final void d(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
+        Unit unit;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, abilityItem, baseMsg, obj) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            try {
+                ne8 ne8Var = this.a.get(abilityItem.getType());
+                if (ne8Var != null) {
+                    ne8Var.b(abilityItem, baseMsg, obj);
+                    unit = Unit.INSTANCE;
+                } else {
+                    unit = null;
+                }
+                if (unit == null) {
+                    b(abilityItem, baseMsg);
+                }
+            } catch (Exception e) {
+                yd8.g("ability_handle_exception", this.c, e);
+            }
+        }
+    }
+
+    public final void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.c = j;
         }
     }
 }

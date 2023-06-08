@@ -1,27 +1,17 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class mj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public final int c;
-    public final boolean d;
-    public ij5 e;
+    public final View a;
+    public View b;
 
     public mj5(View view2) {
         Interceptable interceptable = $ic;
@@ -38,83 +28,27 @@ public class mj5 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.c = pj5.a(view2.getContext());
-        this.d = qj5.c((Activity) view2.getContext());
+        this.a = view2;
     }
 
-    public final ij5 a(View view2) {
-        InterceptResult invokeL;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            ij5 ij5Var = this.e;
-            if (ij5Var != null) {
-                return ij5Var;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (!z && this.a.getVisibility() == 4) {
+                this.a.setVisibility(8);
             }
-            if (view2 instanceof ij5) {
-                ij5 ij5Var2 = (ij5) view2;
-                this.e = ij5Var2;
-                return ij5Var2;
-            } else if (view2 instanceof ViewGroup) {
-                int i = 0;
-                while (true) {
-                    ViewGroup viewGroup = (ViewGroup) view2;
-                    if (i < viewGroup.getChildCount()) {
-                        ij5 a = a(viewGroup.getChildAt(i));
-                        if (a != null) {
-                            this.e = a;
-                            return a;
-                        }
-                        i++;
-                    } else {
-                        return null;
-                    }
-                }
-            } else {
-                return null;
+            if (!z && this.b != null) {
+                b();
+                this.b = null;
             }
-        } else {
-            return (ij5) invokeL.objValue;
         }
     }
 
-    @TargetApi(16)
-    public void b(int i, int i2) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
-                Rect rect = new Rect();
-                this.b.getWindowVisibleDisplayFrame(rect);
-                i2 = rect.bottom - rect.top;
-            }
-            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
-            } else if (Math.abs(i4) == this.c) {
-                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
-            } else {
-                this.a = i2;
-                ij5 a = a(this.b);
-                if (a == null) {
-                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
-                } else if (Math.abs(i4) < oj5.f(this.b.getContext())) {
-                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
-                } else if (i4 > 0) {
-                    a.handleHide();
-                } else if (a.b() && a.isVisible()) {
-                    a.handleShow();
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setVisibility(4);
+            qj5.j(this.b);
         }
     }
 }

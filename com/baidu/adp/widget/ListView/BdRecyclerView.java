@@ -17,6 +17,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bw5;
 import com.baidu.tieba.dl;
 import com.baidu.tieba.jn;
 import com.baidu.tieba.ln;
@@ -25,7 +26,6 @@ import com.baidu.tieba.q9;
 import com.baidu.tieba.wn;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.zn;
-import com.baidu.tieba.zv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -766,7 +766,7 @@ public class BdRecyclerView extends RecyclerView implements xn<BdRecyclerView> {
             try {
                 super.removeViewAt(i2);
             } catch (NullPointerException e2) {
-                zv5.a(this, i2, e2);
+                bw5.a(this, i2, e2);
                 throw e2;
             }
         }

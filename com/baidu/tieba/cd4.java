@@ -98,7 +98,7 @@ public class cd4 implements nt1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, k6a.b);
+            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, p6a.b);
         }
         return (File) invokeV.objValue;
     }

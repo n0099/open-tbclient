@@ -41,29 +41,29 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
 import com.baidu.tieba.ay4;
-import com.baidu.tieba.b09;
-import com.baidu.tieba.ex9;
-import com.baidu.tieba.f27;
+import com.baidu.tieba.c55;
+import com.baidu.tieba.e09;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.tieba.h27;
 import com.baidu.tieba.j9;
+import com.baidu.tieba.jx9;
 import com.baidu.tieba.li;
 import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
-import com.baidu.tieba.oz8;
-import com.baidu.tieba.q27;
 import com.baidu.tieba.qx4;
 import com.baidu.tieba.rz8;
 import com.baidu.tieba.s27;
-import com.baidu.tieba.sz8;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tm5;
-import com.baidu.tieba.um5;
+import com.baidu.tieba.u27;
 import com.baidu.tieba.uz8;
-import com.baidu.tieba.v17;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.vm5;
+import com.baidu.tieba.vz8;
+import com.baidu.tieba.wm5;
+import com.baidu.tieba.x17;
+import com.baidu.tieba.xz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,8 +87,8 @@ public class NewFaceShopActivity extends BaseActivity {
     public RelativeLayout d;
     public View e;
     public TbPageContext<NewFaceShopActivity> f;
-    public tm5 g;
-    public um5 h;
+    public vm5 g;
+    public wm5 h;
     public boolean i;
     public String j;
     public NewFaceGroupDownloadModel k;
@@ -161,7 +161,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<MyEmotionGroupData> f = rz8.i().f();
+                List<MyEmotionGroupData> f = uz8.i().f();
                 if (f != null && !f.isEmpty()) {
                     StringBuilder sb = new StringBuilder();
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -244,14 +244,14 @@ public class NewFaceShopActivity extends BaseActivity {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rz8.i().j(new ArrayList(Arrays.asList(this.a.optString("id").split(","))), true);
+                uz8.i().j(new ArrayList(Arrays.asList(this.a.optString("id").split(","))), true);
                 this.b.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements uz8 {
+    public class e implements xz8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
@@ -274,7 +274,7 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a = newFaceShopActivity;
         }
 
-        @Override // com.baidu.tieba.uz8
+        @Override // com.baidu.tieba.xz8
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
@@ -283,7 +283,7 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
         }
 
-        @Override // com.baidu.tieba.uz8
+        @Override // com.baidu.tieba.xz8
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i > 0 && i < 100) {
@@ -292,7 +292,7 @@ public class NewFaceShopActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.uz8
+        @Override // com.baidu.tieba.xz8
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) {
@@ -333,9 +333,9 @@ public class NewFaceShopActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.a.optString("id").split(",")));
-                boolean c = rz8.i().c(arrayList, true);
+                boolean c = uz8.i().c(arrayList, true);
                 for (String str : arrayList) {
-                    v17.o().k(str);
+                    x17.o().k(str);
                 }
                 if (c) {
                     this.b.loadUrl("javascript:__js_bridge_emoticon_del_action(1)");
@@ -509,7 +509,7 @@ public class NewFaceShopActivity extends BaseActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ex9) || ((ex9) customResponsedMessage.getData()).n() != 1) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof jx9) || ((jx9) customResponsedMessage.getData()).n() != 1) {
                 return;
             }
             this.a.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
@@ -591,7 +591,7 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class m implements s27 {
+    public class m implements u27 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
@@ -614,7 +614,7 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a = newFaceShopActivity;
         }
 
-        @Override // com.baidu.tieba.s27
+        @Override // com.baidu.tieba.u27
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -622,7 +622,7 @@ public class NewFaceShopActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.s27
+        @Override // com.baidu.tieba.u27
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -672,11 +672,11 @@ public class NewFaceShopActivity extends BaseActivity {
                     this.c.showToast(this.a.getErrorString());
                     this.c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 } else {
-                    ex9 ex9Var = (ex9) obj;
-                    if (ex9Var != null) {
+                    jx9 jx9Var = (jx9) obj;
+                    if (jx9Var != null) {
                         TbadkApplication.getInst().addLikeForum(this.b);
-                        ex9Var.y(1);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, ex9Var));
+                        jx9Var.y(1);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, jx9Var));
                         this.c.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
                         return;
                     }
@@ -689,12 +689,12 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class o implements uz8 {
+    public class o implements xz8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
 
-        @Override // com.baidu.tieba.uz8
+        @Override // com.baidu.tieba.xz8
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -719,7 +719,7 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a = newFaceShopActivity;
         }
 
-        @Override // com.baidu.tieba.uz8
+        @Override // com.baidu.tieba.xz8
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
@@ -728,7 +728,7 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a.loadUrl("javascript:__js_bridge_emoticon_save_action(0)");
         }
 
-        @Override // com.baidu.tieba.uz8
+        @Override // com.baidu.tieba.xz8
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) {
@@ -739,7 +739,7 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class p implements a55.e {
+    public class p implements c55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
@@ -762,18 +762,18 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a = newFaceShopActivity;
         }
 
-        @Override // com.baidu.tieba.a55.e
-        public void onClick(a55 a55Var) {
+        @Override // com.baidu.tieba.c55.e
+        public void onClick(c55 c55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, a55Var) == null) {
-                a55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
+                c55Var.dismiss();
                 this.a.loadUrl("javascript:__js_bridge_emoticon_show_dialog(1)");
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class q implements a55.e {
+    public class q implements c55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
@@ -796,11 +796,11 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a = newFaceShopActivity;
         }
 
-        @Override // com.baidu.tieba.a55.e
-        public void onClick(a55 a55Var) {
+        @Override // com.baidu.tieba.c55.e
+        public void onClick(c55 c55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, a55Var) == null) {
-                a55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
+                c55Var.dismiss();
                 this.a.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
         }
@@ -926,12 +926,12 @@ public class NewFaceShopActivity extends BaseActivity {
     public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (b09.l().r()) {
+            if (e09.l().r()) {
                 O1(1, null);
-            } else if (b09.l().k() == null) {
+            } else if (e09.l().k() == null) {
                 O1(0, null);
             } else {
-                FaceGroupDraft k2 = b09.l().k();
+                FaceGroupDraft k2 = e09.l().k();
                 if (!TextUtils.isEmpty(k2.getFailMsg())) {
                     O1(2, k2.getFailMsg());
                 } else {
@@ -958,9 +958,9 @@ public class NewFaceShopActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0def);
             if (this.h == null) {
-                um5 um5Var = new um5(this.f.getPageActivity(), new l(this));
-                this.h = um5Var;
-                um5Var.onChangeSkinType();
+                wm5 wm5Var = new wm5(this.f.getPageActivity(), new l(this));
+                this.h = wm5Var;
+                wm5Var.onChangeSkinType();
             }
             BaseWebView baseWebView = this.c;
             if (baseWebView != null) {
@@ -1001,7 +1001,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
             String optString = jSONObject.optString("url");
             if (!TextUtils.isEmpty(optString)) {
-                rz8.i().d(optString, new o(this));
+                uz8.i().d(optString, new o(this));
             }
         }
     }
@@ -1056,7 +1056,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || !ViewHelper.checkUpIsLogin(getPageContext().getPageActivity())) {
             return;
         }
-        if (sz8.o().q()) {
+        if (vz8.o().q()) {
             loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
             vi.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f06e7);
             return;
@@ -1097,7 +1097,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             String optString = jSONObject.optString("url");
             int optInt = jSONObject.optInt("pck_id");
-            f27 t = f27.t();
+            h27 t = h27.t();
             String str = "";
             if (optInt != -1) {
                 str = "" + optInt;
@@ -1110,13 +1110,13 @@ public class NewFaceShopActivity extends BaseActivity {
     public final void H1(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            if (sz8.o().q()) {
+            if (vz8.o().q()) {
                 loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
                 vi.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f06e7);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DELETE);
-            oz8.b().a(new f(this, jSONObject));
+            rz8.b().a(new f(this, jSONObject));
         }
     }
 
@@ -1139,28 +1139,28 @@ public class NewFaceShopActivity extends BaseActivity {
     public final void T1(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, jSONObject) == null) {
-            if (sz8.o().q()) {
+            if (vz8.o().q()) {
                 loadUrl("javascript:__js_bridge_emoticon_sort_action()");
                 vi.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f06e7);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_ORDER);
-            oz8.b().a(new d(this, jSONObject));
+            rz8.b().a(new d(this, jSONObject));
         }
     }
 
     public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            oz8.b().a(new b(this));
+            rz8.b().a(new b(this));
         }
     }
 
     public void M1() {
-        tm5 tm5Var;
+        vm5 vm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (tm5Var = this.g) != null) {
-            tm5Var.dettachView(this.e);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (vm5Var = this.g) != null) {
+            vm5Var.dettachView(this.e);
             this.g = null;
         }
     }
@@ -1168,9 +1168,9 @@ public class NewFaceShopActivity extends BaseActivity {
     public final void Q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            q27 q27Var = new q27(getPageContext().getPageActivity(), 1);
-            q27Var.d(new m(this));
-            q27Var.showAtLocation(this.e, 81, 0, 0);
+            s27 s27Var = new s27(getPageContext().getPageActivity(), 1);
+            s27Var.d(new m(this));
+            s27Var.showAtLocation(this.e, 81, 0, 0);
         }
     }
 
@@ -1190,9 +1190,9 @@ public class NewFaceShopActivity extends BaseActivity {
         TbPageContext<NewFaceShopActivity> tbPageContext;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (tbPageContext = this.f) != null && this.e != null) {
-            tm5 tm5Var = new tm5(tbPageContext.getPageActivity());
-            this.g = tm5Var;
-            tm5Var.attachView(this.e, false);
+            vm5 vm5Var = new vm5(tbPageContext.getPageActivity());
+            this.g = vm5Var;
+            vm5Var.attachView(this.e, false);
             this.g.onChangeSkinType();
         }
     }
@@ -1200,9 +1200,9 @@ public class NewFaceShopActivity extends BaseActivity {
     public void a2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            um5 um5Var = this.h;
-            if (um5Var != null) {
-                um5Var.dettachView(this.e);
+            wm5 wm5Var = this.h;
+            if (wm5Var != null) {
+                wm5Var.dettachView(this.e);
                 this.h = null;
             }
             BaseWebView baseWebView = this.c;
@@ -1385,12 +1385,12 @@ public class NewFaceShopActivity extends BaseActivity {
             if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString3)) {
                 loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
-            a55 a55Var = new a55(getPageContext().getPageActivity());
-            a55Var.setMessage(optString);
-            a55Var.setPositiveButton(optString2, new p(this));
-            a55Var.setNegativeButton(optString3, new q(this));
-            a55Var.setOnCalcelListener(new a(this));
-            a55Var.create(getPageContext()).show();
+            c55 c55Var = new c55(getPageContext().getPageActivity());
+            c55Var.setMessage(optString);
+            c55Var.setPositiveButton(optString2, new p(this));
+            c55Var.setNegativeButton(optString3, new q(this));
+            c55Var.setOnCalcelListener(new a(this));
+            c55Var.create(getPageContext()).show();
         }
     }
 

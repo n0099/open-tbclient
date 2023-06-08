@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.f05;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.v65;
-import com.baidu.tieba.wq8;
+import com.baidu.tieba.i75;
+import com.baidu.tieba.x65;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class FrequenceDialogStrategy implements v65 {
+public class FrequenceDialogStrategy implements x65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public class FrequenceDialogStrategy implements v65 {
         }
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.x65
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -78,7 +78,7 @@ public class FrequenceDialogStrategy implements v65 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.x65
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -91,17 +91,17 @@ public class FrequenceDialogStrategy implements v65 {
                     if (data.frequence == 0) {
                         return true;
                     }
-                    int n = g75.b.n(g75.a.a(data.dialogName), 0);
+                    int n = i75.b.n(i75.a.a(data.dialogName), 0);
                     if (n < data.frequence) {
                         z = true;
                     }
                     if (!z) {
-                        wq8 yunDialogLog = YunDialogLog.getInstance();
+                        zq8 yunDialogLog = YunDialogLog.getInstance();
                         yunDialogLog.c("YunDialogManager", "云弹窗 " + data.dialogName + " 命中频次超限限制，当前已展示次数：" + n + "，配置展现次数：" + data.frequence);
                     }
                     return z;
                 }
-                wq8 yunDialogLog2 = YunDialogLog.getInstance();
+                zq8 yunDialogLog2 = YunDialogLog.getInstance();
                 yunDialogLog2.c("YunDialogManager", "云弹窗 " + data.dialogName + " 命中频次时间限制，当前时间戳：" + currentTimeMillis + " 配置时间：" + data.startTimestamp + " - " + data.endTimestamp);
                 return false;
             } catch (Exception e) {

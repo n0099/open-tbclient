@@ -1,29 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLiveComponent;
+import tbclient.FeedKV;
 /* loaded from: classes7.dex */
 public final class o67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedLiveComponent feedLiveComponent, List<h87<?>> dataList, j57 feedExtraData) {
+    public static final String a(List<FeedKV> list, String key) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedLiveComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedLiveComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            q57 q57Var = new q57();
-            q57Var.a = feedLiveComponent.top_label;
-            q57Var.b = feedLiveComponent.bottom_label;
-            q57Var.c = feedLiveComponent.audience_label;
-            q57Var.d = feedLiveComponent.cover_url;
-            q57Var.f = feedLiveComponent.schema;
-            q57Var.e = k57.b(feedExtraData, "live_head_show");
-            dataList.add(new i87(new e47(q57Var, null, 2, null), "live"));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            for (FeedKV feedKV : list) {
+                if (Intrinsics.areEqual(feedKV.key, key)) {
+                    return feedKV.value;
+                }
+            }
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 }

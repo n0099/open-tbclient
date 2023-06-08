@@ -12,13 +12,12 @@ import kotlin.jvm.internal.Intrinsics;
 public final class y57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final b67 b;
-    public final n57 c;
+    public boolean a;
+    public int b;
+    public final String c;
     public final String d;
-    public final w47 e;
-    public final String f;
-    public final a67 g;
+    public c67 e;
+    public c67 f;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -29,20 +28,31 @@ public final class y57 {
             }
             if (obj instanceof y57) {
                 y57 y57Var = (y57) obj;
-                return this.a == y57Var.a && Intrinsics.areEqual(this.b, y57Var.b) && Intrinsics.areEqual(this.c, y57Var.c) && Intrinsics.areEqual(this.d, y57Var.d) && Intrinsics.areEqual(this.e, y57Var.e) && Intrinsics.areEqual(this.f, y57Var.f) && Intrinsics.areEqual(this.g, y57Var.g);
+                return this.a == y57Var.a && this.b == y57Var.b && Intrinsics.areEqual(this.c, y57Var.c) && Intrinsics.areEqual(this.d, y57Var.d) && Intrinsics.areEqual(this.e, y57Var.e) && Intrinsics.areEqual(this.f, y57Var.f);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int hashCode = ((((((((((this.a * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31;
-            a67 a67Var = this.g;
-            return hashCode + (a67Var == null ? 0 : a67Var.hashCode());
+            boolean z = this.a;
+            ?? r0 = z;
+            if (z) {
+                r0 = 1;
+            }
+            int hashCode = ((((((r0 * 31) + this.b) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31;
+            c67 c67Var = this.e;
+            int hashCode2 = (hashCode + (c67Var == null ? 0 : c67Var.hashCode())) * 31;
+            c67 c67Var2 = this.f;
+            return hashCode2 + (c67Var2 != null ? c67Var2.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -51,17 +61,17 @@ public final class y57 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "RichTextData(type=" + this.a + ", textData=" + this.b + ", iconData=" + this.c + ", emoji=" + this.d + ", businessInfo=" + this.e + ", schema=" + this.f + ", statData=" + this.g + ')';
+            return "PersonAttentionData(isLike=" + this.a + ", likeStatus=" + this.b + ", userId=" + this.c + ", portrait=" + this.d + ", followStatData=" + this.e + ", unfollowStatData=" + this.f + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public y57(int i, b67 textData, n57 iconData, String emoji, w47 businessInfo, String schema, a67 a67Var) {
+    public y57(boolean z, int i, String userId, String portrait, c67 c67Var, c67 c67Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), textData, iconData, emoji, businessInfo, schema, a67Var};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), userId, portrait, c67Var, c67Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -71,27 +81,23 @@ public final class y57 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(textData, "textData");
-        Intrinsics.checkNotNullParameter(iconData, "iconData");
-        Intrinsics.checkNotNullParameter(emoji, "emoji");
-        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-        Intrinsics.checkNotNullParameter(schema, "schema");
-        this.a = i;
-        this.b = textData;
-        this.c = iconData;
-        this.d = emoji;
-        this.e = businessInfo;
-        this.f = schema;
-        this.g = a67Var;
+        Intrinsics.checkNotNullParameter(userId, "userId");
+        Intrinsics.checkNotNullParameter(portrait, "portrait");
+        this.a = z;
+        this.b = i;
+        this.c = userId;
+        this.d = portrait;
+        this.e = c67Var;
+        this.f = c67Var2;
     }
 
-    public final w47 a() {
+    public final c67 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.e;
         }
-        return (w47) invokeV.objValue;
+        return (c67) invokeV.objValue;
     }
 
     public final String b() {
@@ -103,48 +109,44 @@ public final class y57 {
         return (String) invokeV.objValue;
     }
 
-    public final n57 c() {
+    public final c67 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.f;
         }
-        return (n57) invokeV.objValue;
+        return (c67) invokeV.objValue;
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public final a67 e() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (a67) invokeV.objValue;
-    }
-
-    public final b67 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (b67) invokeV.objValue;
-    }
-
-    public final int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
     }
 }

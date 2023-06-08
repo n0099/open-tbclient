@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.f15;
+import com.baidu.tieba.h15;
 import com.baidu.tieba.uz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class jz<T extends f15> implements py, c56 {
+public class jz<T extends h15> implements py, e56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public oy<T> a;
@@ -50,7 +50,7 @@ public class jz<T extends f15> implements py, c56 {
     public int p;
     public uz.a q;
 
-    @Override // com.baidu.tieba.c56
+    @Override // com.baidu.tieba.e56
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -306,25 +306,25 @@ public class jz<T extends f15> implements py, c56 {
         }
     }
 
-    public void q(eo6<T> eo6Var) {
+    public void q(go6<T> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, eo6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, go6Var) == null) {
             ux<T> uxVar = this.g;
             if (uxVar != null) {
-                uxVar.p(eo6Var);
+                uxVar.p(go6Var);
             }
             ux<T> uxVar2 = this.h;
             if (uxVar2 != null) {
-                uxVar2.p(eo6Var);
+                uxVar2.p(go6Var);
             }
             for (by byVar : this.i) {
                 if (byVar != null) {
-                    byVar.p(eo6Var);
+                    byVar.p(go6Var);
                 }
             }
             ux<T> uxVar3 = this.j;
             if (uxVar3 != null) {
-                uxVar3.p(eo6Var);
+                uxVar3.p(go6Var);
             }
         }
     }
@@ -665,7 +665,7 @@ public class jz<T extends f15> implements py, c56 {
                 this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.a(t);
                 ux<T> uxVar = this.g;
-                if (uxVar instanceof vda) {
+                if (uxVar instanceof aea) {
                     this.d.setTag(R.id.virtual_image_user_head, uxVar);
                 }
             }
@@ -711,7 +711,7 @@ public class jz<T extends f15> implements py, c56 {
             if (uxVar != null) {
                 uxVar.onChangeSkinType(tbPageContext, i);
                 if (this.j == null && ((t2 = this.n) == null || !t2.isSupportContent())) {
-                    m75 d = m75.d(this.d);
+                    o75 d = o75.d(this.d);
                     d.n(1);
                     d.o(R.string.J_X06);
                     d.f(this.m.i);
@@ -730,14 +730,14 @@ public class jz<T extends f15> implements py, c56 {
             if (uxVar3 != null) {
                 uxVar3.onChangeSkinType(tbPageContext, i);
                 if (this.g == null && ((t = this.n) == null || !t.isSupportContent())) {
-                    m75 d2 = m75.d(this.d);
+                    o75 d2 = o75.d(this.d);
                     d2.n(2);
                     d2.o(R.string.J_X06);
                     d2.f(this.m.i);
                 }
             }
             if (this.g != null && this.j != null) {
-                m75 d3 = m75.d(this.d);
+                o75 d3 = o75.d(this.d);
                 d3.o(R.string.J_X06);
                 d3.j(this.m.i, R.color.CAM_X0206);
             }

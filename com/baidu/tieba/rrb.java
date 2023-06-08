@@ -3,488 +3,324 @@ package com.baidu.tieba;
 import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.IPaySignCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayStatus;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaySignInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
-import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.api.pay.IMiddlePayService;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.IAppServerExpand;
-import tv.athena.revenue.api.pay.params.RefreshAppExpandInfo;
 /* loaded from: classes7.dex */
-public final class rrb implements IMiddlePayService {
+public final class rrb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MiddleRevenueConfig a;
-    public final IAppPayService b;
+    public Activity a;
+    public PayType b;
+    public long c;
+    public String d;
+    public ProductInfo e;
+    public int f;
+    public int g;
+    public IMiddlePayService.SubscriptType h;
+    public IMiddlePayService.ChargeSource i;
+    public String j;
+    public Map<String, Object> k;
+    public IPayCallback<String> l;
+    public IToken m;
+    public AppCustomExpand n;
+    public String o;
+    public int p;
+    public String q;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948132647, "Lcom/baidu/tieba/rrb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948132647, "Lcom/baidu/tieba/rrb;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a implements IPayCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPayCallback a;
-
-        public a(IPayCallback iPayCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iPayCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iPayCallback;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(String str, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, payCallBackBean) == null) {
-                RLog.debug("MiddlePayService", "doPayProduct onSuccess");
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onSuccess(str, payCallBackBean);
-                }
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) {
-                RLog.debug("MiddlePayService", "doPayProduct onFail [code = " + i + ", failReason=" + str + ']');
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onFail(i, str, payCallBackBean);
-                }
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                RLog.debug("MiddlePayService", "doPayProduct onPayStart");
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onPayStart();
-                }
-            }
-        }
-    }
-
-    public rrb(MiddleRevenueConfig middleRevenueConfig, IAppPayService iAppPayService) {
+    public rrb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig, iAppPayService};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = middleRevenueConfig;
-        this.b = iAppPayService;
+        this.b = PayType.ALI_PAY;
+        this.d = "";
+        this.h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
+        this.i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
+        this.j = "";
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryProductList(QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
+    public final void A(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, queryCurrencyReqParams, iResult) == null) {
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setExpand(e(queryCurrencyReqParams.getExpandMap()));
-            RLog.info("MiddlePayService", "queryProductList params expand:" + queryCurrencyReqParams.getExpand());
-            this.b.queryProductList(queryCurrencyReqParams, iResult);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.d = str;
         }
     }
 
-    @Override // tv.athena.revenue.api.pay.IMiddlePayService
-    public void a(mrb mrbVar) {
+    public final void B(IToken iToken) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mrbVar) == null) {
-            g(mrbVar.getActivity(), mrbVar.h(), mrbVar.o(), mrbVar.l(), mrbVar.f(), mrbVar.p(), mrbVar.d(), mrbVar.k(), mrbVar.c(), mrbVar.i(), mrbVar.e(), mrbVar.b(), mrbVar.m(), mrbVar.a(), mrbVar.n(), mrbVar.g(), mrbVar.j());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iToken) == null) {
+            this.m = iToken;
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void addPayListener(IAppPayServiceListener iAppPayServiceListener) {
+    public final void C(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iAppPayServiceListener) == null) {
-            this.b.addPayListener(iAppPayServiceListener);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.o = str;
         }
     }
 
-    public final boolean f(Activity activity) {
-        InterceptResult invokeL;
+    public final void D(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
-            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-                return true;
-            }
-            RLog.info("MiddlePayService", "act not alive");
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void removePayListener(IAppPayServiceListener iAppPayServiceListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, iAppPayServiceListener) == null) {
-            this.b.removePayListener(iAppPayServiceListener);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.c = j;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0062  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b(Activity activity, PayType payType, long j, String str, ProductInfo productInfo, int i, int i2, int i3, String str2, String str3, Map<String, Object> map, IPayCallback<String> iPayCallback, IToken iToken, AppCustomExpand appCustomExpand, String str4, int i4, String str5) {
-        Map<String, String> map2;
-        IAppServerExpand iAppServerExpand;
-        rrb rrbVar;
-        Map<String, Object> map3;
-        String str6;
-        IAppServerExpand iAppServerExpand2;
+    public final void E(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, payType, Long.valueOf(j), str, productInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, map, iPayCallback, iToken, appCustomExpand, str4, Integer.valueOf(i4), str5}) == null) {
-            RLog.info("MiddlePayService", "doPayProduct");
-            if (!f(activity)) {
-                return;
-            }
-            Map<String, String> map4 = null;
-            if (appCustomExpand != null) {
-                map2 = appCustomExpand.appServerExpand;
-            } else {
-                map2 = null;
-            }
-            if (appCustomExpand != null) {
-                iAppServerExpand = appCustomExpand.iAppServerExpand;
-            } else {
-                iAppServerExpand = null;
-            }
-            if (iAppServerExpand != null) {
-                RefreshAppExpandInfo refreshAppExpandInfo = new RefreshAppExpandInfo();
-                refreshAppExpandInfo.payType = payType;
-                if (appCustomExpand != null) {
-                    iAppServerExpand2 = appCustomExpand.iAppServerExpand;
-                } else {
-                    iAppServerExpand2 = null;
-                }
-                Map<String, String> appServerExpand = iAppServerExpand2.getAppServerExpand(refreshAppExpandInfo);
-                if (appServerExpand != null) {
-                    map3 = map;
-                    str6 = str5;
-                    map2 = appServerExpand;
-                    rrbVar = this;
-                    String d = rrbVar.d(map2, map3, str6);
-                    RLog.info("MiddlePayService", "doPayProduct params expand:" + d);
-                    if (appCustomExpand != null) {
-                        map4 = appCustomExpand.appClientExpand;
-                    }
-                    payWithProductInfo(activity, c(payType, productInfo, j, str, i, i2, str3, i3, d, str2, iToken, map4, str4, i4), productInfo, payType, 5, 3000, 10000, new a(iPayCallback));
-                }
-            }
-            rrbVar = this;
-            map3 = map;
-            str6 = str5;
-            String d2 = rrbVar.d(map2, map3, str6);
-            RLog.info("MiddlePayService", "doPayProduct params expand:" + d2);
-            if (appCustomExpand != null) {
-            }
-            payWithProductInfo(activity, c(payType, productInfo, j, str, i, i2, str3, i3, d2, str2, iToken, map4, str4, i4), productInfo, payType, 5, 3000, 10000, new a(iPayCallback));
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public final ChargeCurrencyReqParams c(PayType payType, ProductInfo productInfo, long j, String str, int i, int i2, String str2, int i3, String str3, String str4, IToken iToken, Map<String, String> map, String str5, int i4) {
-        InterceptResult invokeCommon;
+    public final void q(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{payType, productInfo, Long.valueOf(j), str, Integer.valueOf(i), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3, str4, iToken, map, str5, Integer.valueOf(i4)})) == null) {
-            ChargeCurrencyReqParams chargeCurrencyReqParams = new ChargeCurrencyReqParams();
-            chargeCurrencyReqParams.setUid(j);
-            chargeCurrencyReqParams.setToken(str);
-            chargeCurrencyReqParams.setAppId(this.a.getAppId());
-            chargeCurrencyReqParams.setSid(0);
-            chargeCurrencyReqParams.setUsedChannel(i);
-            chargeCurrencyReqParams.setCurrencyType(i2);
-            chargeCurrencyReqParams.setClientVersion(this.a.getVersion());
-            chargeCurrencyReqParams.setSubscriptionType(i3);
-            chargeCurrencyReqParams.setExpand(str3);
-            chargeCurrencyReqParams.setReturnUrl(str2);
-            chargeCurrencyReqParams.setAppClientExpand(map);
-            if (str5 != null) {
-                chargeCurrencyReqParams.setTraceid(str5);
-            }
-            chargeCurrencyReqParams.setPayType(payType);
-            chargeCurrencyReqParams.setProductId(productInfo.productId);
-            chargeCurrencyReqParams.setSrcAmount(productInfo.srcAmount);
-            chargeCurrencyReqParams.setCid(productInfo.cid);
-            chargeCurrencyReqParams.setTokenCallback(iToken);
-            chargeCurrencyReqParams.setPayFlowTypeId(i4);
-            if (str4.equals(IMiddlePayService.ChargeSource.WALLET_CHARGE)) {
-                chargeCurrencyReqParams.setFrom(1);
-            } else if (str4.equals(IMiddlePayService.ChargeSource.ROOM_CHARGE)) {
-                chargeCurrencyReqParams.setFrom(2);
-            } else if (str4.equals(IMiddlePayService.ChargeSource.OTHER_CHARGE)) {
-                chargeCurrencyReqParams.setFrom(3);
-            }
-            return chargeCurrencyReqParams;
-        }
-        return (ChargeCurrencyReqParams) invokeCommon.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void cancelAllRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.cancelAllRequest();
+        if (interceptable == null || interceptable.invokeL(1048598, this, activity) == null) {
+            this.a = activity;
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public IPayServiceStatisticsApi getPayServiceStatistics() {
+    public final void r(AppCustomExpand appCustomExpand) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, appCustomExpand) == null) {
+            this.n = appCustomExpand;
+        }
+    }
+
+    public final void s(IPayCallback<String> iPayCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, iPayCallback) == null) {
+            this.l = iPayCallback;
+        }
+    }
+
+    public final void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public final void u(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, map) == null) {
+            this.k = map;
+        }
+    }
+
+    public final void v(ProductInfo productInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, productInfo) == null) {
+            this.e = productInfo;
+        }
+    }
+
+    public final void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.p = i;
+        }
+    }
+
+    public final void x(PayType payType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, payType) == null) {
+            this.b = payType;
+        }
+    }
+
+    public final void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.j = str;
+        }
+    }
+
+    public final void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+            this.q = str;
+        }
+    }
+
+    public final AppCustomExpand a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.n;
+        }
+        return (AppCustomExpand) invokeV.objValue;
+    }
+
+    public final IPayCallback<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.l;
+        }
+        return (IPayCallback) invokeV.objValue;
+    }
+
+    public final IMiddlePayService.ChargeSource c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return (IMiddlePayService.ChargeSource) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final Map<String, Object> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            IPayServiceStatisticsApi payServiceStatistics = this.b.getPayServiceStatistics();
-            Intrinsics.checkExpressionValueIsNotNull(payServiceStatistics, "payService.payServiceStatistics");
-            return payServiceStatistics;
+            return this.k;
         }
-        return (IPayServiceStatisticsApi) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public final String d(Map<String, String> map, Map<String, Object> map2, String str) {
-        InterceptResult invokeLLL;
+    public final ProductInfo f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, map, map2, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (map2 != null) {
-                try {
-                    if (map2.size() > 0) {
-                        for (Map.Entry<String, Object> entry : map2.entrySet()) {
-                            if (entry.getKey() != null && entry.getValue() != null) {
-                                jSONObject.put(entry.getKey(), entry.getValue());
-                            } else {
-                                RLog.info("MiddlePayService", "expandMap parse error! key or value null");
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    RLog.error("MiddlePayService", "ChargeCurrencyRequest JSONException" + e.getLocalizedMessage(), new Object[0]);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ProductInfo productInfo = this.e;
+            if (productInfo == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("info");
             }
-            if (map != null && map.size() > 0) {
-                JSONObject jSONObject2 = new JSONObject();
-                for (Map.Entry<String, String> entry2 : map.entrySet()) {
-                    if (entry2.getKey() != null && entry2.getValue() != null) {
-                        jSONObject2.put(entry2.getKey(), entry2.getValue());
-                    } else {
-                        RLog.info("MiddlePayService", "expandMap parse error! key or value null");
-                    }
-                }
-                jSONObject.put("yyBussinessPenetrateMsg", jSONObject2);
+            return productInfo;
+        }
+        return (ProductInfo) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.p;
+        }
+        return invokeV.intValue;
+    }
+
+    public final Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            Activity activity = this.a;
+            if (activity == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("activity");
             }
-            if (str != null) {
-                jSONObject.put("splitDetailId", str);
-            }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkExpressionValueIsNotNull(jSONObject3, "expand.toString()");
-            return jSONObject3;
+            return activity;
         }
-        return (String) invokeLLL.objValue;
+        return (Activity) invokeV.objValue;
     }
 
-    public final String e(Map<String, Object> map) {
-        InterceptResult invokeL;
+    public final PayType h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (map != null) {
-                try {
-                    if (map.size() > 0) {
-                        for (Map.Entry<String, Object> entry : map.entrySet()) {
-                            if (entry.getKey() != null && entry.getValue() != null) {
-                                jSONObject.put(entry.getKey(), entry.getValue());
-                            } else {
-                                RLog.info("MiddlePayService", "getQueryProductListExpand parse error! key or value null");
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    RLog.error("MiddlePayService", "getQueryProductListExpand JSONException:" + e.getLocalizedMessage(), new Object[0]);
-                }
-            }
-            String jSONObject2 = jSONObject.toString();
-            Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "expand.toString()");
-            return jSONObject2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return (PayType) invokeV.objValue;
     }
 
-    public final void g(Activity activity, PayType payType, long j, String str, ProductInfo productInfo, int i, int i2, IMiddlePayService.SubscriptType subscriptType, IMiddlePayService.ChargeSource chargeSource, String str2, Map<String, Object> map, IPayCallback<String> iPayCallback, IToken iToken, AppCustomExpand appCustomExpand, String str3, int i3, String str4) {
+    public final String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{activity, payType, Long.valueOf(j), str, productInfo, Integer.valueOf(i), Integer.valueOf(i2), subscriptType, chargeSource, str2, map, iPayCallback, iToken, appCustomExpand, str3, Integer.valueOf(i3), str4}) == null) {
-            if (!isSupported(activity, payType)) {
-                if (iPayCallback != null) {
-                    iPayCallback.onFail(PayStatus.DEVICE_NOT_SUPPORT.getCode(), PayStatus.DEVICE_NOT_SUPPORT.getMessage(), null);
-                }
-                RLog.error("MiddlePayService", "当前不支持该种支付方式,是否正确接入第三方支付SDK实现?", new Object[0]);
-                return;
-            }
-            b(activity, payType, j, str, productInfo, i, i2, subscriptType.getValue(), chargeSource.getValue(), str2, map, iPayCallback, iToken, appCustomExpand, str3, i3, str4);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.j;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public boolean isSupported(Activity activity, PayType payType) {
-        InterceptResult invokeLL;
+    public final String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, activity, payType)) == null) {
-            return this.b.isSupported(activity, payType);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.q;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void onQQPayResult(int i, String str) {
+    public final IMiddlePayService.SubscriptType k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) {
-            this.b.onQQPayResult(i, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.h;
         }
+        return (IMiddlePayService.SubscriptType) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void onWxPayResult(int i, String str) {
+    public final String l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
-            this.b.onWxPayResult(i, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryBannerConfigRequest(GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
+    public final IToken m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, getBannerConfigReqParams, iResult) == null) {
-            this.b.queryBannerConfigRequest(getBannerConfigReqParams, iResult);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.m;
         }
+        return (IToken) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryChargeOrderStatus(GetChargeOrderStatusReqParams getChargeOrderStatusReqParams, IResult<GetChargeOrderStatusResult> iResult) {
+    public final String n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, getChargeOrderStatusReqParams, iResult) == null) {
-            getChargeOrderStatusReqParams.setAppId(this.a.getAppId());
-            this.b.queryChargeOrderStatus(getChargeOrderStatusReqParams, iResult);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.o;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryMyBalance(QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
+    public final long o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, queryCurrencyReqParams, iResult) == null) {
-            this.b.queryMyBalance(queryCurrencyReqParams, iResult);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.c;
         }
+        return invokeV.longValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void querySplitOrderConfig(GetSplitOrderConfigReqParams getSplitOrderConfigReqParams, IResult<SplitOrderConfigResult> iResult) {
+    public final int p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, getSplitOrderConfigReqParams, iResult) == null) {
-            this.b.querySplitOrderConfig(getSplitOrderConfigReqParams, iResult);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.f;
         }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, int i, int i2, int i3, IPayCallback<String> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iPayCallback}) == null) {
-            this.b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, i, i2, i3, iPayCallback);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void requestPay(Activity activity, PayType payType, String str, String str2, IPayCallback<PurchaseInfo> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048596, this, activity, payType, str, str2, iPayCallback) == null) {
-            this.b.requestPay(activity, payType, str, str2, iPayCallback);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void signAliPay(Activity activity, PaySignInfo paySignInfo, IPaySignCallback iPaySignCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048597, this, activity, paySignInfo, iPaySignCallback) == null) {
-            this.b.signAliPay(activity, paySignInfo, iPaySignCallback);
-        }
+        return invokeV.intValue;
     }
 }

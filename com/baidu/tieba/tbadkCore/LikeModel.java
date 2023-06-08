@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.e0a;
-import com.baidu.tieba.ex9;
+import com.baidu.tieba.j0a;
+import com.baidu.tieba.jx9;
 import com.baidu.tieba.k9;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.xv5;
+import com.baidu.tieba.zv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ public class LikeModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<Object, Integer, ex9> {
+    public class b extends BdAsyncTask<Object, Integer, jx9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
@@ -103,7 +103,7 @@ public class LikeModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public ex9 doInBackground(Object... objArr) {
+        public jx9 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
@@ -133,57 +133,57 @@ public class LikeModel extends BdBaseModel {
                     this.b.setErrorString(errorString);
                     AuthTokenData.parse(postNetData);
                     if (postNetData != null) {
-                        ex9 ex9Var = new ex9();
-                        ex9Var.r(postNetData);
+                        jx9 jx9Var = new jx9();
+                        jx9Var.r(postNetData);
                         BdToastData bdToastData = new BdToastData();
                         bdToastData.parserJson(postNetData);
-                        ex9Var.z(bdToastData);
+                        jx9Var.z(bdToastData);
                         if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            ex9Var.t(null);
+                            jx9Var.t(null);
                         }
-                        this.b.j = ex9Var.a();
-                        ex9Var.v(this.b.b);
-                        return ex9Var;
+                        this.b.j = jx9Var.a();
+                        jx9Var.v(this.b.b);
+                        return jx9Var;
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
-                ex9 ex9Var2 = new ex9();
-                ex9Var2.y(0);
-                ex9Var2.v(this.b.b);
-                return ex9Var2;
+                jx9 jx9Var2 = new jx9();
+                jx9Var2.y(0);
+                jx9Var2.v(this.b.b);
+                return jx9Var2;
             }
-            return (ex9) invokeL.objValue;
+            return (jx9) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(ex9 ex9Var) {
+        public void onPostExecute(jx9 jx9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ex9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jx9Var) == null) {
                 this.b.i = null;
                 this.b.setNeedShowSeverToast(true);
-                if (this.a == null || ex9Var == null || AntiHelper.a(this.b.getContext(), this.b.getErrorCode(), ex9Var.b())) {
+                if (this.a == null || jx9Var == null || AntiHelper.a(this.b.getContext(), this.b.getErrorCode(), jx9Var.b())) {
                     return;
                 }
-                e0a e0aVar = new e0a();
-                e0aVar.a = tg.g(ex9Var.g(), 0L);
-                ex9Var.j();
-                if (ex9Var != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(tg.g(ex9Var.g(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new xv5.a(this.b.a, ex9Var.m())));
+                j0a j0aVar = new j0a();
+                j0aVar.a = tg.g(jx9Var.g(), 0L);
+                jx9Var.j();
+                if (jx9Var != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(tg.g(jx9Var.g(), 0L))));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new zv5.a(this.b.a, jx9Var.m())));
                     TbadkCoreApplication.getInst().addLikeForum(this.b.a);
-                    e0aVar.b = true;
-                    e0aVar.c = this.b.getErrorString();
+                    j0aVar.b = true;
+                    j0aVar.c = this.b.getErrorString();
                 } else {
-                    e0aVar.b = false;
-                    e0aVar.c = this.b.getErrorString();
+                    j0aVar.b = false;
+                    j0aVar.c = this.b.getErrorString();
                 }
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(ex9Var);
+                    this.b.mLoadDataCallBack.c(jx9Var);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, e0aVar));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, j0aVar));
             }
         }
 

@@ -5,14 +5,14 @@ import android.view.View;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.at9;
-import com.baidu.tieba.cw9;
-import com.baidu.tieba.du9;
-import com.baidu.tieba.dw9;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.gt9;
-import com.baidu.tieba.ht9;
+import com.baidu.tieba.ft9;
+import com.baidu.tieba.hw9;
+import com.baidu.tieba.iu9;
+import com.baidu.tieba.iw9;
+import com.baidu.tieba.lt9;
+import com.baidu.tieba.mt9;
 import com.baidu.tieba.sprite.view.NormalSpriteView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,12 +32,12 @@ import kotlin.jvm.internal.Intrinsics;
 public final class SpriteEdgeFloat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ht9 a;
+    public final mt9 a;
     public final Lazy b;
     public final Lazy c;
     public final Lazy d;
 
-    public SpriteEdgeFloat(final Activity activity, ht9 spriteStateMap, final int i, final int i2, final int i3, final boolean z, final List<String> pageSupportList) {
+    public SpriteEdgeFloat(final Activity activity, mt9 spriteStateMap, final int i, final int i2, final int i3, final boolean z, final List<String> pageSupportList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public final class SpriteEdgeFloat {
         Intrinsics.checkNotNullParameter(spriteStateMap, "spriteStateMap");
         Intrinsics.checkNotNullParameter(pageSupportList, "pageSupportList");
         this.a = spriteStateMap;
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<gt9>(this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$spriteStateMachine$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<lt9>(this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$spriteStateMachine$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteEdgeFloat this$0;
@@ -85,15 +85,15 @@ public final class SpriteEdgeFloat {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final gt9 invoke() {
+            public final lt9 invoke() {
                 InterceptResult invokeV;
-                ht9 ht9Var;
+                mt9 mt9Var;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (gt9) invokeV.objValue;
+                    return (lt9) invokeV.objValue;
                 }
-                ht9Var = this.this$0.a;
-                return new gt9(ht9Var);
+                mt9Var = this.this$0.a;
+                return new lt9(mt9Var);
             }
         });
         this.c = LazyKt__LazyJVMKt.lazy(new Function0<NormalSpriteView>(activity) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$normalSpriteView$2
@@ -180,22 +180,22 @@ public final class SpriteEdgeFloat {
                 NormalSpriteView e;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    at9 at9Var = new at9(this.$activity);
+                    ft9 ft9Var = new ft9(this.$activity);
                     e = this.this$0.e();
-                    at9Var.M(e);
-                    at9Var.y(this.$gravity);
-                    at9Var.I(this.$startX);
-                    at9Var.J(this.$startY);
-                    at9Var.d(this.$canDrag);
-                    at9Var.D(this.$pageSupportList);
-                    return at9Var.c();
+                    ft9Var.M(e);
+                    ft9Var.y(this.$gravity);
+                    ft9Var.I(this.$startX);
+                    ft9Var.J(this.$startY);
+                    ft9Var.d(this.$canDrag);
+                    ft9Var.D(this.$pageSupportList);
+                    return ft9Var.c();
                 }
                 return (EdgeFloat) invokeV.objValue;
             }
         });
     }
 
-    public final void j(cw9 event) {
+    public final void j(hw9 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -218,7 +218,7 @@ public final class SpriteEdgeFloat {
         }
     }
 
-    public final void n(du9 data) {
+    public final void n(iu9 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -226,13 +226,13 @@ public final class SpriteEdgeFloat {
         }
     }
 
-    public final dw9 c() {
+    public final iw9 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return f().a();
         }
-        return (dw9) invokeV.objValue;
+        return (iw9) invokeV.objValue;
     }
 
     public final EdgeFloat d() {
@@ -253,13 +253,13 @@ public final class SpriteEdgeFloat {
         return (NormalSpriteView) invokeV.objValue;
     }
 
-    public final gt9 f() {
+    public final lt9 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return (gt9) this.b.getValue();
+            return (lt9) this.b.getValue();
         }
-        return (gt9) invokeV.objValue;
+        return (lt9) invokeV.objValue;
     }
 
     public final void g() {

@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CacheControl {
     @Nullable
     public String headerValue;
@@ -26,7 +26,7 @@ public final class CacheControl {
     public static final CacheControl FORCE_NETWORK = new Builder().noCache().build();
     public static final CacheControl FORCE_CACHE = new Builder().onlyIfCached().maxStale(Integer.MAX_VALUE, TimeUnit.SECONDS).build();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public boolean immutable;
         public int maxAgeSeconds = -1;

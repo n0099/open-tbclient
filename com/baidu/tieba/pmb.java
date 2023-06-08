@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface pmb {
-    boolean isUnsubscribed();
-
-    void unsubscribe();
+    void request(long j);
 }

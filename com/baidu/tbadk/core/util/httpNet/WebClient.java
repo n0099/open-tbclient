@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
 import com.baidu.tieba.cj;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.ng;
 import com.baidu.tieba.uf;
 import com.baidu.tieba.wf;
@@ -335,7 +335,7 @@ public class WebClient implements ng.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (l95.m().n("image_no_cache_switch", 0) != 1) {
+            if (n95.m().n("image_no_cache_switch", 0) != 1) {
                 return true;
             }
             return this.needCache;

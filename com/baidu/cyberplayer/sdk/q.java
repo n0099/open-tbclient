@@ -299,7 +299,7 @@ public class q {
         }
         String str = map.get("User-Agent");
         if (TextUtils.isEmpty(str)) {
-            str = "dumedia/7.39.93.45";
+            str = "dumedia/7.39.94.57";
         } else if (str.indexOf("dumedia") == -1) {
             str = str + " dumedia/" + SDKVersion.VERSION;
         }

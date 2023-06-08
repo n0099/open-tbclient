@@ -1,30 +1,22 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fn7 {
+public class fn7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PriorityOrganizer a;
-    public final PriorityOrganizer.Task b;
-    public an7 c;
-    public xm7 d;
-    public ym7 e;
-    public bn7 f;
-    public cn7 g;
-    public zm7 h;
-    public gn7 i;
-    public hn7 j;
-    public en7 k;
-    public dn7 l;
+    public FrsFragment m;
+    public FrsActivity n;
+    public oo5.b o;
 
     public fn7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
@@ -41,37 +33,37 @@ public class fn7 {
                 return;
             }
         }
-        this.a = PriorityOrganizer.m();
-        this.c = new an7(frsActivity, frsFragment);
-        this.d = new xm7(frsActivity, frsFragment);
-        this.e = new ym7(frsActivity, frsFragment);
-        this.f = new bn7(frsActivity, frsFragment);
-        this.g = new cn7(frsActivity, frsFragment);
-        this.h = new zm7(frsActivity, frsFragment);
-        this.i = new gn7(frsActivity, frsFragment);
-        this.j = new hn7(frsActivity, frsFragment);
-        this.k = new en7(frsActivity, frsFragment);
-        dn7 dn7Var = new dn7(frsActivity, frsFragment);
-        this.l = dn7Var;
-        an7 an7Var = this.c;
-        PriorityOrganizer.t(an7Var, this.d, this.e, dn7Var, this.f, this.g, this.h, this.i, this.j, this.k);
-        this.b = an7Var;
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    public void a(boolean z) {
-        cn7 cn7Var;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        oo5.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (cn7Var = this.g) != null) {
-            cn7Var.F(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null) {
+                this.o = frsFragment.O3();
+            }
+            if (n95.m().i("key_chat_group_guide_show", false) || (bVar = this.o) == null || !bVar.p0()) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void b() {
-        PriorityOrganizer.Task task;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !LooperBlockSwitch.getIsOn() && (task = this.b) != null && !task.v(true)) {
-            this.b.E(true);
-            this.a.z(this.b);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            oo5.b bVar = this.o;
+            if (bVar != null) {
+                bVar.Y0();
+            }
+            t();
         }
     }
 }

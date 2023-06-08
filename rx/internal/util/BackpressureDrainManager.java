@@ -1,9 +1,9 @@
 package rx.internal.util;
 
-import com.baidu.tieba.kmb;
+import com.baidu.tieba.pmb;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class BackpressureDrainManager extends AtomicLong implements kmb {
+public final class BackpressureDrainManager extends AtomicLong implements pmb {
     public static final long serialVersionUID = 2826241102729529449L;
     public final a actual;
     public boolean emitting;
@@ -186,7 +186,7 @@ public final class BackpressureDrainManager extends AtomicLong implements kmb {
         drain();
     }
 
-    @Override // com.baidu.tieba.kmb
+    @Override // com.baidu.tieba.pmb
     public void request(long j) {
         boolean z;
         if (j == 0) {

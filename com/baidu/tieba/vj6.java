@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
+import android.os.Build;
+import android.util.Pair;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class vj6 {
+public abstract class vj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
+    public final WebView a;
 
-    public vj6(String str) {
+    public vj6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,64 +35,83 @@ public class vj6 {
                 return;
             }
         }
-        this.a = StatisticItem.make(str);
-    }
-
-    public static vj6 a(HybridStatisticKey hybridStatisticKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridStatisticKey)) == null) {
-            return new vj6(hybridStatisticKey.getValue());
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= 26) {
+            webView.setRendererPriorityPolicy(2, false);
         }
-        return (vj6) invokeL.objValue;
     }
 
-    public static String b(StatisticItem statisticItem) {
-        InterceptResult invokeL;
-        int size;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, statisticItem)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (statisticItem == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebSettings c = c();
+            c.setJavaScriptEnabled(true);
+            c.setCacheMode(-1);
+            if (Build.VERSION.SDK_INT >= 21) {
+                c.setMixedContentMode(0);
             }
-            sb.append("RD_STAT_LOG: ");
-            sb.append("key=");
-            sb.append(statisticItem.getKey());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            List<Object> params = statisticItem.getParams();
-            if (params != null && (size = params.size()) > 0) {
-                for (int i = 0; i < size; i++) {
-                    sb.append(params.get(i));
-                    if (i % 2 == 0) {
-                        sb.append("=");
-                    } else if (i != size - 1) {
-                        sb.append(",");
-                    }
-                }
+            c.setGeolocationEnabled(true);
+            c.setLoadsImagesAutomatically(true);
+            c.setBlockNetworkImage(false);
+            c.setBlockNetworkLoads(false);
+            c.setLoadWithOverviewMode(true);
+            c.setAllowFileAccess(true);
+            c.setUseWideViewPort(true);
+            c.setSupportZoom(true);
+            c.setBuiltInZoomControls(false);
+            c.setDisplayZoomControls(false);
+            c.setMediaPlaybackRequiresUserGesture(false);
+            c.setDomStorageEnabled(true);
+            try {
+                c.setAppCacheEnabled(true);
+                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                c.setAppCachePath(getContext().getCacheDir().getPath());
             }
-            return sb.toString();
+            String userAgentString = c().getUserAgentString();
+            Pair<Boolean, String> i = dj6.i(userAgentString);
+            if (((Boolean) i.first).booleanValue()) {
+                zq8 hybridLog = HybridLog.getInstance();
+                hybridLog.c("WebSetting", "更新UA信息：" + ((String) i.second) + " 原UA：" + userAgentString);
+                c.setUserAgentString((String) i.second);
+            }
+            c.setJavaScriptCanOpenWindowsAutomatically(true);
+            c.setTextZoom(100);
         }
-        return (String) invokeL.objValue;
     }
 
-    public vj6 c(String str, String str2) {
+    public final File b(Context context, String str) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.a.param(str, str2);
-            return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+            }
+            return file;
         }
-        return (vj6) invokeLL.objValue;
+        return (File) invokeLL.objValue;
     }
 
-    public void d() {
+    public WebSettings c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (il6.a()) {
-                fm6.a("newHybrid", b(this.a));
-            }
-            this.a.eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getSettings();
         }
+        return (WebSettings) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getContext();
+        }
+        return (Context) invokeV.objValue;
     }
 }

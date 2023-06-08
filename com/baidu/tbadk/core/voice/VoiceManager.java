@@ -33,20 +33,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ap5;
+import com.baidu.tieba.b0a;
 import com.baidu.tieba.gj;
 import com.baidu.tieba.ij;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.nj;
 import com.baidu.tieba.og;
 import com.baidu.tieba.p9;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.tb5;
+import com.baidu.tieba.ub5;
 import com.baidu.tieba.ui;
-import com.baidu.tieba.wz9;
+import com.baidu.tieba.vb5;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yg;
-import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,8 +92,8 @@ public class VoiceManager extends BroadcastReceiver {
     public PermissionJudgePolicy mPermissionJudgePolicy;
     public boolean mPhoneSpeaker;
     public k mPlayCall;
-    public CustomResponsedMessage<wz9> mRecorderManagerRespMsg;
-    public og<tb5> mResourceCall;
+    public CustomResponsedMessage<b0a> mRecorderManagerRespMsg;
+    public og<vb5> mResourceCall;
     public l mSensorListener;
     public final BroadcastReceiver mVoicePlayerReceiver;
     public Sensor proximitySensor;
@@ -320,7 +320,7 @@ public class VoiceManager extends BroadcastReceiver {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends og<tb5> {
+    public class c extends og<vb5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceManager a;
@@ -346,17 +346,17 @@ public class VoiceManager extends BroadcastReceiver {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.og
         /* renamed from: a */
-        public void onLoaded(tb5 tb5Var, String str, int i) {
+        public void onLoaded(vb5 vb5Var, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, tb5Var, str, i) == null) {
-                super.onLoaded(tb5Var, str, i);
-                if (this.a.getCurPlayModel() == null || this.a.sPlayView == null || tb5Var == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, vb5Var, str, i) == null) {
+                super.onLoaded(vb5Var, str, i);
+                if (this.a.getCurPlayModel() == null || this.a.sPlayView == null || vb5Var == null) {
                     return;
                 }
-                String e = tb5Var.e();
-                String d = tb5Var.d();
-                int b = tb5Var.b();
-                String c = tb5Var.c();
+                String e = vb5Var.e();
+                String d = vb5Var.d();
+                int b = vb5Var.b();
+                String c = vb5Var.c();
                 if (!StringUtils.isNull(e) && !StringUtils.isNull(d)) {
                     if (!ui.isEquals(this.a.getCurPlayModel().getVoiceId(), d) || !VoiceManager.isVoiceDownloading(this.a.getCurPlayModel().voice_status.intValue())) {
                         return;
@@ -910,7 +910,7 @@ public class VoiceManager extends BroadcastReceiver {
         this.mVoicePlayerReceiver = new g(this);
         initConfig();
         bUseMedaiPlayer = !isVoiceUseSoftDecoder();
-        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, wz9.class);
+        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, b0a.class);
         this.mSensorListener = new l(this, null);
     }
 
@@ -1102,7 +1102,7 @@ public class VoiceManager extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65592, null, z) == null) {
             bVoiceUseSoftDecoder = true;
-            l95.m().w("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+            n95.m().w("voice_use_soft_decoder", bVoiceUseSoftDecoder);
         }
     }
 
@@ -1228,7 +1228,7 @@ public class VoiceManager extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeV(65569, null) == null) {
             synchronized (VoiceManager.class) {
                 if (!bInitConfig) {
-                    bVoiceUseSoftDecoder = l95.m().i("voice_use_soft_decoder", nj.b());
+                    bVoiceUseSoftDecoder = n95.m().i("voice_use_soft_decoder", nj.b());
                 }
             }
         }
@@ -1296,19 +1296,19 @@ public class VoiceManager extends BroadcastReceiver {
         return (VoiceData.VoiceModel) invokeV.objValue;
     }
 
-    public wz9 getRecorderManager() {
+    public b0a getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            CustomResponsedMessage<wz9> customResponsedMessage = this.mRecorderManagerRespMsg;
+            CustomResponsedMessage<b0a> customResponsedMessage = this.mRecorderManagerRespMsg;
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                wz9 data = this.mRecorderManagerRespMsg.getData();
+                b0a data = this.mRecorderManagerRespMsg.getData();
                 data.a(this.context);
                 return data;
             }
             return null;
         }
-        return (wz9) invokeV.objValue;
+        return (b0a) invokeV.objValue;
     }
 
     public boolean isPlaying() {
@@ -1651,7 +1651,7 @@ public class VoiceManager extends BroadcastReceiver {
                 if (this.mResourceCall == null) {
                     this.mResourceCall = new c(this);
                 }
-                Object b2 = sb5.b(voiceModel.getId());
+                Object b2 = ub5.b(voiceModel.getId());
                 if (b2 == null) {
                     if (this.context != null && (this.context.getOrignalPage() instanceof p9)) {
                         bdUniqueId = ((p9) this.context.getOrignalPage()).getUniqueId();
@@ -1731,8 +1731,8 @@ public class VoiceManager extends BroadcastReceiver {
         } else {
             i2 = 1;
         }
-        yo5.b().l(true);
-        yo5.b().n(true);
+        ap5.b().l(true);
+        ap5.b().n(true);
         if (getCurPlayModel() != null) {
             getCurPlayModel().setCurr_time(0);
             if (getCurPlayModel() == this.mNewClickModel) {
@@ -1774,8 +1774,8 @@ public class VoiceManager extends BroadcastReceiver {
                     if (isVoicePlaying(voiceModel.voice_status.intValue())) {
                         setStatusWaiting(voiceModel);
                         gj.f();
-                        if (yo5.b().d()) {
-                            yo5.b().l(false);
+                        if (ap5.b().d()) {
+                            ap5.b().l(false);
                         }
                     } else {
                         setStatusWaiting(voiceModel);

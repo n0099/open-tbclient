@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m0a;
+import com.baidu.tieba.r0a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,7 +155,7 @@ public class FlowLayout extends ViewGroup {
         public final void g(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m0a.FlowLayout_LayoutParams);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r0a.FlowLayout_LayoutParams);
                 try {
                     this.c = obtainStyledAttributes.getDimensionPixelSize(0, f);
                     this.d = obtainStyledAttributes.getDimensionPixelSize(2, f);
@@ -416,7 +416,7 @@ public class FlowLayout extends ViewGroup {
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m0a.FlowLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r0a.FlowLayout);
             try {
                 this.a = obtainStyledAttributes.getDimensionPixelSize(1, 0);
                 this.b = obtainStyledAttributes.getDimensionPixelSize(5, 0);

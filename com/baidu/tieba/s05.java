@@ -1,105 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.sapi2.result.CheckUserFaceIdResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class s05 {
+public class s05 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile s05 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str, int i, String str2);
-
-        void b(String str);
-
-        void c(AccountData accountData);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948097617, "Lcom/baidu/tieba/s05;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948097617, "Lcom/baidu/tieba/s05;");
-        }
-    }
-
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a aVar);
-
-    public abstract b c(String str);
-
-    public abstract void d();
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-        }
-    }
+    public int a;
+    public String b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public s05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static s05 b() {
+    public int a() {
         InterceptResult invokeV;
-        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (s05.class) {
-                    if (a == null && (runTask = MessageManager.getInstance().runTask(2001293, s05.class)) != null && runTask.getData() != null) {
-                        a = (s05) runTask.getData();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if ("advanced_cert_face_match".equals(this.b)) {
+                return 2;
             }
-            return a;
+            if ("cert_face_match".equals(this.b)) {
+                return 1;
+            }
+            return 0;
         }
-        return (s05) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @Nullable
+    public static s05 b(CheckUserFaceIdResult checkUserFaceIdResult, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, checkUserFaceIdResult, z)) == null) {
+            if (checkUserFaceIdResult == null) {
+                return null;
+            }
+            s05 s05Var = new s05();
+            s05Var.a = checkUserFaceIdResult.getResultCode();
+            s05Var.b = checkUserFaceIdResult.action;
+            s05Var.c = checkUserFaceIdResult.status;
+            s05Var.d = checkUserFaceIdResult.getResultMsg();
+            s05Var.e = checkUserFaceIdResult.livingUname;
+            s05Var.f = checkUserFaceIdResult.authsid;
+            s05Var.g = checkUserFaceIdResult.authWidgetURL;
+            return s05Var;
+        }
+        return (s05) invokeLZ.objValue;
     }
 }

@@ -1,30 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
+import tv.athena.revenue.RevenueManager;
+/* loaded from: classes7.dex */
 public class tub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, View view2) {
+    public static IPayEventStatisticsApi a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, context, view2) == null) && context != null && view2 != null) {
-            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error("PayUVEventStatisticsUtil", "getPayEventStatisticsApi error revenue null", new Object[0]);
+                return null;
+            }
+            return revenue.getPayEventStatisticApi();
         }
+        return (IPayEventStatisticsApi) invokeII.objValue;
     }
 
-    public static void b(Activity activity, View view2) {
+    public static void b(int i, int i2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view2) == null) {
-            if (view2 == null && (view2 = activity.getCurrentFocus()) == null) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
+            IPayEventStatisticsApi a = a(i, i2);
+            if (a == null) {
+                RLog.error("PayUVEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
+            } else {
+                a.reportUvEvent(str, str2, str3, str4);
             }
-            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view2, 1);
         }
     }
 }

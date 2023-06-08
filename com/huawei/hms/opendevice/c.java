@@ -5,11 +5,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bcb;
-import com.baidu.tieba.fbb;
-import com.baidu.tieba.gbb;
-import com.baidu.tieba.ibb;
-import com.baidu.tieba.jbb;
+import com.baidu.tieba.gcb;
+import com.baidu.tieba.kbb;
+import com.baidu.tieba.lbb;
+import com.baidu.tieba.nbb;
+import com.baidu.tieba.obb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,13 +110,13 @@ public abstract class c {
         return (String) invokeV.objValue;
     }
 
-    public static ibb h() {
+    public static nbb h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return ibb.d(d(), e(), c(), g());
+            return nbb.d(d(), e(), c(), g());
         }
-        return (ibb) invokeV.objValue;
+        return (nbb) invokeV.objValue;
     }
 
     public static boolean i() {
@@ -243,7 +243,7 @@ public abstract class c {
                 HMSLog.i(a, "work key is empty, execute init.");
                 c(context);
             }
-            String b2 = jbb.b(f(), b());
+            String b2 = obb.b(f(), b());
             if (t.a(b2)) {
                 return b2;
             }
@@ -257,9 +257,9 @@ public abstract class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, str, str2, str3, str4)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return fbb.e(str, str2, str3, str4, 32, true);
+                return kbb.e(str, str2, str3, str4, 32, true);
             }
-            return fbb.e(str, str2, str3, str4, 32, false);
+            return kbb.e(str, str2, str3, str4, 32, false);
         }
         return (byte[]) invokeLLLL.objValue;
     }
@@ -313,18 +313,18 @@ public abstract class c {
                 sb.append("/shared_prefs/LocalAvengers.xml");
                 File file = new File(sb.toString());
                 if (file.exists()) {
-                    bcb.d(file);
+                    gcb.d(file);
                     HMSLog.i(a, "destroy C, delete file LocalAvengers.xml.");
                 }
-                byte[] c2 = gbb.c(32);
-                byte[] c3 = gbb.c(32);
-                byte[] c4 = gbb.c(32);
-                byte[] c5 = gbb.c(32);
+                byte[] c2 = lbb.c(32);
+                byte[] c3 = lbb.c(32);
+                byte[] c4 = lbb.c(32);
+                byte[] c5 = lbb.c(32);
                 String a2 = a.a(c2);
                 String a3 = a.a(c3);
                 String a4 = a.a(c4);
                 String a5 = a.a(c5);
-                a(a2, a3, a4, a5, jbb.c(a.a(gbb.c(32)), a(a2, a3, a4, a5)), context);
+                a(a2, a3, a4, a5, obb.c(a.a(lbb.c(32)), a(a2, a3, a4, a5)), context);
                 HMSLog.i(a, "generate D.");
             }
         }
@@ -335,21 +335,21 @@ public abstract class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             synchronized (c.class) {
-                String b2 = jbb.b(f(), b());
+                String b2 = obb.b(f(), b());
                 if (t.a(b2)) {
                     HMSLog.i(a, "keyS has been upgraded, no require operate again.");
                     return b2;
                 }
-                String a2 = jbb.a(f(), h());
+                String a2 = obb.a(f(), h());
                 if (t.a(a2)) {
                     HMSLog.i(a, "keyS is encrypt by RootKeyUtil, upgrade encrypt mode.");
-                    a(jbb.c(a2, b()), context);
+                    a(obb.c(a2, b()), context);
                     return a2;
                 }
-                String b3 = jbb.b(f(), fbb.e(d(), e(), c(), g(), 32, false));
+                String b3 = obb.b(f(), kbb.e(d(), e(), c(), g(), 32, false));
                 if (t.a(b3)) {
                     HMSLog.i(a, "keyS is encrypt by ExportRootKey with sha1, upgrade encrypt mode to sha256.");
-                    a(jbb.c(b3, b()), context);
+                    a(obb.c(b3, b()), context);
                     return b3;
                 }
                 HMSLog.e(a, "all mode unable to decrypt root key.");

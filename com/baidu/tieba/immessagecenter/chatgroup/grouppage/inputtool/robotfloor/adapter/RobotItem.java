@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ag8;
+import com.baidu.tieba.bg8;
+import com.baidu.tieba.cg8;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatRoomRecycleAdapter;
-import com.baidu.tieba.tc8;
-import com.baidu.tieba.yf8;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.vc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,18 +19,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RobotItem extends tc8 implements Serializable {
+public class RobotItem extends vc8 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5589601297540632738L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isShowHeadView;
     public RecyclerView.Adapter mAdapter;
-    public List<tc8> mSubItems;
+    public List<vc8> mSubItems;
     public String roboatName;
     public String robortAvatar;
     public String robotUk;
 
-    @Override // com.baidu.tieba.tc8
+    @Override // com.baidu.tieba.vc8
     public int getViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -40,12 +40,12 @@ public class RobotItem extends tc8 implements Serializable {
         return invokeV.intValue;
     }
 
-    public RobotItem(List<tc8> list, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull TbPageContext tbPageContext, yf8 yf8Var, boolean z) {
+    public RobotItem(List<vc8> list, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull TbPageContext tbPageContext, ag8 ag8Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, str2, str3, tbPageContext, yf8Var, Boolean.valueOf(z)};
+            Object[] objArr = {list, str, str2, str3, tbPageContext, ag8Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,12 +60,12 @@ public class RobotItem extends tc8 implements Serializable {
         this.roboatName = str2;
         this.robortAvatar = str;
         this.robotUk = str3;
-        zf8 zf8Var = new zf8(tbPageContext);
+        bg8 bg8Var = new bg8(tbPageContext);
         if (!ListUtils.isEmpty(list)) {
             this.mSubItems.addAll(list);
         }
-        this.mAdapter = new ChatRoomRecycleAdapter(new ag8(yf8Var), zf8Var, tbPageContext);
-        zf8Var.a(getSubItems());
+        this.mAdapter = new ChatRoomRecycleAdapter(new cg8(ag8Var), bg8Var, tbPageContext);
+        bg8Var.a(getSubItems());
     }
 
     public RecyclerView.Adapter getAdapter() {
@@ -105,7 +105,7 @@ public class RobotItem extends tc8 implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public List<tc8> getSubItems() {
+    public List<vc8> getSubItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

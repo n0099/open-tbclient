@@ -3,30 +3,27 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public final class xab<TResult> implements nab<TResult> {
+public class xab<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pab a;
-    public Executor b;
-    public final Object c;
+    public final ebb<TResult> a;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rab a;
-        public final /* synthetic */ xab b;
+        public final /* synthetic */ xab a;
 
-        public a(xab xabVar, rab rabVar) {
+        public a(xab xabVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xabVar, rabVar};
+                Object[] objArr = {xabVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,29 +33,22 @@ public final class xab<TResult> implements nab<TResult> {
                     return;
                 }
             }
-            this.b = xabVar;
-            this.a = rabVar;
+            this.a = xabVar;
         }
 
         @Override // java.lang.Runnable
-        public final void run() {
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
-                    }
-                }
+                this.a.a.l();
             }
         }
     }
 
-    public xab(Executor executor, pab pabVar) {
+    public xab() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor, pabVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,27 +58,45 @@ public final class xab<TResult> implements nab<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = pabVar;
-        this.b = executor;
+        this.a = new ebb<>();
     }
 
-    @Override // com.baidu.tieba.nab
-    public final void cancel() {
+    public xab(rab rabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rabVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ebb<>();
+        rabVar.b(new a(this));
     }
 
-    @Override // com.baidu.tieba.nab
-    public final void onComplete(rab<TResult> rabVar) {
+    public wab<TResult> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rabVar) == null) || rabVar.h() || rabVar.f()) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (wab) invokeV.objValue;
+    }
+
+    public void c(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            this.a.j(exc);
         }
-        this.b.execute(new a(this, rabVar));
+    }
+
+    public void setResult(TResult tresult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tresult) == null) {
+            this.a.k(tresult);
+        }
     }
 }

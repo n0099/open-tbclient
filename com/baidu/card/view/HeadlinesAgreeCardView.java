@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.f15;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.f45;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.oy;
 import com.baidu.tieba.qx4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements oy<f15> {
+public class HeadlinesAgreeCardView extends FrameLayout implements oy<h15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -50,7 +50,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements oy<f15> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public d45 g;
+    public f45 g;
     public yz h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
@@ -247,17 +247,17 @@ public class HeadlinesAgreeCardView extends FrameLayout implements oy<f15> {
     }
 
     public void g() {
-        d45 d45Var;
+        f45 f45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (d45Var = this.g) != null && !TextUtils.isEmpty(d45Var.a())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (f45Var = this.g) != null && !TextUtils.isEmpty(f45Var.a())) {
             qx4.v(getContext(), null, this.g.a(), true);
         }
     }
 
     public void h() {
-        d45 d45Var;
+        f45 f45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (d45Var = this.g) != null && !TextUtils.isEmpty(d45Var.i())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (f45Var = this.g) != null && !TextUtils.isEmpty(f45Var.i())) {
             qx4.v(getContext(), null, this.g.i(), true);
         }
     }
@@ -265,7 +265,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements oy<f15> {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            m75.d(this.e).w(R.color.CAM_X0109);
+            o75.d(this.e).w(R.color.CAM_X0109);
         }
     }
 
@@ -323,10 +323,10 @@ public class HeadlinesAgreeCardView extends FrameLayout implements oy<f15> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: i */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, f15Var) == null) && f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getTaskInfoData() != null && f15Var.getThreadData().getTaskInfoData().f() != null) {
-            d45 f = f15Var.getThreadData().getTaskInfoData().f();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, h15Var) == null) && h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getTaskInfoData() != null && h15Var.getThreadData().getTaskInfoData().f() != null) {
+            f45 f = h15Var.getThreadData().getTaskInfoData().f();
             this.g = f;
             this.b.setData(f);
             this.i.clear();
@@ -335,7 +335,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements oy<f15> {
             if (!TextUtils.isEmpty(this.g.h())) {
                 this.e.setText(this.g.h());
             }
-            k(f15Var.getThreadData());
+            k(h15Var.getThreadData());
             this.f.setOnBannerClickListener(new b(this));
             yz yzVar = this.h;
             if (yzVar != null) {

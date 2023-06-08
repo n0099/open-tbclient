@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,7 +104,7 @@ public class ImPersonInputView extends RelativeLayout {
         TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926ac);
         this.d = textView;
         textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f039c));
-        m75 d = m75.d(this.c);
+        o75 d = o75.d(this.c);
         d.o(R.string.J_X01);
         d.f(R.color.CAM_X0920);
         a();
@@ -113,7 +113,7 @@ public class ImPersonInputView extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m75.d(this.d).w(R.color.CAM_X0100);
+            o75.d(this.d).w(R.color.CAM_X0100);
         }
     }
 

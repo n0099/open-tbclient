@@ -75,7 +75,7 @@ public abstract class cm1 implements nm1, AdView.a, SensorEventListener {
     public float S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1092T;
+    public int f1090T;
     public AtomicBoolean U;
     public float V;
     public LottieAnimationView W;
@@ -142,12 +142,12 @@ public abstract class cm1 implements nm1, AdView.a, SensorEventListener {
 
         /* renamed from: com.baidu.tieba.cm1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0265a implements View.OnClickListener {
+        public class View$OnClickListenerC0270a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0265a(a aVar) {
+            public View$OnClickListenerC0270a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public abstract class cm1 implements nm1, AdView.a, SensorEventListener {
                         this.c.W.setComposition(lottieComposition);
                         this.c.W.playAnimation();
                         this.c.o(this.c.W, this.a, this.b, "click_float_lottie", this.c.K);
-                        this.c.W.setOnClickListener(new View$OnClickListenerC0265a(this));
+                        this.c.W.setOnClickListener(new View$OnClickListenerC0270a(this));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -369,22 +369,22 @@ public abstract class cm1 implements nm1, AdView.a, SensorEventListener {
                         float k = c61.c.k(this.c.b.a, x - this.a);
                         float k2 = c61.c.k(this.c.b.a, y - this.b);
                         cm1 cm1Var = this.c.b;
-                        if ((cm1Var.f1092T & 1) == 1 && k2 <= (-cm1Var.S)) {
+                        if ((cm1Var.f1090T & 1) == 1 && k2 <= (-cm1Var.S)) {
                             BaseVM.r("2");
                             this.c.b.N();
                         } else {
                             cm1 cm1Var2 = this.c.b;
-                            if ((cm1Var2.f1092T & 2) == 2 && k2 >= cm1Var2.S) {
+                            if ((cm1Var2.f1090T & 2) == 2 && k2 >= cm1Var2.S) {
                                 BaseVM.r("2");
                                 this.c.b.N();
                             } else {
                                 cm1 cm1Var3 = this.c.b;
-                                if ((cm1Var3.f1092T & 4) == 4 && k <= (-cm1Var3.S)) {
+                                if ((cm1Var3.f1090T & 4) == 4 && k <= (-cm1Var3.S)) {
                                     BaseVM.r("2");
                                     this.c.b.N();
                                 } else {
                                     cm1 cm1Var4 = this.c.b;
-                                    if ((cm1Var4.f1092T & 8) == 8 && k >= cm1Var4.S) {
+                                    if ((cm1Var4.f1090T & 8) == 8 && k >= cm1Var4.S) {
                                         BaseVM.r("2");
                                         this.c.b.N();
                                     }
@@ -1500,7 +1500,7 @@ public abstract class cm1 implements nm1, AdView.a, SensorEventListener {
                 }
                 this.Q = z4;
                 this.S = (float) this.i.optDouble("gesture_lottie_sensitivity", 0.0d);
-                this.f1092T = this.i.optInt("gesture_lottie_direction", 1);
+                this.f1090T = this.i.optInt("gesture_lottie_direction", 1);
             } catch (Exception unused) {
             }
         }

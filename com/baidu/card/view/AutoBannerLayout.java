@@ -16,14 +16,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.oy;
 import com.baidu.tieba.py;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.r75;
-import com.baidu.tieba.s15;
-import com.baidu.tieba.s75;
 import com.baidu.tieba.sz4;
-import com.baidu.tieba.t15;
 import com.baidu.tieba.t75;
+import com.baidu.tieba.u15;
+import com.baidu.tieba.u75;
+import com.baidu.tieba.v15;
 import com.baidu.tieba.v75;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.x75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,18 +31,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
+public class AutoBannerLayout extends RelativeLayout implements py, oy<v15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowView<s15> a;
-    public List<s15> b;
+    public CoverFlowView<u15> a;
+    public List<u15> b;
     public sz4 c;
     public String d;
-    public t75<s15> e;
-    public t75<s15> f;
+    public v75<u15> e;
+    public v75<u15> f;
 
     /* loaded from: classes3.dex */
-    public class a extends r75 {
+    public class a extends t75 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerLayout a;
@@ -65,35 +65,35 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
             this.a = autoBannerLayout;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
-        public s75 a() {
+        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
+        public u75 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                s75 s75Var = new s75();
-                s75Var.c(R.drawable.shape_home_feed_banner_dot_n);
-                s75Var.g(R.drawable.shape_home_feed_banner_dot_s);
-                s75Var.d(81);
-                s75Var.e(R.dimen.M_H_X003);
-                s75Var.h(R.dimen.M_W_X003);
-                return s75Var;
+                u75 u75Var = new u75();
+                u75Var.c(R.drawable.shape_home_feed_banner_dot_n);
+                u75Var.g(R.drawable.shape_home_feed_banner_dot_s);
+                u75Var.d(81);
+                u75Var.e(R.dimen.M_H_X003);
+                u75Var.h(R.dimen.M_W_X003);
+                return u75Var;
             }
-            return (s75) invokeV.objValue;
+            return (u75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
-        public v75 c() {
+        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
+        public x75 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                v75 v75Var = new v75();
-                v75Var.a(vi.g(this.a.getContext(), R.dimen.tbds209));
-                return v75Var;
+                x75 x75Var = new x75();
+                x75Var.a(vi.g(this.a.getContext(), R.dimen.tbds209));
+                return x75Var;
             }
-            return (v75) invokeV.objValue;
+            return (x75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
+        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements t75<s15> {
+    public class b implements v75<u15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerLayout a;
@@ -136,19 +136,19 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t75
+        @Override // com.baidu.tieba.v75
         /* renamed from: c */
-        public void a(int i, s15 s15Var) {
+        public void a(int i, u15 u15Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, s15Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, u15Var) == null) {
                 int count = ListUtils.getCount(this.a.b);
                 if (i >= 0 && i <= count && this.a.e != null) {
-                    this.a.e.a(i, s15Var);
+                    this.a.e.a(i, u15Var);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.t75
+        @Override // com.baidu.tieba.v75
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -232,18 +232,18 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: g */
-    public void a(t15 t15Var) {
+    public void a(v15 v15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t15Var) == null) {
-            if (t15Var != null && !ListUtils.isEmpty(t15Var.a)) {
-                h(t15Var.a);
+        if (interceptable == null || interceptable.invokeL(1048580, this, v15Var) == null) {
+            if (v15Var != null && !ListUtils.isEmpty(v15Var.a)) {
+                h(v15Var.a);
             } else {
                 setVisibility(8);
             }
         }
     }
 
-    public void h(List<s15> list) {
+    public void h(List<u15> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             if (list != null && !ListUtils.isEmpty(list)) {
@@ -276,9 +276,9 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
     public void setBannerHeight(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && this.a != null) {
-            v75 v75Var = new v75();
-            v75Var.a(i);
-            this.a.y(v75Var);
+            x75 x75Var = new x75();
+            x75Var.a(i);
+            this.a.y(x75Var);
         }
     }
 
@@ -297,7 +297,7 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
     }
 
     public void setIndicatorVisible(int i) {
-        CoverFlowView<s15> coverFlowView;
+        CoverFlowView<u15> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setIndicatorVisible(i);
@@ -305,22 +305,22 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<s15> coverFlowView;
+        CoverFlowView<u15> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setMarqueenTime(j);
         }
     }
 
-    public void setOnCoverViewCallback(t75<s15> t75Var) {
+    public void setOnCoverViewCallback(v75<u15> v75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, t75Var) == null) {
-            this.e = t75Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, v75Var) == null) {
+            this.e = v75Var;
         }
     }
 
     public void setPageMargin(int i) {
-        CoverFlowView<s15> coverFlowView;
+        CoverFlowView<u15> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setPageMargin(i);
@@ -328,7 +328,7 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
     }
 
     public void d() {
-        CoverFlowView<s15> coverFlowView;
+        CoverFlowView<u15> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.m();
@@ -379,7 +379,7 @@ public class AutoBannerLayout extends RelativeLayout implements py, oy<t15> {
 
     @Override // com.baidu.tieba.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        CoverFlowView<s15> coverFlowView;
+        CoverFlowView<u15> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.t();

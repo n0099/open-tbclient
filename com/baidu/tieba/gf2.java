@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.model.PMSException;
-import com.baidu.tieba.imb;
+import com.baidu.tieba.nmb;
 import com.baidu.tieba.ue2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,13 +24,13 @@ public abstract class gf2 extends cf2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public omb<? super vk4> c;
-    public omb<? super tk4> d;
+    public tmb<? super vk4> c;
+    public tmb<? super tk4> d;
     public gp4 e;
     public rq3<Exception> f;
     public pj4<vk4> g;
     public pj4<tk4> h;
-    public omb<wk4> i;
+    public tmb<wk4> i;
 
     public abstract int U();
 
@@ -390,7 +390,7 @@ public abstract class gf2 extends cf2 {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements imb.a<vk4> {
+    public class e implements nmb.a<vk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gf2 a;
@@ -414,18 +414,18 @@ public abstract class gf2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super vk4> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super vk4> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ombVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, tmbVar) != null) {
                 return;
             }
-            this.a.c = ombVar;
+            this.a.c = tmbVar;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements imb.a<tk4> {
+    public class f implements nmb.a<tk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gf2 a;
@@ -449,18 +449,18 @@ public abstract class gf2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
-        public void call(omb<? super tk4> ombVar) {
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        public void call(tmb<? super tk4> tmbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ombVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, tmbVar) != null) {
                 return;
             }
-            this.a.d = ombVar;
+            this.a.d = tmbVar;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class g extends omb<wk4> {
+    public class g extends tmb<wk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gf2 e;
@@ -484,7 +484,7 @@ public abstract class gf2 extends cf2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         /* renamed from: g */
         public void onNext(wk4 wk4Var) {
             Interceptable interceptable = $ic;
@@ -493,7 +493,7 @@ public abstract class gf2 extends cf2 {
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -502,7 +502,7 @@ public abstract class gf2 extends cf2 {
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -549,7 +549,7 @@ public abstract class gf2 extends cf2 {
         }
     }
 
-    public final omb<wk4> Y() {
+    public final tmb<wk4> Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -558,7 +558,7 @@ public abstract class gf2 extends cf2 {
             }
             return this.i;
         }
-        return (omb) invokeV.objValue;
+        return (tmb) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.tj4
@@ -675,13 +675,13 @@ public abstract class gf2 extends cf2 {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.e.e()) {
-                arrayList.add(imb.a(new e(this)));
+                arrayList.add(nmb.a(new e(this)));
             }
             if (this.e.d()) {
-                arrayList.add(imb.a(new f(this)));
+                arrayList.add(nmb.a(new f(this)));
             }
             if (!arrayList.isEmpty()) {
-                imb.k(arrayList).w(Y());
+                nmb.k(arrayList).w(Y());
             }
         }
     }

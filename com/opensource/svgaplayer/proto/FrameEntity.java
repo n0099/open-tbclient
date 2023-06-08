@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ddb;
-import com.baidu.tieba.edb;
 import com.baidu.tieba.idb;
+import com.baidu.tieba.jdb;
+import com.baidu.tieba.ndb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                     return;
                 }
             }
-            this.shapes = idb.i();
+            this.shapes = ndb.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-                idb.a(list);
+                ndb.a(list);
                 this.shapes = list;
                 return this;
             }
@@ -154,39 +154,39 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public FrameEntity decode(ddb ddbVar) throws IOException {
+        public FrameEntity decode(idb idbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, idbVar)) == null) {
                 Builder builder = new Builder();
-                long c = ddbVar.c();
+                long c = idbVar.c();
                 while (true) {
-                    int f = ddbVar.f();
+                    int f = idbVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
                                         if (f != 5) {
-                                            FieldEncoding g = ddbVar.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(ddbVar));
+                                            FieldEncoding g = idbVar.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(idbVar));
                                         } else {
-                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(ddbVar));
+                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(idbVar));
                                         }
                                     } else {
-                                        builder.clipPath(ProtoAdapter.STRING.decode(ddbVar));
+                                        builder.clipPath(ProtoAdapter.STRING.decode(idbVar));
                                     }
                                 } else {
-                                    builder.transform(Transform.ADAPTER.decode(ddbVar));
+                                    builder.transform(Transform.ADAPTER.decode(idbVar));
                                 }
                             } else {
-                                builder.layout(Layout.ADAPTER.decode(ddbVar));
+                                builder.layout(Layout.ADAPTER.decode(idbVar));
                             }
                         } else {
-                            builder.alpha(ProtoAdapter.FLOAT.decode(ddbVar));
+                            builder.alpha(ProtoAdapter.FLOAT.decode(idbVar));
                         }
                     } else {
-                        ddbVar.d(c);
+                        idbVar.d(c);
                         return builder.build();
                     }
                 }
@@ -197,27 +197,27 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(edb edbVar, FrameEntity frameEntity) throws IOException {
+        public void encode(jdb jdbVar, FrameEntity frameEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, edbVar, frameEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jdbVar, frameEntity) == null) {
                 Float f = frameEntity.alpha;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(edbVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(jdbVar, 1, f);
                 }
                 Layout layout = frameEntity.layout;
                 if (layout != null) {
-                    Layout.ADAPTER.encodeWithTag(edbVar, 2, layout);
+                    Layout.ADAPTER.encodeWithTag(jdbVar, 2, layout);
                 }
                 Transform transform = frameEntity.transform;
                 if (transform != null) {
-                    Transform.ADAPTER.encodeWithTag(edbVar, 3, transform);
+                    Transform.ADAPTER.encodeWithTag(jdbVar, 3, transform);
                 }
                 String str = frameEntity.clipPath;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(edbVar, 4, str);
+                    ProtoAdapter.STRING.encodeWithTag(jdbVar, 4, str);
                 }
-                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(edbVar, 5, frameEntity.shapes);
-                edbVar.k(frameEntity.unknownFields());
+                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(jdbVar, 5, frameEntity.shapes);
+                jdbVar.k(frameEntity.unknownFields());
             }
         }
 
@@ -276,7 +276,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 if (transform != null) {
                     newBuilder2.transform = Transform.ADAPTER.redact(transform);
                 }
-                idb.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
+                ndb.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -345,7 +345,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         this.layout = layout;
         this.transform = transform;
         this.clipPath = str;
-        this.shapes = idb.g("shapes", list);
+        this.shapes = ndb.g("shapes", list);
     }
 
     public boolean equals(Object obj) {
@@ -359,7 +359,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 return false;
             }
             FrameEntity frameEntity = (FrameEntity) obj;
-            if (unknownFields().equals(frameEntity.unknownFields()) && idb.f(this.alpha, frameEntity.alpha) && idb.f(this.layout, frameEntity.layout) && idb.f(this.transform, frameEntity.transform) && idb.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
+            if (unknownFields().equals(frameEntity.unknownFields()) && ndb.f(this.alpha, frameEntity.alpha) && ndb.f(this.layout, frameEntity.layout) && ndb.f(this.transform, frameEntity.transform) && ndb.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
                 return true;
             }
             return false;
@@ -425,7 +425,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             builder.layout = this.layout;
             builder.transform = this.transform;
             builder.clipPath = this.clipPath;
-            builder.shapes = idb.c("shapes", this.shapes);
+            builder.shapes = ndb.c("shapes", this.shapes);
             builder.addUnknownFields(unknownFields());
             return builder;
         }

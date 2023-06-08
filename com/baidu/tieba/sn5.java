@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public interface sn5 {
-    @WorkerThread
-    void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
+    void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList);
 }

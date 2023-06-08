@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,36 +11,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.LinkThreadContent;
-import tbclient.LinkThreadInfo;
 /* loaded from: classes8.dex */
-public class z25 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int g = 1;
+public class z25 extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public boolean a;
     public String b;
-    public String c;
-    public String d;
-    public int e;
-    public boolean f;
+    public ICardInfo c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948308076, "Lcom/baidu/tieba/z25;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308076, "Lcom/baidu/tieba/z25;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948308076, "Lcom/baidu/tieba/z25;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948308076, "Lcom/baidu/tieba/z25;");
-        }
+        d = BdUniqueId.gen();
     }
 
     public z25() {
@@ -51,115 +46,57 @@ public class z25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.e = 0;
-        this.f = false;
     }
 
-    public String a() {
+    public ICardInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return (ICardInfo) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void d() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ICardInfo i = mo8.i(this.b);
+            this.c = i;
+            if (i != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.a = z;
         }
-        return (String) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return d;
         }
-        return (String) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public String e() {
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
         return invokeV.booleanValue;
     }
 
-    public void g(JSONObject jSONObject) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
         }
-        this.a = jSONObject.optString("link_url");
-        JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            try {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
-                if (jSONObject2 != null) {
-                    this.b = jSONObject2.optString("link_title");
-                    this.c = jSONObject2.optString("link_abstract");
-                    this.d = jSONObject2.optString("link_head_small_pic");
-                    this.e = jSONObject2.optInt("link_type");
-                    if (ui.isEmpty(this.b) && ui.isEmpty(this.c)) {
-                        this.f = true;
-                    }
-                } else {
-                    this.f = true;
-                }
-                return;
-            } catch (JSONException unused) {
-                this.f = true;
-                return;
-            }
-        }
-        this.f = true;
-    }
-
-    public void h(LinkThreadInfo linkThreadInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, linkThreadInfo) != null) || linkThreadInfo == null) {
-            return;
-        }
-        this.a = linkThreadInfo.link_url;
-        LinkThreadContent linkThreadContent = (LinkThreadContent) ListUtils.getItem(linkThreadInfo.link_content, 0);
-        if (linkThreadContent != null) {
-            this.b = linkThreadContent.link_title;
-            this.c = linkThreadContent.link_abstract;
-            this.d = linkThreadContent.link_head_small_pic;
-            this.e = linkThreadContent.link_type.intValue();
-            if (ui.isEmpty(this.b) && ui.isEmpty(this.c)) {
-                this.f = true;
-                return;
-            }
-            return;
-        }
-        this.f = true;
     }
 }

@@ -84,7 +84,7 @@ public class ez4 {
     public void d(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
-            String g = lm5.g(intent);
+            String g = nm5.g(intent);
             HashMap<String, JSONObject> hashMap = this.a;
             if (hashMap != null && hashMap.get(g) != null) {
                 JSONObject jSONObject = this.a.get(g);

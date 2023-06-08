@@ -1,10 +1,9 @@
 package com.baidu.tieba;
-
-import android.widget.ListView;
-import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes8.dex */
 public interface yh8 {
-    boolean a(ChatMessage... chatMessageArr);
+    void a(int i, int i2);
 
-    void b(ListView listView, ChatMessage... chatMessageArr);
+    void b(int i, int i2);
+
+    void c(int i, int i2);
 }

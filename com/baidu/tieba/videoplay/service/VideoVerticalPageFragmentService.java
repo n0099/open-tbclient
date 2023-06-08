@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.uo5;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
+import com.baidu.tieba.wo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import kotlin.jvm.functions.Function0;
 @Service
 @Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0007\b\u0007\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\n\u0010\u000b\u001a\u0004\u0018\u00010\fH\u0016J\b\u0010\r\u001a\u00020\u000eH\u0016J\"\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u00122\b\u0010\u0014\u001a\u0004\u0018\u00010\u0015H\u0016J\b\u0010\u0016\u001a\u00020\u0017H\u0016J\u0010\u0010\u0018\u001a\u00020\u00102\u0006\u0010\u0019\u001a\u00020\u0017H\u0016J\u0012\u0010\u001a\u001a\u00020\u00102\b\u0010\u001b\u001a\u0004\u0018\u00010\u0004H\u0016J\u0010\u0010\u001c\u001a\u00020\u00102\u0006\u0010\u001d\u001a\u00020\u0017H\u0016R\u0010\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0005\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\b¨\u0006\u001e"}, d2 = {"Lcom/baidu/tieba/videoplay/service/VideoVerticalPageFragmentService;", "Lcom/baidu/tbadk/module/videoplay/IVideoLandingPage;", "()V", "bdUniqueId", "Lcom/baidu/adp/BdUniqueId;", "videoFragment", "Lcom/baidu/tieba/videoplay/fragment/VideoVerticalPageFragment;", "getVideoFragment", "()Lcom/baidu/tieba/videoplay/fragment/VideoVerticalPageFragment;", "videoFragment$delegate", "Lkotlin/Lazy;", "fragment", "Lcom/baidu/tbadk/core/BaseFragment;", "getMissionTid", "", "handleActivityResult", "", "requestCode", "", "resultCode", "data", "Landroid/content/Intent;", "handleBackPress", "", "setPrimary", "isPrimary", "setUniqueId", "uniqueId", "setUserVisibleHint", "isVisibleToUser", "VideoPlay_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class VideoVerticalPageFragmentService implements uo5 {
+public final class VideoVerticalPageFragmentService implements wo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
@@ -91,7 +91,7 @@ public final class VideoVerticalPageFragmentService implements uo5 {
         return (VideoVerticalPageFragment) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uo5
+    @Override // com.baidu.tieba.wo5
     public long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public final class VideoVerticalPageFragmentService implements uo5 {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.uo5
+    @Override // com.baidu.tieba.wo5
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public final class VideoVerticalPageFragmentService implements uo5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.uo5
+    @Override // com.baidu.tieba.wo5
     public BaseFragment s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public final class VideoVerticalPageFragmentService implements uo5 {
         return (BaseFragment) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uo5
+    @Override // com.baidu.tieba.wo5
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
@@ -129,7 +129,7 @@ public final class VideoVerticalPageFragmentService implements uo5 {
         }
     }
 
-    @Override // com.baidu.tieba.uo5
+    @Override // com.baidu.tieba.wo5
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
@@ -137,7 +137,7 @@ public final class VideoVerticalPageFragmentService implements uo5 {
         }
     }
 
-    @Override // com.baidu.tieba.uo5
+    @Override // com.baidu.tieba.wo5
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
@@ -145,7 +145,7 @@ public final class VideoVerticalPageFragmentService implements uo5 {
         }
     }
 
-    @Override // com.baidu.tieba.uo5
+    @Override // com.baidu.tieba.wo5
     public void p(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {

@@ -24,15 +24,15 @@ import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ae5;
-import com.baidu.tieba.do5;
-import com.baidu.tieba.is7;
-import com.baidu.tieba.js7;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.ns7;
-import com.baidu.tieba.os7;
+import com.baidu.tieba.ce5;
+import com.baidu.tieba.fo5;
+import com.baidu.tieba.ks7;
+import com.baidu.tieba.ls7;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.oy;
+import com.baidu.tieba.ps7;
 import com.baidu.tieba.py;
+import com.baidu.tieba.qs7;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.view.ImageOverlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> {
+public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ce5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -51,24 +51,24 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
     public PullLeftRefreshLayout c;
     public RecyclerView d;
     public HorizontalAdapter e;
-    public ae5 f;
+    public ce5 f;
     public PullLeftRefreshLayout.f g;
-    public is7<js7> h;
+    public ks7<ls7> h;
 
     /* loaded from: classes5.dex */
     public static class HorizontalAdapter extends RecyclerView.Adapter<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
-        public ArrayList<js7> b;
-        public is7<js7> c;
+        public ArrayList<ls7> b;
+        public ks7<ls7> c;
 
         /* loaded from: classes5.dex */
         public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
-            public js7 b;
+            public ls7 b;
             public TBLottieAnimationView c;
             public LinearLayout d;
             public TextView e;
@@ -114,12 +114,12 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
                 this.itemView.setOnClickListener(this);
             }
 
-            public void a(js7 js7Var, int i) {
+            public void a(ls7 ls7Var, int i) {
                 Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeLI(1048576, this, js7Var, i) != null) || js7Var == null) {
+                if ((interceptable != null && interceptable.invokeLI(1048576, this, ls7Var, i) != null) || ls7Var == null) {
                     return;
                 }
-                this.b = js7Var;
+                this.b = ls7Var;
                 if (this.k.c != null) {
                     this.k.c.a(this.itemView, this.b, getAdapterPosition());
                 }
@@ -135,36 +135,36 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                     if (this.a != i) {
                         SkinManager.setLottieAnimation(this.c, R.raw.lottie_voice_room_voicing_icon);
-                        m75 d = m75.d(this.itemView);
+                        o75 d = o75.d(this.itemView);
                         d.o(R.string.J_X05);
                         d.f(R.color.CAM_X0201);
-                        m75 d2 = m75.d(this.d);
+                        o75 d2 = o75.d(this.d);
                         d2.o(R.string.J_X01);
                         d2.f(R.color.CAM_X0919);
-                        m75.d(this.e).w(R.color.CAM_X0115);
-                        m75 d3 = m75.d(this.f);
+                        o75.d(this.e).w(R.color.CAM_X0115);
+                        o75 d3 = o75.d(this.f);
                         d3.C(R.string.F_X02);
                         d3.w(R.color.CAM_X0105);
-                        m75 d4 = m75.d(this.j);
+                        o75 d4 = o75.d(this.j);
                         d4.w(R.color.CAM_X0115);
                         d4.o(R.string.J_X01);
                         d4.f(R.color.CAM_X0919);
-                        m75.d(this.h).w(R.color.CAM_X0108);
-                        m75.d(this.i).w(R.color.CAM_X0108);
+                        o75.d(this.h).w(R.color.CAM_X0108);
+                        o75.d(this.i).w(R.color.CAM_X0108);
                     }
                     this.a = i;
                 }
             }
 
-            public final void c(js7 js7Var) {
+            public final void c(ls7 ls7Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, js7Var) != null) || js7Var == null) {
+                if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ls7Var) != null) || ls7Var == null) {
                     return;
                 }
-                this.f.setText(js7Var.a);
-                this.g.setData(js7Var.b);
-                this.h.setText(String.format(this.k.a.getResources().getString(R.string.voice_room_talking_num), js7Var.c));
-                this.i.setText(String.format(this.k.a.getResources().getString(R.string.voice_room_online_num), js7Var.d));
+                this.f.setText(ls7Var.a);
+                this.g.setData(ls7Var.b);
+                this.h.setText(String.format(this.k.a.getResources().getString(R.string.voice_room_talking_num), ls7Var.c));
+                this.i.setText(String.format(this.k.a.getResources().getString(R.string.voice_room_online_num), ls7Var.d));
                 this.c.setRepeatCount(Integer.MAX_VALUE);
                 this.c.setRepeatMode(1);
                 this.c.playAnimation();
@@ -209,14 +209,14 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
             this.a = context;
         }
 
-        public void o(is7<js7> is7Var) {
+        public void o(ks7<ls7> ks7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, is7Var) == null) {
-                this.c = is7Var;
+            if (interceptable == null || interceptable.invokeL(1048579, this, ks7Var) == null) {
+                this.c = ks7Var;
             }
         }
 
-        public void setData(List<js7> list) {
+        public void setData(List<ls7> list) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || list == null) {
                 return;
@@ -231,7 +231,7 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList<js7> arrayList = this.b;
+                ArrayList<ls7> arrayList = this.b;
                 if (arrayList == null) {
                     return 0;
                 }
@@ -246,7 +246,7 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
         public void onBindViewHolder(@NonNull a aVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i) == null) {
-                aVar.a((js7) ListUtils.getItem(this.b, i), getItemCount());
+                aVar.a((ls7) ListUtils.getItem(this.b, i), getItemCount());
             }
         }
 
@@ -294,12 +294,12 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.f == null) {
                 return;
             }
-            ((do5) ServiceManager.getService(do5.a.a())).c(this.a.getContext(), Frs$From.FRS, this.a.f.b(), this.a.f.c());
+            ((fo5) ServiceManager.getService(fo5.a.a())).c(this.a.getContext(), Frs$From.FRS, this.a.f.b(), this.a.f.c());
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements is7<js7> {
+    public class b implements ks7<ls7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsVoiceRoomListLayout a;
@@ -323,23 +323,23 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.is7
+        @Override // com.baidu.tieba.ks7
         /* renamed from: c */
-        public void a(View view2, js7 js7Var, int i) {
+        public void a(View view2, ls7 ls7Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, js7Var, i) == null) && js7Var != null && this.a.f != null) {
-                os7.a("c14457", this.a.f.b().longValue(), this.a.f.c(), js7Var, i);
+            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, ls7Var, i) == null) && ls7Var != null && this.a.f != null) {
+                qs7.a("c14457", this.a.f.b().longValue(), this.a.f.c(), ls7Var, i);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.is7
+        @Override // com.baidu.tieba.ks7
         /* renamed from: d */
-        public void b(View view2, js7 js7Var, int i) {
+        public void b(View view2, ls7 ls7Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048579, this, view2, js7Var, i) == null) && js7Var != null && this.a.f != null) {
-                ((do5) ServiceManager.getService(do5.a.a())).b(this.a.a, js7Var.e);
-                os7.a("c14458", this.a.f.b().longValue(), this.a.f.c(), js7Var, i);
+            if ((interceptable == null || interceptable.invokeLLI(1048579, this, view2, ls7Var, i) == null) && ls7Var != null && this.a.f != null) {
+                ((fo5) ServiceManager.getService(fo5.a.a())).b(this.a.a, ls7Var.e);
+                qs7.a("c14458", this.a.f.b().longValue(), this.a.f.c(), ls7Var, i);
             }
         }
     }
@@ -392,14 +392,14 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements py, oy<ae5> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: e */
-    public void a(ae5 ae5Var) {
+    public void a(ce5 ce5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ae5Var) != null) || ae5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ce5Var) != null) || ce5Var == null) {
             return;
         }
-        this.e.setData(ns7.a(ae5Var.a()));
+        this.e.setData(ps7.a(ce5Var.a()));
         this.d.setAdapter(this.e);
-        this.f = ae5Var;
+        this.f = ce5Var;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {

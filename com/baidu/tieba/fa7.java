@@ -1,187 +1,104 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.filedownloader.FileDownloaderProxy;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.feed.widget.uistate.PersonAttentionUiStateKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function3;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class fa7 {
+public final class fa7 extends h87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final y57 c;
+    public final String d;
+    public Function1<? super c67, Unit> e;
+    public final Function2<fa7, TbPageContext<?>, Unit> f;
+    public final Function3<fa7, TbPageContext<?>, Object, Unit> g;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements ia7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DownloadData a;
-
-        @Override // com.baidu.tieba.ia7
-        public void a(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-            }
-        }
-
-        @Override // com.baidu.tieba.ia7
-        public void b(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-            }
-        }
-
-        @Override // com.baidu.tieba.ia7
-        public void f(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-            }
-        }
-
-        public a(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {downloadData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = downloadData;
-        }
-
-        @Override // com.baidu.tieba.ia7
-        public void c(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                ez4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_COMPLETION, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
-            }
-        }
-
-        @Override // com.baidu.tieba.ia7
-        public void d(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                ez4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_PAUSE, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
-            }
-        }
-
-        @Override // com.baidu.tieba.ia7
-        public void e(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                ez4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_DELETE, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
-            }
-        }
-    }
-
-    public fa7() {
+    @JvmOverloads
+    public fa7(y57 personAttentionData, String str, Function1<? super c67, Unit> onStat, Function2<? super fa7, ? super TbPageContext<?>, Unit> onAttentionClick, Function3<? super fa7, ? super TbPageContext<?>, Object, Unit> registerAttentionListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personAttentionData, str, onStat, onAttentionClick, registerAttentionListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(personAttentionData, "personAttentionData");
+        Intrinsics.checkNotNullParameter(onStat, "onStat");
+        Intrinsics.checkNotNullParameter(onAttentionClick, "onAttentionClick");
+        Intrinsics.checkNotNullParameter(registerAttentionListener, "registerAttentionListener");
+        this.c = personAttentionData;
+        this.d = str;
+        this.e = onStat;
+        this.f = onAttentionClick;
+        this.g = registerAttentionListener;
     }
 
-    public final ha7 c() {
+    public /* synthetic */ fa7(y57 y57Var, String str, Function1 function1, Function2 function2, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(y57Var, str, (i & 4) != 0 ? PersonAttentionUiStateKt.c : function1, (i & 8) != 0 ? PersonAttentionUiStateKt.c() : function2, (i & 16) != 0 ? PersonAttentionUiStateKt.b : function3);
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Function2<fa7, TbPageContext<?>, Unit> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function1<? super com.baidu.tieba.c67, kotlin.Unit>, kotlin.jvm.functions.Function1<com.baidu.tieba.c67, kotlin.Unit> */
+    public final Function1<c67, Unit> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return FileDownloaderProxy.b.a(1);
+            return this.e;
         }
-        return (ha7) invokeV.objValue;
+        return (Function1) invokeV.objValue;
     }
 
-    public final void a(ia7 callback) {
+    public final y57 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            c().a(callback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
+        return (y57) invokeV.objValue;
     }
 
-    public final void b(DownloadData data) {
+    public final Function3<fa7, TbPageContext<?>, Object, Unit> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            c().c(data);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
         }
-    }
-
-    public final int d(DownloadData data) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            return c().f(data);
-        }
-        return invokeL.intValue;
-    }
-
-    public final int e(DownloadData data) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            return c().d(data);
-        }
-        return invokeL.intValue;
-    }
-
-    public final void f(DownloadData data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            c().e(data);
-        }
-    }
-
-    public final void g(ia7 callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            c().g(callback);
-        }
-    }
-
-    public final boolean h(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadData)) == null) {
-            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
-            int d = c().d(downloadData);
-            boolean b = c().b(downloadData, new a(downloadData));
-            if (b) {
-                if (d == 7) {
-                    ez4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_RESUME, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl());
-                } else {
-                    ez4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_START, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl());
-                }
-            }
-            return b;
-        }
-        return invokeL.booleanValue;
+        return (Function3) invokeV.objValue;
     }
 }

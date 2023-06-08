@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class mz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fa7 a;
+    public static volatile ha7 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,19 +27,19 @@ public class mz4 {
         }
     }
 
-    public static fa7 a() {
+    public static ha7 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (a == null) {
                 synchronized (CommonTbJsBridge.class) {
                     if (a == null) {
-                        a = new fa7();
+                        a = new ha7();
                     }
                 }
             }
             return a;
         }
-        return (fa7) invokeV.objValue;
+        return (ha7) invokeV.objValue;
     }
 }

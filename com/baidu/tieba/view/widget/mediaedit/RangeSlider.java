@@ -17,8 +17,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r46;
-import com.baidu.tieba.uca;
+import com.baidu.tieba.t46;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class RangeSlider extends ViewGroup {
     public b v;
     public ValueAnimator w;
     public int x;
-    public uca y;
+    public zca y;
     public Paint z;
 
     /* loaded from: classes8.dex */
@@ -161,7 +161,7 @@ public class RangeSlider extends ViewGroup {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r46.RangeSlider, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, t46.RangeSlider, 0, 0);
         this.p = obtainStyledAttributes.getDimensionPixelOffset(10, 7);
         this.q = obtainStyledAttributes.getDimensionPixelOffset(9, 70);
         this.a = obtainStyledAttributes.getDimensionPixelOffset(12, 2);
@@ -188,7 +188,7 @@ public class RangeSlider extends ViewGroup {
         Drawable drawable2 = obtainStyledAttributes.getDrawable(6);
         this.e = new ThumbView(context, this.p, this.q, drawable == null ? new ColorDrawable(-65456) : drawable);
         this.f = new ThumbView(context, this.p, this.q, drawable2 == null ? new ColorDrawable(-65456) : drawable2);
-        this.y = new uca(context);
+        this.y = new zca(context);
         this.y.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
         obtainStyledAttributes.recycle();
         this.j = this.g;
@@ -203,18 +203,18 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             if (this.A == 1) {
-                uca ucaVar = this.y;
-                if (ucaVar != null) {
-                    ucaVar.setX(f);
+                zca zcaVar = this.y;
+                if (zcaVar != null) {
+                    zcaVar.setX(f);
                     return;
                 }
                 return;
             }
-            uca ucaVar2 = this.y;
-            if (ucaVar2 != null && (thumbView = this.f) != null) {
+            zca zcaVar2 = this.y;
+            if (zcaVar2 != null && (thumbView = this.f) != null) {
                 float f2 = this.g;
                 if (f <= f2) {
-                    ucaVar2.setX(f2);
+                    zcaVar2.setX(f2);
                 } else if (f >= thumbView.getX()) {
                     this.y.setX(this.f.getX() - UtilHelper.getDimenPixelSize(R.dimen.tbds4));
                 } else {
@@ -351,8 +351,8 @@ public class RangeSlider extends ViewGroup {
             float f2 = this.n;
             this.j = (int) (f2 + (f * (this.o - f2)));
             invalidate();
-            uca ucaVar = this.y;
-            if (ucaVar != null && !ucaVar.isPressed()) {
+            zca zcaVar = this.y;
+            if (zcaVar != null && !zcaVar.isPressed()) {
                 setVideoPointerViewPosition(this.j);
             }
         }
@@ -495,7 +495,7 @@ public class RangeSlider extends ViewGroup {
     }
 
     public void n(float f, float f2) {
-        uca ucaVar;
+        zca zcaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             ThumbView thumbView = this.e;
@@ -506,8 +506,8 @@ public class RangeSlider extends ViewGroup {
             if (thumbView2 != null) {
                 thumbView2.setX(f2);
             }
-            if (this.A == 1 && (ucaVar = this.y) != null) {
-                ucaVar.setX(f + this.p);
+            if (this.A == 1 && (zcaVar = this.y) != null) {
+                zcaVar.setX(f + this.p);
             }
             invalidate();
         }

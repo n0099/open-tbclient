@@ -3,38 +3,38 @@ package rx.internal.util;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tieba.anb;
-import com.baidu.tieba.gob;
-import com.baidu.tieba.imb;
-import com.baidu.tieba.kmb;
-import com.baidu.tieba.lmb;
-import com.baidu.tieba.omb;
+import com.baidu.tieba.fnb;
+import com.baidu.tieba.lob;
+import com.baidu.tieba.nmb;
 import com.baidu.tieba.pmb;
-import com.baidu.tieba.pqb;
-import com.baidu.tieba.sqb;
+import com.baidu.tieba.qmb;
+import com.baidu.tieba.tmb;
 import com.baidu.tieba.umb;
-import com.baidu.tieba.vmb;
+import com.baidu.tieba.uqb;
+import com.baidu.tieba.xqb;
+import com.baidu.tieba.zmb;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes2.dex */
-public final class ScalarSynchronousObservable<T> extends imb<T> {
+public final class ScalarSynchronousObservable<T> extends nmb<T> {
     public static final boolean c = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     public final T b;
 
     /* loaded from: classes2.dex */
-    public class b implements anb<vmb, pmb> {
-        public final /* synthetic */ lmb a;
+    public class b implements fnb<anb, umb> {
+        public final /* synthetic */ qmb a;
 
         /* loaded from: classes2.dex */
-        public class a implements vmb {
-            public final /* synthetic */ vmb a;
-            public final /* synthetic */ lmb.a b;
+        public class a implements anb {
+            public final /* synthetic */ anb a;
+            public final /* synthetic */ qmb.a b;
 
-            public a(b bVar, vmb vmbVar, lmb.a aVar) {
-                this.a = vmbVar;
+            public a(b bVar, anb anbVar, qmb.a aVar) {
+                this.a = anbVar;
                 this.b = aVar;
             }
 
-            @Override // com.baidu.tieba.vmb
+            @Override // com.baidu.tieba.anb
             public void call() {
                 try {
                     this.a.call();
@@ -44,47 +44,47 @@ public final class ScalarSynchronousObservable<T> extends imb<T> {
             }
         }
 
-        public b(ScalarSynchronousObservable scalarSynchronousObservable, lmb lmbVar) {
-            this.a = lmbVar;
+        public b(ScalarSynchronousObservable scalarSynchronousObservable, qmb qmbVar) {
+            this.a = qmbVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.anb
-        public pmb call(vmb vmbVar) {
-            lmb.a createWorker = this.a.createWorker();
-            createWorker.b(new a(this, vmbVar, createWorker));
+        @Override // com.baidu.tieba.fnb
+        public umb call(anb anbVar) {
+            qmb.a createWorker = this.a.createWorker();
+            createWorker.b(new a(this, anbVar, createWorker));
             return createWorker;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements kmb, vmb {
+    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements pmb, anb {
         public static final long serialVersionUID = -2466317989629281651L;
-        public final omb<? super T> actual;
-        public final anb<vmb, pmb> onSchedule;
+        public final tmb<? super T> actual;
+        public final fnb<anb, umb> onSchedule;
         public final T value;
 
-        public ScalarAsyncProducer(omb<? super T> ombVar, T t, anb<vmb, pmb> anbVar) {
-            this.actual = ombVar;
+        public ScalarAsyncProducer(tmb<? super T> tmbVar, T t, fnb<anb, umb> fnbVar) {
+            this.actual = tmbVar;
             this.value = t;
-            this.onSchedule = anbVar;
+            this.onSchedule = fnbVar;
         }
 
-        @Override // com.baidu.tieba.vmb
+        @Override // com.baidu.tieba.anb
         public void call() {
-            omb<? super T> ombVar = this.actual;
-            if (ombVar.isUnsubscribed()) {
+            tmb<? super T> tmbVar = this.actual;
+            if (tmbVar.isUnsubscribed()) {
                 return;
             }
             Object obj = (T) this.value;
             try {
-                ombVar.onNext(obj);
-                if (ombVar.isUnsubscribed()) {
+                tmbVar.onNext(obj);
+                if (tmbVar.isUnsubscribed()) {
                     return;
                 }
-                ombVar.onCompleted();
+                tmbVar.onCompleted();
             } catch (Throwable th) {
-                umb.g(th, ombVar, obj);
+                zmb.g(th, tmbVar, obj);
             }
         }
 
@@ -93,7 +93,7 @@ public final class ScalarSynchronousObservable<T> extends imb<T> {
             return "ScalarAsyncProducer[" + this.value + StringUtil.ARRAY_ELEMENT_SEPARATOR + get() + PreferencesUtil.RIGHT_MOUNT;
         }
 
-        @Override // com.baidu.tieba.kmb
+        @Override // com.baidu.tieba.pmb
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
@@ -108,94 +108,94 @@ public final class ScalarSynchronousObservable<T> extends imb<T> {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements anb<vmb, pmb> {
-        public final /* synthetic */ gob a;
+    public class a implements fnb<anb, umb> {
+        public final /* synthetic */ lob a;
 
-        public a(ScalarSynchronousObservable scalarSynchronousObservable, gob gobVar) {
-            this.a = gobVar;
+        public a(ScalarSynchronousObservable scalarSynchronousObservable, lob lobVar) {
+            this.a = lobVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.anb
-        public pmb call(vmb vmbVar) {
-            return this.a.a(vmbVar);
+        @Override // com.baidu.tieba.fnb
+        public umb call(anb anbVar) {
+            return this.a.a(anbVar);
         }
     }
 
     /* JADX INFO: Add missing generic type declarations: [R] */
     /* loaded from: classes2.dex */
-    public class c<R> implements imb.a<R> {
-        public final /* synthetic */ anb a;
+    public class c<R> implements nmb.a<R> {
+        public final /* synthetic */ fnb a;
 
-        public c(anb anbVar) {
-            this.a = anbVar;
+        public c(fnb fnbVar) {
+            this.a = fnbVar;
         }
 
-        public void call(omb<? super R> ombVar) {
-            imb imbVar = (imb) this.a.call(ScalarSynchronousObservable.this.b);
-            if (imbVar instanceof ScalarSynchronousObservable) {
-                ombVar.f(ScalarSynchronousObservable.H(ombVar, ((ScalarSynchronousObservable) imbVar).b));
+        public void call(tmb<? super R> tmbVar) {
+            nmb nmbVar = (nmb) this.a.call(ScalarSynchronousObservable.this.b);
+            if (nmbVar instanceof ScalarSynchronousObservable) {
+                tmbVar.f(ScalarSynchronousObservable.H(tmbVar, ((ScalarSynchronousObservable) nmbVar).b));
             } else {
-                imbVar.F(pqb.c(ombVar));
+                nmbVar.F(uqb.c(tmbVar));
             }
         }
 
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((omb) ((omb) obj));
+            call((tmb) ((tmb) obj));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class d<T> implements imb.a<T> {
+    public static final class d<T> implements nmb.a<T> {
         public final T a;
 
         public d(T t) {
             this.a = t;
         }
 
-        public void call(omb<? super T> ombVar) {
-            ombVar.f(ScalarSynchronousObservable.H(ombVar, this.a));
+        public void call(tmb<? super T> tmbVar) {
+            tmbVar.f(ScalarSynchronousObservable.H(tmbVar, this.a));
         }
 
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((omb) ((omb) obj));
+            call((tmb) ((tmb) obj));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class e<T> implements imb.a<T> {
+    public static final class e<T> implements nmb.a<T> {
         public final T a;
-        public final anb<vmb, pmb> b;
+        public final fnb<anb, umb> b;
 
-        public e(T t, anb<vmb, pmb> anbVar) {
+        public e(T t, fnb<anb, umb> fnbVar) {
             this.a = t;
-            this.b = anbVar;
+            this.b = fnbVar;
         }
 
-        public void call(omb<? super T> ombVar) {
-            ombVar.f(new ScalarAsyncProducer(ombVar, this.a, this.b));
+        public void call(tmb<? super T> tmbVar) {
+            tmbVar.f(new ScalarAsyncProducer(tmbVar, this.a, this.b));
         }
 
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((omb) ((omb) obj));
+            call((tmb) ((tmb) obj));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class f<T> implements kmb {
-        public final omb<? super T> a;
+    public static final class f<T> implements pmb {
+        public final tmb<? super T> a;
         public final T b;
         public boolean c;
 
-        public f(omb<? super T> ombVar, T t) {
-            this.a = ombVar;
+        public f(tmb<? super T> tmbVar, T t) {
+            this.a = tmbVar;
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.kmb
+        @Override // com.baidu.tieba.pmb
         public void request(long j) {
             if (this.c) {
                 return;
@@ -206,20 +206,20 @@ public final class ScalarSynchronousObservable<T> extends imb<T> {
                     return;
                 }
                 this.c = true;
-                omb<? super T> ombVar = this.a;
-                if (ombVar.isUnsubscribed()) {
+                tmb<? super T> tmbVar = this.a;
+                if (tmbVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.b;
                 try {
-                    ombVar.onNext(obj);
-                    if (ombVar.isUnsubscribed()) {
+                    tmbVar.onNext(obj);
+                    if (tmbVar.isUnsubscribed()) {
                         return;
                     }
-                    ombVar.onCompleted();
+                    tmbVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    umb.g(th, ombVar, obj);
+                    zmb.g(th, tmbVar, obj);
                     return;
                 }
             }
@@ -232,7 +232,7 @@ public final class ScalarSynchronousObservable<T> extends imb<T> {
     }
 
     public ScalarSynchronousObservable(T t) {
-        super(sqb.h(new d(t)));
+        super(xqb.h(new d(t)));
         this.b = t;
     }
 
@@ -240,24 +240,24 @@ public final class ScalarSynchronousObservable<T> extends imb<T> {
         return new ScalarSynchronousObservable<>(t);
     }
 
-    public <R> imb<R> J(anb<? super T, ? extends imb<? extends R>> anbVar) {
-        return imb.a(new c(anbVar));
+    public <R> nmb<R> J(fnb<? super T, ? extends nmb<? extends R>> fnbVar) {
+        return nmb.a(new c(fnbVar));
     }
 
-    public imb<T> K(lmb lmbVar) {
-        anb bVar;
-        if (lmbVar instanceof gob) {
-            bVar = new a(this, (gob) lmbVar);
+    public nmb<T> K(qmb qmbVar) {
+        fnb bVar;
+        if (qmbVar instanceof lob) {
+            bVar = new a(this, (lob) qmbVar);
         } else {
-            bVar = new b(this, lmbVar);
+            bVar = new b(this, qmbVar);
         }
-        return imb.a(new e(this.b, bVar));
+        return nmb.a(new e(this.b, bVar));
     }
 
-    public static <T> kmb H(omb<? super T> ombVar, T t) {
+    public static <T> pmb H(tmb<? super T> tmbVar, T t) {
         if (c) {
-            return new SingleProducer(ombVar, t);
+            return new SingleProducer(tmbVar, t);
         }
-        return new f(ombVar, t);
+        return new f(tmbVar, t);
     }
 }

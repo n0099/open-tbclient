@@ -1,25 +1,25 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.gmb;
-import com.baidu.tieba.hmb;
-import com.baidu.tieba.hrb;
-import com.baidu.tieba.irb;
-import com.baidu.tieba.pmb;
+import com.baidu.tieba.lmb;
+import com.baidu.tieba.mmb;
+import com.baidu.tieba.mrb;
+import com.baidu.tieba.nrb;
+import com.baidu.tieba.umb;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class CompletableOnSubscribeConcatIterable implements gmb.f {
-    public final Iterable<? extends gmb> a;
+public final class CompletableOnSubscribeConcatIterable implements lmb.f {
+    public final Iterable<? extends lmb> a;
 
     /* loaded from: classes2.dex */
-    public static final class ConcatInnerSubscriber extends AtomicInteger implements hmb {
+    public static final class ConcatInnerSubscriber extends AtomicInteger implements mmb {
         public static final long serialVersionUID = -7965400327305809232L;
-        public final hmb actual;
-        public final hrb sd = new hrb();
-        public final Iterator<? extends gmb> sources;
+        public final mmb actual;
+        public final mrb sd = new mrb();
+        public final Iterator<? extends lmb> sources;
 
-        public ConcatInnerSubscriber(hmb hmbVar, Iterator<? extends gmb> it) {
-            this.actual = hmbVar;
+        public ConcatInnerSubscriber(mmb mmbVar, Iterator<? extends lmb> it) {
+            this.actual = mmbVar;
             this.sources = it;
         }
 
@@ -27,7 +27,7 @@ public final class CompletableOnSubscribeConcatIterable implements gmb.f {
             if (this.sd.isUnsubscribed() || getAndIncrement() != 0) {
                 return;
             }
-            Iterator<? extends gmb> it = this.sources;
+            Iterator<? extends lmb> it = this.sources;
             while (!this.sd.isUnsubscribed()) {
                 try {
                     if (!it.hasNext()) {
@@ -35,7 +35,7 @@ public final class CompletableOnSubscribeConcatIterable implements gmb.f {
                         return;
                     }
                     try {
-                        gmb next = it.next();
+                        lmb next = it.next();
                         if (next == null) {
                             this.actual.onError(new NullPointerException("The completable returned is null"));
                             return;
@@ -55,42 +55,42 @@ public final class CompletableOnSubscribeConcatIterable implements gmb.f {
             }
         }
 
-        @Override // com.baidu.tieba.hmb
+        @Override // com.baidu.tieba.mmb
         public void onCompleted() {
             next();
         }
 
-        @Override // com.baidu.tieba.hmb
+        @Override // com.baidu.tieba.mmb
         public void onError(Throwable th) {
             this.actual.onError(th);
         }
 
-        @Override // com.baidu.tieba.hmb
-        public void onSubscribe(pmb pmbVar) {
-            this.sd.a(pmbVar);
+        @Override // com.baidu.tieba.mmb
+        public void onSubscribe(umb umbVar) {
+            this.sd.a(umbVar);
         }
     }
 
-    public CompletableOnSubscribeConcatIterable(Iterable<? extends gmb> iterable) {
+    public CompletableOnSubscribeConcatIterable(Iterable<? extends lmb> iterable) {
         this.a = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gmb.f, com.baidu.tieba.wmb
-    public void call(hmb hmbVar) {
+    @Override // com.baidu.tieba.lmb.f, com.baidu.tieba.bnb
+    public void call(mmb mmbVar) {
         try {
-            Iterator<? extends gmb> it = this.a.iterator();
+            Iterator<? extends lmb> it = this.a.iterator();
             if (it == null) {
-                hmbVar.onSubscribe(irb.c());
-                hmbVar.onError(new NullPointerException("The iterator returned is null"));
+                mmbVar.onSubscribe(nrb.c());
+                mmbVar.onError(new NullPointerException("The iterator returned is null"));
                 return;
             }
-            ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(hmbVar, it);
-            hmbVar.onSubscribe(concatInnerSubscriber.sd);
+            ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(mmbVar, it);
+            mmbVar.onSubscribe(concatInnerSubscriber.sd);
             concatInnerSubscriber.next();
         } catch (Throwable th) {
-            hmbVar.onSubscribe(irb.c());
-            hmbVar.onError(th);
+            mmbVar.onSubscribe(nrb.c());
+            mmbVar.onError(th);
         }
     }
 }

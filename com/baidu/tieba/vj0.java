@@ -44,7 +44,7 @@ public class vj0 implements cl1 {
             arrayList.add(new cq0());
             arrayList.add(new oa1());
             arrayList.add(new jb1());
-            arrayList.add(new q56());
+            arrayList.add(new s56());
             return arrayList;
         }
         return invokeV.objValue;

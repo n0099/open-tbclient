@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.player.model.YYOption;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.a.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.sdk.core.webview.a.a.a aVar, JSONObject jSONObject) {

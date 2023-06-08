@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+
+import com.baidu.tieba.fda;
+/* loaded from: classes6.dex */
 public interface nda {
-    void g(String str);
-
-    void k(String str);
-
-    void n();
+    void a(fda.b bVar);
 }

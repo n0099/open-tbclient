@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.topic.local.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.h38;
+import com.baidu.tieba.j38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class LocalChannelTopicListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h38 data;
+    public j38 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalChannelTopicListResponseMessage() {
@@ -38,7 +38,7 @@ public class LocalChannelTopicListResponseMessage extends JsonHttpResponsedMessa
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                this.data = h38.a(jSONObject);
+                this.data = j38.a(jSONObject);
             }
         }
     }

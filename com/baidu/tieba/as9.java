@@ -1,51 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
 /* loaded from: classes5.dex */
-public class as9 implements cs9 {
+public class as9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zr9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public as9(int i, int i2) {
+    public static synchronized zr9 a() {
+        InterceptResult invokeV;
+        zr9 zr9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (as9.class) {
+                if (a == null) {
+                    a = new zr9();
+                }
+                zr9Var = a;
             }
+            return zr9Var;
         }
-        this.a = i;
-        this.b = i2;
-    }
-
-    @Override // com.baidu.tieba.cs9
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if (networkStatRecord == null) {
-                return false;
-            }
-            if ((networkStatRecord.from == 3 && f05.e()) || new Random().nextInt(this.b) >= this.a) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (zr9) invokeV.objValue;
     }
 }

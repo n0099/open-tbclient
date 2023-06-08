@@ -101,7 +101,7 @@ public class bg0 {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1091T;
+    public boolean f1087T;
     public boolean U;
     public int V;
     public int W;
@@ -777,7 +777,7 @@ public class bg0 {
                         }
                         aVar.h = this.a.Q;
                         aVar.i = this.a.R;
-                        aVar.j = this.a.f1091T;
+                        aVar.j = this.a.f1087T;
                         aVar.k = this.a.S;
                         aVar.l = this.a.U;
                         aVar.m = this.a.V;
@@ -1112,7 +1112,7 @@ public class bg0 {
         this.O = new ArrayList();
         this.P = new ArrayList();
         this.S = false;
-        this.f1091T = false;
+        this.f1087T = false;
         this.U = false;
         this.X = new JSONObject();
         this.Y = new JSONObject();

@@ -100,9 +100,9 @@ public class ey extends wx implements oy<ThreadData>, py {
         }
     }
 
-    public void k(f15 f15Var, boolean z) {
+    public void k(h15 h15Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f15Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h15Var, z) == null) {
             this.f = z;
             t(0);
             o(true);

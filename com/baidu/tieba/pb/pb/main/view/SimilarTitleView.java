@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.pb.databinding.SimilarTitleViewBinding;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -171,7 +171,7 @@ public final class SimilarTitleView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m75 d = m75.d(getBinding().c);
+            o75 d = o75.d(getBinding().c);
             d.B(R.dimen.T_X07);
             d.C(R.string.F_X02);
             d.w(R.color.CAM_X0105);
@@ -196,7 +196,7 @@ public final class SimilarTitleView extends RelativeLayout {
                 layoutParams.leftMargin = this.b;
                 textView.setLayoutParams(layoutParams);
                 textView.setText(str);
-                m75 d = m75.d(textView);
+                o75 d = o75.d(textView);
                 d.B(R.dimen.T_X10);
                 d.w(R.color.CAM_X0108);
                 d.o(R.string.J_X04);

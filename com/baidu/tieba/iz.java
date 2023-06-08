@@ -70,7 +70,7 @@ public class iz extends wx implements oy<ThreadData> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String jumpUrl = this.a.getJumpUrl();
                 if (!StringUtils.isNull(jumpUrl)) {
-                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{iz9.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
+                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{nz9.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.e.getPageActivity(), this.a.getCardId())));
@@ -154,7 +154,7 @@ public class iz extends wx implements oy<ThreadData> {
                 } catch (Resources.NotFoundException e) {
                     BdLog.e(e);
                 }
-                m75 d = m75.d(this.g);
+                o75 d = o75.d(this.g);
                 d.B(R.dimen.T_X09);
                 d.w(R.color.CAM_X0105);
                 this.h.setAlpha(0.7f);

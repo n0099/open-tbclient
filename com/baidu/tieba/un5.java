@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.List;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 /* loaded from: classes8.dex */
 public interface un5 {
-    boolean a(int i, long j, @NonNull List<ChatMsg> list);
+    @WorkerThread
+    void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
 }

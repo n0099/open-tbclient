@@ -1,39 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.App;
+import tbclient.GoodsInfo;
 /* loaded from: classes7.dex */
-public class nl9 implements u36<ml9> {
+public class nl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public nl9() {
+    @NonNull
+    public static String a(@NonNull App app) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            String str = "";
+            if (list == null) {
+                return "";
             }
+            for (GoodsInfo goodsInfo : list) {
+                if (goodsInfo != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
+                        if (optJSONObject != null) {
+                            str = optJSONObject.optString("id");
+                        }
+                        return str;
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u36
-    /* renamed from: b */
-    public ml9 a() {
-        InterceptResult invokeV;
+    public static int b(@NonNull App app) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new ml9();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            if (list == null) {
+                return -1;
+            }
+            Iterator<GoodsInfo> it = list.iterator();
+            while (it.hasNext()) {
+                GoodsInfo next = it.next();
+                if (next != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
+                        if (optJSONObject == null) {
+                            return -1;
+                        }
+                        return tg.e(optJSONObject.optString("pos"), -1);
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return -1;
         }
-        return (ml9) invokeV.objValue;
+        return invokeL.intValue;
+    }
+
+    public static void c(@NonNull App.Builder builder, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65538, null, builder, i) != null) || builder.goods_info == null) {
+            return;
+        }
+        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
+            GoodsInfo goodsInfo = (GoodsInfo) yo8.d(builder.goods_info, i2);
+            if (goodsInfo != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
+                    if (optJSONObject != null) {
+                        optJSONObject.put("pos", String.valueOf(tg.e(optJSONObject.optString("pos"), 0) + i));
+                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
+                        builder2.lego_card = jSONObject.toString();
+                        builder.goods_info.set(i2, builder2.build(false));
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+        }
     }
 }

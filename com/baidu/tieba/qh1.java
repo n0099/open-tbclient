@@ -23,13 +23,13 @@ public class qh1 {
 
         /* renamed from: com.baidu.tieba.qh1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0427a extends ii1 {
+        public class C0436a extends ii1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONArray a;
             public final /* synthetic */ a b;
 
-            public C0427a(a aVar, JSONArray jSONArray) {
+            public C0436a(a aVar, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class qh1 {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (a = qh1.a()) == null) {
                 return;
             }
-            mh1.d(a, new C0427a(this, a));
+            mh1.d(a, new C0436a(this, a));
         }
     }
 

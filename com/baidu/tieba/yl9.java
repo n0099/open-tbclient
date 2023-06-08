@@ -1,9 +1,27 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface yl9 {
-    int a();
+    void autoPlay(int i);
 
-    void b();
+    boolean canPlay();
 
-    void c();
+    long getCurrentPosition();
+
+    int getPlayStatus();
+
+    String getPlayUrl();
+
+    View getVideoContainer();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void release();
+
+    void startPlay();
+
+    void stopPlay();
 }

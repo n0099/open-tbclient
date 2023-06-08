@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 /* loaded from: classes8.dex */
 public interface un8 {
-    void a(ICardInfo iCardInfo);
+    kp8 h1();
 
-    un8 b(String str, int i);
+    fp8 k0();
 
-    un8 c(String str, long j);
-
-    un8 d(String str, String str2);
+    LegoListFragment r0();
 }

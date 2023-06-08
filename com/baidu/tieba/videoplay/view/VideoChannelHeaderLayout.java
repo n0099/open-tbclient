@@ -24,7 +24,7 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -411,7 +411,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             this.b.setOnTabItemClickListener(new b(this));
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902f3);
             this.c = textView;
-            m75 d2 = m75.d(textView);
+            o75 d2 = o75.d(textView);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X10);
             d2.C(R.string.F_X01);
@@ -419,7 +419,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             d2.f(R.color.CAM_X0301);
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091d07);
             this.d = textView2;
-            m75 d3 = m75.d(textView2);
+            o75 d3 = o75.d(textView2);
             d3.w(R.color.CAM_X0101);
             d3.B(R.dimen.T_X07);
             d3.C(R.string.F_X02);

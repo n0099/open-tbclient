@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.fa5;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -104,38 +104,38 @@ public class BreatheTipView extends FrameLayout {
             layoutParams2.leftMargin = g;
             layoutParams2.rightMargin = g;
             addView(this.b, layoutParams2);
-            m75 d = m75.d(this.a);
+            o75 d = o75.d(this.a);
             d.B(R.dimen.T_X08);
             d.C(R.string.F_X02);
-            m75 d2 = m75.d(this.b);
+            o75 d2 = o75.d(this.b);
             d2.B(R.dimen.T_X09);
             d2.C(R.string.F_X01);
         }
     }
 
-    public void setData(da5 da5Var) {
+    public void setData(fa5 fa5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, da5Var) != null) || da5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fa5Var) != null) || fa5Var == null) {
             return;
         }
-        int i = da5Var.g;
+        int i = fa5Var.g;
         int i2 = -2;
         if (i < 0) {
             i = -2;
         }
-        int i3 = da5Var.h;
+        int i3 = fa5Var.h;
         if (i3 >= 0) {
             i2 = i3;
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i2);
-        layoutParams.setMargins(da5Var.j, da5Var.k, da5Var.i, da5Var.l);
+        layoutParams.setMargins(fa5Var.j, fa5Var.k, fa5Var.i, fa5Var.l);
         setLayoutParams(layoutParams);
-        this.a.setText(da5Var.a);
-        SkinManager.setViewTextColor(this.a, da5Var.c);
-        ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = da5Var.f;
-        this.b.setText(da5Var.b);
-        SkinManager.setViewTextColor(this.b, da5Var.d);
-        ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = da5Var.f + vi.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-        SkinManager.setBackgroundResource(this, da5Var.e);
+        this.a.setText(fa5Var.a);
+        SkinManager.setViewTextColor(this.a, fa5Var.c);
+        ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = fa5Var.f;
+        this.b.setText(fa5Var.b);
+        SkinManager.setViewTextColor(this.b, fa5Var.d);
+        ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = fa5Var.f + vi.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+        SkinManager.setBackgroundResource(this, fa5Var.e);
     }
 }

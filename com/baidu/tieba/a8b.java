@@ -1,65 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class a8b {
     public static /* synthetic */ Interceptable $ic;
+    public static final a8b a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947570462, "Lcom/baidu/tieba/a8b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947570462, "Lcom/baidu/tieba/a8b;");
+                return;
+            }
+        }
+        a = new a8b();
+    }
 
     public a8b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(String str, String str2, Throwable th) {
+    public static a8b a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || str2.length() <= 4000) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        int i = 0;
-        while (i < str2.length()) {
-            int i2 = i + 4000;
-            if (i2 < str2.length()) {
-                str2.substring(i, i2);
-            } else {
-                str2.substring(i);
-            }
-            i = i2;
-        }
+        return (a8b) invokeV.objValue;
     }
 
-    public static void a(String str) {
-        String str2;
+    public void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
-            int i = 2;
-            while (true) {
-                if (i < stackTrace.length) {
-                    if (!stackTrace[i].getClass().equals(a8b.class)) {
-                        String className = stackTrace[i].getClassName();
-                        str2 = className.substring(className.lastIndexOf(46) + 1);
-                        break;
-                    }
-                    i++;
-                } else {
-                    str2 = "";
-                    break;
-                }
-            }
-            b("HonorPush_" + str2, str, null);
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            k8b k8bVar = k8b.e;
+            o8b o8bVar = new o8b();
+            o8bVar.a = context.getApplicationContext();
+            o8bVar.b = z;
+            k8bVar.c(o8bVar);
         }
     }
 }

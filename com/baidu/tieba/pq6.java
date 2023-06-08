@@ -10,15 +10,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class pq6 implements k87 {
+public final class pq6 implements m87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.k87
+    @Override // com.baidu.tieba.m87
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13571" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
     }
 
     public pq6() {
@@ -35,13 +35,15 @@ public final class pq6 implements k87 {
         }
     }
 
-    @Override // com.baidu.tieba.k87
-    public Map<String, String> a(w47 businessInfo) {
+    @Override // com.baidu.tieba.m87
+    public Map<String, String> a(y47 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            return new HashMap();
+            HashMap hashMap = new HashMap();
+            hashMap.put("obj_locate", "2");
+            return hashMap;
         }
         return (Map) invokeL.objValue;
     }

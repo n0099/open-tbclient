@@ -38,12 +38,12 @@ public class kb1 {
 
         /* renamed from: com.baidu.tieba.kb1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0357a implements Runnable {
+        public class RunnableC0371a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0357a(a aVar) {
+            public RunnableC0371a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class kb1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int unused = kb1.a = 3;
-                zk0.b(new RunnableC0357a(this));
+                zk0.b(new RunnableC0371a(this));
             }
         }
     }

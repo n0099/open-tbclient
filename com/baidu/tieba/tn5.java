@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 /* loaded from: classes7.dex */
 public interface tn5 {
-    void a(long j, int i, @NonNull String str);
+    void a(ChatMsg chatMsg);
+
+    void b(int i, String str, SendMsgResponse sendMsgResponse);
 }

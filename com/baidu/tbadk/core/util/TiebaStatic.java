@@ -22,17 +22,17 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.aj;
+import com.baidu.tieba.aw5;
 import com.baidu.tieba.eh;
-import com.baidu.tieba.hw5;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.jw5;
 import com.baidu.tieba.mg;
-import com.baidu.tieba.mr5;
-import com.baidu.tieba.os5;
-import com.baidu.tieba.ov5;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.or5;
+import com.baidu.tieba.qs5;
+import com.baidu.tieba.qv5;
 import com.baidu.tieba.rh;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.yv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -665,21 +665,21 @@ public class TiebaStatic {
             synchronized (lock) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (0 == lastLogOperateMsgTime) {
-                    lastLogOperateMsgTime = l95.m().o("operate_msg_arrive_click_date", 0L);
-                    operateMsgUploadCount = l95.m().n("operate_msg_arrive_click_count", 0);
+                    lastLogOperateMsgTime = n95.m().o("operate_msg_arrive_click_date", 0L);
+                    operateMsgUploadCount = n95.m().n("operate_msg_arrive_click_count", 0);
                 }
                 if (lastLogOperateMsgTime > 0) {
                     if (currentTimeMillis - lastLogOperateMsgTime < 86400000 && operateMsgUploadCount > 3) {
                         return;
                     }
-                    l95.m().A("operate_msg_arrive_click_date", currentTimeMillis);
+                    n95.m().A("operate_msg_arrive_click_date", currentTimeMillis);
                     if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
                         operateMsgUploadCount = 0;
                     }
                 }
                 lastLogOperateMsgTime = currentTimeMillis;
                 operateMsgUploadCount++;
-                l95.m().z("operate_msg_arrive_click_count", operateMsgUploadCount);
+                n95.m().z("operate_msg_arrive_click_count", operateMsgUploadCount);
                 BdStatisticsManager.getInstance().saveAndUploadlog("msg");
             }
         }
@@ -725,7 +725,7 @@ public class TiebaStatic {
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             try {
                 mg.g();
-                os5.d();
+                qs5.d();
                 BdStatisticsManager.getInstance().save();
                 sendMultiProcessBroadcast();
             } catch (Exception e) {
@@ -752,12 +752,12 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c = ov5.d().c();
+        String c = qv5.d().c();
         if (!StringUtils.isNull(c)) {
             statisticItem.param(Params.ABTEST_RESULT, c);
         }
-        mr5.f().e(statisticItem);
-        statisticItem.addParam("session_id", hw5.g().i());
+        or5.f().e(statisticItem);
+        statisticItem.addParam("session_id", jw5.g().i());
     }
 
     public static String getCua(Context context) {
@@ -1006,24 +1006,24 @@ public class TiebaStatic {
                     TbadkCoreApplication.getInst().getCuidGid();
                     ehVar.i = TbadkCoreApplication.getInst().getImei();
                     ehVar.j = TbConfig.getSubappType();
-                    ehVar.r = yv5.c().f(context) + "_" + yv5.c().e(context);
+                    ehVar.r = aw5.c().f(context) + "_" + aw5.c().e(context);
                     ehVar.v = TbadkCoreApplication.getInst().getAndroidId();
                     ehVar.s = getCua(context);
                     ehVar.t = PermissionUtil.getLastCachedOid(context);
                     ehVar.u = PermissionUtil.getLocalMacAddress(context);
-                    ehVar.w = yv5.c().a();
-                    ehVar.x = yv5.c().g() + "_" + yv5.c().h();
+                    ehVar.w = aw5.c().a();
+                    ehVar.x = aw5.c().g() + "_" + aw5.c().h();
                     ehVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
                     ehVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
                     ehVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
                     ehVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
                     ehVar.D = TbSingleton.getInstance().getData();
                     boolean z2 = true;
-                    if (l95.m().n("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
+                    if (n95.m().n("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
                         z2 = false;
                     }
                     if (z2) {
-                        j = l95.m().o("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+                        j = n95.m().o("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
                     } else {
                         j = 3600000;
                     }

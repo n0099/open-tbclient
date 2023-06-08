@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class rr9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qr9 a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized qr9 a() {
-        InterceptResult invokeV;
-        qr9 qr9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (rr9.class) {
-                if (a == null) {
-                    a = new qr9();
-                }
-                qr9Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131376, "Lcom/baidu/tieba/rr9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return qr9Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948131376, "Lcom/baidu/tieba/rr9;");
+                return;
+            }
         }
-        return (qr9) invokeV.objValue;
+        boolean z = sr9.a;
     }
 }

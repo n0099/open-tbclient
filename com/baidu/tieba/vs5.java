@@ -1,29 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.Choreographer;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(16)
 /* loaded from: classes8.dex */
-public class vs5 implements Choreographer.FrameCallback {
+public class vs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public int d;
-    public int e;
-    public boolean f;
+    public xs5 a;
+    public String b;
 
-    public vs5() {
+    public vs5(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,80 +29,44 @@ public class vs5 implements Choreographer.FrameCallback {
                 return;
             }
         }
-        this.a = 0L;
-        this.d = 0;
-        this.e = -1;
-        this.f = false;
+        this.b = str;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public final void a(String str, int i) {
+        int intValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || ui.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
+            return;
         }
-        return invokeV.intValue;
+        int i2 = intValue + 1;
+        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
+        if (intValue2 > 0) {
+            i = (i + (intValue2 * (i2 - 1))) / i2;
+        }
+        TbSingleton.getInstance().setAnimAvgFps(str, i);
+        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
+        if (i2 >= 5) {
+            TbSingleton.getInstance().setAnimComputedFps(str, i);
+            ws5.a();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && Build.VERSION.SDK_INT >= 16) {
+            if (this.a == null) {
+                this.a = new xs5();
+            }
+            this.a.c();
+        }
     }
 
     public void c() {
+        xs5 xs5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.c = currentTimeMillis;
-            this.b = currentTimeMillis + 1000;
-            this.a = 0L;
-            this.d = 0;
-            this.e = -1;
-            this.f = false;
-            Choreographer.getInstance().postFrameCallback(this);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = true;
-            Choreographer.getInstance().removeFrameCallback(this);
-            a(System.currentTimeMillis());
-            this.d = 0;
-            this.c = 0L;
-        }
-    }
-
-    public final void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = this.c;
-            if (j2 <= 0) {
-                return;
-            }
-            long j3 = j - j2;
-            if (j3 > 0 && this.e <= 0) {
-                this.e = (int) (60 - ((this.d * 1000) / j3));
-            }
-        }
-    }
-
-    @Override // android.view.Choreographer.FrameCallback
-    public void doFrame(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            long j2 = this.a;
-            if (j2 != 0) {
-                long j3 = (j - j2) / 1000000;
-                if (j3 > 16 && j3 < 960) {
-                    this.d = (int) (this.d + (j3 / 16));
-                }
-            }
-            this.a = j;
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis < this.b && !this.f) {
-                Choreographer.getInstance().postFrameCallback(this);
-                return;
-            }
-            a(currentTimeMillis);
-            this.d = 0;
-            this.c = 0L;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (xs5Var = this.a) != null && Build.VERSION.SDK_INT >= 16) {
+            xs5Var.d();
+            a(this.b, this.a.b());
         }
     }
 }

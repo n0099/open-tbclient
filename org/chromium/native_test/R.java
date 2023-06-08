@@ -1,102 +1,102 @@
 package org.chromium.native_test;
 
-import com.baidu.tieba.ijb;
+import com.baidu.tieba.njb;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends ijb.a {
+    public static final class anim extends njb.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends ijb.b {
+    public static final class animator extends njb.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends ijb.c {
+    public static final class array extends njb.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends ijb.d {
+    public static final class attr extends njb.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends ijb.e {
+    public static final class bool extends njb.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends ijb.f {
+    public static final class color extends njb.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends ijb.g {
+    public static final class dimen extends njb.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends ijb.h {
+    public static final class drawable extends njb.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends ijb.i {
+    public static final class font extends njb.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends ijb.j {
+    public static final class fraction extends njb.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends ijb.k {
+    public static final class id extends njb.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends ijb.l {
+    public static final class integer extends njb.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends ijb.m {
+    public static final class interpolator extends njb.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends ijb.n {
+    public static final class layout extends njb.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends ijb.o {
+    public static final class menu extends njb.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends ijb.p {
+    public static final class mipmap extends njb.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends ijb.q {
+    public static final class plurals extends njb.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends ijb.r {
+    public static final class raw extends njb.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends ijb.s {
+    public static final class string extends njb.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends ijb.t {
+    public static final class style extends njb.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends ijb.u {
+    public static final class styleable extends njb.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends ijb.v {
+    public static final class transition extends njb.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends ijb.w {
+    public static final class xml extends njb.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        ijb.a(i);
+        njb.a(i);
     }
 }

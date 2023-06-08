@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+@Service
 /* loaded from: classes6.dex */
-public class lo9 {
+public final class lo9 implements go5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ko9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ko9 a() {
-        InterceptResult invokeV;
-        ko9 ko9Var;
+    public lo9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (lo9.class) {
-                if (a == null) {
-                    a = new ko9();
-                }
-                ko9Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ko9Var;
         }
-        return (ko9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.go5
+    public List<LaunchTask> asyncList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CollectionsKt__CollectionsKt.mutableListOf(new mo9());
+        }
+        return (List) invokeV.objValue;
     }
 }

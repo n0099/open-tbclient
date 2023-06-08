@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,82 +8,73 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.net.ExperimentalCronetEngine;
-import com.baidu.turbonet.net.TurbonetEngine;
-import com.baidu.turbonet.net.impl.VersionSafeCallbacks;
-import org.json.JSONException;
+import com.baidu.turbonet.net.ICronetEngineBuilder;
+import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
 /* loaded from: classes6.dex */
-public final class jma {
+public class jma extends tla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TurbonetEngine a;
-    public Context b;
-    public String c;
-    public String d;
 
-    public jma(Context context, String str, String str2, ima imaVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jma(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, imaVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.c = str;
-        this.d = str2;
-        a(imaVar);
     }
 
-    public final void a(ima imaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, imaVar) == null) {
-            ExperimentalCronetEngine.Builder builder = new ExperimentalCronetEngine.Builder(this.b);
-            if (imaVar == null) {
-                builder.g(this.c);
-                builder.f(this.d);
-                this.a = builder.b();
-            } else {
-                if (imaVar.h()) {
-                    builder.h(imaVar.l());
-                }
-                try {
-                    if (imaVar.g().has("nq") && imaVar.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
-                        builder.k(true, "");
-                    }
-                } catch (JSONException e) {
-                    Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
-                }
-                builder.g(this.c);
-                builder.f(this.d);
-                builder.a(imaVar.g().toString());
-                this.a = builder.b();
-            }
-            Log.v("cr_TurbonetContext", "Turbonet init context success.");
-        }
+    @Override // com.baidu.tieba.tla, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
+        super.g(str);
+        return this;
     }
 
-    public TurbonetEngine b() {
+    @Override // com.baidu.tieba.tla, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
+        super.y(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.tla, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
+        super.z(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.tla, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
+        super.B(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public ExperimentalCronetEngine b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            if (r() == null) {
+                C(q());
+            }
+            return new CronetUrlRequestContext(this);
         }
-        return (TurbonetEngine) invokeV.objValue;
+        return (ExperimentalCronetEngine) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new VersionSafeCallbacks.f(this.a).a();
-        }
-        return invokeV.longValue;
+    @Override // com.baidu.tieba.tla, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
+        super.l(z, str);
+        return this;
     }
 }

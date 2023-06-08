@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.f15;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.f45;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.oy;
 import com.baidu.tieba.qx4;
-import com.baidu.tieba.uf5;
 import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.tieba.wf5;
 import com.baidu.tieba.yz;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -36,13 +36,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesCardView extends FrameLayout implements oy<f15> {
+public class HeadlinesCardView extends FrameLayout implements oy<h15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
     public static final int p;
     public transient /* synthetic */ FieldHolder $fh;
-    public f15 a;
+    public h15 a;
     public TbImageView b;
     public TbImageView c;
     public ImageView d;
@@ -128,15 +128,15 @@ public class HeadlinesCardView extends FrameLayout implements oy<f15> {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d45 a;
+        public final /* synthetic */ f45 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public b(HeadlinesCardView headlinesCardView, d45 d45Var) {
+        public b(HeadlinesCardView headlinesCardView, f45 f45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, d45Var};
+                Object[] objArr = {headlinesCardView, f45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -147,7 +147,7 @@ public class HeadlinesCardView extends FrameLayout implements oy<f15> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = d45Var;
+            this.a = f45Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -168,15 +168,15 @@ public class HeadlinesCardView extends FrameLayout implements oy<f15> {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d45 a;
+        public final /* synthetic */ f45 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public c(HeadlinesCardView headlinesCardView, d45 d45Var) {
+        public c(HeadlinesCardView headlinesCardView, f45 f45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, d45Var};
+                Object[] objArr = {headlinesCardView, f45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -187,7 +187,7 @@ public class HeadlinesCardView extends FrameLayout implements oy<f15> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = d45Var;
+            this.a = f45Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -232,7 +232,7 @@ public class HeadlinesCardView extends FrameLayout implements oy<f15> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                uf5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
+                wf5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
             }
         }
     }
@@ -325,9 +325,9 @@ public class HeadlinesCardView extends FrameLayout implements oy<f15> {
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            m75.d(this.i).w(R.color.CAM_X0109);
+            o75.d(this.i).w(R.color.CAM_X0109);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_card_toutiao_yaoqing16, R.color.CAM_X0305, null);
-            m75.d(this.e).w(R.color.CAM_X0305);
+            o75.d(this.e).w(R.color.CAM_X0305);
         }
     }
 
@@ -375,12 +375,12 @@ public class HeadlinesCardView extends FrameLayout implements oy<f15> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: h */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f15Var) == null) {
-            this.a = f15Var;
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getTaskInfoData() != null && f15Var.getThreadData().getTaskInfoData().f() != null) {
-                d45 f = f15Var.getThreadData().getTaskInfoData().f();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) {
+            this.a = h15Var;
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getTaskInfoData() != null && h15Var.getThreadData().getTaskInfoData().f() != null) {
+                f45 f = h15Var.getThreadData().getTaskInfoData().f();
                 this.g.c(f);
                 this.l.clear();
                 this.l.addAll(f.e());

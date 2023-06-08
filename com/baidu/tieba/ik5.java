@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ik5 extends ei5 {
+public class ik5 extends gi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ik5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.pb_vote_text), 32, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_video), 34, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,10 +30,10 @@ public class ik5 extends ei5 {
                 return;
             }
         }
-        this.d = R.drawable.ic_icon_pure_more_vote60_svg;
-        this.h = R.drawable.icon_pure_post_more_vote64;
+        this.d = R.drawable.icon_mask_post_video24_selection;
         this.i = false;
-        this.k = true;
-        this.p = new int[]{22};
+        this.j = true;
+        this.k = false;
+        this.p = new int[]{60};
     }
 }

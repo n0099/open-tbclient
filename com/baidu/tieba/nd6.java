@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes7.dex */
+import android.view.ViewGroup;
+import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
+/* loaded from: classes6.dex */
 public interface nd6 {
-    void a(RecyclerView recyclerView, int i, int i2);
-
-    void b(RecyclerView recyclerView, int i);
+    AlaBannerViewHolder a(ViewGroup viewGroup, int i);
 }

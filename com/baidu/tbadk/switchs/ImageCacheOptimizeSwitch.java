@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.df;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +115,7 @@ public final class ImageCacheOptimizeSwitch extends df {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (getResultCachesize() == -1) {
-                    setResultCachesize(l95.m().n(ImageCacheOptimizeSwitch.KEY, 0));
+                    setResultCachesize(n95.m().n(ImageCacheOptimizeSwitch.KEY, 0));
                 }
                 return getResultCachesize();
             }

@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.ly5;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.ny5;
 import com.baidu.tieba.u50;
 import com.baidu.tieba.vk;
-import com.baidu.tieba.w55;
-import com.baidu.tieba.wq8;
-import com.baidu.tieba.x55;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.y55;
+import com.baidu.tieba.z55;
+import com.baidu.tieba.zq8;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
@@ -71,21 +71,21 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 try {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity != null) {
-                        x55.o(currentActivity, w55.q);
+                        z55.o(currentActivity, y55.q);
                     }
                     if (Build.VERSION.SDK_INT >= 17) {
-                        l95.m().B("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                        n95.m().B("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
                     }
                     String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst().getContext());
-                    String s = l95.m().s("key_last_cached_oid", "");
+                    String s = n95.m().s("key_last_cached_oid", "");
                     if (StringUtils.isNull(s) || !s.equals(lastCachedOid)) {
-                        l95.m().B("key_last_cached_oid", lastCachedOid);
-                        l95.m().B("key_last_cached_real_oid", MainTabLoadFinishTask.this.getRealOaid(lastCachedOid));
+                        n95.m().B("key_last_cached_oid", lastCachedOid);
+                        n95.m().B("key_last_cached_real_oid", MainTabLoadFinishTask.this.getRealOaid(lastCachedOid));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                boolean i = l95.m().i("key_splash_shake_ad_open", true);
+                boolean i = n95.m().i("key_splash_shake_ad_open", true);
                 StatisticItem statisticItem = new StatisticItem("c15178");
                 if (i) {
                     str = "0";
@@ -93,21 +93,21 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     str = "1";
                 }
                 TiebaStatic.log(statisticItem.param("obj_param1", str));
-                wq8 a = vk.a();
+                zq8 a = vk.a();
                 a.c(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + xi.k());
                 return false;
             }
         });
         try {
-            String s = l95.m().s("key_cache_url_list", null);
+            String s = n95.m().s("key_cache_url_list", null);
             if (!TextUtils.isEmpty(s)) {
                 JSONArray jSONArray = new JSONArray(s);
-                wq8 defaultLog = DefaultLog.getInstance();
+                zq8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("WebPreheat", "冷启动预热H5:" + jSONArray);
-                ly5.e(jSONArray);
+                ny5.e(jSONArray);
             }
         } catch (Throwable th) {
-            wq8 defaultLog2 = DefaultLog.getInstance();
+            zq8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.b("WebPreheat", "exception:" + th);
         }
     }

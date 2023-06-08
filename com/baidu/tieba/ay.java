@@ -56,12 +56,12 @@ public class ay extends rz {
     }
 
     @Override // com.baidu.tieba.rz
-    public ej9 u() {
+    public ij9 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new fj9(this.b, this.i, this.A);
+            return new jj9(this.b, this.i, this.A);
         }
-        return (ej9) invokeV.objValue;
+        return (ij9) invokeV.objValue;
     }
 }

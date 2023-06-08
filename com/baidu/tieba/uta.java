@@ -1,95 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class uta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public gua b;
-    public b c;
-    public lua d;
-    public boolean e;
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends Thread {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uta a;
-
-        public b(uta utaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {utaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = utaVar;
-        }
-
-        public /* synthetic */ b(uta utaVar, a aVar) {
-            this(utaVar);
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Process.setThreadPriority(-19);
-                try {
-                    try {
-                        this.a.b = new gua(-100);
-                        if (this.a.b.d() != null) {
-                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(gua.d);
-                            this.a.b.c();
-                            if (this.a.b.e() != 3) {
-                                return;
-                            }
-                            while (!this.a.a) {
-                                allocateDirect.clear();
-                                int a = this.a.b.a(allocateDirect, gua.d);
-                                if (a > 0) {
-                                    double a2 = nua.a(allocateDirect, a);
-                                    if (this.a.d != null && a2 > 0.0d) {
-                                        this.a.d.a(a2);
-                                    }
-                                }
-                            }
-                        } else if (this.a.d != null) {
-                            this.a.d.a("failed to initialize AudioRecord", true);
-                        }
-                    } catch (Exception unused) {
-                        if (this.a.d != null) {
-                            this.a.d.a("failed to initialize AudioRecord", true);
-                        }
-                    }
-                } finally {
-                    this.a.i();
-                }
-            }
-        }
-    }
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
 
     public uta() {
         Interceptable interceptable = $ic;
@@ -101,56 +31,47 @@ public class uta {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
     }
 
-    public void c() {
+    public JSONObject a() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = true;
-            this.a = false;
-            b bVar = new b(this, null);
-            this.c = bVar;
-            bVar.start();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("doReport", this.b);
+                    jSONObject.put("name", this.c);
+                    jSONObject.put("code", this.d);
+                    jSONObject.put("msg", this.e);
+                    jSONObject.put("data", this.f);
+                    jSONObject.put("isShowSpecialToast", this.g);
+                    jSONObject.put("specialToast", this.h);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
+                }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public void d(lua luaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, luaVar) == null) {
-            this.d = luaVar;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = true;
-            this.e = false;
-        }
-    }
-
-    public boolean h() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            this.e = false;
-            gua guaVar = this.b;
-            if (guaVar != null) {
-                guaVar.b();
-            }
-            if (this.c != null) {
-                this.c = null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
         }
+        return (String) invokeV.objValue;
     }
 }

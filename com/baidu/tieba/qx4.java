@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.atomData.TbWebContainerActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.u05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -136,7 +136,7 @@ public class qx4 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return ol6.e(str);
+            return ql6.e(str);
         }
         return invokeL.booleanValue;
     }
@@ -260,7 +260,7 @@ public class qx4 {
             if (!b(str2) && !z4) {
                 return new TbWebViewActivityConfig(context2, str, str2, z, z2, z3);
             }
-            ml6.c(str2);
+            ol6.c(str2);
             return new TbWebContainerActivityConfig(context2, str, str2, z, z2, z3);
         }
         return (TbWebViewActivityConfig) invokeCommon.objValue;
@@ -300,7 +300,7 @@ public class qx4 {
 
     public static void k(Context context) {
         CookieManager cookieManager;
-        s05.b bVar;
+        u05.b bVar;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, context) == null) {
@@ -315,8 +315,8 @@ public class qx4 {
                 return;
             }
             cookieManager.setAcceptCookie(true);
-            if (s05.b() != null) {
-                bVar = s05.b().c(TbadkCoreApplication.getCurrentBduss());
+            if (u05.b() != null) {
+                bVar = u05.b().c(TbadkCoreApplication.getCurrentBduss());
             } else {
                 bVar = null;
             }
@@ -358,13 +358,13 @@ public class qx4 {
             sb2.append(ParamableElem.DIVIDE_PARAM);
             cookieManager.setCookie(".baidu.com", sb2.toString());
             cookieManager.setCookie(".baidu.com", "DNARBBT=" + ParamableElem.DIVIDE_PARAM);
-            if (hk9.b()) {
+            if (mk9.b()) {
                 cookieManager.setCookie(".baidu.com", "TBBRAND=" + xi.g() + ParamableElem.DIVIDE_PARAM);
             } else {
-                cookieManager.setCookie(".baidu.com", "need_cookie_decrypt=" + hk9.c() + ParamableElem.DIVIDE_PARAM);
-                String d = hk9.d("TBBRAND");
+                cookieManager.setCookie(".baidu.com", "need_cookie_decrypt=" + mk9.c() + ParamableElem.DIVIDE_PARAM);
+                String d = mk9.d("TBBRAND");
                 if (!TextUtils.isEmpty(d)) {
-                    cookieManager.setCookie(".baidu.com", d + "=" + hk9.e() + ParamableElem.DIVIDE_PARAM);
+                    cookieManager.setCookie(".baidu.com", d + "=" + mk9.e() + ParamableElem.DIVIDE_PARAM);
                 }
             }
             cookieManager.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ParamableElem.DIVIDE_PARAM);

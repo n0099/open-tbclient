@@ -56,12 +56,12 @@ public class mk1 {
 
         /* renamed from: com.baidu.tieba.mk1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0378a implements ut0.b {
+        public class C0385a implements ut0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0378a(a aVar) {
+            public C0385a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class mk1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    ut0.a(this.a, this.b, new C0378a(this), this.e);
+                    ut0.a(this.a, this.b, new C0385a(this), this.e);
                 } catch (Exception e) {
                     n31.b(new p31(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
                 }

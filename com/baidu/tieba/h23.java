@@ -45,12 +45,12 @@ public class h23 {
 
         /* renamed from: com.baidu.tieba.h23$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0325a implements mw1.a {
+        public class C0329a implements mw1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0325a(a aVar, File[] fileArr) {
+            public C0329a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class h23 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0325a(this, fileArr));
+                    u.d(p, null, fileArr, new C0329a(this, fileArr));
                 }
             }
         }

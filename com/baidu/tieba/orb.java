@@ -1,30 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.Map;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes7.dex */
-public abstract class orb<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface orb {
+    GetBannerConfigReqParams a();
 
-    public abstract void a(Request request, boolean z, Exception exc);
+    QueryCurrencyReqParams b();
 
-    public abstract void b(T t);
+    rrb c(PayFlowType payFlowType, Map<String, String> map);
 
-    public orb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    QueryCurrencyReqParams d(PayFlowType payFlowType, Map<String, String> map);
+
+    GetSplitOrderConfigReqParams e(int i, String str, long j);
 }

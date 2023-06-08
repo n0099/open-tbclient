@@ -1,27 +1,45 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+@Service
 /* loaded from: classes5.dex */
-public class dq6 {
+public class dq6 implements a87 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile cq6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized cq6 a() {
-        InterceptResult invokeV;
-        cq6 cq6Var;
+    public dq6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (dq6.class) {
-                if (a == null) {
-                    a = new cq6();
-                }
-                cq6Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return cq6Var;
         }
-        return (cq6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a87
+    @NonNull
+    public List<i87<?, ?>> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new up6());
+            arrayList.add(new vp6());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

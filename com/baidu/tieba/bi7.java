@@ -1,11 +1,16 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes5.dex */
 public interface bi7 {
-    void a(boolean z);
+    lr7 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    void b(boolean z, boolean z2);
+    zh7 b(FrsFragment frsFragment, bo boVar, boolean z);
 
-    boolean c();
+    ci7 c();
 
-    void onChangeSkinType(int i);
+    di7 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
+
+    bs7 e(String str, FrsFragment frsFragment, int i);
 }

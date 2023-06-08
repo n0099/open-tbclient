@@ -63,7 +63,7 @@ public class of0 {
                 return;
             }
         }
-        c = l95.q("advert_hide_list");
+        c = n95.q("advert_hide_list");
     }
 
     public of0() {

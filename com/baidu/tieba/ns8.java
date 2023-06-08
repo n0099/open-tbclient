@@ -13,14 +13,12 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.medialive.browser.HkMWebView;
+import com.baidu.tieba.medialive.browser.HkWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ns8 implements IBrowserView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbWebView a;
+    public HkWebView a;
     public FrameLayout b;
     public View c;
     public View d;
@@ -183,8 +181,8 @@ public class ns8 implements IBrowserView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TbWebView tbWebView = this.a;
-            if (tbWebView != null && tbWebView.getController().a()) {
+            HkWebView hkWebView = this.a;
+            if (hkWebView != null && hkWebView.canGoBack()) {
                 return true;
             }
             return false;
@@ -194,29 +192,27 @@ public class ns8 implements IBrowserView {
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
     public void goBack() {
-        TbWebView tbWebView;
+        HkWebView hkWebView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (tbWebView = this.a) != null) {
-            tbWebView.getController().c();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hkWebView = this.a) != null) {
+            hkWebView.goBack();
         }
     }
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
     public void onDestroy() {
-        TbWebView tbWebView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tbWebView = this.a) != null) {
-            tbWebView.onDestroy();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.a = null;
         }
     }
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
     public void refresh() {
-        TbWebView tbWebView;
+        HkWebView hkWebView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (tbWebView = this.a) != null) {
-            tbWebView.getController().d();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hkWebView = this.a) != null) {
+            hkWebView.reload();
         }
     }
 
@@ -225,9 +221,9 @@ public class ns8 implements IBrowserView {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            TbWebView tbWebView = this.a;
-            if (tbWebView != null) {
-                return tbWebView.canScrollVertically(i);
+            HkWebView hkWebView = this.a;
+            if (hkWebView != null) {
+                return hkWebView.canScrollVertically(i);
             }
             return false;
         }
@@ -235,16 +231,16 @@ public class ns8 implements IBrowserView {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void loadUrl(@NonNull String str) {
-        TbWebView tbWebView;
+    public void loadUrl(String str) {
+        HkWebView hkWebView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && (tbWebView = this.a) != null) {
-            tbWebView.loadUrl(str);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && (hkWebView = this.a) != null) {
+            hkWebView.loadUrl(str);
         }
     }
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setErrorView(@NonNull View view2) {
+    public void setErrorView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
             this.c = view2;
@@ -252,7 +248,7 @@ public class ns8 implements IBrowserView {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setLoadingView(@NonNull View view2) {
+    public void setLoadingView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
             this.d = view2;
@@ -260,7 +256,7 @@ public class ns8 implements IBrowserView {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setOnBrowserStatusChangeCallBack(@NonNull IBrowserView.OnBrowserStatusChangeCallBack onBrowserStatusChangeCallBack) {
+    public void setOnBrowserStatusChangeCallBack(IBrowserView.OnBrowserStatusChangeCallBack onBrowserStatusChangeCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, onBrowserStatusChangeCallBack) == null) {
             this.f = onBrowserStatusChangeCallBack;
@@ -268,8 +264,7 @@ public class ns8 implements IBrowserView {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    @NonNull
-    public View getView(@NonNull Context context) {
+    public View getView(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
@@ -282,10 +277,9 @@ public class ns8 implements IBrowserView {
                 view2.setBackgroundColor(context.getResources().getColor(17170443));
             }
             if (this.a == null) {
-                TbWebView tbWebView = new TbWebView(context);
-                this.a = tbWebView;
-                tbWebView.setDownloadListener(new HkMWebView.b(context));
-                this.a.setWebViewClient(new a(this));
+                HkWebView hkWebView = new HkWebView(context);
+                this.a = hkWebView;
+                hkWebView.setWebViewClient(new a(this));
             }
             this.b.addView(this.a);
             return this.b;

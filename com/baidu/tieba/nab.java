@@ -1,7 +1,10 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface nab<TResult> {
-    void cancel();
 
-    void onComplete(rab<TResult> rabVar);
+import android.content.Context;
+import java.util.List;
+/* loaded from: classes6.dex */
+public interface nab {
+    void a(Context context);
+
+    List<mab> b(Context context);
 }

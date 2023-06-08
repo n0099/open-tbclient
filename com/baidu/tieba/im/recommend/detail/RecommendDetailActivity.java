@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
-import com.baidu.tieba.q98;
+import com.baidu.tieba.s98;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.e, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q98 a;
+    public s98 a;
     public RecommendDetailModel b;
     public long c;
     public String d;
@@ -168,9 +168,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            q98 q98Var = this.a;
-            if (q98Var != null) {
-                q98Var.j(i);
+            s98 s98Var = this.a;
+            if (s98Var != null) {
+                s98Var.j(i);
             }
         }
     }
@@ -195,10 +195,10 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void P(UserInfoBigVip userInfoBigVip, boolean z) {
-        q98 q98Var;
+        s98 s98Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userInfoBigVip, z) == null) && (q98Var = this.a) != null && userInfoBigVip != null) {
-            q98Var.g();
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userInfoBigVip, z) == null) && (s98Var = this.a) != null && userInfoBigVip != null) {
+            s98Var.g();
             this.a.p(userInfoBigVip, z);
         }
     }
@@ -222,7 +222,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new q98(this);
+            this.a = new s98(this);
             this.b = new RecommendDetailModel(getPageContext(), this, this);
             y1(bundle);
             this.a.a();
@@ -264,11 +264,11 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void d0(View view2, BdSwitchView.SwitchState switchState) {
-        q98 q98Var;
+        s98 s98Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, switchState) == null) && (q98Var = this.a) != null && this.b != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, switchState) == null) && (s98Var = this.a) != null && this.b != null) {
             boolean z = false;
-            if (view2 == q98Var.c()) {
+            if (view2 == s98Var.c()) {
                 RecommendDetailModel recommendDetailModel = this.b;
                 if (switchState != BdSwitchView.SwitchState.OFF) {
                     z = true;
@@ -287,11 +287,11 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void onFailed(String str) {
         RecommendDetailModel recommendDetailModel;
-        q98 q98Var;
+        s98 s98Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (!StringUtils.isNull(str) && (q98Var = this.a) != null) {
-                q98Var.g();
+            if (!StringUtils.isNull(str) && (s98Var = this.a) != null) {
+                s98Var.g();
                 this.a.b();
             }
             if (this.a != null && (recommendDetailModel = this.b) != null && recommendDetailModel.d0() && !this.b.b0() && StringUtils.isNull(str)) {

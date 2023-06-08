@@ -1,138 +1,80 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.cv5;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.ev5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class xu5 implements wu5 {
+public class xu5 extends pm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<ViewType, yu5> a;
-    public final ViewGroup b;
-    public final fv5 c;
-    public final cv5 d;
-    public ViewType e;
-    public yu5 f;
+    public NoDataView a;
 
-    public xu5(fv5 fv5Var, @NonNull ViewGroup viewGroup, @NonNull cv5 cv5Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xu5(Context context) {
+        super(new NoDataView(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fv5Var, viewGroup, cv5Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = viewGroup;
-        this.c = fv5Var;
-        this.d = cv5Var;
+        this.a = (NoDataView) getView();
     }
 
-    @Override // com.baidu.tieba.wu5
-    public void a(ViewType viewType, String str) {
-        cv5.a aVar;
-        cv5.b bVar;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
-            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
-                bVar.a = str;
-            } else if (viewType == ViewType.EMPTY && (aVar = this.d.b) != null) {
-                aVar.a = str;
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.f(q9.a(getView().getContext()), i);
         }
     }
 
-    @Override // com.baidu.tieba.wu5
-    public void c(ViewType viewType, @NonNull yu5 yu5Var) {
+    public void b(ev5.a aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, yu5Var) == null) {
-            this.a.put(viewType, yu5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.wu5
-    public void b(ViewType viewType) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) != null) || this.e == viewType) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) || aVar == null) {
             return;
         }
-        this.e = viewType;
-        if (this.b == null) {
-            return;
+        this.a.setVisibility(0);
+        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
+        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
+        aVar2.h(aVar.c);
+        aVar2.j(aVar.g);
+        this.a.setImgOption(aVar2.f());
+        if (aVar.b && !TextUtils.isEmpty(aVar.a)) {
+            str = aVar.a;
+        } else {
+            str = aVar.d;
         }
-        fv5 fv5Var = this.c;
-        if (fv5Var != null && fv5Var.getView() != null) {
-            View view2 = this.c.getView();
-            if (viewType == ViewType.CONTENT) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
+        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
+        aVar3.g(str);
+        this.a.setTextOption(aVar3.f());
+        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
+            String str2 = aVar.e;
+            View.OnClickListener onClickListener = aVar.h;
+            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
+            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
+            this.a.setButtonOption(aVar4.e());
+        } else {
+            this.a.setButtonOption(null);
         }
-        yu5 yu5Var = this.f;
-        if (yu5Var != null) {
-            yu5Var.b(this.b);
-        }
-        yu5 yu5Var2 = this.a.get(viewType);
-        cv5.e d = d(viewType);
-        if (yu5Var2 != null && d != null) {
-            yu5Var2.c(viewType, this.b, d);
-            this.f = yu5Var2;
-            this.a.put(viewType, yu5Var2);
-        }
-    }
-
-    public final cv5.e d(ViewType viewType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
-            if (viewType == ViewType.ERROR) {
-                return this.d.c;
-            }
-            if (viewType == ViewType.EMPTY) {
-                return this.d.b;
-            }
-            if (viewType == ViewType.LOADING) {
-                return this.d.a;
-            }
-            return null;
-        }
-        return (cv5.e) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wu5
-    public void onChangeSkinType(int i) {
-        yu5 yu5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (yu5Var = this.f) != null) {
-            yu5Var.e(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.wu5
-    public void onDestroy() {
-        yu5 yu5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (yu5Var = this.f) != null) {
-            yu5Var.b(this.b);
-        }
+        a(TbadkCoreApplication.getInst().getSkinType());
     }
 }

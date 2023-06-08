@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a05;
-import com.baidu.tieba.an5;
-import com.baidu.tieba.by8;
-import com.baidu.tieba.cy8;
-import com.baidu.tieba.dy8;
+import com.baidu.tieba.cn5;
+import com.baidu.tieba.ey8;
+import com.baidu.tieba.fy8;
+import com.baidu.tieba.gy8;
 import com.baidu.tieba.xu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,10 +36,10 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public by8 a;
+    public ey8 a;
     public CustomMessageListener b;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.qr5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            cy8.b().f(false);
+            fy8.b().f(false);
         }
     }
 
@@ -138,7 +138,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.a.e()) {
             boolean z = !this.a.j();
             if (z) {
-                dy8.a("c14067");
+                gy8.a("c14067");
             }
             this.a.c(z);
             setSwipeBackEnabled(!z);
@@ -151,7 +151,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0208);
-            this.a = new by8(this);
+            this.a = new ey8(this);
             registerListener(this.b);
             v1();
             u1(getIntent());
@@ -199,9 +199,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            dy8.a("c14061");
-            cy8.b().f(true);
-            cy8.b().e(false);
+            gy8.a("c14061");
+            fy8.b().f(true);
+            fy8.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }
@@ -213,7 +213,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
             a05Var.a(threadDelegateStatic);
             if (a05Var.getContext() != null) {
-                an5 b = threadDelegateStatic.b();
+                cn5 b = threadDelegateStatic.b();
                 if (b == null) {
                     return;
                 }

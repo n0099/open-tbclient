@@ -1,6 +1,6 @@
 package com.fun;
 
-import com.baidu.tieba.b0b;
+import com.baidu.tieba.g0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -79,7 +79,7 @@ public class d0 {
                 return;
             }
         }
-        this.c = b0b.a();
+        this.c = g0b.a();
         this.a = sidSessionMeta;
         this.b = str;
     }

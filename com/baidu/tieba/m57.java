@@ -1,90 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.q77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedKV;
+import tbclient.FeedLayout;
 /* loaded from: classes6.dex */
 public final class m57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static final void a(l57 l57Var, FeedLayout feedLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65536, null, l57Var, feedLayout) == null) {
+            Intrinsics.checkNotNullParameter(l57Var, "<this>");
+            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
+            y47 a = l57Var.a();
+            q77.a aVar = q77.a;
+            List<FeedKV> list = feedLayout.business_info;
+            Intrinsics.checkNotNullExpressionValue(list, "feedLayout.business_info");
+            a.b(aVar.a(list));
+            u57 b = l57Var.b();
+            q77.a aVar2 = q77.a;
+            List<FeedKV> list2 = feedLayout.log_info;
+            Intrinsics.checkNotNullExpressionValue(list2, "feedLayout.log_info");
+            b.b(aVar2.a(list2));
+        }
+    }
+
+    public static final c67 b(l57 l57Var, String statStrategyKey) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, l57Var, statStrategyKey)) == null) {
+            Intrinsics.checkNotNullParameter(l57Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            c67 c67Var = new c67(null, null, null, 7, null);
+            m87 m87Var = l57Var.d().get(statStrategyKey);
+            if (m87Var != null) {
+                return new c67(m87Var.getKey(), m87Var.a(l57Var.a()), l57Var.b().a());
             }
-            if (obj instanceof m57) {
-                m57 m57Var = (m57) obj;
-                return Intrinsics.areEqual(this.a, m57Var.a) && Intrinsics.areEqual(this.b, m57Var.b);
-            }
-            return false;
+            return c67Var;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            String str2 = this.b;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public m57(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = str2;
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (c67) invokeLL.objValue;
     }
 }

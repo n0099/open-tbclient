@@ -5,8 +5,8 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
-import com.baidu.tieba.sub;
-import com.baidu.tieba.vrb;
+import com.baidu.tieba.asb;
+import com.baidu.tieba.xub;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
@@ -30,11 +30,11 @@ public final class MaxHeightGridView extends GridView {
     public MaxHeightGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.a = -1;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vrb.PayUi_NoScrollGridView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, asb.PayUi_NoScrollGridView);
         int integer = obtainStyledAttributes.getInteger(0, 536870911);
         this.a = integer;
         if (integer != 536870911) {
-            this.a = sub.a(integer);
+            this.a = xub.a(integer);
         }
         obtainStyledAttributes.recycle();
     }

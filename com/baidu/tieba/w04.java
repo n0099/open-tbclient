@@ -32,7 +32,7 @@ public class w04 {
 
         /* renamed from: com.baidu.tieba.w04$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0491a extends ResponseCallback<AdResponseInfo> {
+        public class C0501a extends ResponseCallback<AdResponseInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -40,18 +40,18 @@ public class w04 {
 
             /* renamed from: com.baidu.tieba.w04$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0492a implements Runnable {
+            public class RunnableC0502a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdElementInfo a;
-                public final /* synthetic */ C0491a b;
+                public final /* synthetic */ C0501a b;
 
-                public RunnableC0492a(C0491a c0491a, AdElementInfo adElementInfo) {
+                public RunnableC0502a(C0501a c0501a, AdElementInfo adElementInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0491a, adElementInfo};
+                        Object[] objArr = {c0501a, adElementInfo};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -61,7 +61,7 @@ public class w04 {
                             return;
                         }
                     }
-                    this.b = c0491a;
+                    this.b = c0501a;
                     this.a = adElementInfo;
                 }
 
@@ -74,7 +74,7 @@ public class w04 {
                 }
             }
 
-            public C0491a(a aVar) {
+            public C0501a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class w04 {
                     aVar.c.j(aVar.a, "requestSuccess", aVar.b);
                     if (adResponseInfo != null) {
                         if (adResponseInfo.getAdInstanceList().size() > 0) {
-                            n14.c(new RunnableC0492a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                            n14.c(new RunnableC0502a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
                             return;
                         }
                         if (!this.b.c.c) {
@@ -192,14 +192,14 @@ public class w04 {
             b14 b14Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b14Var = this.a) != null && b14Var.i != null) {
-                C0491a c0491a = new C0491a(this);
+                C0501a c0501a = new C0501a(this);
                 if (NetworkUtils.f(this.c.a)) {
                     if (this.c.c) {
                         b14 b14Var2 = this.a;
                         if (b14Var2 instanceof c14) {
                             c14 c14Var = (c14) b14Var2;
                             if (this.b != null && c14Var.i() != null) {
-                                this.b.a(c14Var.g(), c14Var.i(), c0491a);
+                                this.b.a(c14Var.g(), c14Var.i(), c0501a);
                                 return;
                             }
                             return;
@@ -209,7 +209,7 @@ public class w04 {
                     String g = this.a.g();
                     p04 p04Var = this.b;
                     if (p04Var != null) {
-                        p04Var.f(g, c0491a);
+                        p04Var.f(g, c0501a);
                     }
                     this.c.j(this.a, "request", this.b);
                     return;

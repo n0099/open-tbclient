@@ -51,12 +51,12 @@ public class x12 extends v12 {
 
         /* renamed from: com.baidu.tieba.x12$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0512a implements rq3<bh3<JSONObject>> {
+        public class C0522a implements rq3<bh3<JSONObject>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a02.b a;
 
-            public C0512a(a aVar, a02.b bVar) {
+            public C0522a(a aVar, a02.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class x12 extends v12 {
                     return new y32(10002, "network_error");
                 }
                 gh3 e = xb3.K().x().a().b().e(this.e.getContext());
-                e.o(new C0512a(this, bVar));
+                e.o(new C0522a(this, bVar));
                 e.call();
                 return new y32(0);
             }

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mz8;
+import com.baidu.tieba.pz8;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,8 +41,8 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
     public TextView g;
     public TextView h;
     public TextView i;
-    public mz8 j;
-    public vz4<mz8> k;
+    public pz8 j;
+    public vz4<pz8> k;
     public String l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,12 +69,12 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        mz8 mz8Var;
+        pz8 pz8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (mz8Var = this.j) != null && mz8Var.h != null) {
-            vz4<mz8> vz4Var = this.k;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (pz8Var = this.j) != null && pz8Var.h != null) {
+            vz4<pz8> vz4Var = this.k;
             if (vz4Var != null) {
-                vz4Var.d(view2, mz8Var, 0, 0L);
+                vz4Var.d(view2, pz8Var, 0, 0L);
             }
             ThreadCardUtils.jumpToPB(this.j.h, view2.getContext(), 17, false, this.l, "1");
         }
@@ -126,12 +126,12 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         b();
     }
 
-    public void a(mz8 mz8Var) {
+    public void a(pz8 pz8Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, mz8Var) == null) && mz8Var != null) {
-            this.j = mz8Var;
-            if (TextUtils.isEmpty(mz8Var.d)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pz8Var) == null) && pz8Var != null) {
+            this.j = pz8Var;
+            if (TextUtils.isEmpty(pz8Var.d)) {
                 this.c.setVisibility(8);
                 this.d.setVisibility(8);
                 this.e.setVisibility(8);
@@ -140,30 +140,30 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
                 layoutParams.addRule(3, R.id.obfuscated_res_0x7f090870);
                 this.i.setLayoutParams(layoutParams);
             } else {
-                this.c.N(mz8Var.d, 10, false);
+                this.c.N(pz8Var.d, 10, false);
                 this.c.setVisibility(0);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
                 layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0907e9);
                 layoutParams2.addRule(3, 0);
                 this.i.setLayoutParams(layoutParams2);
-                if (mz8Var.e > 0) {
+                if (pz8Var.e > 0) {
                     this.e.setVisibility(0);
                     this.d.setVisibility(0);
-                    this.g.setText(StringUtils.translateSecondsToString(mz8Var.e));
+                    this.g.setText(StringUtils.translateSecondsToString(pz8Var.e));
                 } else {
                     this.e.setVisibility(8);
                     this.d.setVisibility(8);
                 }
             }
-            this.h.setText(mz8Var.a);
-            String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(mz8Var.b);
+            this.h.setText(pz8Var.a);
+            String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(pz8Var.b);
             String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a07, numberUniformFormatExtra);
-            String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(mz8Var.c);
+            String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(pz8Var.c);
             if (str.length() > 0) {
                 str = str + GlideException.IndentedAppendable.INDENT;
             }
             this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a06, numberUniformFormatExtra2));
-            if (mz8Var.g) {
+            if (pz8Var.g) {
                 i = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
             } else {
                 i = 0;
@@ -211,7 +211,7 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         }
     }
 
-    public void setOnItemCoverListener(vz4<mz8> vz4Var) {
+    public void setOnItemCoverListener(vz4<pz8> vz4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, vz4Var) == null) {
             this.k = vz4Var;

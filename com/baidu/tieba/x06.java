@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class x06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<String> b;
-    public int c;
+    public String a;
+    public String b;
+    public List<String> c;
     public String d;
+    public String e;
 
     public x06() {
         Interceptable interceptable = $ic;
@@ -28,34 +27,44 @@ public class x06 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = new ArrayList();
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c.add(str);
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.d = str;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("del_success");
-        if (optJSONArray != null) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                    this.a.add(optJSONArray.optString(i));
-                }
-            }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.e = str;
         }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("del_fail");
-        if (optJSONArray2 != null) {
-            this.b = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                    this.b.add(optJSONArray2.optString(i2));
-                }
-            }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
-        this.c = jSONObject.optInt("ret_type");
-        this.d = jSONObject.optString("text");
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
     }
 }

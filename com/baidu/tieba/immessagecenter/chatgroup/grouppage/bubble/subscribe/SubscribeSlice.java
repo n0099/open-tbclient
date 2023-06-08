@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.b6a;
+import com.baidu.tieba.g6a;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -290,7 +290,7 @@ public class SubscribeSlice extends Slice {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             i0(8);
             j0(true);
-            b6a.b(this.m.b, 600);
+            g6a.b(this.m.b, 600);
             this.m.b.a();
         }
     }
@@ -340,8 +340,8 @@ public class SubscribeSlice extends Slice {
                 long id = this.n.getBasicInfo().getId();
                 int isSubscription = this.n.getUserInfo().getIsSubscription();
                 if (id > 0 && isSubscription != 1) {
-                    l95 m = l95.m();
-                    String q = l95.q("key_show_subscribe_guide" + id);
+                    n95 m = n95.m();
+                    String q = n95.q("key_show_subscribe_guide" + id);
                     long o = m.o(q, 0L);
                     if (o > 0 && TimeHelper.isSameDay(o, System.currentTimeMillis())) {
                         return false;

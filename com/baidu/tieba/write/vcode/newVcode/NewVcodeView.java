@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lfa;
-import com.baidu.tieba.o95;
 import com.baidu.tieba.q95;
+import com.baidu.tieba.qfa;
+import com.baidu.tieba.s95;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public lfa c;
+    public qfa c;
     public BaseWebView d;
     public View e;
-    public o95 f;
+    public q95 f;
     public TextView g;
-    public q95 h;
+    public s95 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -106,9 +106,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.f == null) {
-                o95 o95Var = new o95(this.a.getPageContext());
-                this.f = o95Var;
-                o95Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                q95 q95Var = new q95(this.a.getPageContext());
+                this.f = q95Var;
+                q95Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(lfa lfaVar) {
+    public void setPresenter(qfa qfaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lfaVar) == null) {
-            this.c = lfaVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, qfaVar) == null) {
+            this.c = qfaVar;
             this.i = false;
         }
     }
@@ -207,9 +207,9 @@ public class NewVcodeView {
             TextView textView = (TextView) findViewById.findViewById(R.id.custom_loading_text);
             this.g = textView;
             textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1328));
-            q95 q95Var = new q95();
-            this.h = q95Var;
-            q95Var.a = 1000L;
+            s95 s95Var = new s95();
+            this.h = s95Var;
+            s95Var.a = 1000L;
             if (this.d != null) {
                 return true;
             }

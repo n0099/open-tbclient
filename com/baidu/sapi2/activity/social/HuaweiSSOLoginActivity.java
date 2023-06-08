@@ -7,7 +7,7 @@ import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rab;
+import com.baidu.tieba.wab;
 import com.huawei.hms.common.ApiException;
 import com.huawei.hms.support.hwid.HuaweiIdAuthManager;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
@@ -79,7 +79,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 1002) {
-            rab parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
+            wab parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
             if (parseAuthResultFromIntent.h()) {
                 AuthHuaweiId authHuaweiId = (AuthHuaweiId) parseAuthResultFromIntent.e();
                 String str = p;
@@ -93,7 +93,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
             String str3 = p;
             Log.i(str3, "signIn failed: " + ((ApiException) parseAuthResultFromIntent.d()).getStatusCode());
         } else if (i == 1003) {
-            rab parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
+            wab parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
             if (parseAuthResultFromIntent2.h()) {
                 AuthHuaweiId authHuaweiId2 = (AuthHuaweiId) parseAuthResultFromIntent2.e();
                 Log.i(p, "signIn get code success.");

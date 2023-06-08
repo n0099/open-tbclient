@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.en;
-import com.baidu.tieba.h06;
-import com.baidu.tieba.i06;
 import com.baidu.tieba.j06;
+import com.baidu.tieba.k06;
 import com.baidu.tieba.kg;
+import com.baidu.tieba.l06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,11 +30,11 @@ public class ConstrainImageGroup extends LinearLayout {
     public BdUniqueId a;
     public kg<ConstrainImageLayout> b;
     public kg<TbImageView> c;
-    public i06 d;
+    public k06 d;
     public int e;
     public boolean f;
     public double g;
-    public j06 h;
+    public l06 h;
     public View.OnClickListener i;
     public en j;
     public ViewGroup.OnHierarchyChangeListener k;
@@ -100,7 +100,7 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.d = new h06();
+        this.d = new j06();
         this.f = false;
         this.k = new a(this);
         this.l = false;
@@ -157,7 +157,7 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.d = new h06();
+        this.d = new j06();
         this.f = false;
         this.k = new a(this);
         this.l = false;
@@ -184,7 +184,7 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.d = new h06();
+        this.d = new j06();
         this.f = false;
         this.k = new a(this);
         this.l = false;
@@ -225,10 +225,10 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    public void setImageClickListener(j06 j06Var) {
+    public void setImageClickListener(l06 l06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, j06Var) == null) {
-            this.h = j06Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, l06Var) == null) {
+            this.h = l06Var;
             int childCount = getChildCount();
             if (childCount > 0) {
                 for (int i = 0; i < childCount; i++) {
@@ -252,10 +252,10 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    public void setImageProcessor(i06 i06Var) {
+    public void setImageProcessor(k06 k06Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, i06Var) == null) && i06Var != null) {
-            this.d = i06Var;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, k06Var) == null) && k06Var != null) {
+            this.d = k06Var;
         }
     }
 

@@ -16,9 +16,9 @@ import com.baidu.tieba.ec;
 import com.baidu.tieba.gn;
 import com.baidu.tieba.ic;
 import com.baidu.tieba.ng;
-import com.baidu.tieba.ow5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.qg;
+import com.baidu.tieba.qw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -163,7 +163,7 @@ public class BigdayImageLoaderProc implements qg<gn> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            ow5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            qw5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (ngVar != null) {
                 ngVar.a = webClient;

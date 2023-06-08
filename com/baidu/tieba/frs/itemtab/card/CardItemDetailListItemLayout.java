@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cm7;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.em7;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(cm7 cm7Var) {
+    public void setData(em7 em7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cm7Var) == null) {
-            this.a.setText(cm7Var.a);
-            this.b.setText(cm7Var.b);
-            this.d = cm7Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, em7Var) == null) {
+            this.a.setText(em7Var.a);
+            this.b.setText(em7Var.b);
+            this.d = em7Var.c;
         }
     }
 
@@ -255,13 +255,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m75.d(this.a).w(R.color.CAM_X0108);
+            o75.d(this.a).w(R.color.CAM_X0108);
             if (ui.isEmpty(this.d)) {
-                m75 d = m75.d(this.b);
+                o75 d = o75.d(this.b);
                 d.y(R.dimen.M_T_X002);
                 d.w(R.color.CAM_X0105);
             } else {
-                m75 d2 = m75.d(this.b);
+                o75 d2 = o75.d(this.b);
                 d2.y(R.dimen.M_T_X002);
                 d2.w(R.color.CAM_X0304);
             }

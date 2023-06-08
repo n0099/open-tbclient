@@ -41,7 +41,7 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.n95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -248,7 +248,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                             return;
                         }
                         this.a.i = false;
-                        l95.m().w("jump_to_new_user_guide", false);
+                        n95.m().w("jump_to_new_user_guide", false);
                         return;
                     }
                     this.a.i = false;
@@ -609,7 +609,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             try {
                 setContentView(R.layout.obfuscated_res_0x7f0d03da);
                 O1();
-                boolean i = l95.m().i("jump_to_new_user_guide", true);
+                boolean i = n95.m().i("jump_to_new_user_guide", true);
                 this.i = i;
                 if (i) {
                     M1();

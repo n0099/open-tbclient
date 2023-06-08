@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.ar.constants.HttpConstants;
 import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class bn implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.b> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.sdk.core.request.model.b bVar, JSONObject jSONObject) {

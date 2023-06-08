@@ -117,7 +117,7 @@ public class TaskRunnerImpl implements TaskRunner {
     }
 
     public TaskRunnerImpl(TaskTraits taskTraits, String str, int i) {
-        this.mRunPreNativeTaskClosure = new Runnable() { // from class: com.baidu.tieba.wkb
+        this.mRunPreNativeTaskClosure = new Runnable() { // from class: com.baidu.tieba.blb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

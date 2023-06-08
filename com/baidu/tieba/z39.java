@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,20 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
 /* loaded from: classes8.dex */
-public class z39 implements vn {
+public class z39 extends jy9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
-    public static final BdUniqueId h;
+    public static final BdUniqueId f1;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public List<PbSortType> e;
-    public boolean f;
+    @DrawableRes
+    public int b1;
+    public String c1;
+    public int d1;
+    public int e1;
 
     static {
         InterceptResult invokeClinit;
@@ -36,26 +33,13 @@ public class z39 implements vn {
                 return;
             }
         }
-        g = BdUniqueId.gen();
-        h = BdUniqueId.gen();
+        f1 = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.vn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public z39(BdUniqueId bdUniqueId) {
+    public z39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,9 +49,16 @@ public class z39 implements vn {
                 return;
             }
         }
-        this.a = h;
-        this.b = 0;
-        this.c = false;
-        this.a = bdUniqueId;
+        this.e1 = 0;
+    }
+
+    @Override // com.baidu.tieba.jy9, com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f1;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

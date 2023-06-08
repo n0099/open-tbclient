@@ -69,19 +69,19 @@ public class ev4 {
                         dv4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
                     }
                     if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
-                        l95.m().A("pref_key_active_config_info", System.currentTimeMillis());
+                        n95.m().A("pref_key_active_config_info", System.currentTimeMillis());
                     }
                     if (dv4Var != null && dv4Var.g != null && this.a.a != null) {
                         this.a.a.a(dv4Var);
                     }
                     if (dv4Var != null && this.a.c()) {
-                        l95.m().A("pref_key_last_register_mission", System.currentTimeMillis());
+                        n95.m().A("pref_key_last_register_mission", System.currentTimeMillis());
                         pu4.b().i(dv4Var);
                         if (this.a.a != null) {
                             this.a.a.onSuccess(dv4Var);
                         }
                     }
-                    j95.e().j(dv4Var);
+                    l95.e().j(dv4Var);
                 } else if (this.a.a != null) {
                     this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 }
@@ -123,7 +123,7 @@ public class ev4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !UtilHelper.isSameDay(l95.m().o("pref_key_last_register_mission", 0L), System.currentTimeMillis());
+            return !UtilHelper.isSameDay(n95.m().o("pref_key_last_register_mission", 0L), System.currentTimeMillis());
         }
         return invokeV.booleanValue;
     }
@@ -140,8 +140,8 @@ public class ev4 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mx9.h(309637, ActiveConfigSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, mx9.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+            rx9.h(309637, ActiveConfigSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, rx9.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
             tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -156,7 +156,7 @@ public class ev4 {
         if (!z) {
             this.b = true;
         }
-        l95.m().A("pref_key_last_active_config", System.currentTimeMillis());
+        n95.m().A("pref_key_last_active_config", System.currentTimeMillis());
         ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
         activeConfigReqMsg.setFirstUp(z);
         activeConfigReqMsg.setSchemaUp(z2);

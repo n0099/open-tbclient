@@ -16,10 +16,10 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.lva;
+import com.baidu.tieba.dva;
 import com.baidu.tieba.mh0;
 import com.baidu.tieba.oh0;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.qva;
 import com.baidu.tieba.uh0;
 import com.baidu.tieba.yua;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
@@ -126,7 +126,7 @@ public class MultiMediaPreProcessor {
             }
             f9 = f12 + ((multiMediaData.width / 2.0f) * f);
             f2 = (f10 - ((multiMediaData.height / 2.0f) * f)) - f13;
-            tua.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
+            yua.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
         } else if (multiMediaData.scaleType.contains(charSequence)) {
             int min = Math.min(i, i2);
             float f14 = min;
@@ -233,7 +233,7 @@ public class MultiMediaPreProcessor {
         if (this.mBgBitmap != null) {
             return true;
         }
-        if (yua.e(this.mUpdateMediaTracks)) {
+        if (dva.e(this.mUpdateMediaTracks)) {
             return false;
         }
         for (int i = 1; i < this.mUpdateMediaTracks.size(); i++) {
@@ -596,7 +596,7 @@ public class MultiMediaPreProcessor {
         String str;
         if (this.mTestSavePic && (i = this.mTestSavePicCount) < 1) {
             if (i == 0) {
-                lva.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
+                qva.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
                     @Override // java.lang.Runnable
                     public void run() {
                         FileUtils.deleteFileOrDir(new File("/sdcard/zhmy/"));
@@ -690,7 +690,7 @@ public class MultiMediaPreProcessor {
         int i6 = 0;
         this.mCurrentFboIndex = 0;
         this.mPlayTime = j;
-        if (yua.e(list)) {
+        if (dva.e(list)) {
             return 0;
         }
         List<MediaTrack> list3 = this.mUpdateMediaTracks;

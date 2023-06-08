@@ -43,28 +43,28 @@ import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad5;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.ck5;
-import com.baidu.tieba.fi5;
-import com.baidu.tieba.hea;
+import com.baidu.tieba.bk5;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.dd5;
+import com.baidu.tieba.ek5;
+import com.baidu.tieba.hi5;
 import com.baidu.tieba.hz4;
-import com.baidu.tieba.i17;
-import com.baidu.tieba.j17;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.k75;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.k17;
+import com.baidu.tieba.l17;
+import com.baidu.tieba.la5;
 import com.baidu.tieba.m75;
-import com.baidu.tieba.oi5;
+import com.baidu.tieba.mea;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.qi5;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.uj5;
+import com.baidu.tieba.uh5;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.wq8;
-import com.baidu.tieba.xh5;
-import com.baidu.tieba.zj5;
+import com.baidu.tieba.wj5;
+import com.baidu.tieba.zh5;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,13 +78,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class PbNewInputContainer extends LinearLayout implements fi5, View.OnClickListener {
+public class PbNewInputContainer extends LinearLayout implements hi5, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int D = 1;
     public static int E = 2;
     public static int F;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ad5> A;
+    public List<cd5> A;
     public Runnable B;
     public hz4.c C;
     public EditorTools a;
@@ -98,7 +98,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
     public TBSpecificationBtn i;
     public FrameLayout j;
     public int k;
-    public ck5 l;
+    public ek5 l;
     public SpannableStringBuilder m;
     public String n;
     public String o;
@@ -129,7 +129,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.fi5
+    @Override // com.baidu.tieba.hi5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
@@ -156,7 +156,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         public final /* synthetic */ PbNewInputContainer a;
 
         /* loaded from: classes4.dex */
-        public class a implements zj5.c {
+        public class a implements bk5.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ k a;
@@ -179,14 +179,14 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                 this.a = kVar;
             }
 
-            @Override // com.baidu.tieba.zj5.c
+            @Override // com.baidu.tieba.bk5.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                     return;
                 }
                 this.a.a.z = false;
-                l95.m().w("key_virtual_image_and_state_has_show", false);
+                n95.m().w("key_virtual_image_and_state_has_show", false);
                 this.a.a.T(false);
             }
         }
@@ -215,14 +215,14 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 boolean z = false;
                 if (this.a.b != null && this.a.b.getText().toString().trim().equals("")) {
-                    vi.Q(this.a.getContext(), String.format(k75.H(R.string.reply_not_empty), new Object[0]));
+                    vi.Q(this.a.getContext(), String.format(m75.H(R.string.reply_not_empty), new Object[0]));
                     return;
                 }
                 int i = 1;
                 if (this.a.f != null && this.a.f.getText() != null && this.a.f.getText().length() > 0) {
                     z = true;
                 }
-                boolean i2 = l95.m().i("key_virtual_image_and_state_has_show", true);
+                boolean i2 = n95.m().i("key_virtual_image_and_state_has_show", true);
                 ProfileVirtualImageInfo profileVirtualImageInfo = ProfileVirtualImageInfo.getInstance();
                 int i3 = 2;
                 if (i2 && (profileVirtualImageInfo == null || profileVirtualImageInfo.getIsSetVirtualImage() != 1)) {
@@ -232,7 +232,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                     }
                     TiebaStatic.log(param.param("obj_type", i3).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                     this.a.z = true;
-                    zj5.c(new a(this));
+                    bk5.c(new a(this));
                     return;
                 }
                 StatisticItem param2 = new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 11);
@@ -240,7 +240,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                     i = 2;
                 }
                 TiebaStatic.log(param2.param("obj_type", i).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
-                this.a.H(new sh5(8, -1, null));
+                this.a.H(new uh5(8, -1, null));
             }
         }
     }
@@ -279,7 +279,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
     }
 
     /* loaded from: classes4.dex */
-    public class b implements j17.i {
+    public class b implements l17.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbNewInputContainer a;
@@ -302,31 +302,31 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             this.a = pbNewInputContainer;
         }
 
-        @Override // com.baidu.tieba.j17.i
+        @Override // com.baidu.tieba.l17.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.H(new sh5(5, -1, null));
+                this.a.H(new uh5(5, -1, null));
                 this.a.requestFocus();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements j17.i {
+    public class c implements l17.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ck5 a;
+        public final /* synthetic */ ek5 a;
         public final /* synthetic */ PbNewInputContainer b;
 
-        public c(PbNewInputContainer pbNewInputContainer, ck5 ck5Var) {
+        public c(PbNewInputContainer pbNewInputContainer, ek5 ek5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbNewInputContainer, ck5Var};
+                Object[] objArr = {pbNewInputContainer, ek5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -337,10 +337,10 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                 }
             }
             this.b = pbNewInputContainer;
-            this.a = ck5Var;
+            this.a = ek5Var;
         }
 
-        @Override // com.baidu.tieba.j17.i
+        @Override // com.baidu.tieba.l17.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, spannableStringBuilder) != null) {
@@ -351,14 +351,14 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             this.b.o = this.a.e;
             if (TextUtils.isEmpty(this.a.a)) {
                 this.b.b.setText("");
-                this.b.H(new sh5(5, -1, null));
+                this.b.H(new uh5(5, -1, null));
                 this.b.requestFocus();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements j17.i {
+    public class d implements l17.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbNewInputContainer a;
@@ -381,13 +381,13 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             this.a = pbNewInputContainer;
         }
 
-        @Override // com.baidu.tieba.j17.i
+        @Override // com.baidu.tieba.l17.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.H(new sh5(5, -1, null));
+                this.a.H(new uh5(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -422,7 +422,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
                 PbNewInputContainer pbNewInputContainer = this.a;
-                pbNewInputContainer.H(new sh5(4, -1, pbNewInputContainer.b.getSpanGroupManager()));
+                pbNewInputContainer.H(new uh5(4, -1, pbNewInputContainer.b.getSpanGroupManager()));
             }
         }
     }
@@ -462,17 +462,17 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         public void a(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                wq8 defaultLog = DefaultLog.getInstance();
+                zq8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("PbNewInputContainer", "收到H5通知，更新pb回帖内容：" + str);
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         str = new JSONObject(str).optString("data", str);
                     } catch (Exception e) {
-                        wq8 defaultLog2 = DefaultLog.getInstance();
+                        zq8 defaultLog2 = DefaultLog.getInstance();
                         defaultLog2.c("PbNewInputContainer", "更新pb回帖内容失败" + e);
                     }
                     if (!TextUtils.isEmpty(str)) {
-                        this.a.H(new sh5(6, 27, str));
+                        this.a.H(new uh5(6, 27, str));
                     }
                 }
             }
@@ -507,7 +507,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xh5.d(view2);
+                zh5.d(view2);
                 StatisticItem addParam = new StatisticItem("c15295").param("obj_source", "2").param("obj_type", "2").addParam("uid", TbadkCoreApplication.getCurrentAccount());
                 if (!TextUtils.isEmpty(this.a.r) && !"0".equals(this.a.r)) {
                     addParam.addParam("fid", this.a.r);
@@ -515,7 +515,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                     addParam.addParam("fid", String.valueOf(this.a.a.getFid()));
                 }
                 TiebaStatic.log(addParam);
-                this.a.H(new sh5(77, -1, null));
+                this.a.H(new uh5(77, -1, null));
             }
         }
     }
@@ -549,7 +549,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 boolean z = !((Boolean) this.a.h.a).booleanValue();
-                l95.m().w("key_virtual_image_and_state_has_show", z);
+                n95.m().w("key_virtual_image_and_state_has_show", z);
                 this.a.T(z);
             }
         }
@@ -585,7 +585,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.H(new sh5(67, -1, Boolean.valueOf(this.a)));
+                this.b.H(new uh5(67, -1, Boolean.valueOf(this.a)));
             }
         }
     }
@@ -619,7 +619,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 boolean z = !((Boolean) this.a.i.a).booleanValue();
-                l95.m().w(l95.q("key_reply_add_bless_enable"), z);
+                n95.m().w(n95.q("key_reply_add_bless_enable"), z);
                 this.a.S(z);
             }
         }
@@ -662,7 +662,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && editable != null && editable.toString().trim() != null) {
                 if (!TextUtils.isEmpty(this.a.m)) {
                     if (this.a.l == null) {
-                        this.a.l = new ck5();
+                        this.a.l = new ek5();
                     }
                     this.a.l.b = this.a.m.toString();
                     this.a.l.d = this.a.n;
@@ -670,7 +670,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                     this.a.l.a = this.a.b.getText().toString();
                     this.a.l.c = this.a.b.getSpanGroupManager();
                     PbNewInputContainer pbNewInputContainer = this.a;
-                    pbNewInputContainer.H(new sh5(4, -1, pbNewInputContainer.l));
+                    pbNewInputContainer.H(new uh5(4, -1, pbNewInputContainer.l));
                     return;
                 }
                 wg.a().removeCallbacks(this.a.B);
@@ -742,7 +742,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.H(new sh5(5, -1, null));
+                    this.a.H(new uh5(5, -1, null));
                     this.a.b.requestFocus();
                 }
                 return false;
@@ -782,11 +782,11 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
 
     public final void M(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, context) != null) || !uj5.a()) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, context) != null) || !wj5.a()) {
             return;
         }
         this.i = E(context);
-        S(l95.m().i(l95.q("key_reply_add_bless_enable"), true));
+        S(n95.m().i(n95.q("key_reply_add_bless_enable"), true));
         this.i.setOnClickListener(new j(this));
         this.g.addView(this.i);
     }
@@ -797,20 +797,20 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             return;
         }
         this.h = E(context);
-        T(l95.m().i("key_virtual_image_and_state_has_show", true));
+        T(n95.m().i("key_virtual_image_and_state_has_show", true));
         this.h.setOnClickListener(new h(this));
         this.g.addView(this.h);
     }
 
-    public final void O(sh5 sh5Var) {
+    public final void O(uh5 uh5Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, sh5Var) == null) && sh5Var != null && (obj = sh5Var.c) != null && (obj instanceof ad5) && !EmotionGroupType.isSendAsPic(((ad5) obj).getType())) {
-            ad5 ad5Var = (ad5) sh5Var.c;
-            if (ad5Var.getType() == EmotionGroupType.NET_SUG) {
-                Q(ad5Var);
+        if ((interceptable == null || interceptable.invokeL(1048589, this, uh5Var) == null) && uh5Var != null && (obj = uh5Var.c) != null && (obj instanceof cd5) && !EmotionGroupType.isSendAsPic(((cd5) obj).getType())) {
+            cd5 cd5Var = (cd5) uh5Var.c;
+            if (cd5Var.getType() == EmotionGroupType.NET_SUG) {
+                Q(cd5Var);
             } else {
-                P(ad5Var);
+                P(cd5Var);
             }
         }
     }
@@ -891,12 +891,12 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         this.A = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.fi5
-    public void H(sh5 sh5Var) {
+    @Override // com.baidu.tieba.hi5
+    public void H(uh5 uh5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, sh5Var) == null) && (editorTools = this.a) != null) {
-            editorTools.C(sh5Var);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, uh5Var) == null) && (editorTools = this.a) != null) {
+            editorTools.C(uh5Var);
         }
     }
 
@@ -931,7 +931,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.fi5
+    @Override // com.baidu.tieba.hi5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, editorTools) == null) {
@@ -954,7 +954,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.fi5
+    @Override // com.baidu.tieba.hi5
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
@@ -1008,11 +1008,11 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         }
     }
 
-    public final void F(bd5 bd5Var) {
+    public final void F(dd5 dd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bd5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, dd5Var) == null) {
             StatisticItem statisticItem = new StatisticItem("c14122");
-            statisticItem.param("fid", bd5Var.a).param("tid", bd5Var.b).param("uid", bd5Var.c).param("obj_type", bd5Var.d).param("obj_source", bd5Var.e).param("obj_locate", bd5Var.f).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, bd5Var.h);
+            statisticItem.param("fid", dd5Var.a).param("tid", dd5Var.b).param("uid", dd5Var.c).param("obj_type", dd5Var.d).param("obj_source", dd5Var.e).param("obj_locate", dd5Var.f).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, dd5Var.h);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -1020,7 +1020,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
     public final void G(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            FrameLayout a2 = xh5.a(context);
+            FrameLayout a2 = zh5.a(context);
             this.j = a2;
             a2.setOnClickListener(new g(this));
             ((FrameLayout.LayoutParams) this.j.getLayoutParams()).setMargins(vi.g(context, R.dimen.M_W_X007), vi.g(context, R.dimen.M_H_X004), 0, vi.g(context, R.dimen.M_H_X003));
@@ -1029,32 +1029,32 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         }
     }
 
-    public final void P(ad5 ad5Var) {
+    public final void P(cd5 cd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ad5Var) == null) {
-            if (this.s && ad5Var.getType() != EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, cd5Var) == null) {
+            if (this.s && cd5Var.getType() != EmotionGroupType.LOCAL) {
                 return;
             }
             String obj = this.b.getText().toString();
-            if (this.t && i17.a(obj) >= 10 && getContext() != null) {
+            if (this.t && k17.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
                 return;
             }
-            this.A.add(ad5Var);
-            j17.c(getContext(), ad5Var, this.b);
+            this.A.add(cd5Var);
+            l17.c(getContext(), cd5Var, this.b);
         }
     }
 
-    public final void Q(ad5 ad5Var) {
+    public final void Q(cd5 cd5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, ad5Var) == null) && ad5Var != null && !TextUtils.isEmpty(ad5Var.d()) && !TextUtils.isEmpty(ad5Var.g())) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, cd5Var) == null) && cd5Var != null && !TextUtils.isEmpty(cd5Var.d()) && !TextUtils.isEmpty(cd5Var.g())) {
             String obj = this.b.getText().toString();
-            if (this.t && i17.a(obj) >= 10 && getContext() != null) {
+            if (this.t && k17.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
                 return;
             }
-            this.A.add(ad5Var);
-            j17.d(getContext(), ad5Var, this.b);
+            this.A.add(cd5Var);
+            l17.d(getContext(), cd5Var, this.b);
         }
     }
 
@@ -1073,7 +1073,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                     i2 = R.drawable.icon_pure_post_chose12;
                 }
                 styleConfig.i(i2, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                this.i.getStyleConfig().h(uj5.b(z));
+                this.i.getStyleConfig().h(wj5.b(z));
                 this.i.a = Boolean.valueOf(z);
             }
         }
@@ -1093,25 +1093,25 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                     i2 = R.drawable.icon_pure_post_chose12;
                 }
                 styleConfig.i(i2, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                this.h.getStyleConfig().h(uj5.b(z));
+                this.h.getStyleConfig().h(wj5.b(z));
                 this.h.a = Boolean.valueOf(z);
             }
             wg.a().postDelayed(new i(this, z), 200L);
         }
     }
 
-    public final void z(sh5 sh5Var) {
+    public final void z(uh5 uh5Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048616, this, sh5Var) != null) || sh5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048616, this, uh5Var) != null) || uh5Var == null) {
             return;
         }
         boolean[] zArr = this.w;
-        Object obj = sh5Var.c;
+        Object obj = uh5Var.c;
         if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
-            Object obj2 = sh5Var.c;
-            if (!(obj2 instanceof ck5) || !TextUtils.isEmpty(((ck5) obj2).a)) {
-                Object obj3 = sh5Var.c;
+            Object obj2 = uh5Var.c;
+            if (!(obj2 instanceof ek5) || !TextUtils.isEmpty(((ek5) obj2).a)) {
+                Object obj3 = uh5Var.c;
                 if (!(obj3 instanceof SpanGroupManager) || !((SpanGroupManager) obj3).L()) {
                     z = true;
                     zArr[0] = z;
@@ -1124,13 +1124,13 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921706, Boolean.valueOf(true ^ this.w[0])));
     }
 
-    @Override // com.baidu.tieba.th5
-    public void C(sh5 sh5Var) {
+    @Override // com.baidu.tieba.vh5
+    public void C(uh5 uh5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sh5Var) != null) || sh5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uh5Var) != null) || uh5Var == null) {
             return;
         }
-        int i2 = sh5Var.a;
+        int i2 = uh5Var.a;
         if (i2 != 3) {
             if (i2 != 4) {
                 if (i2 != 6) {
@@ -1145,11 +1145,11 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                                                     if (i2 != 45) {
                                                         switch (i2) {
                                                             case 9:
-                                                                for (ad5 ad5Var : this.A) {
-                                                                    F(ad5Var.a());
+                                                                for (cd5 cd5Var : this.A) {
+                                                                    F(cd5Var.a());
                                                                 }
                                                                 this.A.clear();
-                                                                if (((Boolean) sh5Var.c).booleanValue()) {
+                                                                if (((Boolean) uh5Var.c).booleanValue()) {
                                                                     this.l = null;
                                                                     this.m = null;
                                                                     this.b.setText((CharSequence) null);
@@ -1171,15 +1171,15 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                                                                 this.w[2] = false;
                                                                 break;
                                                             case 12:
-                                                                Object obj = sh5Var.c;
-                                                                if (!(obj instanceof oi5)) {
+                                                                Object obj = uh5Var.c;
+                                                                if (!(obj instanceof qi5)) {
                                                                     return;
                                                                 }
-                                                                oi5 oi5Var = (oi5) obj;
-                                                                WriteImagesInfo writeImagesInfo = oi5Var.a;
+                                                                qi5 qi5Var = (qi5) obj;
+                                                                WriteImagesInfo writeImagesInfo = qi5Var.a;
                                                                 if (writeImagesInfo != null) {
                                                                     if (writeImagesInfo.getChosedFiles() != null) {
-                                                                        this.x[0] = oi5Var.a.getChosedFiles().size();
+                                                                        this.x[0] = qi5Var.a.getChosedFiles().size();
                                                                     } else {
                                                                         this.x[0] = 0;
                                                                     }
@@ -1203,7 +1203,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                                                                 }
                                                         }
                                                     } else {
-                                                        Object obj2 = sh5Var.c;
+                                                        Object obj2 = uh5Var.c;
                                                         if (obj2 instanceof String) {
                                                             String str = (String) obj2;
                                                             if (StringUtils.isNull(str)) {
@@ -1217,12 +1217,12 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                                                         }
                                                     }
                                                 } else {
-                                                    Object obj3 = sh5Var.c;
+                                                    Object obj3 = uh5Var.c;
                                                     if (obj3 != null) {
                                                         if (obj3 instanceof String) {
                                                             B((String) obj3);
-                                                        } else if ((obj3 instanceof ck5) && ((ck5) obj3).a != null) {
-                                                            B(((ck5) obj3).a);
+                                                        } else if ((obj3 instanceof ek5) && ((ek5) obj3).a != null) {
+                                                            B(((ek5) obj3).a);
                                                         }
                                                     }
                                                 }
@@ -1231,7 +1231,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                                             }
                                         }
                                     } else if (this.j != null) {
-                                        Object obj4 = sh5Var.c;
+                                        Object obj4 = uh5Var.c;
                                         if (obj4 instanceof String) {
                                             this.r = (String) obj4;
                                         }
@@ -1248,7 +1248,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                                         TiebaStatic.log(addParam);
                                     }
                                 } else {
-                                    Object obj5 = sh5Var.c;
+                                    Object obj5 = uh5Var.c;
                                     if (obj5 instanceof String) {
                                         long g2 = tg.g((String) obj5, 0L);
                                         if (g2 > 0) {
@@ -1259,60 +1259,60 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
                             }
                             this.w[3] = true;
                         } else {
-                            O(sh5Var);
+                            O(uh5Var);
                         }
                     } else {
-                        Object obj6 = sh5Var.c;
+                        Object obj6 = uh5Var.c;
                         if (obj6 != null && (obj6 instanceof ArrayList)) {
                             A((ArrayList) obj6);
                         }
                     }
                 } else {
-                    Object obj7 = sh5Var.c;
+                    Object obj7 = uh5Var.c;
                     if (obj7 == null) {
                         this.b.setText((CharSequence) null);
                     } else if (obj7 instanceof String) {
                         if (TextUtils.isEmpty((String) obj7)) {
                             this.b.setText((CharSequence) null);
                         } else {
-                            j17.h(getContext(), (String) sh5Var.c, new b(this));
+                            l17.h(getContext(), (String) uh5Var.c, new b(this));
                         }
-                    } else if (obj7 instanceof ck5) {
+                    } else if (obj7 instanceof ek5) {
                         this.m = null;
                         String str2 = this.p;
                         if (str2 != null) {
                             this.b.setHint(str2);
                         }
-                        Object obj8 = sh5Var.c;
-                        ck5 ck5Var = (ck5) obj8;
-                        if (TextUtils.isEmpty(((ck5) obj8).b) && TextUtils.isEmpty(((ck5) sh5Var.c).a)) {
+                        Object obj8 = uh5Var.c;
+                        ek5 ek5Var = (ek5) obj8;
+                        if (TextUtils.isEmpty(((ek5) obj8).b) && TextUtils.isEmpty(((ek5) uh5Var.c).a)) {
                             this.b.setText((CharSequence) null);
                         } else {
-                            if (!TextUtils.isEmpty(ck5Var.b)) {
-                                j17.h(getContext(), ck5Var.b, new c(this, ck5Var));
+                            if (!TextUtils.isEmpty(ek5Var.b)) {
+                                l17.h(getContext(), ek5Var.b, new c(this, ek5Var));
                             }
-                            if (!TextUtils.isEmpty(ck5Var.a)) {
-                                j17.h(getContext(), ck5Var.a, new d(this));
+                            if (!TextUtils.isEmpty(ek5Var.a)) {
+                                l17.h(getContext(), ek5Var.a, new d(this));
                             }
                         }
                     }
-                    z(sh5Var);
+                    z(uh5Var);
                 }
             } else {
-                z(sh5Var);
+                z(uh5Var);
             }
         } else if (this.b.getSelectionStart() > 0) {
             String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-            Matcher matcher = i17.b.matcher(substring);
+            Matcher matcher = k17.b.matcher(substring);
             if (matcher.find()) {
                 int length = substring.length() - matcher.replaceFirst("").length();
                 String substring2 = this.b.getText().toString().substring(this.b.getSelectionStart() - length, this.b.getSelectionStart());
-                Iterator<ad5> it = this.A.iterator();
+                Iterator<cd5> it = this.A.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    ad5 next = it.next();
+                    cd5 next = it.next();
                     if (next.d().equals(substring2)) {
                         this.A.remove(next);
                         break;
@@ -1371,11 +1371,11 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             linearLayout.setOrientation(1);
             linearLayout.setGravity(80);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            ja5 ja5Var = new ja5();
-            ja5Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            la5 la5Var = new la5();
+            la5Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.c = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(ja5Var);
+            tBSpecificationBtn.setConfig(la5Var);
             this.c.setEnabled(false);
             this.c.setTextSize(R.dimen.T_X08);
             this.c.setText(context.getString(R.string.pb_send_post));
@@ -1392,16 +1392,16 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            ja5 ja5Var = new ja5();
-            ja5Var.r(R.color.CAM_X0209, SkinManager.getColor(R.color.CAM_X0105));
-            ja5Var.y(false);
-            ja5Var.h(uj5.b(true));
-            ja5Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            ja5Var.n(vi.g(getContext(), R.dimen.M_W_X004), vi.g(getContext(), R.dimen.M_W_X004));
-            ja5Var.o(vi.g(getContext(), R.dimen.M_H_X002));
-            ja5Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            la5 la5Var = new la5();
+            la5Var.r(R.color.CAM_X0209, SkinManager.getColor(R.color.CAM_X0105));
+            la5Var.y(false);
+            la5Var.h(wj5.b(true));
+            la5Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            la5Var.n(vi.g(getContext(), R.dimen.M_W_X004), vi.g(getContext(), R.dimen.M_W_X004));
+            la5Var.o(vi.g(getContext(), R.dimen.M_H_X002));
+            la5Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            tBSpecificationBtn.setConfig(ja5Var);
+            tBSpecificationBtn.setConfig(la5Var);
             tBSpecificationBtn.setTextSize(R.dimen.T_X09);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, vi.g(getContext(), R.dimen.tbds62));
             layoutParams.setMargins(vi.g(context, R.dimen.M_W_X007), vi.g(context, R.dimen.M_H_X004), 0, vi.g(context, R.dimen.M_H_X003));
@@ -1425,7 +1425,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
-            hea.l(this.b, R.drawable.edittext_cursor);
+            mea.l(this.b, R.drawable.edittext_cursor);
             this.b.setLineSpacing(vi.g(context, R.dimen.M_T_X002), 1.0f);
             this.b.setPadding(vi.g(context, R.dimen.M_W_X006), vi.g(context, R.dimen.M_H_X004), vi.g(context, R.dimen.M_W_X006), vi.g(context, R.dimen.M_H_X004));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
@@ -1438,7 +1438,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.fi5
+    @Override // com.baidu.tieba.hi5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
@@ -1448,33 +1448,33 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207, i2);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i2);
             if (i2 == 0) {
-                hea.l(this.b, R.drawable.edittext_cursor);
+                mea.l(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(SkinManager.getColor(i2, (int) R.color.CAM_X0109));
             } else {
-                hea.l(this.b, R.drawable.edittext_cursor_2);
+                mea.l(this.b, R.drawable.edittext_cursor_2);
                 this.b.setHintTextColor(SkinManager.getColor(i2, (int) R.color.CAM_X0109));
             }
             this.c.l(i2);
             TBSpecificationBtn tBSpecificationBtn = this.h;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.getStyleConfig().k(SkinManager.getColor(R.color.CAM_X0105));
-                this.h.getStyleConfig().h(uj5.b(((Boolean) this.h.a).booleanValue()));
+                this.h.getStyleConfig().h(wj5.b(((Boolean) this.h.a).booleanValue()));
                 this.h.l(i2);
             }
             TBSpecificationBtn tBSpecificationBtn2 = this.i;
             if (tBSpecificationBtn2 != null) {
                 tBSpecificationBtn2.getStyleConfig().k(SkinManager.getColor(R.color.CAM_X0105));
-                this.i.getStyleConfig().h(uj5.b(((Boolean) this.i.a).booleanValue()));
+                this.i.getStyleConfig().h(wj5.b(((Boolean) this.i.a).booleanValue()));
                 this.i.l(i2);
             }
             FrameLayout frameLayout = this.j;
             if (frameLayout != null) {
-                m75 d2 = m75.d(frameLayout);
+                o75 d2 = o75.d(frameLayout);
                 d2.m(R.dimen.L_X02);
                 d2.o(R.string.J_X06);
                 d2.f(R.color.CAM_X0209);
             }
-            m75.d(this.f).w(R.color.CAM_X0109);
+            o75.d(this.f).w(R.color.CAM_X0109);
         }
     }
 
@@ -1506,7 +1506,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.fi5
+    @Override // com.baidu.tieba.hi5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -1557,7 +1557,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fi5
+    @Override // com.baidu.tieba.hi5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1567,7 +1567,7 @@ public class PbNewInputContainer extends LinearLayout implements fi5, View.OnCli
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.fi5
+    @Override // com.baidu.tieba.hi5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {

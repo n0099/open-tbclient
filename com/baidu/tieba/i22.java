@@ -33,13 +33,13 @@ public class i22 extends e22 {
 
         /* renamed from: com.baidu.tieba.i22$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0337a implements xl3.c {
+        public class C0341a implements xl3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ q22 a;
             public final /* synthetic */ a b;
 
-            public C0337a(a aVar, q22 q22Var) {
+            public C0341a(a aVar, q22 q22Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class i22 extends e22 {
                 q22 q22Var = new q22("compassChange", jSONObject, str);
                 xl3 i = xl3.i();
                 i.l(this.a.getContext());
-                i.o(new C0337a(this, q22Var));
+                i.o(new C0341a(this, q22Var));
                 y82.i("CompassApi", "start listen compass");
                 i.p();
                 q22Var.b(this.a);

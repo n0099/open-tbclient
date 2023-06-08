@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ed5;
-import com.baidu.tieba.kx7;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.gd5;
+import com.baidu.tieba.mx7;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -62,19 +62,19 @@ public class NewHotTipLabelView extends EMTextView {
             } else {
                 setBackground(SkinManager.getDrawable(R.drawable.icon_mask_hot_point_bubble));
             }
-            m75 d = m75.d(this);
+            o75 d = o75.d(this);
             d.w(R.color.CAM_X0310);
             d.B(R.dimen.T_X10);
             d.C(R.string.F_X01);
         }
     }
 
-    public void setData(ed5 ed5Var) {
+    public void setData(gd5 gd5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, ed5Var) != null) || ed5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, gd5Var) != null) || gd5Var == null) {
             return;
         }
-        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(ed5Var.a(), 6, "");
+        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(gd5Var.a(), 6, "");
         if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
             cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0df6);
         }
@@ -141,10 +141,10 @@ public class NewHotTipLabelView extends EMTextView {
     }
 
     public void c() {
-        ed5 hotNotifyConfig;
+        gd5 hotNotifyConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig()) != null) {
-            kx7.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
+            mx7.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
         }
     }
 

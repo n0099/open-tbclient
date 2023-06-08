@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes8.dex */
-public class uo7 implements x65 {
+public class uo7 implements l65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.l65
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_GROUP_CHAT_GUIDE_STRATEGY" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGroupChatGuide" : (String) invokeV.objValue;
     }
 
     public uo7() {
@@ -34,13 +34,13 @@ public class uo7 implements x65 {
         }
     }
 
-    @Override // com.baidu.tieba.x65
-    public v65 a() {
+    @Override // com.baidu.tieba.l65
+    public Class<? extends j65> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new to7();
+            return to7.class;
         }
-        return (v65) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 }

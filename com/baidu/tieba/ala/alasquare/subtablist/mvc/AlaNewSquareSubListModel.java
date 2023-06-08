@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.bd6;
-import com.baidu.tieba.cd6;
+import com.baidu.tieba.dd6;
+import com.baidu.tieba.ed6;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.la6;
+import com.baidu.tieba.na6;
 import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -386,41 +386,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (this.o) {
-                    bd6 bd6Var = new bd6();
-                    la6 la6Var = new la6();
-                    la6Var.e = this.i;
-                    la6Var.b = this.e;
-                    la6Var.c = this.d;
-                    la6Var.d = list.get(i);
-                    bd6Var.a = la6Var;
+                    dd6 dd6Var = new dd6();
+                    na6 na6Var = new na6();
+                    na6Var.e = this.i;
+                    na6Var.b = this.e;
+                    na6Var.c = this.d;
+                    na6Var.d = list.get(i);
+                    dd6Var.a = na6Var;
                     int i2 = i + 1;
                     if (i2 < size) {
-                        la6 la6Var2 = new la6();
-                        la6Var2.e = this.i;
-                        la6Var2.b = this.e;
-                        la6Var2.c = this.d;
-                        la6Var2.d = list.get(i2);
-                        bd6Var.b = la6Var2;
+                        na6 na6Var2 = new na6();
+                        na6Var2.e = this.i;
+                        na6Var2.b = this.e;
+                        na6Var2.c = this.d;
+                        na6Var2.d = list.get(i2);
+                        dd6Var.b = na6Var2;
                     }
-                    this.n.add(bd6Var);
+                    this.n.add(dd6Var);
                 } else {
-                    cd6 cd6Var = new cd6();
-                    la6 la6Var3 = new la6();
-                    la6Var3.e = this.i;
-                    la6Var3.b = this.e;
-                    la6Var3.c = this.d;
-                    la6Var3.d = list.get(i);
-                    cd6Var.a = la6Var3;
+                    ed6 ed6Var = new ed6();
+                    na6 na6Var3 = new na6();
+                    na6Var3.e = this.i;
+                    na6Var3.b = this.e;
+                    na6Var3.c = this.d;
+                    na6Var3.d = list.get(i);
+                    ed6Var.a = na6Var3;
                     int i3 = i + 1;
                     if (i3 < size) {
-                        la6 la6Var4 = new la6();
-                        la6Var4.e = this.i;
-                        la6Var4.b = this.e;
-                        la6Var4.c = this.d;
-                        la6Var4.d = list.get(i3);
-                        cd6Var.b = la6Var4;
+                        na6 na6Var4 = new na6();
+                        na6Var4.e = this.i;
+                        na6Var4.b = this.e;
+                        na6Var4.c = this.d;
+                        na6Var4.d = list.get(i3);
+                        ed6Var.b = na6Var4;
                     }
-                    this.n.add(cd6Var);
+                    this.n.add(ed6Var);
                 }
             }
         }

@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qv6 implements pv6 {
+public class qv6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pv6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qv6() {
+    public static synchronized pv6 a() {
+        InterceptResult invokeV;
+        pv6 pv6Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (qv6.class) {
+                if (a == null) {
+                    a = new pv6();
+                }
+                pv6Var = a;
             }
+            return pv6Var;
         }
+        return (pv6) invokeV.objValue;
     }
 }

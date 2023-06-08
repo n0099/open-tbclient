@@ -1,14 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class fra {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
+public interface fra {
+    void a(int i);
+
+    void b();
+
+    void c();
+
+    void d();
+
+    void e(String str);
+
+    void f(String str);
 }

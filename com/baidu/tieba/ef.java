@@ -37,14 +37,14 @@ public class ef implements cl1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new MemoryThreadOptSwitch());
-            arrayList.add(new fk5());
+            arrayList.add(new hk5());
             arrayList.add(new CsjInitSwitch());
             arrayList.add(new GdtInitSwitch());
             arrayList.add(new KsInitSwitch());
             arrayList.add(new PicCaptureModeSwitch());
-            arrayList.add(new wj6());
-            arrayList.add(new xj6());
-            arrayList.add(new hp6());
+            arrayList.add(new yj6());
+            arrayList.add(new zj6());
+            arrayList.add(new jp6());
             return arrayList;
         }
         return invokeV.objValue;

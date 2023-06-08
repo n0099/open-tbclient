@@ -1,62 +1,54 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.JvmStatic;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.YYPayUIKit;
+import tv.athena.revenue.payui.model.PayFlowModel;
 /* loaded from: classes7.dex */
-public final class qub {
+public class qub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948105739, "Lcom/baidu/tieba/qub;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948105739, "Lcom/baidu/tieba/qub;");
+    public static void a(int i, int i2, PayFlowType payFlowType, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3)}) == null) {
+            b(i, i2, payFlowType, i3, null);
         }
     }
 
-    @JvmStatic
-    @JvmOverloads
-    public static final int a(String str) {
-        InterceptResult invokeL;
+    public static void b(int i, int i2, PayFlowType payFlowType, int i3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(str, 0, 2, null) : invokeL.intValue;
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final int b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            try {
-                return Color.parseColor(str);
-            } catch (Exception e) {
-                RLog.error("ColorUtil", e.getLocalizedMessage(), new Object[0]);
-                return i;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3), map}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            if (uIKit == null) {
+                RLog.error("PayBdLiveStatisticManager", "onPayInfo null yyPayUIKit", new Object[0]);
+                return;
             }
+            PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
+            if (payFlowModel != null && payFlowModel.viewEventListener != null) {
+                String str = StringUtil.EMPTY_ARRAY;
+                if (map != null) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        for (Map.Entry<String, String> entry : map.entrySet()) {
+                            jSONObject.put(entry.getKey(), entry.getValue());
+                        }
+                        str = jSONObject.toString();
+                    } catch (JSONException e) {
+                        RLog.error("PayBdLiveStatisticManager", "onPayInfo JSONException" + e.getLocalizedMessage(), new Object[0]);
+                    }
+                }
+                RLog.info("PayBdLiveStatisticManager", "onPayInfo type:" + i3 + " json:" + str + " listener:" + payFlowModel.viewEventListener + " content:" + map);
+                payFlowModel.viewEventListener.onPayInfo(i3, str);
+                return;
+            }
+            RLog.error("PayBdLiveStatisticManager", "onPayInfo error h5PayFlowModel null", new Object[0]);
         }
-        return invokeLI.intValue;
-    }
-
-    public static /* synthetic */ int c(String str, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = -16777216;
-        }
-        return b(str, i);
     }
 }

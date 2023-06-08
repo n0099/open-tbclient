@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
-import com.baidu.tieba.ra5;
+import com.baidu.tieba.ta5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -193,12 +193,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements py {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                m75 d = m75.d(this.h);
+                o75 d = o75.d(this.h);
                 d.B(R.dimen.T_X06);
                 d.w(R.color.CAM_X0305);
                 return;
             }
-            m75 d2 = m75.d(this.h);
+            o75 d2 = o75.d(this.h);
             d2.B(R.dimen.T_X09);
             d2.w(R.color.CAM_X0109);
         }
@@ -253,9 +253,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements py {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            ra5 ra5Var = new ra5(6);
-            ra5Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ra5Var));
+            ta5 ta5Var = new ta5(6);
+            ta5Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ta5Var));
         }
     }
 
@@ -358,15 +358,15 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements py {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            m75 d = m75.d(this.a);
+            o75 d = o75.d(this.a);
             d.n(1);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            m75 d2 = m75.d(this.g);
+            o75 d2 = o75.d(this.g);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
-            m75.d(this.h).w(R.color.CAM_X0305);
-            m75.d(this.e).w(R.color.CAM_X0311);
+            o75.d(this.h).w(R.color.CAM_X0305);
+            o75.d(this.e).w(R.color.CAM_X0311);
             WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080b29, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);

@@ -1,39 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class xk8 {
+public class xk8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303364, "Lcom/baidu/tieba/xk8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303364, "Lcom/baidu/tieba/xk8;");
-                return;
-            }
-        }
-        a = new ArrayList<>();
-    }
-
-    public static final ArrayList<String> a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static tk8<uk8> a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            tk8<uk8> tk8Var = new tk8<>();
+            tk8Var.e().j(1);
+            uk8 uk8Var = new uk8();
+            uk8Var.f(str);
+            tk8Var.i(uk8Var);
+            return tk8Var;
         }
-        return (ArrayList) invokeV.objValue;
+        return (tk8) invokeL.objValue;
     }
 }

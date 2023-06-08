@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface oe7 {
-    void D1();
+    void B();
 
-    void h();
+    void H();
 
-    void q0(boolean z);
+    void f0();
+
+    void i0();
 }

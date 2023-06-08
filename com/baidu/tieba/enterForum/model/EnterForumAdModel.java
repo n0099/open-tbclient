@@ -9,10 +9,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ew9;
-import com.baidu.tieba.gw9;
+import com.baidu.tieba.jw9;
+import com.baidu.tieba.lw9;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.wx6;
+import com.baidu.tieba.yx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wx6 a;
+    public yx6 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -111,13 +111,13 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public wx6 Z() {
+    public yx6 Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (wx6) invokeV.objValue;
+        return (yx6) invokeV.objValue;
     }
 
     public void a0() {
@@ -128,10 +128,10 @@ public class EnterForumAdModel extends BdBaseModel {
     }
 
     public void b0(Context context) {
-        wx6 wx6Var;
+        yx6 yx6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (wx6Var = this.a) != null && wx6Var.a()) {
-            gw9.g().c(q9.a(context).getUniqueId(), ew9.f("a025", "common_fill", true, 1, 5));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (yx6Var = this.a) != null && yx6Var.a()) {
+            lw9.g().c(q9.a(context).getUniqueId(), jw9.f("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

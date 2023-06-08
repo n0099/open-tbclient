@@ -86,13 +86,13 @@ public class nz extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: y */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f15Var) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().originalThreadData != null && f15Var.getThreadData().originalThreadData.C != null) {
-                if (!f15Var.getThreadData().originalThreadData.m && !f15Var.getThreadData().shouldShowBlockedState()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, h15Var) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().originalThreadData != null && h15Var.getThreadData().originalThreadData.C != null) {
+                if (!h15Var.getThreadData().originalThreadData.m && !h15Var.getThreadData().shouldShowBlockedState()) {
                     this.h.setVisibility(0);
-                    this.i.setData(f15Var.getThreadData().originalThreadData.D, 13, f15Var.getThreadData().originalThreadData.f);
+                    this.i.setData(h15Var.getThreadData().originalThreadData.D, 13, h15Var.getThreadData().originalThreadData.f);
                     return;
                 }
                 this.h.setVisibility(8);

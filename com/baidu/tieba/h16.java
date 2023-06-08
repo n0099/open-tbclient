@@ -1,95 +1,48 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
+import android.content.Context;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes6.dex */
-public class h16 implements g16 {
+public class h16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashSet<LoadingLayout> a;
 
-    public h16() {
+    public static boolean a(Context context, kx9 kx9Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, kx9Var)) == null) {
+            if (context == null || kx9Var == null || !kx9Var.b()) {
+                return false;
             }
-        }
-        this.a = new HashSet<>();
-    }
-
-    public void a(LoadingLayout loadingLayout) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, loadingLayout) == null) && loadingLayout != null) {
-            this.a.add(loadingLayout);
-        }
-    }
-
-    @Override // com.baidu.tieba.g16
-    public void setLastUpdatedLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setLastUpdatedLabel(charSequence);
+            TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
+            TiebaPlusInfo a = kx9Var.a();
+            if (a == null) {
+                return false;
             }
+            tiePlusHelper.F(a.app_id);
+            tiePlusHelper.G(a.title);
+            tiePlusHelper.M(true);
+            tiePlusHelper.K(a.download_url);
+            tiePlusHelper.O(a.app_package);
+            tiePlusHelper.P(a.app_power);
+            tiePlusHelper.Q(a.app_privacy);
+            x16 x16Var = new x16(context, tiePlusHelper, true);
+            tiePlusHelper.J(x16Var);
+            ItemData itemData = new ItemData();
+            itemData.parseProto(a);
+            tiePlusHelper.N(itemData);
+            x16Var.f(a.app_company);
+            x16Var.g(a.app_icon);
+            x16Var.h(a.title);
+            x16Var.i(a.app_version);
+            x16Var.show();
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.g16
-    public void setLoadingDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setLoadingDrawable(drawable);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.g16
-    public void setPullLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setPullLabel(charSequence);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.g16
-    public void setRefreshingLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setRefreshingLabel(charSequence);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.g16
-    public void setReleaseLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setReleaseLabel(charSequence);
-            }
-        }
+        return invokeLL.booleanValue;
     }
 }

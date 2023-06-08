@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface i9a {
-    void d(boolean z);
+    void C0(String str);
 
-    void g(float f);
+    void F0(String str);
+
+    void finishActivity();
+
+    void q0(String str, String str2);
+
+    void showErrorView();
 }

@@ -1,112 +1,64 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.media.AudioManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
+import tbclient.NewGodInfo;
 /* loaded from: classes8.dex */
 public class vx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948256182, "Lcom/baidu/tieba/vx5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948256182, "Lcom/baidu/tieba/vx5;");
-        }
-    }
-
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public static String a(NewGodData newGodData) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != 3 && i != 4) {
-                if (i != 5) {
-                    int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
-                    if ((autoPlaySwitch == 3 || !BdNetTypeUtil.isWifiNet()) && (autoPlaySwitch != 2 || !BdNetTypeUtil.isMobileNet())) {
-                        return false;
-                    }
-                } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !BdNetTypeUtil.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
-                    return false;
-                }
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
+            if (newGodData != null && newGodData.getType() == 2) {
+                z = true;
+            } else {
+                z = false;
             }
-            return BdNetTypeUtil.isWifiNet();
+            return c(z);
         }
-        return invokeI.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean b(int i, String str) {
-        InterceptResult invokeIL;
+    public static String b(NewGodInfo newGodInfo) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
-            return a(i);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if ((BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 3) || (BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
+            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
+                z = true;
+            } else {
+                z = false;
             }
-            return false;
+            return c(z);
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean e(WeakReference<Context> weakReference, boolean z) {
-        InterceptResult invokeLZ;
+    public static String c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, weakReference, z)) == null) {
-            if (weakReference == null || weakReference.get() == null) {
-                return false;
-            }
-            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
             if (z) {
-                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
-                    return false;
-                }
-            } else if (audioManager.abandonAudioFocus(null) != 1) {
-                return false;
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
             }
-            return true;
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
         }
-        return invokeLZ.booleanValue;
+        return (String) invokeZ.objValue;
     }
 
-    public static void f(WeakReference<Context> weakReference) {
+    public static void d(String str, String str2, String str3, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, weakReference) == null) && weakReference != null && weakReference.get() != null) {
-            a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, context) == null) {
+            qx4.x(context, null, lpa.a(lpa.a(lpa.a(TbConfig.URL_FORUM_LEVEL_H5_PAGE, "portrait", str2), "forum_id", str), "obj_locate", str3), true, true, true);
         }
     }
 }

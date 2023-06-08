@@ -10,10 +10,9 @@ import org.json.JSONObject;
 public class gn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public long d;
+    public String a;
+    public String b;
+    public String c;
 
     public gn9() {
         Interceptable interceptable = $ic;
@@ -37,10 +36,9 @@ public class gn9 {
                 return null;
             }
             gn9 gn9Var = new gn9();
-            gn9Var.a = jSONObject.optInt("agree_num", -1);
-            gn9Var.b = jSONObject.optInt("share_num", -1);
-            gn9Var.c = jSONObject.optInt("reply_num", -1);
-            gn9Var.d = jSONObject.optLong("time", System.currentTimeMillis());
+            gn9Var.a = jSONObject.optString("apk_name");
+            gn9Var.b = jSONObject.optString("apk_url");
+            gn9Var.c = jSONObject.optString("download_key");
             return gn9Var;
         }
         return (gn9) invokeL.objValue;

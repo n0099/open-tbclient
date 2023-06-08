@@ -4,13 +4,15 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class n65 extends h65 {
+public class n65 extends j65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,16 +30,16 @@ public class n65 extends h65 {
         }
     }
 
-    @Override // com.baidu.tieba.h65
-    public void a(@NonNull Context context, @NonNull z55 z55Var) {
+    @Override // com.baidu.tieba.j65
+    public void a(@NonNull Context context, @NonNull b65 b65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, z55Var) == null) {
-            TbWebViewActivityConfig h = qx4.h(context, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
-            h.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            h.setWebDialogName("newGod");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, h));
-            l95.m().w(l95.q("key_new_god_pop_is_show"), false);
-            x55.m("newGod");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b65Var) == null) {
+            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
+            clientUpdateInfo.mIsForceUpdate = b65Var.a("is_force_update");
+            clientUpdateInfo.mStatus = b65Var.a("status");
+            clientUpdateInfo.mReverson = b65Var.a("reverson");
+            clientUpdateInfo.mContentUrl = b65Var.a("content_url");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, b65Var.a("apk_md5_rsa"))));
         }
     }
 }

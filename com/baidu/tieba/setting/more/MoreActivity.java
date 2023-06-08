@@ -49,25 +49,25 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
 import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a95;
-import com.baidu.tieba.g95;
+import com.baidu.tieba.c95;
+import com.baidu.tieba.cj9;
+import com.baidu.tieba.i95;
 import com.baidu.tieba.j9;
 import com.baidu.tieba.jb;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.mm5;
-import com.baidu.tieba.mp9;
-import com.baidu.tieba.n5a;
-import com.baidu.tieba.np9;
-import com.baidu.tieba.pk5;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.om5;
 import com.baidu.tieba.q05;
-import com.baidu.tieba.qk5;
+import com.baidu.tieba.rk5;
+import com.baidu.tieba.rp9;
+import com.baidu.tieba.s5a;
 import com.baidu.tieba.setting.SecretSettingActivityConfig;
 import com.baidu.tieba.setting.SystemHelpSettingActivityConfig;
 import com.baidu.tieba.setting.model.MoreDiscoveryModel;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
 import com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel;
-import com.baidu.tieba.yi9;
+import com.baidu.tieba.sk5;
+import com.baidu.tieba.sp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ import java.util.List;
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public np9 a;
+    public sp9 a;
     public MoreModel b;
     public MoreDiscoveryModel c;
     public g d;
@@ -127,14 +127,14 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 if (!z && !(responsedMessage instanceof GetUserInfoSocketResponseMessage)) {
                     return;
                 }
-                pk5 pk5Var = null;
+                rk5 rk5Var = null;
                 if (z) {
-                    pk5Var = ((GetUserInfoHttpResponseMessage) responsedMessage).getData();
+                    rk5Var = ((GetUserInfoHttpResponseMessage) responsedMessage).getData();
                 } else if (responsedMessage instanceof GetUserInfoSocketResponseMessage) {
-                    pk5Var = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
+                    rk5Var = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
                 }
-                if (pk5Var != null && pk5Var.a() != null) {
-                    String portrait = pk5Var.a().getPortrait();
+                if (rk5Var != null && rk5Var.a() != null) {
+                    String portrait = rk5Var.a().getPortrait();
                     this.a.a.U(portrait, false);
                     PersonChangeData U = this.a.b.U();
                     if (U != null) {
@@ -228,7 +228,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* loaded from: classes7.dex */
-    public class d implements mp9 {
+    public class d implements rp9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreActivity a;
@@ -251,7 +251,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             this.a = moreActivity;
         }
 
-        @Override // com.baidu.tieba.mp9
+        @Override // com.baidu.tieba.rp9
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.e2(i)) {
@@ -285,10 +285,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 MessageManager.getInstance().runTask(2921330, null, this.a);
             } else if (i == 11) {
                 TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
-                mm5.b(0, 0, 0, 2, 12);
+                om5.b(0, 0, 0, 2, 12);
                 BdSocketLinkService.close("exit app");
-                yi9.d().b();
-                g95.g(this.a.getPageContext().getPageActivity(), 12, false);
+                cj9.d().b();
+                i95.g(this.a.getPageContext().getPageActivity(), 12, false);
             } else if (i == 13) {
                 this.a.U1();
                 TiebaStatic.log("c10017");
@@ -477,12 +477,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             try {
                 String currSoLoaded = SoLoadUtils.getCurrSoLoaded();
                 String currSoDownloaded = SoLoadUtils.getCurrSoDownloaded();
-                a95.a("write", 100L, 0, "MoreActivity_goToFeedBack", 1, currSoLoaded + ":" + currSoDownloaded, new Object[0]);
+                c95.a("write", 100L, 0, "MoreActivity_goToFeedBack", 1, currSoLoaded + ":" + currSoDownloaded, new Object[0]);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
             BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-            startActivity(n5a.a());
+            startActivity(s5a.a());
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_SUGGEST_FEEDBACK_CLICK);
             statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -572,7 +572,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new np9(this, R1());
+            this.a = new sp9(this, R1());
             d2(bundle);
             h2();
             registerListener(this.g);
@@ -598,22 +598,22 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 if (this.k != null) {
                     this.k = new GetImageWatermarkTypeModel(this);
                 }
-                np9 np9Var = this.a;
-                if (np9Var != null) {
-                    np9Var.a0();
+                sp9 sp9Var = this.a;
+                if (sp9Var != null) {
+                    sp9Var.a0();
                     this.a.c0();
                 }
             }
         }
     }
 
-    public final mp9 R1() {
+    public final rp9 R1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return new d(this);
         }
-        return (mp9) invokeV.objValue;
+        return (rp9) invokeV.objValue;
     }
 
     public final void S1() {
@@ -666,7 +666,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public final void g2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            qk5.d().h();
+            sk5.d().h();
         }
     }
 
@@ -694,9 +694,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onDestroy();
             i2();
-            np9 np9Var = this.a;
-            if (np9Var != null) {
-                np9Var.N();
+            sp9 sp9Var = this.a;
+            if (sp9Var != null) {
+                sp9Var.N();
             }
         }
     }
@@ -715,9 +715,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onResume();
-            np9 np9Var = this.a;
-            if (np9Var != null) {
-                np9Var.X();
+            sp9 sp9Var = this.a;
+            if (sp9Var != null) {
+                sp9Var.X();
                 this.a.V();
             }
         }
@@ -769,25 +769,25 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void d0(View view2, BdSwitchView.SwitchState switchState) {
-        np9 np9Var;
+        sp9 sp9Var;
         boolean z;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, view2, switchState) == null) && view2 != null && (np9Var = this.a) != null) {
-            if (view2 == np9Var.P()) {
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, view2, switchState) == null) && view2 != null && (sp9Var = this.a) != null) {
+            if (view2 == sp9Var.P()) {
                 this.a.R().h();
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     UtilHelper.showSkinChangeAnimation(this);
                     UtilHelper.setNavigationBarBackground(this, getResources().getColor(R.color.CAM_X0201_2));
                     this.a.Y(4);
                 } else {
-                    l95.m().w("key_is_follow_system_mode", false);
+                    n95.m().w("key_is_follow_system_mode", false);
                     SkinManager.setDayOrDarkSkinTypeWithSystemMode(true, false);
                 }
             }
             if (view2 == this.a.R()) {
-                l95.m().w("key_is_dark_mode_notify_shown", true);
-                l95 m = l95.m();
+                n95.m().w("key_is_dark_mode_notify_shown", true);
+                n95 m = n95.m();
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     z = true;
                 } else {

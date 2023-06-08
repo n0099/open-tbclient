@@ -90,12 +90,12 @@ public class l05 implements Application.ActivityLifecycleCallbacks {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (NotificationManagerCompat.from(this.a).areNotificationsEnabled()) {
-                    boolean i = l95.m().i("official_push_switch", true);
+                    boolean i = n95.m().i("official_push_switch", true);
                     Activity activity = this.a;
                     qx4.v(activity, "", "https://tieba.baidu.com/mo/q/hybrid-main-service/pushSettings?pageType=1&officialPushMsgStatus=" + (i ? 1 : 0), true);
                     return;
                 }
-                nf5.d(this.a);
+                pf5.d(this.a);
             }
         }
     }

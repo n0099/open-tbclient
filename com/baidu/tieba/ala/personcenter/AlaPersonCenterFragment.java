@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.of6;
+import com.baidu.tieba.qf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public of6 e;
+    public qf6 e;
 
     public void H1(String str) {
         Interceptable interceptable = $ic;
@@ -109,9 +109,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
-            of6 of6Var = this.e;
-            if (of6Var != null) {
-                of6Var.m(i);
+            qf6 qf6Var = this.e;
+            if (qf6Var != null) {
+                qf6Var.m(i);
             }
         }
     }
@@ -121,9 +121,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            of6 of6Var = this.e;
-            if (of6Var != null) {
-                of6Var.m(i);
+            qf6 qf6Var = this.e;
+            if (qf6Var != null) {
+                qf6Var.m(i);
             }
         }
     }
@@ -144,9 +144,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            of6 of6Var = new of6(pageContext, true);
-            this.e = of6Var;
-            of6Var.s(this.c);
+            qf6 qf6Var = new qf6(pageContext, true);
+            this.e = qf6Var;
+            qf6Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

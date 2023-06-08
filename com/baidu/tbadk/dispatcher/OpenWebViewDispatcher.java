@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tieba.lz4;
-import com.baidu.tieba.oo9;
+import com.baidu.tieba.to9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class OpenWebViewDispatcher implements oo9 {
+public class OpenWebViewDispatcher implements to9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class OpenWebViewDispatcher implements oo9 {
         }
     }
 
-    @Override // com.baidu.tieba.oo9
+    @Override // com.baidu.tieba.to9
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         boolean z;

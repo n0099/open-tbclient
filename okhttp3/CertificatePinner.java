@@ -20,7 +20,7 @@ public final class CertificatePinner {
     public final CertificateChainCleaner certificateChainCleaner;
     public final Set<Pin> pins;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public final List<Pin> pins = new ArrayList();
 
@@ -39,7 +39,7 @@ public final class CertificatePinner {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Pin {
         public static final String WILDCARD = "*.";
         public final String canonicalHostname;

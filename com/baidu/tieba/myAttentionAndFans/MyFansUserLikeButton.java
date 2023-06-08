@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h55;
 import com.baidu.tieba.j55;
 import com.baidu.tieba.k9;
 import com.baidu.tieba.l55;
+import com.baidu.tieba.n55;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public k9 g;
-    public j55 h;
+    public l55 h;
     public String i;
     public int j;
 
@@ -46,13 +46,13 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.MyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0381a implements l55.e {
+        public class C0390a implements n55.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ a b;
 
-            public C0381a(a aVar, View view2) {
+            public C0390a(a aVar, View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 this.a = view2;
             }
 
-            @Override // com.baidu.tieba.l55.e
+            @Override // com.baidu.tieba.n55.e
             public void onClick() {
                 View.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         }
 
         /* loaded from: classes6.dex */
-        public class b implements l55.c {
+        public class b implements n55.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -112,7 +112,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.l55.c
+            @Override // com.baidu.tieba.n55.c
             public void onClick() {
                 Interceptable interceptable = $ic;
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.b.h == null) {
@@ -168,15 +168,15 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                     this.a.onClick(view2);
                 } else if (this.b.g != null) {
                     if (this.b.h == null) {
-                        l55 l55Var = new l55(this.b.g.getContext());
-                        l55Var.t(this.b.g.getString(R.string.confirm_unlike));
+                        n55 n55Var = new n55(this.b.g.getContext());
+                        n55Var.t(this.b.g.getString(R.string.confirm_unlike));
                         ArrayList arrayList = new ArrayList();
-                        h55 h55Var = new h55(this.b.g.getString(R.string.obfuscated_res_0x7f0f04bb), l55Var);
-                        h55Var.m(new C0381a(this, view2));
-                        arrayList.add(h55Var);
-                        l55Var.o(new b(this));
-                        l55Var.l(arrayList);
-                        this.b.h = new j55(this.b.g, l55Var);
+                        j55 j55Var = new j55(this.b.g.getString(R.string.obfuscated_res_0x7f0f04bb), n55Var);
+                        j55Var.m(new C0390a(this, view2));
+                        arrayList.add(j55Var);
+                        n55Var.o(new b(this));
+                        n55Var.l(arrayList);
+                        this.b.h = new l55(this.b.g, n55Var);
                         this.b.h.k(0.7f);
                     }
                     yg.j(this.b.h, this.b.g);
@@ -250,7 +250,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         this.j = 1;
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.lb5
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.nb5
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -287,7 +287,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.lb5
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.nb5
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {

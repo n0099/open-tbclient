@@ -22,14 +22,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fo;
-import com.baidu.tieba.in7;
-import com.baidu.tieba.jn7;
 import com.baidu.tieba.kn7;
 import com.baidu.tieba.ln7;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.mn7;
+import com.baidu.tieba.nn7;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
-import com.baidu.tieba.sw9;
 import com.baidu.tieba.vn;
+import com.baidu.tieba.xw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,10 +46,10 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
     public TextView c;
     public ImageView d;
     public BdTypeRecyclerView e;
-    public in7 f;
-    public jn7 g;
+    public kn7 f;
+    public ln7 g;
     public ValueAnimator h;
-    public kn7 i;
+    public mn7 i;
     public boolean j;
     public int k;
 
@@ -60,7 +60,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         public final /* synthetic */ FrsLikeRecommendLayout a;
 
         /* loaded from: classes5.dex */
-        public class a implements ln7 {
+        public class a implements nn7 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,15 +102,15 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         @Override // com.baidu.tieba.fo
         public void b(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(vnVar instanceof sw9)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(vnVar instanceof xw9)) {
                 return;
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f090ccf) {
                 if (this.a.g != null) {
-                    this.a.g.b((sw9) vnVar);
+                    this.a.g.b((xw9) vnVar);
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090bc3 && this.a.g != null) {
-                this.a.g.c((sw9) vnVar, i, new a(this, i));
+                this.a.g.c((xw9) vnVar, i, new a(this, i));
             }
         }
     }
@@ -324,18 +324,18 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         }
     }
 
-    public void setHeightChangeListener(kn7 kn7Var) {
+    public void setHeightChangeListener(mn7 mn7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kn7Var) == null) {
-            this.i = kn7Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mn7Var) == null) {
+            this.i = mn7Var;
         }
     }
 
     public void setThemeColor(ThemeColorInfo themeColorInfo) {
-        in7 in7Var;
+        kn7 kn7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (in7Var = this.f) != null) {
-            in7Var.u(themeColorInfo);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (kn7Var = this.f) != null) {
+            kn7Var.u(themeColorInfo);
         }
     }
 
@@ -378,9 +378,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            jn7 jn7Var = this.g;
-            if (jn7Var != null) {
-                jn7Var.a();
+            ln7 ln7Var = this.g;
+            if (ln7Var != null) {
+                ln7Var.a();
             }
             n();
         }
@@ -412,9 +412,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cd2);
             this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090cd1);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cce);
-            in7 in7Var = new in7(getContext());
-            this.f = in7Var;
-            in7Var.setOnAdapterItemClickListener(getItemClickListener());
+            kn7 kn7Var = new kn7(getContext());
+            this.f = kn7Var;
+            kn7Var.setOnAdapterItemClickListener(getItemClickListener());
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
@@ -432,7 +432,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                m75 d2 = m75.d(textView);
+                o75 d2 = o75.d(textView);
                 d2.C(R.string.F_X02);
                 d2.w(R.color.CAM_X0101);
             }
@@ -440,9 +440,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0622, null);
             }
-            in7 in7Var = this.f;
-            if (in7Var != null) {
-                in7Var.notifyDataSetChanged();
+            kn7 kn7Var = this.f;
+            if (kn7Var != null) {
+                kn7Var.notifyDataSetChanged();
             }
         }
     }

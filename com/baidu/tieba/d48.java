@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewTopicList.NewTopicList;
+import tbclient.NewTopicList.PkModule;
+import tbclient.TopicModule;
 /* loaded from: classes5.dex */
-public class d48 extends BaseCardInfo {
+public class d48 extends oo6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId c0;
+    public static final BdUniqueId d0;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public int R;
+    public long S;
+
+    /* renamed from: T  reason: collision with root package name */
+    public String f1092T;
+    public String U;
+    public long V;
+    public String W;
+    public e48 X;
+    public jy9 Y;
+    public int Z;
+    public String a0;
+    public ThreadData b0;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +46,8 @@ public class d48 extends BaseCardInfo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        c0 = BdUniqueId.gen();
+        d0 = BdUniqueId.gen();
     }
 
     public d48() {
@@ -46,17 +63,107 @@ public class d48 extends BaseCardInfo {
                 return;
             }
         }
-        this.a = R.dimen.tbds16;
-        this.b = R.color.CAM_X0204;
+        this.Z = 0;
+    }
+
+    @Override // com.baidu.tieba.oo6, com.baidu.tieba.h15
+    public g35 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            g35 negFeedBackData = super.getNegFeedBackData();
+            if (negFeedBackData != null) {
+                negFeedBackData.q(this.S);
+            }
+            return negFeedBackData;
+        }
+        return (g35) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo6, com.baidu.tieba.h15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b0;
+        }
+        return (ThreadData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.Z == 0) {
+                return c0;
+            }
+            return d0;
         }
         return (BdUniqueId) invokeV.objValue;
+    }
+
+    public static boolean J(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null || threadData.getType() != ThreadData.TYPE_TOPIC) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void M(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
+            this.b0 = threadData;
+        }
+    }
+
+    public void K(NewTopicList newTopicList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, newTopicList) != null) || newTopicList == null) {
+            return;
+        }
+        this.S = newTopicList.topic_id.longValue();
+        this.f1092T = newTopicList.topic_name;
+        this.U = newTopicList.topic_desc;
+        this.V = newTopicList.discuss_num.longValue();
+        this.W = newTopicList.topic_image;
+        PkModule pkModule = newTopicList.pk_module;
+        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            e48 e48Var = new e48();
+            this.X = e48Var;
+            e48Var.a = this.S;
+            e48Var.f = 1;
+            e48Var.b(newTopicList.pk_module);
+        }
+        if (newTopicList.top_agree_post != null) {
+            jy9 jy9Var = new jy9();
+            this.Y = jy9Var;
+            jy9Var.C0(newTopicList.top_agree_post);
+        }
+    }
+
+    public void L(TopicModule topicModule) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) != null) || topicModule == null) {
+            return;
+        }
+        this.S = topicModule.topic_id.longValue();
+        this.f1092T = topicModule.topic_name;
+        this.U = topicModule.topic_desc;
+        this.W = topicModule.topic_image;
+        this.a0 = topicModule.topic_avatar;
+        tbclient.PkModule pkModule = topicModule.pk_module;
+        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            e48 e48Var = new e48();
+            this.X = e48Var;
+            e48Var.a = this.S;
+            e48Var.f = 3;
+            e48Var.c(topicModule.pk_module);
+        }
     }
 }

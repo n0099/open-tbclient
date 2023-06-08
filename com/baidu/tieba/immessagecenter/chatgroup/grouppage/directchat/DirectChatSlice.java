@@ -13,8 +13,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.je8;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.le8;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class DirectChatSlice extends Slice {
     @Nullable
     public ChatRoomDetail m;
     @Nullable
-    public je8 n;
+    public le8 n;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -69,12 +69,12 @@ public class DirectChatSlice extends Slice {
         }
     }
 
-    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull je8 je8Var) {
+    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull le8 le8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, je8Var};
+            Object[] objArr = {tbPageContext, le8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,7 +85,7 @@ public class DirectChatSlice extends Slice {
             }
         }
         this.j = tbPageContext;
-        this.n = je8Var;
+        this.n = le8Var;
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
@@ -117,11 +117,11 @@ public class DirectChatSlice extends Slice {
         ChatRoomDetail chatRoomDetail;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (chatRoomDetail = this.m) != null && chatRoomDetail.getQuickTalk() != null) {
-            this.l.I(this.m.getQuickTalk());
+            this.l.J(this.m.getQuickTalk());
             if (this.m.getBasicInfo() != null) {
-                this.l.D(this.m.getBasicInfo().getId());
-                this.l.B(this.m.getBasicInfo().getForumId());
-                this.l.E(this.m.getBasicInfo().getName());
+                this.l.E(this.m.getBasicInfo().getId());
+                this.l.C(this.m.getBasicInfo().getForumId());
+                this.l.F(this.m.getBasicInfo().getName());
             }
             this.l.notifyDataSetChanged();
         }
@@ -141,8 +141,8 @@ public class DirectChatSlice extends Slice {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
             this.l.notifyDataSetChanged();
-            m75.d(this.k.b).f(R.color.transparent);
-            m75.d(this.k.a).f(R.color.transparent);
+            o75.d(this.k.b).f(R.color.transparent);
+            o75.d(this.k.a).f(R.color.transparent);
         }
     }
 }

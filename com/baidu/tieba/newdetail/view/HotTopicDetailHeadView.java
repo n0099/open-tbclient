@@ -25,11 +25,11 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e58;
-import com.baidu.tieba.j58;
+import com.baidu.tieba.g58;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.l58;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public View n;
     public TBLottieAnimationView o;
     public TextView p;
-    public e58 q;
+    public g58 q;
     public ValueAnimator r;
 
     @StringRes
@@ -216,14 +216,14 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     }
 
     public void d(long j, long j2) {
-        e58 e58Var;
+        g58 g58Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (e58Var = this.q) != null && e58Var.b != 1) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (g58Var = this.q) != null && g58Var.b != 1) {
             this.o.playAnimation();
             i();
-            e58 e58Var2 = this.q;
-            e58Var2.b = 1;
-            e58Var2.d = j2;
+            g58 g58Var2 = this.q;
+            g58Var2.b = 1;
+            g58Var2.d = j2;
         }
     }
 
@@ -290,7 +290,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public void h(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.a != i) {
-            m75 d = m75.d(this.f);
+            o75 d = o75.d(this.f);
             d.n(1);
             d.o(R.string.J_X14);
             d.f(R.color.CAM_X0201);
@@ -302,9 +302,9 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-            e58 e58Var = this.q;
-            if (e58Var != null) {
-                f(e58Var.e);
+            g58 g58Var = this.q;
+            if (g58Var != null) {
+                f(g58Var.e);
             }
             this.a = i;
         }
@@ -366,11 +366,11 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setBlessInfo(e58 e58Var) {
+    public void setBlessInfo(g58 g58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, e58Var) == null) {
-            this.q = e58Var;
-            if (e58Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, g58Var) == null) {
+            this.q = g58Var;
+            if (g58Var == null) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -381,15 +381,15 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 this.j.setLayoutParams(layoutParams2);
                 return;
             }
-            this.p.setText(getContext().getResources().getString(e(e58Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(e58Var.a)));
-            if (e58Var.b == 1) {
+            this.p.setText(getContext().getResources().getString(e(g58Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(g58Var.a)));
+            if (g58Var.b == 1) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(0);
                 this.p.setTranslationX(0.0f);
             } else {
                 this.o.setVisibility(0);
                 this.p.setVisibility(4);
-                f(e58Var.e);
+                f(g58Var.e);
                 this.o.cancelAnimation();
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -401,30 +401,30 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setTopicInfo(j58 j58Var) {
+    public void setTopicInfo(l58 l58Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j58Var) != null) || j58Var == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l58Var) != null) || l58Var == null) {
             return;
         }
         View view2 = this.e;
-        if (TextUtils.isEmpty(j58Var.f)) {
+        if (TextUtils.isEmpty(l58Var.f)) {
             i = 0;
         } else {
             i = 8;
         }
         view2.setVisibility(i);
-        this.g.N(j58Var.e, 10, false);
-        this.c.N(j58Var.f, 39, false);
-        this.h.setText(j58Var.b);
-        if (j58Var.i > 0) {
+        this.g.N(l58Var.e, 10, false);
+        this.c.N(l58Var.f, 39, false);
+        this.h.setText(l58Var.b);
+        if (l58Var.i > 0) {
             TextView textView = this.l;
             String string = getContext().getString(R.string.obfuscated_res_0x7f0f0a02);
-            textView.setText(String.format(string, "" + j58Var.i));
+            textView.setText(String.format(string, "" + l58Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a00), StringHelper.numberUniformFormatExtraWithRoundInt(j58Var.d)));
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a00), StringHelper.numberUniformFormatExtraWithRoundInt(l58Var.d)));
     }
 }

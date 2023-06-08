@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c09;
 import com.baidu.tieba.d05;
+import com.baidu.tieba.f09;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.vi;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements c09 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements f09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements c09 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.c09
+    @Override // com.baidu.tieba.f09
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -185,7 +185,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements c09 {
         }
     }
 
-    @Override // com.baidu.tieba.c09
+    @Override // com.baidu.tieba.f09
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -197,7 +197,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements c09 {
         }
     }
 
-    @Override // com.baidu.tieba.c09
+    @Override // com.baidu.tieba.f09
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

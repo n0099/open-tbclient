@@ -11,22 +11,20 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.data.ShareIMCommonCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ka8 extends ma8<GroupInfoData> {
+public class ka8 extends oa8<ShareIMCommonCardData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public BarImageView n;
     public TextView o;
     public TextView p;
-    public TextView q;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ka8(@NonNull Context context) {
@@ -48,12 +46,12 @@ public class ka8 extends ma8<GroupInfoData> {
         }
     }
 
-    @Override // com.baidu.tieba.fa8
+    @Override // com.baidu.tieba.ha8
     public void a(String str) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            GroupInfoData groupInfoData = (GroupInfoData) this.j;
+            ShareIMCommonCardData shareIMCommonCardData = (ShareIMCommonCardData) this.j;
             long userIdLong = this.k.getUserIdLong();
             String userName = this.k.getUserName();
             String name_show = this.k.getName_show();
@@ -63,46 +61,42 @@ public class ka8 extends ma8<GroupInfoData> {
             } else {
                 z = false;
             }
-            mb8.b(groupInfoData, str, userIdLong, userName, name_show, portrait, z);
-            if (GroupInfoData.isValidGroup((GroupInfoData) this.j)) {
-                ab8.c((GroupInfoData) this.j, this.k, 1);
-            }
+            ob8.c(shareIMCommonCardData, str, userIdLong, userName, name_show, portrait, z);
         }
     }
 
-    @Override // com.baidu.tieba.fa8
+    @Override // com.baidu.tieba.ha8
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            mb8.i(str, this.k.groupData, (GroupInfoData) this.j);
+            ob8.e(str, this.k.groupData, (ShareIMCommonCardData) this.j);
         }
     }
 
-    @Override // com.baidu.tieba.ma8
+    @Override // com.baidu.tieba.oa8
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.g();
-            m75 d = m75.d(this.m);
+            o75 d = o75.d(this.m);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0207);
-            m75 d2 = m75.d(this.o);
+            o75 d2 = o75.d(this.o);
             d2.w(R.color.CAM_X0105);
             d2.C(R.string.F_X02);
-            m75.d(this.p).w(R.color.CAM_X0109);
-            m75.d(this.q).w(R.color.CAM_X0109);
+            o75.d(this.p).w(R.color.CAM_X0109);
             this.n.setStrokeColorResId(R.color.CAM_X0401);
         }
     }
 
-    @Override // com.baidu.tieba.ma8
+    @Override // com.baidu.tieba.oa8
     public void m(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             super.m(context);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_group, i());
-            this.m = (LinearLayout) inflate.findViewById(R.id.im_share_group_info_container);
-            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_group_info_head);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_topic, i());
+            this.m = (LinearLayout) inflate.findViewById(R.id.im_share_topic_info_container);
+            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_topic_info_head);
             this.n = barImageView;
             barImageView.setPlaceHolder(1);
             this.n.setAutoChangeStyle(true);
@@ -110,38 +104,30 @@ public class ka8 extends ma8<GroupInfoData> {
             this.n.setStrokeWith(vi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01));
             this.n.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.n.setRadiusById(R.string.J_X04);
-            this.o = (TextView) inflate.findViewById(R.id.im_share_group_info_name);
-            this.p = (TextView) inflate.findViewById(R.id.im_share_group_info_forum_name);
-            this.q = (TextView) inflate.findViewById(R.id.im_share_group_info_member_count);
+            this.o = (TextView) inflate.findViewById(R.id.im_share_topic_info_title);
+            this.p = (TextView) inflate.findViewById(R.id.im_share_topic_info_desc);
             g();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ma8
+    @Override // com.baidu.tieba.oa8
     /* renamed from: q */
-    public void o(GroupInfoData groupInfoData, MetaData metaData) {
-        String forumName;
+    public void o(ShareIMCommonCardData shareIMCommonCardData, MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, groupInfoData, metaData) == null) {
-            super.o(groupInfoData, metaData);
-            if (groupInfoData == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, shareIMCommonCardData, metaData) == null) {
+            super.o(shareIMCommonCardData, metaData);
+            if (shareIMCommonCardData == null) {
                 return;
             }
-            this.n.N(groupInfoData.getPortrait(), 10, false);
-            this.o.setText(groupInfoData.getName());
-            TextView textView = this.p;
-            if (!TextUtils.isEmpty(groupInfoData.getForumShowName())) {
-                forumName = groupInfoData.getForumShowName();
-            } else {
-                forumName = groupInfoData.getForumName();
+            this.n.N(shareIMCommonCardData.getAvatar(), 10, false);
+            this.o.setText(shareIMCommonCardData.getTitle());
+            if (TextUtils.isEmpty(shareIMCommonCardData.getDesc())) {
+                this.p.setVisibility(8);
+                return;
             }
-            textView.setText(forumName);
-            if (groupInfoData.getMemberNum() > 0) {
-                this.q.setText(String.format(j().getResources().getString(R.string.group_member_share_slogan), StringHelper.numFormatOverWan(groupInfoData.getMemberNum())));
-            } else {
-                this.q.setText(j().getResources().getString(R.string.group_share_slogan_default));
-            }
+            this.p.setVisibility(0);
+            this.p.setText(shareIMCommonCardData.getDesc());
         }
     }
 }

@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c implements com.kwad.sdk.core.d<AdMatrixInfo.ActionBarInfoNew> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdMatrixInfo.ActionBarInfoNew actionBarInfoNew, JSONObject jSONObject) {

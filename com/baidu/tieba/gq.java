@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class gq {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
@@ -49,7 +49,7 @@ public final class gq {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jtVar, taskBuoyViewModel, taskInfo)) == null) ? a.b(jtVar, taskBuoyViewModel, taskInfo) : (qq) invokeLLL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

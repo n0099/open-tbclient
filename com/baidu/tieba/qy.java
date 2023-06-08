@@ -26,7 +26,7 @@ public class qy extends rz implements View.OnClickListener {
     public InterviewLiveLayout A;
     public int B;
     public TextView C;
-    public eo6<f15> D;
+    public go6<h15> D;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qy(Context context) {
@@ -68,7 +68,7 @@ public class qy extends rz implements View.OnClickListener {
             this.C = (TextView) this.f.findViewById(R.id.video_seg_abstract);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
             this.A = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
-            ej9 u = u();
+            ij9 u = u();
             this.l = u;
             u.getMainView().setBackgroundResource(R.color.transparent);
             this.C.setOnClickListener(this);
@@ -85,21 +85,21 @@ public class qy extends rz implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        eo6<f15> eo6Var;
+        go6<h15> go6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            if ((view2 == this.C || view2 == this.g) && (eo6Var = this.D) != null) {
-                eo6Var.a(view2, this.h);
+            if ((view2 == this.C || view2 == this.g) && (go6Var = this.D) != null) {
+                go6Var.a(view2, this.h);
             }
         }
     }
 
     @Override // com.baidu.tieba.ux
-    public void p(eo6<f15> eo6Var) {
+    public void p(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eo6Var) == null) {
-            this.D = eo6Var;
-            this.A.setSubClickListener(eo6Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, go6Var) == null) {
+            this.D = go6Var;
+            this.A.setSubClickListener(go6Var);
         }
     }
 
@@ -114,15 +114,15 @@ public class qy extends rz implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.rz
-    public ej9 u() {
+    public ij9 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            fj9 fj9Var = new fj9(this.b, this.i);
-            fj9Var.setStageType("2003");
-            return fj9Var;
+            jj9 jj9Var = new jj9(this.b, this.i);
+            jj9Var.setStageType("2003");
+            return jj9Var;
         }
-        return (ej9) invokeV.objValue;
+        return (ij9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.rz, com.baidu.tieba.py
@@ -140,17 +140,17 @@ public class qy extends rz implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.rz, com.baidu.tieba.oy
     /* renamed from: x */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, f15Var) == null) {
-            this.h = f15Var;
-            if (f15Var != null && f15Var.getThreadData() != null) {
-                ThreadData threadData = f15Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048585, this, h15Var) == null) {
+            this.h = h15Var;
+            if (h15Var != null && h15Var.getThreadData() != null) {
+                ThreadData threadData = h15Var.getThreadData();
                 if (threadData.getThreadVideoInfo() != null) {
                     this.A.setVisibility(8);
                     this.i.setVisibility(0);
                     this.C.setVisibility(8);
-                    super.a(f15Var);
+                    super.a(h15Var);
                     return;
                 }
                 this.i.setVisibility(8);
@@ -162,7 +162,7 @@ public class qy extends rz implements View.OnClickListener {
                     return;
                 }
                 this.A.setVisibility(0);
-                this.A.a(f15Var);
+                this.A.a(h15Var);
             }
         }
     }

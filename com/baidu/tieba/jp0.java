@@ -30,7 +30,7 @@ public class jp0 extends sl1<tp0> {
 
         /* renamed from: com.baidu.tieba.jp0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0355a implements kt0<JSONObject> {
+        public class C0368a implements kt0<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ur0 a;
@@ -45,7 +45,7 @@ public class jp0 extends sl1<tp0> {
                 }
             }
 
-            public C0355a(a aVar, ur0 ur0Var, tp0.b bVar, ks0 ks0Var) {
+            public C0368a(a aVar, ur0 ur0Var, tp0.b bVar, ks0 ks0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +195,7 @@ public class jp0 extends sl1<tp0> {
                 st0Var.l(d(ur0Var.g()));
                 st0Var.h(nt0.c);
                 st0Var.d("User-Agent", kk0.c().a().h());
-                a.a(st0Var, new C0355a(this, ur0Var, bVar, ks0Var));
+                a.a(st0Var, new C0368a(this, ur0Var, bVar, ks0Var));
             }
         }
 

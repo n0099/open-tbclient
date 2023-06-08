@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.jn;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -609,7 +609,7 @@ public class PbListView extends jn {
             this.j = this.i.findViewById(R.id.empty_view);
             this.x = (LinearLayout) this.i.findViewById(R.id.pb_more_top_extra_view);
             this.y = (LinearLayout) this.i.findViewById(R.id.pb_more_bottom_extra_view);
-            m75 d = m75.d(this.r);
+            o75 d = o75.d(this.r);
             d.B(R.dimen.T_X12);
             d.C(R.string.F_X01);
             d.w(R.color.CAM_X0107);

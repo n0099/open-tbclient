@@ -1,7 +1,7 @@
 package com.baidu.adp.log;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.wq8;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public final class PeiwanLog {
     public static /* synthetic */ Interceptable $ic;
     public static final PeiwanLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wq8 instance;
+    public final zq8 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class PeiwanLog {
         $VALUES = new PeiwanLog[]{peiwanLog};
     }
 
-    public static wq8 getInstance() {
+    public static zq8 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (wq8) invokeV.objValue;
+        return (zq8) invokeV.objValue;
     }
 
     public static PeiwanLog[] values() {
@@ -72,7 +72,7 @@ public final class PeiwanLog {
                 return;
             }
         }
-        this.instance = new wq8("peiwan", "111");
+        this.instance = new zq8("peiwan", "111");
     }
 
     public static PeiwanLog valueOf(String str) {

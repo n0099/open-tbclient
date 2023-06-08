@@ -1,20 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
+import tbclient.Loop.FestivalInfo;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
 public class sg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    @SerializedName("main_fname")
     public String a;
-    public String b;
+    @SerializedName("main_fid")
+    public long b;
+    @Nullable
+    @SerializedName("bless")
+    public String c;
+    @Nullable
+    @SerializedName("write_select_tips")
+    public String d;
+    @Nullable
+    @SerializedName("comment_tips")
+    public String e;
+    @Nullable
+    @SerializedName("tips_color")
+    public ThemeColorInfo f;
 
     public sg5() {
         Interceptable interceptable = $ic;
@@ -30,57 +47,44 @@ public class sg5 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(FestivalInfo festivalInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        this.a = festivalInfo.main_fname;
+        this.b = festivalInfo.main_fid.longValue();
+        this.c = festivalInfo.bless;
+        this.d = festivalInfo.write_select_tips;
+        this.e = festivalInfo.comment_tips;
+        this.f = festivalInfo.tips_color;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || sg5.class != obj.getClass()) {
+                return false;
+            }
+            sg5 sg5Var = (sg5) obj;
+            if (Objects.equals(this.a, sg5Var.a) && this.b == sg5Var.b && Objects.equals(this.c, sg5Var.c) && Objects.equals(this.d, sg5Var.d) && Objects.equals(this.e, sg5Var.e)) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public String b() {
+    public int hashCode() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return "";
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                str = "skin=dark";
-            } else {
-                str = "skin=default";
-            }
-            if (this.b.contains("?")) {
-                this.b += "&customfullscreen=1&nonavigationbar=1&" + str;
-            } else {
-                this.b += "?customfullscreen=1&nonavigationbar=1&" + str;
-            }
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("homepage_guide")) == null) {
-            return;
-        }
-        this.a = optJSONObject.optString("guide_picture");
-        this.b = optJSONObject.optString("guide_url");
+        return invokeV.intValue;
     }
 }

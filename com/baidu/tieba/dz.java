@@ -51,13 +51,13 @@ public class dz extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: A */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f15Var) == null) {
-            if (f15Var != null) {
-                this.i = f15Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048576, this, h15Var) == null) {
+            if (h15Var != null) {
+                this.i = h15Var.getThreadData();
             }
-            this.h.setData(f15Var);
+            this.h.setData(h15Var);
         }
     }
 

@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class lz extends ux<f15> {
+public class lz extends ux<h15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int f;
     public int g;
     public ThreadCommentAndPraiseInfoLayout h;
-    public f15 i;
+    public h15 i;
 
     /* loaded from: classes6.dex */
     public class c implements uz.b {
@@ -244,19 +244,19 @@ public class lz extends ux<f15> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: A */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f15Var) == null) {
-            this.i = f15Var;
-            this.h.setData(f15Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048576, this, h15Var) == null) {
+            this.i = h15Var;
+            this.h.setData(h15Var.getThreadData());
             z();
         }
     }
 
-    public void B(l15 l15Var) {
+    public void B(n15 n15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l15Var) == null) {
-            this.h.setAgreeStatisticData(l15Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n15Var) == null) {
+            this.h.setAgreeStatisticData(n15Var);
         }
     }
 

@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a87;
-import com.baidu.tieba.b87;
-import com.baidu.tieba.c47;
+import com.baidu.tieba.c87;
+import com.baidu.tieba.d87;
+import com.baidu.tieba.e47;
 import com.baidu.tieba.feed.component.CardForumEnterView;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\b\u001a\u00020\tH\u0016J\u000e\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\f¨\u0006\r"}, d2 = {"Lcom/baidu/tieba/feed/component/CardForumEnterView;", "Landroidx/appcompat/widget/AppCompatTextView;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/component/uistate/CardForumEnterUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardForumEnterView extends AppCompatTextView implements a87 {
+public final class CardForumEnterView extends AppCompatTextView implements c87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,7 +87,7 @@ public final class CardForumEnterView extends AppCompatTextView implements a87 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void a(c47 state, View it) {
+    public static final void a(e47 state, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, state, it) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -97,10 +97,10 @@ public final class CardForumEnterView extends AppCompatTextView implements a87 {
         }
     }
 
-    @Override // com.baidu.tieba.a87
+    @Override // com.baidu.tieba.c87
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || b87.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || d87.a(this)) {
             return;
         }
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
@@ -108,7 +108,7 @@ public final class CardForumEnterView extends AppCompatTextView implements a87 {
         pureDrawable.setBounds(0, 0, g, g);
         setCompoundDrawables(pureDrawable, null, null, null);
         setCompoundDrawablePadding(vi.g(getContext(), R.dimen.M_W_X002));
-        m75 d = m75.d(this);
+        o75 d = o75.d(this);
         d.C(R.string.F_X01);
         d.B(R.dimen.T_X09);
         d.w(R.color.CAM_X0304);
@@ -118,12 +118,12 @@ public final class CardForumEnterView extends AppCompatTextView implements a87 {
         d.l(R.color.CAM_X0304);
     }
 
-    public final void update(final c47 state) {
+    public final void update(final e47 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
             setText(state.d());
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x37
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z37
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -131,7 +131,7 @@ public final class CardForumEnterView extends AppCompatTextView implements a87 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardForumEnterView.a(c47.this, view2);
+                        CardForumEnterView.a(e47.this, view2);
                     }
                 }
             });

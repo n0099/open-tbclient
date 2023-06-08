@@ -123,7 +123,7 @@ public class zw4 {
             CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
             if (checkBaiduSimResponseMessage.isSuc) {
                 boolean z = checkBaiduSimResponseMessage.isBaiduSim;
-                l95 m = l95.m();
+                n95 m = n95.m();
                 if (z) {
                     str = TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free);
                 } else {
@@ -195,8 +195,8 @@ public class zw4 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.b) {
             this.b = true;
-            if (System.currentTimeMillis() >= l95.m().o("key_next_check_baidu_sim_time", 0L)) {
-                l95.m().A("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
+            if (System.currentTimeMillis() >= n95.m().o("key_next_check_baidu_sim_time", 0L)) {
+                n95.m().A("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
                 tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);

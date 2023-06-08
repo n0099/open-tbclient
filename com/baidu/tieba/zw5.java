@@ -1,62 +1,79 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public final class zw5 {
+public class zw5<KEY> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<KEY> a;
 
-    public static void a(boolean z) {
+    public zw5() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65536, null, z) != null) || z) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        throw new IllegalArgumentException();
+        this.a = new HashSet();
     }
 
-    @NonNull
-    public static <T> T b(@Nullable T t) {
+    public static <T> zw5<T> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new zw5<>();
+        }
+        return (zw5) invokeV.objValue;
+    }
+
+    public synchronized boolean a(@NonNull KEY key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
-            if (t != null) {
-                return t;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                if (this.a.contains(key)) {
+                    return false;
+                }
+                this.a.add(key);
+                return true;
             }
-            throw null;
         }
-        return (T) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void d(boolean z) {
+    public synchronized boolean b(@NonNull KEY key) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            e(z, null);
-        }
-    }
-
-    @NonNull
-    public static <T> T c(@Nullable T t, @NonNull Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, t, obj)) == null) {
-            if (t != null) {
-                return t;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key)) == null) {
+            synchronized (this) {
+                z = !this.a.contains(key);
             }
-            throw new NullPointerException(String.valueOf(obj));
+            return z;
         }
-        return (T) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void e(boolean z, @Nullable String str) {
+    public synchronized void d(@NonNull KEY key) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, str) != null) || z) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, key) == null) {
+            synchronized (this) {
+                this.a.remove(key);
+            }
         }
-        throw new IllegalStateException(str);
     }
 }

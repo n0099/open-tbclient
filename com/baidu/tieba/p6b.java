@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
 import android.util.Log;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,36 +9,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileFilter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.regex.Pattern;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class p6b {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static long b;
+    public static final Object a;
+    public static final SimpleDateFormat b;
+    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948015405, "Lcom/baidu/tieba/p6b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948015405, "Lcom/baidu/tieba/p6b;");
-        }
-    }
-
     /* loaded from: classes7.dex */
-    public class a implements FileFilter {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,108 +42,106 @@ public class p6b {
             }
         }
 
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                return Pattern.matches("cpu[0-9]", file.getName());
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    public static long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) h6b.getContext().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo.availMem / 1024;
-        }
-        return invokeV.longValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == 0) {
-                try {
-                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
-                } catch (Exception e) {
-                    Log.e("PerformanceUtils", "getNumCores exception", e);
-                    a = 1;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File[] f = m6b.f();
+                if (f != null && f.length > 0) {
+                    synchronized (p6b.a) {
+                        for (File file : f) {
+                            if (currentTimeMillis - file.lastModified() > 172800000) {
+                                file.delete();
+                            }
+                        }
+                    }
                 }
             }
-            return a;
         }
-        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static long c() {
-        InterceptResult invokeV;
-        FileReader fileReader;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015405, "Lcom/baidu/tieba/p6b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948015405, "Lcom/baidu/tieba/p6b;");
+                return;
+            }
+        }
+        a = new Object();
+        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    }
+
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == 0) {
-                long j = -1;
-                FileReader fileReader2 = null;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            o6b.b().post(new a());
+        }
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (a) {
+                d = d("looper", str);
+            }
+            return d;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String str3 = "";
+            BufferedWriter bufferedWriter = null;
+            try {
+                File c2 = m6b.c();
+                long currentTimeMillis = System.currentTimeMillis();
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
                 try {
-                    try {
-                        try {
-                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
-                        } catch (IOException e) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
-                        }
-                    } catch (IOException e2) {
-                        e = e2;
-                    }
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("**********************");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(str2);
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
                 } catch (Throwable th) {
                     th = th;
-                }
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
-                    String readLine = bufferedReader.readLine();
-                    String str = readLine;
-                    if (readLine != null) {
-                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
-                        j = valueOf.intValue();
-                        str = valueOf;
-                    }
-                    bufferedReader.close();
-                    fileReader.close();
-                    fileReader2 = str;
-                } catch (IOException e3) {
-                    e = e3;
-                    fileReader2 = fileReader;
-                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
-                    if (fileReader2 != null) {
-                        fileReader2.close();
-                        fileReader2 = fileReader2;
-                    }
-                    b = j;
-                    return b;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileReader2 = fileReader;
-                    if (fileReader2 != null) {
-                        try {
-                            fileReader2.close();
-                        } catch (IOException e4) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
+                    bufferedWriter = bufferedWriter2;
+                    try {
+                        Log.e("LogWriter", "save: ", th);
+                        return str3;
+                    } finally {
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (Exception e) {
+                                Log.e("LogWriter", "save: ", e);
+                            }
                         }
                     }
-                    throw th;
                 }
-                b = j;
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return b;
+            return str3;
         }
-        return invokeV.longValue;
+        return (String) invokeLL.objValue;
     }
 }

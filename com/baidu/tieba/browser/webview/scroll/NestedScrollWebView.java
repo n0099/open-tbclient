@@ -18,8 +18,8 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.xl6;
+import com.baidu.tieba.gm6;
+import com.baidu.tieba.zl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,10 +38,10 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
     public OverScroller g;
     public int h;
     public NestedScrollingChildHelper i;
-    public em6 j;
+    public gm6 j;
     public boolean k;
     public long l;
-    public xl6 m;
+    public zl6 m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NestedScrollWebView(Context context) {
@@ -321,17 +321,17 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
         }
     }
 
-    public void setOnDoubleClickListener(xl6 xl6Var) {
+    public void setOnDoubleClickListener(zl6 zl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, xl6Var) == null) {
-            this.m = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048598, this, zl6Var) == null) {
+            this.m = zl6Var;
         }
     }
 
-    public void setOnScrollChangeListener(em6 em6Var) {
+    public void setOnScrollChangeListener(gm6 gm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, em6Var) == null) {
-            this.j = em6Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, gm6Var) == null) {
+            this.j = gm6Var;
         }
     }
 

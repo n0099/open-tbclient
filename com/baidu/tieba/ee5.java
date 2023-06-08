@@ -1,134 +1,144 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ee5 {
+public final class ee5 extends xr6 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final UpdateAttentionMessage.a a;
 
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (i == 1) {
-                str2 = "index";
-            } else if (i == 2) {
-                str2 = "pb_live";
-            } else if (i == 3) {
-                int i2 = a;
-                if (i2 == 1) {
-                    str2 = "video_bar_live";
-                } else {
-                    if (i2 == 2) {
-                        str2 = "video_immer_live";
-                    }
-                    str2 = "";
-                }
-            } else {
-                if (i == 4) {
-                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
-                }
-                str2 = "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947731476, "Lcom/baidu/tieba/ee5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return str + "?source=" + str2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947731476, "Lcom/baidu/tieba/ee5;");
+                return;
+            }
         }
-        return (String) invokeLI.objValue;
+        b = new a(null);
     }
 
-    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
-            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
-                b = liveRemindRecommendData.getShowPage();
-                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
-                if (liveRemindRecommendData.getShowPage() == 3) {
-                    String c = c();
-                    if (liveIconScheme.contains("closeLink")) {
-                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
-                    }
-                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
-                }
-                return liveIconScheme;
-            }
-            return null;
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return (String) invokeL.objValue;
+
+        /* renamed from: com.baidu.tieba.ee5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static final class C0290a extends CustomMessageListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public C0290a() {
+                super(2001115);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super(((Integer) newInitContext.callArgs[0]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> responsedMessage) {
+                UpdateAttentionMessage updateAttentionMessage;
+                UpdateAttentionMessage.a data;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                    Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
+                    if (responsedMessage instanceof UpdateAttentionMessage) {
+                        updateAttentionMessage = (UpdateAttentionMessage) responsedMessage;
+                    } else {
+                        updateAttentionMessage = null;
+                    }
+                    if (updateAttentionMessage != null && (data = updateAttentionMessage.getData()) != null) {
+                        wr6.b().b(new ee5(data));
+                    }
+                }
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final void a(TbPageContext<?> pageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pageContext) == null) {
+                Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+                pageContext.registerListener(new C0290a());
+            }
+        }
     }
 
-    public static String c() {
+    public ee5(UpdateAttentionMessage.a attentionModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {attentionModel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(attentionModel, "attentionModel");
+        this.a = attentionModel;
+    }
+
+    public final UpdateAttentionMessage.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int i = a;
-            if (i == 1) {
-                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
-            }
-            if (i == 2) {
-                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
-            }
-            int i2 = b;
-            if (i2 == 1) {
-                return "index_gz";
-            }
-            if (i2 == 2) {
-                return AddFriendActivityConfig.TYPE_PB_HEAD;
-            }
-            return YYLiveUtil.SOURCE_NOT_DEFINE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
-        }
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return "";
-            }
-            String queryParameter = parse.getQueryParameter("source");
-            if (StringUtils.isNull(queryParameter)) {
-                return "";
-            }
-            return queryParameter;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            a = i;
-        }
+        return (UpdateAttentionMessage.a) invokeV.objValue;
     }
 }

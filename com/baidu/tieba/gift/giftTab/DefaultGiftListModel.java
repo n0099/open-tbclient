@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.jb;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.rt7;
-import com.baidu.tieba.s25;
-import com.baidu.tieba.vt7;
+import com.baidu.tieba.rx9;
+import com.baidu.tieba.t25;
+import com.baidu.tieba.tt7;
+import com.baidu.tieba.u25;
+import com.baidu.tieba.xt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rt7> a;
-    public ArrayList<r25> b;
-    public ArrayList<vt7> c;
+    public ArrayList<tt7> a;
+    public ArrayList<t25> b;
+    public ArrayList<xt7> c;
     public String d;
     public int e;
     public b f;
@@ -32,7 +32,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, s25 s25Var, ArrayList<rt7> arrayList, ArrayList<r25> arrayList2, ArrayList<vt7> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, u25 u25Var, ArrayList<tt7> arrayList, ArrayList<t25> arrayList2, ArrayList<xt7> arrayList3);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -90,10 +90,10 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            s25 s25Var;
+            u25 u25Var;
             int i;
             int i2;
-            s25 s25Var2;
+            u25 u25Var2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -110,7 +110,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
-                s25Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
+                u25Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (responsedMessage instanceof DefaultGiftListSocketResponseMessage) {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
                 this.a.a = defaultGiftListSocketResponseMessage.getCategoryList();
@@ -119,18 +119,18 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
-                s25Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+                u25Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             } else {
-                s25Var = null;
+                u25Var = null;
                 i = 0;
                 if (this.a.f == null) {
-                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, s25Var, this.a.a, this.a.b, this.a.c);
+                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, u25Var, this.a.a, this.a.b, this.a.c);
                     return;
                 }
                 return;
             }
             i = i2;
-            s25Var = s25Var2;
+            u25Var = u25Var2;
             if (this.a.f == null) {
             }
         }
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            mx9.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            mx9.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            rx9.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            rx9.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

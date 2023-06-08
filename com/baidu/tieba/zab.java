@@ -1,254 +1,61 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fbb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executor;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes8.dex */
-public final class zab<TResult> extends rab<TResult> {
+public class zab {
     public static /* synthetic */ Interceptable $ic;
+    public static fbb a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public boolean b;
-    public volatile boolean c;
-    public TResult d;
-    public Exception e;
-    public List<nab<TResult>> f;
 
-    public zab() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948354638, "Lcom/baidu/tieba/zab;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948354638, "Lcom/baidu/tieba/zab;");
                 return;
             }
         }
-        this.a = new Object();
-        this.f = new ArrayList();
+        a = new fbb();
     }
 
-    @Override // com.baidu.tieba.rab
-    public final rab<TResult> a(oab<TResult> oabVar) {
+    public static <TResult> TResult a(wab<TResult> wabVar) throws ExecutionException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oabVar)) == null) {
-            m(tab.c(), oabVar);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wabVar)) == null) {
+            fbb.c("await must not be called on the UI thread");
+            if (wabVar.g()) {
+                return (TResult) fbb.b(wabVar);
+            }
+            fbb.b bVar = new fbb.b();
+            wabVar.c(bVar);
+            wabVar.b(bVar);
+            bVar.a.await();
+            return (TResult) fbb.b(wabVar);
         }
-        return (rab) invokeL.objValue;
+        return (TResult) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rab
-    public final rab<TResult> b(pab pabVar) {
+    public static <TResult> wab<TResult> b(Callable<TResult> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pabVar)) == null) {
-            n(tab.c(), pabVar);
-            return this;
-        }
-        return (rab) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(yab.a(), callable) : (wab) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rab
-    public final rab<TResult> c(qab<TResult> qabVar) {
+    public static <TResult> wab<TResult> call(Callable<TResult> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qabVar)) == null) {
-            o(tab.c(), qabVar);
-            return this;
-        }
-        return (rab) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rab
-    public final Exception d() {
-        InterceptResult invokeV;
-        Exception exc;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                exc = this.e;
-            }
-            return exc;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rab
-    public final TResult e() {
-        InterceptResult invokeV;
-        TResult tresult;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.a) {
-                if (this.e != null) {
-                    throw new RuntimeException(this.e);
-                }
-                tresult = this.d;
-            }
-            return tresult;
-        }
-        return (TResult) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rab
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rab
-    public final boolean g() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this.a) {
-                z = this.b;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rab
-    public final boolean h() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this.a) {
-                z = this.b && !f() && this.e == null;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final rab<TResult> i(nab<TResult> nabVar) {
-        InterceptResult invokeL;
-        boolean g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nabVar)) == null) {
-            synchronized (this.a) {
-                g = g();
-                if (!g) {
-                    this.f.add(nabVar);
-                }
-            }
-            if (g) {
-                nabVar.onComplete(this);
-            }
-            return this;
-        }
-        return (rab) invokeL.objValue;
-    }
-
-    public final void j(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, exc) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                this.e = exc;
-                this.a.notifyAll();
-                p();
-            }
-        }
-    }
-
-    public final void k(TResult tresult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tresult) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                this.d = tresult;
-                this.a.notifyAll();
-                p();
-            }
-        }
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return false;
-                }
-                this.b = true;
-                this.c = true;
-                this.a.notifyAll();
-                p();
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final rab<TResult> m(Executor executor, oab<TResult> oabVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, executor, oabVar)) == null) {
-            i(new wab(executor, oabVar));
-            return this;
-        }
-        return (rab) invokeLL.objValue;
-    }
-
-    public final rab<TResult> n(Executor executor, pab pabVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, executor, pabVar)) == null) {
-            i(new xab(executor, pabVar));
-            return this;
-        }
-        return (rab) invokeLL.objValue;
-    }
-
-    public final rab<TResult> o(Executor executor, qab<TResult> qabVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, executor, qabVar)) == null) {
-            i(new yab(executor, qabVar));
-            return this;
-        }
-        return (rab) invokeLL.objValue;
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            synchronized (this.a) {
-                for (nab<TResult> nabVar : this.f) {
-                    try {
-                        nabVar.onComplete(this);
-                    } catch (RuntimeException e) {
-                        throw e;
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
-                    }
-                }
-                this.f = null;
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(yab.b(), callable) : (wab) invokeL.objValue;
     }
 }

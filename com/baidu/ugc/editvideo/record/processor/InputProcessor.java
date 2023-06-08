@@ -4,10 +4,10 @@ import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.lva;
+import com.baidu.tieba.dva;
 import com.baidu.tieba.mh0;
+import com.baidu.tieba.qva;
 import com.baidu.tieba.uh0;
-import com.baidu.tieba.yua;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
@@ -22,7 +22,7 @@ public class InputProcessor extends BaseEffectProcessor {
         int i2 = this.mTestSavePicCount;
         if (i2 < 10) {
             if (i2 == 0) {
-                lva.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
+                qva.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
                     @Override // java.lang.Runnable
                     public void run() {
                         FileUtils.deleteFileOrDir(new File("/sdcard/zhmy/"));
@@ -50,7 +50,7 @@ public class InputProcessor extends BaseEffectProcessor {
         if (mh0Var == null || mh0Var.l() == null) {
             return i;
         }
-        MediaTrack mediaTrack = (MediaTrack) yua.c(mh0Var.l(), 0);
+        MediaTrack mediaTrack = (MediaTrack) dva.c(mh0Var.l(), 0);
         boolean m = uh0.m(mediaTrack, "input_blank");
         int g = !m ? mh0Var.g(mediaTrack, mh0Var.g(mediaTrack, mh0Var.g(mediaTrack, mh0Var.g(mediaTrack, mh0Var.g(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
         if (m) {

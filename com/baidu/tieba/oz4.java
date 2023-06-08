@@ -20,7 +20,7 @@ public class oz4 {
             if (webView == null) {
                 return g9.f().b();
             }
-            Activity a = hl6.a(webView.getContext());
+            Activity a = jl6.a(webView.getContext());
             if (a == null) {
                 a = TbadkCoreApplication.getInst().getCurrentActivity();
             }

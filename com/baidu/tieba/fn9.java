@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public double b;
-    public List<String> c;
-    public int d;
-    public int e;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
 
     public fn9() {
         Interceptable interceptable = $ic;
@@ -35,34 +34,20 @@ public class fn9 {
 
     public static fn9 a(JSONObject jSONObject) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
             fn9 fn9Var = new fn9();
-            if (jSONObject.optInt("label_measure") == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            fn9Var.a = z;
-            fn9Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        vo8.a(arrayList, optJSONObject.optString("pic"));
-                    }
-                }
-            }
-            fn9Var.c = arrayList;
-            fn9Var.d = jSONObject.optInt("width");
-            fn9Var.e = jSONObject.optInt("height");
+            jSONObject.optString("brand_name");
+            fn9Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            fn9Var.b = jSONObject.optString("button_scheme");
+            fn9Var.c = jSONObject.optString("cmd_scheme");
+            jSONObject.optString("icon");
+            fn9Var.d = jSONObject.optString("operate_recommend_reason");
+            fn9Var.e = jSONObject.optLong("trans_animation_delay", 0L);
+            fn9Var.f = jSONObject.optInt("layout_upgrade", 0);
             return fn9Var;
         }
         return (fn9) invokeL.objValue;

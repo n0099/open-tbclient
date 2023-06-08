@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jy4 implements sl6 {
+public class jy4 implements ul6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        rl6.a(this, webView, str, jSONObject);
+        tl6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public /* synthetic */ void onDestroy() {
-        rl6.b(this);
+        tl6.b(this);
     }
 
     public jy4() {
@@ -42,7 +42,7 @@ public class jy4 implements sl6 {
         }
     }
 
-    @Override // com.baidu.tieba.sl6
+    @Override // com.baidu.tieba.ul6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -65,43 +65,43 @@ public class jy4 implements sl6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public wy9 c(WebView webView) {
+    public bz9 c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             String clipBoardContent = UtilHelper.getClipBoardContent();
             int i = !ui.isEmpty(clipBoardContent) ? 1 : 0;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
                 jSONObject.put("data", clipBoardContent);
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 d(WebView webView, String str) {
+    public bz9 d(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             li.a(str);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 }

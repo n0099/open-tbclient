@@ -1,64 +1,285 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class k8a {
+public class k8a extends n8a {
     public static /* synthetic */ Interceptable $ic;
-    public static final double[] a;
-    public static final double[] b;
-    public static final double[] c;
     public transient /* synthetic */ FieldHolder $fh;
+    public long d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868341, "Lcom/baidu/tieba/k8a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947868341, "Lcom/baidu/tieba/k8a;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k8a(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new double[]{8.524682068201687E-11d, 2.5966600546497407E-9d, 7.968999456864018E-8d, 1.990671040966775E-6d, 4.0312469446528E-5d, 6.449987160622426E-4d, 0.007901234576193059d, 0.07111111110920705d, 0.4444444444447249d, 1.7777777777777533d, 4.000000000000001d, 4.0d, 1.0d, 1.1520919130377196E-10d, 2.2287613013610985E-9d, 8.190395193069459E-8d, 1.9821560631611546E-6d, 4.033546194091013E-5d, 6.449533097443221E-4d, 0.007901301261146751d, 0.07111103816087556d, 0.444444503190627d, 1.777777743914645d, 4.000000013233794d, 3.9999999968569013d, 1.0000000003426703d, 1.547687078051524E-10d, 1.2685004214732975E-9d, 9.277686185111423E-8d, 1.9063070109379044E-6d, 4.069800438991794E-5d, 6.437044724429807E-4d, 0.007904474945844498d, 0.07110505241174936d, 0.44445280640924756d, 1.777769493443211d, 4.000005580882401d, 3.9999977081165743d, 1.000000433394932d, 2.0675200625006794E-10d, -6.168955470512568E-10d, 1.243676591540157E-7d, 1.5830429403520612E-6d, 4.2947227560776585E-5d, 6.324986166507344E-4d, 0.007945447284095393d, 0.07099432778566186d, 0.44467219586283d, 1.7774588182255375d, 4.000303898625272d, 3.9998233869142057d, 1.0000472932961288d, 2.747568479498271E-10d, -3.899147207652133E-9d, 1.973017048397605E-7d, 5.965153156196767E-7d, 5.199297147474899E-5d, 5.732733867543377E-4d, 0.008229314383653041d, 0.06999093485872804d, 0.44726764292723986d, 1.7726685170014087d, 4.00629078637127d, 3.9952750700487845d, 1.001635434665418d};
-        b = new double[]{6.785236714494553E-8d, 4.6266061382821827E-7d, 6.970313581235407E-6d, 7.663766346295323E-5d, 7.911351522261269E-4d, 0.007340120473110381d, 0.060677114958668836d, 0.43994941411651567d, 2.742001709766175d, 14.28966192174086d, 59.82060964032071d, 188.7899868119915d, 399.8731367825601d, 427.5641157218048d, 1.8042097874891098E-7d, 1.2277164312044637E-6d, 1.8484393221474274E-5d, 2.029399590009131E-4d, 0.0020918539850246208d, 0.01937531565403395d, 0.15985869016767185d, 1.1565260527420642d, 7.189634122420607d, 37.35477381194748d, 155.8099316426627d, 489.5211371158541d, 1030.9147225169565d, 1093.5883545113747d, 4.801730561318749E-7d, 3.26131784391238E-6d, 4.907313750816616E-5d, 5.380650667648759E-4d, 0.005538791829105187d, 0.05122371748878655d, 0.42190298621367917d, 3.0463625987357354d, 18.895299447327734d, 97.91518902945546d, 407.13940115493494d, 1274.3088990480583d, 2670.9883037012546d, 2815.7166284662544d, 1.2789926338424624E-6d, 8.671826306760492E-6d, 1.304150882129993E-4d, 0.0014282247373727478d, 0.014684070635768789d, 0.13561403190404187d, 1.1152592585977394d, 8.038708855946538d, 49.76131889589548d, 257.2684232313529d, 1066.8543146269567d, 3328.3874581009636d, 6948.858659812164d, 7288.489339821248d, 3.409350368197033E-6d, 2.3079025203103375E-5d, 3.4691373283901833E-4d, 0.0037949949772229084d, 0.038974209677945605d, 0.35949483804148785d, 2.952287889353953d, 21.246564609514287d, 131.28727387146174d, 677.3810709329667d, 2802.3724744545048d, 8718.573142079826d, 18141.348781638833d, 18948.925349296307d};
-        c = new double[]{2.5568678676452704E-15d, 3.039395379230592E-14d, 6.334375199109483E-13d, 1.504129801183301E-11d, 4.4569436918556543E-10d, 1.746393051427168E-8d, 1.0059224011079853E-6d, 1.0729838945088577E-4d, 0.05150322693642528d, 5.252796399171156E-15d, 7.202118481421006E-15d, 7.25614212299048E-13d, 1.4823121466731044E-11d, 4.4602670450376247E-10d, 1.746360006178868E-8d, 1.0059226091322347E-6d, 1.0729838937545111E-4d, 0.0515032269364373d, 1.336591735935807E-14d, -1.2932643065888545E-13d, 1.7450199447905602E-12d, 1.041905120905698E-11d, 4.580478819805983E-10d, 1.744240545007355E-8d, 1.0059461453281293E-6d, 1.0729837434500161E-4d, 0.051503226940658446d, 5.3771611477352306E-14d, -1.139619300641373E-12d, 1.2858641335221653E-11d, -5.980208600457006E-11d, 7.366689430592951E-10d, 1.6731837150730355E-8d, 1.0070831435812128E-6d, 1.0729733111203705E-4d, 0.051503227360726295d, 3.781949208485893E-14d, -4.860049688858804E-13d, 1.6898350504817224E-12d, 4.588462432752426E-11d, 1.2521615963377513E-10d, 1.895965843775473E-8d, 1.0020716710561354E-6d, 1.0730371198569276E-4d, 0.05150322383300231d};
+        this.d = 88200L;
     }
 
-    public static double a(double d) {
-        InterceptResult invokeCommon;
-        double d2;
-        double d3;
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00db A[Catch: all -> 0x01a7, Exception -> 0x01aa, TryCatch #8 {Exception -> 0x01aa, all -> 0x01a7, blocks: (B:13:0x002e, B:17:0x005b, B:19:0x0061, B:21:0x006d, B:24:0x0072, B:29:0x0082, B:33:0x00d5, B:35:0x00db, B:37:0x00e1, B:38:0x00ed, B:40:0x00f1, B:42:0x0123, B:43:0x0158, B:44:0x015d, B:49:0x0174, B:52:0x017c, B:30:0x00a0, B:54:0x019b), top: B:101:0x002e }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01dc A[Catch: Exception -> 0x01d8, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d8, blocks: (B:84:0x01d4, B:88:0x01dc), top: B:97:0x01d4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.n8a
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(String str) {
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        ByteBuffer[] byteBufferArr;
+        long j;
+        int dequeueOutputBuffer;
+        int dequeueInputBuffer;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            double abs = Math.abs(d);
-            if (abs < 8.5d) {
-                double d4 = abs * abs * 0.0625d;
-                int i = ((int) d4) * 13;
-                double[] dArr = a;
-                d2 = ((((((((((((((((((((((dArr[i] * d4) + dArr[i + 1]) * d4) + dArr[i + 2]) * d4) + dArr[i + 3]) * d4) + dArr[i + 4]) * d4) + dArr[i + 5]) * d4) + dArr[i + 6]) * d4) + dArr[i + 7]) * d4) + dArr[i + 8]) * d4) + dArr[i + 9]) * d4) + dArr[i + 10]) * d4) + dArr[i + 11]) * d4;
-                d3 = dArr[i + 12];
-            } else if (abs < 12.5d) {
-                int i2 = (int) abs;
-                double d5 = abs - i2;
-                int i3 = (i2 - 8) * 14;
-                double[] dArr2 = b;
-                d2 = ((((((((((((((((((((((((dArr2[i3] * d5) + dArr2[i3 + 1]) * d5) + dArr2[i3 + 2]) * d5) + dArr2[i3 + 3]) * d5) + dArr2[i3 + 4]) * d5) + dArr2[i3 + 5]) * d5) + dArr2[i3 + 6]) * d5) + dArr2[i3 + 7]) * d5) + dArr2[i3 + 8]) * d5) + dArr2[i3 + 9]) * d5) + dArr2[i3 + 10]) * d5) + dArr2[i3 + 11]) * d5) + dArr2[i3 + 12]) * d5;
-                d3 = dArr2[i3 + 13];
-            } else {
-                double d6 = 60.0d / abs;
-                int i4 = ((int) d6) * 9;
-                double[] dArr3 = c;
-                return ((((((((((((((((dArr3[i4] * d6) + dArr3[i4 + 1]) * d6) + dArr3[i4 + 2]) * d6) + dArr3[i4 + 3]) * d6) + dArr3[i4 + 4]) * d6) + dArr3[i4 + 5]) * d6) + dArr3[i4 + 6]) * d6) + dArr3[i4 + 7]) * d6) + dArr3[i4 + 8]) * Math.sqrt(d6) * Math.exp(abs);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            k8a k8aVar = this;
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    if (k8aVar.b == 0) {
+                        k8aVar.b = OpusReader.SAMPLE_RATE;
+                    }
+                    if (k8aVar.c == 0) {
+                        k8aVar.c = 1;
+                    }
+                    k8aVar.d = (k8aVar.b * 16) / 8;
+                    FileInputStream fileInputStream2 = new FileInputStream(k8aVar.a);
+                    try {
+                        fileOutputStream = new FileOutputStream(str);
+                        try {
+                            MediaCodec f = f();
+                            f.start();
+                            ByteBuffer[] inputBuffers = f.getInputBuffers();
+                            ByteBuffer[] outputBuffers = f.getOutputBuffers();
+                            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                            byte[] bArr = new byte[4096];
+                            ByteBuffer[] byteBufferArr2 = outputBuffers;
+                            long j2 = 0;
+                            long j3 = 0;
+                            boolean z2 = false;
+                            int i2 = 0;
+                            boolean z3 = false;
+                            boolean z4 = false;
+                            int i3 = 0;
+                            while (!z3) {
+                                if (!z4 && (dequeueInputBuffer = f.dequeueInputBuffer(10000L)) >= 0) {
+                                    ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
+                                    byteBuffer.clear();
+                                    int remaining = byteBuffer.remaining();
+                                    if (remaining != bArr.length) {
+                                        bArr = new byte[remaining];
+                                    }
+                                    byte[] bArr2 = bArr;
+                                    if (!z2 && (i2 = fileInputStream2.read(bArr2)) == -1) {
+                                        i = i2;
+                                        z = true;
+                                    } else {
+                                        z = z2;
+                                        i = i2;
+                                    }
+                                    if (z) {
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                        byteBufferArr = inputBuffers;
+                                        i2 = i;
+                                        bArr = bArr2;
+                                        z2 = z;
+                                        j = 10000;
+                                        z4 = true;
+                                        dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                        if (dequeueOutputBuffer < 0) {
+                                            if ((bufferInfo.flags & 2) != 0) {
+                                                BdLog.i("audio encoder: codec config buffer");
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            } else {
+                                                if (bufferInfo.size != 0) {
+                                                    ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
+                                                    byteBuffer2.position(bufferInfo.offset);
+                                                    byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
+                                                    BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
+                                                    if (j2 < bufferInfo.presentationTimeUs) {
+                                                        long j4 = bufferInfo.presentationTimeUs;
+                                                        int i4 = bufferInfo.size;
+                                                        int i5 = i4 + 7;
+                                                        byteBuffer2.position(bufferInfo.offset);
+                                                        byteBuffer2.limit(bufferInfo.offset + i4);
+                                                        byte[] bArr3 = new byte[i5];
+                                                        k8aVar.e(bArr3, i5);
+                                                        byteBuffer2.get(bArr3, 7, i4);
+                                                        fileOutputStream.write(bArr3, 0, i5);
+                                                        BdLog.i(i5 + " bytes written.");
+                                                        j2 = j4;
+                                                    } else {
+                                                        BdLog.i("error sample! its presentationTimeUs should not lower than before.");
+                                                    }
+                                                }
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                                if ((bufferInfo.flags & 4) != 0) {
+                                                    k8aVar = this;
+                                                    inputBuffers = byteBufferArr;
+                                                    z3 = true;
+                                                }
+                                            }
+                                        } else if (dequeueOutputBuffer == -3) {
+                                            byteBufferArr2 = f.getOutputBuffers();
+                                        } else if (dequeueOutputBuffer == -2) {
+                                            BdLog.i("format change : " + f.getOutputFormat());
+                                        }
+                                        k8aVar = this;
+                                        inputBuffers = byteBufferArr;
+                                    } else {
+                                        int i6 = i;
+                                        byteBuffer.put(bArr2, 0, i6);
+                                        int i7 = i3 + i6;
+                                        byteBufferArr = inputBuffers;
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
+                                        i3 = i7;
+                                        i2 = i6;
+                                        j3 = (long) (((i7 / 2.0d) * 1000000.0d) / k8aVar.d);
+                                        bArr = bArr2;
+                                        z2 = z;
+                                    }
+                                } else {
+                                    byteBufferArr = inputBuffers;
+                                }
+                                j = 10000;
+                                dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                if (dequeueOutputBuffer < 0) {
+                                }
+                                k8aVar = this;
+                                inputBuffers = byteBufferArr;
+                            }
+                            BdLog.i("acc encode done");
+                            fileInputStream2.close();
+                            fileOutputStream.close();
+                        } catch (Exception e) {
+                            e = e;
+                            fileInputStream = fileInputStream2;
+                            try {
+                                e.printStackTrace();
+                                if (fileInputStream != null) {
+                                    fileInputStream.close();
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileInputStream = fileInputStream2;
+                            if (fileInputStream != null) {
+                            }
+                            if (fileOutputStream != null) {
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            } catch (Exception e5) {
+                e = e5;
+                fileOutputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                fileOutputStream = null;
             }
-            return d2 + d3;
         }
-        return invokeCommon.doubleValue;
+    }
+
+    public final void e(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
+            int[] iArr = {96000, 88200, 64000, OpusReader.SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
+            int i2 = 0;
+            while (true) {
+                if (i2 < 13) {
+                    if (iArr[i2] == this.b) {
+                        break;
+                    }
+                    i2++;
+                } else {
+                    i2 = 4;
+                    break;
+                }
+            }
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + 0);
+            bArr[3] = (byte) (128 + (i >> 11));
+            bArr[4] = (byte) ((i & 2047) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
+        }
+    }
+
+    @TargetApi(16)
+    public final MediaCodec f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            MediaFormat mediaFormat = new MediaFormat();
+            mediaFormat.setString("mime", "audio/mp4a-latm");
+            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+            mediaFormat.setInteger("channel-count", this.c);
+            mediaFormat.setInteger("sample-rate", this.b);
+            mediaFormat.setInteger("aac-profile", 2);
+            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+            return createEncoderByType;
+        }
+        return (MediaCodec) invokeV.objValue;
     }
 }

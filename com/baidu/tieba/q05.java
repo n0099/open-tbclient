@@ -194,7 +194,7 @@ public class q05 {
             } else if (!StringUtils.isNull(accountData.getID())) {
                 str = "set_basedata_account:logined";
             }
-            a95.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
+            c95.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
             if (accountData.getIsActive() == 1) {
                 b();
             }

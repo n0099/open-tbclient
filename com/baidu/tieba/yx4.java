@@ -37,9 +37,9 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
-import com.baidu.tieba.l55;
+import com.baidu.tieba.eba;
+import com.baidu.tieba.n55;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,11 +79,11 @@ public class yx4 {
     public boolean v;
     public boolean w;
     public boolean x;
-    public bc9 y;
-    public j55 z;
+    public ec9 y;
+    public l55 z;
 
     /* loaded from: classes8.dex */
-    public class a implements zaa.c {
+    public class a implements eba.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yx4 a;
@@ -106,7 +106,7 @@ public class yx4 {
             this.a = yx4Var;
         }
 
-        @Override // com.baidu.tieba.zaa.c
+        @Override // com.baidu.tieba.eba.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.y == null) {
@@ -299,7 +299,7 @@ public class yx4 {
     }
 
     /* loaded from: classes8.dex */
-    public class g implements l55.c {
+    public class g implements n55.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yx4 a;
@@ -322,7 +322,7 @@ public class yx4 {
             this.a = yx4Var;
         }
 
-        @Override // com.baidu.tieba.l55.c
+        @Override // com.baidu.tieba.n55.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.z == null) {
@@ -333,7 +333,7 @@ public class yx4 {
     }
 
     /* loaded from: classes8.dex */
-    public class h implements l55.e {
+    public class h implements n55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yx4 a;
@@ -356,7 +356,7 @@ public class yx4 {
             this.a = yx4Var;
         }
 
-        @Override // com.baidu.tieba.l55.e
+        @Override // com.baidu.tieba.n55.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.z != null && this.a.a != null) {
@@ -367,7 +367,7 @@ public class yx4 {
     }
 
     /* loaded from: classes8.dex */
-    public class i implements l55.e {
+    public class i implements n55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yx4 a;
@@ -390,7 +390,7 @@ public class yx4 {
             this.a = yx4Var;
         }
 
-        @Override // com.baidu.tieba.l55.e
+        @Override // com.baidu.tieba.n55.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.z != null && this.a.a != null) {
@@ -401,7 +401,7 @@ public class yx4 {
     }
 
     /* loaded from: classes8.dex */
-    public class j implements l55.e {
+    public class j implements n55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yx4 a;
@@ -424,7 +424,7 @@ public class yx4 {
             this.a = yx4Var;
         }
 
-        @Override // com.baidu.tieba.l55.e
+        @Override // com.baidu.tieba.n55.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.z != null && this.a.a != null) {
@@ -435,7 +435,7 @@ public class yx4 {
     }
 
     /* loaded from: classes8.dex */
-    public class k implements zaa.d {
+    public class k implements eba.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yx4 a;
@@ -458,7 +458,7 @@ public class yx4 {
             this.a = yx4Var;
         }
 
-        @Override // com.baidu.tieba.zaa.d
+        @Override // com.baidu.tieba.eba.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y != null && this.a.a != null) {
@@ -638,10 +638,10 @@ public class yx4 {
     }
 
     public void h() {
-        j55 j55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (j55Var = this.z) != null) {
-            j55Var.cancel();
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (l55Var = this.z) != null) {
+            l55Var.cancel();
         }
     }
 
@@ -810,16 +810,16 @@ public class yx4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.y == null) {
-                zaa zaaVar = new zaa(this.a);
+                eba ebaVar = new eba(this.a);
                 ArrayList arrayList = new ArrayList();
-                zaa.b bVar = new zaa.b(this.a.getString(R.string.report_text), zaaVar);
+                eba.b bVar = new eba.b(this.a.getString(R.string.report_text), ebaVar);
                 bVar.h(new k(this));
                 arrayList.add(bVar);
-                zaaVar.g(new a(this));
-                zaaVar.f(arrayList);
-                bc9 bc9Var = new bc9(this.a, zaaVar.b());
-                this.y = bc9Var;
-                bc9Var.a(0.7f);
+                ebaVar.g(new a(this));
+                ebaVar.f(arrayList);
+                ec9 ec9Var = new ec9(this.a, ebaVar.b());
+                this.y = ec9Var;
+                ec9Var.a(0.7f);
             }
             this.y.show();
         }
@@ -918,25 +918,25 @@ public class yx4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (this.z == null) {
-                l55 l55Var = new l55(this.a);
-                l55Var.o(new g(this));
+                n55 n55Var = new n55(this.a);
+                n55Var.o(new g(this));
                 ArrayList arrayList = new ArrayList();
                 if (this.t) {
-                    h55 h55Var = new h55(l55Var);
-                    h55Var.n(this.a.getString(R.string.share_to_friebds));
-                    h55Var.m(new h(this));
-                    arrayList.add(h55Var);
+                    j55 j55Var = new j55(n55Var);
+                    j55Var.n(this.a.getString(R.string.share_to_friebds));
+                    j55Var.m(new h(this));
+                    arrayList.add(j55Var);
                 }
-                h55 h55Var2 = new h55(l55Var);
-                h55Var2.n(this.a.getString(R.string.copy_link));
-                h55Var2.m(new i(this));
-                arrayList.add(h55Var2);
-                h55 h55Var3 = new h55(l55Var);
-                h55Var3.n(this.a.getString(R.string.open_with_browser));
-                h55Var3.m(new j(this));
-                arrayList.add(h55Var3);
-                l55Var.l(arrayList);
-                this.z = new j55(this.a.getPageContext(), l55Var);
+                j55 j55Var2 = new j55(n55Var);
+                j55Var2.n(this.a.getString(R.string.copy_link));
+                j55Var2.m(new i(this));
+                arrayList.add(j55Var2);
+                j55 j55Var3 = new j55(n55Var);
+                j55Var3.n(this.a.getString(R.string.open_with_browser));
+                j55Var3.m(new j(this));
+                arrayList.add(j55Var3);
+                n55Var.l(arrayList);
+                this.z = new l55(this.a.getPageContext(), n55Var);
             }
             this.z.show();
         }
@@ -982,7 +982,7 @@ public class yx4 {
         if (shareItem.q) {
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a, shareItem, true, (SparseArray<String>) null);
             shareDialogConfig.mShowMoreForumShare = true;
-            nr6.c().l(shareDialogConfig);
+            pr6.c().l(shareDialogConfig);
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.a, shareItem, true, k())));

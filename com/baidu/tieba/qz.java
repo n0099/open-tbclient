@@ -30,7 +30,7 @@ public class qz extends by {
     public int i;
     public int j;
     public Context k;
-    public f15 l;
+    public h15 l;
     public VideoImageNoPlayerLayout m;
     public int n;
     public String o;
@@ -97,9 +97,9 @@ public class qz extends by {
         }
 
         @Override // com.baidu.tieba.zz
-        public void a(f15 f15Var) {
+        public void a(h15 h15Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, f15Var) == null) && this.a.q != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, h15Var) == null) && this.a.q != null) {
                 this.a.q.a(this.a.l);
             }
         }
@@ -169,11 +169,11 @@ public class qz extends by {
     }
 
     @Override // com.baidu.tieba.ux
-    public void p(eo6<f15> eo6Var) {
+    public void p(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eo6Var) == null) {
-            super.p(eo6Var);
-            this.m.setOnCardSubClickListener(eo6Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, go6Var) == null) {
+            super.p(go6Var);
+            this.m.setOnCardSubClickListener(go6Var);
         }
     }
 
@@ -229,9 +229,9 @@ public class qz extends by {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h15Var) == null) {
             int l = vi.l(TbadkCoreApplication.getInst());
             if (l != this.n) {
                 s = vi.l(TbadkCoreApplication.getInst());
@@ -245,11 +245,11 @@ public class qz extends by {
                 this.j = i / 3;
                 this.n = l;
             }
-            this.l = f15Var;
-            if (f15Var != null && f15Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
+            this.l = h15Var;
+            if (h15Var != null && h15Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
                 boolean z = false;
                 this.m.setVisibility(0);
-                this.m.a(f15Var);
+                this.m.a(h15Var);
                 ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
                 ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
                 int i2 = layoutParams.width;

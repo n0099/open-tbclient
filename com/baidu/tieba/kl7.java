@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kl7 extends gd7<zl7, ThreadCardViewHolder<zl7>> {
+public class kl7 extends id7<zl7, ThreadCardViewHolder<zl7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public class kl7 extends gd7<zl7, ThreadCardViewHolder<zl7>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gd7, com.baidu.tieba.in
+    @Override // com.baidu.tieba.id7, com.baidu.tieba.in
     /* renamed from: H */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zl7 zl7Var, ThreadCardViewHolder<zl7> threadCardViewHolder) {
         InterceptResult invokeCommon;

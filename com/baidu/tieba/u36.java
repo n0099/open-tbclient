@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.r36;
 /* loaded from: classes8.dex */
-public interface u36<T extends r36> {
-    T a();
+public interface u36 {
+    void A0(int i, t36 t36Var);
+
+    void T(s36 s36Var);
+
+    t36 d1(int i);
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetBgByCategory.ThemeBgInMain;
+import tbclient.GetPendantByCategory.ThemePendantInMain;
 import tbclient.ThemeBgProp;
 /* loaded from: classes5.dex */
 public class d4a {
@@ -32,32 +32,32 @@ public class d4a {
         }
     }
 
-    public List<DressItemData> a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(ThemeBgInMain themeBgInMain) {
+    public List<DressItemData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBgInMain) != null) || themeBgInMain == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void c(ThemePendantInMain themePendantInMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) != null) || themePendantInMain == null) {
             return;
         }
-        this.a = themeBgInMain.bg_category;
+        this.a = themePendantInMain.pendant_category;
         this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themeBgInMain.props) {
+        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
             this.b.add(new DressItemData(themeBgProp));
         }
     }

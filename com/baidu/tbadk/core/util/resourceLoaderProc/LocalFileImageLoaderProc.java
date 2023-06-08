@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.hm5;
+import com.baidu.tieba.jm5;
 import com.baidu.tieba.ng;
 import com.baidu.tieba.qg;
 import com.baidu.tieba.vi;
@@ -185,7 +185,7 @@ public class LocalFileImageLoaderProc implements qg<gn> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = hm5.g(this.width, this.height);
+            ImageOperation g = jm5.g(this.width, this.height);
             return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;

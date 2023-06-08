@@ -26,10 +26,8 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.am6;
-import com.baidu.tieba.an6;
-import com.baidu.tieba.anb;
-import com.baidu.tieba.arb;
 import com.baidu.tieba.bm6;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.bnb;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.data.PreRenderMode;
@@ -37,24 +35,26 @@ import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
 import com.baidu.tieba.browser.webview.lifecycle.SimpleWebViewLifeCycle;
 import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.tieba.cm6;
-import com.baidu.tieba.dn6;
+import com.baidu.tieba.cn6;
+import com.baidu.tieba.dm6;
 import com.baidu.tieba.em6;
-import com.baidu.tieba.fm6;
-import com.baidu.tieba.il6;
-import com.baidu.tieba.nl6;
-import com.baidu.tieba.pm6;
-import com.baidu.tieba.qm6;
-import com.baidu.tieba.si6;
-import com.baidu.tieba.ti6;
+import com.baidu.tieba.fn6;
+import com.baidu.tieba.fnb;
+import com.baidu.tieba.frb;
+import com.baidu.tieba.gm6;
+import com.baidu.tieba.gnb;
+import com.baidu.tieba.hm6;
+import com.baidu.tieba.kl6;
+import com.baidu.tieba.pl6;
+import com.baidu.tieba.rm6;
+import com.baidu.tieba.sm6;
 import com.baidu.tieba.ui6;
-import com.baidu.tieba.um6;
 import com.baidu.tieba.vi6;
-import com.baidu.tieba.vm6;
+import com.baidu.tieba.wi6;
 import com.baidu.tieba.wm6;
-import com.baidu.tieba.wmb;
-import com.baidu.tieba.xl6;
+import com.baidu.tieba.xi6;
 import com.baidu.tieba.xm6;
-import com.baidu.tieba.yl6;
+import com.baidu.tieba.ym6;
 import com.baidu.tieba.zl6;
 import com.baidu.tieba.zm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,43 +66,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /* loaded from: classes5.dex */
-public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6, xl6 {
+public class TbWebView extends FrameLayout implements xi6, WebViewLifeCycle, gm6, zl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dn6 a;
+    public final fn6 a;
     @Nullable
     public MonitorWebView b;
-    public final vm6 c;
-    public final wm6 d;
+    public final xm6 c;
+    public final ym6 d;
     public ProgressBar e;
-    public si6<WebView> f;
-    public si6<WebView> g;
-    public final nl6 h;
+    public ui6<WebView> f;
+    public ui6<WebView> g;
+    public final pl6 h;
     public String i;
-    public ti6<Integer, Double> j;
+    public vi6<Integer, Double> j;
     public boolean k;
     public boolean l;
-    public xl6 m;
+    public zl6 m;
     public final Map<String, String> n;
-    public final Map<String, ui6<Object>> o;
-    public final arb<Lifecycle.Event> p;
+    public final Map<String, wi6<Object>> o;
+    public final frb<Lifecycle.Event> p;
     public View q;
-    public em6 r;
-    public vi6 s;
-    public yl6 t;
-    public am6 u;
-    public zl6 v;
-    public bm6 w;
-    public cm6 x;
+    public gm6 r;
+    public xi6 s;
+    public am6 t;
+    public cm6 u;
+    public bm6 v;
+    public dm6 w;
+    public em6 x;
     public DownloadListener y;
-    public final xm6 z;
+    public final zm6 z;
 
-    public /* synthetic */ vi6 O() {
+    public /* synthetic */ xi6 O() {
         return this;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements ui6<WebView> {
+    public class a implements wi6<WebView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbWebView a;
@@ -126,7 +126,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ui6, java.util.concurrent.Callable
+        @Override // com.baidu.tieba.wi6, java.util.concurrent.Callable
         public WebView call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
     }
 
     /* loaded from: classes5.dex */
-    public class b implements si6<WebView> {
+    public class b implements ui6<WebView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -166,7 +166,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.si6
+        @Override // com.baidu.tieba.ui6
         public void call(WebView webView) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, webView) == null) && webView != null) {
@@ -183,7 +183,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
     }
 
     /* loaded from: classes5.dex */
-    public class c implements ui6<Object> {
+    public class c implements wi6<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Object a;
@@ -208,7 +208,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
             this.a = obj;
         }
 
-        @Override // com.baidu.tieba.ui6, java.util.concurrent.Callable
+        @Override // com.baidu.tieba.wi6, java.util.concurrent.Callable
         public Object call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -237,27 +237,27 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                 return;
             }
         }
-        this.a = new dn6();
-        this.c = new zm6(new ui6() { // from class: com.baidu.tieba.ii6
+        this.a = new fn6();
+        this.c = new bn6(new wi6() { // from class: com.baidu.tieba.ki6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.ui6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.wi6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? TbWebView.this.O() : invokeV.objValue;
             }
         });
-        this.d = new an6(this);
+        this.d = new cn6(this);
         this.f = null;
         this.g = null;
-        this.h = new nl6();
+        this.h = new pl6();
         this.i = null;
         this.l = false;
         this.n = new HashMap();
         this.o = new HashMap();
-        this.p = arb.I(Lifecycle.Event.ON_RESUME);
+        this.p = frb.I(Lifecycle.Event.ON_RESUME);
         this.r = null;
         this.s = null;
         this.t = null;
@@ -266,7 +266,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         this.w = null;
         this.x = null;
         this.y = null;
-        this.z = new xm6(new a(this));
+        this.z = new zm6(new a(this));
     }
 
     public void loadUrl(String str) {
@@ -287,7 +287,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                     this.b.setVisibility(0);
                     this.b.r();
                 }
-                fm6.c("newHybrid", "loadUrl 处理耗时：" + (System.currentTimeMillis() - currentTimeMillis) + " ms，url=" + str);
+                hm6.c("newHybrid", "loadUrl 处理耗时：" + (System.currentTimeMillis() - currentTimeMillis) + " ms，url=" + str);
             }
         }
     }
@@ -311,27 +311,27 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                 return;
             }
         }
-        this.a = new dn6();
-        this.c = new zm6(new ui6() { // from class: com.baidu.tieba.ii6
+        this.a = new fn6();
+        this.c = new bn6(new wi6() { // from class: com.baidu.tieba.ki6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.ui6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.wi6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? TbWebView.this.O() : invokeV.objValue;
             }
         });
-        this.d = new an6(this);
+        this.d = new cn6(this);
         this.f = null;
         this.g = null;
-        this.h = new nl6();
+        this.h = new pl6();
         this.i = null;
         this.l = false;
         this.n = new HashMap();
         this.o = new HashMap();
-        this.p = arb.I(Lifecycle.Event.ON_RESUME);
+        this.p = frb.I(Lifecycle.Event.ON_RESUME);
         this.r = null;
         this.s = null;
         this.t = null;
@@ -340,7 +340,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         this.w = null;
         this.x = null;
         this.y = null;
-        this.z = new xm6(new a(this));
+        this.z = new zm6(new a(this));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -362,27 +362,27 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                 return;
             }
         }
-        this.a = new dn6();
-        this.c = new zm6(new ui6() { // from class: com.baidu.tieba.ii6
+        this.a = new fn6();
+        this.c = new bn6(new wi6() { // from class: com.baidu.tieba.ki6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.ui6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.wi6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? TbWebView.this.O() : invokeV.objValue;
             }
         });
-        this.d = new an6(this);
+        this.d = new cn6(this);
         this.f = null;
         this.g = null;
-        this.h = new nl6();
+        this.h = new pl6();
         this.i = null;
         this.l = false;
         this.n = new HashMap();
         this.o = new HashMap();
-        this.p = arb.I(Lifecycle.Event.ON_RESUME);
+        this.p = frb.I(Lifecycle.Event.ON_RESUME);
         this.r = null;
         this.s = null;
         this.t = null;
@@ -391,28 +391,28 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         this.w = null;
         this.x = null;
         this.y = null;
-        this.z = new xm6(new a(this));
+        this.z = new zm6(new a(this));
     }
 
     public /* synthetic */ boolean L(WebView webView, String str) {
-        yl6 yl6Var = this.t;
-        if (yl6Var != null) {
-            return yl6Var.shouldOverrideUrlLoading(webView, str);
+        am6 am6Var = this.t;
+        if (am6Var != null) {
+            return am6Var.shouldOverrideUrlLoading(webView, str);
         }
         return false;
     }
 
     public /* synthetic */ void M(WebView webView, String str) {
-        am6 am6Var = this.u;
-        if (am6Var != null) {
-            am6Var.d(webView, str);
+        cm6 cm6Var = this.u;
+        if (cm6Var != null) {
+            cm6Var.d(webView, str);
         }
     }
 
     public /* synthetic */ void N(WebView webView, String str) {
-        zl6 zl6Var = this.v;
-        if (zl6Var != null) {
-            zl6Var.onPageFinished(webView, str);
+        bm6 bm6Var = this.v;
+        if (bm6Var != null) {
+            bm6Var.onPageFinished(webView, str);
         }
     }
 
@@ -426,12 +426,12 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         }
     }
 
-    @Override // com.baidu.tieba.xl6
+    @Override // com.baidu.tieba.zl6
     public void g(View view2, MotionEvent motionEvent) {
-        xl6 xl6Var;
+        zl6 zl6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048593, this, view2, motionEvent) == null) && (xl6Var = this.m) != null) {
-            xl6Var.g(view2, motionEvent);
+        if ((interceptable == null || interceptable.invokeLL(1048593, this, view2, motionEvent) == null) && (zl6Var = this.m) != null) {
+            zl6Var.g(view2, motionEvent);
         }
     }
 
@@ -470,10 +470,10 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         }
     }
 
-    public void v(String str, ui6<Object> ui6Var) {
+    public void v(String str, wi6<Object> wi6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048632, this, str, ui6Var) == null) {
-            this.o.put(str, ui6Var);
+        if (interceptable == null || interceptable.invokeLL(1048632, this, str, wi6Var) == null) {
+            this.o.put(str, wi6Var);
         }
     }
 
@@ -498,7 +498,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
     /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: S */
     /* JADX WARN: Multi-variable type inference failed */
     public /* synthetic */ void G(Pair pair) {
-        fm6.b("newHybrid", "webView内容高度发生变化:height=" + pair.second);
+        hm6.b("newHybrid", "webView内容高度发生变化:height=" + pair.second);
         this.j.call(pair.first, pair.second);
     }
 
@@ -507,9 +507,9 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && (view2 = this.q) != null) {
             view2.setVisibility(0);
-            qm6 qm6Var = (qm6) ServiceManager.getService(qm6.a);
-            if (qm6Var != null) {
-                qm6Var.a(this.q, i);
+            sm6 sm6Var = (sm6) ServiceManager.getService(sm6.a);
+            if (sm6Var != null) {
+                sm6Var.a(this.q, i);
             }
         }
     }
@@ -562,66 +562,66 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         }
     }
 
-    public void setOnDoubleClickListener(xl6 xl6Var) {
+    public void setOnDoubleClickListener(zl6 zl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, xl6Var) == null) {
-            this.m = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048617, this, zl6Var) == null) {
+            this.m = zl6Var;
         }
     }
 
-    public void setOnLoadUrlListener(yl6 yl6Var) {
+    public void setOnLoadUrlListener(am6 am6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, yl6Var) == null) {
-            this.t = yl6Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, am6Var) == null) {
+            this.t = am6Var;
         }
     }
 
-    public void setOnPageFinishedListener(zl6 zl6Var) {
+    public void setOnPageFinishedListener(bm6 bm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, zl6Var) == null) {
-            this.v = zl6Var;
+        if (interceptable == null || interceptable.invokeL(1048619, this, bm6Var) == null) {
+            this.v = bm6Var;
         }
     }
 
-    public void setOnPageStartedListener(am6 am6Var) {
+    public void setOnPageStartedListener(cm6 cm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, am6Var) == null) {
-            this.u = am6Var;
+        if (interceptable == null || interceptable.invokeL(1048620, this, cm6Var) == null) {
+            this.u = cm6Var;
         }
     }
 
-    public void setOnProgressChangedListener(vi6 vi6Var) {
+    public void setOnProgressChangedListener(xi6 xi6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, vi6Var) == null) {
-            this.s = vi6Var;
+        if (interceptable == null || interceptable.invokeL(1048621, this, xi6Var) == null) {
+            this.s = xi6Var;
         }
     }
 
-    public void setOnReceivedErrorListener(bm6 bm6Var) {
+    public void setOnReceivedErrorListener(dm6 dm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, bm6Var) == null) {
-            this.w = bm6Var;
+        if (interceptable == null || interceptable.invokeL(1048622, this, dm6Var) == null) {
+            this.w = dm6Var;
         }
     }
 
-    public void setOnReceivedSslErrorListener(cm6 cm6Var) {
+    public void setOnReceivedSslErrorListener(em6 em6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, cm6Var) == null) {
-            this.x = cm6Var;
+        if (interceptable == null || interceptable.invokeL(1048623, this, em6Var) == null) {
+            this.x = em6Var;
         }
     }
 
-    public void setOnScrollChangeListener(em6 em6Var) {
+    public void setOnScrollChangeListener(gm6 gm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, em6Var) == null) {
-            this.r = em6Var;
+        if (interceptable == null || interceptable.invokeL(1048624, this, gm6Var) == null) {
+            this.r = gm6Var;
         }
     }
 
-    public void setOnSizeChangedListener(ti6<Integer, Double> ti6Var) {
+    public void setOnSizeChangedListener(vi6<Integer, Double> vi6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, ti6Var) == null) {
-            this.j = ti6Var;
+        if (interceptable == null || interceptable.invokeL(1048625, this, vi6Var) == null) {
+            this.j = vi6Var;
         }
     }
 
@@ -639,13 +639,13 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         }
     }
 
-    public void t(si6<WebView> si6Var) {
+    public void t(ui6<WebView> ui6Var) {
         MonitorWebView monitorWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, si6Var) == null) {
-            this.f = si6Var;
-            if (si6Var != null && (monitorWebView = this.b) != null) {
-                si6Var.call(monitorWebView);
+        if (interceptable == null || interceptable.invokeL(1048630, this, ui6Var) == null) {
+            this.f = ui6Var;
+            if (ui6Var != null && (monitorWebView = this.b) != null) {
+                ui6Var.call(monitorWebView);
             }
         }
     }
@@ -671,7 +671,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         return (Map) invokeV.objValue;
     }
 
-    public Map<String, ui6<Object>> getBizData() {
+    public Map<String, wi6<Object>> getBizData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
@@ -690,13 +690,13 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
     }
 
     @NonNull
-    public xm6 getController() {
+    public zm6 getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.z;
         }
-        return (xm6) invokeV.objValue;
+        return (zm6) invokeV.objValue;
     }
 
     @Nullable
@@ -710,13 +710,13 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         return (WebView) invokeV.objValue;
     }
 
-    public dn6 getPerfData() {
+    public fn6 getPerfData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.a;
         }
-        return (dn6) invokeV.objValue;
+        return (fn6) invokeV.objValue;
     }
 
     @Nullable
@@ -779,34 +779,34 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
     }
 
     public /* synthetic */ void H(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
-        bm6 bm6Var = this.w;
-        if (bm6Var != null) {
-            bm6Var.a(webView, webResourceRequest, i, charSequence);
+        dm6 dm6Var = this.w;
+        if (dm6Var != null) {
+            dm6Var.a(webView, webResourceRequest, i, charSequence);
         }
     }
 
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.gm6
     public void b(int i, int i2, int i3, int i4) {
-        em6 em6Var;
+        gm6 gm6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) && (em6Var = this.r) != null) {
-            em6Var.b(i, i2, i3, i4);
+        if ((interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) && (gm6Var = this.r) != null) {
+            gm6Var.b(i, i2, i3, i4);
         }
     }
 
-    @Override // com.baidu.tieba.em6
+    @Override // com.baidu.tieba.gm6
     public void d(int i, int i2, int i3, int i4) {
-        em6 em6Var;
+        gm6 gm6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048591, this, i, i2, i3, i4) == null) && (em6Var = this.r) != null) {
-            em6Var.d(i, i2, i3, i4);
+        if ((interceptable == null || interceptable.invokeIIII(1048591, this, i, i2, i3, i4) == null) && (gm6Var = this.r) != null) {
+            gm6Var.d(i, i2, i3, i4);
         }
     }
 
     public /* synthetic */ void I(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-        cm6 cm6Var = this.x;
-        if (cm6Var != null) {
-            cm6Var.a(webView, sslErrorHandler, sslError);
+        em6 em6Var = this.x;
+        if (em6Var != null) {
+            em6Var.a(webView, sslErrorHandler, sslError);
         }
     }
 
@@ -848,7 +848,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         }
     }
 
-    @Override // com.baidu.tieba.vi6
+    @Override // com.baidu.tieba.xi6
     public void f(WebView webView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, webView, i) == null) {
@@ -858,27 +858,27 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                     progressBar.setProgress(i);
                     this.h.a(this.e);
                 } else {
-                    pm6.f(progressBar, 0);
+                    rm6.f(progressBar, 0);
                     this.h.b(this.e, i);
                 }
             }
             if (i >= 100) {
-                pm6.f(webView, 0);
+                rm6.f(webView, 0);
             }
-            vi6 vi6Var = this.s;
-            if (vi6Var != null) {
-                vi6Var.f(webView, i);
+            xi6 xi6Var = this.s;
+            if (xi6Var != null) {
+                xi6Var.f(webView, i);
             }
         }
     }
 
-    @Override // android.view.View, com.baidu.tieba.em6
+    @Override // android.view.View, com.baidu.tieba.gm6
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048609, this, i, i2, i3, i4) == null) {
-            em6 em6Var = this.r;
-            if (em6Var != null) {
-                em6Var.onScrollChanged(i, i2, i3, i4);
+            gm6 gm6Var = this.r;
+            if (gm6Var != null) {
+                gm6Var.onScrollChanged(i, i2, i3, i4);
             }
             View view2 = this.q;
             if (view2 != null && view2.getVisibility() == 0) {
@@ -893,22 +893,22 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048611, this, context, str) == null) {
             this.a.r(System.currentTimeMillis());
-            this.b = (MonitorWebView) ((um6) ServiceManager.getService(um6.a)).b(context, str);
-            final SimpleWebViewLifeCycle simpleWebViewLifeCycle = new SimpleWebViewLifeCycle(new ui6() { // from class: com.baidu.tieba.li6
+            this.b = (MonitorWebView) ((wm6) ServiceManager.getService(wm6.a)).b(context, str);
+            final SimpleWebViewLifeCycle simpleWebViewLifeCycle = new SimpleWebViewLifeCycle(new wi6() { // from class: com.baidu.tieba.ni6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ui6, java.util.concurrent.Callable
+                @Override // com.baidu.tieba.wi6, java.util.concurrent.Callable
                 public final Object call() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? TbWebView.this.C() : invokeV.objValue;
                 }
-            }, new ui6() { // from class: com.baidu.tieba.ri6
+            }, new wi6() { // from class: com.baidu.tieba.ti6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ui6, java.util.concurrent.Callable
+                @Override // com.baidu.tieba.wi6, java.util.concurrent.Callable
                 public final Object call() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -918,13 +918,13 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
             if (context instanceof AppCompatActivity) {
                 ((AppCompatActivity) context).getLifecycle().addObserver(simpleWebViewLifeCycle);
             } else {
-                arb<Lifecycle.Event> arbVar = this.p;
+                frb<Lifecycle.Event> frbVar = this.p;
                 simpleWebViewLifeCycle.getClass();
-                arbVar.y(new wmb() { // from class: com.baidu.tieba.qi6
+                frbVar.y(new bnb() { // from class: com.baidu.tieba.si6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.wmb
+                    @Override // com.baidu.tieba.bnb
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -943,29 +943,29 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
             if (progressBar != null) {
                 progressBar.bringToFront();
             }
-            si6<WebView> si6Var = this.f;
-            if (si6Var != null) {
-                t(si6Var);
+            ui6<WebView> ui6Var = this.f;
+            if (ui6Var != null) {
+                t(ui6Var);
             }
-            si6<WebView> si6Var2 = this.g;
-            if (si6Var2 != null) {
-                si6Var2.call(this.b);
+            ui6<WebView> ui6Var2 = this.g;
+            if (ui6Var2 != null) {
+                ui6Var2.call(this.b);
             }
-            this.b.getViewHeightBs().e(new anb() { // from class: com.baidu.tieba.oi6
+            this.b.getViewHeightBs().e(new fnb() { // from class: com.baidu.tieba.qi6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.anb
+                @Override // com.baidu.tieba.fnb
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? TbWebView.this.D((Pair) obj) : invokeL.objValue;
                 }
-            }).b(new bnb() { // from class: com.baidu.tieba.hi6
+            }).b(new gnb() { // from class: com.baidu.tieba.ji6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.bnb
+                @Override // com.baidu.tieba.gnb
                 public final Object call(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Boolean valueOf;
@@ -976,11 +976,11 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                     }
                     return invokeLL.objValue;
                 }
-            }).y(new wmb() { // from class: com.baidu.tieba.fi6
+            }).y(new bnb() { // from class: com.baidu.tieba.hi6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.wmb
+                @Override // com.baidu.tieba.bnb
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -991,7 +991,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
             this.a.q(System.currentTimeMillis());
             s(context);
             u(this.b);
-            if (il6.a()) {
+            if (kl6.a()) {
                 View view2 = new View(context);
                 view2.setBackgroundResource(R.drawable.tv_circle_shape);
                 int i = (int) (context.getResources().getDisplayMetrics().density * 15.0f);
@@ -999,7 +999,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                 marginLayoutParams.topMargin = i;
                 marginLayoutParams.leftMargin = i;
                 addView(view2, marginLayoutParams);
-                pm6.a(view2);
+                rm6.a(view2);
             }
         }
     }
@@ -1009,22 +1009,22 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
         if (interceptable == null || interceptable.invokeL(1048631, this, monitorWebView) == null) {
             monitorWebView.setOnScrollChangeListener(this);
             monitorWebView.setOnDoubleClickListener(this);
-            monitorWebView.setOnLoadUrlListener(new yl6() { // from class: com.baidu.tieba.ni6
+            monitorWebView.setOnLoadUrlListener(new am6() { // from class: com.baidu.tieba.pi6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.yl6
+                @Override // com.baidu.tieba.am6
                 public final boolean shouldOverrideUrlLoading(WebView webView, String str) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, webView, str)) == null) ? TbWebView.this.L(webView, str) : invokeLL.booleanValue;
                 }
             });
-            monitorWebView.setOnPageStartedListener(new am6() { // from class: com.baidu.tieba.gi6
+            monitorWebView.setOnPageStartedListener(new cm6() { // from class: com.baidu.tieba.ii6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.am6
+                @Override // com.baidu.tieba.cm6
                 public final void d(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
@@ -1032,11 +1032,11 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                     }
                 }
             });
-            monitorWebView.setOnPageFinishedListener(new zl6() { // from class: com.baidu.tieba.ji6
+            monitorWebView.setOnPageFinishedListener(new bm6() { // from class: com.baidu.tieba.li6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.zl6
+                @Override // com.baidu.tieba.bm6
                 public final void onPageFinished(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
@@ -1044,11 +1044,11 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                     }
                 }
             });
-            monitorWebView.setOnReceivedErrorListener(new bm6() { // from class: com.baidu.tieba.mi6
+            monitorWebView.setOnReceivedErrorListener(new dm6() { // from class: com.baidu.tieba.oi6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.bm6
+                @Override // com.baidu.tieba.dm6
                 public final void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
@@ -1056,11 +1056,11 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                     }
                 }
             });
-            monitorWebView.setOnReceivedSslErrorListener(new cm6() { // from class: com.baidu.tieba.ki6
+            monitorWebView.setOnReceivedSslErrorListener(new em6() { // from class: com.baidu.tieba.mi6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.cm6
+                @Override // com.baidu.tieba.em6
                 public final void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) {
@@ -1068,7 +1068,7 @@ public class TbWebView extends FrameLayout implements vi6, WebViewLifeCycle, em6
                     }
                 }
             });
-            monitorWebView.setDownloadListener(new DownloadListener() { // from class: com.baidu.tieba.pi6
+            monitorWebView.setDownloadListener(new DownloadListener() { // from class: com.baidu.tieba.ri6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

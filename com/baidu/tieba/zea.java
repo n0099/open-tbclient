@@ -1,81 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.share.CheckRequest;
-import com.baidu.tieba.write.share.CheckResponse;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class zea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public yea b;
-    public HttpMessageListener c;
+    public final ArrayList<MetaData> a;
+    public final Set<String> b;
+    public final ArrayList<MetaData> c;
+    public HashMap<String, String> d;
 
-    /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zea a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zea zeaVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zeaVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zeaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof CheckResponse)) {
-                return;
-            }
-            afa checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
-            if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f136f));
-            }
-            if (this.a.b != null) {
-                this.a.b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public zea(BdUniqueId bdUniqueId) {
+    public zea() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,58 +37,88 @@ public class zea {
                 return;
             }
         }
-        this.c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
-        this.a = bdUniqueId;
-        b();
+        this.a = new ArrayList<>();
+        this.b = new HashSet();
+        this.c = new ArrayList<>();
+        this.d = null;
     }
 
-    public void e(yea yeaVar) {
+    public ArrayList<MetaData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yeaVar) == null) {
-            this.b = yeaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            messageManager.registerTask(c());
-            this.c.setTag(this.a);
-            messageManager.registerListener(this.c);
-        }
-    }
-
-    public final HttpMessageTask c() {
+    public Set<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setRetry(3);
-            tbHttpMessageTask.setResponsedClass(CheckResponse.class);
-            return tbHttpMessageTask;
+            return this.b;
         }
-        return (HttpMessageTask) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    public void d(String str, String str2) {
+    public ArrayList<MetaData> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            if (StringUtils.isNull(str)) {
-                yea yeaVar = this.b;
-                if (yeaVar != null) {
-                    yeaVar.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f042b));
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            try {
+                e(new JSONObject(str), true);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public void e(JSONObject jSONObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048580, this, jSONObject, z) != null) || jSONObject == null) {
+            return;
+        }
+        if (z) {
+            try {
+                if (this.d == null) {
+                    this.d = new HashMap<>();
                 }
+            } catch (Exception e) {
+                BdLog.detailException(e);
                 return;
             }
-            MessageManager.getInstance().removeHttpMessage(this.a);
-            CheckRequest checkRequest = new CheckRequest();
-            checkRequest.setTag(this.a);
-            checkRequest.setAppkey(str);
-            checkRequest.setAppletsKey(str2);
-            MessageManager.getInstance().sendMessage(checkRequest);
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserJson(optJSONArray.getJSONObject(i));
+                if (!TextUtils.isEmpty(metaData.getName_show())) {
+                    this.a.add(metaData);
+                    if (z) {
+                        this.d.put(metaData.getName_show(), metaData.getPortrait());
+                    }
+                }
+            }
+        }
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("bot_list");
+        if (optJSONArray2 != null) {
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                MetaData metaData2 = new MetaData();
+                metaData2.parserJson(optJSONArray2.getJSONObject(i2));
+                if (!TextUtils.isEmpty(metaData2.getName_show())) {
+                    this.c.add(metaData2);
+                    this.b.add(metaData2.getUserId());
+                }
+            }
         }
     }
 }

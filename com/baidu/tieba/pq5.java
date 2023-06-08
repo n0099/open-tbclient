@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import com.squareup.wire.Message;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public interface pq5 extends iq5 {
-    void initByJson(JSONObject jSONObject);
+public interface pq5 extends kq5 {
+    HashMap<String, Object> O();
 
-    void initByProtobuf(Message message);
+    HashMap<String, String> S();
 }

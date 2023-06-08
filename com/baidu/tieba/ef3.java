@@ -37,7 +37,7 @@ public class ef3 extends x22 {
 
         /* renamed from: com.baidu.tieba.ef3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0283a implements Runnable {
+        public class RunnableC0291a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
@@ -47,18 +47,18 @@ public class ef3 extends x22 {
 
             /* renamed from: com.baidu.tieba.ef3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0284a implements nj4 {
+            public class C0292a implements nj4 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-                public final /* synthetic */ RunnableC0283a b;
+                public final /* synthetic */ RunnableC0291a b;
 
-                public C0284a(RunnableC0283a runnableC0283a, String str) {
+                public C0292a(RunnableC0291a runnableC0291a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0283a, str};
+                        Object[] objArr = {runnableC0291a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -68,7 +68,7 @@ public class ef3 extends x22 {
                             return;
                         }
                     }
-                    this.b = runnableC0283a;
+                    this.b = runnableC0291a;
                     this.a = str;
                 }
 
@@ -80,8 +80,8 @@ public class ef3 extends x22 {
                             y82.c("PreloadPackageApi", "preloadPackage keyMap null");
                             return;
                         }
-                        RunnableC0283a runnableC0283a = this.b;
-                        runnableC0283a.d.a.z(map.get(this.b.b), this.a, runnableC0283a.c);
+                        RunnableC0291a runnableC0291a = this.b;
+                        runnableC0291a.d.a.z(map.get(this.b.b), this.a, runnableC0291a.c);
                     }
                 }
 
@@ -94,7 +94,7 @@ public class ef3 extends x22 {
                 }
             }
 
-            public RunnableC0283a(a aVar, JSONObject jSONObject, String str, String str2) {
+            public RunnableC0291a(a aVar, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public class ef3 extends x22 {
                     boolean g = no4.e().g(!sp3.G());
                     String optString = this.a.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
                     if (g) {
-                        ij4.e(Collections.singletonList(this.b), ef3.f.c(), new C0284a(this, optString));
+                        ij4.e(Collections.singletonList(this.b), ef3.f.c(), new C0292a(this, optString));
                     } else {
                         this.d.a.z(this.b, optString, this.c);
                     }
@@ -160,7 +160,7 @@ public class ef3 extends x22 {
                 if (!ef3.f.a(1)) {
                     return new y32(402, "over single max limit");
                 }
-                so3.h().execute(new RunnableC0283a(this, jSONObject, optString, str), "PreloadPackageApi");
+                so3.h().execute(new RunnableC0291a(this, jSONObject, optString, str), "PreloadPackageApi");
                 return y32.f();
             }
             return (y32) invokeLLL.objValue;

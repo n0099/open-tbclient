@@ -1,23 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes5.dex */
-public final class ea7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ea7 {
+    void setRadius(float f);
 
-    public static final String a(String active, String task) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, active, task)) == null) {
-            Intrinsics.checkNotNullParameter(active, "active");
-            Intrinsics.checkNotNullParameter(task, "task");
-            return active + SignatureImpl.SEP + task;
-        }
-        return (String) invokeLL.objValue;
-    }
+    void setRadius(float f, float f2, float f3, float f4);
+
+    void setRadiusBottom(float f);
+
+    void setRadiusBottomLeft(float f);
+
+    void setRadiusBottomRight(float f);
+
+    void setRadiusLeft(float f);
+
+    void setRadiusRight(float f);
+
+    void setRadiusTop(float f);
+
+    void setRadiusTopLeft(float f);
+
+    void setRadiusTopRight(float f);
+
+    void setStrokeColor(int i);
+
+    void setStrokeWidth(float f);
+
+    void setStrokeWidthColor(float f, int i);
 }

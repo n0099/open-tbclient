@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.ox9;
+import com.baidu.tieba.n55;
 import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.tx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,10 +31,10 @@ public class dy extends wx implements oy<ThreadData>, py {
     public transient /* synthetic */ FieldHolder $fh;
     public FollowForumDecorView e;
     public LikeModel f;
-    public ox9 g;
+    public tx9 g;
     public ThreadData h;
     public TbPageContext i;
-    public j55 j;
+    public l55 j;
     public float k;
     public int l;
     public int m;
@@ -117,21 +117,21 @@ public class dy extends wx implements oy<ThreadData>, py {
             boolean z = true;
             if (customResponsedMessage.getCmd() != 2001335 && customResponsedMessage.getCmd() != 2001336) {
                 if (customResponsedMessage.getCmd() == 2001437) {
-                    if (!(customResponsedMessage.getData() instanceof e0a)) {
+                    if (!(customResponsedMessage.getData() instanceof j0a)) {
                         return;
                     }
-                    e0a e0aVar = (e0a) customResponsedMessage.getData();
-                    if (!e0aVar.b) {
+                    j0a j0aVar = (j0a) customResponsedMessage.getData();
+                    if (!j0aVar.b) {
                         return;
                     }
-                    this.a.w(e0aVar.a, true);
-                } else if (customResponsedMessage.getCmd() != 2001266 || !(customResponsedMessage.getData() instanceof ex9)) {
+                    this.a.w(j0aVar.a, true);
+                } else if (customResponsedMessage.getCmd() != 2001266 || !(customResponsedMessage.getData() instanceof jx9)) {
                 } else {
-                    ex9 ex9Var = (ex9) customResponsedMessage.getData();
-                    if (ex9Var.n() != 0) {
+                    jx9 jx9Var = (jx9) customResponsedMessage.getData();
+                    if (jx9Var.n() != 0) {
                         return;
                     }
-                    this.a.w(tg.g(ex9Var.g(), 0L), false);
+                    this.a.w(tg.g(jx9Var.g(), 0L), false);
                 }
             } else if (!(customResponsedMessage.getData() instanceof Long)) {
             } else {
@@ -196,7 +196,7 @@ public class dy extends wx implements oy<ThreadData>, py {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements ox9.a {
+    public class d implements tx9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dy a;
@@ -219,7 +219,7 @@ public class dy extends wx implements oy<ThreadData>, py {
             this.a = dyVar;
         }
 
-        @Override // com.baidu.tieba.ox9.a
+        @Override // com.baidu.tieba.tx9.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -227,7 +227,7 @@ public class dy extends wx implements oy<ThreadData>, py {
             }
         }
 
-        @Override // com.baidu.tieba.ox9.a
+        @Override // com.baidu.tieba.tx9.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -244,7 +244,7 @@ public class dy extends wx implements oy<ThreadData>, py {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements l55.e {
+    public class e implements n55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dy a;
@@ -267,7 +267,7 @@ public class dy extends wx implements oy<ThreadData>, py {
             this.a = dyVar;
         }
 
-        @Override // com.baidu.tieba.l55.e
+        @Override // com.baidu.tieba.n55.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -280,7 +280,7 @@ public class dy extends wx implements oy<ThreadData>, py {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements l55.c {
+    public class f implements n55.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dy a;
@@ -303,7 +303,7 @@ public class dy extends wx implements oy<ThreadData>, py {
             this.a = dyVar;
         }
 
-        @Override // com.baidu.tieba.l55.c
+        @Override // com.baidu.tieba.n55.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.j == null) {
@@ -429,10 +429,10 @@ public class dy extends wx implements oy<ThreadData>, py {
     public final void E(boolean z, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            lo6 lo6Var = new lo6();
-            lo6Var.d(z);
-            lo6Var.c(j);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921806, lo6Var));
+            no6 no6Var = new no6();
+            no6Var.d(z);
+            no6Var.c(j);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921806, no6Var));
         }
     }
 
@@ -440,17 +440,17 @@ public class dy extends wx implements oy<ThreadData>, py {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.j == null) {
-                l55 l55Var = new l55(this.i.getContext());
-                l55Var.t(this.i.getString(R.string.confirm_unlike_forum));
+                n55 n55Var = new n55(this.i.getContext());
+                n55Var.t(this.i.getString(R.string.confirm_unlike_forum));
                 ArrayList arrayList = new ArrayList();
-                h55 h55Var = new h55(this.i.getContext().getString(R.string.obfuscated_res_0x7f0f04bb), l55Var);
-                h55Var.m(new e(this));
-                arrayList.add(h55Var);
-                l55Var.o(new f(this));
-                l55Var.l(arrayList);
-                j55 j55Var = new j55(this.i, l55Var);
-                this.j = j55Var;
-                j55Var.k(this.k);
+                j55 j55Var = new j55(this.i.getContext().getString(R.string.obfuscated_res_0x7f0f04bb), n55Var);
+                j55Var.m(new e(this));
+                arrayList.add(j55Var);
+                n55Var.o(new f(this));
+                n55Var.l(arrayList);
+                l55 l55Var = new l55(this.i, n55Var);
+                this.j = l55Var;
+                l55Var.k(this.k);
             }
             yg.i(this.j, this.i.getPageActivity());
             z(this.h.getTid(), this.h.getFid(), false);
@@ -469,9 +469,9 @@ public class dy extends wx implements oy<ThreadData>, py {
                 return;
             }
             if (this.g == null) {
-                ox9 ox9Var = new ox9();
-                this.g = ox9Var;
-                ox9Var.b(new d(this));
+                tx9 tx9Var = new tx9();
+                this.g = tx9Var;
+                tx9Var.b(new d(this));
             }
             this.g.c(this.h.getForumData().d(), Integer.parseInt(this.h.getForumData().b()));
         }

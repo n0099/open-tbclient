@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.f05;
-import com.baidu.tieba.wq8;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -296,7 +296,7 @@ public class CustomViewPager extends TbViewPager {
             } catch (Exception e) {
                 if (!f05.e() && !f05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
-                    wq8 defaultLog = DefaultLog.getInstance();
+                    zq8 defaultLog = DefaultLog.getInstance();
                     defaultLog.b("CustomViewPager", "CustomViewPager onLayout crash, msg=" + e);
                     if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
                         ((Activity) getContext()).finish();

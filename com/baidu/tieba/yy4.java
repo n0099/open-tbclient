@@ -67,7 +67,7 @@ public final class yy4 extends AbsJsInterface {
     public void reportData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            wq8 hybridLog = HybridLog.getInstance();
+            zq8 hybridLog = HybridLog.getInstance();
             hybridLog.c("TbChannelJsInterfaceNew", "reportData:" + str);
             zy4 zy4Var = this.a;
             if (zy4Var != null) {
@@ -87,12 +87,12 @@ public final class yy4 extends AbsJsInterface {
             try {
                 if (this.mWebView != null && (this.mWebView.getParent() instanceof TbWebView)) {
                     str = ((TbWebView) this.mWebView.getParent()).getUrl();
-                    Map<String, ui6<Object>> bizData = ((TbWebView) this.mWebView.getParent()).getBizData();
-                    if (!hm6.b(bizData)) {
+                    Map<String, wi6<Object>> bizData = ((TbWebView) this.mWebView.getParent()).getBizData();
+                    if (!jm6.b(bizData)) {
                         JSONObject jSONObject2 = new JSONObject();
-                        for (Map.Entry<String, ui6<Object>> entry : bizData.entrySet()) {
+                        for (Map.Entry<String, wi6<Object>> entry : bizData.entrySet()) {
                             try {
-                                ui6<Object> value = entry.getValue();
+                                wi6<Object> value = entry.getValue();
                                 if (!TextUtils.isEmpty(entry.getKey()) && value != null) {
                                     jSONObject2.put(entry.getKey(), value.call());
                                 }
@@ -126,7 +126,7 @@ public final class yy4 extends AbsJsInterface {
                 }
                 jSONObject3.put("isLogin", i);
                 Map<String, String> baseData = ((TbWebView) this.mWebView.getParent()).getBaseData();
-                if (!hm6.b(baseData)) {
+                if (!jm6.b(baseData)) {
                     for (Map.Entry<String, String> entry2 : baseData.entrySet()) {
                         if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
                             jSONObject3.put(entry2.getKey(), entry2.getValue());
@@ -137,7 +137,7 @@ public final class yy4 extends AbsJsInterface {
             } catch (Exception e4) {
                 BdLog.e(e4);
             }
-            wq8 hybridLog = HybridLog.getInstance();
+            zq8 hybridLog = HybridLog.getInstance();
             hybridLog.c("TbChannelJsInterfaceNew", str + " getInitData:" + jSONObject);
             return jSONObject.toString();
         }

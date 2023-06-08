@@ -1,6 +1,6 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.omb;
+import com.baidu.tieba.tmb;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$DropEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
     public static final long serialVersionUID = 8360058422307496563L;
@@ -9,7 +9,7 @@ public final class OnSubscribeFromEmitter$DropEmitter<T> extends OnSubscribeFrom
     public void onOverflow() {
     }
 
-    public OnSubscribeFromEmitter$DropEmitter(omb<? super T> ombVar) {
-        super(ombVar);
+    public OnSubscribeFromEmitter$DropEmitter(tmb<? super T> tmbVar) {
+        super(tmbVar);
     }
 }

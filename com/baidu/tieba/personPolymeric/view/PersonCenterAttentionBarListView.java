@@ -15,8 +15,8 @@ import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.mg9;
 import com.baidu.tieba.pg9;
+import com.baidu.tieba.sg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public mg9 b;
+    public pg9 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<pg9> e = this.a.e(i);
+                List<sg9> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<pg9> e(int i) {
+    public final List<sg9> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            mg9 mg9Var = this.b;
-            if (mg9Var != null && !ListUtils.isEmpty(mg9Var.a)) {
+            pg9 pg9Var = this.b;
+            if (pg9Var != null && !ListUtils.isEmpty(pg9Var.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    pg9 pg9Var = (pg9) ListUtils.getItem(this.b.a, i3);
-                    if (pg9Var != null) {
-                        arrayList.add(pg9Var);
+                    sg9 sg9Var = (sg9) ListUtils.getItem(this.b.a, i3);
+                    if (sg9Var != null) {
+                        arrayList.add(sg9Var);
                     }
                 }
                 return arrayList;

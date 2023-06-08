@@ -1,11 +1,11 @@
 package com.baidu.tieba;
+
+import tbclient.ItemInfo;
 /* loaded from: classes6.dex */
 public interface me7 {
-    void B();
+    ItemInfo C0();
 
-    void H();
+    boolean M();
 
-    void f0();
-
-    void i0();
+    void p1(ItemInfo itemInfo);
 }

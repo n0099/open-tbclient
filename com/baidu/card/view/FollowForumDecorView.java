@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ja5;
+import com.baidu.tieba.la5;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -89,15 +89,15 @@ public class FollowForumDecorView extends FollowUserButton {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.q(z);
             if (!z) {
-                ja5 ja5Var = new ja5();
+                la5 la5Var = new la5();
                 if (this.r) {
-                    ja5Var.i(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    ja5Var.h(R.color.CAM_X0304);
-                    ja5Var.g(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
-                    ja5Var.f(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+                    la5Var.i(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    la5Var.h(R.color.CAM_X0304);
+                    la5Var.g(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                    la5Var.f(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
                 }
-                ja5Var.t(R.color.CAM_X0304);
-                setConfig(ja5Var);
+                la5Var.t(R.color.CAM_X0304);
+                setConfig(la5Var);
             }
         }
     }

@@ -1,21 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.TypedValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
+import tv.athena.revenue.RevenueManager;
 /* loaded from: classes7.dex */
 public class sub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public static IPayEventStatisticsApi a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics());
+        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error("PayUIEventStatisticsUtil", "getPayEventStatisticsApi error revenue null", new Object[0]);
+                return null;
+            }
+            return revenue.getPayEventStatisticApi();
         }
-        return invokeF.intValue;
+        return (IPayEventStatisticsApi) invokeII.objValue;
+    }
+
+    public static void b(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
+            IPayEventStatisticsApi a = a(i, i2);
+            if (a == null) {
+                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
+            } else {
+                a.reportUiEvent(str);
+            }
+        }
+    }
+
+    public static void c(int i, int i2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+            IPayEventStatisticsApi a = a(i, i2);
+            if (a == null) {
+                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
+            } else {
+                a.reportUiEvent(str, str2);
+            }
+        }
     }
 }

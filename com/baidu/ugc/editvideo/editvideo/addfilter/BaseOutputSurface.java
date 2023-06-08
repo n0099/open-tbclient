@@ -10,7 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.view.Surface;
 import androidx.annotation.RequiresApi;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.yua;
 import com.baidu.ugc.editvideo.faceunity.gles.EglCore;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.OffscreenSurface;
@@ -149,7 +149,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
             this.mPboNextIndex = (i3 + 1) % 2;
             return createBitmap;
         } catch (OutOfMemoryError e) {
-            tua.g(e);
+            yua.g(e);
             return null;
         }
     }
@@ -174,7 +174,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
             }, null);
             new WindowSurface(this.mEglCore, newInstance.getSurface(), true).makeCurrent();
         } catch (OutOfMemoryError e) {
-            tua.g(e);
+            yua.g(e);
         }
         return null;
     }
@@ -187,7 +187,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         while (true) {
             int glGetError = GLES20.glGetError();
             if (glGetError != 0) {
-                tua.d(str + ": glError " + glGetError);
+                yua.d(str + ": glError " + glGetError);
             } else {
                 return;
             }
@@ -239,7 +239,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
             System.currentTimeMillis();
             return createBitmap;
         } catch (OutOfMemoryError e) {
-            tua.g(e);
+            yua.g(e);
             return null;
         }
     }

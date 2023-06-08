@@ -31,7 +31,7 @@ public class bz4 {
     public final View b;
     public final ThreadAchievementShareInfo.ParamBean c;
     public TbRichTextView d;
-    public k16 e;
+    public m16 e;
     public TbImageView f;
     public TextView g;
     public TextView h;
@@ -135,9 +135,9 @@ public class bz4 {
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            k16 k16Var = new k16();
-            this.e = k16Var;
-            k16Var.u(vi.g(this.a, R.dimen.tbds38));
+            m16 m16Var = new m16();
+            this.e = m16Var;
+            m16Var.u(vi.g(this.a, R.dimen.tbds38));
             this.e.x(vi.g(this.a, R.dimen.tbds42));
             this.e.k(vi.g(this.a, R.dimen.tbds23));
             this.e.p(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);

@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw7;
+import com.baidu.tieba.ew7;
 import com.baidu.tieba.gn;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.og;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.py;
-import com.baidu.tieba.r6a;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.w6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
     public BdRecyclerView c;
     public EMTextView d;
     public int e;
-    public cw7 f;
+    public ew7 f;
     public int g;
     public BdUniqueId h;
     public Boolean i;
@@ -134,13 +134,13 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
     }
 
     public final void c(boolean z) {
-        cw7 cw7Var;
+        ew7 ew7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (cw7Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (ew7Var = this.f) == null) {
             return;
         }
-        if (!z && cw7Var.d() != null && !TextUtils.isEmpty(r6a.g(this.f.d()))) {
-            gn gnVar = (gn) pg.h().m(r6a.g(this.f.d()), 45, this.j, this.h);
+        if (!z && ew7Var.d() != null && !TextUtils.isEmpty(w6a.g(this.f.d()))) {
+            gn gnVar = (gn) pg.h().m(w6a.g(this.f.d()), 45, this.j, this.h);
             if (gnVar != null) {
                 setBackground(gnVar.j());
                 return;
@@ -152,11 +152,11 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
 
     private int getDefaultIdByNumber() {
         InterceptResult invokeV;
-        cw7 cw7Var;
+        ew7 ew7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            cw7 cw7Var2 = this.f;
-            if ((cw7Var2 != null && cw7Var2.e()) || (cw7Var = this.f) == null || ListUtils.getCount(cw7Var.getDataList()) <= k.intValue()) {
+            ew7 ew7Var2 = this.f;
+            if ((ew7Var2 != null && ew7Var2.e()) || (ew7Var = this.f) == null || ListUtils.getCount(ew7Var.getDataList()) <= k.intValue()) {
                 return R.drawable.bg_home_card_heji_two;
             }
             return R.drawable.bg_home_card_heji;
@@ -186,7 +186,7 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
         int i4;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.g != i) {
-            m75 d = m75.d(this.d);
+            o75 d = o75.d(this.d);
             d.C(R.string.F_X02);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0105);
@@ -225,19 +225,19 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
         }
     }
 
-    public void setData(cw7 cw7Var) {
+    public void setData(ew7 ew7Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, cw7Var) != null) || cw7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, ew7Var) != null) || ew7Var == null) {
             return;
         }
-        this.f = cw7Var;
+        this.f = ew7Var;
         if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            if (cw7Var.c() > 0) {
+            if (ew7Var.c() > 0) {
                 marginLayoutParams.topMargin = vi.g(getContext(), R.dimen.M_H_X001);
             } else {
                 marginLayoutParams.topMargin = 0;
@@ -248,12 +248,12 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
         pureDrawable.setBounds(0, 0, vi.g(getContext(), R.dimen.tbds96), vi.g(getContext(), R.dimen.T_X07));
         this.d.setCompoundDrawables(pureDrawable, null, null, null);
         this.d.setCompoundDrawablePadding(vi.g(getContext(), R.dimen.M_W_X001));
-        this.d.setText(cw7Var.getTitle());
-        this.b.q(cw7Var.getDataList());
+        this.d.setText(ew7Var.getTitle());
+        this.b.q(ew7Var.getDataList());
         this.b.r(this.e);
         Boolean bool = this.i;
-        if (bool == null || bool.booleanValue() != cw7Var.e()) {
-            boolean e = cw7Var.e();
+        if (bool == null || bool.booleanValue() != ew7Var.e()) {
+            boolean e = ew7Var.e();
             if (e) {
                 this.b.p(ContentCollectListAdapter.CornerType.FULL);
             } else {

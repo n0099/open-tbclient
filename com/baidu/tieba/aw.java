@@ -45,12 +45,12 @@ public class aw {
 
             /* renamed from: com.baidu.tieba.aw$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0246a implements Runnable {
+            public class RunnableC0244a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0246a(a aVar) {
+                public RunnableC0244a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class aw {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    cu.c(new RunnableC0246a(this));
+                    cu.c(new RunnableC0244a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;

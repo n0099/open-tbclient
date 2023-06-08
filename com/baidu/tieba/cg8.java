@@ -1,87 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.uf8;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillRecentlyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class cg8 extends th8 {
+public class cg8 implements yc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ag8 a;
 
-    public cg8() {
+    public cg8(ag8 ag8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ag8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = ag8Var;
     }
 
-    @Override // com.baidu.tieba.sh8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.yc8
+    @Nullable
+    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            i(i);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.th8
-    public void h(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (this.a.isEmpty()) {
-                g(list);
-            } else {
-                super.h(list);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == 5) {
+                return new RobotSkillItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03d1, viewGroup, false), this.a);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.th8
-    public List<rh8> j(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (Object obj : list) {
-                    if (obj instanceof AbilityItem) {
-                        arrayList.add(new dg8((AbilityItem) obj));
-                    } else {
-                        boolean z = obj instanceof uf8.b;
-                        if (z) {
-                            Object obj2 = ((uf8.b) obj).a;
-                            if (obj2 instanceof AbilityItem) {
-                                arrayList.add(new dg8((AbilityItem) obj2));
-                            }
-                        }
-                        if (z) {
-                            Object obj3 = ((uf8.b) obj).a;
-                            if (obj3 instanceof dg8) {
-                                arrayList.add((dg8) obj3);
-                            }
-                        }
-                    }
-                }
-                return arrayList;
+            if (i == 4) {
+                return new RobotItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03cf, viewGroup, false));
+            }
+            if (i == 6) {
+                return new RobotSkillRecentlyItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03d2, viewGroup, false), this.a);
             }
             return null;
         }
-        return (List) invokeL.objValue;
+        return (BaseItemViewHolder) invokeLI.objValue;
     }
 }

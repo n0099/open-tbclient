@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.e35;
-import com.baidu.tieba.f15;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.h15;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes5.dex */
-public class CardPersonDynamicThreadData extends f15 {
+public class CardPersonDynamicThreadData extends h15 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,14 +101,14 @@ public class CardPersonDynamicThreadData extends f15 {
         return invokeIII.intValue;
     }
 
-    @Override // com.baidu.tieba.f15
-    public e35 getNegFeedBackData() {
+    @Override // com.baidu.tieba.h15
+    public g35 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (e35) invokeV.objValue;
+        return (g35) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
@@ -640,7 +640,7 @@ public class CardPersonDynamicThreadData extends f15 {
         I = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.f15
+    @Override // com.baidu.tieba.h15
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

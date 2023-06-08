@@ -2,6 +2,7 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.FileUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.StartupCountStatsController;
 import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -11,8 +12,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.bw4;
 import com.baidu.tieba.gm;
 import com.baidu.tieba.nm;
+import com.baidu.tieba.wi9;
 /* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
+    public wi9 cyberMediaContextDef = new wi9();
+
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
         return "AppCreate_InitSDK";
@@ -26,6 +30,10 @@ public class InitSDKTask extends LaunchTask {
     private void initCountStats() {
         StartupCountStatsController.resetDefaultUploadID();
         StartupCountStatsController.init();
+    }
+
+    private void initCyberPlayerSdk() {
+        CyberPlayerManager.setCyberMediaContext(this.cyberMediaContextDef);
     }
 
     private void initDeviceSdk() {
@@ -72,5 +80,6 @@ public class InitSDKTask extends LaunchTask {
         initCountStats();
         initGrowthSdk();
         initTBTaskSDK();
+        initCyberPlayerSdk();
     }
 }

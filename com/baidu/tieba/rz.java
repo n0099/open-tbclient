@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class rz extends ux<f15> implements ii9 {
+public abstract class rz extends ux<h15> implements li9 {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
     public static int w;
@@ -43,11 +43,11 @@ public abstract class rz extends ux<f15> implements ii9 {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public f15 h;
+    public h15 h;
     public RoundCornerFrameLayout i;
     public RoundRelativeLayout j;
     public AbsDownloadGuide k;
-    public ej9 l;
+    public ij9 l;
     public String m;
     public String n;
     public BdUniqueId o;
@@ -58,7 +58,7 @@ public abstract class rz extends ux<f15> implements ii9 {
     public final View.OnClickListener t;
     public uz.b u;
 
-    public abstract ej9 u();
+    public abstract ij9 u();
 
     public void y() {
         Interceptable interceptable = $ic;
@@ -102,8 +102,8 @@ public abstract class rz extends ux<f15> implements ii9 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f15 f15Var = this.b.h;
-                if (f15Var != null && f15Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
+                h15 h15Var = this.b.h;
+                if (h15Var != null && h15Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
                     this.a.width = this.b.f.getWidth();
                     this.a.height = (this.b.f.getWidth() / 16) * 9;
                 }
@@ -138,16 +138,16 @@ public abstract class rz extends ux<f15> implements ii9 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            f15 f15Var;
+            h15 h15Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (f15Var = this.a.h) != null && f15Var.getThreadData() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (h15Var = this.a.h) != null && h15Var.getThreadData() != null) {
                 Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.i);
                 rz rzVar = this.a;
                 Context context = rzVar.b;
                 ThreadData threadData = rzVar.h.getThreadData();
                 rz rzVar2 = this.a;
                 String str = rzVar2.m;
-                qw5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, rzVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
+                sw5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, rzVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
             }
         }
     }
@@ -251,26 +251,26 @@ public abstract class rz extends ux<f15> implements ii9 {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar.b() == 1) {
                     rz rzVar = this.a;
-                    qn6.l(rzVar.g, rzVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sn6.l(rzVar.g, rzVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    ej9 ej9Var = this.a.l;
-                    if (ej9Var != null) {
-                        ej9Var.onScroll();
+                    ij9 ij9Var = this.a.l;
+                    if (ij9Var != null) {
+                        ij9Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    ej9 ej9Var2 = this.a.l;
-                    if (ej9Var2 != null) {
-                        ej9Var2.onVolumeUp();
+                    ij9 ij9Var2 = this.a.l;
+                    if (ij9Var2 != null) {
+                        ij9Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    ej9 ej9Var3 = this.a.l;
-                    if (ej9Var3 != null) {
-                        return ej9Var3.onBackPress();
+                    ij9 ij9Var3 = this.a.l;
+                    if (ij9Var3 != null) {
+                        return ij9Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -359,11 +359,11 @@ public abstract class rz extends ux<f15> implements ii9 {
         }
     }
 
-    public void D(zi9 zi9Var) {
-        ej9 ej9Var;
+    public void D(dj9 dj9Var) {
+        ij9 ij9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, zi9Var) == null) && (ej9Var = this.l) != null) {
-            ej9Var.setStatistic(zi9Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, dj9Var) == null) && (ij9Var = this.l) != null) {
+            ij9Var.setStatistic(dj9Var);
         }
     }
 
@@ -371,9 +371,9 @@ public abstract class rz extends ux<f15> implements ii9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.m = str;
-            ej9 ej9Var = this.l;
-            if (ej9Var != null) {
-                ej9Var.setFrom(str);
+            ij9 ij9Var = this.l;
+            if (ij9Var != null) {
+                ij9Var.setFrom(str);
             }
         }
     }
@@ -382,14 +382,14 @@ public abstract class rz extends ux<f15> implements ii9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.n = str;
-            ej9 ej9Var = this.l;
-            if (ej9Var != null) {
-                ej9Var.setStageType(str);
+            ij9 ij9Var = this.l;
+            if (ij9Var != null) {
+                ij9Var.setStageType(str);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -399,13 +399,13 @@ public abstract class rz extends ux<f15> implements ii9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            f15 f15Var = this.h;
-            if (f15Var != null && f15Var.getThreadData() != null) {
+            h15 h15Var = this.h;
+            if (h15Var != null && h15Var.getThreadData() != null) {
                 return this.h.getThreadData().getVideoUrl();
             }
             return null;
@@ -413,7 +413,7 @@ public abstract class rz extends ux<f15> implements ii9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -423,21 +423,21 @@ public abstract class rz extends ux<f15> implements ii9 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ej9 ej9Var = this.l;
-            if (ej9Var == null) {
+            ij9 ij9Var = this.l;
+            if (ij9Var == null) {
                 return false;
             }
-            return ej9Var.isFullScreen();
+            return ij9Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -447,7 +447,7 @@ public abstract class rz extends ux<f15> implements ii9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -457,7 +457,7 @@ public abstract class rz extends ux<f15> implements ii9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -468,7 +468,7 @@ public abstract class rz extends ux<f15> implements ii9 {
         }
     }
 
-    @Override // com.baidu.tieba.ii9
+    @Override // com.baidu.tieba.li9
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -476,13 +476,13 @@ public abstract class rz extends ux<f15> implements ii9 {
         }
     }
 
-    public ej9 t() {
+    public ij9 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.l;
         }
-        return (ej9) invokeV.objValue;
+        return (ij9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ux
@@ -499,7 +499,7 @@ public abstract class rz extends ux<f15> implements ii9 {
                 this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
                 this.j = (RoundRelativeLayout) this.f.findViewById(R.id.download_guide_layout);
-                ej9 u = u();
+                ij9 u = u();
                 this.l = u;
                 u.setUniqueId(this.o);
                 this.l.setFrom(this.m);
@@ -525,10 +525,10 @@ public abstract class rz extends ux<f15> implements ii9 {
 
     @Override // com.baidu.tieba.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        f15 f15Var;
+        h15 h15Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i) == null) && (f15Var = this.h) != null && f15Var.getThreadData() != null) {
-            qn6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if ((interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i) == null) && (h15Var = this.h) != null && h15Var.getThreadData() != null) {
+            sn6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
             AbsDownloadGuide absDownloadGuide = this.k;
@@ -568,7 +568,7 @@ public abstract class rz extends ux<f15> implements ii9 {
                 }
                 RoundRelativeLayout roundRelativeLayout2 = this.j;
                 if (roundRelativeLayout2 != null) {
-                    roundRelativeLayout2.setRoundLayoutRadius(k75.B(R.string.J_X16));
+                    roundRelativeLayout2.setRoundLayoutRadius(m75.B(R.string.J_X16));
                     this.j.setVisibility(0);
                 }
                 AbsDownloadGuide absDownloadGuide = this.k;
@@ -615,11 +615,11 @@ public abstract class rz extends ux<f15> implements ii9 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, f15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, h15Var) == null) {
             int l = vi.l(TbadkCoreApplication.getInst());
             if (l != this.p) {
                 int l2 = vi.l(TbadkCoreApplication.getInst());
@@ -630,10 +630,10 @@ public abstract class rz extends ux<f15> implements ii9 {
                 z = i / 3;
                 this.p = l;
             }
-            this.h = f15Var;
-            if (f15Var != null && f15Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
-                this.l.setData(f15Var.getThreadData());
-                s(f15Var.getThreadData());
+            this.h = h15Var;
+            if (h15Var != null && h15Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
+                this.l.setData(h15Var.getThreadData());
+                s(h15Var.getThreadData());
                 ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
                 int i2 = layoutParams.width;
                 int i3 = layoutParams.height;

@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.wf5;
+import com.baidu.tieba.yf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -221,18 +221,18 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m75 d = m75.d(this.a);
+            o75 d = o75.d(this.a);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0215);
-            m75 d2 = m75.d(this.e);
+            o75 d2 = o75.d(this.e);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X01);
-            m75 d3 = m75.d(this.c);
+            o75 d3 = o75.d(this.c);
             d3.w(R.color.CAM_X0101);
             d3.B(R.dimen.T_X06);
             d3.C(R.string.F_X01);
-            m75.d(this.b).w(R.string.J_X04);
+            o75.d(this.b).w(R.string.J_X04);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_emotion_arrow, R.color.CAM_X0101, null);
         }
     }
@@ -297,7 +297,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 int g = (((getResources().getDisplayMetrics().widthPixels - vi.g(TbadkApplication.getInst(), R.dimen.tbds94)) - vi.g(TbadkApplication.getInst(), R.dimen.tbds180)) - vi.g(TbadkApplication.getInst(), R.dimen.tbds75)) - vi.g(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
                 String name = this.f.getName();
-                this.c.setText(wf5.a(name, "..." + j, g, paint));
+                this.c.setText(yf5.a(name, "..." + j, g, paint));
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.f.updateStatus(FaceGroupInfoData.Status.FINISH);

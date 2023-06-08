@@ -1,156 +1,87 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r9b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes8.dex */
-public class x9b implements p9b {
+public abstract class x9b implements u9b {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, x9b> a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Context b;
-    public final String c;
-    public final m9b d;
-    public final z9b e;
-    public final aab f;
-    public final Map<String, String> g;
-    public final List<hab> h;
-    public final Map<String, String> i;
 
-    public x9b(Context context, String str, m9b m9bVar, InputStream inputStream, Map<String, String> map, List<hab> list, String str2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948256616, "Lcom/baidu/tieba/x9b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948256616, "Lcom/baidu/tieba/x9b;");
+                return;
+            }
+        }
+        a = new HashMap();
+        b = new Object();
+    }
+
+    public x9b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, m9bVar, inputStream, map, list, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.i = new HashMap();
-        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
-        this.b = context;
-        str = str == null ? context.getPackageName() : str;
-        this.c = str;
-        if (inputStream != null) {
-            this.e = new dab(inputStream, str);
-            v9b.a(inputStream);
-        } else {
-            this.e = new gab(this.b, str);
-        }
-        this.f = new aab(this.e);
-        if (m9bVar != m9b.b && "1.0".equals(this.e.a("/configuration_version", null))) {
-            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
-        }
-        this.d = (m9bVar == null || m9bVar == m9b.b) ? v9b.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : m9bVar;
-        this.g = v9b.d(map);
-        this.h = list;
-        this.a = str2 == null ? e() : str2;
     }
 
-    @Override // com.baidu.tieba.p9b
-    public String a(String str) {
+    public static x9b c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p9b
-    public m9b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            m9b m9bVar = this.d;
-            return m9bVar == null ? m9b.b : m9bVar;
-        }
-        return (m9b) invokeV.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, r9b.a> a = r9b.a();
-            if (a.containsKey(str)) {
-                if (this.i.containsKey(str)) {
-                    return this.i.get(str);
-                }
-                r9b.a aVar = a.get(str);
-                if (aVar == null) {
-                    return null;
-                }
-                String a2 = aVar.a(this);
-                this.i.put(str, a2);
-                return a2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                context = applicationContext;
             }
-            return null;
+            return d(context, context.getPackageName());
         }
-        return (String) invokeL.objValue;
+        return (x9b) invokeL.objValue;
     }
 
-    public List<hab> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f(String str, String str2) {
+    public static x9b d(Context context, String str) {
         InterceptResult invokeLL;
+        x9b x9bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (str == null) {
-                return str2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            synchronized (b) {
+                x9bVar = a.get(str);
+                if (x9bVar == null) {
+                    x9bVar = new dab(context, str);
+                    a.put(str, x9bVar);
+                }
             }
-            String e = v9b.e(str);
-            String str3 = this.g.get(e);
-            if (str3 != null) {
-                return str3;
-            }
-            String c = c(e);
-            if (c != null) {
-                return c;
-            }
-            String a = this.e.a(e, str2);
-            return aab.c(a) ? this.f.a(a, str2) : a;
+            return x9bVar;
         }
-        return (String) invokeLL.objValue;
+        return (x9b) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.p9b
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
+    @Override // com.baidu.tieba.u9b
+    public abstract /* synthetic */ Context getContext();
 
-    @Override // com.baidu.tieba.p9b
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
+    @Override // com.baidu.tieba.u9b
+    public abstract /* synthetic */ String getIdentifier();
 }

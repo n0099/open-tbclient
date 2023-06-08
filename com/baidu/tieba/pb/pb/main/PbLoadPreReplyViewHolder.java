@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,7 +50,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m75.d(this.b).w(R.color.CAM_X0304);
+            o75.d(this.b).w(R.color.CAM_X0304);
             WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c2b, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }

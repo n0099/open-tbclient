@@ -70,13 +70,13 @@ public final class z83 {
 
         /* renamed from: com.baidu.tieba.z83$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0533a implements rq3<v83> {
+        public class C0537a implements rq3<v83> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ x83 b;
 
-            public C0533a(a aVar, String str, x83 x83Var) {
+            public C0537a(a aVar, String str, x83 x83Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class z83 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + x83Var.b);
                 }
                 synchronized (this.a.g) {
-                    qq3.a(xb3.M(), new C0533a(this, str, x83Var), this.a.g);
+                    qq3.a(xb3.M(), new C0537a(this, str, x83Var), this.a.g);
                 }
             }
         }

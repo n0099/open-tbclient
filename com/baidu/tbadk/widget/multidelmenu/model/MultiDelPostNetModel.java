@@ -7,8 +7,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.v06;
-import com.baidu.tieba.w06;
+import com.baidu.tieba.x06;
+import com.baidu.tieba.y06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiDelPostNetModel<T>.b a;
-    public v06 b;
+    public x06 b;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -32,7 +32,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<String, Integer, w06> {
+    public class b extends BdAsyncTask<String, Integer, y06> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -60,13 +60,13 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(w06 w06Var) {
+        public void onPostExecute(y06 y06Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w06Var) == null) {
-                super.onPostExecute(w06Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y06Var) == null) {
+                super.onPostExecute(y06Var);
                 this.b.a = null;
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(w06Var);
+                    this.b.mLoadDataCallBack.c(y06Var);
                 }
             }
         }
@@ -78,7 +78,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public w06 doInBackground(String... strArr) {
+        public y06 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -94,18 +94,18 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
                 this.a.addPostData("type", this.b.b.e);
                 this.a.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = this.a.postNetData();
-                w06 w06Var = new w06();
+                y06 y06Var = new y06();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    w06Var.a = true;
-                    w06Var.a(postNetData);
+                    y06Var.a = true;
+                    y06Var.a(postNetData);
                 } else {
-                    w06Var.a = false;
-                    w06Var.b = this.a.getErrorString();
+                    y06Var.a = false;
+                    y06Var.b = this.a.getErrorString();
                     this.a.getServerErrorCode();
                 }
-                return w06Var;
+                return y06Var;
             }
-            return (w06) invokeL.objValue;
+            return (y06) invokeL.objValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -195,10 +195,10 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         return invokeV.booleanValue;
     }
 
-    public void b0(v06 v06Var) {
+    public void b0(x06 x06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v06Var) == null) {
-            this.b = v06Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, x06Var) == null) {
+            this.b = x06Var;
         }
     }
 }

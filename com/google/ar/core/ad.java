@@ -1,11 +1,11 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.u6b;
+import com.baidu.tieba.z6b;
 import com.google.ar.core.Session;
 /* loaded from: classes9.dex */
 public enum ad extends Session.c {
     @Override // com.google.ar.core.Session.c
-    public final u6b a(long j, Session session) {
+    public final z6b a(long j, Session session) {
         return null;
     }
 

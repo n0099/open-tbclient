@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e88;
+import com.baidu.tieba.g88;
 import com.baidu.tieba.h05;
-import com.baidu.tieba.ly6;
-import com.baidu.tieba.rr5;
+import com.baidu.tieba.ny6;
 import com.baidu.tieba.tr5;
-import com.baidu.tieba.ur5;
-import com.baidu.tieba.w55;
-import com.baidu.tieba.x55;
+import com.baidu.tieba.vr5;
+import com.baidu.tieba.wr5;
+import com.baidu.tieba.y55;
+import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ import java.util.Set;
 public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ly6 g;
+    public ny6 g;
     public NewPagerSlidingTabBaseStrip.c h;
     public CustomMessageListener i;
     public CustomMessageListener j;
@@ -186,22 +186,22 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
     }
 
     /* loaded from: classes5.dex */
-    public class d extends rr5 {
+    public class d extends tr5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EnterForumTabFragment b;
 
-        @Override // com.baidu.tieba.rr5
-        public boolean a(tr5 tr5Var) {
+        @Override // com.baidu.tieba.tr5
+        public boolean a(vr5 vr5Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tr5Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vr5Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.rr5
+        @Override // com.baidu.tieba.tr5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -229,12 +229,12 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
             this.b = enterForumTabFragment;
         }
 
-        @Override // com.baidu.tieba.rr5
+        @Override // com.baidu.tieba.tr5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return ur5.b().c();
+                return wr5.b().c();
             }
             return invokeV.intValue;
         }
@@ -263,9 +263,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.changeSkinType(i);
-            ly6 ly6Var = this.g;
-            if (ly6Var != null) {
-                ly6Var.onChangeSkinType(i);
+            ny6 ny6Var = this.g;
+            if (ny6Var != null) {
+                ny6Var.onChangeSkinType(i);
             }
         }
     }
@@ -284,9 +284,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            ly6 ly6Var = this.g;
-            if (ly6Var != null) {
-                ly6Var.onChangeSkinType(this.mSkinType);
+            ny6 ny6Var = this.g;
+            if (ny6Var != null) {
+                ny6Var.onChangeSkinType(this.mSkinType);
             }
         }
     }
@@ -296,7 +296,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            this.g = new ly6(this);
+            this.g = new ny6(this);
             registerListener(this.i);
             registerListener(this.j);
         }
@@ -307,9 +307,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             super.setPrimary(z);
-            ly6 ly6Var = this.g;
-            if (ly6Var != null) {
-                ly6Var.g0(z);
+            ny6 ny6Var = this.g;
+            if (ny6Var != null) {
+                ny6Var.g0(z);
             }
         }
     }
@@ -353,28 +353,28 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.qr5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ly6 ly6Var = this.g;
-            if (ly6Var != null) {
-                return ly6Var.K();
+            ny6 ny6Var = this.g;
+            if (ny6Var != null) {
+                return ny6Var.K();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.qr5
-    public rr5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.sr5
+    public tr5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return new d(this);
         }
-        return (rr5) invokeV.objValue;
+        return (tr5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -382,11 +382,11 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            e88.l().c();
+            g88.l().c();
             MessageManager.getInstance().unRegisterListener(this.i);
-            ly6 ly6Var = this.g;
-            if (ly6Var != null) {
-                ly6Var.X();
+            ny6 ny6Var = this.g;
+            if (ny6Var != null) {
+                ny6Var.X();
             }
         }
     }
@@ -396,7 +396,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            x55.n(w55.k);
+            z55.n(y55.k);
         }
     }
 
@@ -429,9 +429,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            ly6 ly6Var = this.g;
-            if (ly6Var != null) {
-                ly6Var.W(i, i2, intent);
+            ny6 ny6Var = this.g;
+            if (ny6Var != null) {
+                ny6Var.W(i, i2, intent);
             }
         }
     }
@@ -444,14 +444,14 @@ public class EnterForumTabFragment extends LazyBaseFragment implements h05 {
             if (isPrimary() && getActivity() != null) {
                 M1(getActivity().getIntent(), null);
                 if (getContext() != null) {
-                    x55.o(getContext(), w55.k);
+                    z55.o(getContext(), y55.k);
                 }
             } else {
-                x55.n(w55.k);
+                z55.n(y55.k);
             }
-            ly6 ly6Var = this.g;
-            if (ly6Var != null) {
-                ly6Var.g0(isPrimary());
+            ny6 ny6Var = this.g;
+            if (ny6Var != null) {
+                ny6Var.g0(isPrimary());
             }
         }
     }

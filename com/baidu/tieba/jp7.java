@@ -1,31 +1,57 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jp7 implements v65 {
+public class jp7 extends j65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(jp7 jp7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jp7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                z55.s("frsToast");
+            }
+        }
+    }
 
     public jp7() {
         Interceptable interceptable = $ic;
@@ -41,54 +67,36 @@ public class jp7 implements v65 {
         }
     }
 
-    @Override // com.baidu.tieba.v65
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.j65
+    public void a(@NonNull Context context, @NonNull b65 b65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsToast");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.v65
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b65Var) == null) {
             if (TbSingleton.getInstance().getFrsResponseData() == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "Frs Toast策略校验失败：当前Frs数据为空");
-                return false;
+                YunDialogLog.getInstance().b("YunDialogManager", "Frs Toast展示失败：当前Frs数据为空");
+                z55.s("frsToast");
+                return;
             }
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "Frs Toast策略校验失败：当前Activity非FrsActivity");
-                return false;
+                YunDialogLog.getInstance().b("YunDialogManager", "Frs Toast展示失败：当前Activity非FrsActivity");
+                z55.s("frsToast");
+                return;
             }
             String stringExtra = currentActivity.getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
             if (TextUtils.isEmpty(stringExtra)) {
-                return false;
+                z55.s("frsToast");
+                return;
             }
             BdToastData bdToastData = new BdToastData();
             try {
                 bdToastData.parserJson(new JSONObject(stringExtra));
-                if (bdToastData.getIconType() == 0) {
-                    return false;
-                }
-                return true;
+                BdToastHelper.toast(bdToastData);
+                currentActivity.getIntent().putExtra(FrsActivityConfig.TOAST_DATA, "");
+                wg.a().postDelayed(new a(this), 3000L);
             } catch (JSONException e) {
+                z55.s("frsToast");
                 BdLog.e(e);
-                return false;
             }
         }
-        return invokeL.booleanValue;
     }
 }

@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardMultiLinkView;
+import com.baidu.tieba.feed.component.CardLiveView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w87 extends r77<CardMultiLinkView, g47> {
+public class w87 extends t77<CardLiveView, g47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,27 @@ public class w87 extends r77<CardMultiLinkView, g47> {
         }
     }
 
-    @Override // com.baidu.tieba.r77, com.baidu.tieba.g87
+    @Override // com.baidu.tieba.t77, com.baidu.tieba.i87
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int g = vi.g(viewGroup.getContext(), R.dimen.M_W_X005);
             View a = super.a(viewGroup);
-            o97.j(a);
+            q97.m(a, Integer.valueOf(g), null, Integer.valueOf(g));
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g87
+    @Override // com.baidu.tieba.i87
     /* renamed from: e */
-    public void b(@NonNull CardMultiLinkView cardMultiLinkView, @NonNull g47 g47Var) {
+    public void b(@NonNull CardLiveView cardLiveView, @NonNull g47 g47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMultiLinkView, g47Var) == null) {
-            cardMultiLinkView.a(g47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardLiveView, g47Var) == null) {
+            cardLiveView.f(g47Var);
         }
     }
 }

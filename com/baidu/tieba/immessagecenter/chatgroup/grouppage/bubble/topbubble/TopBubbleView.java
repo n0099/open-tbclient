@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.zd8;
+import com.baidu.tieba.be8;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -163,19 +163,19 @@ public class TopBubbleView extends FrameLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m75 d = m75.d(this.a.d);
+            o75 d = o75.d(this.a.d);
             d.w(R.color.CAM_X0101);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X10);
-            m75 d2 = m75.d(this.a.e);
+            o75 d2 = o75.d(this.a.e);
             d2.C(R.string.F_X01);
             d2.w(R.color.CAM_X0107);
             d2.B(R.dimen.T_X08);
-            m75 d3 = m75.d(this.a.f);
+            o75 d3 = o75.d(this.a.f);
             d3.m(R.dimen.L_X02);
             d3.o(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            m75 d4 = m75.d(this.a.c);
+            o75 d4 = o75.d(this.a.c);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0303);
             SkinManager.setViewTextColor(this.a.d, (int) R.color.CAM_X0101);
@@ -205,7 +205,7 @@ public class TopBubbleView extends FrameLayout {
                 } else {
                     this.a.g.setVisibility(8);
                 }
-            } else if (!zd8.a(topBubbleData.getVersionKey())) {
+            } else if (!be8.a(topBubbleData.getVersionKey())) {
                 this.a.g.setVisibility(0);
                 this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080610);
             } else {

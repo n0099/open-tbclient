@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lz5;
-import com.baidu.tieba.pz5;
+import com.baidu.tieba.nz5;
 import com.baidu.tieba.qx4;
-import com.baidu.tieba.qz5;
+import com.baidu.tieba.rz5;
+import com.baidu.tieba.sz5;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,7 +45,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public pz5 i;
+    public rz5 i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -182,9 +182,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            pz5 pz5Var = this.i;
-            if (pz5Var != null) {
-                pz5Var.onPause();
+            rz5 rz5Var = this.i;
+            if (rz5Var != null) {
+                rz5Var.onPause();
             }
             this.a.setOnClickListener(null);
         }
@@ -247,9 +247,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            pz5 pz5Var = this.i;
-            if (pz5Var != null) {
-                pz5Var.onDestroy();
+            rz5 rz5Var = this.i;
+            if (rz5Var != null) {
+                rz5Var.onDestroy();
             }
         }
     }
@@ -333,9 +333,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            pz5 pz5Var = this.i;
-            if (pz5Var != null) {
-                pz5Var.m1(str, false);
+            rz5 rz5Var = this.i;
+            if (rz5Var != null) {
+                rz5Var.m1(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -371,9 +371,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
             if (qx4.b(str)) {
-                this.i = new qz5(context, this.h, this);
+                this.i = new sz5(context, this.h, this);
             } else {
-                this.i = new lz5(context, this.h, this);
+                this.i = new nz5(context, this.h, this);
             }
             this.b.setContentViewTop(this.i);
         }

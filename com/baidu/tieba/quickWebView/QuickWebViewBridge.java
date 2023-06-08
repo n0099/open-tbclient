@@ -5,11 +5,11 @@ import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.al9;
+import com.baidu.tieba.bz9;
+import com.baidu.tieba.fl9;
 import com.baidu.tieba.ip;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.wy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public al9 mProxy;
+    public fl9 mProxy;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -56,21 +56,21 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                al9 al9Var = this.b.mProxy;
+                fl9 fl9Var = this.b.mProxy;
                 QuickWebViewBridgeData quickWebViewBridgeData = this.a;
-                al9Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+                fl9Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickWebViewBridge(Context context, al9 al9Var) {
+    public QuickWebViewBridge(Context context, fl9 fl9Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, al9Var};
+            Object[] objArr = {context, fl9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,10 +82,10 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = al9Var;
+        this.mProxy = fl9Var;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.sy9
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.xy9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -109,11 +109,11 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public wy9 requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public bz9 requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -131,24 +131,24 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             if (this.mProxy != null) {
                 wg.a().post(new a(this, quickWebViewBridgeData));
             }
-            wy9Var.x(str);
-            return wy9Var;
+            bz9Var.x(str);
+            return bz9Var;
         }
-        return (wy9) invokeLLLL.objValue;
+        return (bz9) invokeLLLL.objValue;
     }
 
-    public wy9 requestByNativeToH5(HashMap<String, String> hashMap) {
+    public bz9 requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             if (hashMap != null && hashMap.get("result") != null) {
-                wy9Var.o(hashMap.get("result"));
-                wy9Var.x(hashMap.get("NotificationKey"));
+                bz9Var.o(hashMap.get("result"));
+                bz9Var.x(hashMap.get("NotificationKey"));
             }
-            wy9Var.A(true);
-            return wy9Var;
+            bz9Var.A(true);
+            return bz9Var;
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 }

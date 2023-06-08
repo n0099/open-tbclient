@@ -1,55 +1,31 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import androidx.constraintlayout.motion.widget.Key;
+import android.graphics.Path;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.Layout;
-import com.opensource.svgaplayer.proto.ShapeEntity;
-import com.opensource.svgaplayer.proto.Transform;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
+import java.util.Set;
+import java.util.StringTokenizer;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import kotlin.text.StringsKt__StringsJVMKt;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes8.dex */
 public final class vcb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public ycb b;
-    public Matrix c;
-    public qcb d;
-    public List<SVGAVideoShapeEntity> e;
+    public final String a;
+    public Path b;
 
-    public vcb(FrameEntity frameEntity) {
-        float f;
-        float f2;
-        float f3;
-        float f4;
-        float f5;
-        float f6;
-        float f7;
-        float f8;
-        float f9;
-        float f10;
-        float f11;
+    public vcb(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frameEntity};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,225 +35,166 @@ public final class vcb {
                 return;
             }
         }
-        this.b = new ycb(0.0d, 0.0d, 0.0d, 0.0d);
-        this.c = new Matrix();
-        this.e = CollectionsKt__CollectionsKt.emptyList();
-        Float f12 = frameEntity.alpha;
-        if (f12 != null) {
-            f = f12.floatValue();
-        } else {
-            f = 0.0f;
-        }
-        this.a = f;
-        Layout layout = frameEntity.layout;
-        if (layout != null) {
-            Float f13 = layout.x;
-            if (f13 != null) {
-                f8 = f13.floatValue();
-            } else {
-                f8 = 0.0f;
-            }
-            double d = f8;
-            Float f14 = layout.y;
-            if (f14 != null) {
-                f9 = f14.floatValue();
-            } else {
-                f9 = 0.0f;
-            }
-            double d2 = f9;
-            Float f15 = layout.width;
-            if (f15 != null) {
-                f10 = f15.floatValue();
-            } else {
-                f10 = 0.0f;
-            }
-            double d3 = f10;
-            Float f16 = layout.height;
-            if (f16 != null) {
-                f11 = f16.floatValue();
-            } else {
-                f11 = 0.0f;
-            }
-            this.b = new ycb(d, d2, d3, f11);
-        }
-        Transform transform = frameEntity.transform;
-        if (transform != null) {
-            float[] fArr = new float[9];
-            Float f17 = transform.a;
-            if (f17 != null) {
-                f2 = f17.floatValue();
-            } else {
-                f2 = 1.0f;
-            }
-            Float f18 = transform.b;
-            if (f18 != null) {
-                f3 = f18.floatValue();
-            } else {
-                f3 = 0.0f;
-            }
-            Float f19 = transform.c;
-            if (f19 != null) {
-                f4 = f19.floatValue();
-            } else {
-                f4 = 0.0f;
-            }
-            Float f20 = transform.d;
-            if (f20 != null) {
-                f5 = f20.floatValue();
-            } else {
-                f5 = 1.0f;
-            }
-            Float f21 = transform.tx;
-            if (f21 != null) {
-                f6 = f21.floatValue();
-            } else {
-                f6 = 0.0f;
-            }
-            Float f22 = transform.ty;
-            if (f22 != null) {
-                f7 = f22.floatValue();
-            } else {
-                f7 = 0.0f;
-            }
-            fArr[0] = f2;
-            fArr[1] = f4;
-            fArr[2] = f6;
-            fArr[3] = f3;
-            fArr[4] = f5;
-            fArr[5] = f7;
-            fArr[6] = 0.0f;
-            fArr[7] = 0.0f;
-            fArr[8] = 1.0f;
-            this.c.setValues(fArr);
-        }
-        String str = frameEntity.clipPath;
-        if (str != null) {
-            str = str.length() > 0 ? str : null;
-            if (str != null) {
-                this.d = new qcb(str);
-            }
-        }
-        List<ShapeEntity> list = frameEntity.shapes;
-        Intrinsics.checkExpressionValueIsNotNull(list, "obj.shapes");
-        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-        for (ShapeEntity it : list) {
-            Intrinsics.checkExpressionValueIsNotNull(it, "it");
-            arrayList.add(new SVGAVideoShapeEntity(it));
-        }
-        this.e = arrayList;
+        this.a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
     }
 
-    public vcb(JSONObject jSONObject) {
+    public final void a(Path path) {
         boolean z;
+        Set set;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
+            Path path2 = this.b;
+            if (path2 != null) {
+                path.set(path2);
                 return;
             }
-        }
-        vcb vcbVar = this;
-        vcbVar.b = new ycb(0.0d, 0.0d, 0.0d, 0.0d);
-        vcbVar.c = new Matrix();
-        vcbVar.e = CollectionsKt__CollectionsKt.emptyList();
-        vcbVar.a = jSONObject.optDouble(Key.ALPHA, 0.0d);
-        JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_LAYOUT);
-        if (optJSONObject != null) {
-            vcbVar.b = new ycb(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
-        if (optJSONObject2 != null) {
-            double optDouble = optJSONObject2.optDouble("a", 1.0d);
-            double optDouble2 = optJSONObject2.optDouble("b", 0.0d);
-            double optDouble3 = optJSONObject2.optDouble("c", 0.0d);
-            double optDouble4 = optJSONObject2.optDouble("d", 1.0d);
-            double optDouble5 = optJSONObject2.optDouble(MapBundleKey.MapObjKey.OBJ_TEXT, 0.0d);
-            double optDouble6 = optJSONObject2.optDouble("ty", 0.0d);
-            float f = (float) optDouble3;
-            z = true;
-            float f2 = (float) 0.0d;
-            float[] fArr = {(float) optDouble, f, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f2, f2, (float) 1.0d};
-            vcbVar = this;
-            vcbVar.c.setValues(fArr);
-        } else {
-            z = true;
-        }
-        String optString = jSONObject.optString("clipPath");
-        if (optString != null) {
-            if (optString.length() <= 0 ? false : z) {
-                vcbVar.d = new qcb(optString);
-            }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
-        if (optJSONArray != null) {
-            ArrayList arrayList = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
-                if (optJSONObject3 != null) {
-                    arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
+            Path path3 = new Path();
+            StringTokenizer stringTokenizer = new StringTokenizer(this.a, "MLHVCSQRAZmlhvcsqraz", true);
+            String str = "";
+            while (stringTokenizer.hasMoreTokens()) {
+                String segment = stringTokenizer.nextToken();
+                Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
+                if (segment.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    set = wcb.a;
+                    if (set.contains(segment)) {
+                        if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
+                            b(path3, segment, new StringTokenizer("", ""));
+                        }
+                        str = segment;
+                    } else {
+                        b(path3, str, new StringTokenizer(segment, " "));
+                    }
                 }
             }
-            vcbVar.e = CollectionsKt___CollectionsKt.toList(arrayList);
+            this.b = path3;
+            path.set(path3);
         }
     }
 
-    public final double a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00b8  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00d1  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00d5  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00e8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x010b  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x011e  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0122  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(Path path, String str, StringTokenizer stringTokenizer) {
+        bdb bdbVar;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public final ycb b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ycb) invokeV.objValue;
-    }
-
-    public final qcb c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (qcb) invokeV.objValue;
-    }
-
-    public final List<SVGAVideoShapeEntity> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final Matrix e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final void f(List<SVGAVideoShapeEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.e = list;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, path, str, stringTokenizer) == null) {
+            float f = 0.0f;
+            float f2 = 0.0f;
+            float f3 = 0.0f;
+            float f4 = 0.0f;
+            float f5 = 0.0f;
+            float f6 = 0.0f;
+            int i = 0;
+            while (stringTokenizer.hasMoreTokens()) {
+                try {
+                    String s = stringTokenizer.nextToken();
+                    Intrinsics.checkExpressionValueIsNotNull(s, "s");
+                    if (s.length() == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!z) {
+                        if (i == 0) {
+                            f = Float.parseFloat(s);
+                        }
+                        if (i == 1) {
+                            f2 = Float.parseFloat(s);
+                        }
+                        if (i == 2) {
+                            f3 = Float.parseFloat(s);
+                        }
+                        if (i == 3) {
+                            f4 = Float.parseFloat(s);
+                        }
+                        if (i == 4) {
+                            f5 = Float.parseFloat(s);
+                        }
+                        if (i == 5) {
+                            f6 = Float.parseFloat(s);
+                        }
+                        i++;
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            float f7 = f;
+            float f8 = f2;
+            float f9 = f3;
+            float f10 = f4;
+            bdb bdbVar2 = new bdb(0.0f, 0.0f, 0.0f);
+            if (Intrinsics.areEqual(str, "M")) {
+                path.moveTo(f7, f8);
+                bdbVar2 = new bdb(f7, f8, 0.0f);
+            } else if (Intrinsics.areEqual(str, "m")) {
+                path.rMoveTo(f7, f8);
+                bdbVar = new bdb(bdbVar2.a() + f7, bdbVar2.b() + f8, 0.0f);
+                if (!Intrinsics.areEqual(str, "L")) {
+                    path.lineTo(f7, f8);
+                } else if (Intrinsics.areEqual(str, "l")) {
+                    path.rLineTo(f7, f8);
+                }
+                if (!Intrinsics.areEqual(str, "C")) {
+                    path.cubicTo(f7, f8, f9, f10, f5, f6);
+                } else if (Intrinsics.areEqual(str, "c")) {
+                    path.rCubicTo(f7, f8, f9, f10, f5, f6);
+                }
+                if (!Intrinsics.areEqual(str, "Q")) {
+                    path.quadTo(f7, f8, f9, f10);
+                } else if (Intrinsics.areEqual(str, "q")) {
+                    path.rQuadTo(f7, f8, f9, f10);
+                }
+                if (!Intrinsics.areEqual(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+                    path.lineTo(f7, bdbVar.b());
+                } else if (Intrinsics.areEqual(str, "h")) {
+                    path.rLineTo(f7, 0.0f);
+                }
+                if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+                    path.lineTo(bdbVar.a(), f7);
+                } else if (Intrinsics.areEqual(str, "v")) {
+                    path.rLineTo(0.0f, f7);
+                }
+                if (!Intrinsics.areEqual(str, "Z")) {
+                    path.close();
+                    return;
+                } else if (Intrinsics.areEqual(str, "z")) {
+                    path.close();
+                    return;
+                } else {
+                    return;
+                }
+            }
+            bdbVar = bdbVar2;
+            if (!Intrinsics.areEqual(str, "L")) {
+            }
+            if (!Intrinsics.areEqual(str, "C")) {
+            }
+            if (!Intrinsics.areEqual(str, "Q")) {
+            }
+            if (!Intrinsics.areEqual(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+            }
+            if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+            }
+            if (!Intrinsics.areEqual(str, "Z")) {
+            }
         }
     }
 }

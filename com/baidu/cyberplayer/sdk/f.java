@@ -344,7 +344,7 @@ public class f {
         try {
             if (!com.baidu.cyberplayer.sdk.remote.h.a().a(str, str2, str3, i2, i3, i4, str4, i5, i6, i7, i8, prefetchOptions, e) && a(1)) {
                 if (TextUtils.isEmpty(str2)) {
-                    str6 = "dumedia/7.39.93.45";
+                    str6 = "dumedia/7.39.94.57";
                 } else if (str2.indexOf("dumedia") == -1) {
                     str6 = str2 + " dumedia/" + SDKVersion.VERSION;
                 } else {

@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vx extends ux<f15> {
+public class vx extends ux<h15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BjhArticleLayout f;
-    public f15 g;
+    public h15 g;
     public View.OnClickListener h;
 
     /* loaded from: classes8.dex */
@@ -86,8 +86,8 @@ public class vx extends ux<f15> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    qn6.a(this.a.g.getThreadData().getId());
-                    qn6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                    sn6.a(this.a.g.getThreadData().getId());
+                    sn6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -120,22 +120,22 @@ public class vx extends ux<f15> {
     }
 
     @Override // com.baidu.tieba.ux
-    public void p(eo6<f15> eo6Var) {
+    public void p(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eo6Var) == null) {
-            super.p(eo6Var);
-            this.f.setSubClickListener(eo6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, go6Var) == null) {
+            super.p(go6Var);
+            this.f.setSubClickListener(go6Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: y */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, f15Var) == null) {
-            this.g = f15Var;
-            this.f.a(f15Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, h15Var) == null) {
+            this.g = h15Var;
+            this.f.a(h15Var);
         }
     }
 
@@ -170,26 +170,26 @@ public class vx extends ux<f15> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, vnVar) == null) {
-            f15 f15Var = this.g;
-            if ((!(f15Var instanceof po6) && !(f15Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
+            h15 h15Var = this.g;
+            if ((!(h15Var instanceof ro6) && !(h15Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
                 return;
             }
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-            if (vnVar instanceof po6) {
-                po6 po6Var = (po6) this.g;
-                po6Var.f = 1;
+            if (vnVar instanceof ro6) {
+                ro6 ro6Var = (ro6) this.g;
+                ro6Var.f = 1;
                 Context context = view2.getContext();
-                if (po6Var.a.isFromHomPage) {
+                if (ro6Var.a.isFromHomPage) {
                     i = 2;
                 } else {
                     i = 1;
                 }
-                ThreadCardUtils.jumpToPB((f15) po6Var, context, i, false);
+                ThreadCardUtils.jumpToPB((h15) ro6Var, context, i, false);
                 threadCardViewHolder.a().p(new uz.a(1));
             } else if (vnVar instanceof ThreadData) {
                 ThreadData threadData = (ThreadData) this.g;
                 threadData.objType = 1;
-                ThreadCardUtils.jumpToPB((f15) threadData, view2.getContext(), 3, false);
+                ThreadCardUtils.jumpToPB((h15) threadData, view2.getContext(), 3, false);
                 threadCardViewHolder.a().p(new uz.a(1));
             }
         }

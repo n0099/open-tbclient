@@ -1,34 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ksb {
+public class ksb {
+    public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(CancelType cancelType);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925071, "Lcom/baidu/tieba/ksb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947925071, "Lcom/baidu/tieba/ksb;");
+                return;
+            }
+        }
+        a = new String[]{"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
     }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(CancelType cancelType);
-
-        void b();
-    }
-
-    GiftBagsInfo a();
-
-    boolean b(Activity activity, b bVar, msb msbVar, AbsViewEventHandler absViewEventHandler);
-
-    void c(ViewGroup viewGroup, Activity activity);
-
-    void d(GiftBagsInfo giftBagsInfo);
-
-    boolean e(Activity activity, a aVar, msb msbVar, AbsViewEventHandler absViewEventHandler);
-
-    void f(GiftBagsInfo giftBagsInfo);
 }

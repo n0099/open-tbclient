@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.x18;
+import com.baidu.tieba.z18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements py {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.getContext() == null) {
                 return;
             }
-            x18.h();
+            z18.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -191,14 +191,14 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements py {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                m75 d = m75.d(textView);
+                o75 d = o75.d(textView);
                 d.w(R.color.CAM_X0105);
                 d.B(R.dimen.T_X06);
                 d.C(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                m75 d2 = m75.d(eMTextView);
+                o75 d2 = o75.d(eMTextView);
                 d2.w(R.color.CAM_X0302);
                 d2.B(R.dimen.T_X08);
                 d2.C(R.string.F_X01);
@@ -210,7 +210,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements py {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            m75 d3 = m75.d(this);
+            o75 d3 = o75.d(this);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

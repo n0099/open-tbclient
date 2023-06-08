@@ -1,157 +1,39 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.q55;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tieba.s55;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q3a extends q55 {
+public class q3a extends s55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity c;
-    public boolean d;
+    public final MainTabActivity c;
+    public final a1a d;
 
-    /* loaded from: classes7.dex */
-    public class a implements zm8.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q55.a a;
-        public final /* synthetic */ q3a b;
-
-        public a(q3a q3aVar, q55.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q3aVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q3aVar;
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.tieba.zm8.e
-        public void a() {
-            q55.a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
-                aVar.callback(false);
-            }
-        }
-
-        @Override // com.baidu.tieba.zm8.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (!zm8.n(this.b.c).k(this.b.c.B.intValue(), 2)) {
-                    q55.a aVar = this.a;
-                    if (aVar != null) {
-                        aVar.callback(false);
-                        return;
-                    }
-                    return;
-                }
-                q55.a aVar2 = this.a;
-                if (aVar2 != null) {
-                    aVar2.callback(true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements zm8.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q3a a;
-
-        public b(q3a q3aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q3aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q3aVar;
-        }
-
-        @Override // com.baidu.tieba.zm8.f
-        public void dismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x55.s("insertAd");
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q3a a;
-
-        public c(q3a q3aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q3aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q3aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!zm8.n(this.a.c).H(this.a.c.B.intValue(), 2)) {
-                    this.a.c();
-                } else {
-                    x55.m("insertAd");
-                }
-            }
+    @Override // com.baidu.tieba.s55
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q3a(TbPageContext tbPageContext, v0a v0aVar, MainTabActivity mainTabActivity, boolean z) {
+    public q3a(@NonNull MainTabActivity mainTabActivity, @NonNull a1a a1aVar) {
         super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, v0aVar, mainTabActivity, Boolean.valueOf(z)};
+            Object[] objArr = {mainTabActivity, a1aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -162,49 +44,43 @@ public class q3a extends q55 {
                 return;
             }
         }
+        this.d = a1aVar;
         this.c = mainTabActivity;
-        this.d = z;
     }
 
-    @Override // com.baidu.tieba.q55
-    public void b() {
+    @Override // com.baidu.tieba.s55
+    public void d(@NonNull s55.a aVar) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zm8.n(this.c).l();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            boolean z2 = false;
+            if (this.d.y() != null && this.d.y().getCurrentTabType() != 2) {
+                aVar.callback(false);
+                return;
+            }
+            boolean i = n95.m().i(n95.q("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (i && z) {
+                z2 = true;
+            }
+            aVar.callback(z2);
         }
     }
 
-    @Override // com.baidu.tieba.q55
+    @Override // com.baidu.tieba.s55
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            zm8.n(this.c).E(new b(this));
-            wg.a().postDelayed(new c(this), 400L);
-        }
-    }
-
-    @Override // com.baidu.tieba.q55
-    public void d(q55.a aVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (x55.j() && aVar != null) {
-                aVar.callback(false);
-            } else if (!zm8.m && ((TbSingleton.getInstance().isCanShowHotSplash || zm8.m || TbSingleton.getInstance().mIsSplashClick) && !this.d)) {
-                if (aVar != null) {
-                    aVar.callback(false);
-                }
-            } else {
-                zm8 n = zm8.n(this.c);
-                if (zm8.m) {
-                    str = "1";
-                } else {
-                    str = "2";
-                }
-                if (!n.B(str, this.c.B.intValue(), 2, this.c.K, new a(this, aVar), false) && aVar != null) {
-                    aVar.callback(false);
-                }
-            }
+            TbWebViewActivityConfig h = qx4.h(this.c, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
+            h.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            h.setWebDialogName("newGod");
+            this.c.sendMessage(new CustomMessage(2002001, h));
+            n95.m().w(n95.q("key_new_god_pop_is_show"), false);
+            z55.m("newGod");
         }
     }
 }

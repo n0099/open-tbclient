@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface qf8 {
-    void a(int i, int i2, String str);
+    void a(String str);
 
-    void b(int i);
-
-    void c(int i, String str, String str2);
+    void isFailed();
 }

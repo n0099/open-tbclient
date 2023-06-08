@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardHeadView;
+import com.baidu.tieba.feed.component.CardAppView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t87 extends r77<CardHeadView, d47> {
+public class t87 extends t77<CardAppView, d47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class t87 extends r77<CardHeadView, d47> {
         }
     }
 
-    @Override // com.baidu.tieba.r77, com.baidu.tieba.g87
+    @Override // com.baidu.tieba.t77, com.baidu.tieba.i87
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            o97.k(a, 0);
+            q97.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g87
+    @Override // com.baidu.tieba.i87
     /* renamed from: e */
-    public void b(@NonNull CardHeadView cardHeadView, @NonNull d47 d47Var) {
+    public void b(@NonNull CardAppView cardAppView, @NonNull d47 d47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, d47Var) == null) {
-            cardHeadView.e(d47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAppView, d47Var) == null) {
+            cardAppView.a(d47Var);
         }
     }
 }

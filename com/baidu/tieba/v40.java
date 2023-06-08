@@ -33,7 +33,7 @@ public class v40 implements r40 {
 
         /* renamed from: com.baidu.tieba.v40$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0475a {
+        public static class C0486a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class v40 implements r40 {
             public String c;
             public int d;
 
-            public C0475a(Context context) {
+            public C0486a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class v40 implements r40 {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0475a c0475a = new C0475a(context);
-                String d = c0475a.d();
-                int c = c0475a.c();
+                C0486a c0486a = new C0486a(context);
+                String d = c0486a.d();
+                int c = c0486a.c();
                 if (TextUtils.isEmpty(d)) {
                     sb = new StringBuilder();
                 } else {

@@ -42,36 +42,36 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.switchs.OpenJsSdkSwitch;
 import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ab8;
-import com.baidu.tieba.bh5;
-import com.baidu.tieba.fa7;
-import com.baidu.tieba.g95;
+import com.baidu.tieba.bz9;
+import com.baidu.tieba.cb8;
+import com.baidu.tieba.dh5;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
+import com.baidu.tieba.ha7;
 import com.baidu.tieba.hy4;
+import com.baidu.tieba.i95;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.ip;
 import com.baidu.tieba.iy4;
 import com.baidu.tieba.jy4;
-import com.baidu.tieba.kl6;
 import com.baidu.tieba.ky4;
-import com.baidu.tieba.l95;
 import com.baidu.tieba.ly4;
+import com.baidu.tieba.ml6;
 import com.baidu.tieba.my4;
-import com.baidu.tieba.nr6;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.ny4;
 import com.baidu.tieba.oy4;
+import com.baidu.tieba.pr6;
 import com.baidu.tieba.py4;
 import com.baidu.tieba.qy4;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.ry9;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.tieba.sy4;
-import com.baidu.tieba.sy9;
 import com.baidu.tieba.ty4;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.uy4;
 import com.baidu.tieba.vy4;
 import com.baidu.tieba.wy9;
+import com.baidu.tieba.xy9;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -90,7 +90,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @ip
 /* loaded from: classes4.dex */
-public class CommonTbJsBridge implements sy9 {
+public class CommonTbJsBridge implements xy9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANGE_POST_WALL = "postFakeTheWall";
     public static final String CHANGE_SKIN_TYPE = "changeSkinType";
@@ -198,14 +198,14 @@ public class CommonTbJsBridge implements sy9 {
     public ly4 hostJsBridgePlugin;
     public my4 hybridDebugJsBridgePlugin;
     public ny4 hybridJsBridgePlugin;
-    public ry9 jsPromptBridge;
+    public wy9 jsPromptBridge;
     public oy4 logJsBridgePlugin;
     public final Context mContext;
     public int mH5PersonalizedRecSwitch;
     public long mLastLoadUrlTime;
     public PermissionJudgePolicy mPermissionJudgement;
     public yu4 mShakeController;
-    public volatile fa7 mTbDownloadManager;
+    public volatile ha7 mTbDownloadManager;
     public WebView mWebView;
     public py4 navigationBarJsBridgePlugin;
     public qy4 paymentJsBridgePlugin;
@@ -324,7 +324,7 @@ public class CommonTbJsBridge implements sy9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            l95.m().z("key_bawu_task_toast", -1);
+            n95.m().z("key_bawu_task_toast", -1);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
@@ -376,13 +376,13 @@ public class CommonTbJsBridge implements sy9 {
         return (String) invokeL.objValue;
     }
 
-    public wy9 changeSkinTypeInH5(HashMap hashMap) {
+    public bz9 changeSkinTypeInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            wy9 wy9Var = new wy9();
+            bz9 bz9Var = new bz9();
             if (hashMap == null) {
-                return wy9Var;
+                return bz9Var;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -391,10 +391,10 @@ public class CommonTbJsBridge implements sy9 {
                 e.printStackTrace();
             }
             callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
-            wy9Var.o(jSONObject.toString());
-            return wy9Var;
+            bz9Var.o(jSONObject.toString());
+            return bz9Var;
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
     public CommonTbJsBridge(Context context, WebView webView) {
@@ -475,469 +475,487 @@ public class CommonTbJsBridge implements sy9 {
         }
     }
 
-    public wy9 checkAppInstall(String str) {
+    public bz9 checkAppInstall(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             return this.systemJsBridgePlugin.d(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 checkInstallGameApk(String str) {
+    public bz9 checkAuthState(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.systemJsBridgePlugin.e(this.mWebView, str);
+            return this.accountJsBridgePlugin.d(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 closeNativeMask(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return this.systemJsBridgePlugin.f(this.mWebView, i);
-        }
-        return (wy9) invokeI.objValue;
-    }
-
-    public wy9 dealClickGoBackToH5(HashMap hashMap) {
+    public bz9 checkInstallGameApk(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hashMap)) == null) {
-            return this.systemJsBridgePlugin.g(this.mWebView, hashMap);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.systemJsBridgePlugin.e(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 dealGoBackFromNative(HashMap hashMap) {
+    public bz9 closeNativeMask(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return this.systemJsBridgePlugin.f(this.mWebView, i);
+        }
+        return (bz9) invokeI.objValue;
+    }
+
+    public bz9 dealClickGoBackToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hashMap)) == null) {
+            return this.systemJsBridgePlugin.g(this.mWebView, hashMap);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 dealGoBackFromNative(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.h(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
     public void dealSpringFestivalTimer(HashMap hashMap) {
-        ry9 ry9Var;
+        wy9 wy9Var;
         WebView webView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, hashMap) == null) && (ry9Var = this.jsPromptBridge) != null && (webView = this.mWebView) != null && hashMap != null) {
-            ry9Var.i(webView, "getPageLeaveTime", hashMap);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) && (wy9Var = this.jsPromptBridge) != null && (webView = this.mWebView) != null && hashMap != null) {
+            wy9Var.i(webView, "getPageLeaveTime", hashMap);
         }
     }
 
-    public wy9 deviceMotion(HashMap<String, Object> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, hashMap)) == null) {
-            return this.deviceJsBridgePlugin.e(this.mWebView, hashMap);
-        }
-        return (wy9) invokeL.objValue;
-    }
-
-    public wy9 deviceRefreshRate(HashMap<String, Object> hashMap) {
+    public bz9 deviceMotion(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, hashMap)) == null) {
+            return this.deviceJsBridgePlugin.e(this.mWebView, hashMap);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 deviceRefreshRate(HashMap<String, Object> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, hashMap)) == null) {
             return this.deviceJsBridgePlugin.f(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 deviceRefreshRateParams(String str) {
+    public bz9 deviceRefreshRateParams(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             return this.deviceJsBridgePlugin.g(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 disableBack(int i) {
+    public bz9 disableBack(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
             return this.systemJsBridgePlugin.i(this.mWebView, i);
         }
-        return (wy9) invokeI.objValue;
+        return (bz9) invokeI.objValue;
     }
 
-    public wy9 finishTestAnswer(long j) {
+    public bz9 finishTestAnswer(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j)) == null) {
             return this.activityJsBridgePlugin.c(this.mWebView, j);
         }
-        return (wy9) invokeJ.objValue;
+        return (bz9) invokeJ.objValue;
     }
 
-    public wy9 getAppStorage(String str) {
+    public bz9 getAppStorage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
             return this.systemJsBridgePlugin.l(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 getGetModalData(String str) {
+    public bz9 getGetModalData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
             return this.toastJsBridgePlugin.e(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 getPhotoAlbumResult(HashMap<String, String> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, hashMap)) == null) {
-            return this.systemJsBridgePlugin.p(this.mWebView, hashMap);
-        }
-        return (wy9) invokeL.objValue;
-    }
-
-    public wy9 getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
+    public bz9 getPhotoAlbumResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, hashMap)) == null) {
-            return this.systemJsBridgePlugin.q(this.mWebView, hashMap);
+            return this.systemJsBridgePlugin.p(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
+    public bz9 getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, hashMap)) == null) {
+            return this.systemJsBridgePlugin.q(this.mWebView, hashMap);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
+    public bz9 getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.e(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 handleSaveImage(String str) {
+    public bz9 handleSaveImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, str)) == null) {
             return this.systemJsBridgePlugin.u(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 nativeNetworkProxy(HashMap<String, String> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, hashMap)) == null) {
-            return this.hybridJsBridgePlugin.k(this.mWebView, hashMap);
-        }
-        return (wy9) invokeL.objValue;
-    }
-
-    public wy9 newThirdPartyLoginResultToH5(HashMap<String, Object> hashMap) {
+    public bz9 nativeNetworkProxy(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, hashMap)) == null) {
-            return this.accountJsBridgePlugin.l(this.mWebView, hashMap);
+            return this.hybridJsBridgePlugin.k(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 notifyApkInstallResult(HashMap<String, Object> hashMap) {
+    public bz9 newThirdPartyLoginResultToH5(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, hashMap)) == null) {
-            return this.systemJsBridgePlugin.A(this.mWebView, hashMap);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, hashMap)) == null) {
+            return this.accountJsBridgePlugin.r(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 notifyFileDownloadStatusResult(HashMap<String, Object> hashMap) {
+    public bz9 notifyApkInstallResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, hashMap)) == null) {
+            return this.systemJsBridgePlugin.A(this.mWebView, hashMap);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 notifyFileDownloadStatusResult(HashMap<String, Object> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.B(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 openMXDYab(String str) {
+    public bz9 openMXDYab(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, str)) == null) {
             return this.paymentJsBridgePlugin.c(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 openVipSuccessInH5(HashMap hashMap) {
+    public bz9 openVipSuccessInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, hashMap)) == null) {
             return this.paymentJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 orderGameApkResult(HashMap<String, Object> hashMap) {
+    public bz9 orderGameApkResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.D(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 personlizedSwitchChange(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, str)) == null) {
-            return this.activityJsBridgePlugin.d(this.mWebView, str);
-        }
-        return (wy9) invokeL.objValue;
-    }
-
-    public wy9 playSound(String str) {
+    public bz9 personlizedSwitchChange(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, str)) == null) {
+            return this.activityJsBridgePlugin.d(this.mWebView, str);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 playSound(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, str)) == null) {
             return this.systemJsBridgePlugin.E(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 postWriteWallData(HashMap hashMap) {
+    public bz9 postWriteWallData(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048654, this, hashMap)) == null) {
             return this.activityJsBridgePlugin.e(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 preheatWeb(ArrayList<String> arrayList) {
+    public bz9 preheatWeb(ArrayList<String> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048654, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, arrayList)) == null) {
             return this.hostJsBridgePlugin.f(this.mWebView, arrayList);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 reHide(HashMap hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, hashMap)) == null) {
-            return this.routerJsBridgePlugin.o(this.mWebView, hashMap);
-        }
-        return (wy9) invokeL.objValue;
-    }
-
-    public wy9 reShow(HashMap hashMap) {
+    public bz9 reHide(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048657, this, hashMap)) == null) {
-            return this.routerJsBridgePlugin.p(this.mWebView, hashMap);
+            return this.routerJsBridgePlugin.o(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 refreshTailInH5(HashMap hashMap) {
+    public bz9 reShow(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048658, this, hashMap)) == null) {
-            return this.routerJsBridgePlugin.q(this.mWebView, hashMap);
+            return this.routerJsBridgePlugin.p(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 replyPost(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, str)) == null) {
-            return this.routerJsBridgePlugin.r(this.mWebView, str);
-        }
-        return (wy9) invokeL.objValue;
-    }
-
-    public wy9 replyPostResult(HashMap<String, String> hashMap) {
+    public bz9 realNameAuthResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048660, this, hashMap)) == null) {
+            return this.accountJsBridgePlugin.n(this.mWebView, hashMap);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 refreshTailInH5(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, hashMap)) == null) {
+            return this.routerJsBridgePlugin.q(this.mWebView, hashMap);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 replyPost(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048662, this, str)) == null) {
+            return this.routerJsBridgePlugin.r(this.mWebView, str);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 replyPostResult(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048663, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.s(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 saveImageSuccess(HashMap<String, Integer> hashMap) {
+    public bz9 saveImageSuccess(HashMap<String, Integer> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048662, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.H(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 setClipperInformation(String str) {
+    public bz9 setClipperInformation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048666, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048669, this, str)) == null) {
             return this.clipperJsBridgePlugin.d(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public void setJsPromptBridge(ry9 ry9Var) {
+    public void setJsPromptBridge(wy9 wy9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048668, this, ry9Var) == null) {
-            this.jsPromptBridge = ry9Var;
-            this.aliHttpProxy.m(ry9Var);
+        if (interceptable == null || interceptable.invokeL(1048671, this, wy9Var) == null) {
+            this.jsPromptBridge = wy9Var;
+            this.aliHttpProxy.m(wy9Var);
         }
     }
 
     public void setLastLoadUrlTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048669, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048672, this, j) == null) {
             this.mLastLoadUrlTime = j;
         }
     }
 
-    public wy9 setSearchHistory(HashMap hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048670, this, hashMap)) == null) {
-            return this.hybridJsBridgePlugin.o(this.mWebView, hashMap);
-        }
-        return (wy9) invokeL.objValue;
-    }
-
-    public wy9 shareSuccessNotification(HashMap hashMap) {
+    public bz9 setSearchHistory(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048673, this, hashMap)) == null) {
+            return this.hybridJsBridgePlugin.o(this.mWebView, hashMap);
+        }
+        return (bz9) invokeL.objValue;
+    }
+
+    public bz9 shareSuccessNotification(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048676, this, hashMap)) == null) {
             return this.shareJsBridgePlugin.h(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 springFestivalTimeToH5(HashMap<String, String> hashMap) {
+    public bz9 springFestivalTimeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048678, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048681, this, hashMap)) == null) {
             return this.logJsBridgePlugin.c(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 startDownloadCss(String str) {
+    public bz9 startDownloadCss(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048682, this, str)) == null) {
-            return this.accountJsBridgePlugin.j(this.mWebView, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048685, this, str)) == null) {
+            return this.accountJsBridgePlugin.p(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 startLoginModule(String str) {
+    public bz9 startLoginModule(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048684, this, str)) == null) {
-            return this.accountJsBridgePlugin.k(this.mWebView, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, str)) == null) {
+            return this.accountJsBridgePlugin.q(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 switchOfflineBundleStatus(int i) {
+    public bz9 switchOfflineBundleStatus(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048685, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048688, this, i)) == null) {
             return this.hybridDebugJsBridgePlugin.f(this.mWebView, i);
         }
-        return (wy9) invokeI.objValue;
+        return (bz9) invokeI.objValue;
     }
 
-    public wy9 switchOfflineInterface(String str) {
+    public bz9 switchOfflineInterface(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048686, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, str)) == null) {
             return this.hybridDebugJsBridgePlugin.g(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 switchUrlHost(ArrayList<JSONObject> arrayList) {
+    public bz9 switchUrlHost(ArrayList<JSONObject> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048690, this, arrayList)) == null) {
             return this.hybridDebugJsBridgePlugin.h(this.mWebView, arrayList);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 updateSearchForumInfo(String str) {
+    public bz9 updateSearchForumInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048691, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048694, this, str)) == null) {
             return this.activityJsBridgePlugin.h(this.mWebView, str);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 writePostSuccess(HashMap hashMap) {
+    public bz9 writePostSuccess(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048695, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048698, this, hashMap)) == null) {
             return this.activityJsBridgePlugin.k(this.mWebView, hashMap);
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 getFileDownloadProgress(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048602, this, str, str2, str3)) == null) {
-            return this.systemJsBridgePlugin.m(this.mWebView, str, str2, str3);
-        }
-        return (wy9) invokeLLL.objValue;
-    }
-
-    public wy9 getFileDownloadStatus(String str, String str2, String str3) {
+    public bz9 getFileDownloadProgress(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048603, this, str, str2, str3)) == null) {
+            return this.systemJsBridgePlugin.m(this.mWebView, str, str2, str3);
+        }
+        return (bz9) invokeLLL.objValue;
+    }
+
+    public bz9 getFileDownloadStatus(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, str, str2, str3)) == null) {
             return this.systemJsBridgePlugin.n(this.mWebView, str, str2, str3);
         }
-        return (wy9) invokeLLL.objValue;
+        return (bz9) invokeLLL.objValue;
     }
 
-    public wy9 handlePortal(String str, String str2, String str3) {
+    public bz9 handlePortal(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048626, this, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048627, this, str, str2, str3)) == null) {
             return this.routerJsBridgePlugin.i(this.mWebView, str, str2, str3);
         }
-        return (wy9) invokeLLL.objValue;
+        return (bz9) invokeLLL.objValue;
     }
 
-    public wy9 jumpToVideo(String str, String str2, String str3) {
+    public bz9 jumpToVideo(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048634, this, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048635, this, str, str2, str3)) == null) {
             return this.routerJsBridgePlugin.l(this.mWebView, str, str2, str3);
         }
-        return (wy9) invokeLLL.objValue;
+        return (bz9) invokeLLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1028,176 +1046,176 @@ public class CommonTbJsBridge implements sy9 {
 
     public void dealJsChargeIbeanCallback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             callJsMethod(JS_CHARGE_IBEAN_CALLBACK, this.emptyParams4CallJs);
         }
     }
 
-    public wy9 deleteOfflineBundle() {
+    public bz9 deleteOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.hybridDebugJsBridgePlugin.c(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 getAlipayUserId() {
+    public bz9 getAlipayUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.aliHttpProxy.l();
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 getClipperInformation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.clipperJsBridgePlugin.c(this.mWebView);
-        }
-        return (wy9) invokeV.objValue;
-    }
-
-    public wy9 getDeviceInfo() {
+    public bz9 getClipperInformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.deviceJsBridgePlugin.h(this.mWebView);
+            return this.clipperJsBridgePlugin.c(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 getHdid() {
+    public bz9 getDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.deviceJsBridgePlugin.i(this.mWebView);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.deviceJsBridgePlugin.h(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 getHistoryForumData() {
+    public bz9 getHdid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.systemJsBridgePlugin.o(this.mWebView);
+            return this.deviceJsBridgePlugin.i(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 getOfflineUserInfo() {
+    public bz9 getHistoryForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.hybridDebugJsBridgePlugin.d(this.mWebView);
+            return this.systemJsBridgePlugin.o(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 getStartLoadTimeInterval() {
+    public bz9 getOfflineUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return this.systemJsBridgePlugin.r(this.mWebView);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.hybridDebugJsBridgePlugin.d(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 getSupplementInfo() {
+    public bz9 getStartLoadTimeInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return this.deviceJsBridgePlugin.j(this.mWebView);
+            return this.systemJsBridgePlugin.r(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public fa7 getTbDownloadManager() {
+    public bz9 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.deviceJsBridgePlugin.j(this.mWebView);
+        }
+        return (bz9) invokeV.objValue;
+    }
+
+    public ha7 getTbDownloadManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             if (this.mTbDownloadManager == null) {
                 synchronized (CommonTbJsBridge.class) {
                     if (this.mTbDownloadManager == null) {
-                        this.mTbDownloadManager = new fa7();
+                        this.mTbDownloadManager = new ha7();
                     }
                 }
             }
             return this.mTbDownloadManager;
         }
-        return (fa7) invokeV.objValue;
+        return (ha7) invokeV.objValue;
     }
 
-    public wy9 getZid() {
+    public bz9 getZid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             return this.deviceJsBridgePlugin.k(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
     public int getmH5PersonalizedRecSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             return this.mH5PersonalizedRecSwitch;
         }
         return invokeV.intValue;
     }
 
-    public wy9 goToNotificationSetting() {
+    public bz9 goToNotificationSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             return this.systemJsBridgePlugin.s(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 handleGamePushStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            return this.subscriptionJsBridgePlugin.e(this.mWebView);
-        }
-        return (wy9) invokeV.objValue;
-    }
-
-    public wy9 handleGetPhotoAlbum() {
+    public bz9 handleGamePushStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            return this.subscriptionJsBridgePlugin.e(this.mWebView);
+        }
+        return (bz9) invokeV.objValue;
+    }
+
+    public bz9 handleGetPhotoAlbum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return this.systemJsBridgePlugin.t(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 hasNotificationPermission() {
+    public bz9 hasNotificationPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
             return this.systemJsBridgePlugin.v(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 jumpToHotTrendPage() {
+    public bz9 jumpToHotTrendPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
-            wy9 wy9Var = new wy9();
-            g95.g(this.mContext, 16, false);
-            return wy9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            bz9 bz9Var = new bz9();
+            i95.g(this.mContext, 16, false);
+            return bz9Var;
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
             this.aliHttpProxy.k();
             yu4 yu4Var = this.mShakeController;
             if (yu4Var != null && yu4Var.d()) {
@@ -1206,49 +1224,49 @@ public class CommonTbJsBridge implements sy9 {
         }
     }
 
-    public wy9 playVibrate() {
+    public bz9 playVibrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
             return this.systemJsBridgePlugin.F(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 setDisableGoBack() {
+    public bz9 setDisableGoBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
             return this.navigationBarJsBridgePlugin.c(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 toOneKeyDeletion() {
+    public bz9 toOneKeyDeletion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) {
             return this.activityJsBridgePlugin.g(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
-    public wy9 updateOfflineBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) {
-            return this.hybridDebugJsBridgePlugin.i(this.mWebView);
-        }
-        return (wy9) invokeV.objValue;
-    }
-
-    public wy9 wakeKeyboard() {
+    public bz9 updateOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
+            return this.hybridDebugJsBridgePlugin.i(this.mWebView);
+        }
+        return (bz9) invokeV.objValue;
+    }
+
+    public bz9 wakeKeyboard() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
             return this.systemJsBridgePlugin.M(this.mWebView);
         }
-        return (wy9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
     private boolean isLegalSchema(List<String> list, String str) {
@@ -1282,7 +1300,7 @@ public class CommonTbJsBridge implements sy9 {
     public void showGroupShareDialog(ShareItem shareItem, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048674, this, shareItem, i) == null) && shareItem != null && shareItem.L0 != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048677, this, shareItem, i) == null) && shareItem != null && shareItem.L0 != null) {
             if (i == 1) {
                 z = true;
             } else {
@@ -1291,8 +1309,8 @@ public class CommonTbJsBridge implements sy9 {
             shareItem.M0 = z;
             shareItem.o0 = true;
             shareItem.R = 11;
-            nr6.c().l(new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null));
-            ab8.b(shareItem.L0);
+            pr6.c().l(new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null));
+            cb8.b(shareItem.L0);
         }
     }
 
@@ -1305,10 +1323,10 @@ public class CommonTbJsBridge implements sy9 {
                 JSONObject jSONObject = new JSONObject(str);
                 boolean optBoolean = jSONObject.optBoolean("open");
                 String optString = jSONObject.optString("method_name");
-                bh5 bh5Var = new bh5();
-                bh5Var.g(optBoolean);
-                bh5Var.f(optString);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, bh5Var));
+                dh5 dh5Var = new dh5();
+                dh5Var.g(optBoolean);
+                dh5Var.f(optString);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, dh5Var));
                 i = 1;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -1353,48 +1371,48 @@ public class CommonTbJsBridge implements sy9 {
         return (String) invokeL.objValue;
     }
 
-    public wy9 handleGoToMyLive(String str) {
+    public bz9 handleGoToMyLive(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, str)) == null) {
-            wy9 wy9Var = new wy9();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) {
+            bz9 bz9Var = new bz9();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 handleGoToMyPost(String str) {
+    public bz9 handleGoToMyPost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) {
-            wy9 wy9Var = new wy9();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
+            bz9 bz9Var = new bz9();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                wy9Var.o(jSONObject.toString());
-                return wy9Var;
+                bz9Var.o(jSONObject.toString());
+                return bz9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return wy9Var;
+                return bz9Var;
             }
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 onUserLoginChanged(HashMap hashMap) {
+    public bz9 onUserLoginChanged(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, hashMap)) == null) {
             if (hashMap == null || hashMap.get("isLogin") == null || !((Boolean) hashMap.get("isLogin")).booleanValue()) {
                 return null;
             }
@@ -1405,17 +1423,17 @@ public class CommonTbJsBridge implements sy9 {
                 e.printStackTrace();
             }
             callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
-            wy9 wy9Var = new wy9();
-            wy9Var.o(jSONObject.toString());
-            return wy9Var;
+            bz9 bz9Var = new bz9();
+            bz9Var.o(jSONObject.toString());
+            return bz9Var;
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
     public String startApp(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048681, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048684, this, str)) == null) {
             if (!ui.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -1436,10 +1454,10 @@ public class CommonTbJsBridge implements sy9 {
         return (String) invokeL.objValue;
     }
 
-    public wy9 thirdPartyLoginResultToH5(HashMap hashMap) {
+    public bz9 thirdPartyLoginResultToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048688, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048691, this, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
@@ -1452,11 +1470,11 @@ public class CommonTbJsBridge implements sy9 {
                 e.printStackTrace();
             }
             callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            wy9 wy9Var = new wy9();
-            wy9Var.o(jSONObject.toString());
-            return wy9Var;
+            bz9 bz9Var = new bz9();
+            bz9Var.o(jSONObject.toString());
+            return bz9Var;
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
     private void shareLoacalImage(String str, int i) {
@@ -1480,7 +1498,7 @@ public class CommonTbJsBridge implements sy9 {
 
     public void showShareDialog(ShareItem shareItem, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048676, this, shareItem, z) != null) || shareItem == null) {
+        if ((interceptable != null && interceptable.invokeLZ(1048679, this, shareItem, z) != null) || shareItem == null) {
             return;
         }
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true);
@@ -1498,12 +1516,13 @@ public class CommonTbJsBridge implements sy9 {
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    @Override // com.baidu.tieba.sy9
+    @Override // com.baidu.tieba.xy9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
+        JSONObject jSONObject;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, jsPromptResult)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, str, str2, str3, jsPromptResult)) == null) {
             if ("CommonJSBridge".equals(str)) {
                 if ("startLoginModule".equals(str2)) {
                     try {
@@ -1515,8 +1534,8 @@ public class CommonTbJsBridge implements sy9 {
                 }
                 if (START_ALL_LOGIN_MODULE.equals(str2)) {
                     try {
-                        JSONObject jSONObject = new JSONObject(str3);
-                        jsPromptResult.confirm(startAllLoginModule(jSONObject.optString("type"), jSONObject.optString("addObserverNotify"), jSONObject.optString("activityId"), jSONObject.optString("cssUrl")).a());
+                        JSONObject jSONObject2 = new JSONObject(str3);
+                        jsPromptResult.confirm(startAllLoginModule(jSONObject2.optString("type"), jSONObject2.optString("addObserverNotify"), jSONObject2.optString("activityId"), jSONObject2.optString("cssUrl")).a());
                         return true;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -1536,8 +1555,8 @@ public class CommonTbJsBridge implements sy9 {
                 }
                 if (FINISH_THIS_PAGE.equals(str2)) {
                     try {
-                        JSONObject jSONObject2 = new JSONObject(str3);
-                        jsPromptResult.confirm(finishPage(jSONObject2.optString("nextPage"), jSONObject2.optString("source")).a());
+                        JSONObject jSONObject3 = new JSONObject(str3);
+                        jsPromptResult.confirm(finishPage(jSONObject3.optString("nextPage"), jSONObject3.optString("source")).a());
                         return true;
                     } catch (Exception e4) {
                         e4.printStackTrace();
@@ -1557,8 +1576,8 @@ public class CommonTbJsBridge implements sy9 {
                     return true;
                 } else if (SET_SHARE_INFO.equals(str2)) {
                     try {
-                        JSONObject jSONObject3 = new JSONObject(str3);
-                        jsPromptResult.confirm(setShareInfo(jSONObject3.optString("title"), jSONObject3.optString("desc"), jSONObject3.optString("img"), jSONObject3.optString("url"), jSONObject3.optString("topic"), jSONObject3.optString("wbtitle"), jSONObject3.optString("wbcontent"), jSONObject3.optString("isShowMoreForum"), jSONObject3.optInt("shareimg"), jSONObject3.optString("extdata")).a());
+                        JSONObject jSONObject4 = new JSONObject(str3);
+                        jsPromptResult.confirm(setShareInfo(jSONObject4.optString("title"), jSONObject4.optString("desc"), jSONObject4.optString("img"), jSONObject4.optString("url"), jSONObject4.optString("topic"), jSONObject4.optString("wbtitle"), jSONObject4.optString("wbcontent"), jSONObject4.optString("isShowMoreForum"), jSONObject4.optInt("shareimg"), jSONObject4.optString("extdata")).a());
                         return true;
                     } catch (JSONException e6) {
                         BdLog.e(e6);
@@ -1566,8 +1585,8 @@ public class CommonTbJsBridge implements sy9 {
                     }
                 } else if ("share".equals(str2)) {
                     try {
-                        JSONObject jSONObject4 = new JSONObject(str3);
-                        jsPromptResult.confirm(share(jSONObject4.optInt("channel"), jSONObject4.optInt("shareimg"), jSONObject4.optString("img"), jSONObject4.optString("isShowMoreForum"), jSONObject4.optString("url"), jSONObject4.optString("title"), jSONObject4.optString("desc"), jSONObject4.optString("topic"), jSONObject4.optString("wbtitle"), jSONObject4.optString("wbcontent"), jSONObject4.optInt("weixin_disable"), jSONObject4.optString("extdata"), jSONObject4.optInt("source"), jSONObject4.optString("topicid"), jSONObject4.optString("disableSafari"), jSONObject4.optLong("roomId"), jSONObject4.optInt("filterRooms"), jSONObject4.optInt("roomMemberCount"), jSONObject4.optLong("fid"), jSONObject4.optString("forumName"), jSONObject4.optString("onlyThirdShare"), jSONObject4.optString("addObserverNotify"), jSONObject4.optString("panelTitle"), jSONObject4.optJSONObject("shareIMCard")).a());
+                        JSONObject jSONObject5 = new JSONObject(str3);
+                        jsPromptResult.confirm(share(jSONObject5.optInt("channel"), jSONObject5.optInt("shareimg"), jSONObject5.optString("img"), jSONObject5.optString("isShowMoreForum"), jSONObject5.optString("url"), jSONObject5.optString("title"), jSONObject5.optString("desc"), jSONObject5.optString("topic"), jSONObject5.optString("wbtitle"), jSONObject5.optString("wbcontent"), jSONObject5.optInt("weixin_disable"), jSONObject5.optString("extdata"), jSONObject5.optInt("source"), jSONObject5.optString("topicid"), jSONObject5.optString("disableSafari"), jSONObject5.optLong("roomId"), jSONObject5.optInt("filterRooms"), jSONObject5.optInt("roomMemberCount"), jSONObject5.optLong("fid"), jSONObject5.optString("forumName"), jSONObject5.optString("onlyThirdShare"), jSONObject5.optString("addObserverNotify"), jSONObject5.optString("panelTitle"), jSONObject5.optJSONObject("shareIMCard")).a());
                         return true;
                     } catch (JSONException e7) {
                         BdLog.e(e7);
@@ -1634,23 +1653,23 @@ public class CommonTbJsBridge implements sy9 {
                     }
                 } else if (TOAST_POPUPVIEW.equals(str2)) {
                     try {
-                        JSONObject jSONObject5 = new JSONObject(str3);
-                        jsPromptResult.confirm(showLowerHairHint(jSONObject5.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject5.optInt("ahead_type"), jSONObject5.optString("message"), jSONObject5.optString("btn_text"), jSONObject5.optInt("toast_duration"), jSONObject5.optString("schema"), jSONObject5.optString("token"), jSONObject5.optDouble(NativeConstants.OPACITY), jSONObject5.optString(BigdayActivityConfig.IMG_URL), jSONObject5.optString("url"), jSONObject5.optInt("mission_id"), jSONObject5.optString("btn_color"), jSONObject5.optString("message_color"), jSONObject5.optString("btn_text_color"), jSONObject5.optInt("status"), jSONObject5.optInt(FINISH_THIS_PAGE)).a());
+                        JSONObject jSONObject6 = new JSONObject(str3);
+                        jsPromptResult.confirm(showLowerHairHint(jSONObject6.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject6.optInt("ahead_type"), jSONObject6.optString("message"), jSONObject6.optString("btn_text"), jSONObject6.optInt("toast_duration"), jSONObject6.optString("schema"), jSONObject6.optString("token"), jSONObject6.optDouble(NativeConstants.OPACITY), jSONObject6.optString(BigdayActivityConfig.IMG_URL), jSONObject6.optString("url"), jSONObject6.optInt("mission_id"), jSONObject6.optString("btn_color"), jSONObject6.optString("message_color"), jSONObject6.optString("btn_text_color"), jSONObject6.optInt("status"), jSONObject6.optInt(FINISH_THIS_PAGE)).a());
                     } catch (JSONException e14) {
                         BdLog.e(e14);
                     }
                 } else if (GAME_PUSH.equals(str2)) {
                     try {
-                        JSONObject jSONObject6 = new JSONObject(str3);
-                        try {
-                            jsPromptResult.confirm(gamePush(jSONObject6.optString("gameId"), jSONObject6.optString("gameName"), jSONObject6.optString("gameTime"), jSONObject6.optString("gameType")).a());
-                        } catch (JSONException e15) {
-                            e = e15;
-                            e.printStackTrace();
-                            return true;
-                        }
+                        jSONObject = new JSONObject(str3);
+                    } catch (JSONException e15) {
+                        e = e15;
+                    }
+                    try {
+                        jsPromptResult.confirm(gamePush(jSONObject.optString("gameId"), jSONObject.optString("gameName"), jSONObject.optString("gameTime"), jSONObject.optString("gameType")).a());
                     } catch (JSONException e16) {
                         e = e16;
+                        e.printStackTrace();
+                        return true;
                     }
                     return true;
                 } else if (GAME_PUSH_STATUS.equals(str2)) {
@@ -1718,17 +1737,17 @@ public class CommonTbJsBridge implements sy9 {
                 } else if (CLOSE_NATIVE_MASK.equals(str2)) {
                     try {
                         z = false;
-                    } catch (JSONException e24) {
-                        e = e24;
-                        z = false;
-                    }
-                    try {
-                        jsPromptResult.confirm(closeNativeMask(new JSONObject(str3).optInt("result", 0)).a());
-                        return false;
+                        try {
+                            jsPromptResult.confirm(closeNativeMask(new JSONObject(str3).optInt("result", 0)).a());
+                            return false;
+                        } catch (JSONException e24) {
+                            e = e24;
+                            e.printStackTrace();
+                            return z;
+                        }
                     } catch (JSONException e25) {
                         e = e25;
-                        e.printStackTrace();
-                        return z;
+                        z = false;
                     }
                 } else if (GO_TO_HOT_TREND.equals(str2)) {
                     jumpToHotTrendPage();
@@ -1790,272 +1809,272 @@ public class CommonTbJsBridge implements sy9 {
 
     public void dealSpringFestivalTimer(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, jSONObject) == null) {
             callJsMethod(str, jSONObject);
         }
     }
 
-    public wy9 deviceGyroscopeParams(String str, String str2) {
+    public bz9 deviceGyroscopeParams(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
             return this.deviceJsBridgePlugin.d(this.mWebView, str, str2);
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 finishPage(String str, String str2) {
+    public bz9 finishPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, str2)) == null) {
             return this.routerJsBridgePlugin.c(this.mWebView, str, str2);
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
     @NonNull
-    public wy9 getViewPosition(@NonNull String str, @Nullable String str2) {
+    public bz9 getViewPosition(@NonNull String str, @Nullable String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, str, str2)) == null) {
             return this.subscriptionJsBridgePlugin.d(this.mWebView, str, str2);
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 handleGoToBarDetail(String str, int i) {
+    public bz9 handleGoToBarDetail(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048623, this, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048624, this, str, i)) == null) {
             return this.routerJsBridgePlugin.h(this.mWebView, str, i);
         }
-        return (wy9) invokeLI.objValue;
+        return (bz9) invokeLI.objValue;
     }
 
-    public wy9 jumpForumRulesEditPage(String str, String str2) {
+    public bz9 jumpForumRulesEditPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048630, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048631, this, str, str2)) == null) {
             return this.routerJsBridgePlugin.j(this.mWebView, str, str2);
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 jumpLoginActivity(int i, String str) {
+    public bz9 jumpLoginActivity(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048631, this, i, str)) == null) {
-            return this.accountJsBridgePlugin.e(this.mWebView, i, str);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048632, this, i, str)) == null) {
+            return this.accountJsBridgePlugin.g(this.mWebView, i, str);
         }
-        return (wy9) invokeIL.objValue;
+        return (bz9) invokeIL.objValue;
     }
 
-    public wy9 jumpToHtmlPage(String str, int i) {
+    public bz9 jumpToHtmlPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048633, this, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048634, this, str, i)) == null) {
             return this.routerJsBridgePlugin.k(this.mWebView, str, i);
         }
-        return (wy9) invokeLI.objValue;
+        return (bz9) invokeLI.objValue;
     }
 
-    public wy9 openThirdPartApp(int i, String str) {
+    public bz9 openThirdPartApp(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048645, this, i, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048646, this, i, str)) == null) {
             return this.routerJsBridgePlugin.n(this.mWebView, i, str);
         }
-        return (wy9) invokeIL.objValue;
+        return (bz9) invokeIL.objValue;
     }
 
-    public wy9 operateNotifyDataChanged(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048647, this, str, str2)) == null) {
-            return this.subscriptionJsBridgePlugin.f(this.mWebView, str, str2);
-        }
-        return (wy9) invokeLL.objValue;
-    }
-
-    public wy9 orderGameApk(String str, String str2) {
+    public bz9 operateNotifyDataChanged(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048648, this, str, str2)) == null) {
+            return this.subscriptionJsBridgePlugin.f(this.mWebView, str, str2);
+        }
+        return (bz9) invokeLL.objValue;
+    }
+
+    public bz9 orderGameApk(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048649, this, str, str2)) == null) {
             return this.systemJsBridgePlugin.C(this.mWebView, str, str2);
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 putAppStorage(String str, String str2) {
+    public bz9 putAppStorage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048655, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048656, this, str, str2)) == null) {
             return this.systemJsBridgePlugin.G(this.mWebView, str, str2);
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 reportUserTheme(String str, ArrayList<String> arrayList) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048661, this, str, arrayList)) == null) {
-            return this.routerJsBridgePlugin.t(this.mWebView, str, arrayList);
-        }
-        return (wy9) invokeLL.objValue;
-    }
-
-    public wy9 selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048663, this, i, arrayList)) == null) {
-            return this.systemJsBridgePlugin.I(this.mWebView, i, arrayList);
-        }
-        return (wy9) invokeIL.objValue;
-    }
-
-    public wy9 selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
+    public bz9 reportUserTheme(String str, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048664, this, str, arrayList)) == null) {
-            return this.routerJsBridgePlugin.u(this.mWebView, str, arrayList);
+            return this.routerJsBridgePlugin.t(this.mWebView, str, arrayList);
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 sendCompleteTaskReqMsg(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048665, this, str, str2)) == null) {
-            return this.activityJsBridgePlugin.f(this.mWebView, str, str2);
-        }
-        return (wy9) invokeLL.objValue;
-    }
-
-    public wy9 startApp(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048680, this, str, str2)) == null) {
-            return this.systemJsBridgePlugin.K(this.mWebView, str, str2);
-        }
-        return (wy9) invokeLL.objValue;
-    }
-
-    public wy9 updateTailStyle(int i, String str) {
+    public bz9 selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048692, this, i, str)) == null) {
-            return this.activityJsBridgePlugin.i(this.mWebView, i, str);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048666, this, i, arrayList)) == null) {
+            return this.systemJsBridgePlugin.I(this.mWebView, i, arrayList);
         }
-        return (wy9) invokeIL.objValue;
+        return (bz9) invokeIL.objValue;
     }
 
-    public wy9 worldCupRaiseSuccess(String str, String str2) {
+    public bz9 selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048694, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048667, this, str, arrayList)) == null) {
+            return this.routerJsBridgePlugin.u(this.mWebView, str, arrayList);
+        }
+        return (bz9) invokeLL.objValue;
+    }
+
+    public bz9 sendCompleteTaskReqMsg(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048668, this, str, str2)) == null) {
+            return this.activityJsBridgePlugin.f(this.mWebView, str, str2);
+        }
+        return (bz9) invokeLL.objValue;
+    }
+
+    public bz9 startApp(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048683, this, str, str2)) == null) {
+            return this.systemJsBridgePlugin.K(this.mWebView, str, str2);
+        }
+        return (bz9) invokeLL.objValue;
+    }
+
+    public bz9 updateTailStyle(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048695, this, i, str)) == null) {
+            return this.activityJsBridgePlugin.i(this.mWebView, i, str);
+        }
+        return (bz9) invokeIL.objValue;
+    }
+
+    public bz9 worldCupRaiseSuccess(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048697, this, str, str2)) == null) {
             return this.activityJsBridgePlugin.j(this.mWebView, str, str2);
         }
-        return (wy9) invokeLL.objValue;
+        return (bz9) invokeLL.objValue;
     }
 
-    public wy9 fileDownloadDelete(String str, String str2, String str3, int i, String str4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
-            return this.systemJsBridgePlugin.j(this.mWebView, str, str2, str3, i, str4);
-        }
-        return (wy9) invokeCommon.objValue;
-    }
-
-    public wy9 fileDownloadPause(String str, String str2, String str3, int i, String str4) {
+    public bz9 fileDownloadDelete(String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
+            return this.systemJsBridgePlugin.j(this.mWebView, str, str2, str3, i, str4);
+        }
+        return (bz9) invokeCommon.objValue;
+    }
+
+    public bz9 fileDownloadPause(String str, String str2, String str3, int i, String str4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
             return this.systemJsBridgePlugin.k(this.mWebView, str, str2, str3, i, str4);
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 
-    public wy9 launchApk(String str, String str2, String str3, int i, String str4) {
+    public bz9 launchApk(String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048635, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
             return this.systemJsBridgePlugin.z(this.mWebView, str, str2, str3, i, str4);
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 
-    public wy9 showTipToast(String str, String str2, String str3, int i, int i2) {
+    public bz9 showTipToast(String str, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048677, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048680, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             return this.toastJsBridgePlugin.g(this.mWebView, str, str2, str3, i, i2);
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 
-    public wy9 gamePush(String str, String str2, String str3, String str4) {
+    public bz9 gamePush(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048597, this, str, str2, str3, str4)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048598, this, str, str2, str3, str4)) == null) {
             return this.subscriptionJsBridgePlugin.c(this.mWebView, str, str2, str3, str4);
         }
-        return (wy9) invokeLLLL.objValue;
+        return (bz9) invokeLLLL.objValue;
     }
 
-    public wy9 nativeNetworkProxy(String str, String str2, String str3, JSONObject jSONObject) {
+    public bz9 nativeNetworkProxy(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048636, this, str, str2, str3, jSONObject)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048637, this, str, str2, str3, jSONObject)) == null) {
             return this.hybridJsBridgePlugin.j(this.mWebView, str, str2, str3, jSONObject);
         }
-        return (wy9) invokeLLLL.objValue;
+        return (bz9) invokeLLLL.objValue;
     }
 
-    public wy9 goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public bz9 goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
             return this.routerJsBridgePlugin.f(this.mWebView, str, str2, str3, str4, str5, str6, str7);
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 
-    public wy9 goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
+    public bz9 goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048621, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
             return this.routerJsBridgePlugin.g(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17);
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 
-    public wy9 installGameApk(String str, String str2, String str3, String str4, int i, String str5) {
+    public bz9 installGameApk(String str, String str2, String str3, String str4, int i, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048629, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), str5})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), str5})) == null) {
             return this.systemJsBridgePlugin.w(this.mWebView, str, str2, str3, str4, i, str5);
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 
-    public wy9 notifyAliAuthResult(HashMap<String, String> hashMap) {
+    public bz9 notifyAliAuthResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, hashMap)) == null) {
-            wy9 wy9Var = new wy9();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, hashMap)) == null) {
+            bz9 bz9Var = new bz9();
             int i2 = -1;
             try {
                 i2 = Integer.parseInt(hashMap.get("status"));
-                wy9Var.y(i2);
-                wy9Var.u(hashMap.get("message"));
+                bz9Var.y(i2);
+                bz9Var.u(hashMap.get("message"));
                 if (i2 == 0) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("avatar", hashMap.get("avatar"));
                     jSONObject.put("nick_name", hashMap.get("nick_name"));
                     jSONObject.put("alipay_user_id", hashMap.get("alipay_user_id"));
-                    wy9Var.o(jSONObject.toString());
+                    bz9Var.o(jSONObject.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -2067,45 +2086,27 @@ public class CommonTbJsBridge implements sy9 {
                 i = 1;
             }
             TiebaStatic.log(statisticItem.param("obj_param1", i));
-            return wy9Var;
+            return bz9Var;
         }
-        return (wy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
-    public wy9 setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public bz9 realNameAuth(String str, boolean z, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048671, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
-            return this.shareJsBridgePlugin.d(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, i, str9);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048659, this, new Object[]{str, Boolean.valueOf(z), str2, Integer.valueOf(i)})) == null) {
+            return this.accountJsBridgePlugin.m(this.mWebView, str, z, str2, i);
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 
-    public wy9 share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048672, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject})) == null) {
-            return this.shareJsBridgePlugin.f(this.mWebView, i, i2, str, str2, str3, str4, str5, str6, str7, str8, i3, str9, i4, str10, str11, j, i5, i6, j2, str12, str13, str14, str15, jSONObject);
-        }
-        return (wy9) invokeCommon.objValue;
-    }
-
-    public wy9 showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048675, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            return this.toastJsBridgePlugin.f(this.mWebView, i, i2, str, str2, i3, str3, str4, d, str5, str6, i4, str7, str8, str9, i5, i6);
-        }
-        return (wy9) invokeCommon.objValue;
-    }
-
-    public wy9 startAllLoginModule(String str, String str2, String str3, String str4) {
+    public bz9 startAllLoginModule(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048679, this, str, str2, str3, str4)) == null) {
-            wy9 wy9Var = new wy9();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048682, this, str, str2, str3, str4)) == null) {
+            bz9 bz9Var = new bz9();
             if (TbadkCoreApplication.isLogin()) {
-                kl6.a().d(new Runnable() { // from class: com.baidu.tieba.lx4
+                ml6.a().d(new Runnable() { // from class: com.baidu.tieba.lx4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -2117,19 +2118,46 @@ public class CommonTbJsBridge implements sy9 {
                         }
                     }
                 }, 100L);
-                return wy9Var;
+                return bz9Var;
             }
-            return this.accountJsBridgePlugin.i(this.mWebView, str, str2, str3, str4);
+            return this.accountJsBridgePlugin.o(this.mWebView, str, str2, str3, str4);
         }
-        return (wy9) invokeLLLL.objValue;
+        return (bz9) invokeLLLL.objValue;
     }
 
-    public wy9 startDownloadGameApk(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11, int i2, String str12) {
+    public bz9 setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048683, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, Integer.valueOf(i), str11, Integer.valueOf(i2), str12})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048674, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
+            return this.shareJsBridgePlugin.d(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, i, str9);
+        }
+        return (bz9) invokeCommon.objValue;
+    }
+
+    public bz9 share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048675, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject})) == null) {
+            return this.shareJsBridgePlugin.f(this.mWebView, i, i2, str, str2, str3, str4, str5, str6, str7, str8, i3, str9, i4, str10, str11, j, i5, i6, j2, str12, str13, str14, str15, jSONObject);
+        }
+        return (bz9) invokeCommon.objValue;
+    }
+
+    public bz9 showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048678, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            return this.toastJsBridgePlugin.f(this.mWebView, i, i2, str, str2, i3, str3, str4, d, str5, str6, i4, str7, str8, str9, i5, i6);
+        }
+        return (bz9) invokeCommon.objValue;
+    }
+
+    public bz9 startDownloadGameApk(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11, int i2, String str12) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048686, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, Integer.valueOf(i), str11, Integer.valueOf(i2), str12})) == null) {
             return this.systemJsBridgePlugin.L(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, i, str11, i2, str12);
         }
-        return (wy9) invokeCommon.objValue;
+        return (bz9) invokeCommon.objValue;
     }
 }

@@ -1,63 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.JsonWriter;
+import android.util.Base64OutputStream;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.OutputStream;
 /* loaded from: classes5.dex */
-public class epa {
+public class epa extends Base64OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public long c;
 
-    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
-        Object opt;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public epa(OutputStream outputStream, int i) {
+        super(outputStream, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
-            if (obj != null && obj != JSONObject.NULL) {
-                if (obj instanceof JSONArray) {
-                    JSONArray jSONArray = (JSONArray) obj;
-                    jsonWriter.beginArray();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        Object opt2 = jSONArray.opt(i);
-                        if (opt2 != null) {
-                            a(jsonWriter, opt2);
-                        }
-                    }
-                    jsonWriter.endArray();
-                    return;
-                } else if (obj instanceof JSONObject) {
-                    JSONObject jSONObject = (JSONObject) obj;
-                    jsonWriter.beginObject();
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
-                            jsonWriter.name(next);
-                            a(jsonWriter, opt);
-                        }
-                    }
-                    jsonWriter.endObject();
-                    return;
-                } else if (obj instanceof Number) {
-                    jsonWriter.value((Number) obj);
-                    return;
-                } else if (obj instanceof String) {
-                    jsonWriter.value((String) obj);
-                    return;
-                } else if (obj instanceof Boolean) {
-                    jsonWriter.value(((Boolean) obj).booleanValue());
-                    return;
-                } else {
-                    jsonWriter.value(obj.toString());
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            jsonWriter.nullValue();
+        }
+        this.a = false;
+        this.b = false;
+        this.c = 0L;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (!this.a) {
+                super.write(117);
+                this.a = true;
+            } else if (!this.b) {
+                super.write(123);
+                this.b = true;
+            } else {
+                super.write(i);
+            }
+        }
+    }
+
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
+                bArr[i] = 123;
+                this.b = true;
+            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
+                bArr[i] = 117;
+                this.a = true;
+            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
+                bArr[i] = 117;
+                this.a = true;
+                bArr[i + 1] = 123;
+                this.b = true;
+            }
+            if (i2 > 0) {
+                this.c += i2;
+            }
+            super.write(bArr, i, i2);
         }
     }
 }

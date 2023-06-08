@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
 public interface ky7 {
-    void a();
-
-    void b(int i);
-
-    void onChangeSkinType(int i);
-
-    void setData(List<vn> list);
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 }

@@ -2,185 +2,307 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.content.pm.SigningInfo;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.nio.charset.StandardCharsets;
-import java.security.GeneralSecurityException;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.GCMParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes5.dex */
 public class d8b {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d9b a;
-    public static final d8b b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659835, "Lcom/baidu/tieba/d8b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947659835, "Lcom/baidu/tieba/d8b;");
-                return;
-            }
-        }
-        b = new d8b();
-    }
-
-    public d8b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && a == null) {
-            a = new d9b(context, "push");
-        }
-    }
-
-    public synchronized void b(Context context, String str) {
-        byte[] bArr;
-        byte[] bArr2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            synchronized (this) {
-                a(context);
-                if (TextUtils.isEmpty(str)) {
-                    a.a("key_push_token");
-                } else {
-                    String e = y7b.e(context, context.getPackageName());
-                    byte[] h = y7b.h("EA23F5B8C7577CDC744ABD1C6D7E143D5123F8F282BF4E7853C1EC86BD2EDD22");
-                    byte[] h2 = y7b.h(e);
-                    try {
-                        bArr = new byte[32];
-                        new SecureRandom().nextBytes(bArr);
-                    } catch (Exception unused) {
-                        bArr = new byte[0];
-                    }
-                    y7b.i(h, -4);
-                    byte[] j = y7b.j(h, h2);
-                    y7b.i(j, 6);
-                    String encodeToString = Base64.encodeToString(y7b.j(j, bArr), 0);
-                    boolean b2 = a.b("key_aes_gcm", encodeToString);
-                    byte[] decode = Base64.decode(encodeToString, 0);
-                    String str2 = "";
-                    if (!TextUtils.isEmpty(str) && decode != null && decode.length >= 16) {
-                        try {
-                            try {
-                                bArr2 = new byte[12];
-                                new SecureRandom().nextBytes(bArr2);
-                            } catch (GeneralSecurityException e2) {
-                                String str3 = "GCM encrypt data error" + e2.getMessage();
-                            }
-                        } catch (Exception unused2) {
-                            bArr2 = new byte[0];
-                        }
-                        byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                        cipher.init(1, secretKeySpec, new GCMParameterSpec(128, bArr2));
-                        byte[] doFinal = cipher.doFinal(bytes);
-                        if (doFinal != null && doFinal.length != 0) {
-                            str2 = y7b.f(bArr2) + y7b.f(doFinal);
-                        }
-                    }
-                    if (b2 && !TextUtils.isEmpty(str2)) {
-                        a.b("key_push_token", str2);
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized String c(Context context) {
+    public static String f(byte[] bArr) {
         InterceptResult invokeL;
-        String str;
-        boolean z;
-        String str2;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            synchronized (this) {
-                a(context);
-                str = "";
-                SharedPreferences sharedPreferences = a.a;
-                boolean z2 = true;
-                if (sharedPreferences != null && sharedPreferences.contains("key_push_token")) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    SharedPreferences sharedPreferences2 = a.a;
-                    if (sharedPreferences2 == null || !sharedPreferences2.contains("key_aes_gcm")) {
-                        z2 = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            if (bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb.append(TransactionIdCreater.FILL_BYTE);
                     }
-                    if (z2) {
-                        SharedPreferences sharedPreferences3 = a.a;
-                        if (sharedPreferences3 != null) {
-                            str2 = sharedPreferences3.getString("key_push_token", "");
-                        } else {
-                            str2 = "";
-                        }
-                        SharedPreferences sharedPreferences4 = a.a;
-                        if (sharedPreferences4 != null) {
-                            str3 = sharedPreferences4.getString("key_aes_gcm", "");
-                        } else {
-                            str3 = "";
-                        }
-                        byte[] decode = Base64.decode(str3, 0);
-                        String str4 = "";
-                        if (!TextUtils.isEmpty(str2) && decode != null && decode.length >= 16) {
-                            try {
-                                SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                                Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                                String substring = str2.substring(0, 24);
-                                String substring2 = str2.substring(24);
-                                if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2)) {
-                                    cipher.init(2, secretKeySpec, new GCMParameterSpec(128, y7b.h(substring)));
-                                    str4 = new String(cipher.doFinal(y7b.h(substring2)), StandardCharsets.UTF_8);
-                                }
-                            } catch (Exception e) {
-                                String str5 = "GCM decrypt data exception: " + e.getMessage();
-                            }
-                        }
-                        if (!TextUtils.isEmpty(str4)) {
-                            str = str4;
-                        } else {
-                            a.a("key_aes_gcm");
-                            a.a("key_push_token");
-                        }
-                    } else {
-                        a.a("key_push_token");
-                    }
+                    sb.append(hexString);
                 }
+                return sb.toString();
             }
-            return str;
+            return "";
         }
         return (String) invokeL.objValue;
+    }
+
+    public static byte[] h(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
+            }
+            String upperCase = str.toUpperCase(Locale.ENGLISH);
+            int length = upperCase.length() / 2;
+            byte[] bArr = new byte[length];
+            try {
+                byte[] bytes = upperCase.getBytes(StandardCharsets.UTF_8);
+                for (int i2 = 0; i2 < length; i2++) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("0x");
+                    sb.append(new String(new byte[]{bytes[i2 * 2]}, StandardCharsets.UTF_8));
+                    bArr[i2] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i + 1]}, StandardCharsets.UTF_8)).byteValue());
+                }
+            } catch (NumberFormatException e) {
+                String str2 = "hex string 2 byte array exception : " + e.getMessage();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] i(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
+            if (bArr == null) {
+                return bArr;
+            }
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                if (i < 0) {
+                    bArr[i2] = (byte) (bArr[i2] << (-i));
+                } else {
+                    bArr[i2] = (byte) (bArr[i2] >> i);
+                }
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public static byte[] j(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr != null) {
+                int length = bArr.length;
+                if (length != bArr2.length) {
+                    return null;
+                }
+                bArr3 = new byte[length];
+                for (int i = 0; i < length; i++) {
+                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
+                }
+            }
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static RequestHeader a() throws ApiException {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = k8b.e.a();
+            String str2 = null;
+            try {
+                Object obj = a.getPackageManager().getApplicationInfo(a.getPackageName(), 128).metaData.get("com.hihonor.push.app_id");
+                if (obj != null) {
+                    str2 = String.valueOf(obj);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                f8b.b("ConfigUtils", "getPushAppId", e);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                String str3 = "checkPushAppId Parameter is " + str2;
+                String e2 = e(a, a.getPackageName());
+                if (!TextUtils.isEmpty(e2)) {
+                    String str4 = "checkPushCertFingerprint Parameter is " + e2;
+                    RequestHeader requestHeader = new RequestHeader();
+                    requestHeader.setPackageName(a.getPackageName());
+                    requestHeader.setAppId(str2);
+                    requestHeader.setCertificateFingerprint(e2);
+                    i8b i8bVar = i8b.b;
+                    requestHeader.setPushToken(i8bVar.c(a));
+                    synchronized (i8bVar) {
+                        i8bVar.a(a);
+                        SharedPreferences sharedPreferences = i8b.a.a;
+                        if (sharedPreferences != null) {
+                            str = sharedPreferences.getString("key_aaid", "");
+                        } else {
+                            str = "";
+                        }
+                        if (TextUtils.isEmpty(str)) {
+                            str = UUID.randomUUID().toString().replace("-", "");
+                            String str5 = "getRandomUUID UUID =" + str;
+                            i8b.a.b("key_aaid", str);
+                        }
+                    }
+                    requestHeader.setAAID(str);
+                    requestHeader.setSdkVersion(70001103);
+                    return requestHeader;
+                }
+                f8b.a("checkPushConfig Parameter is missing.");
+                throw HonorPushErrorEnum.ERROR_CERT_FINGERPRINT_EMPTY.toApiException();
+            }
+            f8b.a("checkPushConfig Parameter is missing");
+            throw HonorPushErrorEnum.ERROR_NO_APPID.toApiException();
+        }
+        return (RequestHeader) invokeV.objValue;
+    }
+
+    public static ApiException b(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) {
+            if (exc.getCause() instanceof ApiException) {
+                return (ApiException) exc.getCause();
+            }
+            if (exc instanceof ApiException) {
+                return (ApiException) exc;
+            }
+            return new ApiException(-1, exc.getMessage());
+        }
+        return (ApiException) invokeL.objValue;
+    }
+
+    public static <TResult> w8b<TResult> c(Callable<TResult> callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) {
+            ExecutorService executorService = p9b.c.b;
+            o9b o9bVar = new o9b();
+            try {
+                executorService.execute(new t8b(o9bVar, callable));
+            } catch (Exception e) {
+                o9bVar.a(e);
+            }
+            return o9bVar.a;
+        }
+        return (w8b) invokeL.objValue;
+    }
+
+    public static void g(Handler handler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, handler) != null) || Looper.myLooper() == handler.getLooper()) {
+            return;
+        }
+        throw new IllegalStateException("Must be called on the handler thread");
+    }
+
+    public static <TResult> TResult d(w8b<TResult> w8bVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, w8bVar)) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                synchronized (w8bVar.a) {
+                    z = w8bVar.b;
+                }
+                if (z) {
+                    if (w8bVar.f()) {
+                        return w8bVar.d();
+                    }
+                    throw new ExecutionException(w8bVar.c());
+                }
+                a9b a9bVar = new a9b();
+                p9b p9bVar = p9b.c;
+                w8bVar.a(new r8b(p9bVar.a, a9bVar));
+                w8bVar.a(new n8b(p9bVar.a, a9bVar));
+                w8bVar.a(new e8b(p9bVar.a, a9bVar));
+                a9bVar.a.await();
+                if (w8bVar.f()) {
+                    return w8bVar.d();
+                }
+                throw new ExecutionException(w8bVar.c());
+            }
+            throw new IllegalStateException("await must not be called on the UI thread");
+        }
+        return (TResult) invokeL.objValue;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0054 -> B:20:0x0055). Please submit an issue!!! */
+    public static String e(Context context, String str) {
+        InterceptResult invokeLL;
+        Signature[] signatureArr;
+        String str2;
+        SigningInfo signingInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            String str3 = "getCertFingerprint pkgName=" + str + "onlyOne=true";
+            ArrayList arrayList = new ArrayList();
+            PackageManager packageManager = context.getPackageManager();
+            if (Build.VERSION.SDK_INT >= 30) {
+                PackageInfo packageInfo = packageManager.getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+                if (packageInfo != null && (signingInfo = packageInfo.signingInfo) != null) {
+                    if (signingInfo.hasMultipleSigners()) {
+                        signatureArr = signingInfo.getApkContentsSigners();
+                    } else {
+                        signatureArr = signingInfo.getSigningCertificateHistory();
+                    }
+                }
+                signatureArr = null;
+            } else {
+                PackageInfo packageInfo2 = packageManager.getPackageInfo(str, 64);
+                if (packageInfo2 != null) {
+                    signatureArr = packageInfo2.signatures;
+                }
+                signatureArr = null;
+            }
+            if (signatureArr != null && signatureArr.length > 0) {
+                int length = signatureArr.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
+                    }
+                    try {
+                        byte[] digest = MessageDigest.getInstance("SHA256").digest(signatureArr[i].toByteArray());
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b : digest) {
+                            String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                            if (upperCase.length() == 1) {
+                                sb.append("0");
+                            }
+                            sb.append(upperCase);
+                        }
+                        str2 = sb.toString();
+                    } catch (NoSuchAlgorithmException unused) {
+                        str2 = null;
+                    }
+                    if (str2 != null) {
+                        arrayList.add(str2);
+                        break;
+                    }
+                    i++;
+                }
+            }
+            if (arrayList.isEmpty()) {
+                return null;
+            }
+            return (String) arrayList.get(0);
+        }
+        return (String) invokeLL.objValue;
     }
 }

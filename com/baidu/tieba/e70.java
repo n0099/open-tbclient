@@ -55,12 +55,12 @@ public class e70 extends EventListener {
 
         /* renamed from: com.baidu.tieba.e70$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0281a implements c {
+        public class C0289a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0281a(a aVar) {
+            public C0289a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class e70 extends EventListener {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c.c(this.a.source(), new C0281a(this));
+                return this.c.c(this.a.source(), new C0289a(this));
             }
             return (BufferedSource) invokeV.objValue;
         }

@@ -12,14 +12,14 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rca;
+import com.baidu.tieba.wca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class CaptureRecordButton extends FrameLayout implements rca {
+public class CaptureRecordButton extends FrameLayout implements wca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -140,7 +140,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         }
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -148,7 +148,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         }
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -156,15 +156,15 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         }
     }
 
-    @Override // com.baidu.tieba.rca
-    public void setOnProgressListener(rca.a aVar) {
+    @Override // com.baidu.tieba.wca
+    public void setOnProgressListener(wca.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) {
             this.d.setOnProgressListener(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
@@ -172,7 +172,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         }
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
@@ -180,7 +180,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         }
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -188,7 +188,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         }
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -245,7 +245,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -264,7 +264,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,7 +284,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -292,7 +292,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         }
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -300,7 +300,7 @@ public class CaptureRecordButton extends FrameLayout implements rca {
         }
     }
 
-    @Override // com.baidu.tieba.rca
+    @Override // com.baidu.tieba.wca
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {

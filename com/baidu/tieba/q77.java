@@ -1,10 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import java.util.Map;
-@Autowired
+import java.util.HashMap;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedKV;
 /* loaded from: classes7.dex */
-public class q77 {
+public final class q77 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,83 +31,51 @@ public class q77 {
                 return;
             }
         }
-        f05.e();
+        a = new a(null);
     }
 
-    public q77() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-    }
 
-    @Inject
-    public static m77 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return dq6.a();
-        }
-        return (m77) invokeV.objValue;
-    }
-
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str.trim());
-                try {
-                    sb.append("&");
-                    sb.append(URLEncoder.encode(str2, "UTF-8"));
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(str3, "UTF-8"));
-                } catch (Exception e) {
-                    e.printStackTrace();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return sb.toString();
             }
-            return str;
         }
-        return (String) invokeLLL.objValue;
-    }
 
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str.trim());
-                try {
-                    for (String str2 : map.keySet()) {
-                        sb.append("&");
-                        sb.append(URLEncoder.encode(str2, "UTF-8"));
-                        sb.append("=");
-                        sb.append(URLEncoder.encode(map.get(str2), "UTF-8"));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+        public final HashMap<String, String> a(List<FeedKV> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                Intrinsics.checkNotNullParameter(list, "list");
+                HashMap<String, String> hashMap = new HashMap<>();
+                if (list.isEmpty()) {
+                    return hashMap;
                 }
-                return sb.toString();
+                for (FeedKV feedKV : list) {
+                    String str = feedKV.key;
+                    Intrinsics.checkNotNullExpressionValue(str, "feedKV.key");
+                    String str2 = feedKV.value;
+                    Intrinsics.checkNotNullExpressionValue(str2, "feedKV.value");
+                    hashMap.put(str, str2);
+                }
+                return hashMap;
             }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            d().a(context, str);
+            return (HashMap) invokeL.objValue;
         }
     }
 }

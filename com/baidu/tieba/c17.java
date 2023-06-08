@@ -1,8 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.external.music.data.MusicData;
-import java.util.List;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.b17;
 /* loaded from: classes5.dex */
 public interface c17 {
-    void setMusicData(List<MusicData> list);
+    boolean a(QmFilterItem qmFilterItem);
+
+    QmFilterItem b();
+
+    void c(QmFilterItem qmFilterItem);
+
+    void d(b17.b bVar);
+
+    void e();
+
+    String f(String str);
+
+    void g();
+
+    void h();
+
+    void reset();
 }

@@ -2,7 +2,7 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.switchs.ImgUaSwitch;
-import com.baidu.tieba.zx5;
+import com.baidu.tieba.by5;
 /* loaded from: classes4.dex */
 public class InitUaTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -20,6 +20,6 @@ public class InitUaTask extends LaunchTask {
         if (!ImgUaSwitch.isOn()) {
             return;
         }
-        System.setProperty("http.agent", zx5.b());
+        System.setProperty("http.agent", by5.b());
     }
 }

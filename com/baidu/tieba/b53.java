@@ -30,7 +30,7 @@ public class b53 implements rq3<HybridUbcFlow> {
 
         /* renamed from: com.baidu.tieba.b53$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0251a {
+        public static class C0248a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class b53 implements rq3<HybridUbcFlow> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0251a.a;
+                return C0248a.a;
             }
             return (a) invokeV.objValue;
         }

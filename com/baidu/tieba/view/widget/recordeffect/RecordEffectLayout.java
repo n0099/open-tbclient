@@ -24,13 +24,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.external.music.data.MusicData;
 import com.baidu.tieba.external.sticker.data.QmStickerItem;
 import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.tieba.pda;
-import com.baidu.tieba.qda;
-import com.baidu.tieba.rda;
-import com.baidu.tieba.sda;
-import com.baidu.tieba.tda;
 import com.baidu.tieba.tg;
+import com.baidu.tieba.uda;
+import com.baidu.tieba.vda;
+import com.baidu.tieba.wda;
 import com.baidu.tieba.wg;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.yda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,17 +45,17 @@ public class RecordEffectLayout extends RelativeLayout {
     public TextView a;
     public HListView b;
     public HListView c;
-    public qda d;
-    public rda e;
-    public List<tda> f;
-    public List<tda> g;
+    public vda d;
+    public wda e;
+    public List<yda> f;
+    public List<yda> g;
     public List<QmStickerItem> h;
     public String i;
     public String j;
     public String k;
-    public tda<sda> l;
-    public tda<QmFilterItem> m;
-    public tda<MusicData> n;
+    public yda<xda> l;
+    public yda<QmFilterItem> m;
+    public yda<MusicData> n;
     public QmStickerItem o;
     public AnimatorSet p;
     public AnimatorSet q;
@@ -68,7 +68,7 @@ public class RecordEffectLayout extends RelativeLayout {
     public interface i {
         void a(QmStickerItem qmStickerItem);
 
-        void b(tda tdaVar, Object obj);
+        void b(yda ydaVar, Object obj);
     }
 
     /* loaded from: classes8.dex */
@@ -105,31 +105,31 @@ public class RecordEffectLayout extends RelativeLayout {
         }
 
         @Override // com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout.i
-        public void b(tda tdaVar, Object obj) {
+        public void b(yda ydaVar, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tdaVar, obj) != null) || tdaVar == null) {
+            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ydaVar, obj) != null) || ydaVar == null) {
                 return;
             }
             i iVar = this.a;
             if (iVar != null) {
-                iVar.b(tdaVar, obj);
+                iVar.b(ydaVar, obj);
             }
-            int type = tdaVar.getType();
+            int type = ydaVar.getType();
             if (type != 1) {
                 if (type != 2) {
                     if (type == 3) {
-                        this.b.k = tdaVar.b();
-                        this.b.n = tdaVar;
+                        this.b.k = ydaVar.b();
+                        this.b.n = ydaVar;
                         return;
                     }
                     return;
                 }
-                this.b.j = ((QmFilterItem) tdaVar.c()).id;
-                this.b.m = tdaVar;
+                this.b.j = ((QmFilterItem) ydaVar.c()).id;
+                this.b.m = ydaVar;
                 return;
             }
-            this.b.i = tdaVar.b();
-            this.b.l = tdaVar;
+            this.b.i = ydaVar.b();
+            this.b.l = ydaVar;
         }
     }
 
@@ -141,9 +141,9 @@ public class RecordEffectLayout extends RelativeLayout {
         public final /* synthetic */ RecordEffectLayout b;
 
         @Override // com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout.i
-        public void b(tda tdaVar, Object obj) {
+        public void b(yda ydaVar, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tdaVar, obj) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ydaVar, obj) == null) {
             }
         }
 
@@ -291,7 +291,7 @@ public class RecordEffectLayout extends RelativeLayout {
     }
 
     /* loaded from: classes8.dex */
-    public class f extends pda {
+    public class f extends uda {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecordEffectLayout b;
@@ -314,7 +314,7 @@ public class RecordEffectLayout extends RelativeLayout {
             this.b = recordEffectLayout;
         }
 
-        @Override // com.baidu.tieba.pda, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.uda, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && !this.a && this.b.b != null) {
@@ -322,7 +322,7 @@ public class RecordEffectLayout extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.pda, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.uda, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
@@ -368,7 +368,7 @@ public class RecordEffectLayout extends RelativeLayout {
     }
 
     /* loaded from: classes8.dex */
-    public class h extends pda {
+    public class h extends uda {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecordEffectLayout b;
@@ -391,7 +391,7 @@ public class RecordEffectLayout extends RelativeLayout {
             this.b = recordEffectLayout;
         }
 
-        @Override // com.baidu.tieba.pda, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.uda, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && !this.a && this.b.c != null) {
@@ -399,7 +399,7 @@ public class RecordEffectLayout extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.pda, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.uda, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
@@ -444,9 +444,9 @@ public class RecordEffectLayout extends RelativeLayout {
                         qmStickerItem2.isSelect = true;
                     }
                 }
-                rda rdaVar = this.e;
-                if (rdaVar != null) {
-                    rdaVar.notifyDataSetChanged();
+                wda wdaVar = this.e;
+                if (wdaVar != null) {
+                    wdaVar.notifyDataSetChanged();
                 }
             }
         }
@@ -473,12 +473,12 @@ public class RecordEffectLayout extends RelativeLayout {
         }
     }
 
-    public final void l(List<tda> list, String str) {
+    public final void l(List<yda> list, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, str) != null) || list == null) {
             return;
         }
-        if (ListUtils.getCount(list) > 0 && ((tda) ListUtils.getItem(list, 0)).getType() == 3) {
+        if (ListUtils.getCount(list) > 0 && ((yda) ListUtils.getItem(list, 0)).getType() == 3) {
             setMusicStyle(true);
         } else {
             setMusicStyle(false);
@@ -495,7 +495,7 @@ public class RecordEffectLayout extends RelativeLayout {
         }
     }
 
-    public final int o(List<tda> list, QmFilterItem qmFilterItem) {
+    public final int o(List<yda> list, QmFilterItem qmFilterItem) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, list, qmFilterItem)) == null) {
@@ -504,8 +504,8 @@ public class RecordEffectLayout extends RelativeLayout {
             }
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
-                tda tdaVar = list.get(i2);
-                if (tdaVar.c() != null && qmFilterItem.id.equals(((QmFilterItem) tdaVar.c()).id)) {
+                yda ydaVar = list.get(i2);
+                if (ydaVar.c() != null && qmFilterItem.id.equals(((QmFilterItem) ydaVar.c()).id)) {
                     return i2;
                 }
             }
@@ -533,9 +533,9 @@ public class RecordEffectLayout extends RelativeLayout {
                     qmStickerItem3.isDownLoading = false;
                 }
             }
-            rda rdaVar = this.e;
-            if (rdaVar != null) {
-                rdaVar.notifyDataSetChanged();
+            wda wdaVar = this.e;
+            if (wdaVar != null) {
+                wdaVar.notifyDataSetChanged();
             }
         }
     }
@@ -623,10 +623,10 @@ public class RecordEffectLayout extends RelativeLayout {
         }
     }
 
-    public void setFilterList(List<tda> list) {
+    public void setFilterList(List<yda> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
-            List<tda> list2 = this.f;
+            List<yda> list2 = this.f;
             if (list2 == null) {
                 this.f = new ArrayList();
             } else {
@@ -640,21 +640,21 @@ public class RecordEffectLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, iVar) == null) {
             this.u = iVar;
-            qda qdaVar = this.d;
-            if (qdaVar != null) {
-                qdaVar.f(new a(this, iVar));
+            vda vdaVar = this.d;
+            if (vdaVar != null) {
+                vdaVar.f(new a(this, iVar));
             }
-            rda rdaVar = this.e;
-            if (rdaVar != null) {
-                rdaVar.e(new b(this, iVar));
+            wda wdaVar = this.e;
+            if (wdaVar != null) {
+                wdaVar.e(new b(this, iVar));
             }
         }
     }
 
-    public void setMusicList(List<tda> list) {
+    public void setMusicList(List<yda> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {
-            List<tda> list2 = this.g;
+            List<yda> list2 = this.g;
             if (list2 == null) {
                 this.g = new ArrayList();
             } else {
@@ -668,9 +668,9 @@ public class RecordEffectLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
             this.h = list;
-            rda rdaVar = this.e;
-            if (rdaVar != null) {
-                rdaVar.d(list);
+            wda wdaVar = this.e;
+            if (wdaVar != null) {
+                wdaVar.d(list);
                 this.e.notifyDataSetChanged();
             }
         }
@@ -686,16 +686,16 @@ public class RecordEffectLayout extends RelativeLayout {
         }
     }
 
-    public void A(tda tdaVar) {
+    public void A(yda ydaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tdaVar) == null) {
-            this.m = tdaVar;
-            if (!ListUtils.isEmpty(this.f) && tdaVar != null && (tdaVar.c() instanceof QmFilterItem)) {
-                QmFilterItem qmFilterItem = (QmFilterItem) tdaVar.c();
+        if (interceptable == null || interceptable.invokeL(1048576, this, ydaVar) == null) {
+            this.m = ydaVar;
+            if (!ListUtils.isEmpty(this.f) && ydaVar != null && (ydaVar.c() instanceof QmFilterItem)) {
+                QmFilterItem qmFilterItem = (QmFilterItem) ydaVar.c();
                 if (!StringUtils.isNull(qmFilterItem.id)) {
-                    for (tda tdaVar2 : this.f) {
-                        if (tdaVar2 != null && (tdaVar2.c() instanceof QmFilterItem)) {
-                            if (!qmFilterItem.id.equals(((QmFilterItem) tdaVar2.c()).id)) {
+                    for (yda ydaVar2 : this.f) {
+                        if (ydaVar2 != null && (ydaVar2.c() instanceof QmFilterItem)) {
+                            if (!qmFilterItem.id.equals(((QmFilterItem) ydaVar2.c()).id)) {
                                 qmFilterItem.isSelect = false;
                             } else {
                                 qmFilterItem.isSelect = true;
@@ -703,9 +703,9 @@ public class RecordEffectLayout extends RelativeLayout {
                         }
                     }
                 }
-                qda qdaVar = this.d;
-                if (qdaVar != null) {
-                    qdaVar.notifyDataSetChanged();
+                vda vdaVar = this.d;
+                if (vdaVar != null) {
+                    vdaVar.notifyDataSetChanged();
                 }
             }
         }
@@ -715,9 +715,9 @@ public class RecordEffectLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, qmFilterItem) == null) && !ListUtils.isEmpty(this.f)) {
             if (qmFilterItem != null && !StringUtils.isNull(qmFilterItem.id)) {
-                for (tda tdaVar : this.f) {
-                    if (tdaVar.c() instanceof QmFilterItem) {
-                        QmFilterItem qmFilterItem2 = (QmFilterItem) tdaVar.c();
+                for (yda ydaVar : this.f) {
+                    if (ydaVar.c() instanceof QmFilterItem) {
+                        QmFilterItem qmFilterItem2 = (QmFilterItem) ydaVar.c();
                         if (!qmFilterItem.id.equals(qmFilterItem2.id)) {
                             qmFilterItem2.isDownLoading = false;
                         } else {
@@ -726,15 +726,15 @@ public class RecordEffectLayout extends RelativeLayout {
                     }
                 }
             } else {
-                for (tda tdaVar2 : this.f) {
-                    if (tdaVar2.c() instanceof QmFilterItem) {
-                        ((QmFilterItem) tdaVar2.c()).isDownLoading = false;
+                for (yda ydaVar2 : this.f) {
+                    if (ydaVar2.c() instanceof QmFilterItem) {
+                        ((QmFilterItem) ydaVar2.c()).isDownLoading = false;
                     }
                 }
             }
-            qda qdaVar = this.d;
-            if (qdaVar != null) {
-                qdaVar.notifyDataSetChanged();
+            vda vdaVar = this.d;
+            if (vdaVar != null) {
+                vdaVar.notifyDataSetChanged();
             }
         }
     }
@@ -769,20 +769,20 @@ public class RecordEffectLayout extends RelativeLayout {
         if (i2 > this.f.size() - 1) {
             i2 = 0;
         }
-        tda<QmFilterItem> tdaVar = this.f.get(i2);
-        if (tdaVar == null) {
+        yda<QmFilterItem> ydaVar = this.f.get(i2);
+        if (ydaVar == null) {
             return;
         }
-        if (tdaVar.getType() == 2) {
+        if (ydaVar.getType() == 2) {
             i iVar = this.u;
             if (iVar != null) {
-                iVar.b(tdaVar, null);
+                iVar.b(ydaVar, null);
             }
-            this.j = tdaVar.c().id;
-            this.m = tdaVar;
+            this.j = ydaVar.c().id;
+            this.m = ydaVar;
         }
         if (this.d != null && getCurrentEffectLayout() == 2) {
-            this.d.d(tdaVar.c().id);
+            this.d.d(ydaVar.c().id);
             this.d.notifyDataSetChanged();
         }
     }
@@ -799,20 +799,20 @@ public class RecordEffectLayout extends RelativeLayout {
         } else {
             i2 = indexOf - 1;
         }
-        tda<QmFilterItem> tdaVar = this.f.get(i2);
-        if (tdaVar == null) {
+        yda<QmFilterItem> ydaVar = this.f.get(i2);
+        if (ydaVar == null) {
             return;
         }
-        if (tdaVar.getType() == 2) {
+        if (ydaVar.getType() == 2) {
             i iVar = this.u;
             if (iVar != null) {
-                iVar.b(tdaVar, null);
+                iVar.b(ydaVar, null);
             }
-            this.j = tdaVar.c().id;
-            this.m = tdaVar;
+            this.j = ydaVar.c().id;
+            this.m = ydaVar;
         }
         if (this.d != null && getCurrentEffectLayout() == 2) {
-            this.d.d(tdaVar.c().id);
+            this.d.d(ydaVar.c().id);
             this.d.notifyDataSetChanged();
         }
     }
@@ -860,13 +860,13 @@ public class RecordEffectLayout extends RelativeLayout {
         }
     }
 
-    public tda<sda> getCurrentBeautyItem() {
+    public yda<xda> getCurrentBeautyItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.l;
         }
-        return (tda) invokeV.objValue;
+        return (yda) invokeV.objValue;
     }
 
     public int getCurrentEffectLayout() {
@@ -878,13 +878,13 @@ public class RecordEffectLayout extends RelativeLayout {
         return invokeV.intValue;
     }
 
-    public tda<QmFilterItem> getCurrentFilterItem() {
+    public yda<QmFilterItem> getCurrentFilterItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.m;
         }
-        return (tda) invokeV.objValue;
+        return (yda) invokeV.objValue;
     }
 
     public QmStickerItem getCurrentStickItem() {
@@ -912,18 +912,18 @@ public class RecordEffectLayout extends RelativeLayout {
         }
     }
 
-    public final <T> tda<T> m(int i2, int i3, String str, T t) {
+    public final <T> yda<T> m(int i2, int i3, String str, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, t})) == null) {
-            tda<T> tdaVar = new tda<>();
-            tdaVar.f(i3);
-            tdaVar.d(i2);
-            tdaVar.e(str);
-            tdaVar.g(t);
-            return tdaVar;
+            yda<T> ydaVar = new yda<>();
+            ydaVar.f(i3);
+            ydaVar.d(i2);
+            ydaVar.e(str);
+            ydaVar.g(t);
+            return ydaVar;
         }
-        return (tda) invokeCommon.objValue;
+        return (yda) invokeCommon.objValue;
     }
 
     public final int n() {
@@ -935,16 +935,16 @@ public class RecordEffectLayout extends RelativeLayout {
                 if (i2 != 2) {
                     if (i2 == 3 && !StringUtils.isNull(this.k) && this.g != null) {
                         for (int i3 = 0; i3 < this.g.size(); i3++) {
-                            tda tdaVar = this.g.get(i3);
-                            if (tdaVar != null && TextUtils.equals(this.j, tdaVar.b())) {
+                            yda ydaVar = this.g.get(i3);
+                            if (ydaVar != null && TextUtils.equals(this.j, ydaVar.b())) {
                                 return i3;
                             }
                         }
                     }
                 } else if (!StringUtils.isNull(this.j) && this.f != null) {
                     for (int i4 = 0; i4 < this.f.size(); i4++) {
-                        tda tdaVar2 = this.f.get(i4);
-                        if (tdaVar2 != null && (tdaVar2.c() instanceof QmFilterItem) && this.j.equals(((QmFilterItem) tdaVar2.c()).id)) {
+                        yda ydaVar2 = this.f.get(i4);
+                        if (ydaVar2 != null && (ydaVar2.c() instanceof QmFilterItem) && this.j.equals(((QmFilterItem) ydaVar2.c()).id)) {
                             int i5 = i4 - 2;
                             if (i5 >= 0 && i4 + 2 <= this.f.size()) {
                                 return i5;
@@ -975,7 +975,7 @@ public class RecordEffectLayout extends RelativeLayout {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.l = m(R.drawable.obfuscated_res_0x7f080294, 1, "2", sda.b(2));
+            this.l = m(R.drawable.obfuscated_res_0x7f080294, 1, "2", xda.b(2));
             this.j = "-1";
             QmFilterItem qmFilterItem = new QmFilterItem();
             qmFilterItem.id = "-1";
@@ -1013,12 +1013,12 @@ public class RecordEffectLayout extends RelativeLayout {
             HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f092200);
             this.c = hListView2;
             hListView2.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
-            qda qdaVar = new qda();
-            this.d = qdaVar;
-            this.b.setAdapter((ListAdapter) qdaVar);
-            rda rdaVar = new rda();
-            this.e = rdaVar;
-            this.c.setAdapter((ListAdapter) rdaVar);
+            vda vdaVar = new vda();
+            this.d = vdaVar;
+            this.b.setAdapter((ListAdapter) vdaVar);
+            wda wdaVar = new wda();
+            this.e = wdaVar;
+            this.c.setAdapter((ListAdapter) wdaVar);
         }
     }
 
@@ -1075,9 +1075,9 @@ public class RecordEffectLayout extends RelativeLayout {
                 TextView textView = this.a;
                 textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f03da) + str);
             }
-            qda qdaVar = this.d;
-            if (qdaVar != null) {
-                qdaVar.g(str2);
+            vda vdaVar = this.d;
+            if (vdaVar != null) {
+                vdaVar.g(str2);
             }
         }
     }

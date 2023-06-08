@@ -49,13 +49,13 @@ public class eq1 {
 
         /* renamed from: com.baidu.tieba.eq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0285a extends cr1 {
+        public class C0293a extends cr1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ qp1.a b;
             public final /* synthetic */ a c;
 
-            public C0285a(a aVar, qp1.a aVar2) {
+            public C0293a(a aVar, qp1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class eq1 {
                     for (int i = 0; i < this.d.size(); i++) {
                         qp1.a aVar2 = (qp1.a) this.d.get(i);
                         if (aVar2 != null) {
-                            er1.c().b(new C0285a(this, aVar2));
+                            er1.c().b(new C0293a(this, aVar2));
                         }
                     }
                 }

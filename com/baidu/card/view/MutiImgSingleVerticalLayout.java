@@ -26,10 +26,10 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.en;
-import com.baidu.tieba.eo6;
-import com.baidu.tieba.f15;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.j06;
+import com.baidu.tieba.go6;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.l06;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.oy;
 import com.baidu.tieba.pg;
@@ -45,7 +45,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15> {
+public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<h15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int o;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15>
     public TbImageView d;
     public String e;
     public boolean f;
-    public eo6<f15> g;
-    public f15 h;
-    public j06 i;
+    public go6<h15> g;
+    public h15 h;
+    public l06 i;
     public LinkedList<MediaData> j;
     public boolean k;
     public boolean l;
@@ -96,7 +96,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15>
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            eo6<f15> subClickListener;
+            go6<h15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -106,7 +106,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15>
     }
 
     /* loaded from: classes3.dex */
-    public class b implements j06 {
+    public class b implements l06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgSingleVerticalLayout a;
@@ -129,11 +129,11 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15>
             this.a = mutiImgSingleVerticalLayout;
         }
 
-        @Override // com.baidu.tieba.j06
+        @Override // com.baidu.tieba.l06
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                eo6<f15> subClickListener = this.a.getSubClickListener();
+                go6<h15> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.h.objType = 2;
@@ -342,14 +342,14 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15>
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.i == null) {
                 return;
             }
-            j06 j06Var = this.d.i;
+            l06 l06Var = this.d.i;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            j06Var.a(view2, i, z);
+            l06Var.a(view2, i, z);
         }
     }
 
@@ -494,10 +494,10 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15>
         }
     }
 
-    public void setSubClickListener(eo6<f15> eo6Var) {
+    public void setSubClickListener(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, eo6Var) == null) {
-            this.g = eo6Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, go6Var) == null) {
+            this.g = go6Var;
         }
     }
 
@@ -550,13 +550,13 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15>
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: h */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f15Var) == null) {
-            this.h = f15Var;
-            ThreadData threadData = f15Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, h15Var) == null) {
+            this.h = h15Var;
+            ThreadData threadData = h15Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.l);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, o, this.l);
             TextView textView = this.a;
@@ -605,13 +605,13 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements oy<f15>
         }
     }
 
-    public eo6<f15> getSubClickListener() {
+    public go6<h15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.g;
         }
-        return (eo6) invokeV.objValue;
+        return (go6) invokeV.objValue;
     }
 
     public final void i(TbImageView tbImageView, int i, boolean z, boolean z2) {

@@ -59,11 +59,11 @@ public class c70 implements CallFactory.CallFactoryProducer {
 
         /* renamed from: com.baidu.tieba.c70$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0261a implements j70 {
+        public class C0262a implements j70 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0261a(a aVar, Request request) {
+            public C0262a(a aVar, Request request) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public class c70 implements CallFactory.CallFactoryProducer {
                     }
                     newBuilder.eventListener(new e70(this.c.c));
                     if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0261a(this, e));
+                        Dns a = this.c.d.a(e, new C0262a(this, e));
                         newBuilder.dns(a);
                         newBuilder.addNetworkInterceptor(new g70(a));
                     }

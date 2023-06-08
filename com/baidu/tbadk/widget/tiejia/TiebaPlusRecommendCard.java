@@ -28,11 +28,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextTiebaPlusInfo;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch5;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.eh5;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.v16;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.x16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
     public final Context m;
     public TbRichTextTiebaPlusInfo n;
     public final TiePlusHelper o;
-    public v16 p;
+    public x16 p;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -122,7 +122,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
                         case 2:
                             landingType2 = TiePlusStat.LandingType.DIALOG_DOWNLOAD;
                             TiePlusStat.CardBtnType cardBtnType3 = TiePlusStat.CardBtnType.DOWNLOAD;
-                            this.a.o.j(new ch5(TiePlusStat.StatType.DOWNLOAD_FINISHED, TiePlusStat.RichTextType.CARD, this.a.n.V(), str3, str));
+                            this.a.o.j(new eh5(TiePlusStat.StatType.DOWNLOAD_FINISHED, TiePlusStat.RichTextType.CARD, this.a.n.V(), str3, str));
                             this.a.o.onClick(view2);
                             cardBtnType = cardBtnType3;
                             landingType = landingType2;
@@ -224,7 +224,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
     }
 
     /* loaded from: classes4.dex */
-    public class c implements v16.c {
+    public class c implements x16.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -249,7 +249,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.v16.c
+        @Override // com.baidu.tieba.x16.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -483,18 +483,18 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
                     }
                     String str2 = str;
                     if (this.p == null) {
-                        this.p = new v16(this.m, this.o, false);
+                        this.p = new x16(this.m, this.o, false);
                     }
                     this.o.J(this.p);
                     ItemData itemData = new ItemData();
                     itemData.parseProto(W);
                     this.o.N(itemData);
-                    v16 v16Var = this.p;
-                    v16Var.f(W.app_company);
-                    v16Var.g(W.app_icon);
-                    v16Var.h(W.title);
-                    v16Var.i(W.app_version);
-                    v16Var.j(new c(this, str2));
+                    x16 x16Var = this.p;
+                    x16Var.f(W.app_company);
+                    x16Var.g(W.app_icon);
+                    x16Var.h(W.title);
+                    x16Var.i(W.app_version);
+                    x16Var.j(new c(this, str2));
                     this.p.show();
                     TiePlusStat.d(TiePlusStat.StatType.DIALOG_EXPOSE, TiePlusStat.Locate.PB, TiePlusStat.ThreadType.IMAGE_TEXT, TiePlusStat.RichTextType.CARD, this.n.V(), this.n.getForumId(), this.n.U(), str2);
                 } else if (intValue == 1) {
@@ -635,8 +635,8 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             if (tbRichTextTiebaPlusInfo != null && tbRichTextTiebaPlusInfo.W() != null) {
                 this.o.i(this.b);
                 this.o.J(this.p);
-                v16 v16Var = this.p;
-                if (v16Var != null && v16Var.isShowing()) {
+                x16 x16Var = this.p;
+                if (x16Var != null && x16Var.isShowing()) {
                     this.p.onAttachedToWindow();
                 }
                 TiebaPlusInfo W = this.n.W();
@@ -682,54 +682,54 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            m75 d2 = m75.d(this);
+            o75 d2 = o75.d(this);
             d2.o(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
             TbImageView tbImageView = this.a;
             if (tbImageView != null) {
-                m75.d(tbImageView).o(R.string.J_X05);
+                o75.d(tbImageView).o(R.string.J_X05);
                 this.a.setConrers(15);
                 this.a.setPlaceHolder(2);
             }
             TextView textView = this.c;
             if (textView != null) {
-                m75 d3 = m75.d(textView);
+                o75 d3 = o75.d(textView);
                 d3.C(R.string.F_X01);
                 d3.w(R.color.CAM_X0107);
             }
             TextView textView2 = this.d;
             if (textView2 != null) {
-                m75 d4 = m75.d(textView2);
+                o75 d4 = o75.d(textView2);
                 d4.C(R.string.F_X01);
                 d4.w(R.color.CAM_X0109);
             }
             TextView textView3 = this.e;
             if (textView3 != null) {
-                m75 d5 = m75.d(textView3);
+                o75 d5 = o75.d(textView3);
                 d5.C(R.string.F_X01);
                 d5.w(R.color.CAM_X0109);
             }
             TextView textView4 = this.f;
             if (textView4 != null) {
-                m75 d6 = m75.d(textView4);
+                o75 d6 = o75.d(textView4);
                 d6.C(R.string.F_X01);
                 d6.w(R.color.CAM_X0109);
             }
             TextView textView5 = this.g;
             if (textView5 != null) {
-                m75 d7 = m75.d(textView5);
+                o75 d7 = o75.d(textView5);
                 d7.C(R.string.F_X01);
                 d7.w(R.color.CAM_X0109);
             }
             TextView textView6 = this.h;
             if (textView6 != null) {
-                m75 d8 = m75.d(textView6);
+                o75 d8 = o75.d(textView6);
                 d8.C(R.string.F_X01);
                 d8.w(R.color.CAM_X0109);
             }
             View view2 = this.i;
             if (view2 != null) {
-                m75.d(view2).f(R.color.CAM_X0110);
+                o75.d(view2).f(R.color.CAM_X0110);
             }
             View view3 = this.j;
             if (view3 != null) {

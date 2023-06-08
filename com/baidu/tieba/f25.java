@@ -1,123 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
-import tbclient.FrsPage.Size;
 /* loaded from: classes5.dex */
-public class f25 {
+public class f25 implements Comparable<f25> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<i25> a;
-    public String b;
-    public i15 c;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public boolean n;
+    public int o;
+    public CardLinkInfoData p;
+    public int q;
 
-    public f25() {
+    public f25(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.a = i;
+        this.b = i2;
     }
 
-    public i15 a() {
-        InterceptResult invokeV;
+    public static f25 b(TbLinkSpanGroup tbLinkSpanGroup, eu7 eu7Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, eu7Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            f25 f25Var = new f25(tbLinkSpanGroup.e(), 2);
+            if (eu7Var == null) {
+                return f25Var;
+            }
+            if (TextUtils.isEmpty(eu7Var.f())) {
+                str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
+            } else {
+                str = eu7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+            }
+            f25Var.d = str;
+            f25Var.c = eu7Var.c();
+            f25Var.m = eu7Var.a();
+            if (!ListUtils.isEmpty(eu7Var.b()) && eu7Var.b().get(0) != null) {
+                f25Var.e = eu7Var.b().get(0).a();
+            }
+            f25Var.l = eu7Var.f();
+            f25Var.f = eu7Var.d();
+            if (eu7Var.e() != null) {
+                f25Var.j = eu7Var.e().a();
+                f25Var.k = eu7Var.e().b();
+            }
+            tbLinkSpanGroup.B(f25Var);
+            return f25Var;
         }
-        return (i15) invokeV.objValue;
+        return (f25) invokeLL.objValue;
     }
 
-    public ArrayList<i25> b() {
-        InterceptResult invokeV;
+    public static f25 c(TbLinkSpanGroup tbLinkSpanGroup, lb5 lb5Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, lb5Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            boolean z = true;
+            f25 f25Var = new f25(tbLinkSpanGroup.e(), 1);
+            if (lb5Var == null) {
+                return f25Var;
+            }
+            int i = lb5Var.b;
+            if (i == 4) {
+                CardLinkInfoData cardLinkInfoData = lb5Var.j;
+                if (cardLinkInfoData != null) {
+                    f25Var.p = cardLinkInfoData;
+                    f25Var.c = cardLinkInfoData.title;
+                    f25Var.e = cardLinkInfoData.imageUrl;
+                    f25Var.l = cardLinkInfoData.tagText;
+                    f25Var.g = cardLinkInfoData.url;
+                    f25Var.i = false;
+                    f25Var.o = i;
+                }
+            } else {
+                f25Var.p = lb5Var.j;
+                f25Var.c = lb5Var.e;
+                f25Var.e = lb5Var.d;
+                f25Var.l = lb5Var.f;
+                f25Var.f = lb5Var.g;
+                f25Var.g = lb5Var.c;
+                f25Var.n = lb5Var.h;
+                String str = lb5Var.i;
+                if (i != 1 && i != 5) {
+                    z = false;
+                }
+                f25Var.i = z;
+                f25Var.o = lb5Var.b;
+            }
+            tbLinkSpanGroup.B(f25Var);
+            return f25Var;
         }
-        return (ArrayList) invokeV.objValue;
+        return (f25) invokeLL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull f25 f25Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f25Var)) == null) {
+            return this.q - f25Var.q;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(ActivityHead activityHead, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(1048579, this, activityHead, j) != null) || activityHead == null) {
-            return;
-        }
-        activityHead.activity_type.intValue();
-        String str = activityHead.activity_title;
-        Size size = activityHead.top_size;
-        if (size != null) {
-            size.width.intValue();
-        }
-        Size size2 = activityHead.top_size;
-        if (size2 != null) {
-            size2.height.intValue();
-        }
-        this.b = activityHead.obj_id;
-        f(activityHead.head_imgs);
-        i15 i15Var = new i15();
-        i15Var.a = activityHead.pull_down_pic_android;
-        i15Var.b = activityHead.pull_down_url;
-        i15Var.c = activityHead.pull_down_interval.intValue();
-        i15Var.d = activityHead.pull_down_exposure_url;
-        i15Var.e = activityHead.pull_down_click_url;
-        i15Var.f = activityHead.pull_down_schema;
-        i15Var.g = activityHead.pull_down_package_name;
-        i15Var.h = activityHead.is_ad.booleanValue();
-        i15Var.i = activityHead.obj_id;
-        i15Var.j = j;
-        this.c = i15Var;
-    }
-
-    public void e(HeadImgs headImgs) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, headImgs) != null) || headImgs == null) {
-            return;
-        }
-        i25 i25Var = new i25();
-        i25Var.o(headImgs);
-        this.a.add(i25Var);
-    }
-
-    public void f(List<HeadImgs> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        for (HeadImgs headImgs : list) {
-            e(headImgs);
-        }
-    }
-
-    public void g(ArrayList<i25> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.a = arrayList;
-        }
+        return invokeL.intValue;
     }
 }

@@ -1,34 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.os.Message;
 /* loaded from: classes6.dex */
-public class hgb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Object b;
+public interface hgb {
 
-    public hgb(Object obj, Object obj2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj, obj2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.a = obj;
-        this.b = obj2;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void handleMessage(Message message);
+
+        void onPause();
+
+        void onResume();
+
+        void onStart();
+
+        void onStop();
     }
+
+    boolean a(int i, long j);
+
+    void b(a aVar);
+
+    void c();
+
+    void d(int i);
+
+    boolean e(Runnable runnable);
+
+    boolean f(int i);
+
+    void g(int i);
+
+    int getStatus();
+
+    boolean sendMessage(Message message);
+
+    void setName(String str);
+
+    void start();
 }

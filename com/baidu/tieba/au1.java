@@ -31,7 +31,7 @@ public class au1 implements dw1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new qjb(inputStream);
+            return new vjb(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.hob;
-import com.baidu.tieba.iob;
-import com.baidu.tieba.job;
-import com.baidu.tieba.lmb;
+import com.baidu.tieba.arb;
+import com.baidu.tieba.brb;
 import com.baidu.tieba.mob;
+import com.baidu.tieba.nob;
 import com.baidu.tieba.oob;
-import com.baidu.tieba.sqb;
-import com.baidu.tieba.vqb;
-import com.baidu.tieba.wqb;
+import com.baidu.tieba.qmb;
+import com.baidu.tieba.rob;
+import com.baidu.tieba.tob;
+import com.baidu.tieba.xqb;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final lmb a;
-    public final lmb b;
-    public final lmb c;
+    public final qmb a;
+    public final qmb b;
+    public final qmb c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static lmb computation() {
-        return sqb.f(a().a);
+    public static qmb computation() {
+        return xqb.f(a().a);
     }
 
-    public static lmb immediate() {
-        return job.a;
+    public static qmb immediate() {
+        return oob.a;
     }
 
-    public static lmb io() {
-        return sqb.k(a().b);
+    public static qmb io() {
+        return xqb.k(a().b);
     }
 
-    public static lmb newThread() {
-        return sqb.l(a().c);
+    public static qmb newThread() {
+        return xqb.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            iob.d.shutdown();
+            nob.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            iob.d.start();
+            nob.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static lmb trampoline() {
-        return oob.a;
+    public static qmb trampoline() {
+        return tob.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof mob) {
-            ((mob) this.a).shutdown();
+        if (this.a instanceof rob) {
+            ((rob) this.a).shutdown();
         }
-        if (this.b instanceof mob) {
-            ((mob) this.b).shutdown();
+        if (this.b instanceof rob) {
+            ((rob) this.b).shutdown();
         }
-        if (this.c instanceof mob) {
-            ((mob) this.c).shutdown();
+        if (this.c instanceof rob) {
+            ((rob) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof mob) {
-            ((mob) this.a).start();
+        if (this.a instanceof rob) {
+            ((rob) this.a).start();
         }
-        if (this.b instanceof mob) {
-            ((mob) this.b).start();
+        if (this.b instanceof rob) {
+            ((rob) this.b).start();
         }
-        if (this.c instanceof mob) {
-            ((mob) this.c).start();
+        if (this.c instanceof rob) {
+            ((rob) this.c).start();
         }
     }
 
     public Schedulers() {
-        wqb f = vqb.c().f();
-        lmb g = f.g();
+        brb f = arb.c().f();
+        qmb g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = wqb.a();
+            this.a = brb.a();
         }
-        lmb i = f.i();
+        qmb i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = wqb.c();
+            this.b = brb.c();
         }
-        lmb j = f.j();
+        qmb j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = wqb.e();
+            this.c = brb.e();
         }
     }
 
-    public static lmb from(Executor executor) {
-        return new hob(executor);
+    public static qmb from(Executor executor) {
+        return new mob(executor);
     }
 }

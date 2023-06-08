@@ -29,9 +29,9 @@ import com.baidu.tieba.ig;
 import com.baidu.tieba.mg;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.ng;
-import com.baidu.tieba.ow5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.qg;
+import com.baidu.tieba.qw5;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
@@ -370,8 +370,8 @@ public abstract class AbstractImageLoaderProc implements qg<gn> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            ow5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = ow5.d(urlbyClientServerAddr);
+            qw5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = qw5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -484,7 +484,7 @@ public abstract class AbstractImageLoaderProc implements qg<gn> {
                 p = decodeToResourceWithWH(bArr3, i7, i6).p();
             }
             if (z && p == null) {
-                ow5.b(str4);
+                qw5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {

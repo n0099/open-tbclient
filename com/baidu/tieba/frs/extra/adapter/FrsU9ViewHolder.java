@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d05;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.nx9;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.o45;
 import com.baidu.tieba.q9;
+import com.baidu.tieba.r45;
+import com.baidu.tieba.sx9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public m45 k;
-    public p45 l;
+    public o45 k;
+    public r45 l;
     public ImageView m;
     public View n;
     public int o;
@@ -134,25 +134,25 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(nx9 nx9Var) {
+    public void f(sx9 sx9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, nx9Var) != null) || nx9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, sx9Var) != null) || sx9Var == null) {
             return;
         }
-        m45 c = nx9Var.c();
-        p45 d = nx9Var.d();
+        o45 c = sx9Var.c();
+        r45 d = sx9Var.d();
         this.k = c;
         this.l = d;
-        if (nx9Var.e()) {
+        if (sx9Var.e()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        m45 m45Var = this.k;
-        if (m45Var == null) {
+        o45 o45Var = this.k;
+        if (o45Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(m45Var.g())) {
+        } else if (StringUtils.isNull(o45Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {

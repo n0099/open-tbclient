@@ -1,32 +1,30 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.webkit.WebView;
-import androidx.collection.ArrayMap;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.browser.exception.JsInterfaceException;
-import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qj6 extends rj6 {
+public class qj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
-    public final Map<String, AbsJsInterface> b;
+    public ArrayList<zy9> a;
 
-    public qj6(WebView webView) {
+    public qj6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,92 +34,126 @@ public class qj6 extends rj6 {
                 return;
             }
         }
-        this.a = webView;
-        this.b = new ArrayMap();
+        this.a = new ArrayList<>();
     }
 
-    public void h(String str) {
+    public void a(zy9 zy9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            fm6.c("newHybrid", "remove k:" + str);
-            AbsJsInterface absJsInterface = this.b.get(str);
-            if (absJsInterface != null) {
-                absJsInterface.deAttachWebView();
+        if (interceptable == null || interceptable.invokeL(1048576, this, zy9Var) == null) {
+            this.a.add(zy9Var);
+        }
+    }
+
+    public void f(List<Pair<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty()) {
+            Iterator<zy9> it = this.a.iterator();
+            while (it.hasNext()) {
+                zy9 next = it.next();
+                next.removeObserverBridge(list);
+                next.onDestroy();
             }
-            this.a.removeJavascriptInterface(str);
         }
     }
 
-    public static qj6 g(WebView webView) {
-        InterceptResult invokeL;
+    public final boolean b(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) {
-            return new qj6(webView);
-        }
-        return (qj6) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj6
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.b.keySet()) {
-                h(str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2)) == null) {
+            zq8 hybridLog = HybridLog.getInstance();
+            hybridLog.c("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
+            if (webView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                return true;
             }
-            this.b.clear();
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pj6
-    public void b() {
+    public bz9 c(WebView webView, dz9 dz9Var, bz9 bz9Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Map<String, Class<? extends AbsJsInterface>> b = vl6.a().b();
-            if (!b.isEmpty()) {
-                try {
-                    e(b);
-                } catch (JsInterfaceException e) {
-                    if (!il6.a()) {
-                        ((gm6) ServiceManager.getService(gm6.a)).a(e);
-                        return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, dz9Var, bz9Var)) == null) {
+            if (bz9Var == null) {
+                bz9Var = new bz9();
+            }
+            if ("notification".equals(dz9Var.c()) && "addObserver".equals(dz9Var.a())) {
+                Iterator<zy9> it = this.a.iterator();
+                while (it.hasNext()) {
+                    bz9Var = it.next().addObserver(webView, dz9Var.d(), bz9Var, true);
+                    if (bz9Var.j()) {
+                        return bz9Var;
                     }
-                    throw e;
+                }
+                if (!bz9Var.j()) {
+                    bz9Var.z(202);
+                    bz9Var.v(jl6.getContext().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                Iterator<zy9> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    bz9Var = it2.next().dispatch(webView, dz9Var, bz9Var);
+                    if (bz9Var.i()) {
+                        return bz9Var;
+                    }
+                }
+                if (!bz9Var.i()) {
+                    bz9Var.z(202);
                 }
             }
+            return bz9Var;
         }
+        return (bz9) invokeLLL.objValue;
     }
 
-    public final void e(Map<String, Class<? extends AbsJsInterface>> map) throws JsInterfaceException {
+    public void d(WebView webView, bz9 bz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            if (d()) {
-                for (Map.Entry<String, Class<? extends AbsJsInterface>> entry : map.entrySet()) {
-                    Class<? extends AbsJsInterface> value = entry.getValue();
-                    if (c(value)) {
-                        try {
-                            f(entry.getKey(), value);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, bz9Var) != null) || webView == null || bz9Var == null || !bz9Var.k()) {
+            return;
+        }
+        b(webView, bz9Var.c(), bz9Var.d());
+    }
+
+    public boolean e(WebView webView, List<bz9> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, list)) == null) {
+            if (webView == null || ListUtils.isEmpty(list)) {
+                return false;
+            }
+            while (true) {
+                boolean z = false;
+                for (bz9 bz9Var : list) {
+                    if (bz9Var != null && bz9Var.k()) {
+                        if (b(webView, bz9Var.c(), bz9Var.d()) || z) {
+                            z = true;
                         }
-                    } else {
-                        throw new JsInterfaceException("This object has not offer method javascript to call ,please check addJavascriptInterface annotation was be added");
                     }
                 }
-                return;
+                return z;
             }
-            throw new JsInterfaceException("The injected object is not safe, give up injection");
         }
+        return invokeLL.booleanValue;
     }
 
-    @SuppressLint({"JavascriptInterface"})
-    public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+    public List<bz9> g(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
-            fm6.c("newHybrid", "inject k:" + str + "  v:" + cls);
-            AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            newInstance.attachWebView(this.a);
-            this.b.put(str, newInstance);
-            this.a.addJavascriptInterface(newInstance, str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, webView, str, hashMap)) == null) {
+            List<bz9> list = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Iterator<zy9> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
         }
+        return (List) invokeLLL.objValue;
     }
 }

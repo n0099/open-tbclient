@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardForumEnterView;
+import com.baidu.tieba.feed.component.CardAbstractView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s87 extends r77<CardForumEnterView, c47> {
+public class s87 extends t77<CardAbstractView, c47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class s87 extends r77<CardForumEnterView, c47> {
         }
     }
 
-    @Override // com.baidu.tieba.r77, com.baidu.tieba.g87
+    @Override // com.baidu.tieba.t77, com.baidu.tieba.i87
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            o97.n(a, null, null, null, -2);
+            q97.l(a, null, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g87
+    @Override // com.baidu.tieba.i87
     /* renamed from: e */
-    public void b(@NonNull CardForumEnterView cardForumEnterView, @NonNull c47 c47Var) {
+    public void b(@NonNull CardAbstractView cardAbstractView, @NonNull c47 c47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardForumEnterView, c47Var) == null) {
-            cardForumEnterView.update(c47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAbstractView, c47Var) == null) {
+            cardAbstractView.f(c47Var);
         }
     }
 }

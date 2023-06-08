@@ -27,13 +27,13 @@ public class qv3 {
 
         /* renamed from: com.baidu.tieba.qv3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0430a implements Runnable {
+        public class RunnableC0442a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0430a(a aVar, byte[] bArr) {
+            public RunnableC0442a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class qv3 {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                so3.l(new RunnableC0430a(this, bArr), "HandshakeRequest");
+                so3.l(new RunnableC0442a(this, bArr), "HandshakeRequest");
             }
         }
 

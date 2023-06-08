@@ -4,7 +4,7 @@ import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.report.a;
 import com.kwad.sdk.core.report.m;
 import com.kwad.sdk.core.report.u;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class cd {
     @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
     public static void tl() {

@@ -1,54 +1,54 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.gmb;
-import com.baidu.tieba.hmb;
-import com.baidu.tieba.hrb;
-import com.baidu.tieba.pmb;
+import com.baidu.tieba.lmb;
+import com.baidu.tieba.mmb;
+import com.baidu.tieba.mrb;
+import com.baidu.tieba.umb;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements hmb {
+public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements mmb {
     public static final long serialVersionUID = -7965400327305809232L;
-    public final hmb actual;
+    public final mmb actual;
     public int index;
-    public final hrb sd = new hrb();
-    public final gmb[] sources;
+    public final mrb sd = new mrb();
+    public final lmb[] sources;
 
-    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(hmb hmbVar, gmb[] gmbVarArr) {
-        this.actual = hmbVar;
-        this.sources = gmbVarArr;
+    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(mmb mmbVar, lmb[] lmbVarArr) {
+        this.actual = mmbVar;
+        this.sources = lmbVarArr;
     }
 
     public void next() {
         if (this.sd.isUnsubscribed() || getAndIncrement() != 0) {
             return;
         }
-        gmb[] gmbVarArr = this.sources;
+        lmb[] lmbVarArr = this.sources;
         while (!this.sd.isUnsubscribed()) {
             int i = this.index;
             this.index = i + 1;
-            if (i == gmbVarArr.length) {
+            if (i == lmbVarArr.length) {
                 this.actual.onCompleted();
                 return;
             }
-            gmbVarArr[i].j(this);
+            lmbVarArr[i].j(this);
             if (decrementAndGet() == 0) {
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.hmb
+    @Override // com.baidu.tieba.mmb
     public void onCompleted() {
         next();
     }
 
-    @Override // com.baidu.tieba.hmb
+    @Override // com.baidu.tieba.mmb
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // com.baidu.tieba.hmb
-    public void onSubscribe(pmb pmbVar) {
-        this.sd.a(pmbVar);
+    @Override // com.baidu.tieba.mmb
+    public void onSubscribe(umb umbVar) {
+        this.sd.a(umbVar);
     }
 }

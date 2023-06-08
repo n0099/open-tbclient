@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.widget.InterestForumTagView;
@@ -169,7 +169,7 @@ public class InterestForumTagLayout extends LinearLayout implements py {
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                m75 d = m75.d(textView);
+                o75 d = o75.d(textView);
                 d.w(R.color.CAM_X0109);
                 d.B(R.dimen.T_X06);
             }
@@ -263,7 +263,7 @@ public class InterestForumTagLayout extends LinearLayout implements py {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (eMTextView = this.e) != null) {
-            m75 d = m75.d(eMTextView);
+            o75 d = o75.d(eMTextView);
             d.w(R.color.CAM_X0110);
             d.B(R.dimen.T_X06);
         }

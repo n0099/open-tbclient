@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class tu4 {
     public static /* synthetic */ Interceptable $ic;
     public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class tu4 {
             missionEvent.tid = j;
             missionEvent.pageId = i;
             missionEvent.actionType = str;
-            gp5.i(missionEvent);
+            ip5.i(missionEvent);
         }
     }
 
@@ -124,7 +124,7 @@ public class tu4 {
             missionEvent.pageId = i2;
             missionEvent.pageType = i;
             missionEvent.actionType = str;
-            gp5.i(missionEvent);
+            ip5.i(missionEvent);
         }
     }
 
@@ -177,7 +177,7 @@ public class tu4 {
         }
     }
 
-    public static g55 i(CompleteTaskToastData completeTaskToastData) {
+    public static i55 i(CompleteTaskToastData completeTaskToastData) {
         InterceptResult invokeL;
         TbPageContext d;
         Interceptable interceptable = $ic;
@@ -185,13 +185,13 @@ public class tu4 {
             if (completeTaskToastData == null || (d = d()) == null || d.getUniqueId() == null || completeTaskToastData.pageId != d.getUniqueId().getId()) {
                 return null;
             }
-            g55 f = g55.f(d.getPageActivity(), completeTaskToastData.message);
+            i55 f = i55.f(d.getPageActivity(), completeTaskToastData.message);
             f.g(completeTaskToastData.duration);
             f.h(a);
             f.i(completeTaskToastData);
             f.j();
             return f;
         }
-        return (g55) invokeL.objValue;
+        return (i55) invokeL.objValue;
     }
 }

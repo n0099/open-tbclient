@@ -42,15 +42,15 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gpa;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNameChangeNotifyData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.kh8;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.lpa;
+import com.baidu.tieba.n95;
 import com.baidu.tieba.nh8;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.qh8;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -236,8 +236,8 @@ public class NavigationBarSlice extends Slice {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{gpa.a(gpa.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.r)), "forumId", String.valueOf(this.a.s))});
-                kh8.c("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.s, this.a.r);
+                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{lpa.a(lpa.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.r)), "forumId", String.valueOf(this.a.s))});
+                nh8.c("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.s, this.a.r);
             }
         }
     }
@@ -301,7 +301,7 @@ public class NavigationBarSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
                 dialogInterface.dismiss();
-                nh8.b((Activity) this.a);
+                qh8.b((Activity) this.a);
             }
         }
     }
@@ -483,20 +483,20 @@ public class NavigationBarSlice extends Slice {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m75 d = m75.d(this.a);
+                o75 d = o75.d(this.a);
                 d.o(R.string.J_X07);
                 d.f(R.color.CAM_X0201);
-                m75 d2 = m75.d(this.b);
+                o75 d2 = o75.d(this.b);
                 d2.C(R.string.F_X02);
                 d2.w(R.color.CAM_X0105);
                 d2.B(R.dimen.T_X05);
-                m75 d3 = m75.d(this.c);
+                o75 d3 = o75.d(this.c);
                 d3.C(R.string.F_X01);
                 d3.w(R.color.CAM_X0108);
                 d3.B(R.dimen.T_X07);
                 SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
-                m75 d4 = m75.d(this.d);
+                o75 d4 = o75.d(this.d);
                 d4.m(R.dimen.L_X02);
                 d4.l(R.color.CAM_X0302);
                 d4.o(R.string.J_X07);
@@ -569,13 +569,13 @@ public class NavigationBarSlice extends Slice {
                 if (o0()) {
                     if (!n0()) {
                         z0(this.k.getActivity());
-                        l95.m().w("key_group_chat_subscribe_click", true);
+                        n95.m().w("key_group_chat_subscribe_click", true);
                     } else {
-                        nh8.b(this.k.getActivity());
+                        qh8.b(this.k.getActivity());
                     }
                 }
             } else {
-                nh8.c(this.k.getActivity());
+                qh8.c(this.k.getActivity());
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921770));
         }
@@ -588,8 +588,8 @@ public class NavigationBarSlice extends Slice {
             if (this.r <= 0 || this.l || i2 < TbSingleton.getInstance().getSendMsgNumToRemindSubscribe()) {
                 return false;
             }
-            l95 m = l95.m();
-            String q = l95.q("SHOW_SUBSCRIBE_REMIND_DIALOG_" + this.r);
+            n95 m = n95.m();
+            String q = n95.q("SHOW_SUBSCRIBE_REMIND_DIALOG_" + this.r);
             long o = m.o(q, 0L);
             if (o > 0 && TimeHelper.isSameDay(o, System.currentTimeMillis())) {
                 return false;
@@ -689,7 +689,7 @@ public class NavigationBarSlice extends Slice {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return l95.m().i("key_group_chat_subscribe_click", false);
+            return n95.m().i("key_group_chat_subscribe_click", false);
         }
         return invokeV.booleanValue;
     }
@@ -810,11 +810,11 @@ public class NavigationBarSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.p.j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.im_group_chat, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL_PRESS));
-            m75 d2 = m75.d(this.p.i);
+            o75 d2 = o75.d(this.p.i);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
             d2.B(R.dimen.T_X05);
-            m75 d3 = m75.d(this.p.k);
+            o75 d3 = o75.d(this.p.k);
             d3.w(R.string.F_X01);
             d3.w(R.color.CAM_X0109);
             d3.B(R.dimen.T_X09);

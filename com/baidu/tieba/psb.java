@@ -1,19 +1,34 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import android.view.ViewGroup;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
 public interface psb {
-    void a(Activity activity, eub eubVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    hub b();
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(CancelType cancelType);
+    }
 
-    void c(hub hubVar);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(CancelType cancelType);
 
-    void release();
+        void b();
+    }
+
+    GiftBagsInfo a();
+
+    boolean b(Activity activity, b bVar, rsb rsbVar, AbsViewEventHandler absViewEventHandler);
+
+    void c(ViewGroup viewGroup, Activity activity);
+
+    void d(GiftBagsInfo giftBagsInfo);
+
+    boolean e(Activity activity, a aVar, rsb rsbVar, AbsViewEventHandler absViewEventHandler);
+
+    void f(GiftBagsInfo giftBagsInfo);
 }

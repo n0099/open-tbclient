@@ -19,8 +19,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d05;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.lw5;
-import com.baidu.tieba.o17;
+import com.baidu.tieba.nw5;
+import com.baidu.tieba.q17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -177,7 +177,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
             this.b.setLayoutParams(layoutParams);
-            boolean c = lw5.c();
+            boolean c = nw5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.k;
             gifInfo.mGid = this.f;
@@ -193,7 +193,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             if (!TextUtils.isEmpty(this.h)) {
                 this.c.N(this.h, 10, false);
             } else {
-                Bitmap f = o17.f(this.f, "panel.png");
+                Bitmap f = q17.f(this.f, "panel.png");
                 if (f != null) {
                     new gn(f, false).h(this.c);
                 }

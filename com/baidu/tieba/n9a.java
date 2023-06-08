@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface n9a {
-    void b();
+    void d(boolean z);
 
-    void e();
-
-    void f();
+    void g(float f);
 }

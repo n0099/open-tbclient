@@ -2,7 +2,7 @@ package com.baidu.tieba.face.data;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l17;
+import com.baidu.tieba.n17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
-public class SingleBarEmotionRecommendData implements Serializable, l17 {
+public class SingleBarEmotionRecommendData implements Serializable, n17 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class SingleBarEmotionRecommendData implements Serializable, l17 {
         }
     }
 
-    @Override // com.baidu.tieba.l17
+    @Override // com.baidu.tieba.n17
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class SingleBarEmotionRecommendData implements Serializable, l17 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.l17
+    @Override // com.baidu.tieba.n17
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

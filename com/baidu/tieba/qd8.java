@@ -1,233 +1,177 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.ChatRoomInfoData;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.ChatGroupSource;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public class qd8 extends mc8 {
+public class qd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long k;
-    public final Set<Long> l;
-    public boolean m;
-    @Nullable
-    public final rd8 n;
-    @Nullable
-    public sd8 o;
-    public final CustomMessageListener p;
+    public pd8 a;
+    public CollapseState b;
+    public int c;
 
-    @Override // com.baidu.tieba.mc8
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "SCENE_CHAT_ENTRANCE" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qd8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qd8 qd8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qd8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qd8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Map map;
-            ChatRoomInfo chatRoomInfo;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && !customResponsedMessage.hasError() && (customResponsedMessage.getData() instanceof Map) && (map = (Map) customResponsedMessage.getData()) != null && !map.isEmpty() && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.k))) != null && this.a.n != null) {
-                this.a.n.a(chatRoomInfo);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements sn5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qd8 a;
-
-        public b(qd8 qd8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qd8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qd8Var;
-        }
-
-        @Override // com.baidu.tieba.sn5
-        public void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, chatRoomInfo}) == null) {
-                this.a.l.add(Long.valueOf(j));
-                if (this.a.o != null && i == 0) {
-                    this.a.o.b(j);
-                }
-                this.a.m = true;
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements tn5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qd8 a;
-
-        public c(qd8 qd8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qd8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qd8Var;
-        }
-
-        @Override // com.baidu.tieba.tn5
-        public void a(long j, int i, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-                this.a.l.remove(Long.valueOf(j));
-                if (this.a.o != null && i == -200) {
-                    this.a.o.a(j);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qd8(@NonNull Context context, @Nullable rd8 rd8Var) {
-        super(context, ChatGroupSource.GROUP_CHAT_FLOAT);
+    public qd8(pd8 pd8Var, rd8 rd8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, rd8Var};
+            Object[] objArr = {pd8Var, rd8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (ChatGroupSource) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 0L;
-        this.l = new HashSet();
-        this.p = new a(this, 2921766);
-        this.n = rd8Var;
-        MessageManager.getInstance().registerListener(this.p);
+        this.c = 0;
+        this.a = pd8Var;
+        this.b = new CollapseState();
     }
 
-    public boolean y(long j) {
-        InterceptResult invokeJ;
+    public final void d(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            return this.l.contains(Long.valueOf(j));
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public void z(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            p(j, 0);
-        }
-    }
-
-    @Override // com.baidu.tieba.mc8
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.j();
-            this.m = false;
-            this.l.clear();
-            m(null);
-            o(null);
-            MessageManager.getInstance().unRegisterListener(this.p);
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            if (!TextUtils.isEmpty(str) && j != 0) {
+                CollapseState collapseState = this.b;
+                collapseState.a = CollapseState.Icon.FORUM;
+                collapseState.e = str;
+                collapseState.d = j;
+                return;
+            }
+            CollapseState collapseState2 = this.b;
+            collapseState2.a = CollapseState.Icon.DEFAULT;
+            collapseState2.e = null;
+            collapseState2.d = 0L;
         }
     }
 
-    public boolean w() {
-        InterceptResult invokeV;
+    public final void e(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.m;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                this.b.c = CollapseState.Tip.AT_ME;
+            } else if (z2) {
+                this.b.c = CollapseState.Tip.THREE_EXP;
+            } else {
+                this.b.c = CollapseState.Tip.DEFAULT;
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public void x(List<ChatRoomInfoData> list, long j, @Nullable sd8 sd8Var) {
+    public void a(List<Long> list, long j, List list2, int i) {
+        List<Long> list3;
+        ChatRoomInfo chatRoomInfo;
+        boolean z;
+        boolean a;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j), sd8Var}) != null) || ListUtils.isEmpty(list)) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) && (list3 = list) != null && list2 != null) {
+            long j2 = 0;
+            String str = null;
+            this.c = 0;
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                if (list2.get(i2) instanceof ChatGroupInfo) {
+                    List<ChatRoomInfo> roomInfoList = ((ChatGroupInfo) list2.get(i2)).getRoomInfoList();
+                    if (!ListUtils.isEmpty(roomInfoList)) {
+                        this.c += roomInfoList.size();
+                    }
+                }
+            }
+            int i3 = -1;
+            int i4 = 0;
+            boolean z2 = false;
+            boolean z3 = false;
+            int i5 = -1;
+            while (i4 < list2.size()) {
+                if (list2.get(i4) instanceof ChatGroupInfo) {
+                    List<ChatRoomInfo> roomInfoList2 = ((ChatGroupInfo) list2.get(i4)).getRoomInfoList();
+                    if (!ListUtils.isEmpty(roomInfoList2)) {
+                        int i6 = 0;
+                        while (i6 < roomInfoList2.size() && (chatRoomInfo = roomInfoList2.get(i6)) != null) {
+                            if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            int indexOf = list3.indexOf(Long.valueOf(chatRoomInfo.getRoomId()));
+                            if (indexOf != i3) {
+                                if (z && !z2) {
+                                    j2 = chatRoomInfo.getRoomId();
+                                    str = chatRoomInfo.getAvatar();
+                                } else if (z && z2) {
+                                    if (i5 < 0 || indexOf < i5) {
+                                        j2 = chatRoomInfo.getRoomId();
+                                        str = chatRoomInfo.getAvatar();
+                                    }
+                                } else if (!z && !z2 && ((!(a = lh8.a(j)) || this.c == 1) && (i5 < 0 || indexOf < i5))) {
+                                    j2 = chatRoomInfo.getRoomId();
+                                    z3 = !a;
+                                    str = chatRoomInfo.getAvatar();
+                                    i5 = indexOf;
+                                    z2 = false;
+                                }
+                                i5 = indexOf;
+                                z2 = true;
+                                z3 = false;
+                            }
+                            i6++;
+                            list3 = list;
+                            i3 = -1;
+                        }
+                    }
+                }
+                i4++;
+                list3 = list;
+                i3 = -1;
+            }
+            CollapseState clone = this.b.clone();
+            e(z2, z3);
+            d(str, j2);
+            pd8 pd8Var = this.a;
+            if (pd8Var != null) {
+                pd8Var.update(clone, this.b);
+            }
         }
-        this.k = j;
-        this.o = sd8Var;
-        i(vd8.c(list));
-        this.f = new b(this);
-        this.g = new c(this);
-        m(this.f);
-        o(this.g);
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            CollapseState clone = this.b.clone();
+            if (z) {
+                this.b.b = CollapseState.State.EXPAND;
+            } else {
+                this.b.b = CollapseState.State.COLLAPSE;
+            }
+            pd8 pd8Var = this.a;
+            if (pd8Var != null) {
+                pd8Var.update(clone, this.b);
+            }
+        }
+    }
+
+    public void c(List<Long> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            CollapseState clone = this.b.clone();
+            e(false, false);
+            if (this.c != 1) {
+                d(null, 0L);
+            }
+            pd8 pd8Var = this.a;
+            if (pd8Var != null) {
+                pd8Var.update(clone, this.b);
+            }
+        }
     }
 }

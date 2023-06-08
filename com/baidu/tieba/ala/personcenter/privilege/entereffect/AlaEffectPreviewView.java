@@ -27,7 +27,7 @@ import com.baidu.tieba.gn;
 import com.baidu.tieba.og;
 import com.baidu.tieba.oi;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.tg6;
+import com.baidu.tieba.vg6;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,7 +43,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public tg6.c f;
+    public vg6.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
@@ -324,7 +324,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         e();
     }
 
-    public void setAnimCompleteCallback(tg6.c cVar) {
+    public void setAnimCompleteCallback(vg6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;

@@ -1,44 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.validation.utils.ValidationLog;
 /* loaded from: classes8.dex */
 public class uwa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static boolean b = false;
-    public static boolean c = false;
-    public static boolean d = true;
-    public static long e = 300000;
-    public static int f = 10;
-    public static long g = 604800000;
-    public static long h = 104857600;
-    public static int i = 100;
-    public static int j = 5;
-    public static int k = 10;
-    public static long l = 104857600;
-    public static int m = 0;
-    public static int n = 1;
-    public static int o = 1;
-    public static int p = 0;
-    public static int q = 1;
+    public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948226794, "Lcom/baidu/tieba/uwa;")) == null) {
-            return;
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                String str = Build.VERSION.RELEASE;
+                b = str;
+                return str == null ? "" : str;
+            }
+            return b;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (TextUtils.isEmpty(d)) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    String charSequence = packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
+                    d = charSequence;
+                    return charSequence;
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return d;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948226794, "Lcom/baidu/tieba/uwa;");
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            StringBuilder sb = new StringBuilder(str);
+            sb.append(" ");
+            sb.append("Sapi_");
+            sb.append(d());
+            sb.append("_");
+            sb.append("Android_");
+            sb.append(b(context));
+            sb.append("_");
+            sb.append(e(context));
+            sb.append("_");
+            sb.append(f());
+            sb.append("_");
+            sb.append(a());
+            sb.append("_Sapi");
+            ValidationLog.e(sb.toString(), new Object[0]);
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TextUtils.isEmpty(c)) {
+                c = "1.0.5";
+                return "1.0.5";
+            }
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (TextUtils.isEmpty(e)) {
+                try {
+                    String str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                    e = str;
+                    return str;
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return e;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                String str = Build.MODEL;
+                a = str;
+                return str == null ? "" : str;
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
     }
 }

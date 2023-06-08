@@ -173,7 +173,7 @@ public interface wv1 {
 
         /* renamed from: com.baidu.tieba.wv1$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0509b implements rq3<ISwanApkFetcher> {
+        public class C0519b implements rq3<ISwanApkFetcher> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -181,7 +181,7 @@ public interface wv1 {
             public final /* synthetic */ String c;
             public final /* synthetic */ boolean d;
 
-            public C0509b(b bVar, String str, String str2, String str3, boolean z) {
+            public C0519b(b bVar, String str, String str2, String str3, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -652,7 +652,7 @@ public interface wv1 {
                 if (TextUtils.isEmpty(optString)) {
                     qb3.g(AppRuntime.getAppContext(), "download url is empty");
                     return false;
-                } else if (p(new C0509b(this, optString, optString2, optString3, optBoolean))) {
+                } else if (p(new C0519b(this, optString, optString2, optString3, optBoolean))) {
                     return true;
                 } else {
                     a73.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new c(this, optString, optString2, optString3, optBoolean, context));

@@ -1,17 +1,28 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import android.webkit.URLUtil;
-import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
+import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
+import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,12 +30,156 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vk6 {
+public class vk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dz4 a;
+    public final Map<String, String> a;
+    public boolean b;
+    public final CustomMessageListener c;
+    public final jb d;
+
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vk6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vk6 vk6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vk6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vk6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.b || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371) {
+                return;
+            }
+            this.a.b = true;
+            Pair[] pairArr = new Pair[1];
+            if (QuickWebViewSwitch.getInOn()) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            pairArr[0] = Pair.create("offline_switch", str);
+            vk6.u("sync return", "", mm6.a(pairArr), "", "");
+            if (!QuickWebViewSwitch.getInOn()) {
+                return;
+            }
+            if (!TbSingleton.getInstance().isUploadOffPack() && !TbSingleton.getInstance().isClearOffPack()) {
+                dl6.c();
+                return;
+            }
+            al6 al6Var = new al6();
+            al6Var.setPriority(4);
+            al6Var.execute(new Void[0]);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends jb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vk6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(vk6 vk6Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vk6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vk6Var;
+        }
+
+        @Override // com.baidu.tieba.jb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage != null && !responsedMessage.hasError()) {
+                    if (responsedMessage instanceof WebViewCacheResHttpMsg) {
+                        WebViewCacheResHttpMsg webViewCacheResHttpMsg = (WebViewCacheResHttpMsg) responsedMessage;
+                        this.a.v(webViewCacheResHttpMsg);
+                        this.a.e(webViewCacheResHttpMsg.getModuleInfos());
+                        return;
+                    } else if (!(responsedMessage instanceof WebViewCacheResSocketMsg)) {
+                        return;
+                    } else {
+                        this.a.e(((WebViewCacheResSocketMsg) responsedMessage).getModuleInfos());
+                        return;
+                    }
+                }
+                if (QuickWebViewSwitch.getInOn()) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                vk6.u("request webCacheInfo", "error", mm6.a(Pair.create("offline_switch", str)), "", "");
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vk6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-343545111, "Lcom/baidu/tieba/vk6$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-343545111, "Lcom/baidu/tieba/vk6$c;");
+                    return;
+                }
+            }
+            a = new vk6(null);
+        }
+    }
 
     public vk6() {
         Interceptable interceptable = $ic;
@@ -36,187 +191,287 @@ public final class vk6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ConcurrentHashMap();
+        this.b = false;
+        this.c = new a(this, 2001371);
+        this.d = new b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
     }
 
-    public void c() {
-        dz4 dz4Var;
+    public /* synthetic */ vk6(a aVar) {
+        this();
+    }
+
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (dz4Var = this.a) != null) {
-            dz4Var.h();
-            this.a = null;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.a.remove(str);
         }
     }
 
-    public static boolean b(String str) {
+    public String o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "0".equals(Uri.parse(str).getQueryParameter("useOfflinePackage"));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            return this.a.get(str);
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return str + str2;
-            }
-            return str + str2 + "?" + str3;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) && !TextUtils.isEmpty(str)) {
+            this.a.put(str, str2);
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public final void d(WebView webView, Uri uri, cl6 cl6Var) {
+    public static void f(String str, String str2, String str3) {
+        String str4;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, uri, cl6Var) == null) && !hm6.a(cl6Var.b) && webView != null) {
-            if (this.a == null) {
-                this.a = new dz4();
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            m().g(str);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3) && !TextUtils.equals("0.0.0.0", str3)) {
+                str4 = "success";
+            } else {
+                str4 = "error";
             }
-            Map<String, String> a = hj6.a(uri);
-            Iterator<String> it = cl6Var.b.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                Uri parse = Uri.parse(next);
-                for (String str : parse.getQueryParameterNames()) {
-                    String queryParameter = parse.getQueryParameter(str);
-                    if (!TextUtils.isEmpty(queryParameter) && queryParameter.startsWith("{") && queryParameter.endsWith("}")) {
-                        next = next.replace(queryParameter, hj6.c(a, queryParameter));
+            u("delete bundle", str4, mm6.a(Pair.create("pre_module_name", str), Pair.create("pre_version", str3)), str, str2);
+        }
+    }
+
+    public static void i(File file, String str, String str2) {
+        String[] list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65543, null, file, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            File file2 = new File(file, str2);
+            if (file2.exists() && file2.isDirectory() && (list = file2.list()) != null && list.length != 0) {
+                for (String str3 : list) {
+                    if (!StringUtils.isNull(str3) && !str3.equals(str)) {
+                        FileHelper.deleteFileOrDir(new File(file2, str3));
                     }
                 }
-                OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
-                offlineBridgeData.type = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
-                offlineBridgeData.url = next;
-                offlineBridgeData.module = cl6Var.c;
-                offlineBridgeData.begin = System.currentTimeMillis();
-                dz4 dz4Var = this.a;
-                if (dz4Var != null) {
-                    dz4Var.j(webView, offlineBridgeData, null);
-                }
             }
         }
     }
 
-    public final void e(String str, String str2, boolean z, String str3, String str4) {
-        String str5;
+    public static void k(String str, kl9 kl9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), str3, str4}) == null) {
-            vj6 a = vj6.a(HybridStatisticKey.KEY_OFFLINE_PACKAGE);
-            a.c("obj_name", str3);
-            a.c("obj_source", str);
-            a.c("obj_locate", str2);
-            a.c("obj_param1", str4);
-            Pair[] pairArr = new Pair[2];
-            if (z) {
-                str5 = "1";
-            } else {
-                str5 = "0";
-            }
-            pairArr[0] = Pair.create("is_proxy", str5);
-            pairArr[1] = Pair.create("is_new_hybrid", "1");
-            a.c(TiebaStatic.Params.OBJ_PARAM2, km6.a(pairArr));
-            a.d();
-        }
-    }
-
-    public final String f(WebView webView, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            Uri parse = Uri.parse(str);
-            cl6 f = uk6.d().f(parse);
-            if (f == null) {
-                e(str, "without_bundle", false, "", "");
-                return null;
-            }
-            String o = tk6.m().o(f.c);
-            if (TextUtils.isEmpty(f.c)) {
-                str2 = "none";
-            } else {
-                str2 = f.c;
-            }
-            String str3 = str2;
-            if (TextUtils.isEmpty(o)) {
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, kl9Var) == null) {
+            String o = m().o(str);
+            String c2 = kl9Var.c();
+            boolean d = kl9Var.d();
+            if (StringUtils.isNull(o)) {
                 o = "0.0.0.0";
             }
-            String str4 = o;
-            if (!f.g) {
-                e(str, "processing_bundle", f.h, str3, str4);
-                return null;
+            if (d && c2.equals(o)) {
+                wk6.d().c(str);
+                return;
             }
-            String str5 = f.d;
-            if (!TextUtils.isEmpty(str5) && !str5.endsWith(".html")) {
-                str5 = f.d + ".html";
+            if (d) {
+                u("download bundle", "start", mm6.a(Pair.create("pre_module_name", str), Pair.create("pre_version", o)), str, c2);
             }
-            if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str4)) {
-                String str6 = tk6.m().l() + "/" + str3 + "/" + str4 + "/";
-                if (!new File(str6, str5).exists()) {
-                    f.g = false;
-                    e(str, "path_not_found", f.h, str3, str4);
-                    return null;
-                }
-                f.g = true;
-                f.e = "file://" + str6;
-                uk6.d().a(mm6.c(str), f);
-                if (!f.h && !hm6.a(f.b)) {
-                    d(webView, parse, f);
-                }
-                e(str, "success", f.h, str3, str4);
-                if (f.h) {
-                    return str;
-                }
-                return a(f.e, str5, parse.getQuery());
+            if (d) {
+                bl6.c(str, kl9Var);
+            } else {
+                f(str, c2, o);
             }
-            f.g = false;
-            e(str, "config_error", f.h, str3, str4);
-            return null;
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public static vk6 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return c.a;
+        }
+        return (vk6) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public File l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath(), "bdtbNWCache");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public File n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath(), "bdtbWCacheTemp");
+        }
+        return (File) invokeV.objValue;
     }
 
     @NonNull
-    public Pair<Boolean, String> g(WebView webView, String str) {
-        InterceptResult invokeLL;
+    public Set<String> p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            if (!URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str)) {
-                if (!URLUtil.isNetworkUrl(str)) {
-                    return Pair.create(Boolean.FALSE, str);
-                }
-                e(str, "start", false, "", "");
-                if (!QuickWebViewSwitch.getInOn()) {
-                    uk6.d().g(str);
-                    e(str, "close_offline", false, "", "");
-                    return Pair.create(Boolean.FALSE, str);
-                } else if (b(str)) {
-                    uk6.d().g(str);
-                    e(str, "dev_mode", false, "", "");
-                    return Pair.create(Boolean.FALSE, str);
-                } else {
-                    String str2 = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.keySet();
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public void t() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if (!jm6.b(this.a)) {
+                str = new JSONObject(this.a).toString();
+            } else {
+                str = "";
+            }
+            n95.m().B("pref_key_quick_webview_versions", str);
+        }
+    }
+
+    public JSONObject x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.a.isEmpty()) {
+                return null;
+            }
+            return new JSONObject(this.a);
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static void u(String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65546, null, str, str2, str3, str4, str5) == null) {
+            xj6 a2 = xj6.a(HybridStatisticKey.KEY_UPDATE_OFFLINE_PACK);
+            a2.c("obj_type", str);
+            a2.c("obj_name", str4);
+            a2.c("obj_param1", str5);
+            a2.c("obj_locate", str2);
+            a2.c(TiebaStatic.Params.OBJ_PARAM2, str3);
+            a2.d();
+        }
+    }
+
+    public final void e(Map<String, kl9> map) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!jm6.b(map)) {
+                for (Map.Entry<String, kl9> entry : map.entrySet()) {
+                    String key = entry.getKey();
+                    kl9 value = entry.getValue();
+                    if (value != null && !StringUtils.isNull(value.c()) && !StringUtils.isNull(value.b()) && !StringUtils.isNull(value.a())) {
+                        k(key, value);
+                        str = value.c();
+                    } else {
+                        wk6.d().c(key);
+                        str = "";
+                    }
                     try {
-                        str2 = f(webView, str);
-                    } catch (Exception unused) {
-                        e(str, "exception", false, "", "");
+                        jSONObject.put(key, str);
+                    } catch (JSONException unused) {
                     }
-                    if (!TextUtils.isEmpty(str2)) {
-                        return Pair.create(Boolean.TRUE, str2);
+                }
+            } else {
+                wk6.d().b();
+            }
+            u("request webCacheInfo", "success", jSONObject.toString(), "", "");
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        h(str);
+        t();
+        File file = new File(l(), str);
+        if (file.exists() && file.isDirectory()) {
+            FileHelper.deleteFileOrDir(file);
+        }
+    }
+
+    public final void v(WebViewCacheResHttpMsg webViewCacheResHttpMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, webViewCacheResHttpMsg) == null) {
+            try {
+                List<String> header = webViewCacheResHttpMsg.getHeader("Set-Cookie");
+                if (!jm6.a(header)) {
+                    for (String str : header) {
+                        if (!TextUtils.isEmpty(str) && str.contains("BAIDUID=")) {
+                            qx4.n(str);
+                            return;
+                        }
                     }
-                    uk6.d().g(str);
-                    return Pair.create(Boolean.FALSE, str);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            s();
+            MessageManager.getInstance().registerListener(this.d);
+            MessageManager.getInstance().registerListener(this.c);
+            String s = n95.m().s("pref_key_quick_webview_versions", "");
+            hm6.b("newHybrid", "开始初始化，当前离线包版本号:" + s);
+            r(s);
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            rx9.h(309485, WebViewCacheResSocketMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, rx9.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
+            tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
+            if (TbSingleton.getInstance().isDebugToolMode()) {
+                if (MessageManager.getInstance().findTask(tbHttpMessageTask.getCmd()) == null) {
+                    MessageManager.getInstance().registerTask(tbHttpMessageTask);
+                    return;
+                }
+                return;
+            }
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.a.clear();
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                    this.a.put(next, optString);
                 }
             }
-            return Pair.create(Boolean.TRUE, str);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return (Pair) invokeLL.objValue;
     }
 }

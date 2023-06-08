@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.bz;
 import com.baidu.tieba.dy;
-import com.baidu.tieba.eo6;
 import com.baidu.tieba.ey;
-import com.baidu.tieba.f15;
+import com.baidu.tieba.go6;
+import com.baidu.tieba.h15;
 import com.baidu.tieba.iz;
 import com.baidu.tieba.jz;
 import com.baidu.tieba.kz;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ThreadCardViewHolder<T extends f15> extends TypeAdapter.ViewHolder {
+public class ThreadCardViewHolder<T extends h15> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
@@ -200,10 +200,10 @@ public class ThreadCardViewHolder<T extends f15> extends TypeAdapter.ViewHolder 
         }
     }
 
-    public void h(eo6<T> eo6Var) {
+    public void h(go6<T> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eo6Var) == null) {
-            this.b.q(eo6Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, go6Var) == null) {
+            this.b.q(go6Var);
         }
     }
 

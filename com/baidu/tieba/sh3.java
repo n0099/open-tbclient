@@ -46,11 +46,11 @@ public class sh3 {
 
         /* renamed from: com.baidu.tieba.sh3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class RunnableC0452a implements Runnable {
+        public static class RunnableC0456a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0452a() {
+            public RunnableC0456a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class sh3 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0452a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0456a(), "V8SoCleaner", 3);
             }
         }
     }

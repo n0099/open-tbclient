@@ -1,53 +1,51 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public abstract class ieb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
-    public abstract void a(String str);
+    public abstract void f(Bundle bundle);
 
-    public final boolean b(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public abstract boolean g(Bundle bundle);
+
+    public abstract String h(Bundle bundle);
+
+    public abstract void i(String str);
+
+    public abstract boolean j(String str);
+
+    public abstract String k(String str);
+
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                geb.b.f("sendBitmap2MainProcess channelId is null");
-                return false;
-            }
-            ydb a = ydb.c.a();
-            String str = this.a;
-            if (str == null) {
-                Intrinsics.throwNpe();
-            }
-            return a.g(str, bitmap);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public final boolean c(String str) {
+    public final jeb<String> m(String str) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                geb.b.f("sendData2MainProcess: error channelId is empty or null");
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                if (str.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    return heb.f.a().j(this.a, str);
+                }
             }
-            ydb a = ydb.c.a();
-            String str2 = this.a;
-            if (str2 == null) {
-                Intrinsics.throwNpe();
-            }
-            return a.h(str2, str);
+            return new jeb<>(false, "sendData2MainProcessForStr null");
         }
-        return invokeL.booleanValue;
+        return (jeb) invokeL.objValue;
     }
 }

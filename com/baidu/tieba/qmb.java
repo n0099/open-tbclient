@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,13 +8,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.TimeUnit;
+import rx.internal.schedulers.SchedulerWhen;
 /* loaded from: classes7.dex */
-public final class qmb {
+public abstract class qmb {
     public static /* synthetic */ Interceptable $ic;
-    public static final qmb b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<rmb> a;
+
+    public abstract a createWorker();
+
+    /* loaded from: classes7.dex */
+    public static abstract class a implements umb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract umb b(anb anbVar);
+
+        public abstract umb c(anb anbVar, long j, TimeUnit timeUnit);
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return System.currentTimeMillis();
+            }
+            return invokeV.longValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +63,7 @@ public final class qmb {
                 return;
             }
         }
-        b = new qmb();
+        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
     }
 
     public qmb() {
@@ -41,30 +76,25 @@ public final class qmb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new AtomicReference<>();
     }
 
-    public static qmb a() {
+    public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return System.currentTimeMillis();
         }
-        return (qmb) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public rmb b() {
-        InterceptResult invokeV;
+    public <S extends qmb & umb> S when(fnb<nmb<nmb<lmb>>, lmb> fnbVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.get() == null) {
-                this.a.compareAndSet(null, rmb.a());
-            }
-            return this.a.get();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fnbVar)) == null) {
+            return new SchedulerWhen(fnbVar, this);
         }
-        return (rmb) invokeV.objValue;
+        return (S) ((qmb) invokeL.objValue);
     }
 }

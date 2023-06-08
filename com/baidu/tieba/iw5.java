@@ -1,27 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes6.dex */
-public class iw5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public @interface iw5 {
+    boolean deserialize() default true;
 
-    @NonNull
-    public static Fragment a(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, fragmentManager, i, fragment)) == null) {
-            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-            beginTransaction.add(i, fragment, fragment.getClass().getCanonicalName());
-            beginTransaction.commitAllowingStateLoss();
-            return fragment;
-        }
-        return (Fragment) invokeLIL.objValue;
-    }
+    boolean serialize() default true;
 }

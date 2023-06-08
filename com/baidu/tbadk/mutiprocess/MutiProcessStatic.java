@@ -23,12 +23,12 @@ import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecyc
 import com.baidu.tbadk.mutiprocess.urlmanager.UrlDealEvent;
 import com.baidu.tieba.aq5;
 import com.baidu.tieba.bq5;
+import com.baidu.tieba.cq5;
 import com.baidu.tieba.dq5;
 import com.baidu.tieba.fq5;
-import com.baidu.tieba.gp5;
-import com.baidu.tieba.gq5;
-import com.baidu.tieba.kp5;
-import com.baidu.tieba.lp5;
+import com.baidu.tieba.hq5;
+import com.baidu.tieba.ip5;
+import com.baidu.tieba.iq5;
 import com.baidu.tieba.mp5;
 import com.baidu.tieba.np5;
 import com.baidu.tieba.op5;
@@ -89,28 +89,28 @@ public class MutiProcessStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             try {
-                gp5 f = gp5.f();
-                f.l(AgreeEvent.class, new kp5());
-                f.l(MissionEvent.class, new wp5());
-                f.l(CompeteTaskEvent.class, new mp5());
-                f.l(ShareEvent.class, new aq5());
-                f.l(HistoryEvent.class, new qp5());
-                f.l(BackBaiduBoxViewEvent.class, new lp5());
-                f.l(ShowReplyInPbEvent.class, new bq5());
-                f.l(LocationEvent.class, new vp5());
-                f.l(PrePageKeyEvent.class, new xp5());
-                f.l(CurrentPageTypeEvent.class, new np5());
-                f.l(ImageFpsEvent.class, new pp5());
-                f.l(SoLoaderEvent.class, new dq5());
-                f.l(PushRecevierEvent.class, new yp5());
-                f.l(ThirdPartyActivityLifecycleEvent.class, new fq5());
-                f.l(EmotionReloadEvent.class, new op5());
-                f.l(LiveRemindDataEvent.class, new tp5());
-                f.l(LiveStartClickDataEvent.class, new up5());
-                f.l(HotEvent.class, new rp5());
-                f.l(ImageViewLiveEvent.class, new sp5());
-                f.l(UrlDealEvent.class, new gq5());
-                f.l(InitWeiboSdkEvent.class, new zp5());
+                ip5 f = ip5.f();
+                f.l(AgreeEvent.class, new mp5());
+                f.l(MissionEvent.class, new yp5());
+                f.l(CompeteTaskEvent.class, new op5());
+                f.l(ShareEvent.class, new cq5());
+                f.l(HistoryEvent.class, new sp5());
+                f.l(BackBaiduBoxViewEvent.class, new np5());
+                f.l(ShowReplyInPbEvent.class, new dq5());
+                f.l(LocationEvent.class, new xp5());
+                f.l(PrePageKeyEvent.class, new zp5());
+                f.l(CurrentPageTypeEvent.class, new pp5());
+                f.l(ImageFpsEvent.class, new rp5());
+                f.l(SoLoaderEvent.class, new fq5());
+                f.l(PushRecevierEvent.class, new aq5());
+                f.l(ThirdPartyActivityLifecycleEvent.class, new hq5());
+                f.l(EmotionReloadEvent.class, new qp5());
+                f.l(LiveRemindDataEvent.class, new vp5());
+                f.l(LiveStartClickDataEvent.class, new wp5());
+                f.l(HotEvent.class, new tp5());
+                f.l(ImageViewLiveEvent.class, new up5());
+                f.l(UrlDealEvent.class, new iq5());
+                f.l(InitWeiboSdkEvent.class, new bq5());
             } catch (Exception e) {
                 e.printStackTrace();
             }

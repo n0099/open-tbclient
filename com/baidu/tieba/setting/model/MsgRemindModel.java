@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.l95;
 import com.baidu.tieba.lb;
-import com.baidu.tieba.le5;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.ne5;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerSwitchResMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
@@ -120,43 +120,43 @@ public class MsgRemindModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i == 2) {
                     if (z) {
-                        le5.d().M(z2);
+                        ne5.d().M(z2);
                     }
                 } else if (i == 3) {
                     if (z) {
-                        le5.d().Q(z2);
+                        ne5.d().Q(z2);
                     }
                 } else if (i == 1) {
                     if (z) {
-                        le5.d().R(z2);
+                        ne5.d().R(z2);
                     }
                 } else if (i == 20) {
                     if (z) {
-                        le5.d().U(z2);
+                        ne5.d().U(z2);
                     }
                 } else if (i == 30) {
                     if (z) {
-                        le5.d().W(z2);
+                        ne5.d().W(z2);
                     }
                 } else if (i != 10) {
                     if (i == 7) {
                         if (z) {
-                            le5.d().Z(z2);
+                            ne5.d().Z(z2);
                         }
                     } else if (i == 35) {
                         if (z) {
-                            le5.d().K(z2);
+                            ne5.d().K(z2);
                         }
                     } else if (i == 6) {
                         if (z) {
-                            le5.d().Y(z2);
+                            ne5.d().Y(z2);
                         }
                     } else if (i == 33) {
                         if (z) {
-                            le5.d().a0(z2);
+                            ne5.d().a0(z2);
                         }
                     } else if (i == 34 && z) {
-                        le5.d().J(z2);
+                        ne5.d().J(z2);
                     }
                 }
                 if (this.a.c != null) {
@@ -208,10 +208,10 @@ public class MsgRemindModel extends BdBaseModel {
                 FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
                 if (friendAndStrangerSwitchResMsg.getError() == 0) {
                     GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
-                    l95 m = l95.m();
+                    n95 m = n95.m();
                     m.z(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", friendAndStrangerReqMsg.mMaskType);
                     GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = friendAndStrangerReqMsg.mPushType;
-                    l95 m2 = l95.m();
+                    n95 m2 = n95.m();
                     m2.z(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", friendAndStrangerReqMsg.mPushType);
                 }
                 int i = friendAndStrangerReqMsg.mPushType;
@@ -470,7 +470,7 @@ public class MsgRemindModel extends BdBaseModel {
             if (z) {
                 this.b.a(i, true, z2);
                 if (i != 14) {
-                    if (!le5.d().v() && !le5.d().w() && !le5.d().y() && !le5.d().A() && !le5.d().D() && !le5.d().u() && !le5.d().G() && !le5.d().t()) {
+                    if (!ne5.d().v() && !ne5.d().w() && !ne5.d().y() && !ne5.d().A() && !ne5.d().D() && !ne5.d().u() && !ne5.d().G() && !ne5.d().t()) {
                         this.b.a(14, true, false);
                         return;
                     }

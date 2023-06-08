@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.squareup.wire.Message;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface rq5 {
-    boolean C0(sq5 sq5Var);
+public interface rq5 extends kq5 {
+    void initByJson(JSONObject jSONObject);
 
-    boolean g1();
-
-    BdUniqueId getUniqueId();
+    void initByProtobuf(Message message);
 }

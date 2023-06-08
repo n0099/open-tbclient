@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
+import android.text.TextPaint;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.ViewGroupKt;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.level.TbLevelView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.sequences.Sequence;
 /* loaded from: classes8.dex */
 public final class ux5 {
     public static /* synthetic */ Interceptable $ic;
@@ -59,105 +54,167 @@ public final class ux5 {
     }
 
     @JvmStatic
-    public static final void a(View view2, View view3, View view4, View view5, UserIconBox userIconBox, int i) {
+    public static final void c(int i, String str, TextView nickName, TbLevelView levelView, List<? extends View> orderList, UserIconBox userIconBox) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view2, view3, view4, view5, userIconBox, Integer.valueOf(i)}) == null) {
-            ArrayList arrayList = new ArrayList(4);
-            arrayList.add(view2);
-            arrayList.add(view3);
-            arrayList.add(view4);
-            arrayList.add(view5);
-            b(arrayList, userIconBox, i);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, nickName, levelView, orderList, userIconBox}) == null) {
+            Intrinsics.checkNotNullParameter(nickName, "nickName");
+            Intrinsics.checkNotNullParameter(levelView, "levelView");
+            Intrinsics.checkNotNullParameter(orderList, "orderList");
+            if (str == null) {
+                str2 = "";
+            } else {
+                str2 = str;
+            }
+            float measureText = nickName.getPaint().measureText(str2) + a.a(nickName);
+            if (levelView.getVisibility() != 8) {
+                levelView.setMode(true);
+                measureText += levelView.b() + a.a(levelView);
+            }
+            for (View view2 : orderList) {
+                if (!(view2 instanceof TbLevelView) && view2.getVisibility() != 8) {
+                    measureText += a.b(view2);
+                }
+            }
+            if (userIconBox != null && userIconBox.getVisibility() != 8) {
+                int childCount = userIconBox.getChildCount();
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = userIconBox.getChildAt(i2);
+                    if (childAt != null) {
+                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
+                        childAt.setVisibility(0);
+                        measureText += a.b(childAt);
+                    }
+                }
+            }
+            float f = i;
+            if (measureText <= f) {
+                nickName.setText(str);
+                return;
+            }
+            float e = a.e(i, measureText, str2, nickName);
+            if (e <= f) {
+                return;
+            }
+            float d = a.d(e, levelView);
+            if (d <= f) {
+                return;
+            }
+            a.f(i, d, orderList, userIconBox);
         }
     }
 
-    @JvmStatic
-    public static final void b(List<? extends View> views, UserIconBox userIconBox, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, views, userIconBox, i) == null) {
-            Intrinsics.checkNotNullParameter(views, "views");
-            new StatisticItem("c15270").addParam("obj_locate", a.e(views).toString()).addParam("obj_type", a.d(userIconBox).toString()).addParam("obj_source", i).eventStat();
-        }
-    }
-
-    @JvmStatic
-    public static final void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", str2);
-            statisticItem.param("obj_locate", str3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final StringBuilder d(UserIconBox userIconBox) {
+    public final int a(View view2) {
         InterceptResult invokeL;
-        Sequence<View> children;
-        TbImageView tbImageView;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userIconBox)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (userIconBox != null && (children = ViewGroupKt.getChildren(userIconBox)) != null) {
-                int i = 0;
-                for (View view2 : children) {
-                    int i2 = i + 1;
-                    if (i < 0) {
-                        CollectionsKt__CollectionsKt.throwIndexOverflow();
-                    }
-                    View view3 = view2;
-                    if (view3 instanceof TbImageView) {
-                        tbImageView = (TbImageView) view3;
-                    } else {
-                        tbImageView = null;
-                    }
-                    if (tbImageView != null && tbImageView.getVisibility() == 0) {
-                        sb.append(tbImageView.getUrl());
-                        if (i != userIconBox.getChildCount() - 1) {
-                            sb.append(",");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = null;
+            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
+                layoutParams = null;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
+            int i2 = 0;
+            if (marginLayoutParams2 != null) {
+                i = marginLayoutParams2.leftMargin;
+            } else {
+                i = 0;
+            }
+            ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
+            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
+                marginLayoutParams = layoutParams2;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams3 = marginLayoutParams;
+            if (marginLayoutParams3 != null) {
+                i2 = marginLayoutParams3.rightMargin;
+            }
+            return i + i2;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            return view2.getMeasuredWidth() + a(view2);
+        }
+        return invokeL.intValue;
+    }
+
+    public final float d(float f, TbLevelView tbLevelView) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), tbLevelView})) == null) {
+            float b = tbLevelView.b();
+            tbLevelView.setMode(false);
+            return f - (b - tbLevelView.b());
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final float e(int i, float f, String str, TextView textView) {
+        InterceptResult invokeCommon;
+        float measureText;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str, textView})) == null) {
+            if (px5.e(str) <= 12) {
+                textView.setText(str);
+                return f;
+            }
+            float measureText2 = textView.getPaint().measureText(str);
+            float f2 = f - i;
+            int e = px5.e(str);
+            do {
+                str = px5.m(str, e - 1);
+                e = px5.e(str);
+                TextPaint paint = textView.getPaint();
+                measureText = paint.measureText(str + "...");
+                if (f2 <= measureText2 - measureText) {
+                    break;
+                }
+            } while (e > 10);
+            textView.setText(str + "...");
+            return (f - measureText2) + measureText;
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final float f(int i, float f, List<? extends View> list, UserIconBox userIconBox) {
+        InterceptResult invokeCommon;
+        float b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), list, userIconBox})) == null) {
+            if (userIconBox != null && userIconBox.getVisibility() != 8) {
+                for (int childCount = userIconBox.getChildCount() - 1; -1 < childCount; childCount--) {
+                    View childAt = userIconBox.getChildAt(childCount);
+                    if (childAt != null) {
+                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
+                        childAt.setVisibility(8);
+                        f -= a.b(childAt);
+                        if (f <= i) {
+                            return f;
                         }
                     }
-                    i = i2;
                 }
             }
-            return sb;
-        }
-        return (StringBuilder) invokeL.objValue;
-    }
-
-    public final StringBuilder e(List<? extends View> list) {
-        InterceptResult invokeL;
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int i = 0;
-            for (Object obj : list) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
+            for (int size = list.size() - 1; -1 < size; size--) {
+                if (list.get(size).getVisibility() != 8) {
+                    list.get(size).setVisibility(8);
+                    if (list.get(size) instanceof TbLevelView) {
+                        b = ((TbLevelView) list.get(size)).b() + a(list.get(size));
+                    } else {
+                        b = b(list.get(size));
+                    }
+                    f -= b;
+                    if (f <= i) {
+                        return f;
+                    }
                 }
-                View view2 = (View) obj;
-                if (view2 != null && view2.getVisibility() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                sb.append(str);
-                if (i != list.size() - 1) {
-                    sb.append(",");
-                }
-                i = i2;
             }
-            return sb;
+            return f;
         }
-        return (StringBuilder) invokeL.objValue;
+        return invokeCommon.floatValue;
     }
 }

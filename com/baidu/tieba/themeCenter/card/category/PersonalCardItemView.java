@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v3a;
+import com.baidu.tieba.a4a;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,14 +32,14 @@ public class PersonalCardItemView extends LinearLayout {
     public ImageView g;
     public TextView h;
     public View i;
-    public v3a j;
+    public a4a j;
     public b k;
     public int l;
     public int m;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(v3a v3aVar);
+        void a(a4a a4aVar);
     }
 
     /* loaded from: classes7.dex */
@@ -150,13 +150,13 @@ public class PersonalCardItemView extends LinearLayout {
         }
     }
 
-    public void c(v3a v3aVar) {
+    public void c(a4a a4aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, v3aVar) != null) || v3aVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, a4aVar) != null) || a4aVar == null) {
             return;
         }
-        this.j = v3aVar;
-        if (v3aVar.a() == v3a.k) {
+        this.j = a4aVar;
+        if (a4aVar.a() == a4a.k) {
             this.c.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
             SkinManager.setImageResource(this.c, R.drawable.icon_bubble_choose_no);
@@ -170,17 +170,17 @@ public class PersonalCardItemView extends LinearLayout {
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setImageBitmap(null);
             this.c.setDefaultResource(R.drawable.img_default_100);
-            this.c.N(v3aVar.e(), 10, false);
+            this.c.N(a4aVar.e(), 10, false);
         }
-        if (v3aVar.g() == 1) {
+        if (a4aVar.g() == 1) {
             this.g.setVisibility(0);
             SkinManager.setImageResource(this.g, R.drawable.icon_choose_photo);
         } else {
             this.g.setVisibility(8);
         }
-        this.e.N(v3aVar.i(), 10, false);
-        this.f.N(v3aVar.b(), 10, false);
-        this.h.setText(v3aVar.j());
+        this.e.N(a4aVar.i(), 10, false);
+        this.f.N(a4aVar.b(), 10, false);
+        this.h.setText(a4aVar.j());
         setVisibility(0);
     }
 

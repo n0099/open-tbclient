@@ -1,72 +1,95 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.lang.reflect.InvocationTargetException;
-import java.util.NoSuchElementException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.ExperimentalUrlRequest;
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class pma {
+public abstract class pma extends ExperimentalUrlRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (b()) {
-                try {
-                    return (String) Class.forName("okhttp3.internal.Version").getMethod(TTDownloadField.TT_USERAGENT, new Class[0]).invoke(null, new Object[0]);
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
-                }
-            }
-            return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948068229, "Lcom/baidu/tieba/pma;")) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948068229, "Lcom/baidu/tieba/pma;");
+        }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public abstract void n(String str, String str2);
+
+    public abstract void p(String str);
+
+    public abstract void q(UploadDataProvider uploadDataProvider, Executor executor);
+
+    public pma() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Class.forName("okhttp3.OkHttpClient");
-                return true;
-            } catch (Exception unused) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean c() throws RuntimeException {
-        InterceptResult invokeV;
+    public static int o(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a = a();
-            if (!a.isEmpty()) {
-                String[] split = a.split("/");
-                if (split.length == 2) {
-                    String[] split2 = split[1].split("\\.");
-                    if (split2.length == 3) {
-                        try {
-                            if (Integer.parseInt(split2[0]) == 3) {
-                                if (Integer.parseInt(split2[1]) >= 9) {
-                                    return true;
-                                }
-                            }
-                            return false;
-                        } catch (NumberFormatException unused) {
-                            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
-                        }
-                    }
-                    throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
-                }
-                throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 0:
+                    return 0;
+                case 1:
+                    return 1;
+                case 2:
+                    return 2;
+                case 3:
+                    return 3;
+                case 4:
+                    return 4;
+                case 5:
+                default:
+                    throw new IllegalArgumentException("No request status found.");
+                case 6:
+                    return 5;
+                case 7:
+                    return 6;
+                case 8:
+                    return 7;
+                case 9:
+                    return 8;
+                case 10:
+                    return 9;
+                case 11:
+                    return 10;
+                case 12:
+                    return 11;
+                case 13:
+                    return 12;
+                case 14:
+                    return 13;
+                case 15:
+                    return 14;
             }
-            throw new NoSuchElementException();
         }
-        return invokeV.booleanValue;
+        return invokeI.intValue;
     }
 }

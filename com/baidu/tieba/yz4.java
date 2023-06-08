@@ -43,11 +43,11 @@ public class yz4 {
 
         /* renamed from: com.baidu.tieba.yz4$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0531a implements Runnable {
+        public class RunnableC0534a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0531a(a aVar) {
+            public RunnableC0534a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,15 +101,15 @@ public class yz4 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                long o = l95.m().o("key_clear_resource", 0L);
+                long o = n95.m().o("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (o == 0) {
-                    l95.m().A("key_clear_resource", currentTimeMillis);
+                    n95.m().A("key_clear_resource", currentTimeMillis);
                     o = currentTimeMillis;
                 }
                 if (currentTimeMillis - o > yz4.a) {
-                    is6.a(new RunnableC0531a(this), "clearResource", 3);
-                    l95.m().A("key_clear_resource", currentTimeMillis);
+                    ks6.a(new RunnableC0534a(this), "clearResource", 3);
+                    n95.m().A("key_clear_resource", currentTimeMillis);
                 }
             }
         }

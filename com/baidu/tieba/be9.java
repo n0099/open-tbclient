@@ -1,78 +1,62 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class be9 {
+public class be9 extends BaseCardInfo implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<kd9> a;
 
-    public static void a(rd9 rd9Var, TbPageContext<?> tbPageContext) {
-        Uri parse;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, rd9Var, tbPageContext) == null) && rd9Var != null && tbPageContext != null) {
-            int i = rd9Var.l;
-            boolean z = false;
-            if (i == 1) {
-                if (!TextUtils.isEmpty(rd9Var.f)) {
-                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{rd9Var.f});
-                }
-            } else if (i == 2) {
-                if (!TextUtils.isEmpty(rd9Var.f) && (parse = Uri.parse(rd9Var.f)) != null) {
-                    String queryParameter = parse.getQueryParameter("paramfromna");
-                    if (!TextUtils.isEmpty(queryParameter)) {
-                        rd9Var.f = b(rd9Var.f, queryParameter);
-                    }
-                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
-                        str = parse.getQueryParameter("title");
-                        z = true;
-                    } else {
-                        str = "";
-                    }
-                    qx4.E(z, tbPageContext.getPageActivity(), str, rd9Var.f);
-                }
-            } else if (i == 3 && !TextUtils.isEmpty(rd9Var.f)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, rd9Var.f));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947642227, "Lcom/baidu/tieba/be9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947642227, "Lcom/baidu/tieba/be9;");
+                return;
             }
         }
+        b = BdUniqueId.gen();
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
+    public be9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
-                StringBuilder sb = new StringBuilder(str);
-                boolean z = false;
-                for (String str3 : split) {
-                    if ("skin".equalsIgnoreCase(str3)) {
-                        sb.append("&skin=");
-                        sb.append(SkinManager.getCurrentSkinTypeString());
-                    } else if ("user_id".equalsIgnoreCase(str3)) {
-                        sb.append("&user_id=");
-                        sb.append(TbadkCoreApplication.getCurrentAccountId());
-                    } else if ("comparams".equalsIgnoreCase(str3)) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    return gr5.g(sb.toString());
-                }
-                return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
+        this.a = new ArrayList();
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

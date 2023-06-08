@@ -1,16 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.os.Environment;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.gqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.b;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class nqa implements Runnable {
+public final class nqa extends sqa {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a();
 
     public nqa() {
         Interceptable interceptable = $ic;
@@ -26,17 +34,167 @@ public abstract class nqa implements Runnable {
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static void b(wpa wpaVar, aqa aqaVar, ypa ypaVar, qpa qpaVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                a();
-            } catch (Exception e) {
-                tqa.e(e);
-                if (e.getMessage() != null) {
-                    lqa.b(e.getMessage());
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{wpaVar, aqaVar, ypaVar, qpaVar, list, list2, list3}) == null) {
+            int i3 = 0;
+            if (list2.size() != 0) {
+                i = list2.get(list2.size() - 1).getId();
+            } else {
+                i = 0;
+            }
+            wpaVar.b(i);
+            aqaVar.a(pqa.e().I());
+            if (list.size() != 0) {
+                i2 = list.get(list.size() - 1).getId();
+            } else {
+                i2 = 0;
+            }
+            ypaVar.b(i2);
+            if (list3.size() != 0) {
+                i3 = list3.get(list3.size() - 1).getId();
+            }
+            qpaVar.b(i3);
+        }
+    }
+
+    @Override // com.baidu.tieba.sqa
+    public final void a() {
+        gqa gqaVar;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gqaVar = gqa.a.a;
+            if (gqaVar.a().size() == 0) {
+                qqa.b(" 线程轮询  app 应该是退出了");
+            }
+            if (a == null && Environment.getExternalStorageState().equals("mounted")) {
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
+                stringBuffer.append("/baidu/ab/");
+                stringBuffer.append(lqa.l(ppa.h().getContext()));
+                stringBuffer.append("/");
+                a = stringBuffer.toString();
+            }
+            wpa wpaVar = new wpa();
+            aqa aqaVar = new aqa();
+            ypa ypaVar = new ypa();
+            qpa qpaVar = new qpa();
+            List<com.baidu.ubs.analytics.a.i> a2 = wpaVar.a();
+            List<com.baidu.ubs.analytics.a.n> d = aqaVar.d();
+            List<com.baidu.ubs.analytics.a.l> a3 = ypaVar.a();
+            List<com.baidu.ubs.analytics.a.a> a4 = qpaVar.a();
+            qqa.b("这次查询结果       session ：    " + d.size() + "      点击事件   " + a4.size() + "    网络请求：  " + a2.size() + "    页面记录     " + a3.size());
+            if (a2.size() == 0 && a3.size() == 0 && a4.size() == 0) {
+                qqa.b("这次记录 json 为空的，就不传了  ………………");
+                if (d.size() > 1) {
+                    for (int i = 0; i < d.size(); i++) {
+                        if (d.get(i).O() == null) {
+                            aqaVar.c(d.get(i).I());
+                        }
+                    }
+                    return;
                 }
+                return;
+            }
+            JSONArray jSONArray = new JSONArray();
+            String j = ppa.h().j();
+            if (ppa.h().k() != null) {
+                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : ppa.h().k().entrySet()) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("exp_id", entry.getKey());
+                        jSONObject.put("sid", entry.getValue().L());
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        yqa.d(e);
+                    }
+                }
+            }
+            com.baidu.ubs.analytics.b bVar = new com.baidu.ubs.analytics.b();
+            b.a aVar = new b.a();
+            aVar.r(lqa.l(ppa.h().getContext()));
+            aVar.b(j);
+            aVar.q(jSONArray.toString());
+            aVar.g(Build.VERSION.RELEASE);
+            aVar.d(lqa.g(ppa.h().getContext()));
+            aVar.f(Build.MODEL);
+            aVar.e(Build.BRAND);
+            aVar.f(Build.MODEL);
+            aVar.h(lqa.h(ppa.h().getContext()));
+            aVar.i(com.baidu.ubs.analytics.d.a.c());
+            if (iqa.d()) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            aVar.j(str);
+            aVar.k(lqa.i(ppa.h().getContext()));
+            aVar.m(lqa.j(ppa.h().getContext()));
+            aVar.n(lqa.m());
+            aVar.o(lqa.n());
+            aVar.p(lqa.a());
+            int f = lqa.f(ppa.h().getContext());
+            if (f == 1) {
+                str2 = "WIFI";
+            } else if (f == 2) {
+                str2 = "2G";
+            } else if (f == 3) {
+                str2 = "3G";
+            } else if (f == 4) {
+                str2 = "4G";
+            } else if (f == 5) {
+                str2 = "unKnow";
+            } else {
+                str2 = "noNet";
+            }
+            aVar.l(str2);
+            ppa.h();
+            aVar.setPhone("");
+            bVar.a(aVar);
+            bVar.c(a4);
+            bVar.e(a2);
+            bVar.b(d);
+            bVar.d(a3);
+            String a5 = wqa.a(bVar);
+            String e2 = vqa.e(a, "ABJson.log");
+            if (!e2.equals("")) {
+                StringBuffer stringBuffer2 = new StringBuffer();
+                stringBuffer2.append(PreferencesUtil.LEFT_MOUNT);
+                stringBuffer2.append(e2);
+                stringBuffer2.append(a5);
+                stringBuffer2.append(PreferencesUtil.RIGHT_MOUNT);
+                if (bqa.a(ppa.h().getContext(), stringBuffer2.toString())) {
+                    qqa.b("上传成功，删除本地文件的       ");
+                    vqa.b(a + "ABJson.log");
+                    b(wpaVar, aqaVar, ypaVar, qpaVar, a3, a2, a4);
+                    return;
+                }
+                StringBuffer stringBuffer3 = new StringBuffer();
+                stringBuffer3.append(PreferencesUtil.LEFT_MOUNT);
+                stringBuffer3.append(a5);
+                stringBuffer3.append(PreferencesUtil.RIGHT_MOUNT);
+                if (bqa.a(ppa.h().getContext(), stringBuffer3.toString())) {
+                    b(wpaVar, aqaVar, ypaVar, qpaVar, a3, a2, a4);
+                    return;
+                } else if (vqa.d(a5, a, "ABJson.log")) {
+                    b(wpaVar, aqaVar, ypaVar, qpaVar, a3, a2, a4);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            StringBuffer stringBuffer4 = new StringBuffer();
+            stringBuffer4.append(PreferencesUtil.LEFT_MOUNT);
+            stringBuffer4.append(a5);
+            stringBuffer4.append(PreferencesUtil.RIGHT_MOUNT);
+            if (bqa.a(ppa.h().getContext(), stringBuffer4.toString())) {
+                b(wpaVar, aqaVar, ypaVar, qpaVar, a3, a2, a4);
+            } else if (vqa.d(a5, a, "ABJson.log")) {
+                b(wpaVar, aqaVar, ypaVar, qpaVar, a3, a2, a4);
             }
         }
     }

@@ -1,19 +1,9 @@
 package com.baidu.tieba;
+
+import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface bsa {
-    int a(byte[] bArr, int i);
+    void close() throws IOException;
 
-    boolean a();
-
-    boolean a(int i, int i2, int i3, int i4);
-
-    byte[] a(int i);
-
-    boolean b();
-
-    void c();
-
-    void d();
-
-    void e();
+    int write(byte[] bArr, int i, int i2) throws IOException;
 }

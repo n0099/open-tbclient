@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
-/* loaded from: classes6.dex */
-public class gp7 implements x65 {
+/* loaded from: classes5.dex */
+public class gp7 implements l65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.l65
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_SHIELD_STRATEGY" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsShield" : (String) invokeV.objValue;
     }
 
     public gp7() {
@@ -34,13 +34,13 @@ public class gp7 implements x65 {
         }
     }
 
-    @Override // com.baidu.tieba.x65
-    public v65 a() {
+    @Override // com.baidu.tieba.l65
+    public Class<? extends j65> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new fp7();
+            return fp7.class;
         }
-        return (v65) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 }

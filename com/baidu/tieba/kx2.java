@@ -44,12 +44,12 @@ public class kx2 {
 
         /* renamed from: com.baidu.tieba.kx2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0360a extends TimerTask {
+        public class C0374a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0360a(a aVar) {
+            public C0374a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class kx2 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new C0360a(this);
+                return new C0374a(this);
             }
             return (TimerTask) invokeV.objValue;
         }

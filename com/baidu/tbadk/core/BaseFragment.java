@@ -46,29 +46,29 @@ import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bp5;
 import com.baidu.tieba.bw4;
-import com.baidu.tieba.c15;
 import com.baidu.tieba.dl;
+import com.baidu.tieba.e15;
 import com.baidu.tieba.eu4;
-import com.baidu.tieba.fw5;
-import com.baidu.tieba.gp5;
-import com.baidu.tieba.hp5;
-import com.baidu.tieba.ir5;
+import com.baidu.tieba.hw5;
+import com.baidu.tieba.ip5;
 import com.baidu.tieba.jb;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.jp5;
 import com.baidu.tieba.kr5;
+import com.baidu.tieba.lr5;
+import com.baidu.tieba.mr5;
 import com.baidu.tieba.p9;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.qr5;
-import com.baidu.tieba.rr5;
-import com.baidu.tieba.tm5;
+import com.baidu.tieba.sr5;
 import com.baidu.tieba.tr5;
-import com.baidu.tieba.um5;
-import com.baidu.tieba.ur5;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.xm5;
+import com.baidu.tieba.vm5;
+import com.baidu.tieba.vr5;
+import com.baidu.tieba.wm5;
+import com.baidu.tieba.wr5;
+import com.baidu.tieba.zm5;
 import com.baidu.tieba.zn;
-import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class BaseFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, AbsListView.OnScrollListener, qr5, p9, IVideoNeedPreload, ir5 {
+public abstract class BaseFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, AbsListView.OnScrollListener, sr5, p9, IVideoNeedPreload, kr5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
     public static final String TAB_CODE = "tab_code";
@@ -88,7 +88,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public boolean isPrepared;
     public boolean isPrimary;
     public long lastResumeTime;
-    public tm5 loadingView;
+    public vm5 loadingView;
     public final CustomMessageListener mActivityMissionDataInitCompletedListener;
     public BuoyComponent mBuoyTaskComponent;
     public View mFragmentRootView;
@@ -96,9 +96,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public BdUniqueId mId;
     public boolean mIsLogin;
     public boolean mIsScroll;
-    public xm5 mLocationView;
+    public zm5 mLocationView;
     public ContinuousAnimationView mProgressBar;
-    public um5 mRefreshView;
+    public wm5 mRefreshView;
     public int mSkinType;
     public String mTag;
     public String mTbPageExtraPageTabName;
@@ -106,11 +106,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public int mUsedThemeId;
     public boolean needLogStayDuration;
     public c netRefreshListener;
-    public tr5 pageStayDurationItem;
+    public vr5 pageStayDurationItem;
     public final Runnable preLoadRunnable;
     public String tabCode;
 
-    @Override // com.baidu.tieba.qr5
+    @Override // com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,14 +120,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qr5
-    public rr5 getPageStayFilter() {
+    @Override // com.baidu.tieba.sr5
+    public tr5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return null;
         }
-        return (rr5) invokeV.objValue;
+        return (tr5) invokeV.objValue;
     }
 
     public void notifyColourHeaderData() {
@@ -408,19 +408,19 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         this.preLoadRunnable = new b(this);
     }
 
-    @Override // com.baidu.tieba.qr5
+    @Override // com.baidu.tieba.sr5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (getActivity() instanceof qr5) {
-                qr5 qr5Var = (qr5) getActivity();
-                ArrayList arrayList = (ArrayList) qr5Var.getCurrentPageSourceKeyList();
-                if (!StringUtils.isNull(qr5Var.getCurrentPageKey()) && (qr5Var.getPageStayFilter() == null || qr5Var.getPageStayFilter().c())) {
+            if (getActivity() instanceof sr5) {
+                sr5 sr5Var = (sr5) getActivity();
+                ArrayList arrayList = (ArrayList) sr5Var.getCurrentPageSourceKeyList();
+                if (!StringUtils.isNull(sr5Var.getCurrentPageKey()) && (sr5Var.getPageStayFilter() == null || sr5Var.getPageStayFilter().c())) {
                     if (ListUtils.isEmpty(arrayList)) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(qr5Var.getCurrentPageKey());
+                    arrayList.add(sr5Var.getCurrentPageKey());
                 }
                 return arrayList;
             }
@@ -429,7 +429,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qr5
+    @Override // com.baidu.tieba.sr5
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -526,18 +526,18 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     public void hideLoadingView(View view2) {
-        tm5 tm5Var;
+        vm5 vm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, view2) == null) && (tm5Var = this.loadingView) != null) {
-            tm5Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048599, this, view2) == null) && (vm5Var = this.loadingView) != null) {
+            vm5Var.dettachView(view2);
         }
     }
 
     public void hideNetRefreshView(View view2) {
-        um5 um5Var;
+        wm5 wm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048600, this, view2) == null) && (um5Var = this.mRefreshView) != null) {
-            um5Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048600, this, view2) == null) && (wm5Var = this.mRefreshView) != null) {
+            wm5Var.dettachView(view2);
         }
     }
 
@@ -554,18 +554,18 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
-            tm5 tm5Var = this.loadingView;
-            if (tm5Var != null) {
-                tm5Var.s(i);
+            vm5 vm5Var = this.loadingView;
+            if (vm5Var != null) {
+                vm5Var.s(i);
                 this.loadingView.onChangeSkinType();
             }
-            um5 um5Var = this.mRefreshView;
-            if (um5Var != null) {
-                um5Var.onChangeSkinType();
+            wm5 wm5Var = this.mRefreshView;
+            if (wm5Var != null) {
+                wm5Var.onChangeSkinType();
             }
-            xm5 xm5Var = this.mLocationView;
-            if (xm5Var != null) {
-                xm5Var.onChangeSkinType();
+            zm5 zm5Var = this.mLocationView;
+            if (zm5Var != null) {
+                zm5Var.onChangeSkinType();
             }
         }
     }
@@ -592,15 +592,15 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void publishEvent(zo5 zo5Var) {
+    public void publishEvent(bp5 bp5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048639, this, zo5Var) != null) || zo5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048639, this, bp5Var) != null) || bp5Var == null) {
             return;
         }
-        if (zo5Var.getTag() == 0) {
-            zo5Var.setTag(getUniqueId());
+        if (bp5Var.getTag() == 0) {
+            bp5Var.setTag(getUniqueId());
         }
-        gp5.i(zo5Var);
+        ip5.i(bp5Var);
     }
 
     public void registerListener(MessageListener<?> messageListener) {
@@ -647,9 +647,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     public void setNetRefreshViewEmotionMarginTop(int i) {
-        um5 um5Var;
+        wm5 wm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048656, this, i) == null) && (um5Var = this.mRefreshView) != null && um5Var.isViewAttached()) {
+        if ((interceptable == null || interceptable.invokeI(1048656, this, i) == null) && (wm5Var = this.mRefreshView) != null && wm5Var.isViewAttached()) {
             this.mRefreshView.k(i);
         }
     }
@@ -658,7 +658,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048657, this, i) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new um5(getPageContext().getContext(), getNetRefreshListener());
+                this.mRefreshView = new wm5(getPageContext().getContext(), getNetRefreshListener());
             }
             this.mRefreshView.k(i);
         }
@@ -761,13 +761,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (FragmentActivity) invokeV.objValue;
     }
 
-    public tm5 getLoadingView() {
+    public vm5 getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.loadingView;
         }
-        return (tm5) invokeV.objValue;
+        return (vm5) invokeV.objValue;
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -804,17 +804,17 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ir5
-    public jr5 getTbFragmentExtra() {
+    @Override // com.baidu.tieba.kr5
+    public lr5 getTbFragmentExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return new jr5(this);
+            return new lr5(this);
         }
-        return (jr5) invokeV.objValue;
+        return (lr5) invokeV.objValue;
     }
 
-    public kr5 getTbPageExtra() {
+    public mr5 getTbPageExtra() {
         InterceptResult invokeV;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -826,9 +826,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             } else {
                 intent = baseFragmentActivity.getIntent();
             }
-            return new kr5(getUniqueId(), currentPageKey, this.mTbPageExtraPageTabName, intent);
+            return new mr5(getUniqueId(), currentPageKey, this.mTbPageExtraPageTabName, intent);
         }
-        return (kr5) invokeV.objValue;
+        return (mr5) invokeV.objValue;
     }
 
     public TbPageTag getTbPageTag() {
@@ -868,11 +868,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            tm5 tm5Var = this.loadingView;
-            if (tm5Var == null) {
+            vm5 vm5Var = this.loadingView;
+            if (vm5Var == null) {
                 return false;
             }
-            return tm5Var.isViewAttached();
+            return vm5Var.isViewAttached();
         }
         return invokeV.booleanValue;
     }
@@ -881,8 +881,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            um5 um5Var = this.mRefreshView;
-            if (um5Var != null && um5Var.isViewAttached()) {
+            wm5 wm5Var = this.mRefreshView;
+            if (wm5Var != null && wm5Var.isViewAttached()) {
                 return true;
             }
             return false;
@@ -923,7 +923,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void normalLoad() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && getUserVisibleHint() && this.isPrepared && !fw5.a()) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && getUserVisibleHint() && this.isPrepared && !hw5.a()) {
             onLoad();
         }
     }
@@ -944,11 +944,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             super.onDestroyView();
-            tm5 tm5Var = this.loadingView;
-            if (tm5Var != null) {
-                tm5Var.n();
+            vm5 vm5Var = this.loadingView;
+            if (vm5Var != null) {
+                vm5Var.n();
             }
-            c15.c().d(getUniqueId());
+            e15.c().d(getUniqueId());
         }
     }
 
@@ -1020,7 +1020,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void unRegisterResponsedEventListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048687, this) == null) {
-            gp5.f().o(getUniqueId());
+            ip5.f().o(getUniqueId());
         }
     }
 
@@ -1064,10 +1064,10 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void registerResponsedEventListener(Class<? extends zo5> cls, hp5 hp5Var) {
+    public void registerResponsedEventListener(Class<? extends bp5> cls, jp5 jp5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048649, this, cls, hp5Var) == null) {
-            gp5.f().m(cls, hp5Var, getUniqueId());
+        if (interceptable == null || interceptable.invokeLL(1048649, this, cls, jp5Var) == null) {
+            ip5.f().m(cls, jp5Var, getUniqueId());
         }
     }
 
@@ -1096,19 +1096,19 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public tr5 getPageStayDurationItem() {
+    public vr5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (this.pageStayDurationItem == null) {
-                this.pageStayDurationItem = new tr5();
+                this.pageStayDurationItem = new vr5();
             }
             this.pageStayDurationItem.s(getCurrentPageKey());
             this.pageStayDurationItem.x(getCurrentPageSourceKeyList());
             this.pageStayDurationItem.A(getTbPageExtra());
             return this.pageStayDurationItem;
         }
-        return (tr5) invokeV.objValue;
+        return (vr5) invokeV.objValue;
     }
 
     public void onResumeLoadResource() {
@@ -1205,9 +1205,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             super.onPause();
             if (this.needLogStayDuration && isPrimary() && this.lastResumeTime != 0 && !this.isInterceptStimeStat) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
-                tr5 pageStayDurationItem = getPageStayDurationItem();
+                vr5 pageStayDurationItem = getPageStayDurationItem();
                 pageStayDurationItem.y(currentTimeMillis);
-                ur5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+                wr5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
                 this.lastResumeTime = System.currentTimeMillis();
             }
             pg.h().e(this.mId);
@@ -1229,9 +1229,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             } else if (this.needLogStayDuration && this.lastResumeTime != 0 && !this.isInterceptStimeStat) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
-                tr5 pageStayDurationItem = getPageStayDurationItem();
+                vr5 pageStayDurationItem = getPageStayDurationItem();
                 pageStayDurationItem.y(currentTimeMillis);
-                ur5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+                wr5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
                 this.lastResumeTime = System.currentTimeMillis();
             }
             if (this.isPrimary) {
@@ -1339,7 +1339,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048668, this, view2, str, z) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new um5(getPageContext().getContext(), getNetRefreshListener());
+                this.mRefreshView = new wm5(getPageContext().getContext(), getNetRefreshListener());
             }
             this.mRefreshView.m(str);
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);
@@ -1352,7 +1352,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048669, this, view2, str, z) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new um5(getPageContext().getContext(), getNetRefreshListener());
+                this.mRefreshView = new wm5(getPageContext().getContext(), getNetRefreshListener());
             }
             this.mRefreshView.attachView(view2, z);
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);
@@ -1368,11 +1368,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
         if (this.loadingView == null) {
             if (i < 0) {
-                this.loadingView = new tm5(getActivity());
+                this.loadingView = new vm5(getActivity());
             } else {
-                tm5 tm5Var = new tm5(getActivity(), i);
-                this.loadingView = tm5Var;
-                tm5Var.i();
+                vm5 vm5Var = new vm5(getActivity(), i);
+                this.loadingView = vm5Var;
+                vm5Var.i();
             }
             this.loadingView.s(i2);
             this.loadingView.onChangeSkinType();
@@ -1384,7 +1384,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048665, this, view2, onClickListener) == null) && getPageContext() != null && getPageContext().getContext() != null) {
             if (this.mLocationView == null) {
-                this.mLocationView = new xm5(getPageContext().getContext());
+                this.mLocationView = new zm5(getPageContext().getContext());
             }
             this.mLocationView.attachView(view2);
             this.mLocationView.b(onClickListener);
@@ -1395,7 +1395,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048670, this, view2, z) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new um5(getPageContext().getContext(), getNetRefreshListener());
+                this.mRefreshView = new wm5(getPageContext().getContext(), getNetRefreshListener());
             }
             this.mRefreshView.attachView(view2, z);
             this.mRefreshView.e();
@@ -1408,7 +1408,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048671, this, view2, z) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new um5(getPageContext().getContext(), getNetRefreshListener());
+                this.mRefreshView = new wm5(getPageContext().getContext(), getNetRefreshListener());
             }
             this.mRefreshView.attachView(view2, z);
             this.mRefreshView.p();
@@ -1432,7 +1432,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048666, this, new Object[]{view2, str, str2, str3, Boolean.valueOf(z), onClickListener}) == null) && getPageContext() != null && getPageContext().getContext() != null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new um5(getPageContext().getContext(), onClickListener);
+                this.mRefreshView = new wm5(getPageContext().getContext(), onClickListener);
             }
             this.mRefreshView.n(str);
             this.mRefreshView.m(str2);

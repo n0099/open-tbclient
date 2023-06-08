@@ -84,7 +84,7 @@ public class p05 {
                 if (this.c.b) {
                     BdSocketLinkService.setHasAbsoluteClose(false);
                     BdSocketLinkService.setAvailable(true);
-                    mm5.b(0, 0, 0, 1, 2);
+                    om5.b(0, 0, 0, 1, 2);
                     BdSocketLinkService.startService(true, "account changed");
                 }
                 this.c.M(this.a, this.b);
@@ -115,7 +115,7 @@ public class p05 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                dz9.a("", 7);
+                iz9.a("", 7);
             }
         }
     }
@@ -158,11 +158,11 @@ public class p05 {
                 } else {
                     this.this$0.a = null;
                 }
-                ep5.o(this.this$0.C());
+                gp5.o(this.this$0.C());
                 if (this.this$0.a != null) {
-                    ep5.n(this.this$0.a.getBDUSS());
-                    ep5.q(this.this$0.a.getTbs());
-                    ep5.p(this.this$0.a.getStoken());
+                    gp5.n(this.this$0.a.getBDUSS());
+                    gp5.q(this.this$0.a.getTbs());
+                    gp5.p(this.this$0.a.getStoken());
                 }
             }
         }
@@ -204,7 +204,7 @@ public class p05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             zg.a().b(new b());
-            l95.m().A("app_inverval", System.currentTimeMillis());
+            n95.m().A("app_inverval", System.currentTimeMillis());
         }
     }
 
@@ -504,11 +504,11 @@ public class p05 {
             intent2.putExtra("intent_data_accountData", accountData);
             intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
             TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            ep5.o(!TextUtils.isEmpty(str2));
+            gp5.o(!TextUtils.isEmpty(str2));
             if (accountData != null) {
-                ep5.n(accountData.getBDUSS());
-                ep5.q(accountData.getTbs());
-                ep5.p(accountData.getStoken());
+                gp5.n(accountData.getBDUSS());
+                gp5.q(accountData.getTbs());
+                gp5.p(accountData.getStoken());
             }
         }
     }
@@ -534,7 +534,7 @@ public class p05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.d = i;
-            wq8 a2 = vk.a();
+            zq8 a2 = vk.a();
             a2.c(Config.DEVICE_PART, "skinType status: " + i);
         }
     }
@@ -572,9 +572,9 @@ public class p05 {
     public void G(AccountData accountData, Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, accountData, application) == null) {
-            eb8.a("onAccountChanged()");
+            gb8.a("onAccountChanged()");
             BdLog.e("账号切换");
-            l95 m = l95.m();
+            n95 m = n95.m();
             String s = m.s("current_used_theme_" + h(), null);
             if (StringUtils.isNull(s)) {
                 this.e = 0;
@@ -588,14 +588,14 @@ public class p05 {
             }
             f();
             MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            eb8.a("send METHOD_ACCOUNT_CHANGE");
+            gb8.a("send METHOD_ACCOUNT_CHANGE");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
             MessageManager.getInstance().registerStickyMode(2005019);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             TbSingleton.getInstance().onAccountChange();
             if (accountData != null) {
-                wq8 a2 = vk.a();
+                zq8 a2 = vk.a();
                 a2.c(Config.DEVICE_PART, "账号切换 Account:" + accountData.toString());
             }
         }
@@ -642,24 +642,24 @@ public class p05 {
             } else if (!StringUtils.isNull(accountData.getID())) {
                 str = "set_application_account:logined";
             }
-            a95.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
+            c95.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
             if (!this.b) {
                 if (accountData == null && this.a != null) {
                     this.b = true;
-                    eb8.a("account == null && mAccount != null");
+                    gb8.a("account == null && mAccount != null");
                 } else if (this.a == null && accountData != null) {
                     this.b = true;
-                    eb8.a("mAccount == null && account != null 初始化");
+                    gb8.a("mAccount == null && account != null 初始化");
                 } else {
                     AccountData accountData2 = this.a;
                     if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
                         this.b = true;
-                        eb8.a("mAccount != null && account != null");
+                        gb8.a("mAccount != null && account != null");
                     }
                 }
             }
             this.a = accountData;
-            dz9.n();
+            iz9.n();
             ac.b().a("setCurrentAccountInUI", new a(this, accountData, context));
         }
     }
@@ -738,18 +738,18 @@ public class p05 {
                 if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
                     AccountData e = q05.e();
                     if (e != null) {
-                        a95.a(DI.ACCOUNT, -1L, 0, "application_init_account", 0, "", new Object[0]);
+                        c95.a(DI.ACCOUNT, -1L, 0, "application_init_account", 0, "", new Object[0]);
                         K(e, TbadkCoreApplication.getInst());
                     } else {
-                        a95.a(DI.ACCOUNT, -1L, 0, "application_init_no_account", 0, "", new Object[0]);
+                        c95.a(DI.ACCOUNT, -1L, 0, "application_init_no_account", 0, "", new Object[0]);
                     }
                 } else {
-                    a95.a(DI.ACCOUNT, -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
+                    c95.a(DI.ACCOUNT, -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            qs5.b().i(System.currentTimeMillis() - currentTimeMillis);
+            ss5.b().i(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 }

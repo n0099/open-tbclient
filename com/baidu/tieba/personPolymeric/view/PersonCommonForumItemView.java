@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pg9;
+import com.baidu.tieba.sg9;
 import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public pg9 h;
+    public sg9 h;
     public View.OnClickListener i;
 
     /* loaded from: classes7.dex */
@@ -132,15 +132,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(pg9 pg9Var) {
+    public void setData(sg9 sg9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pg9Var) == null) {
-            this.h = pg9Var;
-            this.a.N(pg9Var.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, sg9Var) == null) {
+            this.h = sg9Var;
+            this.a.N(sg9Var.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(pg9Var.b, 7, "...") + this.g.getString(R.string.obfuscated_res_0x7f0f0766));
-            this.d.setText(StringHelper.numberUniformFormat((long) pg9Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f103c), StringHelper.getUserDescByGender(pg9Var.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(sg9Var.b, 7, "...") + this.g.getString(R.string.obfuscated_res_0x7f0f0766));
+            this.d.setText(StringHelper.numberUniformFormat((long) sg9Var.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f103c), StringHelper.getUserDescByGender(sg9Var.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

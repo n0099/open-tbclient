@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.x18;
+import com.baidu.tieba.z18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements py {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                x18.g();
+                z18.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -474,7 +474,7 @@ public class PostAnimateFloatView extends FrameLayout implements py {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                m75 d2 = m75.d(linearLayout);
+                o75 d2 = o75.d(linearLayout);
                 d2.o(R.string.J_X01);
                 d2.i(R.color.CAM_X0302);
             }

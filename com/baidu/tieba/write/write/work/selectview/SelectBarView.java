@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.write.write.work.selectview.SelectBarView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -181,7 +181,7 @@ public class SelectBarView extends LinearLayout {
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xka
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cla
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -204,7 +204,7 @@ public class SelectBarView extends LinearLayout {
             WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            m75 d = m75.d(getMCenterContent());
+            o75 d = o75.d(getMCenterContent());
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0105);
@@ -221,7 +221,7 @@ public class SelectBarView extends LinearLayout {
             getMCenterContent().setCompoundDrawables(getMIconDrawable(), null, null, null);
             getMCenterContent().setCompoundDrawablePadding(vi.g(getContext(), R.dimen.M_W_X002));
             getMCenterContent().setPadding(vi.g(getContext(), R.dimen.M_W_X004), 0, vi.g(getContext(), R.dimen.M_W_X004), 0);
-            m75 d2 = m75.d(getMCenterContentPos());
+            o75 d2 = o75.d(getMCenterContentPos());
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X09);
             d2.w(R.color.CAM_X0105);

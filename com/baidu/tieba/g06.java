@@ -1,65 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class g06 extends l06 {
+public class g06 implements lg<b06> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConstrainImageLayout.c e;
+    public int a;
 
-    /* loaded from: classes5.dex */
-    public class a implements ConstrainImageLayout.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(g06 g06Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g06Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
-        public void a(TbImageView tbImageView, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
-                tbImageView.setRadiusById(R.string.J_X05);
-                tbImageView.s();
-                tbImageView.setDrawCorner(true);
-                tbImageView.setConrers(0);
-                if (i2 == 1) {
-                    tbImageView.setConrers(15);
-                } else if (i2 > 1) {
-                    if (i == 0) {
-                        tbImageView.setConrers(5);
-                    } else if (i == i2 - 1) {
-                        tbImageView.setConrers(10);
-                    }
-                }
-            }
-        }
+    public b06 e(b06 b06Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, b06Var)) == null) ? b06Var : (b06) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b06 i(b06 b06Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, b06Var)) == null) ? b06Var : (b06) invokeL.objValue;
+    }
+
     public g06(int i) {
-        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,26 +34,67 @@ public class g06 extends l06 {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.l06, com.baidu.tieba.i06
-    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        InterceptResult invokeLLII;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.lg
+    public /* bridge */ /* synthetic */ b06 a(b06 b06Var) {
+        b06 b06Var2 = b06Var;
+        e(b06Var2);
+        return b06Var2;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.lg
+    public /* bridge */ /* synthetic */ b06 c(b06 b06Var) {
+        b06 b06Var2 = b06Var;
+        i(b06Var2);
+        return b06Var2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lg
+    /* renamed from: f */
+    public void b(b06 b06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
-            if (list.size() < this.b) {
-                list.size();
-            }
-            constrainImageLayout.setTbImageViewConfiguration(this.e);
-            return super.a(constrainImageLayout, list, i, i2);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, b06Var) == null) && b06Var != null && b06Var.b() != null) {
+            b06Var.b().recycle();
         }
-        return invokeLLII.intValue;
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lg
+    /* renamed from: h */
+    public b06 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new b06(this.a);
+        }
+        return (b06) invokeV.objValue;
     }
 }

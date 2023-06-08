@@ -84,7 +84,7 @@ public class su4 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    g95.e(this.a.getPageActivity(), 1);
+                    i95.e(this.a.getPageActivity(), 1);
                 }
             }
         }
@@ -153,7 +153,7 @@ public class su4 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    g95.e(this.a.getPageActivity(), 1);
+                    i95.e(this.a.getPageActivity(), 1);
                 }
             }
         }
@@ -546,11 +546,11 @@ public class su4 {
         this.i = new d(this, 9);
         this.j = new c(this, 13);
         if (eu4.w().r()) {
-            this.b = l95.m().i("key_delete_mission_home_entrance", true);
+            this.b = n95.m().i("key_delete_mission_home_entrance", true);
             return;
         }
         this.b = true;
-        l95.m().w("key_delete_mission_home_entrance", true);
+        n95.m().w("key_delete_mission_home_entrance", true);
     }
 
     public /* synthetic */ su4(a aVar) {

@@ -29,10 +29,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.ra5;
+import com.baidu.tieba.ta5;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,8 +99,8 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
                 this.a.setPageId(q9.a(view2.getContext()).getUniqueId());
                 View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090cb7);
                 this.b = findViewById;
-                m75.d(findViewById).t(R.array.Mask_X001);
-                m75.d(this.b).o(R.string.J_X05);
+                o75.d(findViewById).t(R.array.Mask_X001);
+                o75.d(this.b).o(R.string.J_X05);
                 this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cb8);
             }
 
@@ -292,7 +292,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
                     x.getIntent().putExtra("from", "index");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ra5(1, i + 1, albumElement.album_type.intValue())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ta5(1, i + 1, albumElement.album_type.intValue())));
             }
         }
     }

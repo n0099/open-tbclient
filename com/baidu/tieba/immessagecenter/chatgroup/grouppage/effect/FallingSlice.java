@@ -12,10 +12,10 @@ import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.falling.FallingEventType;
 import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hz5;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.jf8;
-import com.baidu.tieba.kh8;
+import com.baidu.tieba.jz5;
+import com.baidu.tieba.lf8;
+import com.baidu.tieba.nh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,13 +29,13 @@ public class FallingSlice extends Slice {
     public final TbPageContext<?> j;
     public c k;
     @Nullable
-    public jf8 l;
+    public lf8 l;
     public long m;
     public boolean n;
-    public final hz5 o;
+    public final jz5 o;
 
     /* loaded from: classes6.dex */
-    public class a implements hz5 {
+    public class a implements jz5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FallingSlice a;
@@ -58,7 +58,7 @@ public class FallingSlice extends Slice {
             this.a = fallingSlice;
         }
 
-        @Override // com.baidu.tieba.hz5
+        @Override // com.baidu.tieba.jz5
         public void a(FallingEventType fallingEventType, @Nullable Object obj) {
             String str;
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class FallingSlice extends Slice {
                     str = "";
                 }
                 if (fallingEventType == FallingEventType.CLICK) {
-                    kh8.h("c15184", str, this.a.m, this.a.n);
+                    nh8.h("c15184", str, this.a.m, this.a.n);
                 }
             }
         }
@@ -217,16 +217,16 @@ public class FallingSlice extends Slice {
         }
     }
 
-    public void b0(@NonNull FallingData fallingData, long j, boolean z, @Nullable jf8 jf8Var) {
+    public void b0(@NonNull FallingData fallingData, long j, boolean z, @Nullable lf8 lf8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), jf8Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), lf8Var}) == null) {
             this.m = j;
             this.n = z;
-            this.l = jf8Var;
+            this.l = lf8Var;
             ChatFallingView chatFallingView = this.k.b;
             if (chatFallingView != null) {
                 chatFallingView.x(fallingData, this.j, false);
-                kh8.h("c15183", fallingData.getAffect(), this.m, z);
+                nh8.h("c15183", fallingData.getAffect(), this.m, z);
             }
         }
     }

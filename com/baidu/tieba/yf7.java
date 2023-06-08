@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface yf7 {
-    void l(String str);
+    void a(int i);
 
-    void m();
-
-    void n(boolean z);
+    void cancel();
 }

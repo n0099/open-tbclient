@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,26 +30,12 @@ public class e76 implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
-        boolean d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
             if (customMessage == null) {
                 return null;
             }
-            int cmd = customMessage.getCmd();
-            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
-                cf5 cf5Var = (cf5) customMessage.getData();
-                if (cmd == 2001179) {
-                    d = g76.f().a(cf5Var);
-                } else {
-                    d = g76.f().d(cf5Var.d());
-                }
-                if (!d) {
-                    l95 m = l95.m();
-                    m.w("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
-                }
-            }
-            return null;
+            return new CustomResponsedMessage<>(2001178, i76.f().e());
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

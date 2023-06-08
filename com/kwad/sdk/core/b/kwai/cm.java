@@ -4,7 +4,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.core.webview.a.a;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class cm implements com.kwad.sdk.core.d<a.C0673a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(a.C0673a c0673a, JSONObject jSONObject) {

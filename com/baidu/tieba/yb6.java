@@ -1,189 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class yb6 {
+public class yb6 extends in6<ob6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<String> b;
-    public List<SdkLiveInfoData> c;
-    public ic6 d;
-    public List<vn> e;
-    public boolean f;
-    public String g;
-    public String h;
+    public xb6 i;
+    public xb6 j;
+    public xb6 k;
+    public ViewGroup l;
 
-    public yb6(bb6 bb6Var, String str, String str2) {
+    @Override // com.baidu.tieba.in6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0915 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yb6(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bb6Var, str, str2};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.f = false;
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        this.e = new ArrayList();
-        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.f = true;
-        }
-        this.g = str;
-        this.h = str2;
-        a(bb6Var);
+        this.i = new xb6(tbPageContext);
+        this.j = new xb6(tbPageContext);
+        this.k = new xb6(tbPageContext);
+        this.l = (ViewGroup) h();
+        new View(getContext());
+        this.l.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
+        this.l.addView(this.i.e());
+        this.l.addView(this.j.e());
+        this.l.addView(this.k.e());
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public boolean a(bb6 bb6Var) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in6
+    /* renamed from: r */
+    public void i(ob6 ob6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bb6Var)) == null) {
-            if (bb6Var == null) {
-                return false;
-            }
-            boolean e = e(bb6Var.b);
-            this.a = bb6Var.a;
-            return e;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(ic6 ic6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ic6Var) == null) {
-            this.d = ic6Var;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, ob6Var) == null) && ob6Var != null) {
+            this.i.f(ob6Var.a);
+            this.j.f(ob6Var.b);
+            this.k.f(ob6Var.c);
         }
     }
 
-    public void b() {
+    public void s(zb6 zb6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = false;
-            List<String> list = this.b;
-            if (list != null) {
-                list.clear();
-            }
-            List<SdkLiveInfoData> list2 = this.c;
-            if (list2 != null) {
-                list2.clear();
-            }
-            List<vn> list3 = this.e;
-            if (list3 != null) {
-                list3.clear();
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, zb6Var) == null) {
+            this.i.h(zb6Var);
+            this.j.h(zb6Var);
+            this.k.h(zb6Var);
         }
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.in6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            this.i.g(tbPageContext, i);
+            this.j.g(tbPageContext, i);
+            this.k.g(tbPageContext, i);
         }
-        return invokeV.booleanValue;
-    }
-
-    public final ArrayList<vn> c(List<SdkLiveInfoData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            ArrayList<vn> arrayList = new ArrayList<>();
-            int size = list.size();
-            for (int i = 0; i < size; i += 2) {
-                xa6 xa6Var = new xa6();
-                ka6 ka6Var = new ka6();
-                ka6Var.a = list.get(i);
-                ka6Var.f = true;
-                ka6Var.b = this.f;
-                ka6Var.c = this.g;
-                ka6Var.d = this.h;
-                int i2 = i + 1;
-                ka6Var.e = i2;
-                xa6Var.a = ka6Var;
-                if (i2 < size) {
-                    ka6 ka6Var2 = new ka6();
-                    ka6Var2.a = list.get(i2);
-                    ka6Var2.b = this.f;
-                    ka6Var2.c = this.g;
-                    ka6Var2.d = this.h;
-                    ka6Var2.e = i + 2;
-                    xa6Var.b = ka6Var2;
-                    ka6Var2.g = true;
-                } else {
-                    ka6Var.f = false;
-                    ka6Var.h = true;
-                }
-                arrayList.add(xa6Var);
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public List<vn> d() {
-        InterceptResult invokeV;
-        io6 io6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.e)) {
-                arrayList.addAll(this.e);
-            }
-            ic6 ic6Var = this.d;
-            if (ic6Var != null && (io6Var = ic6Var.a) != null && !ListUtils.isEmpty(io6Var.c())) {
-                arrayList.add(0, this.d);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean e(List<SdkLiveInfoData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (SdkLiveInfoData sdkLiveInfoData : list) {
-                if (sdkLiveInfoData != null) {
-                    String str = sdkLiveInfoData.liveId;
-                    if (!this.b.contains(str)) {
-                        arrayList.add(sdkLiveInfoData);
-                        this.b.add(str);
-                    }
-                }
-            }
-            if (ListUtils.isEmpty(arrayList)) {
-                return false;
-            }
-            this.c.addAll(arrayList);
-            ArrayList<vn> c = c(this.c);
-            this.e = c;
-            if (ListUtils.isEmpty(c)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

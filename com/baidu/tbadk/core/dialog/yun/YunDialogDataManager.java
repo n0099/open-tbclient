@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.gx5;
-import com.baidu.tieba.h75;
-import com.baidu.tieba.kw5;
-import com.baidu.tieba.kx5;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.ix5;
+import com.baidu.tieba.j75;
+import com.baidu.tieba.mw5;
+import com.baidu.tieba.mx5;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.we;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.wq8;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public class YunDialogDataManager {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends gx5<List<DialogStrategiesData>> {
+    public class b extends ix5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YunDialogDataManager a;
@@ -146,7 +146,7 @@ public class YunDialogDataManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gx5
+        @Override // com.baidu.tieba.ix5
         /* renamed from: a */
         public List<DialogStrategiesData> doInBackground() {
             InterceptResult invokeV;
@@ -159,7 +159,7 @@ public class YunDialogDataManager {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements kw5<List<DialogStrategiesData>> {
+    public class c implements mw5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
@@ -187,7 +187,7 @@ public class YunDialogDataManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kw5
+        @Override // com.baidu.tieba.mw5
         /* renamed from: a */
         public void onReturnDataInUI(List<DialogStrategiesData> list) {
             Interceptable interceptable = $ic;
@@ -312,7 +312,7 @@ public class YunDialogDataManager {
             }
             List<DialogStrategiesData> list = this.a.get(str);
             if (list == null && this.a.isEmpty()) {
-                kx5.b(new b(this), new c(this, dVar, str));
+                mx5.b(new b(this), new c(this, dVar, str));
             } else if (dVar != null) {
                 if (ListUtils.isEmpty(list)) {
                     list = d;
@@ -345,7 +345,7 @@ public class YunDialogDataManager {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            we<String> g = z45.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
+            we<String> g = b55.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
             if (g != null) {
                 str = g.get(k());
             } else {
@@ -356,7 +356,7 @@ public class YunDialogDataManager {
             }
             try {
                 JSONArray jSONArray = new JSONArray(str);
-                wq8 yunDialogLog = YunDialogLog.getInstance();
+                zq8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "加载本地云弹窗配置: " + jSONArray);
                 return DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class);
             } catch (Exception e2) {
@@ -370,17 +370,17 @@ public class YunDialogDataManager {
     public void o(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray) == null) {
-            wq8 yunDialogLog = YunDialogLog.getInstance();
+            zq8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "sync更新本地云弹窗配置，配置为：" + jSONArray);
-            we<String> g = z45.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
+            we<String> g = b55.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
             if (g == null) {
                 YunDialogLog.getInstance().c("YunDialogManager", "读取数据库失败，写入云弹窗配置失败！");
             } else if (jSONArray != null && jSONArray.length() > 0) {
-                h75.a.a(jSONArray.toString());
+                j75.a.a(jSONArray.toString());
                 try {
                     q(DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class));
                 } catch (Exception e2) {
-                    wq8 yunDialogLog2 = YunDialogLog.getInstance();
+                    zq8 yunDialogLog2 = YunDialogLog.getInstance();
                     yunDialogLog2.c("YunDialogManager", "云弹窗配置解析失败，更新失败！下发配置：" + jSONArray);
                     BdLog.e(e2);
                 }
@@ -432,7 +432,7 @@ public class YunDialogDataManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             try {
-                wq8 yunDialogLog = YunDialogLog.getInstance();
+                zq8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "updateManagerConfig:" + jSONObject);
                 this.b = ((ConfigData) DataExt.toEntity(jSONObject.toString(), ConfigData.class)).getMaxSize();
             } catch (Exception e2) {

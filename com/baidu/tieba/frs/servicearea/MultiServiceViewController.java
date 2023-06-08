@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.if7;
-import com.baidu.tieba.jx9;
-import com.baidu.tieba.kx9;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.nn7;
+import com.baidu.tieba.kf7;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.ox9;
 import com.baidu.tieba.pn7;
+import com.baidu.tieba.px9;
+import com.baidu.tieba.rn7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.vi;
@@ -45,12 +45,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class MultiServiceViewController implements nn7 {
+public class MultiServiceViewController implements pn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public RecyclerView b;
-    public List<kx9> c;
+    public List<px9> c;
     public FrsViewData d;
     public RecyclerView.Adapter e;
 
@@ -62,7 +62,7 @@ public class MultiServiceViewController implements nn7 {
         public TbClipImageView b;
         public TextView c;
         public MessageRedDotView d;
-        public kx9 e;
+        public px9 e;
         public List<String> f;
         public FrsViewData g;
         public View.OnClickListener h;
@@ -96,7 +96,7 @@ public class MultiServiceViewController implements nn7 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     if (this.a.e != null && "tiebaclient://accelerator".equals(this.a.e.d)) {
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new if7(3));
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new kf7(3));
                         CustomMessage customMessage = new CustomMessage(2921662);
                         customMessage.setTag(this.a.g.getFrsFragmentTag());
                         customResponsedMessage.setOrginalMessage(customMessage);
@@ -104,7 +104,7 @@ public class MultiServiceViewController implements nn7 {
                     }
                     if (this.a.d.getVisibility() == 0) {
                         this.a.d.setVisibility(8);
-                        l95.m().w("key_is_click_game_season_red_dot", true);
+                        n95.m().w("key_is_click_game_season_red_dot", true);
                     }
                     if (TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0a10), this.a.e.b) && this.a.g != null && this.a.g.getForum() != null && !TextUtils.isEmpty(this.a.g.getForum().getId())) {
                         HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
@@ -119,9 +119,9 @@ public class MultiServiceViewController implements nn7 {
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.e.g).param("obj_source", "frs_card").param("obj_id", this.a.e.f.b).param("obj_name", this.a.e.f.a).param("obj_param1", this.a.e.f.d.intValue()));
                     }
                     if (this.a.e != null && !"tiebaclient://accelerator".equals(this.a.e.d)) {
-                        pn7.b(view2.getContext(), this.a.e);
+                        rn7.b(view2.getContext(), this.a.e);
                     }
-                    pn7.c(this.a.e);
+                    rn7.c(this.a.e);
                 }
             }
         }
@@ -181,35 +181,35 @@ public class MultiServiceViewController implements nn7 {
             view2.setOnClickListener(this.h);
         }
 
-        public void d(kx9 kx9Var) {
+        public void d(px9 px9Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, kx9Var) != null) || kx9Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, px9Var) != null) || px9Var == null) {
                 return;
             }
-            this.e = kx9Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0a10), kx9Var.b)) {
+            this.e = px9Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0a10), px9Var.b)) {
                 this.b.setImageResource(R.drawable.icon_mask_service_celebrity24);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
                 layoutParams.width = vi.g(this.b.getContext(), R.dimen.tbds62);
                 layoutParams.height = vi.g(this.b.getContext(), R.dimen.tbds62);
             } else {
-                this.b.N(kx9Var.b, 10, false);
+                this.b.N(px9Var.b, 10, false);
             }
-            if (StringUtils.isNotNull(kx9Var.j)) {
-                if (!l95.m().i("key_is_click_game_season_red_dot", false)) {
+            if (StringUtils.isNotNull(px9Var.j)) {
+                if (!n95.m().i("key_is_click_game_season_red_dot", false)) {
                     this.d.setVisibility(0);
-                    this.d.g(kx9Var.j, false);
+                    this.d.g(px9Var.j, false);
                 } else {
                     this.d.setVisibility(8);
                 }
             } else {
                 this.d.setVisibility(8);
             }
-            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(kx9Var.c, 10, ""));
+            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(px9Var.c, 10, ""));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            if (!this.f.contains(kx9Var.c)) {
-                pn7.d(kx9Var);
-                this.f.add(kx9Var.c);
+            if (!this.f.contains(px9Var.c)) {
+                rn7.d(px9Var);
+                this.f.add(px9Var.c);
             }
         }
     }
@@ -254,7 +254,7 @@ public class MultiServiceViewController implements nn7 {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, serviceViewHolder, i) == null) {
-                serviceViewHolder.d((kx9) this.a.c.get(i));
+                serviceViewHolder.d((px9) this.a.c.get(i));
             }
         }
 
@@ -296,7 +296,7 @@ public class MultiServiceViewController implements nn7 {
         this.b.setAdapter(this.e);
     }
 
-    @Override // com.baidu.tieba.nn7
+    @Override // com.baidu.tieba.pn7
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -304,11 +304,11 @@ public class MultiServiceViewController implements nn7 {
         }
     }
 
-    @Override // com.baidu.tieba.nn7
-    public void a(jx9 jx9Var, FrsViewData frsViewData) {
+    @Override // com.baidu.tieba.pn7
+    public void a(ox9 ox9Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jx9Var, frsViewData) == null) && jx9Var != null && !ListUtils.isEmpty(jx9Var.b)) {
-            this.c = jx9Var.b;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, ox9Var, frsViewData) == null) && ox9Var != null && !ListUtils.isEmpty(ox9Var.b)) {
+            this.c = ox9Var.b;
             this.d = frsViewData;
             this.e.notifyDataSetChanged();
             RecyclerView recyclerView = this.b;
@@ -318,7 +318,7 @@ public class MultiServiceViewController implements nn7 {
         }
     }
 
-    @Override // com.baidu.tieba.nn7
+    @Override // com.baidu.tieba.pn7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

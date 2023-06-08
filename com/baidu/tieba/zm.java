@@ -87,7 +87,7 @@ public class zm {
                 try {
                     try {
                         if (jSONObject == null) {
-                            wq8 defaultLog = DefaultLog.getInstance();
+                            zq8 defaultLog = DefaultLog.getInstance();
                             defaultLog.b(TitanDownloadService.TAG, "response parse fail:" + this.b);
                             this.a.onResult(this.b, -1, null);
                             synchronized (zm.class) {
@@ -95,11 +95,11 @@ public class zm {
                             }
                             return;
                         }
-                        wq8 defaultLog2 = DefaultLog.getInstance();
+                        zq8 defaultLog2 = DefaultLog.getInstance();
                         defaultLog2.c(TitanDownloadService.TAG, "onResponse " + jSONObject);
                         PackageInfo j = zm.j(this.c, jSONObject);
                         if (j.errNo != 0) {
-                            wq8 defaultLog3 = DefaultLog.getInstance();
+                            zq8 defaultLog3 = DefaultLog.getInstance();
                             defaultLog3.b(TitanDownloadService.TAG, "return fail, result errno = " + j.errNo);
                             this.a.onResult(this.b, -1, null);
                             synchronized (zm.class) {
@@ -113,7 +113,7 @@ public class zm {
                             boolean unused3 = zm.a = false;
                         }
                     } catch (Exception e) {
-                        wq8 defaultLog4 = DefaultLog.getInstance();
+                        zq8 defaultLog4 = DefaultLog.getInstance();
                         defaultLog4.b(TitanDownloadService.TAG, "TitanRequester onResponse Exception:" + e);
                         this.a.onResult(this.b, -1, null);
                         synchronized (zm.class) {
@@ -203,7 +203,7 @@ public class zm {
                         messageDigest.update(bArr, 0, read);
                     }
                     String d = zm.d(messageDigest.digest());
-                    wq8 defaultLog = DefaultLog.getInstance();
+                    zq8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c(TitanDownloadService.TAG, "download file md5 = " + d);
                     if (!TextUtils.equals(this.b, d)) {
                         DefaultLog.getInstance().b(TitanDownloadService.TAG, "patch md5 not match");
@@ -294,7 +294,7 @@ public class zm {
                 }
                 a = true;
                 String z = um.p().z(h());
-                wq8 defaultLog = DefaultLog.getInstance();
+                zq8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c(TitanDownloadService.TAG, "start require patch data, url = " + z);
                 HashMap hashMap = new HashMap();
                 hashMap.put("Content-Type", "application/json");
@@ -347,16 +347,16 @@ public class zm {
                 jSONObject5.put("device_ua", "android");
                 jSONObject.put("pubparam", jSONObject5);
             } catch (JSONException e) {
-                wq8 defaultLog = DefaultLog.getInstance();
+                zq8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(TitanDownloadService.TAG, "getCcsPostContent JSONException:" + e);
             }
             try {
                 String jSONObject6 = jSONObject.toString();
-                wq8 defaultLog2 = DefaultLog.getInstance();
+                zq8 defaultLog2 = DefaultLog.getInstance();
                 defaultLog2.c(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
                 return jSONObject6.getBytes("UTF-8");
             } catch (UnsupportedEncodingException e2) {
-                wq8 defaultLog3 = DefaultLog.getInstance();
+                zq8 defaultLog3 = DefaultLog.getInstance();
                 defaultLog3.b(TitanDownloadService.TAG, "getCcsPostContent UnsupportedEncodingException:" + e2);
                 return null;
             }
@@ -372,7 +372,7 @@ public class zm {
             int optInt = jSONObject.optInt("errno", -1);
             packageInfo.errNo = optInt;
             if (optInt != 0) {
-                wq8 defaultLog = DefaultLog.getInstance();
+                zq8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(TitanDownloadService.TAG, "response errno = " + optInt);
                 return packageInfo;
             }

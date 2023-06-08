@@ -79,14 +79,14 @@ public class gk3 extends lk3 {
 
         /* renamed from: com.baidu.tieba.gk3$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0319b implements Runnable {
+        public class RunnableC0328b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ Set b;
             public final /* synthetic */ b c;
 
-            public RunnableC0319b(b bVar, String str, Set set) {
+            public RunnableC0328b(b bVar, String str, Set set) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -414,7 +414,7 @@ public class gk3 extends lk3 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {
-                c(new RunnableC0319b(this, str, set));
+                c(new RunnableC0328b(this, str, set));
                 return this;
             }
             return (SharedPreferences.Editor) invokeLL.objValue;

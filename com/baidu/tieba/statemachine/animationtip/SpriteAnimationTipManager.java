@@ -11,15 +11,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw9;
 import com.baidu.tieba.core.widget.TbAnimationTipView;
-import com.baidu.tieba.cs6;
-import com.baidu.tieba.dn5;
-import com.baidu.tieba.dw9;
-import com.baidu.tieba.pv9;
-import com.baidu.tieba.qv9;
+import com.baidu.tieba.es6;
+import com.baidu.tieba.fn5;
+import com.baidu.tieba.fw9;
+import com.baidu.tieba.iw9;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
+import com.baidu.tieba.uv9;
+import com.baidu.tieba.vv9;
 import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,11 +42,11 @@ public final class SpriteAnimationTipManager {
     public transient /* synthetic */ FieldHolder $fh;
     public final Activity a;
     public final TbAnimationTipView b;
-    public final qv9 c;
+    public final vv9 c;
     public final Lazy d;
-    public cs6 e;
-    public cs6 f;
-    public cs6 g;
+    public es6 e;
+    public es6 f;
+    public es6 g;
     public View h;
     public FrameLayout.LayoutParams i;
     public long j;
@@ -72,7 +72,7 @@ public final class SpriteAnimationTipManager {
     @Metadata(d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\b\u0010\t\u001a\u00020\nH\u0016R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0002\u0010\u0004\"\u0004\b\u0005\u0010\u0006R\u001a\u0010\u0007\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\u0004\"\u0004\b\b\u0010\u0006¨\u0006\u000b"}, d2 = {"com/baidu/tieba/statemachine/animationtip/SpriteAnimationTipManager$3", "Lcom/baidu/tieba/statemachine/base/Action;", "isSpriteAnimExecDone", "", "()Z", "setSpriteAnimExecDone", "(Z)V", "isTipAnimExecDone", "setTipAnimExecDone", "doAction", "", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* renamed from: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$3  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static final class AnonymousClass3 implements aw9 {
+    public static final class AnonymousClass3 implements fw9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -111,11 +111,11 @@ public final class SpriteAnimationTipManager {
             }
         }
 
-        @Override // com.baidu.tieba.aw9
+        @Override // com.baidu.tieba.fw9
         public void a() {
-            cs6 cs6Var;
+            es6 es6Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cs6Var = this.c.g) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (es6Var = this.c.g) != null) {
                 final SpriteAnimationTipManager spriteAnimationTipManager = this.c;
                 spriteAnimationTipManager.b.setAnimationListener(new Function0<Unit>(this, spriteAnimationTipManager) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$3$doAction$1$1
                     public static /* synthetic */ Interceptable $ic;
@@ -174,7 +174,7 @@ public final class SpriteAnimationTipManager {
                     }
                 });
                 spriteAnimationTipManager.b.setLastAnimationCurFrameToPlaceHolder();
-                spriteAnimationTipManager.b.f(cs6Var);
+                spriteAnimationTipManager.b.f(es6Var);
                 if (spriteAnimationTipManager.o()) {
                     spriteAnimationTipManager.b.a(500L, 1.0f, 0.0f, new Function0<Unit>(this, spriteAnimationTipManager) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$3$doAction$1$2
                         public static /* synthetic */ Interceptable $ic;
@@ -260,7 +260,7 @@ public final class SpriteAnimationTipManager {
     }
 
     /* loaded from: classes7.dex */
-    public static final class a implements aw9 {
+    public static final class a implements fw9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpriteAnimationTipManager a;
@@ -283,15 +283,15 @@ public final class SpriteAnimationTipManager {
             this.a = spriteAnimationTipManager;
         }
 
-        @Override // com.baidu.tieba.aw9
+        @Override // com.baidu.tieba.fw9
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                cs6 cs6Var = this.a.f;
+                es6 es6Var = this.a.f;
                 Unit unit = null;
-                if (cs6Var != null) {
+                if (es6Var != null) {
                     SpriteAnimationTipManager spriteAnimationTipManager = this.a;
-                    spriteAnimationTipManager.b.f(cs6Var);
+                    spriteAnimationTipManager.b.f(es6Var);
                     View m = spriteAnimationTipManager.m();
                     if (m != null) {
                         spriteAnimationTipManager.b.g(m);
@@ -335,8 +335,8 @@ public final class SpriteAnimationTipManager {
         Intrinsics.checkNotNullParameter(activity, "activity");
         this.a = activity;
         this.b = new TbAnimationTipView(this.a, null, 0, 6, null);
-        this.c = new qv9();
-        this.d = LazyKt__LazyJVMKt.lazy(new Function0<pv9>(this) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$animationTipStateMachine$2
+        this.c = new vv9();
+        this.d = LazyKt__LazyJVMKt.lazy(new Function0<uv9>(this) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$animationTipStateMachine$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteAnimationTipManager this$0;
@@ -365,18 +365,18 @@ public final class SpriteAnimationTipManager {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final pv9 invoke() {
+            public final uv9 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new pv9(this.this$0.c);
+                    return new uv9(this.this$0.c);
                 }
-                return (pv9) invokeV.objValue;
+                return (uv9) invokeV.objValue;
             }
         });
         this.j = -1L;
         this.l = true;
-        this.m = new Runnable() { // from class: com.baidu.tieba.ov9
+        this.m = new Runnable() { // from class: com.baidu.tieba.tv9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -388,7 +388,7 @@ public final class SpriteAnimationTipManager {
                 }
             }
         };
-        this.c.c().a(new aw9(this) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager.1
+        this.c.c().a(new fw9(this) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteAnimationTipManager a;
@@ -411,13 +411,13 @@ public final class SpriteAnimationTipManager {
                 this.a = this;
             }
 
-            @Override // com.baidu.tieba.aw9
+            @Override // com.baidu.tieba.fw9
             public void a() {
                 Unit unit;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    cs6 cs6Var = this.a.e;
-                    if (cs6Var != null) {
+                    es6 es6Var = this.a.e;
+                    if (es6Var != null) {
                         final SpriteAnimationTipManager spriteAnimationTipManager = this.a;
                         spriteAnimationTipManager.b.setAnimationListener(new Function0<Unit>(spriteAnimationTipManager) { // from class: com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager$1$doAction$1$1
                             public static /* synthetic */ Interceptable $ic;
@@ -461,7 +461,7 @@ public final class SpriteAnimationTipManager {
                                 }
                             }
                         });
-                        spriteAnimationTipManager.b.f(cs6Var);
+                        spriteAnimationTipManager.b.f(es6Var);
                         unit = Unit.INSTANCE;
                     } else {
                         unit = null;
@@ -492,7 +492,7 @@ public final class SpriteAnimationTipManager {
             } else {
                 z = false;
             }
-            dw9 a2 = l().a();
+            iw9 a2 = l().a();
             String str4 = "";
             if (Intrinsics.areEqual(a2, this.c.c())) {
                 if (z) {
@@ -517,7 +517,7 @@ public final class SpriteAnimationTipManager {
                 }
                 FunnySpriteResDownloadUtil.i(str, resFilePath, true);
             }
-            this.b.f(dn5.a(str4, z2, 2));
+            this.b.f(fn5.a(str4, z2, 2));
         }
     }
 
@@ -592,13 +592,13 @@ public final class SpriteAnimationTipManager {
         return (Function0) invokeV.objValue;
     }
 
-    public final pv9 l() {
+    public final uv9 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (pv9) this.d.getValue();
+            return (uv9) this.d.getValue();
         }
-        return (pv9) invokeV.objValue;
+        return (uv9) invokeV.objValue;
     }
 
     public final View m() {
@@ -683,12 +683,12 @@ public final class SpriteAnimationTipManager {
     }
 
     @JvmOverloads
-    public final void u(cs6 cs6Var, cs6 cs6Var2, cs6 cs6Var3) {
+    public final void u(es6 es6Var, es6 es6Var2, es6 es6Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, cs6Var, cs6Var2, cs6Var3) == null) {
-            this.e = cs6Var;
-            this.f = cs6Var2;
-            this.g = cs6Var3;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, es6Var, es6Var2, es6Var3) == null) {
+            this.e = es6Var;
+            this.f = es6Var2;
+            this.g = es6Var3;
         }
     }
 

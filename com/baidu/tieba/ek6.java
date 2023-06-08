@@ -1,49 +1,21 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import java.io.InputStream;
+import okio.Okio;
 /* loaded from: classes5.dex */
-public class ek6 {
+public class ek6 implements dk6<String, Pair<InputStream, Long>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Object> a;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ek6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-830240709, "Lcom/baidu/tieba/ek6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-830240709, "Lcom/baidu/tieba/ek6$b;");
-                    return;
-                }
-            }
-            a = new ek6(null);
-        }
-    }
 
     public ek6() {
         Interceptable interceptable = $ic;
@@ -55,71 +27,55 @@ public class ek6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap();
-    }
-
-    public static ek6 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (ek6) invokeV.objValue;
-    }
-
-    public /* synthetic */ ek6(a aVar) {
-        this();
-    }
-
-    public synchronized void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, new Object());
-                }
             }
         }
     }
 
-    public synchronized boolean c(String str) {
+    public final File c(String str) {
         InterceptResult invokeL;
-        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            File file = new File(Uri.parse(str).getPath());
+            if (file.exists() && file.isFile()) {
+                return file;
             }
-            return containsKey;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (File) invokeL.objValue;
     }
 
-    public void e(String str) {
-        Object remove;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dk6
+    @Nullable
+    /* renamed from: d */
+    public Pair<InputStream, Long> a(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (remove = this.a.remove(str)) != null) {
-            try {
-                synchronized (remove) {
-                    remove.notifyAll();
-                }
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File c = c(str);
+            if (c != null) {
+                return Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length()));
             }
+            return null;
         }
+        return (Pair) invokeL.objValue;
     }
 
-    public void d(String str, long j) {
-        Object obj;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dk6
+    /* renamed from: e */
+    public void b(String str, cnb<Pair<InputStream, Long>, Exception> cnbVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) && (obj = this.a.get(str)) != null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, cnbVar) == null) {
             try {
-                synchronized (obj) {
-                    obj.wait(j);
+                File c = c(str);
+                if (c != null) {
+                    cnbVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
+                } else {
+                    cnbVar.call(null, new IllegalArgumentException(str + "file not exist !"));
                 }
-            } catch (InterruptedException unused) {
+            } catch (Exception e) {
+                cnbVar.call(null, e);
             }
         }
     }

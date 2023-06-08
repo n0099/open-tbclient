@@ -1,125 +1,276 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.cache.CacheManager;
+import com.baidu.tieba.danmu.data.ItemState;
+import com.baidu.tieba.danmu.data.state.DrawState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import kotlin.Unit;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class eu6 {
+public final class eu6 extends it6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int i;
+    public int j;
+    public a k;
+    public final CacheManager l;
+    public mu6 m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746883, "Lcom/baidu/tieba/eu6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Override // com.baidu.tieba.it6
+    public void l(g0 entity, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        public final void c(List<? extends Object> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+                Intrinsics.checkNotNullParameter(list, "<set-?>");
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947746883, "Lcom/baidu/tieba/eu6;");
+        }
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(eu6 eu6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eu6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = -1;
+            CollectionsKt__CollectionsKt.emptyList();
+        }
+
+        public final int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        public final void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a = i;
+            }
+        }
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public eu6(dt6 context) {
+        super(context, r3, null, 4, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((dt6) objArr2[0], (j0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
-        a = createBitmap;
+        Intrinsics.checkNotNullParameter(context, "context");
+        Class<? extends ft6>[] b = dv6.a.b();
+        j0 b2 = j0.d((Class[]) Arrays.copyOf(b, b.length)).b();
+        Intrinsics.checkNotNullExpressionValue(b2, "all(*Families.layoutComponentTypes).get()");
+        this.i = -1;
+        this.j = -1;
+        this.k = new a(this);
+        this.l = context.b();
+        this.m = new nu6();
     }
 
-    public static final Bitmap b() {
+    @Override // com.baidu.tieba.it6, com.baidu.tieba.h0
+    public void a(g0 entity) {
+        ys6 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            super.a(entity);
+            mu6 mu6Var = this.m;
+            kt6 b = iu6.b(entity);
+            if (b != null && (a2 = b.a()) != null) {
+                mu6Var.b(a2);
+            }
+        }
+    }
+
+    public final void o(mu6 mu6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mu6Var) == null) {
+            Intrinsics.checkNotNullParameter(mu6Var, "<set-?>");
+            this.m = mu6Var;
+        }
+    }
+
+    public final yu6 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return hu6.c(this);
         }
-        return (Bitmap) invokeV.objValue;
+        return (yu6) invokeV.objValue;
     }
 
-    public static final boolean a(ws6 ws6Var, ws6 ws6Var2, wu6 wu6Var, long j, long j2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.it6, com.baidu.tieba.i0
+    public void update(float f) {
+        boolean z;
+        ys6 a2;
+        boolean z2;
+        lt6 lt6Var;
+        boolean z3;
+        ys6 a3;
+        ys6 a4;
+        boolean z4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{ws6Var, ws6Var2, wu6Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int width = wu6Var.getWidth();
-            float q = ws6Var.f().q();
-            float q2 = ws6Var2.f().q();
-            long j3 = j - ws6Var.j();
-            float f = width;
-            float f2 = (float) j2;
-            if (f - ((q2 + f) * (((float) (j - ws6Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q) {
-                return true;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            ju6.b("LayoutSystem_update");
+            ss6 c = i().c();
+            if (this.i == c.r() && this.j == c.o()) {
+                z = false;
+            } else {
+                z = true;
             }
-            return false;
+            if (hu6.e(this) && !z) {
+                ju6.a();
+                return;
+            }
+            if (this.i != c.r()) {
+                BdLog.v("DanmakuEngine [Layout] RetainerGeneration change, clear retainer.");
+                this.m.c(0, (int) (n().getHeight() * c.u()));
+                this.m.clear();
+                this.i = c.r();
+            }
+            if (this.k.a() != c.l()) {
+                this.k.b(c.l());
+                this.k.c(CollectionsKt___CollectionsKt.toList(c.n()));
+            }
+            long b = hu6.b(this);
+            List<g0> k = k();
+            ArrayList<g0> arrayList = new ArrayList();
+            for (Object obj : k) {
+                jt6 d = iu6.d((g0) obj);
+                if (d == null || d.d()) {
+                    z4 = false;
+                } else {
+                    z4 = true;
+                }
+                if (z4) {
+                    arrayList.add(obj);
+                }
+            }
+            boolean z5 = false;
+            for (g0 g0Var : arrayList) {
+                kt6 b2 = iu6.b(g0Var);
+                if (b2 != null && (a4 = b2.a()) != null && a4.i() != ItemState.Measuring) {
+                    boolean z6 = !a4.f().r(c.p());
+                    if (a4.i().compareTo(ItemState.Measuring) < 0 || z6) {
+                        if (z6 && a4.i().compareTo(ItemState.Measuring) >= 0) {
+                            BdLog.v("DanmakuEngine [Layout] re-measure " + a4.e());
+                        }
+                        a4.p(ItemState.Measuring);
+                        this.l.o(a4, n(), c);
+                        z5 = true;
+                    }
+                }
+            }
+            ArrayList<g0> arrayList2 = new ArrayList();
+            for (Object obj2 : arrayList) {
+                kt6 b3 = iu6.b((g0) obj2);
+                if (b3 != null && (a3 = b3.a()) != null && a3.i().compareTo(ItemState.Measured) >= 0) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (z3) {
+                    arrayList2.add(obj2);
+                }
+            }
+            boolean z7 = z5;
+            for (g0 g0Var2 : arrayList2) {
+                kt6 b4 = iu6.b(g0Var2);
+                if (b4 != null && (a2 = b4.a()) != null) {
+                    DrawState f2 = a2.f();
+                    lt6 e = iu6.e(g0Var2);
+                    if (e != null || (e = (lt6) hu6.a(this, lt6.class, g0Var2, a2)) != null) {
+                        lt6 lt6Var2 = e;
+                        if (f2.e() != c.o()) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (z2) {
+                            f2.H(false);
+                            lt6Var = lt6Var2;
+                            lt6Var.e(this.m.d(a2, b, n(), c));
+                        } else {
+                            lt6Var = lt6Var2;
+                        }
+                        if (lt6Var.d()) {
+                            synchronized (a2.i()) {
+                                if (a2.i().compareTo(ItemState.Rendering) < 0) {
+                                    a2.p(ItemState.Rendering);
+                                    this.l.m(a2, n(), c);
+                                    z7 = true;
+                                }
+                                Unit unit = Unit.INSTANCE;
+                            }
+                            this.m.a(a2, b, n(), c);
+                            f2.y(c.o());
+                        }
+                        lt6Var.c().set(f2.g(), f2.h());
+                    }
+                }
+            }
+            if (hu6.e(this)) {
+                if (z7) {
+                    this.l.n();
+                } else {
+                    c.H();
+                    this.j = c.o();
+                }
+            }
+            ju6.a();
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public static final boolean c(ws6 ws6Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, ws6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(ws6Var, "<this>");
-            if (j - ws6Var.j() < 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean d(ws6 ws6Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, ws6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(ws6Var, "<this>");
-            if (!e(ws6Var, j) && !c(ws6Var, j)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean e(ws6 ws6Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, ws6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(ws6Var, "<this>");
-            if (j - ws6Var.j() > ws6Var.g()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean f(ws6 ws6Var, ws6 danmaku, wu6 displayer, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{ws6Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Intrinsics.checkNotNullParameter(ws6Var, "<this>");
-            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            if (d(ws6Var, j)) {
-                return false;
-            }
-            long j3 = danmaku.j() - ws6Var.j();
-            if (j3 <= 0) {
-                return true;
-            }
-            if (Math.abs(j3) >= j2 || e(ws6Var, j) || e(danmaku, j)) {
-                return false;
-            }
-            if (ws6Var.e().j() != 5 && ws6Var.e().j() != 4 && !a(ws6Var, danmaku, displayer, j, j2) && !a(ws6Var, danmaku, displayer, j + j2, j2)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
     }
 }

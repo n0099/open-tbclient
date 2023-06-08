@@ -19,8 +19,8 @@ import com.baidu.tieba.gn;
 import com.baidu.tieba.ic;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.ng;
-import com.baidu.tieba.ow5;
 import com.baidu.tieba.qg;
+import com.baidu.tieba.qw5;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -206,13 +206,13 @@ public class MemeLoaderProc2 implements qg<gn> {
                 i4 = i2;
             }
             if (!this.isShare) {
-                ow5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d = ow5.d(str);
+                qw5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d = qw5.d(str);
                 if (((Boolean) d.first).booleanValue()) {
                     str3 = (String) d.second;
                 }
             } else {
-                ow5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                qw5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();

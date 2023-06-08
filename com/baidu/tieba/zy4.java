@@ -30,7 +30,7 @@ public class zy4 {
     public volatile boolean b;
     public String c;
     public Runnable d;
-    public dn6 e;
+    public fn6 e;
 
     public zy4() {
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class zy4 {
     public final void f() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d != null) {
-            kl6.a().e(this.d);
+            ml6.a().e(this.d);
             this.d = null;
         }
     }
@@ -81,7 +81,7 @@ public class zy4 {
                     }
                 }
             };
-            kl6.a().d(this.d, 10000L);
+            ml6.a().d(this.d, 10000L);
         }
     }
 
@@ -93,7 +93,7 @@ public class zy4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             try {
-                if (this.e != null && !hm6.a(this.e.f())) {
+                if (this.e != null && !jm6.a(this.e.f())) {
                     Map<String, Pair<Long, Long>> g = this.e.g();
                     JSONArray jSONArray = new JSONArray();
                     for (Pair<String, Long> pair : this.e.f()) {
@@ -110,7 +110,7 @@ public class zy4 {
                         }
                         jSONArray.put(jSONObject2);
                     }
-                    if (!hm6.c(jSONArray)) {
+                    if (!jm6.c(jSONArray)) {
                         jSONObject.put(PrefetchEvent.MODULE, jSONArray);
                     }
                 }
@@ -132,7 +132,7 @@ public class zy4 {
                     return null;
                 }
             }
-            if (this.e != null && this.a && !this.b && dn6.l(this.e.h())) {
+            if (this.e != null && this.a && !this.b && fn6.l(this.e.h())) {
                 String h = this.e.h();
                 JSONObject jSONObject = new JSONObject();
                 String c = this.e.c();
@@ -212,7 +212,7 @@ public class zy4 {
                         sb.append(optLong15 - optLong14);
                         sb.append("，渲染:");
                         sb.append(optLong22 - optLong15);
-                        fm6.b("newHybrid", sb.toString());
+                        hm6.b("newHybrid", sb.toString());
                         b(jSONObject);
                         StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.WEBVIEW_PERF_DATA_KEY).param("obj_param1", jSONObject.toString()).param(TiebaStatic.Params.OBJ_PARAM2, jSONObject.toString());
                         if (optBoolean) {

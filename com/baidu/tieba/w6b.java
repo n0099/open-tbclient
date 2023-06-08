@@ -1,40 +1,83 @@
 package com.baidu.tieba;
 
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public class w6b implements ArCoreApk.a {
+public class w6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicReference a;
 
-    public w6b(AtomicReference atomicReference) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948223942, "Lcom/baidu/tieba/w6b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948223942, "Lcom/baidu/tieba/w6b;");
+                return;
+            }
+        }
+        w6b.class.getClassLoader();
+    }
+
+    public w6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atomicReference};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = atomicReference;
     }
 
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
+    public static <T extends Parcelable> T a(Parcel parcel, Parcelable.Creator<T> creator) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            this.a.set(availability);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
+            if (parcel.readInt() == 0) {
+                return null;
+            }
+            return creator.createFromParcel(parcel);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static void b(Parcel parcel, IInterface iInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, parcel, iInterface) == null) {
+            if (iInterface == null) {
+                parcel.writeStrongBinder(null);
+            } else {
+                parcel.writeStrongBinder(iInterface.asBinder());
+            }
+        }
+    }
+
+    public static void c(Parcel parcel, Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, parcelable) == null) {
+            if (parcelable == null) {
+                parcel.writeInt(0);
+                return;
+            }
+            parcel.writeInt(1);
+            parcelable.writeToParcel(parcel, 0);
         }
     }
 }

@@ -2,13 +2,13 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.RecommendPersonAttentionCardView;
+import com.baidu.tieba.feed.card.FeedCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j97 extends r77<RecommendPersonAttentionCardView, p47> {
+public class j97 extends t77<FeedCardView, z47<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,12 +33,12 @@ public class j97 extends r77<RecommendPersonAttentionCardView, p47> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g87
+    @Override // com.baidu.tieba.i87
     /* renamed from: e */
-    public void b(@NonNull RecommendPersonAttentionCardView recommendPersonAttentionCardView, @NonNull p47 p47Var) {
+    public void b(@NonNull FeedCardView feedCardView, @NonNull z47<?> z47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendPersonAttentionCardView, p47Var) == null) {
-            recommendPersonAttentionCardView.update(p47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, z47Var) == null) {
+            feedCardView.f(z47Var);
         }
     }
 }

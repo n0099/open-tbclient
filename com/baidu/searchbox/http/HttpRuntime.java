@@ -2,12 +2,12 @@ package com.baidu.searchbox.http;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.ir9;
+import com.baidu.tieba.nr9;
 @Autowired
 /* loaded from: classes3.dex */
 public class HttpRuntime {
     @Inject(force = false)
     public static IHttpContext getHttpContext() {
-        return ir9.a();
+        return nr9.a();
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
-import com.baidu.tieba.v65;
-import com.baidu.tieba.wq8;
+import com.baidu.tieba.x65;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes4.dex */
-public class ExcludeDialogStrategy implements v65 {
+public class ExcludeDialogStrategy implements x65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +63,7 @@ public class ExcludeDialogStrategy implements v65 {
         }
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.x65
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -76,7 +76,7 @@ public class ExcludeDialogStrategy implements v65 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.x65
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class ExcludeDialogStrategy implements v65 {
                         obj = b.a(",", data.dialogNameList);
                         obj2 = b.a(",", data.alreadyShownDialogs);
                     }
-                    wq8 yunDialogLog = YunDialogLog.getInstance();
+                    zq8 yunDialogLog = YunDialogLog.getInstance();
                     yunDialogLog.c("YunDialogManager", "云弹窗 " + str + " 命中排斥策略，当前互斥弹窗列表：" + obj + " ，已展现弹窗列表：" + obj2);
                     return false;
                 }

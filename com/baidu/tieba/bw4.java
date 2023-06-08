@@ -272,7 +272,7 @@ public class bw4 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            l95 m = l95.m();
+            n95 m = n95.m();
             String s = m.s("key_sdk_task_expand_data_" + str, "");
             if (!TextUtils.isEmpty(s)) {
                 try {
@@ -301,7 +301,7 @@ public class bw4 {
     public void l(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            l95 m = l95.m();
+            n95 m = n95.m();
             m.B("key_sdk_task_expand_data_" + str, str2);
         }
     }

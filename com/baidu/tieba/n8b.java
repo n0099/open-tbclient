@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.q8b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class n8b implements Runnable {
+import java.util.concurrent.Executor;
+/* loaded from: classes6.dex */
+public final class n8b<TResult> implements k9b<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ q8b.a a;
+    public m9b a;
+    public Executor b;
+    public final Object c;
 
-    public n8b(q8b.a aVar) {
+    public n8b(Executor executor, m9b m9bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {executor, m9bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,14 +28,17 @@ public class n8b implements Runnable {
                 return;
             }
         }
-        this.a = aVar;
+        this.c = new Object();
+        this.a = m9bVar;
+        this.b = executor;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.tieba.k9b
+    public final void a(w8b<TResult> w8bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.d();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, w8bVar) == null) && !w8bVar.f()) {
+            w8bVar.e();
+            this.b.execute(new l8b(this, w8bVar));
         }
     }
 }

@@ -1,46 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class joa {
+public class joa implements voa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final joa a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-682119857, "Lcom/baidu/tieba/joa$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-682119857, "Lcom/baidu/tieba/joa$b;");
-                    return;
-                }
-            }
-            a = new joa(null);
-        }
-    }
+    public xoa a;
+    public IPCService b;
+    public yoa c;
 
     public joa() {
         Interceptable interceptable = $ic;
@@ -56,55 +33,62 @@ public class joa {
         }
     }
 
-    public static joa a() {
+    @Override // com.baidu.tieba.voa
+    public soa a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = new xoa();
+            }
+            return this.a;
         }
-        return (joa) invokeV.objValue;
+        return (soa) invokeV.objValue;
     }
 
-    public /* synthetic */ joa(a aVar) {
-        this();
-    }
-
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.voa
+    public uoa b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            return aoa.f(str, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new IPCService();
+            }
+            return this.b;
         }
-        return invokeLI.intValue;
+        return (uoa) invokeV.objValue;
     }
 
-    public long c(String str, long j) {
-        InterceptResult invokeLJ;
+    @Override // com.baidu.tieba.voa
+    public una c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            return aoa.g(str, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return qoa.b();
         }
-        return invokeLJ.longValue;
+        return (una) invokeV.objValue;
     }
 
-    public void d(String str, int i) {
+    @Override // com.baidu.tieba.voa
+    public yna d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            aoa.n(str, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return qoa.c();
         }
+        return (yna) invokeV.objValue;
     }
 
-    public void e(String str, long j) {
+    @Override // com.baidu.tieba.voa
+    public toa e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            aoa.o(str, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new yoa();
+            }
+            return this.c;
         }
-    }
-
-    public void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            aoa.p(str, str2);
-        }
+        return (toa) invokeV.objValue;
     }
 }

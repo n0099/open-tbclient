@@ -49,7 +49,7 @@ public class aw4 {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof e0a) && ((e0a) data).b) {
+            if ((data instanceof j0a) && ((j0a) data).b) {
                 bw4.f().a("717");
             }
         }

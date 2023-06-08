@@ -1,97 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class n97 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class n97 implements a87 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957373, "Lcom/baidu/tieba/n97;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947957373, "Lcom/baidu/tieba/n97;");
-                return;
+    public n97() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    @Override // com.baidu.tieba.a87
+    public List<i87<?, ?>> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new l97("recommend_card_person_attention"));
+            arrayList.add(new x87("mount"));
+            arrayList.add(new i97("img_text"));
+            arrayList.add(new k97("sideway_card"));
+            arrayList.add(new g97("common_card"));
+            arrayList.add(new j97("live_card"));
+            arrayList.add(new y87("card_multi_link"));
+            arrayList.add(new t87("mount_app"));
+            arrayList.add(new f97("feed_voice"));
+            arrayList.add(new m97("social_bar"));
+            arrayList.add(new w87("live"));
+            arrayList.add(new d97("video"));
+            arrayList.add(new b97("card_single_link"));
+            arrayList.add(new c97("title"));
+            arrayList.add(new v87("feed_head"));
+            arrayList.add(new h97("delegate-layout"));
+            arrayList.add(new o97("video_card"));
+            arrayList.add(new u87("feed_entrybar"));
+            arrayList.add(new e97("virtual_head"));
+            arrayList.add(new z87("origin_card"));
+            arrayList.add(new a97("pic"));
+            arrayList.add(new s87("abstract"));
+            return arrayList;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final int a(d57 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                int type = colorData.getType();
-                if (type != 1) {
-                    if (type == 2) {
-                        return SkinManager.getColor(e37.a.getResources().getIdentifier(colorData.b(), "color", e37.a.getPackageName()));
-                    }
-                } else {
-                    int currentSkinType = SkinManager.getCurrentSkinType();
-                    if (currentSkinType != 0) {
-                        if (currentSkinType == 4) {
-                            return jw9.f(colorData.a());
-                        }
-                    } else {
-                        return jw9.f(colorData.b());
-                    }
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final int b(d57 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                if (colorData.getType() == 2) {
-                    return e37.a.getResources().getIdentifier(colorData.b(), "color", e37.a.getPackageName());
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
+        return (List) invokeV.objValue;
     }
 }

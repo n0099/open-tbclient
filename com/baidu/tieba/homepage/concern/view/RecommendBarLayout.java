@@ -29,12 +29,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e0a;
-import com.baidu.tieba.ew7;
-import com.baidu.tieba.ex9;
+import com.baidu.tieba.gw7;
 import com.baidu.tieba.homepage.concern.adapter.RecommendBarPageAdapter;
 import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.j0a;
+import com.baidu.tieba.jx9;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.vi;
@@ -105,16 +105,16 @@ public class RecommendBarLayout extends LinearLayout implements py, View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 vn b = this.a.h.b(i);
-                if (b instanceof ew7) {
-                    ew7 ew7Var = (ew7) b;
+                if (b instanceof gw7) {
+                    gw7 gw7Var = (gw7) b;
                     StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.a.j).param("obj_param1", i);
-                    if (!StringUtils.isNull(ew7Var.a)) {
-                        param = param.param("obj_name", ew7Var.a);
+                    if (!StringUtils.isNull(gw7Var.a)) {
+                        param = param.param("obj_name", gw7Var.a);
                     }
                     TiebaStatic.log(param);
-                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", ew7Var.a()).param("obj_locate", (int) this.a.j);
-                    if (!StringUtils.isNull(ew7Var.a)) {
-                        param2 = param2.param("obj_name", ew7Var.a);
+                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", gw7Var.a()).param("obj_locate", (int) this.a.j);
+                    if (!StringUtils.isNull(gw7Var.a)) {
+                        param2 = param2.param("obj_name", gw7Var.a);
                     }
                     TiebaStatic.log(param2);
                 }
@@ -157,18 +157,18 @@ public class RecommendBarLayout extends LinearLayout implements py, View.OnClick
                 boolean z = true;
                 if (customResponsedMessage.getCmd() != 2001335 && customResponsedMessage.getCmd() != 2001336) {
                     if (customResponsedMessage.getCmd() == 2001437) {
-                        if (!(customResponsedMessage.getData() instanceof e0a)) {
+                        if (!(customResponsedMessage.getData() instanceof j0a)) {
                             return;
                         }
-                        e0a e0aVar = (e0a) customResponsedMessage.getData();
-                        if (e0aVar.b) {
-                            this.a.h.f(e0aVar.a, true);
+                        j0a j0aVar = (j0a) customResponsedMessage.getData();
+                        if (j0aVar.b) {
+                            this.a.h.f(j0aVar.a, true);
                         }
-                    } else if (customResponsedMessage.getCmd() != 2001266 || !(customResponsedMessage.getData() instanceof ex9)) {
+                    } else if (customResponsedMessage.getCmd() != 2001266 || !(customResponsedMessage.getData() instanceof jx9)) {
                     } else {
-                        ex9 ex9Var = (ex9) customResponsedMessage.getData();
-                        if (ex9Var.n() == 0) {
-                            this.a.h.f(tg.g(ex9Var.g(), 0L), false);
+                        jx9 jx9Var = (jx9) customResponsedMessage.getData();
+                        if (jx9Var.n() == 0) {
+                            this.a.h.f(tg.g(jx9Var.g(), 0L), false);
                         }
                     }
                 } else if (!(customResponsedMessage.getData() instanceof Long)) {
@@ -245,8 +245,8 @@ public class RecommendBarLayout extends LinearLayout implements py, View.OnClick
                 i = R.dimen.tbds728;
             }
             List<vn> h = recommendBarCardModel.h();
-            if (!ListUtils.isEmpty(h) && (h.get(0) instanceof ew7)) {
-                int b2 = ((ew7) h.get(0)).b();
+            if (!ListUtils.isEmpty(h) && (h.get(0) instanceof gw7)) {
+                int b2 = ((gw7) h.get(0)).b();
                 if (b2 != 1) {
                     if (b2 == 2) {
                         if (recommendBarCardModel.k()) {
@@ -273,12 +273,12 @@ public class RecommendBarLayout extends LinearLayout implements py, View.OnClick
             return;
         }
         vn b2 = this.h.b(this.e.getCurrentItem());
-        if (b2 instanceof ew7) {
-            ew7 ew7Var = (ew7) b2;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, ew7Var.c)));
+        if (b2 instanceof gw7) {
+            gw7 gw7Var = (gw7) b2;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, gw7Var.c)));
             StatisticItem param = new StatisticItem("c13645").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j);
-            if (!StringUtils.isNull(ew7Var.a)) {
-                param = param.param("obj_name", ew7Var.a);
+            if (!StringUtils.isNull(gw7Var.a)) {
+                param = param.param("obj_name", gw7Var.a);
             }
             TiebaStatic.log(param);
         }
@@ -318,7 +318,7 @@ public class RecommendBarLayout extends LinearLayout implements py, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             if (i != this.b) {
-                m75 d = m75.d(this.d);
+                o75 d = o75.d(this.d);
                 d.C(R.string.F_X02);
                 d.B(R.dimen.T_X07);
                 d.w(R.color.CAM_X0105);

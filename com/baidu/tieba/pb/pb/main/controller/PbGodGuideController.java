@@ -11,12 +11,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca5;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.j39;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.p99;
-import com.baidu.tieba.qf5;
+import com.baidu.tieba.ea5;
+import com.baidu.tieba.fa5;
+import com.baidu.tieba.m39;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.s99;
+import com.baidu.tieba.sf5;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,30 +79,30 @@ public class PbGodGuideController implements LifecycleObserver {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || BreatheTipWidget.f() || this.a == null) {
                 return;
             }
-            ca5 ca5Var = new ca5();
-            ca5Var.b = R.raw.lottie_bubble_breath_tip;
-            ca5Var.a = BreatheTipWidget.PointType.LOTTIE;
-            ca5Var.c = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
-            da5 da5Var = new da5();
-            da5Var.a = this.a.getString(R.string.obfuscated_res_0x7f0f0f9e);
-            da5Var.b = this.a.getString(R.string.obfuscated_res_0x7f0f0f9d);
-            da5Var.e = R.drawable.god_post_guide_bg;
-            da5Var.f = vi.g(this.a, R.dimen.tbds140);
-            da5Var.g = vi.g(this.a, R.dimen.tbds460);
-            da5Var.h = vi.g(this.a, R.dimen.tbds286);
-            da5Var.i = vi.g(this.a, R.dimen.tbds100);
+            ea5 ea5Var = new ea5();
+            ea5Var.b = R.raw.lottie_bubble_breath_tip;
+            ea5Var.a = BreatheTipWidget.PointType.LOTTIE;
+            ea5Var.c = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
+            fa5 fa5Var = new fa5();
+            fa5Var.a = this.a.getString(R.string.obfuscated_res_0x7f0f0f9e);
+            fa5Var.b = this.a.getString(R.string.obfuscated_res_0x7f0f0f9d);
+            fa5Var.e = R.drawable.god_post_guide_bg;
+            fa5Var.f = vi.g(this.a, R.dimen.tbds140);
+            fa5Var.g = vi.g(this.a, R.dimen.tbds460);
+            fa5Var.h = vi.g(this.a, R.dimen.tbds286);
+            fa5Var.i = vi.g(this.a, R.dimen.tbds100);
             if (this.b == null) {
                 return;
             }
             BreatheTipWidget breatheTipWidget = new BreatheTipWidget(this.a);
             breatheTipWidget.j(this.b);
             breatheTipWidget.i(BreatheTipWidget.FromType.GOD);
-            breatheTipWidget.h(da5Var, ca5Var);
+            breatheTipWidget.h(fa5Var, ea5Var);
             breatheTipWidget.g(false);
             this.e = breatheTipWidget;
             if (breatheTipWidget.k((Activity) this.a, 3000L)) {
-                l95.m().z(p99.a, l95.m().n(p99.a, 0) + 1);
-                qf5.b("c15280", this.c, this.d);
+                n95.m().z(s99.a, n95.m().n(s99.a, 0) + 1);
+                sf5.b("c15280", this.c, this.d);
             }
         }
     }
@@ -130,12 +130,12 @@ public class PbGodGuideController implements LifecycleObserver {
         }
     }
 
-    public boolean b(j39 j39Var, Context context, View view2, String str, String str2) {
+    public boolean b(m39 m39Var, Context context, View view2, String str, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, j39Var, context, view2, str, str2)) == null) {
-            p99.a();
-            if (!p99.c(j39Var)) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, m39Var, context, view2, str, str2)) == null) {
+            s99.a();
+            if (!s99.c(m39Var)) {
                 return false;
             }
             this.a = new a(context, view2, str, str2);

@@ -33,11 +33,11 @@ public class dn1 {
 
         /* renamed from: com.baidu.tieba.dn1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0277a implements Thread.UncaughtExceptionHandler {
+        public class C0280a implements Thread.UncaughtExceptionHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0277a(a aVar) {
+            public C0280a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class dn1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
                 Thread thread = new Thread(runnable, "TaskScheduler #" + this.a.getAndIncrement());
-                thread.setUncaughtExceptionHandler(new C0277a(this));
+                thread.setUncaughtExceptionHandler(new C0280a(this));
                 return thread;
             }
             return (Thread) invokeL.objValue;

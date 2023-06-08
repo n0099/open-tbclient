@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.EllipsizeTagTitleView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g38;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.i38;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,15 +51,15 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements p
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092560);
     }
 
-    public void a(g38 g38Var) {
+    public void a(i38 i38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, g38Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, i38Var) == null) {
             this.b.setConrers(15);
             this.b.setPlaceHolder(1);
-            this.b.N(g38Var.d, 10, false);
-            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, g38Var.a), g38Var.c);
-            if (!TextUtils.isEmpty(g38Var.b)) {
-                this.d.setText(g38Var.b);
+            this.b.N(i38Var.d, 10, false);
+            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, i38Var.a), i38Var.c);
+            if (!TextUtils.isEmpty(i38Var.b)) {
+                this.d.setText(i38Var.b);
                 this.d.setVisibility(0);
                 return;
             }
@@ -76,7 +76,7 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements p
                 ellipsizeTagTitleView.onChangeSkinType(tbPageContext, i);
             }
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            m75.d(this.a).j(R.color.CAM_X0201, R.color.CAM_X0202);
+            o75.d(this.a).j(R.color.CAM_X0201, R.color.CAM_X0202);
         }
     }
 }

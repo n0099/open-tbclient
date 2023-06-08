@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TabList;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Hottopic.RelateForum;
 /* loaded from: classes7.dex */
-public class r58 implements vn {
+public class r58 extends mo6 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public List<vn> a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,11 +48,26 @@ public class r58 implements vn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    @Override // com.baidu.tieba.vn
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<vn> list = this.a;
+            if (list != null && list.size() != 0) {
+                return this.a.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,16 +77,19 @@ public class r58 implements vn {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void a(TabList tabList) {
+    public void parserProtobuf(List<RelateForum> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tabList) != null) || tabList == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && list.size() != 0) {
+            this.showTopDivider = true;
+            this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
+            this.a = new ArrayList();
+            for (RelateForum relateForum : list) {
+                if (!StringUtils.isNull(relateForum.forum_name)) {
+                    RelateForumItemData relateForumItemData = new RelateForumItemData();
+                    relateForumItemData.parserProtobuf(relateForum);
+                    this.a.add(relateForumItemData);
+                }
+            }
         }
-        String str = tabList.tab_name;
-        this.a = tabList.tab_type;
-        String str2 = tabList.share_pic;
-        String str3 = tabList.share_title;
-        String str4 = tabList.share_desc;
-        String str5 = tabList.share_url;
     }
 }

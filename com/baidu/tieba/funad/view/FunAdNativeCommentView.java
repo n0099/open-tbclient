@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cy9;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.qs7;
-import com.baidu.tieba.ys7;
+import com.baidu.tieba.at7;
+import com.baidu.tieba.hy9;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.ss7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -204,25 +204,25 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull cy9 cy9Var, @NonNull Activity activity) {
+    public void f(@NonNull hy9 hy9Var, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, cy9Var, activity) == null) {
-            super.f(cy9Var, activity);
-            if (cy9Var.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, hy9Var, activity) == null) {
+            super.f(hy9Var, activity);
+            if (hy9Var.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) cy9Var.e();
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) hy9Var.e();
             this.w.setText(this.c);
-            this.u.N(ys7.j(funNativeAd2), 10, false);
-            if (ys7.m(funNativeAd2) != null) {
-                boolean B = ys7.B(funNativeAd2);
-                ys7.I(this.k, B);
-                ys7.G(this.h, B);
+            this.u.N(at7.j(funNativeAd2), 10, false);
+            if (at7.m(funNativeAd2) != null) {
+                boolean B = at7.B(funNativeAd2);
+                at7.I(this.k, B);
+                at7.G(this.h, B);
                 return;
             }
-            boolean A = ys7.A(funNativeAd2, ys7.k(funNativeAd2));
-            ys7.I(this.k, A);
-            ys7.G(this.h, A);
+            boolean A = at7.A(funNativeAd2, at7.k(funNativeAd2));
+            at7.I(this.k, A);
+            at7.G(this.h, A);
         }
     }
 
@@ -274,7 +274,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public qs7.f getLogItem() {
+    public ss7.f getLogItem() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -284,9 +284,9 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
             } else {
                 str = "0";
             }
-            return qs7.b("pb", str);
+            return ss7.b("pb", str);
         }
-        return (qs7.f) invokeV.objValue;
+        return (ss7.f) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -304,12 +304,12 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.h();
-            m75.d(this).f(R.color.CAM_X0205);
-            m75 d = m75.d(this);
+            o75.d(this).f(R.color.CAM_X0205);
+            o75 d = o75.d(this);
             d.o(R.string.J_X06);
             d.j(R.color.CAM_X0205, R.color.CAM_X0206);
-            m75.d(this.v).w(R.color.CAM_X0109);
-            m75.d(this.w).w(R.color.CAM_X0107);
+            o75.d(this.v).w(R.color.CAM_X0109);
+            o75.d(this.w).w(R.color.CAM_X0107);
             WebPManager.setPureDrawable(this.y, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             this.u.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             SkinManager.setBackgroundColor(this.z, R.color.CAM_X0203);

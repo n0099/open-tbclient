@@ -33,7 +33,7 @@ public class hi4 extends PopupWindow implements View.OnClickListener {
     public Context S;
 
     /* renamed from: T  reason: collision with root package name */
-    public View f1109T;
+    public View f1106T;
     public MainMenuView U;
     public FrameLayout V;
     public zh4 W;
@@ -103,7 +103,7 @@ public class hi4 extends PopupWindow implements View.OnClickListener {
         this.X = true;
         this.Y = 0;
         this.S = context;
-        this.f1109T = view2;
+        this.f1106T = view2;
         this.W = zh4Var;
         E(false);
         G(true);
@@ -242,7 +242,7 @@ public class hi4 extends PopupWindow implements View.OnClickListener {
         }
         Activity activity = (Activity) this.S;
         if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-            P(this.f1109T, 81, 0, 0);
+            P(this.f1106T, 81, 0, 0);
             if (this.X) {
                 u().setSystemUiVisibility(this.Y | 1024 | 4096);
                 G(true);

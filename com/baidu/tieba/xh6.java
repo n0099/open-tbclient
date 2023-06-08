@@ -1,43 +1,30 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface xh6 {
+public class xh6 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 0;
+    public static int b = 1;
+    public static int c = 2;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        boolean a(float f);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948300419, "Lcom/baidu/tieba/xh6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948300419, "Lcom/baidu/tieba/xh6;");
+        }
     }
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        float getSpeed();
-    }
-
-    /* loaded from: classes8.dex */
-    public interface c {
-        boolean onFinished();
-    }
-
-    boolean a();
-
-    boolean b();
-
-    int getMaxDuration();
-
-    float getProgress();
-
-    int getSlideNum();
-
-    boolean pause();
-
-    boolean reset();
-
-    boolean setMaxDuration(int i);
-
-    boolean setMinDuration(int i);
-
-    boolean setProgress(long j);
-
-    boolean setShowDeleteLastTip(boolean z);
-
-    boolean start();
 }

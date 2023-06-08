@@ -1,225 +1,146 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppPosInfo;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes7.dex */
 public class on9 {
     public static /* synthetic */ Interceptable $ic;
-    public static on9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public String d;
-    public String e;
 
-    public on9() {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = l95.m().s("asp_shown_info", "");
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
     }
 
-    public static on9 e() {
-        InterceptResult invokeV;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == null) {
-                synchronized (cz9.class) {
-                    if (f == null) {
-                        f = new on9();
-                    }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
+    }
+
+    public static zl0 d(@NonNull AdCard adCard) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
+            if (ql0.b().query(adCard.getDownloadKey()) != null) {
+                return ql0.b().query(adCard.getDownloadKey());
+            }
+            zl0 zl0Var = new zl0();
+            zl0Var.h(adCard.getDownloadKey());
+            if (adCard.downloadInfo != null) {
+                if (TextUtils.isEmpty(zl0Var.e())) {
+                    zl0Var.h(adCard.downloadInfo.b);
                 }
+                gn9 gn9Var = adCard.downloadInfo;
+                zl0Var.g = gn9Var.b;
+                zl0Var.d = gn9Var.a;
             }
-            return f;
+            if (TextUtils.isEmpty(zl0Var.e())) {
+                zl0Var.h(adCard.adId);
+            }
+            dm0 dm0Var = new dm0();
+            dm0Var.d = adCard.getButtonText();
+            dm0Var.j = adCard.adId;
+            dm0Var.a = adCard.getExtInfo();
+            j15 j15Var = adCard.appInfoModel;
+            if (j15Var != null) {
+                dm0Var.g = j15Var.b;
+                dm0Var.h = j15Var.c;
+            }
+            if (hk0.n(adCard.cmdScheme)) {
+                dm0Var.c = adCard.cmdScheme;
+            }
+            zl0Var.p = dm0Var;
+            am0 am0Var = new am0();
+            am0Var.a = adCard.getAdvertAppInfo().j;
+            am0Var.t = e36.a().b();
+            am0Var.s = e36.a().h();
+            zl0Var.q = am0Var;
+            return zl0Var;
         }
-        return (on9) invokeV.objValue;
+        return (zl0) invokeL.objValue;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public static String e(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.d)) {
-                f();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
             }
-            return this.d;
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public void g() {
+    public static Drawable f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            l95.m().B("asp_shown_info", this.e);
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
+            return m75.G(m75.n(n75.y(), i), i2, i3, i4);
         }
+        return (Drawable) invokeIIII.objValue;
     }
 
-    public AppPosInfo a() {
-        InterceptResult invokeV;
+    public static int g(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AppPosInfo.Builder builder = new AppPosInfo.Builder();
-            builder.ap_mac = d();
-            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
-            builder.latitude = this.b;
-            builder.longitude = this.a;
-            builder.addr_timestamp = Long.valueOf(this.c);
-            builder.coordinate_type = "bd09ll";
-            builder.asp_shown_info = this.e;
-            MercatorModel.MercatorData e = MercatorModel.d().e();
-            if (e != null) {
-                builder.mercator_lat = e.X();
-                builder.mercator_lon = e.Y();
-                builder.mercator_city = Integer.valueOf(e.U());
-                builder.mercator_radius = e.a0();
-                builder.mercator_time = Long.valueOf(e.b0());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i == i2) {
+                return i;
             }
-            return builder.build(false);
+            if (f <= 0.0f) {
+                return i;
+            }
+            if (f >= 1.0f) {
+                return i2;
+            }
+            int red = Color.red(i);
+            int green = Color.green(i);
+            int blue = Color.blue(i);
+            int alpha = Color.alpha(i);
+            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
         }
-        return (AppPosInfo) invokeV.objValue;
+        return invokeCommon.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AppPosInfo c = c();
-            JSONObject jSONObject = new JSONObject();
-            if (c != null) {
-                try {
-                    jSONObject.put("ap_mac", c.ap_mac);
-                    jSONObject.put("ap_connected", c.ap_connected);
-                    jSONObject.put("latitude", c.latitude);
-                    jSONObject.put("longitude", c.longitude);
-                    jSONObject.put("addr_timestamp", c.addr_timestamp);
-                    jSONObject.put("coordinate_type", c.coordinate_type);
-                    jSONObject.put("asp_shown_info", c.asp_shown_info);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LAT, c.mercator_lat);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LON, c.mercator_lon);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_CITY, c.mercator_city);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_RADIUS, c.mercator_radius);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_TIME, c.mercator_time);
-                    jSONObject.put("mercator_province_name", c.mercator_province_name);
-                    jSONObject.put("mercator_city_name", c.mercator_city_name);
-                    jSONObject.put("mercator_district_name", c.mercator_district_name);
-                } catch (JSONException unused) {
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public AppPosInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AppPosInfo.Builder builder = new AppPosInfo.Builder();
-            builder.ap_mac = d();
-            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
-            String str = this.b;
-            builder.latitude = str;
-            builder.longitude = this.a;
-            if (ui.isEmpty(str) || ui.isEmpty(this.a)) {
-                String s = l95.m().s("key_last_receive_location_latitude_and_longitude", "");
-                if (!ui.isEmpty(s)) {
-                    String[] split = s.split(",");
-                    if (split.length >= 2) {
-                        builder.latitude = split[0];
-                        builder.longitude = split[1];
-                    }
-                }
-            }
-            builder.addr_timestamp = Long.valueOf(this.c);
-            builder.coordinate_type = "BD09LL";
-            builder.asp_shown_info = this.e;
-            MercatorModel.MercatorData e = MercatorModel.d().e();
-            if (e != null) {
-                builder.mercator_lat = e.X();
-                builder.mercator_lon = e.Y();
-                builder.mercator_city = Integer.valueOf(e.U());
-                builder.mercator_radius = e.a0();
-                builder.mercator_time = Long.valueOf(e.b0());
-                builder.mercator_province_name = e.Z();
-                builder.mercator_city_name = e.V();
-                builder.mercator_district_name = e.W();
-            }
-            return builder.build(false);
-        }
-        return (AppPosInfo) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            if (PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadWifiState(applicationContext)) {
-                try {
-                    WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
-                    if (connectionInfo != null) {
-                        this.d = connectionInfo.getBSSID();
-                    } else {
-                        this.d = "";
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+            try {
+                return Color.parseColor(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
             }
         }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.c = j;
-        }
+        return invokeLI.intValue;
     }
 }

@@ -6,8 +6,8 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.app.NotificationCompat;
-import com.baidu.tieba.wqa;
-import com.baidu.tieba.xua;
+import com.baidu.tieba.bra;
+import com.baidu.tieba.cva;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -121,7 +121,7 @@ public class SubTitleConfig {
                 try {
                     int i = typefaceConfig.mInputType;
                     if (i == 1) {
-                        typeface = Typeface.createFromAsset(wqa.c().getContext().getAssets(), typefaceConfig.mSource);
+                        typeface = Typeface.createFromAsset(bra.c().getContext().getAssets(), typefaceConfig.mSource);
                     } else if (i == 2) {
                         typeface = Typeface.createFromFile(typefaceConfig.mSource);
                     }
@@ -260,35 +260,35 @@ public class SubTitleConfig {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("chinese_shadow_config");
             if (optJSONObject2 != null) {
                 ShadowConfig shadowConfig = new ShadowConfig();
-                shadowConfig.shadowRadius = xua.a(optJSONObject2.optString("shadowRadius"), 2.0f);
-                shadowConfig.shadowDx = xua.a(optJSONObject2.optString("shadowDx"), 0.0f);
-                shadowConfig.shadowDy = xua.a(optJSONObject2.optString("shadowDy"), 2.0f);
+                shadowConfig.shadowRadius = cva.a(optJSONObject2.optString("shadowRadius"), 2.0f);
+                shadowConfig.shadowDx = cva.a(optJSONObject2.optString("shadowDx"), 0.0f);
+                shadowConfig.shadowDy = cva.a(optJSONObject2.optString("shadowDy"), 2.0f);
                 subTitleConfig.chineseShadowConfig = shadowConfig;
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("eng_shadow_config");
             if (optJSONObject3 != null) {
                 ShadowConfig shadowConfig2 = new ShadowConfig();
-                shadowConfig2.shadowRadius = xua.a(optJSONObject3.optString("shadowRadius"), 2.0f);
-                shadowConfig2.shadowDx = xua.a(optJSONObject3.optString("shadowDx"), 0.0f);
-                shadowConfig2.shadowDy = xua.a(optJSONObject3.optString("shadowDy"), 2.0f);
+                shadowConfig2.shadowRadius = cva.a(optJSONObject3.optString("shadowRadius"), 2.0f);
+                shadowConfig2.shadowDx = cva.a(optJSONObject3.optString("shadowDx"), 0.0f);
+                shadowConfig2.shadowDy = cva.a(optJSONObject3.optString("shadowDy"), 2.0f);
                 subTitleConfig.engShadowConfig = shadowConfig2;
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("chineseStrokeConfig");
             if (optJSONObject4 != null) {
                 StrokeConfig strokeConfig = new StrokeConfig();
-                strokeConfig.strokeWidth = xua.a(optJSONObject4.optString("strokeWidth"), 0.0f);
+                strokeConfig.strokeWidth = cva.a(optJSONObject4.optString("strokeWidth"), 0.0f);
                 strokeConfig.strokeColor = optJSONObject4.optInt("strokeColor");
                 subTitleConfig.chineseStrokeConfig = strokeConfig;
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("engStrokeConfig");
             if (optJSONObject5 != null) {
                 StrokeConfig strokeConfig2 = new StrokeConfig();
-                strokeConfig2.strokeWidth = xua.a(optJSONObject5.optString("strokeWidth"), 0.0f);
+                strokeConfig2.strokeWidth = cva.a(optJSONObject5.optString("strokeWidth"), 0.0f);
                 strokeConfig2.strokeColor = optJSONObject5.optInt("strokeColor");
                 subTitleConfig.engStrokeConfig = strokeConfig2;
             }
             subTitleConfig.isHorizontal = jSONObject.optBoolean("isHorizontal", false);
-            subTitleConfig.mScale = xua.a(jSONObject.optString("mScale"), 1.0f);
+            subTitleConfig.mScale = cva.a(jSONObject.optString("mScale"), 1.0f);
             String optString = jSONObject.optString("chineseTypefaceConfig");
             if (!TextUtils.isEmpty(optString)) {
                 TypefaceConfig parseJson = TypefaceConfig.parseJson(optString);
@@ -301,8 +301,8 @@ public class SubTitleConfig {
                 subTitleConfig.engTypefaceConfig = parseJson2;
                 subTitleConfig.engTypeface = TypefaceConfig.toTypeFace(parseJson2);
             }
-            float a = xua.a(jSONObject.optString("centerPointerX"), -2.1474836E9f);
-            float a2 = xua.a(jSONObject.optString("centerPointerY"), -2.1474836E9f);
+            float a = cva.a(jSONObject.optString("centerPointerX"), -2.1474836E9f);
+            float a2 = cva.a(jSONObject.optString("centerPointerY"), -2.1474836E9f);
             if (a != -2.1474836E9f && a2 != -2.1474836E9f) {
                 subTitleConfig.mCenterPoint = new PointF(a, a2);
             }

@@ -8,20 +8,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class df9 extends in<og9, CardViewHolder<rh9>> {
+public class df9 extends in<og9, CardViewHolder<sh9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
+    public LikeModel b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public df9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), og9.d);
+        super(tbPageContext.getPageActivity(), og9.l);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,16 +41,19 @@ public class df9 extends in<og9, CardViewHolder<rh9>> {
             }
         }
         this.a = tbPageContext;
+        this.b = new LikeModel(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: s */
-    public CardViewHolder<rh9> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<sh9> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new rh9(this.a));
+            sh9 sh9Var = new sh9(this.a);
+            sh9Var.z(this.b);
+            return new CardViewHolder<>(sh9Var);
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -56,7 +61,7 @@ public class df9 extends in<og9, CardViewHolder<rh9>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, og9 og9Var, CardViewHolder<rh9> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, og9 og9Var, CardViewHolder<sh9> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, og9Var, cardViewHolder})) == null) {

@@ -1,20 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.ge5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class m65 extends h65 {
+public class m65 implements cl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,59 +25,22 @@ public final class m65 extends h65 {
         }
     }
 
-    public static final void b() {
+    @Override // com.baidu.tieba.cl1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            x55.s("homeLiveRemind");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new tw6());
+            arrayList.add(new qo7());
+            arrayList.add(new uo7());
+            arrayList.add(new yo7());
+            arrayList.add(new cp7());
+            arrayList.add(new gp7());
+            arrayList.add(new kp7());
+            arrayList.add(new op7());
+            return arrayList;
         }
-    }
-
-    @Override // com.baidu.tieba.h65
-    public void a(Context context, z55 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
-                int i = 0;
-                LiveRemindRecommendData c = y85.a().c(0);
-                HashMap hashMap = new HashMap();
-                if (c.getRemindType() == 1) {
-                    i = 3;
-                } else if (c.getRemindType() == 2) {
-                    i = 4;
-                } else if (c.getRemindType() == 3) {
-                    i = 2;
-                }
-                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
-                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
-                hashMap.put("view_top_params_user_name", c.getUserName());
-                hashMap.put("view_top_params_key_desc", c.getDesc());
-                hashMap.put("view_top_params_room_id", c.getRoomId());
-                hashMap.put("view_top_params_btn_text", c.getBtnText());
-                hashMap.put("view_top_params_key_title", c.getTitle());
-                hashMap.put("view_top_params_key_nid", c.getFeedId());
-                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
-                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
-                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                he5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new ge5.h() { // from class: com.baidu.tieba.e65
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.ge5.h
-                    public final void dismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            m65.b();
-                        }
-                    }
-                });
-                z85.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-                x55.m("homeLiveRemind");
-                return;
-            }
-            x55.s("homeLiveRemind");
-        }
+        return invokeV.objValue;
     }
 }

@@ -24,9 +24,9 @@ import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gn;
-import com.baidu.tieba.k16;
 import com.baidu.tieba.kg;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.m16;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
@@ -42,7 +42,7 @@ public class GridImageLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public kg<ImageView> a;
     public kg<GifView> b;
-    public k16 c;
+    public m16 c;
     public ArrayList<TbRichTextImageInfo> d;
     public int e;
     public int f;
@@ -295,12 +295,12 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setLayoutStrategy(k16 k16Var) {
+    public void setLayoutStrategy(m16 m16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, k16Var) == null) {
-            this.c = k16Var;
-            if (k16Var != null) {
-                this.f = k16Var.K;
+        if (interceptable == null || interceptable.invokeL(1048596, this, m16Var) == null) {
+            this.c = m16Var;
+            if (m16Var != null) {
+                this.f = m16Var.K;
             }
         }
     }
@@ -385,7 +385,7 @@ public class GridImageLayout extends RelativeLayout {
         eMTextView.setPadding(g, 0, g, 0);
         eMTextView.setGravity(16);
         eMTextView.setText(this.h);
-        m75 d = m75.d(eMTextView);
+        o75 d = o75.d(eMTextView);
         d.B(R.dimen.T_X09);
         d.w(R.color.CAM_X0101);
         d.C(R.string.F_X02);

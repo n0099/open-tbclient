@@ -1,40 +1,52 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ada;
-import com.baidu.tieba.cda;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.core.ImageLoader;
-import java.io.File;
-import java.util.List;
-import java.util.Vector;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes5.dex */
 public class eda {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile eda c;
     public transient /* synthetic */ FieldHolder $fh;
-    public cda a;
-    public List<jda> b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947731879, "Lcom/baidu/tieba/eda;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947731879, "Lcom/baidu/tieba/eda;");
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements ida {
+    public static class a implements gda {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eda a;
+        public final /* synthetic */ gda a;
 
-        public a(eda edaVar) {
+        public a(gda gdaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {edaVar};
+                Object[] objArr = {gdaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,140 +56,119 @@ public class eda {
                     return;
                 }
             }
-            this.a = edaVar;
+            this.a = gdaVar;
         }
 
-        @Override // com.baidu.tieba.ida
-        public void a(ada.b bVar) {
+        @Override // com.baidu.tieba.gda
+        public void a(int i, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                ada.a().c(bVar);
-                if (!yua.e(this.a.b)) {
-                    eda edaVar = this.a;
-                    edaVar.h((jda) yua.c(edaVar.b, 0));
-                    yua.g(this.a.b, 0);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                gda gdaVar = this.a;
+                if (gdaVar != null) {
+                    gdaVar.a(i, bitmap);
+                }
+                yua.d("single-frameResult: " + i);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements gda {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gda a;
+
+        public b(gda gdaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gdaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = gdaVar;
         }
-    }
 
-    public eda() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new Vector();
-        this.a = new cda.b().d();
-    }
-
-    public void i(kda kdaVar, bda bdaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, kdaVar, bdaVar) == null) {
-            List<jda> c2 = gda.c(kdaVar, bdaVar);
-            if (!yua.e(c2)) {
-                for (jda jdaVar : c2) {
-                    h(jdaVar);
+        @Override // com.baidu.tieba.gda
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                gda gdaVar = this.a;
+                if (gdaVar != null) {
+                    gdaVar.a(i, bitmap);
                 }
+                yua.d("multi-frameResult: " + i);
             }
         }
     }
 
-    public void j(lda ldaVar, bda bdaVar) {
-        jda b;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, ldaVar, bdaVar) == null) && (b = gda.b(ldaVar, bdaVar)) != null) {
-            h(b);
-        }
-    }
-
-    public static eda f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (eda.class) {
-                    if (c == null) {
-                        c = new eda();
-                    }
-                }
-            }
-            return c;
-        }
-        return (eda) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
-            return;
-        }
-        throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
-    }
-
-    public hda g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c();
-            return this.a.b;
-        }
-        return (hda) invokeV.objValue;
-    }
-
-    public Bitmap d(String str) {
+    public static TbMultiMediaData a(VideoInfo videoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Bitmap a2 = g().a(str);
-            if (a2 != null && !a2.isRecycled()) {
-                return a2;
-            }
-            Bitmap a3 = e().a(str);
-            if (a3 == null || a3.isRecycled()) {
-                return null;
-            }
-            return a3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            tbMultiMediaData.path = videoInfo.getVideoPath();
+            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
+            tbMultiMediaData.height = videoInfo.getVideoHeight();
+            tbMultiMediaData.width = videoInfo.getVideoWidth();
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            return tbMultiMediaData;
         }
-        return (Bitmap) invokeL.objValue;
+        return (TbMultiMediaData) invokeL.objValue;
     }
 
-    public final void h(jda jdaVar) {
+    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, gda gdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jdaVar) == null) {
-            c();
-            ada.b b = ada.a().b();
-            if (b != null) {
-                b.m(this.a.a);
-                b.setDataSource(jdaVar.a);
-                b.h(jdaVar, new a(this));
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), gdaVar}) == null) && vlogEditManager != null && context != null && i > 0) {
+            pda pdaVar = new pda();
+            pdaVar.a = vlogEditManager.getDuration();
+            pdaVar.b = i;
+            pdaVar.f = vlogEditManager.getInputMultiMediaData();
+            MediaTrack mediaTrack = (MediaTrack) dva.c(vlogEditManager.getUpdateMediaTracks(), 0);
+            if (mediaTrack == null) {
                 return;
             }
-            this.b.add(jdaVar);
+            pdaVar.e = mediaTrack.mediaSegments;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+            }
+            pdaVar.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            pdaVar.d = i3;
+            jda.f().i(pdaVar, new b(gdaVar));
         }
     }
 
-    public xca e() {
-        InterceptResult invokeV;
+    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, gda gdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c();
-            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-            if (!TextUtils.equals(this.a.c.b(), str)) {
-                this.a.c.d(str);
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), gdaVar}) == null) && multiMediaData != null && context != null && i > 0) {
+            qda qdaVar = new qda();
+            qdaVar.b = i;
+            qdaVar.a = multiMediaData.originalDuration;
+            qdaVar.e = multiMediaData;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
             }
-            return this.a.c;
+            qdaVar.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            qdaVar.d = i3;
+            jda.f().j(qdaVar, new a(gdaVar));
         }
-        return (xca) invokeV.objValue;
     }
 }

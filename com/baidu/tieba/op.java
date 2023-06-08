@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class op implements wz9 {
+public class op implements b0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public lj a;
@@ -77,13 +77,13 @@ public class op implements wz9 {
 
         /* renamed from: com.baidu.tieba.op$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0394b implements Runnable {
+        public class RunnableC0403b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0394b(b bVar, String str) {
+            public RunnableC0403b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,13 +137,13 @@ public class op implements wz9 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String d = ub5.c(sb5.d(this.a)).d();
+                String d = wb5.c(ub5.d(this.a)).d();
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.f);
                     if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0394b(this, d));
+                        this.c.b.post(new RunnableC0403b(this, d));
                     }
                 }
             }
@@ -319,7 +319,7 @@ public class op implements wz9 {
                     if (opVar.c == null) {
                         TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                     } else if (this.a.a.isOnCancle()) {
-                        qi.k(sb5.c(this.a.c));
+                        qi.k(ub5.c(this.a.c));
                         this.a.c = null;
                         this.a.a.onStopingRecorder();
                         nj.a = 1;
@@ -375,7 +375,7 @@ public class op implements wz9 {
         return (op) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -383,7 +383,7 @@ public class op implements wz9 {
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class op implements wz9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -428,7 +428,7 @@ public class op implements wz9 {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -447,7 +447,7 @@ public class op implements wz9 {
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -455,7 +455,7 @@ public class op implements wz9 {
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -473,7 +473,7 @@ public class op implements wz9 {
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -486,7 +486,7 @@ public class op implements wz9 {
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public void e(lj ljVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, ljVar) == null) {
@@ -505,11 +505,11 @@ public class op implements wz9 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && str != null && i >= 1) {
             nj.a = 3;
-            is6.a(new b(this, str, i), "RecorderManager", 1);
+            ks6.a(new b(this, str, i), "RecorderManager", 1);
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.b0a
     public boolean c(lj ljVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -528,9 +528,9 @@ public class op implements wz9 {
                 return false;
             }
             o(true);
-            String e = sb5.e();
+            String e = ub5.e();
             this.c = e;
-            String c2 = sb5.c(e);
+            String c2 = ub5.c(e);
             if (this.e == null) {
                 this.e = new d(this, null);
             }

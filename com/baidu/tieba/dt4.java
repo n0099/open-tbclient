@@ -1042,7 +1042,7 @@ public abstract class dt4 implements ju2 {
                     Log.i("【CyberCallback】", "CyberPlayer播放内核开始安装 " + context.getApplicationContext());
                 }
                 try {
-                    CyberPlayerManager.install(context.getApplicationContext(), fv2.h0().i(context), (String) null, 7, (Class) null, (Map) null, new f(mVar));
+                    CyberPlayerManager.install(context.getApplicationContext(), fv2.h0().i(context), (String) null, 7, (Class<?>) null, (Map<String, String>) null, new f(mVar));
                     return;
                 } catch (Exception e2) {
                     y82.o("SwanInlineCyberWidget", "CyberPlayer Install failed by catch e=" + e2 + " :> " + Log.getStackTraceString(e2));

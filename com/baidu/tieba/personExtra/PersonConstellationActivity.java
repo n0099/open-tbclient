@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a26;
 import com.baidu.tieba.c26;
-import com.baidu.tieba.h26;
-import com.baidu.tieba.m26;
+import com.baidu.tieba.e26;
+import com.baidu.tieba.j26;
+import com.baidu.tieba.o26;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public View c;
     public ImageView d;
     public BdSwitchView e;
-    public m26 f;
+    public o26 f;
     public RelativeLayout g;
     public RelativeLayout h;
     public TextView i;
@@ -46,10 +46,10 @@ public class PersonConstellationActivity extends BaseActivity {
     public int o;
     public BdSwitchView.b p;
     public View.OnClickListener q;
-    public h26 r;
+    public j26 r;
 
     /* loaded from: classes7.dex */
-    public class c implements c26 {
+    public class c implements e26 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -139,7 +139,7 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.baidu.tieba.c26
+        @Override // com.baidu.tieba.e26
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -231,7 +231,7 @@ public class PersonConstellationActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements h26 {
+    public class d implements j26 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -254,7 +254,7 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.baidu.tieba.h26
+        @Override // com.baidu.tieba.j26
         public void a(Date date, View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLL(1048576, this, date, view2) != null) || date == null) {
@@ -313,22 +313,22 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.f == null) {
-                a26 a26Var = new a26(getActivity(), this.r);
-                a26Var.k(R.layout.person_birthday_select_layout, new c(this));
-                a26Var.f(18);
-                a26Var.p(new boolean[]{true, true, true, false, false, false});
-                a26Var.j("年", "月", "日", "时", "分", "秒");
-                a26Var.l(2.0f);
-                a26Var.o(0, 0, 0, 0, 0, 0);
-                a26Var.b(false);
-                a26Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                a26Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                a26Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                a26Var.d(SkinManager.getColor(R.color.black_alpha30));
-                a26Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                a26Var.c(false);
-                a26Var.h(this.h);
-                this.f = a26Var.a();
+                c26 c26Var = new c26(getActivity(), this.r);
+                c26Var.k(R.layout.person_birthday_select_layout, new c(this));
+                c26Var.f(18);
+                c26Var.p(new boolean[]{true, true, true, false, false, false});
+                c26Var.j("年", "月", "日", "时", "分", "秒");
+                c26Var.l(2.0f);
+                c26Var.o(0, 0, 0, 0, 0, 0);
+                c26Var.b(false);
+                c26Var.i(SkinManager.getColor(R.color.CAM_X0206));
+                c26Var.m(SkinManager.getColor(R.color.CAM_X0105));
+                c26Var.n(SkinManager.getColor(R.color.CAM_X0109));
+                c26Var.d(SkinManager.getColor(R.color.black_alpha30));
+                c26Var.e(SkinManager.getColor(R.color.CAM_X0201));
+                c26Var.c(false);
+                c26Var.h(this.h);
+                this.f = c26Var.a();
             }
             this.f.u();
         }

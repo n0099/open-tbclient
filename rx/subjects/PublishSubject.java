@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.dnb;
-import com.baidu.tieba.drb;
-import com.baidu.tieba.imb;
-import com.baidu.tieba.jmb;
-import com.baidu.tieba.kmb;
+import com.baidu.tieba.inb;
+import com.baidu.tieba.irb;
+import com.baidu.tieba.nmb;
 import com.baidu.tieba.omb;
 import com.baidu.tieba.pmb;
+import com.baidu.tieba.tmb;
 import com.baidu.tieba.umb;
+import com.baidu.tieba.zmb;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
-public final class PublishSubject<T> extends drb<T, T> {
+public final class PublishSubject<T> extends irb<T, T> {
     public final PublishSubjectState<T> b;
 
     /* loaded from: classes2.dex */
-    public static final class PublishSubjectProducer<T> extends AtomicLong implements kmb, pmb, jmb<T> {
+    public static final class PublishSubjectProducer<T> extends AtomicLong implements pmb, umb, omb<T> {
         public static final long serialVersionUID = 6451806817170721536L;
-        public final omb<? super T> actual;
+        public final tmb<? super T> actual;
         public final PublishSubjectState<T> parent;
         public long produced;
 
-        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, omb<? super T> ombVar) {
+        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, tmb<? super T> tmbVar) {
             this.parent = publishSubjectState;
-            this.actual = ombVar;
+            this.actual = tmbVar;
         }
 
-        @Override // com.baidu.tieba.pmb
+        @Override // com.baidu.tieba.umb
         public boolean isUnsubscribed() {
             if (get() == Long.MIN_VALUE) {
                 return true;
@@ -36,28 +36,28 @@ public final class PublishSubject<T> extends drb<T, T> {
             return false;
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onCompleted() {
             if (get() != Long.MIN_VALUE) {
                 this.actual.onCompleted();
             }
         }
 
-        @Override // com.baidu.tieba.pmb
+        @Override // com.baidu.tieba.umb
         public void unsubscribe() {
             if (getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
                 this.parent.remove(this);
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onError(Throwable th) {
             if (get() != Long.MIN_VALUE) {
                 this.actual.onError(th);
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onNext(T t) {
             long j = get();
             if (j != Long.MIN_VALUE) {
@@ -72,22 +72,22 @@ public final class PublishSubject<T> extends drb<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.kmb
+        @Override // com.baidu.tieba.pmb
         public void request(long j) {
             long j2;
-            if (dnb.h(j)) {
+            if (inb.h(j)) {
                 do {
                     j2 = get();
                     if (j2 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j2, dnb.a(j2, j)));
+                } while (!compareAndSet(j2, inb.a(j2, j)));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements imb.a<T>, jmb<T> {
+    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements nmb.a<T>, omb<T> {
         public static final PublishSubjectProducer[] EMPTY = new PublishSubjectProducer[0];
         public static final PublishSubjectProducer[] TERMINATED = new PublishSubjectProducer[0];
         public static final long serialVersionUID = -7568940796666027140L;
@@ -97,7 +97,7 @@ public final class PublishSubject<T> extends drb<T, T> {
             lazySet(EMPTY);
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onCompleted() {
             for (PublishSubjectProducer<T> publishSubjectProducer : getAndSet(TERMINATED)) {
                 publishSubjectProducer.onCompleted();
@@ -120,10 +120,10 @@ public final class PublishSubject<T> extends drb<T, T> {
             return true;
         }
 
-        public void call(omb<? super T> ombVar) {
-            PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, ombVar);
-            ombVar.b(publishSubjectProducer);
-            ombVar.f(publishSubjectProducer);
+        public void call(tmb<? super T> tmbVar) {
+            PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, tmbVar);
+            tmbVar.b(publishSubjectProducer);
+            tmbVar.f(publishSubjectProducer);
             if (add(publishSubjectProducer)) {
                 if (publishSubjectProducer.isUnsubscribed()) {
                     remove(publishSubjectProducer);
@@ -133,13 +133,13 @@ public final class PublishSubject<T> extends drb<T, T> {
             }
             Throwable th = this.error;
             if (th != null) {
-                ombVar.onError(th);
+                tmbVar.onError(th);
             } else {
-                ombVar.onCompleted();
+                tmbVar.onCompleted();
             }
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onError(Throwable th) {
             this.error = th;
             ArrayList arrayList = null;
@@ -153,19 +153,19 @@ public final class PublishSubject<T> extends drb<T, T> {
                     arrayList.add(th2);
                 }
             }
-            umb.d(arrayList);
+            zmb.d(arrayList);
         }
 
-        @Override // com.baidu.tieba.jmb
+        @Override // com.baidu.tieba.omb
         public void onNext(T t) {
             for (PublishSubjectProducer<T> publishSubjectProducer : get()) {
                 publishSubjectProducer.onNext(t);
             }
         }
 
-        @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((omb) ((omb) obj));
+            call((tmb) ((tmb) obj));
         }
 
         public void remove(PublishSubjectProducer<T> publishSubjectProducer) {
@@ -210,12 +210,12 @@ public final class PublishSubject<T> extends drb<T, T> {
         this.b = publishSubjectState;
     }
 
-    @Override // com.baidu.tieba.jmb
+    @Override // com.baidu.tieba.omb
     public void onError(Throwable th) {
         this.b.onError(th);
     }
 
-    @Override // com.baidu.tieba.jmb
+    @Override // com.baidu.tieba.omb
     public void onNext(T t) {
         this.b.onNext(t);
     }
@@ -224,7 +224,7 @@ public final class PublishSubject<T> extends drb<T, T> {
         return new PublishSubject<>(new PublishSubjectState());
     }
 
-    @Override // com.baidu.tieba.jmb
+    @Override // com.baidu.tieba.omb
     public void onCompleted() {
         this.b.onCompleted();
     }

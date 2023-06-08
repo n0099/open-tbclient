@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xx extends ux<f15> implements vda {
+public class xx extends ux<h15> implements aea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
     public int g;
-    public f15 h;
+    public h15 h;
     public b i;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(f15 f15Var, View view2);
+        void a(h15 h15Var, View view2);
     }
 
     /* loaded from: classes8.dex */
@@ -138,11 +138,11 @@ public class xx extends ux<f15> implements vda {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: u */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, f15Var) == null) {
-            this.h = f15Var;
-            this.f.setData(f15Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048589, this, h15Var) == null) {
+            this.h = h15Var;
+            this.f.setData(h15Var.getThreadData());
         }
     }
 
@@ -168,7 +168,7 @@ public class xx extends ux<f15> implements vda {
         }
     }
 
-    @Override // com.baidu.tieba.vda
+    @Override // com.baidu.tieba.aea
     public void b() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -177,13 +177,13 @@ public class xx extends ux<f15> implements vda {
         }
     }
 
-    @Override // com.baidu.tieba.vda
+    @Override // com.baidu.tieba.aea
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            f15 f15Var = this.h;
-            if (f15Var != null && f15Var.getThreadData() != null && this.h.getThreadData().getCustomFigure() != null) {
+            h15 h15Var = this.h;
+            if (h15Var != null && h15Var.getThreadData() != null && this.h.getThreadData().getCustomFigure() != null) {
                 return true;
             }
             return false;
@@ -191,7 +191,7 @@ public class xx extends ux<f15> implements vda {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vda
+    @Override // com.baidu.tieba.aea
     public void d() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class xx extends ux<f15> implements vda {
         }
     }
 
-    @Override // com.baidu.tieba.vda
+    @Override // com.baidu.tieba.aea
     public void e() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -223,7 +223,7 @@ public class xx extends ux<f15> implements vda {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vda
+    @Override // com.baidu.tieba.aea
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;

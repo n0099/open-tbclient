@@ -99,7 +99,7 @@ public final class ty3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return y96.a();
+            return aa6.a();
         }
         return (b) invokeV.objValue;
     }

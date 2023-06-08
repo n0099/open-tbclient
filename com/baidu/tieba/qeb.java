@@ -1,30 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.sdk.crashreportbaidu.ReportInfo;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class qeb<T extends ReportInfo> {
+public class qeb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
+    public volatile int a;
+    public volatile int b;
+    public volatile int c;
 
-    public qeb(Context context, String str) {
+    public qeb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,74 +27,53 @@ public class qeb<T extends ReportInfo> {
                 return;
             }
         }
-        this.a = context.getSharedPreferences(str, 0);
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
     }
 
-    public String a(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return "anr info is null";
-            }
-            peb.d("ReportDB", "add info: " + t.crashId);
-            try {
-                List<T> c = c();
-                int size = c.size();
-                SharedPreferences.Editor edit = this.a.edit();
-                for (int i = 0; i <= size - 30; i++) {
-                    T t2 = c.get(i);
-                    t2.clearFiles(t2.fileList);
-                    edit.remove(t2.crashId);
-                }
-                edit.putString(t.crashId, t.serialize()).commit();
-                return null;
-            } catch (IOException e) {
-                String C = seb.C(e);
-                peb.c("ReportDB", C, e);
-                return C;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void b() {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.edit().clear().commit();
-        }
-    }
-
-    public List<T> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Map<String, ?> all = this.a.getAll();
-            if (all != null && !all.isEmpty()) {
-                for (Map.Entry<String, ?> entry : all.entrySet()) {
-                    try {
-                        arrayList.add((ReportInfo) ReportInfo.deserialize((String) entry.getValue()));
-                        peb.d("ReportDB", String.format("read info:%s", entry.getKey()));
-                    } catch (Exception e) {
-                        delete(entry.getKey());
-                        peb.b("ReportDB", String.format("read info error:[%s] %s", entry.getKey(), seb.C(e)));
+            synchronized (this) {
+                if (this.a != 2) {
+                    this.b++;
+                    if (this.b >= this.c) {
+                        this.a = 2;
+                        notify();
                     }
                 }
-                peb.d("ReportDB", "get all size: " + arrayList.size());
             }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
     }
 
-    public void delete(String str) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            peb.d("ReportDB", "delete info: " + str);
-            if (this.a.contains(str)) {
-                this.a.edit().remove(str).commit();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = i;
+        }
+    }
+
+    public synchronized boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            synchronized (this) {
+                if (this.a != 0) {
+                    return true;
+                }
+                try {
+                    this.a = 1;
+                    wait(i);
+                    return true;
+                } catch (Exception unused) {
+                    this.a = 2;
+                    return false;
+                }
             }
         }
+        return invokeI.booleanValue;
     }
 }

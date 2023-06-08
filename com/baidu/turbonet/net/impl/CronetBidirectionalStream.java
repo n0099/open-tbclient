@@ -3,10 +3,10 @@ package com.baidu.turbonet.net.impl;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hma;
-import com.baidu.tieba.mla;
 import com.baidu.tieba.mma;
-import com.baidu.tieba.qla;
+import com.baidu.tieba.rla;
+import com.baidu.tieba.rma;
+import com.baidu.tieba.vla;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +63,7 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     public int o;
     @GuardedBy("mNativeStreamLock")
     public int p;
-    public mma q;
+    public rma q;
     public g r;
     public Runnable s;
 
@@ -370,7 +370,7 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     private void onResponseTrailersReceived(String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, strArr) == null) {
-            w(new c(this, new mma.a(s(strArr))));
+            w(new c(this, new rma.a(s(strArr))));
         }
     }
 
@@ -435,9 +435,9 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     private void onError(int i, int i2, int i3, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, Long.valueOf(j)}) == null) {
-            mma mmaVar = this.q;
-            if (mmaVar != null) {
-                mmaVar.j(j);
+            rma rmaVar = this.q;
+            if (rmaVar != null) {
+                rmaVar.j(j);
             }
             if (i != 10 && i != 3) {
                 q(new BidirectionalStreamNetworkException("Exception in BidirectionalStream: " + str, i, i2));
@@ -482,7 +482,7 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
         if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Boolean.valueOf(z), Long.valueOf(j14), Long.valueOf(j15)}) == null) {
             synchronized (this.h) {
                 if (this.m == null) {
-                    this.m = new qla(j, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, z, j14, j15);
+                    this.m = new vla(j, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, z, j14, j15);
                     if (this.o == 7) {
                         i = 0;
                     } else if (this.o == 5) {
@@ -490,7 +490,7 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
                     } else {
                         i = 1;
                     }
-                    this.a.z(new hma(this.d, this.f, this.m, i, this.q, this.g));
+                    this.a.z(new mma(this.d, this.f, this.m, i, this.q, this.g));
                 } else {
                     throw new IllegalStateException("Metrics collection should only happen once.");
                 }
@@ -599,7 +599,7 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
             if (this.n == 0) {
                 return;
             }
-            mla.c().a(this.n, this, z);
+            rla.c().a(this.n, this, z);
             this.a.t();
             this.n = 0L;
             Runnable runnable = this.s;
@@ -630,13 +630,13 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
         }
     }
 
-    public final mma x(int i, String str, String[] strArr, long j) {
+    public final rma x(int i, String str, String[] strArr, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), str, strArr, Long.valueOf(j)})) == null) {
-            return new mma(Arrays.asList(this.d), i, "", s(strArr), false, str, null, j);
+            return new rma(Arrays.asList(this.d), i, "", s(strArr), false, str, null, j);
         }
-        return (mma) invokeCommon.objValue;
+        return (rma) invokeCommon.objValue;
     }
 
     public final void y() {
@@ -655,7 +655,7 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
             }
             this.p = 9;
             this.l = true;
-            f c2 = mla.c();
+            f c2 = rla.c();
             long j = this.n;
             if (this.k && this.i.isEmpty()) {
                 z = true;

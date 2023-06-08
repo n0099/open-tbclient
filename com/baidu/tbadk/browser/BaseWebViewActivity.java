@@ -48,20 +48,20 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.switchs.DelayLoadUrlSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
 import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.by5;
+import com.baidu.tieba.c55;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.li;
-import com.baidu.tieba.mc5;
+import com.baidu.tieba.oc5;
 import com.baidu.tieba.qx4;
-import com.baidu.tieba.s05;
-import com.baidu.tieba.tl6;
+import com.baidu.tieba.u05;
 import com.baidu.tieba.ui;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.vl6;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.xy4;
 import com.baidu.tieba.yx4;
-import com.baidu.tieba.zx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +113,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public boolean isNeedViewShowLoading;
     public boolean mAutoChangeStyle;
     public Bundle mBundle;
-    public zx5.b mCookieInfo;
+    public by5.b mCookieInfo;
     public boolean mCustomJump;
     public String mDialogName;
     public boolean mEnableJs;
@@ -147,7 +147,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
 
     public abstract View createWebView();
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.qr5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -232,11 +232,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     ThreadAchievementShareDialogView threadAchievementShareDialogView = new ThreadAchievementShareDialogView(baseWebViewActivity, baseWebViewActivity.getShareInfo());
                     ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.a;
                     if (threadAchievementShareInfo != null && threadAchievementShareInfo.getParams() != null) {
-                        a55 a55Var = new a55(this.a);
-                        if (threadAchievementShareDialogView.h(this.a.getPageContext(), a55Var)) {
-                            a55Var.setContentViewSize(2);
-                            a55Var.setContentView(threadAchievementShareDialogView);
-                            a55Var.create(this.a.getPageContext()).show();
+                        c55 c55Var = new c55(this.a);
+                        if (threadAchievementShareDialogView.h(this.a.getPageContext(), c55Var)) {
+                            c55Var.setContentViewSize(2);
+                            c55Var.setContentView(threadAchievementShareDialogView);
+                            c55Var.create(this.a.getPageContext()).show();
                             return;
                         }
                         return;
@@ -601,14 +601,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 return false;
             }
             String str = this.mUrl;
-            if (!ui.isEquals(zx5.c(str, CUSTOM_FULL_SCREEN), "=")) {
+            if (!ui.isEquals(by5.c(str, CUSTOM_FULL_SCREEN), "=")) {
                 try {
                     str = URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
             }
-            return StringHelper.equals(zx5.c(str, CUSTOM_FULL_SCREEN_EQUAL), "1");
+            return StringHelper.equals(by5.c(str, CUSTOM_FULL_SCREEN_EQUAL), "1");
         }
         return invokeV.booleanValue;
     }
@@ -655,7 +655,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (context == null || str == null || (parse = Uri.parse(str)) == null) {
                 return null;
             }
-            List<String> a2 = mc5.a();
+            List<String> a2 = oc5.a();
             if (ListUtils.isEmpty(a2)) {
                 return null;
             }
@@ -970,7 +970,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             } else if (getWebView() instanceof TbWebView) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-                tl6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                vl6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
             }
         }
     }
@@ -1043,7 +1043,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            s05.b c2 = s05.b().c(TbadkCoreApplication.getCurrentBduss());
+            u05.b c2 = u05.b().c(TbadkCoreApplication.getCurrentBduss());
             String str2 = "";
             if (c2 == null) {
                 str = "";
@@ -1059,8 +1059,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 str2 = str3;
             }
             boolean z = true;
-            zx5.b bVar = new zx5.b(str2, str);
-            zx5.b bVar2 = this.mCookieInfo;
+            by5.b bVar = new by5.b(str2, str);
+            by5.b bVar2 = this.mCookieInfo;
             if (bVar2 == null || (bVar2 != null && bVar2.equals(bVar))) {
                 z = false;
             }
@@ -1332,7 +1332,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(str)) {
                 if (StringUtils.isNull(str2)) {
                     str2 = this.mUrl;
-                } else if (!ui.isEquals(zx5.c(str2, KEY_NO_NAVIGATIONBAR), "=")) {
+                } else if (!ui.isEquals(by5.c(str2, KEY_NO_NAVIGATIONBAR), "=")) {
                     try {
                         str2 = URLDecoder.decode(str2.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
                     } catch (Exception e2) {

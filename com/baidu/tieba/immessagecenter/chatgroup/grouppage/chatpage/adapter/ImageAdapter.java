@@ -20,8 +20,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseCha
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
-import com.baidu.tieba.p68;
-import com.baidu.tieba.q68;
+import com.baidu.tieba.r68;
+import com.baidu.tieba.s68;
 import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ import java.util.List;
 public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p68 l;
+    public r68 l;
     public String m;
 
     /* loaded from: classes6.dex */
@@ -122,7 +122,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 CommonMsgField commonMsgField = this.a.getCommonMsgField();
                 long roomId = commonMsgField.getRoomId();
                 long forumId = commonMsgField.getForumId();
-                this.b.l = new p68(this.b.mContext, this.b.m, forumId, null, roomId, false);
+                this.b.l = new r68(this.b.mContext, this.b.m, forumId, null, roomId, false);
                 this.b.l.execute(new String[0]);
             }
         }
@@ -201,7 +201,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 } else {
                     chatImageWithTailView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                baseImageMsg.setThumbSize(q68.d(chatImageWithTailView, thumbUrl, f0.second, R.drawable.icon_pic_im_image_default));
+                baseImageMsg.setThumbSize(s68.d(chatImageWithTailView, thumbUrl, f0.second, R.drawable.icon_pic_im_image_default));
             }
         }
     }

@@ -23,18 +23,18 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c58;
 import com.baidu.tieba.e58;
-import com.baidu.tieba.e6a;
+import com.baidu.tieba.g58;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.h58;
-import com.baidu.tieba.i35;
-import com.baidu.tieba.i58;
 import com.baidu.tieba.j58;
-import com.baidu.tieba.m58;
+import com.baidu.tieba.j6a;
+import com.baidu.tieba.k35;
+import com.baidu.tieba.k58;
+import com.baidu.tieba.l58;
+import com.baidu.tieba.o58;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.ty8;
-import com.baidu.tieba.uy8;
+import com.baidu.tieba.wy8;
+import com.baidu.tieba.xy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,12 +46,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.RecomTopicList;
 /* loaded from: classes7.dex */
-public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements ty8, BdListView.p {
+public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements wy8, BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicDetailModel a;
-    public uy8 b;
-    public c58 c;
+    public xy8 b;
+    public e58 c;
     public boolean d;
     public long e;
     public boolean f;
@@ -59,7 +59,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public String h;
     public String i;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.qr5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -153,20 +153,20 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    public boolean K1(m58 m58Var, int i) {
+    public boolean K1(o58 o58Var, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, m58Var, i)) == null) {
-            return this.a.h0(m58Var, i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, o58Var, i)) == null) {
+            return this.a.h0(o58Var, i);
         }
         return invokeLI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ty8
-    public void p(int i, h58 h58Var) {
+    @Override // com.baidu.tieba.wy8
+    public void p(int i, j58 j58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048598, this, i, h58Var) == null) {
-            E1(i, h58Var, false);
+        if (interceptable == null || interceptable.invokeIL(1048598, this, i, j58Var) == null) {
+            E1(i, j58Var, false);
         }
     }
 
@@ -241,7 +241,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             if ("5".equals(this.i)) {
                 finish();
             } else {
-                e6a.b();
+                j6a.b();
             }
         }
     }
@@ -263,9 +263,9 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onDestroy();
-            uy8 uy8Var = this.b;
-            if (uy8Var != null) {
-                uy8Var.destroy();
+            xy8 xy8Var = this.b;
+            if (xy8Var != null) {
+                xy8Var.destroy();
             }
             y1();
         }
@@ -297,27 +297,27 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         return (String) invokeV.objValue;
     }
 
-    public final void E1(int i, h58 h58Var, boolean z) {
+    public final void E1(int i, j58 j58Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), h58Var, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), j58Var, Boolean.valueOf(z)}) == null) {
             int l = this.b.l();
-            if (h58Var != null) {
-                l = h58Var.d;
+            if (j58Var != null) {
+                l = j58Var.d;
             }
             this.b.s(l);
             boolean z2 = true;
-            if (i == 0 && h58Var != null && !ListUtils.isEmpty(h58Var.e)) {
-                uy8 uy8Var = this.b;
-                if (!z && uy8Var.p(l).b != null) {
+            if (i == 0 && j58Var != null && !ListUtils.isEmpty(j58Var.e)) {
+                xy8 xy8Var = this.b;
+                if (!z && xy8Var.p(l).b != null) {
                     z2 = false;
                 }
-                uy8Var.t(h58Var, z2, l);
+                xy8Var.t(j58Var, z2, l);
             } else if (this.b.p(l).b == null) {
-                uy8 uy8Var2 = this.b;
+                xy8 xy8Var2 = this.b;
                 if (i == 0) {
                     z2 = false;
                 }
-                uy8Var2.j(z2, l);
+                xy8Var2.j(z2, l);
             }
         }
     }
@@ -325,21 +325,21 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public void F1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            h58 p = this.b.p(i);
-            i35 i35Var = p.b;
-            if (i35Var == null) {
+            j58 p = this.b.p(i);
+            k35 k35Var = p.b;
+            if (k35Var == null) {
                 H1(i);
-            } else if (i35Var.b() != 0) {
+            } else if (k35Var.b() != 0) {
                 this.a.W(i, p.b, p.c);
             }
         }
     }
 
-    public boolean J1(e58 e58Var) {
+    public boolean J1(g58 g58Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, e58Var)) == null) {
-            return this.a.g0(e58Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, g58Var)) == null) {
+            return this.a.g0(g58Var);
         }
         return invokeL.booleanValue;
     }
@@ -369,7 +369,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.baidu.tieba.ty8
+    @Override // com.baidu.tieba.wy8
     public void O(@NonNull RecomTopicList recomTopicList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, recomTopicList) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately() && I1(String.valueOf(recomTopicList.topic_id), recomTopicList.topic_name)) {
@@ -379,7 +379,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.baidu.tieba.ty8
+    @Override // com.baidu.tieba.wy8
     public void d1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
@@ -413,11 +413,11 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ty8
-    public void V0(i58 i58Var) {
-        j58 e;
+    @Override // com.baidu.tieba.wy8
+    public void V0(k58 k58Var) {
+        l58 e;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, i58Var) != null) || i58Var == null || (e = i58Var.e()) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, k58Var) != null) || k58Var == null || (e = k58Var.e()) == null) {
             return;
         }
         String str = TbConfig.TIEBA_ADDRESS + "mo/q/newtopic/detail?topic_id=" + this.g;
@@ -474,7 +474,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             this.b = new HotTopicDetailView(getPageContext(), this, bundle);
             this.a.setFrom(this.i);
             I1(this.g, this.h);
-            this.c = new c58(this);
+            this.c = new e58(this);
             setContentView(this.b.getRootView());
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
@@ -483,35 +483,35 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.baidu.tieba.ty8
-    public void p0(int i, i58 i58Var) {
+    @Override // com.baidu.tieba.wy8
+    public void p0(int i, k58 k58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048599, this, i, i58Var) == null) {
-            if (i58Var != null && i58Var.p == -1) {
-                this.b.d(i58Var);
+        if (interceptable == null || interceptable.invokeIL(1048599, this, i, k58Var) == null) {
+            if (k58Var != null && k58Var.p == -1) {
+                this.b.d(k58Var);
                 return;
             }
             this.b.q();
             this.b.m();
-            if (i == 0 && i58Var != null) {
-                if (i58Var.e() != null) {
-                    I1(i58Var.e().a, i58Var.e().b);
+            if (i == 0 && k58Var != null) {
+                if (k58Var.e() != null) {
+                    I1(k58Var.e().a, k58Var.e().b);
                 }
-                if (i58Var.e() != null && i58Var.e().k) {
+                if (k58Var.e() != null && k58Var.e().k) {
                     this.b.b(true);
                     return;
                 }
                 this.b.b(false);
-                this.b.n(i58Var);
+                this.b.n(k58Var);
                 this.b.r();
-                E1(i, i58Var.k, true);
+                E1(i, k58Var.k, true);
             } else if (this.b.h() == null) {
                 this.b.f(false);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ty8
+    @Override // com.baidu.tieba.wy8
     public void p1(int i, long j, long j2, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) && i == 0 && j > 0 && i2 >= 0) {

@@ -1,38 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
-import android.widget.ImageView;
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Glide;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class pd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ChatFloatEntranceFragment.t a;
-    @NonNull
-    public md8 b;
-    public String c;
-    public int d;
-    @Nullable
-    public CollapseState e;
+    public qd8 a;
+    public rd8 b;
+    public od8 c;
+    public boolean d;
+    public long e;
 
-    public pd8(@NonNull ChatFloatEntranceFragment.t tVar, @NonNull md8 md8Var) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ od8 a;
+        public final /* synthetic */ pd8 b;
+
+        public a(pd8 pd8Var, od8 od8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pd8Var, od8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pd8Var;
+            this.a = od8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (TbadkCoreApplication.isLogin()) {
+                    pd8 pd8Var = this.b;
+                    if (pd8Var.a.b.a == CollapseState.Icon.FORUM) {
+                        pd8Var.d = true;
+                        wd8.b(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.a.w(), this.a.v(), String.valueOf(this.b.a.b.d), 14, null);
+                        GroupChatActivity.u1(view2.getContext(), this.b.a.b.d, -1, "");
+                        return;
+                    }
+                }
+                this.a.onClick(view2);
+            }
+        }
+    }
+
+    public pd8(@NonNull ChatFloatEntranceFragment.t tVar, @NonNull od8 od8Var) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tVar, md8Var};
+            Object[] objArr = {tVar, od8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,128 +84,103 @@ public class pd8 {
                 return;
             }
         }
-        this.d = 0;
-        this.a = tVar;
-        this.b = md8Var;
-    }
-
-    public void a(CollapseState collapseState) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, collapseState) != null) || collapseState == null) {
-            return;
-        }
-        if (collapseState.b == CollapseState.State.EXPAND) {
-            this.a.q.setVisibility(8);
-            this.a.s.setVisibility(8);
-            return;
-        }
-        e(collapseState);
-    }
-
-    public void b(int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.d = i;
-            l95 m = l95.m();
-            if (i == 0) {
-                str = "frs_loop_hot_chat_day_resource";
-            } else {
-                str = "frs_loop_hot_chat_night_resource";
-            }
-            this.c = m.s(str, "");
-            SkinManager.setImageResource(this.a.m, R.drawable.icon_chat_group_collapse);
-            this.a.o.setRadius(R.dimen.tbds134);
-            this.a.o.setSkinType(i);
-            if (i == 0) {
-                this.a.k.setElevation(UtilHelper.getDimenPixelSize(R.dimen.tbds16));
-            }
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            gradientDrawable.setShape(1);
-            gradientDrawable.setUseLevel(false);
-            this.a.k.setBackground(gradientDrawable);
-            SkinManager.setImageResource(this.a.p, R.drawable.chat_collapse_at_me);
-            SkinManager.setImageResource(this.a.r, R.drawable.chat_collapse_three_exp);
-            d();
-        }
-    }
-
-    public void c(CollapseState collapseState) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collapseState) != null) || collapseState == null) {
-            return;
-        }
-        if (collapseState.a == CollapseState.Icon.DEFAULT) {
-            Glide.with(this.a.o).load(Integer.valueOf((int) R.drawable.bg_chat_group_collapse_gradual)).into(this.a.o);
-            this.a.m.setVisibility(0);
-            this.a.n.setVisibility(8);
-            return;
-        }
-        Glide.with(this.a.o).load(collapseState.e).into(this.a.o);
-        this.a.m.setVisibility(8);
-        this.a.n.setVisibility(0);
-    }
-
-    public final void d() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.e != null && this.b.getViewContext() != null && this.e.c == CollapseState.Tip.AT_ME) {
-                Glide.with(this.b.getViewContext()).load(this.c).into(this.a.n);
-                return;
-            }
-            ImageView imageView = this.a.n;
-            if (this.d == 0) {
-                i = R.drawable.obfuscated_res_0x7f08074c;
-            } else {
-                i = R.drawable.obfuscated_res_0x7f08074d;
-            }
-            SkinManager.setImageResource(imageView, i);
-        }
-    }
-
-    public void e(CollapseState collapseState) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, collapseState) != null) || collapseState == null) {
-            return;
-        }
-        CollapseState.Tip tip = collapseState.c;
-        if (tip != CollapseState.Tip.DEFAULT && collapseState.b != CollapseState.State.EXPAND) {
-            if (tip == CollapseState.Tip.AT_ME) {
-                this.a.q.setVisibility(0);
-                this.a.s.setVisibility(8);
-            } else {
-                this.a.q.setVisibility(8);
-                this.a.s.setVisibility(0);
-            }
+        this.c = od8Var;
+        rd8 rd8Var = new rd8(tVar, od8Var);
+        this.b = rd8Var;
+        this.a = new qd8(this, rd8Var);
+        tVar.l.setOnClickListener(new a(this, od8Var));
+        long w = od8Var.w();
+        String v = od8Var.v();
+        String valueOf = String.valueOf(this.a.b.d);
+        if (d()) {
+            str = "1";
         } else {
-            this.a.q.setVisibility(8);
-            this.a.s.setVisibility(8);
+            str = "2";
         }
-        d();
+        wd8.d("c15207", w, v, valueOf, 1, str);
+        e(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void update(CollapseState collapseState, CollapseState collapseState2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, collapseState, collapseState2) != null) || collapseState2 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, collapseState, collapseState2) == null) {
+            this.b.update(collapseState, collapseState2);
         }
-        this.e = collapseState2;
-        if (collapseState.c != collapseState2.c) {
-            e(collapseState2);
+    }
+
+    public void b() {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (System.currentTimeMillis() - this.e > 5000) {
+                this.c.B1();
+                this.e = System.currentTimeMillis();
+            }
+            this.a.b(false);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (this.a.b.a == CollapseState.Icon.DEFAULT) {
+                i = 3;
+            } else {
+                i = 2;
+            }
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            wd8.d("c15207", w, v, valueOf, i, str);
         }
-        if (collapseState.a != collapseState2.a) {
-            c(collapseState2);
+    }
+
+    public void c() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.b(true);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            wd8.d("c15207", w, v, valueOf, 1, str);
         }
-        if (collapseState.d != collapseState2.d) {
-            c(collapseState2);
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            n95 m = n95.m();
+            return m.i(ChatFloatEntranceFragment.f1126T + this.c.w(), true);
         }
-        if ((TextUtils.isEmpty(collapseState.e) && !TextUtils.isEmpty(collapseState2.e)) || (!TextUtils.isEmpty(collapseState.e) && !collapseState.e.equals(collapseState2.e))) {
-            c(collapseState2);
+        return invokeV.booleanValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b.b(i);
         }
-        if (collapseState.b != collapseState2.b) {
-            a(collapseState2);
+    }
+
+    public void g(List<Long> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && this.d) {
+            this.a.c(list);
+            this.d = false;
+        }
+    }
+
+    public void f(List<Long> list, long j, List list2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) {
+            this.a.a(list, j, list2, i);
         }
     }
 }

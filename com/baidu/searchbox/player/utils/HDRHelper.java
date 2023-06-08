@@ -68,7 +68,7 @@ public final class HDRHelper {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x003d */
     /* JADX WARN: Type inference failed for: r1v0 */
     /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v2, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r1v3 */
     /* JADX WARN: Type inference failed for: r1v4 */
     public static final boolean queryCodecSupport() {

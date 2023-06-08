@@ -27,7 +27,7 @@ public class jy extends by {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout h;
-    public f15 i;
+    public h15 i;
     public StatisticItem j;
 
     /* loaded from: classes6.dex */
@@ -101,9 +101,9 @@ public class jy extends by {
                 if (this.b.i.getThreadData().getTaskInfoData() != null) {
                     createNormalCfg.setFromCardType(this.b.i.getThreadData().getTaskInfoData().j());
                     if (ThreadCardUtils.isHeadlinesCard(this.b.i.getThreadData().getTaskInfoData()) && HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(this.b.i.getThreadData().getTaskInfoData().r())) {
-                        wq8 defaultLog = DefaultLog.getInstance();
+                        zq8 defaultLog = DefaultLog.getInstance();
                         defaultLog.c("GodReplySegment", "头条卡，点击frs卡片神回复区域预取， url：" + this.b.i.getThreadData().getTaskInfoData().r());
-                        ml6.c(this.b.i.getThreadData().getTaskInfoData().r());
+                        ol6.c(this.b.i.getThreadData().getTaskInfoData().r());
                     }
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
@@ -142,7 +142,7 @@ public class jy extends by {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                qn6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                sn6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -233,16 +233,16 @@ public class jy extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: B */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f15Var) == null) {
-            this.i = f15Var;
-            ey9 topAgreePost = f15Var.getThreadData().getTopAgreePost();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h15Var) == null) {
+            this.i = h15Var;
+            jy9 topAgreePost = h15Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.p() != null && topAgreePost.p().getUserId() != null) {
-                this.j.param("tid", f15Var.getThreadData().tid).param("post_id", topAgreePost.O()).param("uid", TbadkCoreApplication.getCurrentAccount());
-                xn6.b().a(this.j);
+                this.j.param("tid", h15Var.getThreadData().tid).param("post_id", topAgreePost.O()).param("uid", TbadkCoreApplication.getCurrentAccount());
+                zn6.b().a(this.j);
             }
-            this.h.setData(f15Var.getThreadData());
+            this.h.setData(h15Var.getThreadData());
         }
     }
 

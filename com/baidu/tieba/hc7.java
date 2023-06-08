@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hc7 extends in<nc7, CardViewHolder<sc7>> {
+public class hc7 extends in<pc7, CardViewHolder<tc7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -43,11 +43,11 @@ public class hc7 extends in<nc7, CardViewHolder<sc7>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: s */
-    public CardViewHolder<sc7> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<tc7> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new sc7(this.a));
+            return new CardViewHolder<>(new tc7(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -55,10 +55,11 @@ public class hc7 extends in<nc7, CardViewHolder<sc7>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.in
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nc7 nc7Var, CardViewHolder<sc7> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pc7 pc7Var, CardViewHolder<tc7> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nc7Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pc7Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(pc7Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

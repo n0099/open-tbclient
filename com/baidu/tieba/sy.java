@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sy extends ux<f15> {
+public class sy extends ux<h15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public ThreadLinkView g;
     public TextView h;
-    public f15 i;
+    public h15 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sy(Context context) {
@@ -66,9 +66,9 @@ public class sy extends ux<f15> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             this.g.b();
-            f15 f15Var = this.i;
-            if (f15Var != null && f15Var.getThreadData() != null) {
-                qn6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            h15 h15Var = this.i;
+            if (h15Var != null && h15Var.getThreadData() != null) {
+                sn6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -76,13 +76,13 @@ public class sy extends ux<f15> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: s */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f15Var) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null) {
-                this.i = f15Var;
-                ThreadData threadData = f15Var.getThreadData();
-                qn6.j(threadData, this.h);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h15Var) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null) {
+                this.i = h15Var;
+                ThreadData threadData = h15Var.getThreadData();
+                sn6.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

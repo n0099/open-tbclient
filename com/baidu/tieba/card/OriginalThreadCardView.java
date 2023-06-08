@@ -38,8 +38,8 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.o16;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.q16;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -272,11 +272,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             View view2 = this.p;
             if (view2 != null) {
-                m75.d(view2).f(i);
+                o75.d(view2).f(i);
             }
             TextView textView = this.b;
             if (textView != null) {
-                m75.d(textView).f(i);
+                o75.d(textView).f(i);
             }
         }
     }
@@ -312,7 +312,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, itemStarData)) == null) {
-            SpannableStringBuilder d = o16.d(itemStarData);
+            SpannableStringBuilder d = q16.d(itemStarData);
             d.append((CharSequence) str);
             return d;
         }

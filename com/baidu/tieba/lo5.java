@@ -4,7 +4,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: ChatFloatEntranceService.java */
+/* compiled from: ChatBoxDialogService.java */
 /* loaded from: classes6.dex */
 public final /* synthetic */ class lo5 {
     public static /* synthetic */ Interceptable $ic;

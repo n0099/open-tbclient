@@ -48,14 +48,14 @@ public class fz extends by {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: A */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f15Var) == null) {
-            if (!z(f15Var) && f15Var != null && f15Var.getThreadData() != null && !y(f15Var) && ListUtils.getCount(f15Var.getThreadData().getLinkDataList()) + ListUtils.getCount(f15Var.getThreadData().getGoodsDataList()) == 1) {
-                if (f15Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((no6) ListUtils.getItem(f15Var.getThreadData().getLinkDataList(), 0));
-                } else if (f15Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((no6) ListUtils.getItem(f15Var.getThreadData().getGoodsDataList(), 0));
+        if (interceptable == null || interceptable.invokeL(1048576, this, h15Var) == null) {
+            if (!z(h15Var) && h15Var != null && h15Var.getThreadData() != null && !y(h15Var) && ListUtils.getCount(h15Var.getThreadData().getLinkDataList()) + ListUtils.getCount(h15Var.getThreadData().getGoodsDataList()) == 1) {
+                if (h15Var.getThreadData().getLinkDataList().size() >= 1) {
+                    this.h.a((po6) ListUtils.getItem(h15Var.getThreadData().getLinkDataList(), 0));
+                } else if (h15Var.getThreadData().getGoodsDataList().size() >= 1) {
+                    this.h.a((po6) ListUtils.getItem(h15Var.getThreadData().getGoodsDataList(), 0));
                 }
                 this.h.setVisibility(0);
                 return;
@@ -64,11 +64,11 @@ public class fz extends by {
         }
     }
 
-    public final boolean y(f15 f15Var) {
+    public final boolean y(h15 h15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, f15Var)) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().isVideoThreadType() && f15Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, h15Var)) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().isVideoThreadType() && h15Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -94,11 +94,11 @@ public class fz extends by {
         }
     }
 
-    public final boolean z(f15 f15Var) {
+    public final boolean z(h15 h15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, f15Var)) == null) {
-            if (f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getPollData() != null && f15Var.getThreadData().getPollData().getOptions() != null && f15Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, h15Var)) == null) {
+            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getPollData() != null && h15Var.getThreadData().getPollData().getOptions() != null && h15Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cz extends ux<w35> {
+public class cz extends ux<y35> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendForumLayout f;
@@ -55,10 +55,10 @@ public class cz extends ux<w35> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: s */
-    public void a(w35 w35Var) {
+    public void a(y35 y35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, w35Var) == null) {
-            this.f.setData(w35Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, y35Var) == null) {
+            this.f.setData(y35Var);
         }
     }
 
@@ -76,7 +76,7 @@ public class cz extends ux<w35> {
         }
     }
 
-    public void x(vz4<v35> vz4Var) {
+    public void x(vz4<x35> vz4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, vz4Var) == null) {
             this.f.setOnItemCoverListener(vz4Var);

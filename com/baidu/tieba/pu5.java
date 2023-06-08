@@ -1,16 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.nu5;
-import com.baidu.tieba.ou5;
+import android.content.Intent;
 /* loaded from: classes7.dex */
-public interface pu5<Q extends nu5, P extends ou5> {
-    int a();
+public interface pu5<T> {
+    void a(Intent intent);
 
-    Q b();
+    T b(boolean z);
 
-    String c();
-
-    P d();
-
-    int e();
+    ju5 c();
 }

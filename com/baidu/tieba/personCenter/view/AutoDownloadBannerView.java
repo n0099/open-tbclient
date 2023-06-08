@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r75;
-import com.baidu.tieba.s75;
 import com.baidu.tieba.sz4;
-import com.baidu.tieba.v75;
+import com.baidu.tieba.t75;
+import com.baidu.tieba.u75;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.x75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class AutoDownloadBannerView extends RelativeLayout {
     public sz4 d;
 
     /* loaded from: classes7.dex */
-    public class a extends r75 {
+    public class a extends t75 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoDownloadBannerView a;
@@ -55,35 +55,35 @@ public class AutoDownloadBannerView extends RelativeLayout {
             this.a = autoDownloadBannerView;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
-        public s75 a() {
+        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
+        public u75 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                s75 s75Var = new s75();
-                s75Var.c(R.drawable.icon_banner_download_unselect);
-                s75Var.g(R.drawable.icon_banner_download_select);
-                s75Var.d(81);
-                s75Var.e(R.dimen.M_H_X005);
-                s75Var.h(R.dimen.tbds10);
-                return s75Var;
+                u75 u75Var = new u75();
+                u75Var.c(R.drawable.icon_banner_download_unselect);
+                u75Var.g(R.drawable.icon_banner_download_select);
+                u75Var.d(81);
+                u75Var.e(R.dimen.M_H_X005);
+                u75Var.h(R.dimen.tbds10);
+                return u75Var;
             }
-            return (s75) invokeV.objValue;
+            return (u75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
-        public v75 c() {
+        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
+        public x75 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                v75 v75Var = new v75();
-                v75Var.a(vi.g(this.a.getContext(), R.dimen.tbds187));
-                return v75Var;
+                x75 x75Var = new x75();
+                x75Var.a(vi.g(this.a.getContext(), R.dimen.tbds187));
+                return x75Var;
             }
-            return (v75) invokeV.objValue;
+            return (x75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
+        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -250,13 +250,13 @@ public class AutoDownloadBannerView extends RelativeLayout {
             if (list == null) {
                 return;
             }
-            v75 v75Var = new v75();
+            x75 x75Var = new x75();
             if (list.size() == 1) {
-                v75Var.a(vi.g(getContext(), R.dimen.tbds187));
+                x75Var.a(vi.g(getContext(), R.dimen.tbds187));
             } else {
-                v75Var.a(vi.g(getContext(), R.dimen.tbds230));
+                x75Var.a(vi.g(getContext(), R.dimen.tbds230));
             }
-            this.b.z(v75Var);
+            this.b.z(x75Var);
         }
     }
 

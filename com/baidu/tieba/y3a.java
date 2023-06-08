@@ -1,22 +1,26 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetPendantByCategory.ThemePendantInMain;
-import tbclient.ThemeBgProp;
 /* loaded from: classes8.dex */
 public class y3a {
     public static /* synthetic */ Interceptable $ic;
+    public static y3a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<DressItemData> b;
+    public a a;
+    public boolean b;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(Application application);
+    }
 
     public y3a() {
         Interceptable interceptable = $ic;
@@ -28,37 +32,60 @@ public class y3a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.a = c();
     }
 
-    public String a() {
+    public static y3a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (y3a.class) {
+                    if (c == null) {
+                        c = new y3a();
+                    }
+                }
+            }
+            return c;
+        }
+        return (y3a) invokeV.objValue;
+    }
+
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            if (n95.m().n("pref_key_jpush_sdk_enable", 0) != 1) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public List<DressItemData> b() {
+    public final a c() {
         InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            if (a() && (runTask = MessageManager.getInstance().runTask(2156672, a.class)) != null) {
+                return (a) runTask.getData();
+            }
+            return null;
         }
-        return (List) invokeV.objValue;
+        return (a) invokeV.objValue;
     }
 
-    public void c(ThemePendantInMain themePendantInMain) {
+    public void d(Application application) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) != null) || themePendantInMain == null) {
-            return;
-        }
-        this.a = themePendantInMain.pendant_category;
-        this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
-            this.b.add(new DressItemData(themeBgProp));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && !this.b && (aVar = this.a) != null) {
+            aVar.a(application);
+            this.b = true;
         }
     }
 }

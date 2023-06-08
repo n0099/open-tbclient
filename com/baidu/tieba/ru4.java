@@ -55,7 +55,7 @@ public class ru4 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
-                if ((data instanceof e0a) && ((e0a) data).b) {
+                if ((data instanceof j0a) && ((j0a) data).b) {
                     this.a.e();
                 }
             }

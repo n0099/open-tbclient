@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
 public class hya {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] b;
-    public static final float[] c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,246 +34,291 @@ public class hya {
                 return;
             }
         }
-        b = new float[]{1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
-        c = new float[]{1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
+        a = AppConfig.isDebug();
     }
 
-    public hya() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:114:0x008e A[EDGE_INSN: B:114:0x008e->B:44:0x008e ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0043  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0099  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x009f  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00ba A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x00bb  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x00df  */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0049 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b4 */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x008a, code lost:
+        if (com.baidu.tieba.hya.a == false) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x008c, code lost:
+        r5.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b0, code lost:
+        if (com.baidu.tieba.hya.a == false) goto L49;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x00bf A[Catch: IOException -> 0x00bb, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x00c4 A[Catch: IOException -> 0x00bb, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r2v10 */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r3v0 */
+    /* JADX WARN: Type inference failed for: r3v12 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r3v9 */
+    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, java.io.File] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    /* JADX WARN: Type inference failed for: r5v15 */
+    /* JADX WARN: Type inference failed for: r5v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v2 */
+    /* JADX WARN: Type inference failed for: r5v3 */
+    /* JADX WARN: Type inference failed for: r5v5 */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Type inference failed for: r5v8, types: [java.io.BufferedInputStream] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public float b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        boolean z;
-        int i3;
-        int i4;
-        boolean z2;
-        int i5;
-        int i6;
-        int i7;
-        float f;
-        char charAt;
-        int i8;
-        boolean z3;
-        boolean z4;
-        char charAt2;
+    public static String a(File file) {
+        ?? r2;
+        ?? r3;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, i2)) == null) {
-            this.a = i;
-            if (i >= i2) {
-                return Float.NaN;
+        if (interceptable != null) {
+            r2 = interceptable;
+            r3 = 65537;
+            InterceptResult invokeL = r2.invokeL(65537, null, file);
+            if (invokeL != null) {
+                return (String) invokeL.objValue;
             }
-            char charAt3 = str.charAt(i);
-            if (charAt3 != '+') {
-                if (charAt3 != '-') {
-                    z = false;
-                    int i9 = this.a;
-                    long j = 0;
-                    i3 = 0;
-                    i4 = 0;
-                    int i10 = 0;
-                    z2 = false;
-                    int i11 = 0;
-                    while (true) {
-                        i5 = this.a;
-                        if (i5 >= i2) {
-                            break;
-                        }
-                        char charAt4 = str.charAt(i5);
-                        if (charAt4 == '0') {
-                            if (i3 == 0) {
-                                i10++;
-                            } else {
-                                i4++;
-                            }
-                        } else if (charAt4 >= '1' && charAt4 <= '9') {
-                            int i12 = i3 + i4;
-                            while (i4 > 0) {
-                                if (j > 922337203685477580L) {
-                                    return Float.NaN;
-                                }
-                                j *= 10;
-                                i4--;
-                            }
-                            if (j > 922337203685477580L) {
-                                return Float.NaN;
-                            }
-                            j = (j * 10) + (charAt4 - '0');
-                            i3 = i12 + 1;
-                            if (j < 0) {
-                                return Float.NaN;
-                            }
-                        } else if (charAt4 != '.' || z2) {
-                            break;
-                        } else {
-                            i11 = this.a - i9;
-                            z2 = true;
-                        }
-                        this.a++;
-                    }
-                    if (!z2 && this.a == i11 + 1) {
-                        return Float.NaN;
-                    }
-                    if (i3 == 0) {
-                        if (i10 == 0) {
-                            return Float.NaN;
-                        }
-                        i3 = 1;
-                    }
-                    if (z2) {
-                        i4 = (i11 - i10) - i3;
-                    }
-                    i6 = this.a;
-                    if (i6 < i2 && ((charAt = str.charAt(i6)) == 'E' || charAt == 'e')) {
-                        i8 = this.a + 1;
-                        this.a = i8;
-                        if (i8 != i2) {
-                            return Float.NaN;
-                        }
-                        char charAt5 = str.charAt(i8);
-                        if (charAt5 != '+') {
-                            if (charAt5 != '-') {
-                                switch (charAt5) {
-                                    case '0':
-                                    case '1':
-                                    case '2':
-                                    case '3':
-                                    case '4':
-                                    case '5':
-                                    case '6':
-                                    case '7':
-                                    case '8':
-                                    case '9':
-                                        z3 = false;
-                                        z4 = false;
-                                        break;
-                                    default:
-                                        this.a--;
-                                        z3 = false;
-                                        z4 = true;
-                                        break;
-                                }
-                                if (!z4) {
-                                    int i13 = this.a;
-                                    int i14 = 0;
-                                    while (true) {
-                                        int i15 = this.a;
-                                        if (i15 < i2 && (charAt2 = str.charAt(i15)) >= '0' && charAt2 <= '9') {
-                                            if (i14 > 922337203685477580L) {
-                                                return Float.NaN;
-                                            }
-                                            i14 = (i14 * 10) + (charAt2 - '0');
-                                            this.a++;
-                                        }
-                                    }
-                                    if (this.a == i13) {
-                                        return Float.NaN;
-                                    }
-                                    if (z3) {
-                                        i4 -= i14;
-                                    } else {
-                                        i4 += i14;
-                                    }
-                                }
-                            } else {
-                                z3 = true;
-                            }
-                        } else {
-                            z3 = false;
-                        }
-                        this.a++;
-                        z4 = false;
-                        if (!z4) {
-                        }
-                    }
-                    i7 = i3 + i4;
-                    if (i7 <= 39 || i7 < -44) {
-                        return Float.NaN;
-                    }
-                    long j2 = j;
-                    float f2 = (float) j2;
-                    if (j2 != 0) {
-                        if (i4 > 0) {
-                            f = b[i4];
-                        } else if (i4 < 0) {
-                            if (i4 < -38) {
-                                f2 = (float) (f2 * 1.0E-20d);
-                                i4 += 20;
-                            }
-                            f = c[-i4];
-                        }
-                        f2 *= f;
-                    }
-                    if (z) {
-                        return -f2;
-                    }
-                    return f2;
-                }
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a++;
-            int i92 = this.a;
-            long j3 = 0;
-            i3 = 0;
-            i4 = 0;
-            int i102 = 0;
-            z2 = false;
-            int i112 = 0;
-            while (true) {
-                i5 = this.a;
-                if (i5 >= i2) {
-                }
-                this.a++;
-            }
-            if (!z2) {
-            }
-            if (i3 == 0) {
-            }
-            if (z2) {
-            }
-            i6 = this.a;
-            if (i6 < i2) {
-                i8 = this.a + 1;
-                this.a = i8;
-                if (i8 != i2) {
-                }
-            }
-            i7 = i3 + i4;
-            if (i7 <= 39) {
-            }
-            return Float.NaN;
         }
-        return invokeLII.floatValue;
+        if (file == 0 || !file.exists()) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            try {
+                r2 = new FileInputStream((File) file);
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (FileNotFoundException e) {
+            e = e;
+            file = 0;
+            r2 = 0;
+            bufferedReader = null;
+        } catch (IOException e2) {
+            e = e2;
+            file = 0;
+            r2 = 0;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            r2 = 0;
+            r3 = 0;
+        }
+        try {
+            file = new BufferedInputStream(r2);
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(file));
+                while (true) {
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb.append(readLine);
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e4) {
+                                e = e4;
+                            }
+                        }
+                        if (file != 0) {
+                            file.close();
+                        }
+                        if (r2 != 0) {
+                            r2.close();
+                        }
+                        return null;
+                    } catch (IOException e5) {
+                        e = e5;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e6) {
+                                e = e6;
+                            }
+                        }
+                        if (file != 0) {
+                            file.close();
+                        }
+                        if (r2 != 0) {
+                            r2.close();
+                        }
+                        return null;
+                    }
+                }
+                String sb2 = sb.toString();
+                try {
+                    bufferedReader.close();
+                    file.close();
+                    r2.close();
+                } catch (IOException e7) {
+                    if (a) {
+                        e7.printStackTrace();
+                    }
+                }
+                return sb2;
+            } catch (FileNotFoundException e8) {
+                e = e8;
+                bufferedReader = null;
+            } catch (IOException e9) {
+                e = e9;
+                bufferedReader = null;
+            } catch (Throwable th3) {
+                r3 = 0;
+                th = th3;
+                if (r3 != 0) {
+                    try {
+                        r3.close();
+                    } catch (IOException e10) {
+                        if (a) {
+                            e10.printStackTrace();
+                        }
+                        throw th;
+                    }
+                }
+                if (file != 0) {
+                    file.close();
+                }
+                if (r2 != 0) {
+                    r2.close();
+                }
+                throw th;
+            }
+        } catch (FileNotFoundException e11) {
+            e = e11;
+            file = 0;
+            bufferedReader = null;
+        } catch (IOException e12) {
+            e = e12;
+            file = 0;
+            bufferedReader = null;
+        } catch (Throwable th4) {
+            th = th4;
+            r3 = 0;
+            r2 = r2;
+            th = th;
+            file = r3;
+            if (r3 != 0) {
+            }
+            if (file != 0) {
+            }
+            if (r2 != 0) {
+            }
+            throw th;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x004d, code lost:
+        if (com.baidu.tieba.hya.a == false) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x004f, code lost:
+        r4.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0064, code lost:
+        if (com.baidu.tieba.hya.a == false) goto L32;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(String str, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, file)) == null) {
+            if (TextUtils.isEmpty(str) || !file.exists()) {
+                return false;
+            }
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            }
+            try {
+                fileOutputStream.write(str.getBytes());
+                fileOutputStream.flush();
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e3) {
+                    if (a) {
+                        e3.printStackTrace();
+                    }
+                }
+                return true;
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileOutputStream2 = fileOutputStream;
+                if (a) {
+                    e.printStackTrace();
+                }
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e5) {
+                        e = e5;
+                    }
+                }
+                return false;
+            } catch (IOException e6) {
+                e = e6;
+                fileOutputStream2 = fileOutputStream;
+                if (a) {
+                    e.printStackTrace();
+                }
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e7) {
+                        e = e7;
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e8) {
+                        if (a) {
+                            e8.printStackTrace();
+                        }
+                    }
+                }
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

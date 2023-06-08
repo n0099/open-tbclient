@@ -1,23 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
 /* loaded from: classes6.dex */
-public class is6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface is6 {
 
-    public static void a(@NonNull Runnable runnable, @NonNull String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, runnable, str, i) == null) {
-            if (!((ii) ServiceManager.getService(ii.a)).threadABTest()) {
-                new Thread(runnable).start();
-            } else {
-                ExecutorUtilsExt.postOnElastic(runnable, str, i);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onProgress(long j);
     }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        boolean a(String str);
+
+        boolean b();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(boolean z, String str);
+    }
+
+    boolean a(QmFilterItem qmFilterItem);
+
+    boolean b(QmStickerItem qmStickerItem);
+
+    boolean c();
+
+    boolean d();
+
+    ei6 e();
+
+    bi6 f();
+
+    void g(c cVar);
+
+    boolean onDestroy();
+
+    boolean onPause();
+
+    boolean onResume();
+
+    boolean startRecord();
+
+    boolean stopRecord();
 }

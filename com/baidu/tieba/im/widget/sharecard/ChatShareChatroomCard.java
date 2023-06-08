@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ab8;
+import com.baidu.tieba.cb8;
 import com.baidu.tieba.im.data.ShareChatroomMsgData;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.no5;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.po5;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -160,8 +160,8 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
             Intrinsics.checkNotNullParameter(it, "$it");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (it.getId() != this$0.e) {
-                no5.a().b(this$0.getContext(), it.getId());
-                ab8.d("c15286", 5, this$0.d);
+                po5.a().b(this$0.getContext(), it.getId());
+                cb8.d("c15286", 5, this$0.d);
             }
         }
     }
@@ -178,7 +178,7 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 textView.setText(shareChatroomMsgData.getName());
             }
             e(shareChatroomMsgData);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qb8
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sb8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -249,8 +249,8 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 tbImageView.setConrers(15);
                 tbImageView.setRadiusById(R.string.J_X04);
             }
-            m75.d(this.b).w(R.color.CAM_X0105);
-            m75.d(this.c).w(R.color.CAM_X0109);
+            o75.d(this.b).w(R.color.CAM_X0105);
+            o75.d(this.c).w(R.color.CAM_X0109);
         }
     }
 

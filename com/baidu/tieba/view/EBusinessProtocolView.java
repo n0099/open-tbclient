@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ka5;
+import com.baidu.tieba.ma5;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -398,15 +398,15 @@ public class EBusinessProtocolView extends Dialog {
                     this.f.setVisibility(0);
                     this.e.setVisibility(0);
                     this.d.loadUrl(this.l);
-                    ka5 ka5Var = new ka5();
-                    ka5Var.q(R.color.CAM_X0107);
-                    this.e.setConfig(ka5Var);
+                    ma5 ma5Var = new ma5();
+                    ma5Var.q(R.color.CAM_X0107);
+                    this.e.setConfig(ma5Var);
                     this.e.setTextSize(R.dimen.tbds42);
                     this.e.setText(this.a.getResources().getString(R.string.protocol_cancel));
                     this.f.setTextSize(R.dimen.tbds42);
-                    ka5 ka5Var2 = new ka5();
-                    ka5Var2.q(R.color.CAM_X0302);
-                    this.f.setConfig(ka5Var2);
+                    ma5 ma5Var2 = new ma5();
+                    ma5Var2.q(R.color.CAM_X0302);
+                    this.f.setConfig(ma5Var2);
                     this.f.setTextSize(R.dimen.tbds42);
                     this.f.setText(this.a.getResources().getString(R.string.protocol_agree));
                     return;
@@ -418,10 +418,10 @@ public class EBusinessProtocolView extends Dialog {
             setCanceledOnTouchOutside(true);
             this.g.setText(this.k);
             this.h.setText(this.a.getResources().getString(R.string.tip_known));
-            ka5 ka5Var3 = new ka5();
-            ka5Var3.q(R.color.CAM_X0302);
+            ma5 ma5Var3 = new ma5();
+            ma5Var3.q(R.color.CAM_X0302);
             this.h.setTextSize(R.dimen.T_X08);
-            this.h.setConfig(ka5Var3);
+            this.h.setConfig(ma5Var3);
         }
     }
 

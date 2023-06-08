@@ -30,13 +30,13 @@ public class vs {
 
         /* renamed from: com.baidu.tieba.vs$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0487a implements Runnable {
+        public class RunnableC0496a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0487a(a aVar, byte[] bArr) {
+            public RunnableC0496a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class vs {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0487a(this, bArr), "HandshakeRequest");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0496a(this, bArr), "HandshakeRequest");
             }
         }
 

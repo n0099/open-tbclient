@@ -20,13 +20,13 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.a0a;
-import com.baidu.tieba.b0a;
-import com.baidu.tieba.c0a;
+import com.baidu.tieba.f0a;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.gea;
+import com.baidu.tieba.g0a;
+import com.baidu.tieba.h0a;
+import com.baidu.tieba.lea;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -115,8 +115,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean j = a0a.g().j();
-            b0a.a("发帖阻拦状态 = " + j);
+            boolean j = f0a.g().j();
+            g0a.a("发帖阻拦状态 = " + j);
             if (j && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 vi.Q(currentActivity, "正在发布，请稍后");
             }
@@ -137,7 +137,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c0a.h = new Intent(getIntent());
+            h0a.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -321,7 +321,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (gea.l.equals(str)) {
+            if (lea.l.equals(str)) {
                 setType(11);
             }
             return this;

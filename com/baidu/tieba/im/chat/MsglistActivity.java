@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.k68;
-import com.baidu.tieba.lw5;
-import com.baidu.tieba.q68;
+import com.baidu.tieba.m68;
+import com.baidu.tieba.nw5;
+import com.baidu.tieba.s68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements k68 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements m68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
 
-    public abstract boolean U1(k68 k68Var);
+    public abstract boolean U1(m68 m68Var);
 
     public abstract boolean V1(Bundle bundle);
 
@@ -89,7 +89,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.baidu.tieba.k68
+    @Override // com.baidu.tieba.m68
     public void l1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -163,7 +163,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             }
             X1();
             a2();
-            q68.a = lw5.b();
+            s68.a = nw5.b();
         }
     }
 

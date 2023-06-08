@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface tw1 {
     js2 a(ZeusPluginFactory.Invoker invoker, String str);
 

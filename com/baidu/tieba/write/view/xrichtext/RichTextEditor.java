@@ -27,11 +27,11 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.db5;
 import com.baidu.tieba.ec;
-import com.baidu.tieba.hea;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.nx5;
+import com.baidu.tieba.fb5;
+import com.baidu.tieba.mea;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.px5;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
@@ -52,7 +52,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public db5.a f;
+    public fb5.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -235,7 +235,7 @@ public class RichTextEditor extends LinearLayout {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (nx5.c(spanned.toString()) - (i4 - i3)) + nx5.c(charSequence.toString()) > this.a) {
+                if (spanned != null && charSequence != null && (px5.c(spanned.toString()) - (i4 - i3)) + px5.c(charSequence.toString()) > this.a) {
                     if (this.b.k != null) {
                         this.b.k.a();
                     }
@@ -382,7 +382,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(db5.a aVar) {
+    public void setOnSpanGroupChangedListener(fb5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.f = aVar;
@@ -487,7 +487,7 @@ public class RichTextEditor extends LinearLayout {
                 if (childAt instanceof RichImageItem) {
                     ((RichImageItem) childAt).f();
                 } else if (childAt instanceof SpanGroupEditText) {
-                    m75.d(childAt).w(R.color.CAM_X0105);
+                    o75.d(childAt).w(R.color.CAM_X0105);
                     ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
                 }
             }
@@ -629,9 +629,9 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
             spanGroupEditText.setLineSpacing(vi.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            hea.l(spanGroupEditText, R.drawable.edittext_cursor);
+            mea.l(spanGroupEditText, R.drawable.edittext_cursor);
             spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
-            m75.d(spanGroupEditText).w(R.color.CAM_X0105);
+            o75.d(spanGroupEditText).w(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);
             spanGroupEditText.setGravity(51);
             spanGroupEditText.setHint(str);

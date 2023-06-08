@@ -2,7 +2,7 @@ package com.baidu.tieba.funAd.strategy;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v15;
+import com.baidu.tieba.x15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class FunAdHistoryData extends v15 implements Serializable {
+public class FunAdHistoryData extends x15 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mFunAdKey;
@@ -66,7 +66,7 @@ public class FunAdHistoryData extends v15 implements Serializable {
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v15
+    @Override // com.baidu.tieba.x15
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {

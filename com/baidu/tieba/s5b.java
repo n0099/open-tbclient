@@ -1,21 +1,28 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface s5b {
-    void onAdClicked(Ssp.Pid pid);
+public abstract class s5b<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public T a;
 
-    void onAdClose(Ssp.Pid pid);
+    public s5b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void onAdLoad(Ssp.Pid pid);
-
-    void onAdLoadError(Ssp.Pid pid, int i, String str);
-
-    void onAdLoaded(Ssp.Pid pid, double d);
-
-    void onAdShow(Ssp.Pid pid, double d);
-
-    void onAdShowError(Ssp.Pid pid, int i, String str);
-
-    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
+    public abstract T a();
 }

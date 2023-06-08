@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.am7;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
-import com.baidu.tieba.ra5;
+import com.baidu.tieba.ta5;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.yl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements py {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !ListUtils.isEmpty(this.a.g)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ra5(14)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ta5(14)));
                 if (this.a.e == null) {
                     this.a.e = new GameCodeListDialog(view2.getContext());
                 }
@@ -187,13 +187,13 @@ public class CardItemGameCodeLayout extends RelativeLayout implements py {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            m75 d = m75.d(this.b);
+            o75 d = o75.d(this.b);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X07);
-            m75 d2 = m75.d(this.c);
+            o75 d2 = o75.d(this.c);
             d2.w(R.color.CAM_X0107);
             d2.B(R.dimen.T_X08);
-            m75 d3 = m75.d(this);
+            o75 d3 = o75.d(this);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
             WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0809b1, WebPManager.ResourceStateType.NORMAL);
@@ -205,13 +205,13 @@ public class CardItemGameCodeLayout extends RelativeLayout implements py {
         }
     }
 
-    public void setData(yl7 yl7Var) {
+    public void setData(am7 am7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yl7Var) != null) || yl7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, am7Var) != null) || am7Var == null) {
             return;
         }
-        this.f = yl7Var.d();
-        this.g = yl7Var.c();
+        this.f = am7Var.d();
+        this.g = am7Var.c();
         if (this.f != 0) {
             this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ff), Integer.valueOf(this.f)));
         } else {

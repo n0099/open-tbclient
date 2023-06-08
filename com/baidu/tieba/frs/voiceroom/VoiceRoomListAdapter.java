@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.module.frs.Frs$From;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do5;
+import com.baidu.tieba.fo5;
 import com.baidu.tieba.frs.voiceroom.VoiceRoomListAdapter;
 import com.baidu.tieba.frs.voiceroom.VoiceRoomStat;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.tieba.fs7;
-import com.baidu.tieba.gs7;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.hs7;
+import com.baidu.tieba.is7;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
     /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0303a i;
+        public static final C0314a i;
         public transient /* synthetic */ FieldHolder $fh;
         public final View a;
         public final TBLottieAnimationView b;
@@ -82,7 +82,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                     return;
                 }
             }
-            i = new C0303a(null);
+            i = new C0314a(null);
         }
 
         public boolean equals(Object obj) {
@@ -118,15 +118,15 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
 
         /* renamed from: com.baidu.tieba.frs.voiceroom.VoiceRoomListAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static final class C0303a {
+        public static final class C0314a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0303a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0314a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0303a() {
+            public C0314a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -327,17 +327,17 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 if (bundle != null) {
                     VoiceRoomStat voiceRoomStat = VoiceRoomStat.a;
                     VoiceRoomStat.StatType statType = VoiceRoomStat.StatType.ITEM_CLICK;
-                    f = fs7.f(bundle);
+                    f = hs7.f(bundle);
                     Integer valueOf = Integer.valueOf(i);
                     Long l = voiceRoom.room_id;
-                    d = fs7.d(bundle);
+                    d = hs7.d(bundle);
                     Long valueOf2 = Long.valueOf(d);
-                    e = fs7.e(bundle);
+                    e = hs7.e(bundle);
                     voiceRoomStat.c(statType, f, valueOf, l, valueOf2, e);
                 }
                 Long l2 = voiceRoom.room_id;
                 Intrinsics.checkNotNullExpressionValue(l2, "voiceRoom.room_id");
-                ((do5) ServiceManager.getService(do5.a.a())).b(tbPageContext, l2.longValue());
+                ((fo5) ServiceManager.getService(fo5.a.a())).b(tbPageContext, l2.longValue());
             }
         }
 
@@ -384,7 +384,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                     }
                     i2 = i3;
                 }
-                View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.es7
+                View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.gs7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -401,12 +401,12 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 if (bundle != null) {
                     VoiceRoomStat voiceRoomStat = VoiceRoomStat.a;
                     VoiceRoomStat.StatType statType = VoiceRoomStat.StatType.ITEM_EXPOSE;
-                    f = fs7.f(bundle);
+                    f = hs7.f(bundle);
                     Integer valueOf = Integer.valueOf(i);
                     Long l = voiceRoom.room_id;
-                    d = fs7.d(bundle);
+                    d = hs7.d(bundle);
                     Long valueOf2 = Long.valueOf(d);
-                    e = fs7.e(bundle);
+                    e = hs7.e(bundle);
                     voiceRoomStat.c(statType, f, valueOf, l, valueOf2, e);
                 }
             }
@@ -416,16 +416,16 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 a aVar = this.a;
-                m75 d = m75.d(aVar.d());
+                o75 d = o75.d(aVar.d());
                 d.o(R.string.J_X05);
                 d.f(R.color.CAM_X0205);
-                m75 d2 = m75.d(aVar.g());
+                o75 d2 = o75.d(aVar.g());
                 d2.o(R.string.J_X01);
                 d2.w(R.color.CAM_X0115);
                 d2.f(R.color.CAM_X0919);
-                m75.d(aVar.e()).w(R.color.CAM_X0105);
-                m75.d(aVar.b()).w(R.color.CAM_X0108);
-                m75 d3 = m75.d(aVar.a());
+                o75.d(aVar.e()).w(R.color.CAM_X0105);
+                o75.d(aVar.b()).w(R.color.CAM_X0108);
+                o75 d3 = o75.d(aVar.a());
                 d3.o(R.string.J_X01);
                 d3.w(R.color.CAM_X0115);
                 d3.i(R.color.CAM_X0919);
@@ -438,7 +438,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoiceRoomListAdapter(TbPageContext<?> tbPageContext, Bundle bundle) {
-        super(new gs7());
+        super(new is7());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -483,9 +483,9 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032c, parent, false);
-            a.C0303a c0303a = a.i;
+            a.C0314a c0314a = a.i;
             Intrinsics.checkNotNullExpressionValue(view2, "view");
-            return new ViewHolder(c0303a.a(view2));
+            return new ViewHolder(c0314a.a(view2));
         }
         return (ViewHolder) invokeLI.objValue;
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Intent;
 /* loaded from: classes6.dex */
 public interface hca {
-    void onClick(View view2);
+    void l0(Intent intent);
 }

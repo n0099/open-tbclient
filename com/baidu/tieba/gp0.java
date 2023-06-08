@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface gp0 {
     public static final ServiceReference a = new ServiceReference("nad.core", "loadVideo");
     public static final gp0 b = new a();
 
     void a(String str, int i);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements gp0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

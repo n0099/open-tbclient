@@ -116,7 +116,7 @@ public class ym {
                 Context appContext = AppRuntime.getAppContext();
                 PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
                 if (packageInfo != null) {
-                    wq8 defaultLog = DefaultLog.getInstance();
+                    zq8 defaultLog = DefaultLog.getInstance();
                     defaultLog.a(TitanDownloadService.TAG, "cur host version code = " + packageInfo.versionCode);
                     return packageInfo.versionCode;
                 }

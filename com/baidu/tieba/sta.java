@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface sta {
-    void a();
+    void onCancel();
 
-    void b(long j);
+    void onExceptionThrown(String str);
 
-    void c(int i);
+    void onProgressChanged(int i, double d, long j);
+
+    void onTrackEnd(int i);
 }

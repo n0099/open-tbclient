@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k35;
+import com.baidu.tieba.m35;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -150,60 +150,60 @@ public class PbGiftListView extends FrameLayout {
         h();
     }
 
-    public void g(k35 k35Var, String str, String str2, long j, long j2, long j3) {
+    public void g(m35 m35Var, String str, String str2, long j, long j2, long j3) {
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{k35Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{m35Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             this.k = j;
             this.i = str;
             this.j = str2;
             this.m = j3;
             this.l = j2;
-            if (k35Var != null && k35Var.a() != null && k35Var.a().size() > 0) {
-                if (k35Var.a().size() > 4) {
+            if (m35Var != null && m35Var.a() != null && m35Var.a().size() > 0) {
+                if (m35Var.a().size() > 4) {
                     size = 4;
                 } else {
-                    size = k35Var.a().size();
+                    size = m35Var.a().size();
                 }
                 if (size != 1) {
                     if (size != 2) {
                         if (size != 3) {
                             if (size == 4) {
-                                this.c.N(k35Var.a().get(0).a, 10, false);
-                                this.d.N(k35Var.a().get(1).a, 10, false);
-                                this.e.N(k35Var.a().get(2).a, 10, false);
-                                this.f.N(k35Var.a().get(3).a, 10, false);
+                                this.c.N(m35Var.a().get(0).a, 10, false);
+                                this.d.N(m35Var.a().get(1).a, 10, false);
+                                this.e.N(m35Var.a().get(2).a, 10, false);
+                                this.f.N(m35Var.a().get(3).a, 10, false);
                                 this.c.setVisibility(0);
                                 this.d.setVisibility(0);
                                 this.e.setVisibility(0);
                                 this.f.setVisibility(0);
                             }
                         } else {
-                            this.c.N(k35Var.a().get(0).a, 10, false);
-                            this.d.N(k35Var.a().get(1).a, 10, false);
-                            this.e.N(k35Var.a().get(2).a, 10, false);
+                            this.c.N(m35Var.a().get(0).a, 10, false);
+                            this.d.N(m35Var.a().get(1).a, 10, false);
+                            this.e.N(m35Var.a().get(2).a, 10, false);
                             this.c.setVisibility(0);
                             this.d.setVisibility(0);
                             this.e.setVisibility(0);
                             this.f.setVisibility(8);
                         }
                     } else {
-                        this.c.N(k35Var.a().get(0).a, 10, false);
-                        this.d.N(k35Var.a().get(1).a, 10, false);
+                        this.c.N(m35Var.a().get(0).a, 10, false);
+                        this.d.N(m35Var.a().get(1).a, 10, false);
                         this.c.setVisibility(0);
                         this.d.setVisibility(0);
                         this.e.setVisibility(8);
                         this.f.setVisibility(8);
                     }
                 } else {
-                    this.c.N(k35Var.a().get(0).a, 10, false);
+                    this.c.N(m35Var.a().get(0).a, 10, false);
                     this.c.setVisibility(0);
                     this.d.setVisibility(8);
                     this.e.setVisibility(8);
                     this.f.setVisibility(8);
                 }
-                if (k35Var.b() > 0) {
-                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08cf), Integer.valueOf(k35Var.b())));
+                if (m35Var.b() > 0) {
+                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08cf), Integer.valueOf(m35Var.b())));
                     this.g.setVisibility(0);
                 } else {
                     this.g.setVisibility(8);

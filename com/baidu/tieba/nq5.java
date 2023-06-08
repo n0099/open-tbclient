@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public interface nq5 extends iq5 {
-    HashMap<String, Object> O();
+public interface nq5 extends mq5 {
+    boolean C();
 
-    HashMap<String, String> S();
+    String T();
+
+    boolean isNeedUid();
 }

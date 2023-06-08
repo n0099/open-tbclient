@@ -185,7 +185,7 @@ public class iu4 {
                     String optString = jSONObject.optString("url");
                     Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
                     this.k = valueOf;
-                    this.d = l86.a(this.g, optString, "9104", valueOf);
+                    this.d = n86.a(this.g, optString, "9104", valueOf);
                     this.j = jSONObject.optString("naws_app_id");
                 } catch (JSONException e) {
                     e.printStackTrace();

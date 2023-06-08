@@ -35,7 +35,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
-import com.baidu.tieba.a55;
+import com.baidu.tieba.c55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -175,7 +175,7 @@ public class wx4 {
                 if (str4.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str4.substring(4));
                     return 0;
-                } else if (zx5.f(str4) && str4.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
+                } else if (by5.f(str4) && str4.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
                     wx4.p(tbPageContext.getPageActivity(), str4);
                     return 0;
                 } else {
@@ -192,7 +192,7 @@ public class wx4 {
                             str5 = strArr[1];
                         }
                         if (!StringHelper.equals(queryParameter3, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                            ww5.e(tbPageContext, queryParameter, queryParameter2);
+                            yw5.e(tbPageContext, queryParameter, queryParameter2);
                         } else {
                             new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter, queryParameter2, queryParameter3, str5).start();
                         }
@@ -203,7 +203,7 @@ public class wx4 {
                             str3 = "";
                             str5 = substring;
                         } else {
-                            str3 = zx5.c(str4, "body=");
+                            str3 = by5.c(str4, "body=");
                             int indexOf = substring.indexOf("?");
                             if (indexOf >= 1 && indexOf <= substring.length()) {
                                 str5 = substring.substring(0, indexOf);
@@ -215,7 +215,7 @@ public class wx4 {
                         qx4.o(tbPageContext.getPageActivity(), str4);
                         return 1;
                     } else if (UtilHelper.isNativeAdURL(str4)) {
-                        fm9.a(tbPageContext.getPageActivity(), str4, null, null, null);
+                        km9.a(tbPageContext.getPageActivity(), str4, null, null, null);
                         return 1;
                     } else if (!str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
                         if ((str4.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
@@ -240,10 +240,10 @@ public class wx4 {
                             tbPageContext.getPageActivity().finish();
                             return 1;
                         } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, zx5.c(str4, "bindid=")));
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, by5.c(str4, "bindid=")));
                             tbPageContext.getPageActivity().finish();
                             return 1;
-                        } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (g = zx5.g(str4)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(g.getString("path"))) {
+                        } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (g = by5.g(str4)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(g.getString("path"))) {
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                             return 0;
                         } else if (str4.startsWith(UrlSchemaHelper.SCHEME_TYPE_ACCOUNT_SAFE) && tbPageContext.getPageActivity() != null) {
@@ -316,7 +316,7 @@ public class wx4 {
     }
 
     /* loaded from: classes8.dex */
-    public static class d implements a55.e {
+    public static class d implements c55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -345,18 +345,18 @@ public class wx4 {
             this.d = bundle;
         }
 
-        @Override // com.baidu.tieba.a55.e
-        public void onClick(a55 a55Var) {
+        @Override // com.baidu.tieba.c55.e
+        public void onClick(c55 c55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, a55Var) == null) {
-                a55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
+                c55Var.dismiss();
                 qx4.u(this.a.getPageActivity(), this.b, this.c, this.d);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class e implements a55.e {
+    public static class e implements c55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -374,11 +374,11 @@ public class wx4 {
             }
         }
 
-        @Override // com.baidu.tieba.a55.e
-        public void onClick(a55 a55Var) {
+        @Override // com.baidu.tieba.c55.e
+        public void onClick(c55 c55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, a55Var) == null) {
-                a55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
+                c55Var.dismiss();
             }
         }
     }
@@ -455,14 +455,14 @@ public class wx4 {
                         String queryParameter9 = parse.getQueryParameter("is_video_topic");
                         if (queryParameter7 != null && queryParameter8 != null) {
                             if (!StringHelper.equals(queryParameter9, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                ww5.e(tbPageContext, queryParameter7, queryParameter8);
+                                yw5.e(tbPageContext, queryParameter7, queryParameter8);
                             } else {
                                 new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null).start();
                             }
                             return 1;
                         } else if (queryParameter7 != null) {
                             if (!StringHelper.equals(queryParameter9, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                ww5.e(tbPageContext, queryParameter7, null);
+                                yw5.e(tbPageContext, queryParameter7, null);
                             } else {
                                 new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, null, queryParameter9, null).start();
                             }
@@ -786,7 +786,7 @@ public class wx4 {
             }
             String l = l(str);
             if (z) {
-                nf5.f(tbPageContext, new d(tbPageContext, str2, l, bundle), new e(), l);
+                pf5.f(tbPageContext, new d(tbPageContext, str2, l, bundle), new e(), l);
             } else {
                 qx4.u(tbPageContext.getPageActivity(), str2, l, bundle);
             }

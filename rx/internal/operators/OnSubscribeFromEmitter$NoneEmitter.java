@@ -1,12 +1,12 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.omb;
+import com.baidu.tieba.tmb;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$NoneEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 3776720187248809713L;
 
-    public OnSubscribeFromEmitter$NoneEmitter(omb<? super T> ombVar) {
-        super(ombVar);
+    public OnSubscribeFromEmitter$NoneEmitter(tmb<? super T> tmbVar) {
+        super(tmbVar);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter

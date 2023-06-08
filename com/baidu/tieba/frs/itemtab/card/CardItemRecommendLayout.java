@@ -30,12 +30,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm7;
-import com.baidu.tieba.f15;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.dm7;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.ra5;
+import com.baidu.tieba.ta5;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -175,7 +175,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_small_star, R.color.CAM_X0305, null);
-                m75.d(this.b).w(R.color.CAM_X0105);
+                o75.d(this.b).w(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {
                     i2 = R.color.CAM_X0109;
@@ -247,7 +247,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ra5(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ta5(3, i + 1, 2)));
             }
         }
     }
@@ -296,7 +296,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ra5(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ta5(3, i + 1, 1)));
             }
         }
 
@@ -384,12 +384,12 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
         b();
     }
 
-    public void setData(f15 f15Var) {
+    public void setData(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, f15Var) == null) && (f15Var instanceof bm7)) {
-            bm7 bm7Var = (bm7) f15Var;
-            if (bm7Var.c() != null) {
-                this.d = bm7Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, h15Var) == null) && (h15Var instanceof dm7)) {
+            dm7 dm7Var = (dm7) h15Var;
+            if (dm7Var.c() != null) {
+                this.d = dm7Var.c();
                 this.c.notifyDataSetChanged();
             }
         }
@@ -403,7 +403,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
             this.a = eMTextView;
             eMTextView.setGravity(16);
             this.a.setText(R.string.obfuscated_res_0x7f0f082b);
-            m75 d2 = m75.d(this.a);
+            o75 d2 = o75.d(this.a);
             d2.C(R.string.F_X02);
             d2.B(R.dimen.T_X07);
             this.a.setPadding(vi.g(getContext(), R.dimen.M_W_X005), vi.g(getContext(), R.dimen.M_H_X004), vi.g(getContext(), R.dimen.M_W_X005), vi.g(getContext(), R.dimen.M_H_X008));
@@ -426,8 +426,8 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            m75.d(this.a).w(R.color.CAM_X0105);
-            m75 d2 = m75.d(this);
+            o75.d(this.a).w(R.color.CAM_X0105);
+            o75 d2 = o75.d(this);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }

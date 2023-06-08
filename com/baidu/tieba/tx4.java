@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class tx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -112,14 +112,14 @@ public class tx4 {
             for (sx4 sx4Var : this.d) {
                 if (sx4Var.b() != null) {
                     if (sx4Var.b() instanceof TextView) {
-                        if (this.g && !jw9.e(this.h)) {
+                        if (this.g && !ow9.e(this.h)) {
                             ((TextView) sx4Var.b()).setTextColor(this.h);
                         } else {
                             SkinManager.setViewTextColor(sx4Var.b(), d());
                         }
                     } else if (sx4Var.b() instanceof ImageView) {
                         if (this.g) {
-                            if (!jw9.e(this.h)) {
+                            if (!ow9.e(this.h)) {
                                 ((ImageView) sx4Var.b()).setImageDrawable(SvgManager.getInstance().getPureDrawableWithColorInt(sx4Var.a(), this.h, SvgManager.SvgResourceStateType.NORMAL_PRESS));
                             } else {
                                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) sx4Var.b(), sx4Var.a(), R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -190,7 +190,7 @@ public class tx4 {
         if (str.contains(BaseWebViewActivity.QUERY_OPACITY) && !this.f) {
             this.f = true;
             this.e = 0.0f;
-            this.h = jw9.f(i(str, "opacitybtnhex"));
+            this.h = ow9.f(i(str, "opacitybtnhex"));
             NavigationBar navigationBar = this.b;
             if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
                 this.b.getBackground().mutate().setAlpha(0);

@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsKt;
 /* loaded from: classes7.dex */
 public final class rcb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
+    public static final BitmapFactory.Options a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,6 +25,6 @@ public final class rcb {
                 return;
             }
         }
-        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "C", ExifInterface.LATITUDE_SOUTH, "Q", "R", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
+        a = new BitmapFactory.Options();
     }
 }

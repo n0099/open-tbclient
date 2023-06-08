@@ -131,12 +131,12 @@ public final class sp3 {
 
         /* renamed from: com.baidu.tieba.sp3$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0456b implements Runnable {
+        public class RunnableC0459b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0456b(b bVar) {
+            public RunnableC0459b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,7 +198,7 @@ public final class sp3 {
                         return;
                     }
                 }
-                sp3.e0(new RunnableC0456b(this));
+                sp3.e0(new RunnableC0459b(this));
             }
         }
     }

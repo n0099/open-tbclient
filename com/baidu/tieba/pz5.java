@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface pz5 extends ft5 {
-    boolean goBack();
+public interface pz5 {
+    String a();
 
-    void m1(String str, boolean z);
+    void b(String str);
 
-    void onDestroy();
+    String c();
 
-    void onPause();
+    String d();
 
-    void onResume();
+    boolean e();
+
+    boolean isValid();
 }

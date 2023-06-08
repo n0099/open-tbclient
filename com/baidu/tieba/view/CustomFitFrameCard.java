@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.f15;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.f45;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.tbadkcore.databinding.LayoutHeadlinesFrameCardBinding;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.vi;
@@ -245,31 +245,31 @@ public final class CustomFitFrameCard extends ConstraintLayout {
             if (drawable != null) {
                 this.a.b.setPlaceHolderDrawable(drawable);
             }
-            m75.d(this.a.e).w(R.color.CAM_X0101);
-            m75.d(this.a.g).w(R.color.CAM_X0101);
+            o75.d(this.a.e).w(R.color.CAM_X0101);
+            o75.d(this.a.g).w(R.color.CAM_X0101);
             this.a.f.j();
         }
     }
 
-    public final void i(f15 f15Var) {
+    public final void i(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(this);
-            constraintSet.setDimensionRatio(R.id.background_card, f15Var.getThreadData().getTaskInfoData().a());
+            constraintSet.setDimensionRatio(R.id.background_card, h15Var.getThreadData().getTaskInfoData().a());
             constraintSet.applyTo(this);
             TbImage tbImage = this.a.b;
-            String m = f15Var.getThreadData().getTaskInfoData().m();
+            String m = h15Var.getThreadData().getTaskInfoData().m();
             Intrinsics.checkNotNullExpressionValue(m, "data.threadData.taskInfoData.threadImgUrl");
             tbImage.k(m);
         }
     }
 
-    public final void j(d45 d45Var) {
+    public final void j(f45 f45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d45Var) == null) {
-            this.a.g.setText(d45Var.c());
-            long g = tg.g(d45Var.d(), 0L) * 1000;
+        if (interceptable == null || interceptable.invokeL(1048579, this, f45Var) == null) {
+            this.a.g.setText(f45Var.c());
+            long g = tg.g(f45Var.d(), 0L) * 1000;
             if (g <= System.currentTimeMillis()) {
                 this.a.g.setVisibility(0);
                 this.a.f.setVisibility(8);
@@ -279,28 +279,28 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void l(d45 d45Var) {
+    public final void l(f45 f45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, d45Var) == null) {
-            if (ListUtils.isEmpty(d45Var.e())) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, f45Var) == null) {
+            if (ListUtils.isEmpty(f45Var.e())) {
                 h(8);
                 return;
             }
             this.e.clear();
-            this.e.addAll(d45Var.e());
+            this.e.addAll(f45Var.e());
             h(0);
             this.a.c.p();
-            if (!TextUtils.isEmpty(d45Var.m())) {
-                this.a.e.setText(d45Var.m());
+            if (!TextUtils.isEmpty(f45Var.m())) {
+                this.a.e.setText(f45Var.m());
             }
         }
     }
 
-    public final void setData(f15 f15Var) {
+    public final void setData(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, f15Var) == null) && f15Var != null && f15Var.getThreadData() != null && f15Var.getThreadData().getTaskInfoData() != null && f15Var.getThreadData().getTaskInfoData().f() != null) {
-            d45 rewardCardData = f15Var.getThreadData().getTaskInfoData().f();
-            i(f15Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, h15Var) == null) && h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getTaskInfoData() != null && h15Var.getThreadData().getTaskInfoData().f() != null) {
+            f45 rewardCardData = h15Var.getThreadData().getTaskInfoData().f();
+            i(h15Var);
             Intrinsics.checkNotNullExpressionValue(rewardCardData, "rewardCardData");
             l(rewardCardData);
             j(rewardCardData);

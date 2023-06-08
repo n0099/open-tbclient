@@ -28,21 +28,21 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj7;
 import com.baidu.tieba.fo;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
-import com.baidu.tieba.gz9;
-import com.baidu.tieba.is6;
-import com.baidu.tieba.kj7;
-import com.baidu.tieba.lj7;
-import com.baidu.tieba.lk7;
-import com.baidu.tieba.oj7;
+import com.baidu.tieba.hj7;
+import com.baidu.tieba.ks6;
+import com.baidu.tieba.lz9;
+import com.baidu.tieba.mj7;
+import com.baidu.tieba.nj7;
+import com.baidu.tieba.nk7;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.rj7;
-import com.baidu.tieba.tm5;
-import com.baidu.tieba.u95;
-import com.baidu.tieba.v95;
+import com.baidu.tieba.qj7;
+import com.baidu.tieba.tj7;
+import com.baidu.tieba.vm5;
 import com.baidu.tieba.vn;
+import com.baidu.tieba.w95;
+import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,25 +51,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
+public class FrsGameStrategyItemListView extends FrameLayout implements nj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public BdUniqueId b;
-    public v95 c;
+    public x95 c;
     public BdTypeListView d;
     public NoDataView e;
-    public tm5 f;
+    public vm5 f;
     public PbListView g;
-    public rj7 h;
-    public lk7 i;
-    public kj7 j;
+    public tj7 h;
+    public nk7 i;
+    public mj7 j;
     public List<vn> k;
     public int l;
     public int m;
     public boolean n;
     public fo o;
-    public u95.g p;
+    public w95.g p;
 
     public void q() {
         Interceptable interceptable = $ic;
@@ -85,12 +85,12 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
 
         /* renamed from: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0299a implements Runnable {
+        public class RunnableC0310a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
-            public RunnableC0299a(a aVar, String str) {
+            public RunnableC0310a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,9 +142,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
         public void b(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             ThreadData threadData;
             boolean z;
-            oj7 a;
+            qj7 a;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || vnVar == null || !(vnVar instanceof fj7) || (threadData = ((fj7) vnVar).getThreadData()) == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || vnVar == null || !(vnVar instanceof hj7) || (threadData = ((hj7) vnVar).getThreadData()) == null) {
                 return;
             }
             if (this.a.j != null && (a = this.a.j.a(this.a.l)) != null) {
@@ -163,14 +163,14 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
             if (threadData.getActInfoType() == 1 && !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
                 return;
             }
-            gz9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            lz9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && !readThreadHistory.d(threadData.getId())) {
                 readThreadHistory.a(threadData.getId());
                 this.a.h.b();
             }
             String ad_url = threadData.getAd_url();
             if (ad_url != null && !ad_url.equals("")) {
-                is6.a(new RunnableC0299a(this, ad_url), "RequestAdNetwork", 3);
+                ks6.a(new RunnableC0310a(this, ad_url), "RequestAdNetwork", 3);
                 z = true;
             } else {
                 z = false;
@@ -194,7 +194,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements u95.g {
+    public class b implements w95.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameStrategyItemListView a;
@@ -217,7 +217,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
             this.a = frsGameStrategyItemListView;
         }
 
-        @Override // com.baidu.tieba.u95.g
+        @Override // com.baidu.tieba.w95.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
@@ -362,9 +362,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0204);
-            v95 v95Var = this.c;
-            if (v95Var != null) {
-                v95Var.H(i);
+            x95 x95Var = this.c;
+            if (x95Var != null) {
+                x95Var.H(i);
             }
             NoDataView noDataView = this.e;
             if (noDataView != null) {
@@ -373,15 +373,15 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
         }
     }
 
-    public void setFrsGameTabDataLoadListener(kj7 kj7Var) {
+    public void setFrsGameTabDataLoadListener(mj7 mj7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, kj7Var) == null) {
-            this.j = kj7Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, mj7Var) == null) {
+            this.j = mj7Var;
         }
     }
 
-    @Override // com.baidu.tieba.lj7
-    public void a(int i, int i2, List<vn> list, List<oj7> list2, boolean z, boolean z2, int i3) {
+    @Override // com.baidu.tieba.nj7
+    public void a(int i, int i2, List<vn> list, List<qj7> list2, boolean z, boolean z2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
             if ((i == 0 && i2 == 0) || (i == this.l && i2 == this.m)) {
@@ -407,7 +407,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
         }
     }
 
-    @Override // com.baidu.tieba.lj7
+    @Override // com.baidu.tieba.nj7
     public void b(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
@@ -452,10 +452,10 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
     }
 
     public final void l() {
-        tm5 tm5Var;
+        vm5 vm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (tm5Var = this.f) != null) {
-            tm5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (vm5Var = this.f) != null) {
+            vm5Var.dettachView(this);
         }
     }
 
@@ -478,9 +478,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             m();
-            kj7 kj7Var = this.j;
-            if (kj7Var != null) {
-                kj7Var.b(this.l, this.m);
+            mj7 mj7Var = this.j;
+            if (mj7Var != null) {
+                mj7Var.b(this.l, this.m);
             }
         }
     }
@@ -517,14 +517,14 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
             this.d.setOnSrollToBottomListener(new c(this));
             this.d.setOnTouchListener(new d(this));
             addView(this.d);
-            rj7 rj7Var = new rj7(this.a, this.d);
-            this.h = rj7Var;
-            rj7Var.c(this.o);
-            v95 v95Var = new v95(this.a);
-            this.c = v95Var;
-            v95Var.a0(this.b);
+            tj7 tj7Var = new tj7(this.a, this.d);
+            this.h = tj7Var;
+            tj7Var.c(this.o);
+            x95 x95Var = new x95(this.a);
+            this.c = x95Var;
+            x95Var.a0(this.b);
             this.c.f(this.p);
-            this.i = new lk7(this.a.getPageActivity(), this.b, true);
+            this.i = new nk7(this.a.getPageActivity(), this.b, true);
             this.d.setPullRefresh(this.c);
             if (this.g == null) {
                 PbListView pbListView = new PbListView(this.a.getPageActivity());
@@ -563,9 +563,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (this.f == null) {
-                tm5 tm5Var = new tm5(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035e));
-                this.f = tm5Var;
-                tm5Var.onChangeSkinType();
+                vm5 vm5Var = new vm5(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035e));
+                this.f = vm5Var;
+                vm5Var.onChangeSkinType();
             }
             this.f.attachView(this, false);
         }

@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,11 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.util.List;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
 public final class p97 {
     public static /* synthetic */ Interceptable $ic;
@@ -63,59 +56,42 @@ public final class p97 {
             }
         }
 
-        public final r57 a(String iconUrl) {
+        public final int a(f57 colorData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
-                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-                if (TextUtils.isEmpty(iconUrl)) {
-                    return null;
-                }
-                int i = 0;
-                if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
-                    Uri parse = Uri.parse(iconUrl);
-                    List<String> pathSegments = parse.getPathSegments();
-                    if (pathSegments.size() > 0) {
-                        boolean z = true;
-                        int identifier = e37.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, e37.a.getPackageName());
-                        String queryParameter = parse.getQueryParameter("type");
-                        if (queryParameter == null) {
-                            queryParameter = "";
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                int type = colorData.getType();
+                if (type != 1) {
+                    if (type == 2) {
+                        return SkinManager.getColor(g37.a.getResources().getIdentifier(colorData.b(), "color", g37.a.getPackageName()));
+                    }
+                } else {
+                    int currentSkinType = SkinManager.getCurrentSkinType();
+                    if (currentSkinType != 0) {
+                        if (currentSkinType == 4) {
+                            return ow9.f(colorData.a());
                         }
-                        int identifier2 = e37.a.getResources().getIdentifier(parse.getQueryParameter("color"), "color", e37.a.getPackageName());
-                        String queryParameter2 = parse.getQueryParameter(CriusAttrConstants.PADDING);
-                        if (queryParameter2 != null && queryParameter2.length() != 0) {
-                            z = false;
-                        }
-                        if (!z) {
-                            i = vi.g(e37.a, e37.a.getResources().getIdentifier(queryParameter2, EMABTest.TYPE_DIMEN, e37.a.getPackageName()));
-                        }
-                        if (identifier > 0) {
-                            return new r57(identifier, queryParameter, identifier2, i);
-                        }
+                    } else {
+                        return ow9.f(colorData.b());
                     }
                 }
-                return null;
+                return 0;
             }
-            return (r57) invokeL.objValue;
+            return invokeL.intValue;
         }
 
-        public final String b(n57 iconData) {
+        public final int b(f57 colorData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
-                Intrinsics.checkNotNullParameter(iconData, "iconData");
-                String b = iconData.b();
-                int currentSkinType = SkinManager.getCurrentSkinType();
-                if (currentSkinType != 0) {
-                    if (currentSkinType == 4) {
-                        return iconData.a();
-                    }
-                    return b;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                if (colorData.getType() == 2) {
+                    return g37.a.getResources().getIdentifier(colorData.b(), "color", g37.a.getPackageName());
                 }
-                return iconData.b();
+                return 0;
             }
-            return (String) invokeL.objValue;
+            return invokeL.intValue;
         }
     }
 }

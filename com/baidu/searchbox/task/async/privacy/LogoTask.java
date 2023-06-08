@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.qs5;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.ss5;
 import com.baidu.tieba.x9;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
@@ -57,11 +57,11 @@ public class LogoTask extends LaunchTask {
         if (this.mIsFirstUse) {
             TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
             TbadkCoreApplication.getInst().setIsAbstractOn(0);
-            l95.m().w("frs_first_in", true);
+            n95.m().w("frs_first_in", true);
         }
         if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
             NASLib.onAppStart(TbadkCoreApplication.getInst());
         }
-        qs5.b().z(this.mIsFirstUse);
+        ss5.b().z(this.mIsFirstUse);
     }
 }

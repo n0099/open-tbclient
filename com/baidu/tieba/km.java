@@ -48,17 +48,17 @@ public class km extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
                             BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
                             File file = new File(nm.b(packageInfo.name));
                             if (file.exists()) {
-                                wq8 defaultLog = DefaultLog.getInstance();
+                                zq8 defaultLog = DefaultLog.getInstance();
                                 defaultLog.c("PMS", "待删除文件:" + file);
                                 if (!file.delete()) {
                                     z = false;
                                 }
-                                wq8 defaultLog2 = DefaultLog.getInstance();
+                                zq8 defaultLog2 = DefaultLog.getInstance();
                                 defaultLog2.c("PMS", "文件删除状态:" + z);
                             }
                         }
                     }
-                    wq8 defaultLog3 = DefaultLog.getInstance();
+                    zq8 defaultLog3 = DefaultLog.getInstance();
                     defaultLog3.c("PMS", "删除文件后的 Map: " + BdBaseApplication.getInst().getResHashMap().toString());
                     return Boolean.valueOf(z);
                 }

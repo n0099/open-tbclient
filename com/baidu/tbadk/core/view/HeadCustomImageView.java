@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jw9;
-import com.baidu.tieba.na5;
+import com.baidu.tieba.ow9;
+import com.baidu.tieba.pa5;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -193,7 +193,7 @@ public class HeadCustomImageView extends RelativeLayout {
             if (this.c != null && TbSingleton.getInstance().getLightEmotionInfo() != null && TbSingleton.getInstance().getLightEmotionInfo().size() != 0) {
                 Rect rect = new Rect();
                 this.c.getGlobalVisibleRect(rect);
-                na5.b(this.n, rect.centerX(), rect.bottom, this.v, 1, this.u, this.w);
+                pa5.b(this.n, rect.centerX(), rect.bottom, this.v, 1, this.u, this.w);
                 return true;
             }
             return false;
@@ -238,7 +238,7 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && (tbImageView = this.a) != null && tbImageView.getVisibility() == 0 && this.n != null && this.d != null) {
             this.a.setDefaultBgResource(R.color.transparent);
-            this.a.setBackgroundColor(jw9.a(jw9.f(str), 0.3f));
+            this.a.setBackgroundColor(ow9.a(ow9.f(str), 0.3f));
         }
     }
 

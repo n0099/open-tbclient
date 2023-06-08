@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.tieba.vi;
 import com.baidu.tieba.view.SymbolEMTextView;
@@ -129,7 +129,7 @@ public class InterestForumTagView extends LinearLayout implements py {
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                m75 d = m75.d(symbolEMTextView);
+                o75 d = o75.d(symbolEMTextView);
                 d.B(R.dimen.T_X09);
                 d.w(R.color.CAM_X0107);
                 d.y(R.dimen.tbds0);
@@ -139,7 +139,7 @@ public class InterestForumTagView extends LinearLayout implements py {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
-            m75 d2 = m75.d(this);
+            o75 d2 = o75.d(this);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0202);
         }

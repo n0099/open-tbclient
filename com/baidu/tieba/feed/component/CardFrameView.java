@@ -7,8 +7,8 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b47;
 import com.baidu.tieba.feed.component.CardFrameView;
-import com.baidu.tieba.z37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ import kotlin.jvm.internal.Intrinsics;
 public abstract class CardFrameView<T> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z37 a;
+    public b47 a;
     public int b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -111,9 +111,9 @@ public abstract class CardFrameView<T> extends FrameLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 CardFrameView cardFrameView = (CardFrameView) this.a;
                 if (cardFrameView.getWidth() != cardFrameView.b) {
-                    z37 z37Var = cardFrameView.a;
-                    if (z37Var != null) {
-                        z37Var.a();
+                    b47 b47Var = cardFrameView.a;
+                    if (b47Var != null) {
+                        b47Var.a();
                     }
                     cardFrameView.b = cardFrameView.getWidth();
                 }
@@ -123,7 +123,7 @@ public abstract class CardFrameView<T> extends FrameLayout {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements z37 {
+    public static final class b implements b47 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardFrameView<T> a;
@@ -156,13 +156,13 @@ public abstract class CardFrameView<T> extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.z37
+        @Override // com.baidu.tieba.b47
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 final CardFrameView<T> cardFrameView = this.a;
                 final T t = this.b;
-                cardFrameView.post(new Runnable() { // from class: com.baidu.tieba.y37
+                cardFrameView.post(new Runnable() { // from class: com.baidu.tieba.a47
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -223,9 +223,9 @@ public abstract class CardFrameView<T> extends FrameLayout {
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             if (i != this.b) {
-                z37 z37Var = this.a;
-                if (z37Var != null) {
-                    z37Var.a();
+                b47 b47Var = this.a;
+                if (b47Var != null) {
+                    b47Var.a();
                 }
                 this.b = i;
             }

@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
-public interface so5 extends in5 {
-    public static final String b = "com.baidu.tieba.so5";
+public interface so5 {
+    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 
-    @NonNull
-    to5 a(@NonNull TbPageContext tbPageContext);
+    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 }

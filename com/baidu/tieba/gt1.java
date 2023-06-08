@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface gt1 {
     File a(String str, String str2);
 

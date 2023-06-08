@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.Keep;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import com.baidu.tieba.oo9;
+import com.baidu.tieba.to9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes7.dex */
-public class InterestDispatcher implements oo9 {
+public class InterestDispatcher implements to9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +31,7 @@ public class InterestDispatcher implements oo9 {
         }
     }
 
-    @Override // com.baidu.tieba.oo9
+    @Override // com.baidu.tieba.to9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cy extends ux<f15> {
+public class cy extends ux<h15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static int o;
@@ -34,7 +34,7 @@ public class cy extends ux<f15> {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public f15 h;
+    public h15 h;
     public RoundCornerFrameLayout i;
     public FakeVideoContainer j;
     public int k;
@@ -206,10 +206,10 @@ public class cy extends ux<f15> {
 
     @Override // com.baidu.tieba.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        f15 f15Var;
+        h15 h15Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (f15Var = this.h) != null && f15Var.getThreadData() != null) {
-            qn6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (h15Var = this.h) != null && h15Var.getThreadData() != null) {
+            sn6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
         }
@@ -233,11 +233,11 @@ public class cy extends ux<f15> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, f15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, h15Var) == null) {
             int l = vi.l(TbadkCoreApplication.getInst());
             if (l != this.k) {
                 int l2 = vi.l(TbadkCoreApplication.getInst());
@@ -248,9 +248,9 @@ public class cy extends ux<f15> {
                 r = i / 3;
                 this.k = l;
             }
-            this.h = f15Var;
-            if (f15Var != null && f15Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
-                this.j.setData(f15Var.getThreadData());
+            this.h = h15Var;
+            if (h15Var != null && h15Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
+                this.j.setData(h15Var.getThreadData());
                 ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
                 int i2 = layoutParams.width;
                 int i3 = layoutParams.height;

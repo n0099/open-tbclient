@@ -35,18 +35,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.d6a;
-import com.baidu.tieba.k5a;
+import com.baidu.tieba.c55;
+import com.baidu.tieba.i6a;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.n05;
-import com.baidu.tieba.ok9;
-import com.baidu.tieba.qk9;
-import com.baidu.tieba.rk9;
-import com.baidu.tieba.ro9;
+import com.baidu.tieba.p5a;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tieba.tk9;
 import com.baidu.tieba.view.festivalview.FestivalTipView;
+import com.baidu.tieba.vk9;
+import com.baidu.tieba.wk9;
+import com.baidu.tieba.wo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,16 +56,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PushDialogActivity extends BaseActivity<PushDialogActivity> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qk9 a;
-    public ok9 b;
-    public d6a c;
+    public vk9 a;
+    public tk9 b;
+    public i6a c;
     public kg<ImageView> d;
     public kg<TextView> e;
     public kg<GifView> f;
     public kg<View> g;
     public kg<LinearLayout> h;
     public kg<RelativeLayout> i;
-    public k5a j;
+    public p5a j;
     public boolean k;
     public HomeWatcherReceiver l;
     public String m;
@@ -114,7 +114,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.qr5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.sr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         public final /* synthetic */ PushDialogActivity a;
 
         /* loaded from: classes7.dex */
-        public class a implements a55.e {
+        public class a implements c55.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -178,11 +178,11 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 }
             }
 
-            @Override // com.baidu.tieba.a55.e
-            public void onClick(a55 a55Var) {
+            @Override // com.baidu.tieba.c55.e
+            public void onClick(c55 c55Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, a55Var) == null) && a55Var != null && a55Var.isShowing()) {
-                    a55Var.dismiss();
+                if ((interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) && c55Var != null && c55Var.isShowing()) {
+                    c55Var.dismiss();
                 }
             }
         }
@@ -218,10 +218,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             }
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().c != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.a.getPageContext().getUniqueId()) && !updateAttentionMessage.getData().a) {
-                a55 a55Var = new a55(this.a);
-                a55Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f1150));
-                a55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04bb, new a(this));
-                a55Var.create(this.a.getPageContext()).show();
+                c55 c55Var = new c55(this.a);
+                c55Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f1150));
+                c55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04bb, new a(this));
+                c55Var.create(this.a.getPageContext()).show();
             }
         }
     }
@@ -894,40 +894,40 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         return (kg) invokeV.objValue;
     }
 
-    public d6a y1() {
+    public i6a y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.c;
         }
-        return (d6a) invokeV.objValue;
+        return (i6a) invokeV.objValue;
     }
 
     public String z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            ok9 ok9Var = this.b;
-            if (ok9Var == null) {
+            tk9 tk9Var = this.b;
+            if (tk9Var == null) {
                 return null;
             }
-            return ok9Var.d();
+            return tk9Var.d();
         }
         return (String) invokeV.objValue;
     }
 
-    public void A1(boolean z, rk9 rk9Var) {
+    public void A1(boolean z, wk9 wk9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, rk9Var) == null) {
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, wk9Var) == null) {
             String str = this.m + "_3";
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             int i = 1;
             this.k = true;
-            if (z && rk9Var != null) {
-                qk9 qk9Var = this.a;
-                if (qk9Var != null) {
-                    qk9Var.i(rk9Var);
+            if (z && wk9Var != null) {
+                vk9 vk9Var = this.a;
+                if (vk9Var != null) {
+                    vk9Var.i(wk9Var);
                     TiebaStatic.log(new StatisticItem("c13197").param("tid", z1()));
                     StatisticItem param = new StatisticItem("c13196").param("obj_type", 2);
                     if (this.b.c() != 0) {
@@ -978,9 +978,9 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             super.onCreate(bundle);
-            this.c = ro9.j().d;
+            this.c = wo9.j().d;
             if (this.j == null) {
-                this.j = new k5a();
+                this.j = new p5a();
             }
             this.j.g(true);
             setSwipeBackEnabled(false);
@@ -990,10 +990,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 window.addFlags(524288);
             }
             getWindow().getDecorView().setDrawingCacheEnabled(false);
-            this.a = new qk9(this, R.layout.obfuscated_res_0x7f0d0065);
-            ok9 ok9Var = new ok9(this);
-            this.b = ok9Var;
-            ok9Var.e();
+            this.a = new vk9(this, R.layout.obfuscated_res_0x7f0d0065);
+            tk9 tk9Var = new tk9(this);
+            this.b = tk9Var;
+            tk9Var.e();
             registerListener(this.n);
             this.l = new HomeWatcherReceiver(this);
             IntentFilter intentFilter = new IntentFilter();
@@ -1021,9 +1021,9 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             if (homeWatcherReceiver != null) {
                 unregisterReceiver(homeWatcherReceiver);
             }
-            k5a k5aVar = this.j;
-            if (k5aVar != null) {
-                k5aVar.g(false);
+            p5a p5aVar = this.j;
+            if (p5aVar != null) {
+                p5aVar.g(false);
             }
         }
     }

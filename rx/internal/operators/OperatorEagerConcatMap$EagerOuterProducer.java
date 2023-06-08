@@ -1,24 +1,24 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dnb;
-import com.baidu.tieba.kmb;
-import com.baidu.tieba.pnb;
+import com.baidu.tieba.inb;
+import com.baidu.tieba.pmb;
+import com.baidu.tieba.unb;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements kmb {
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements pmb {
     public static final long serialVersionUID = -657299606803478389L;
-    public final pnb<?, ?> parent;
+    public final unb<?, ?> parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(pnb<?, ?> pnbVar) {
-        this.parent = pnbVar;
+    public OperatorEagerConcatMap$EagerOuterProducer(unb<?, ?> unbVar) {
+        this.parent = unbVar;
     }
 
-    @Override // com.baidu.tieba.kmb
+    @Override // com.baidu.tieba.pmb
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                dnb.b(this, j);
+                inb.b(this, j);
                 this.parent.g();
                 return;
             }

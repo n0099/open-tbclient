@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.py;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -158,12 +158,12 @@ public class CardItemInfoBriefLayout extends FrameLayout implements py {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            m75 d = m75.d(this);
+            o75 d = o75.d(this);
             d.n(2);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            m75.d(this.a).w(R.color.CAM_X0105);
-            m75.d(this.b).w(R.color.CAM_X0304);
+            o75.d(this.a).w(R.color.CAM_X0105);
+            o75.d(this.b).w(R.color.CAM_X0304);
         }
     }
 
@@ -209,7 +209,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements py {
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f06d4))));
-            m75 d = m75.d(this.a);
+            o75 d = o75.d(this.a);
             d.B(R.dimen.T_X07);
             d.y(R.dimen.M_T_X002);
             this.a.setPadding(0, 0, 0, vi.g(getContext(), R.dimen.M_H_X005));
@@ -218,7 +218,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements py {
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
             eMTextView.setText(R.string.obfuscated_res_0x7f0f06d4);
-            m75.d(this.a).B(R.dimen.T_X07);
+            o75.d(this.a).B(R.dimen.T_X07);
             this.b.setPadding(vi.g(getContext(), R.dimen.M_W_X005), vi.g(getContext(), R.dimen.M_H_X005), 0, vi.g(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);

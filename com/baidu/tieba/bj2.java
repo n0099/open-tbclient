@@ -52,7 +52,7 @@ public class bj2 implements sl2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements wmb<Cursor> {
+    public static class a implements bnb<Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ me3.c a;
@@ -76,7 +76,7 @@ public class bj2 implements sl2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wmb
+        @Override // com.baidu.tieba.bnb
         public void call(Cursor cursor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
@@ -94,7 +94,7 @@ public class bj2 implements sl2 {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements anb<String, Cursor> {
+    public static class b implements fnb<String, Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -113,7 +113,7 @@ public class bj2 implements sl2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.anb
+        @Override // com.baidu.tieba.fnb
         public Cursor call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -626,7 +626,7 @@ public class bj2 implements sl2 {
         if ((interceptable != null && interceptable.invokeL(65546, null, cVar) != null) || cVar == null) {
             return;
         }
-        imb.h("").A(Schedulers.io()).j(new b()).m(smb.b()).y(new a(cVar));
+        nmb.h("").A(Schedulers.io()).j(new b()).m(xmb.b()).y(new a(cVar));
     }
 
     @NonNull

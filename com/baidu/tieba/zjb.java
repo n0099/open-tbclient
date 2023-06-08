@@ -1,128 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class zjb {
     public static /* synthetic */ Interceptable $ic;
-    public static final zjb[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int b;
-    public final byte[] c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948363287, "Lcom/baidu/tieba/zjb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int b(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            int i3 = 1 << (i2 - 1);
+            while ((i & i3) != 0) {
+                i3 >>= 1;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948363287, "Lcom/baidu/tieba/zjb;");
-                return;
-            }
+            return (i & (i3 - 1)) + i3;
         }
-        d = new zjb[]{new zjb("", 0, ""), new zjb("", 0, " "), new zjb(" ", 0, " "), new zjb("", 12, ""), new zjb("", 10, " "), new zjb("", 0, " the "), new zjb(" ", 0, ""), new zjb("s ", 0, " "), new zjb("", 0, " of "), new zjb("", 10, ""), new zjb("", 0, " and "), new zjb("", 13, ""), new zjb("", 1, ""), new zjb(StringUtil.ARRAY_ELEMENT_SEPARATOR, 0, " "), new zjb("", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new zjb(" ", 10, " "), new zjb("", 0, " in "), new zjb("", 0, " to "), new zjb("e ", 0, " "), new zjb("", 0, "\""), new zjb("", 0, "."), new zjb("", 0, "\">"), new zjb("", 0, "\n"), new zjb("", 3, ""), new zjb("", 0, PreferencesUtil.RIGHT_MOUNT), new zjb("", 0, " for "), new zjb("", 14, ""), new zjb("", 2, ""), new zjb("", 0, " a "), new zjb("", 0, " that "), new zjb(" ", 10, ""), new zjb("", 0, ". "), new zjb(".", 0, ""), new zjb(" ", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new zjb("", 15, ""), new zjb("", 0, " with "), new zjb("", 0, "'"), new zjb("", 0, " from "), new zjb("", 0, " by "), new zjb("", 16, ""), new zjb("", 17, ""), new zjb(" the ", 0, ""), new zjb("", 4, ""), new zjb("", 0, ". The "), new zjb("", 11, ""), new zjb("", 0, " on "), new zjb("", 0, " as "), new zjb("", 0, " is "), new zjb("", 7, ""), new zjb("", 1, "ing "), new zjb("", 0, "\n\t"), new zjb("", 0, ":"), new zjb(" ", 0, ". "), new zjb("", 0, "ed "), new zjb("", 20, ""), new zjb("", 18, ""), new zjb("", 6, ""), new zjb("", 0, "("), new zjb("", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new zjb("", 8, ""), new zjb("", 0, " at "), new zjb("", 0, "ly "), new zjb(" the ", 0, " of "), new zjb("", 5, ""), new zjb("", 9, ""), new zjb(" ", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new zjb("", 10, "\""), new zjb(".", 0, "("), new zjb("", 11, " "), new zjb("", 10, "\">"), new zjb("", 0, "=\""), new zjb(" ", 0, "."), new zjb(".com/", 0, ""), new zjb(" the ", 0, " of the "), new zjb("", 10, "'"), new zjb("", 0, ". This "), new zjb("", 0, ","), new zjb(".", 0, " "), new zjb("", 10, "("), new zjb("", 10, "."), new zjb("", 0, " not "), new zjb(" ", 0, "=\""), new zjb("", 0, "er "), new zjb(" ", 11, " "), new zjb("", 0, "al "), new zjb(" ", 11, ""), new zjb("", 0, "='"), new zjb("", 11, "\""), new zjb("", 10, ". "), new zjb(" ", 0, "("), new zjb("", 0, "ful "), new zjb(" ", 10, ". "), new zjb("", 0, "ive "), new zjb("", 0, "less "), new zjb("", 11, "'"), new zjb("", 0, "est "), new zjb(" ", 10, "."), new zjb("", 11, "\">"), new zjb(" ", 0, "='"), new zjb("", 10, ","), new zjb("", 0, "ize "), new zjb("", 11, "."), new zjb("Â ", 0, ""), new zjb(" ", 0, ","), new zjb("", 10, "=\""), new zjb("", 11, "=\""), new zjb("", 0, "ous "), new zjb("", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new zjb("", 10, "='"), new zjb(" ", 10, ","), new zjb(" ", 11, "=\""), new zjb(" ", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new zjb("", 11, ","), new zjb("", 11, "("), new zjb("", 11, ". "), new zjb(" ", 11, "."), new zjb("", 11, "='"), new zjb(" ", 11, ". "), new zjb(" ", 10, "=\""), new zjb(" ", 11, "='"), new zjb(" ", 10, "='")};
+        return invokeII.intValue;
     }
 
-    public zjb(String str, int i, String str2) {
+    public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2, Integer.valueOf(i3)}) == null) {
+            int[] iArr3 = new int[i3];
+            int[] iArr4 = new int[16];
+            int[] iArr5 = new int[16];
+            int i4 = 0;
+            for (int i5 = 0; i5 < i3; i5++) {
+                int i6 = iArr2[i5];
+                iArr4[i6] = iArr4[i6] + 1;
             }
-        }
-        this.a = a(str);
-        this.b = i;
-        this.c = a(str2);
-    }
-
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int length = str.length();
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                bArr[i] = (byte) str.charAt(i);
+            iArr5[1] = 0;
+            int i7 = 1;
+            while (i7 < 15) {
+                int i8 = i7 + 1;
+                iArr5[i8] = iArr5[i7] + iArr4[i7];
+                i7 = i8;
             }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3, zjb zjbVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3), zjbVar})) == null) {
-            int i4 = i;
-            for (byte b : zjbVar.a) {
-                bArr[i4] = b;
-                i4++;
-            }
-            int i5 = zjbVar.b;
-            int a = bkb.a(i5);
-            if (a > i3) {
-                a = i3;
-            }
-            int i6 = i2 + a;
-            int b2 = (i3 - a) - bkb.b(i5);
-            int i7 = b2;
-            while (i7 > 0) {
-                bArr[i4] = bArr2[i6];
-                i7--;
-                i4++;
-                i6++;
-            }
-            if (i5 == 11 || i5 == 10) {
-                int i8 = i4 - b2;
-                if (i5 == 10) {
-                    b2 = 1;
+            for (int i9 = 0; i9 < i3; i9++) {
+                if (iArr2[i9] != 0) {
+                    int i10 = iArr2[i9];
+                    int i11 = iArr5[i10];
+                    iArr5[i10] = i11 + 1;
+                    iArr3[i11] = i9;
                 }
-                while (b2 > 0) {
-                    int i9 = bArr[i8] & 255;
-                    if (i9 < 192) {
-                        if (i9 >= 97 && i9 <= 122) {
-                            bArr[i8] = (byte) (bArr[i8] ^ 32);
-                        }
-                        i8++;
-                        b2--;
-                    } else if (i9 < 224) {
-                        int i10 = i8 + 1;
-                        bArr[i10] = (byte) (bArr[i10] ^ 32);
-                        i8 += 2;
-                        b2 -= 2;
-                    } else {
-                        int i11 = i8 + 2;
-                        bArr[i11] = (byte) (bArr[i11] ^ 5);
-                        i8 += 3;
-                        b2 -= 3;
+            }
+            int i12 = 1 << i2;
+            if (iArr5[15] == 1) {
+                for (int i13 = 0; i13 < i12; i13++) {
+                    iArr[i + i13] = iArr3[0];
+                }
+                return;
+            }
+            int i14 = 2;
+            int i15 = 0;
+            int i16 = 1;
+            int i17 = 2;
+            while (i16 <= i2) {
+                while (iArr4[i16] > 0) {
+                    d(iArr, i + i4, i17, i12, iArr3[i15] | (i16 << 16));
+                    i4 = b(i4, i16);
+                    iArr4[i16] = iArr4[i16] - 1;
+                    i15++;
+                }
+                i16++;
+                i17 <<= 1;
+            }
+            int i18 = i12 - 1;
+            int i19 = -1;
+            int i20 = i2 + 1;
+            int i21 = i;
+            while (i20 <= 15) {
+                while (iArr4[i20] > 0) {
+                    int i22 = i4 & i18;
+                    if (i22 != i19) {
+                        i21 += i12;
+                        int c = c(iArr4, i20, i2);
+                        iArr[i + i22] = ((c + i2) << 16) | ((i21 - i) - i22);
+                        i12 = 1 << c;
+                        i19 = i22;
                     }
+                    d(iArr, (i4 >> i2) + i21, i14, i12, ((i20 - i2) << 16) | iArr3[i15]);
+                    i4 = b(i4, i20);
+                    iArr4[i20] = iArr4[i20] - 1;
+                    i15++;
                 }
+                i20++;
+                i14 <<= 1;
             }
-            for (byte b3 : zjbVar.c) {
-                bArr[i4] = b3;
-                i4++;
-            }
-            return i4 - i;
         }
-        return invokeCommon.intValue;
+    }
+
+    public static int c(int[] iArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
+            int i4 = 1 << (i - i2);
+            while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
+                i++;
+                i4 = i3 << 1;
+            }
+            return i - i2;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static void d(int[] iArr, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            do {
+                i3 -= i2;
+                iArr[i + i3] = i4;
+            } while (i3 > 0);
+        }
     }
 }

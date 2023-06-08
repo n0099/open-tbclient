@@ -7,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class bl5 extends xk5 {
+public class bl5 extends zk5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public class bl5 extends xk5 {
                 return;
             }
         }
-        c = xk5.a("IEND");
+        c = zk5.a("fdAT");
     }
 
     public bl5() {
@@ -40,6 +41,14 @@ public class bl5 extends xk5 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.zk5
+    public void b(gl5 gl5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gl5Var) == null) {
+            gl5Var.e();
         }
     }
 }

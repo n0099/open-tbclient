@@ -17,20 +17,20 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.ny8;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.oy;
-import com.baidu.tieba.oy8;
 import com.baidu.tieba.py;
-import com.baidu.tieba.x18;
-import com.baidu.tieba.xg5;
+import com.baidu.tieba.qy8;
+import com.baidu.tieba.ry8;
+import com.baidu.tieba.z18;
+import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements py, oy<oy8>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry8>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<oy
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public ny8 j;
-    public oy8 k;
+    public qy8 j;
+    public ry8 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -69,18 +69,18 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<oy
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: d */
-    public void a(oy8 oy8Var) {
+    public void a(ry8 ry8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, oy8Var) == null) {
-            this.k = oy8Var;
-            ny8 ny8Var = this.j;
-            if (ny8Var != null) {
-                ny8Var.D(oy8Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, ry8Var) == null) {
+            this.k = ry8Var;
+            qy8 qy8Var = this.j;
+            if (qy8Var != null) {
+                qy8Var.D(ry8Var.a);
             }
-            this.i.setData(oy8Var.b);
-            if (oy8Var.c) {
+            this.i.setData(ry8Var.b);
+            if (ry8Var.c) {
                 this.d.setVisibility(0);
-                x18.q();
+                z18.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -92,7 +92,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<oy
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091871 && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            x18.j();
+            z18.j();
         }
     }
 
@@ -143,7 +143,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<oy
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new ny8(context, xg5.l, 1);
+            this.j = new qy8(context, zg5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -153,13 +153,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<oy
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            oy8 oy8Var = this.k;
-            if (oy8Var != null) {
-                oy8Var.a = z;
+            ry8 ry8Var = this.k;
+            if (ry8Var != null) {
+                ry8Var.a = z;
             }
-            ny8 ny8Var = this.j;
-            if (ny8Var != null) {
-                ny8Var.D(z);
+            qy8 qy8Var = this.j;
+            if (qy8Var != null) {
+                qy8Var.D(z);
             }
         }
     }
@@ -190,17 +190,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<oy
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && this.a != i) {
             HomeGroupUbsUIHelper.handleLineColor(this.g);
-            m75 d = m75.d(this.c);
+            o75 d = o75.d(this.c);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X07);
             d.C(R.string.F_X02);
-            m75 d2 = m75.d(this.e);
+            o75 d2 = o75.d(this.e);
             d2.w(R.color.CAM_X0109);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X01);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.a = i;
-            m75 d3 = m75.d(this.h);
+            o75 d3 = o75.d(this.h);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

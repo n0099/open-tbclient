@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes5.dex */
-public class el5 extends ll5 {
+public class el5 extends zk5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<byte[]> b;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public int c;
+    public int d;
+    public byte[] e;
 
     static {
         InterceptResult invokeClinit;
@@ -29,92 +30,33 @@ public class el5 extends ll5 {
                 return;
             }
         }
-        b = new ThreadLocal<>();
+        f = zk5.a("IHDR");
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            byte[] bArr = b.get();
-            if (bArr == null) {
-                byte[] bArr2 = new byte[4];
-                b.set(bArr2);
-                return bArr2;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public short f() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 2);
-            return (short) (((b2[0] & 255) << 8) | (b2[1] & 255));
-        }
-        return invokeV.shortValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public el5(ml5 ml5Var) {
-        super(ml5Var);
+    public el5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ml5Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ml5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.e = new byte[5];
     }
 
-    public boolean c(String str) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zk5
+    public void b(gl5 gl5Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.length() != 4) {
-                return false;
-            }
-            int d = d();
-            for (int i = 0; i < 4; i++) {
-                if (((d >> (i * 8)) & 255) != str.charAt(i)) {
-                    return false;
-                }
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gl5Var) == null) {
+            this.c = gl5Var.e();
+            this.d = gl5Var.e();
+            byte[] bArr = this.e;
+            gl5Var.read(bArr, 0, bArr.length);
         }
-        return invokeL.booleanValue;
-    }
-
-    public int d() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 4);
-            return ((b2[3] & 255) << 24) | (b2[0] & 255) | ((b2[1] & 255) << 8) | ((b2[2] & 255) << 16);
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 4);
-            return ((b2[0] & 255) << 24) | (b2[3] & 255) | ((b2[2] & 255) << 8) | ((b2[1] & 255) << 16);
-        }
-        return invokeV.intValue;
     }
 }

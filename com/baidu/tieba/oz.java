@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oz extends ux<f15> {
+public class oz extends ux<h15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class oz extends ux<f15> {
     public TextView g;
     public TextView h;
     public OriginalThreadCardView i;
-    public f15 j;
+    public h15 j;
     public boolean k;
     public OriginalThreadCardView.b l;
 
@@ -64,7 +64,7 @@ public class oz extends ux<f15> {
                     this.a.h().a(this.a.i, this.a.j);
                 }
                 String id = this.a.j.getThreadData().getId();
-                qn6.a(id);
+                sn6.a(id);
                 this.a.y(id);
                 this.a.a.p(new uz.a(1));
             }
@@ -127,19 +127,19 @@ public class oz extends ux<f15> {
     }
 
     @Override // com.baidu.tieba.ux
-    public void p(eo6<f15> eo6Var) {
+    public void p(go6<h15> go6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eo6Var) == null) {
-            super.p(eo6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, go6Var) == null) {
+            super.p(go6Var);
         }
     }
 
     public final void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            qn6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            qn6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(qn6.k(str));
+            sn6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            sn6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(sn6.k(str));
         }
     }
 
@@ -171,13 +171,13 @@ public class oz extends ux<f15> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oy
     /* renamed from: x */
-    public void a(f15 f15Var) {
+    public void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, f15Var) == null) && f15Var != null && f15Var.getThreadData() != null) {
-            this.j = f15Var;
-            ThreadCardUtils.setTitle(this.g, f15Var.getThreadData(), this.k);
-            ThreadCardUtils.setAbstract(this.h, this.g, f15Var.getThreadData(), m, this.k);
-            this.i.i(f15Var.getThreadData().originalThreadData);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, h15Var) == null) && h15Var != null && h15Var.getThreadData() != null) {
+            this.j = h15Var;
+            ThreadCardUtils.setTitle(this.g, h15Var.getThreadData(), this.k);
+            ThreadCardUtils.setAbstract(this.h, this.g, h15Var.getThreadData(), m, this.k);
+            this.i.i(h15Var.getThreadData().originalThreadData);
         }
     }
 }

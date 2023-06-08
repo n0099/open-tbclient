@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface n94 {
     void a(mc4 mc4Var, lc4 lc4Var);
 

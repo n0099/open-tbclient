@@ -1,159 +1,73 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.style.ForegroundColorSpan;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareForumSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareThreadSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SubscribeSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.ChatMsgProcessor;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class hh8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<int[]> a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ChatMsgProcessor a;
 
-    public hh8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947823825, "Lcom/baidu/tieba/hh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947823825, "Lcom/baidu/tieba/hh8;");
                 return;
             }
         }
-        this.a = new ChatMsgProcessor();
-        b();
+        a = new ArrayList();
+        b = SkinManager.getColor(R.color.CAM_X0304);
     }
 
-    @Nullable
-    public static String a(List<GroupChatRoomPojo> list) {
+    public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                GroupChatRoomPojo groupChatRoomPojo = list.get(i);
-                HashMap hashMap = new HashMap();
-                hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
-                hashMap.put("msg_id", String.valueOf(groupChatRoomPojo.getLatestMsgId()));
-                arrayList.add(hashMap);
-            }
-            if (ListUtils.isEmpty(arrayList)) {
-                return null;
-            }
-            return DataExt.toJson(arrayList);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static long f(@NonNull ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            long millis = TimeUnit.MICROSECONDS.toMillis(chatMsg.getMsgId());
-            if (millis == 0) {
-                return System.currentTimeMillis();
-            }
-            return millis;
-        }
-        return invokeL.longValue;
-    }
-
-    public boolean c(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        BaseSysMsg e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMsg)) == null) {
-            if (chatMsg == null || (e = e(chatMsg)) == null || e.getMsgConf() == null || !e.getMsgConf().isVisible()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.K(1, TextMsg.class);
-            this.a.K(3, VoiceMsg.class);
-            this.a.K(2, ImageMsg.class);
-            this.a.K(101, TextGenImageMsg.class);
-            this.a.K(7009, ShareForumSysMsg.class);
-            this.a.K(7010, ShareThreadSysMsg.class);
-            this.a.K(7001, NoticeModifySysMsg.class);
-            this.a.L(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
-            this.a.L(TipsSysMsg.MSG_TYPE_LIST, TipsSysMsg.class);
-            this.a.K(-7015, SubscribeSysMsg.class);
-        }
-    }
-
-    @Nullable
-    public BaseMsg d(long j, @NonNull ChatMsg chatMsg) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, chatMsg)) == null) {
-            if (TextUtils.isEmpty(chatMsg.getChatRoomContentExt())) {
-                return null;
-            }
-            return this.a.I(j, chatMsg);
-        }
-        return (BaseMsg) invokeJL.objValue;
-    }
-
-    @Nullable
-    public BaseSysMsg e(@NonNull ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chatMsg)) == null) {
-            if (TextUtils.isEmpty(chatMsg.getMsgContent())) {
-                return null;
-            }
-            try {
-                BaseSysMsg J = this.a.J(chatMsg);
-                if (J.getMsgConf() != null) {
-                    if (J.getMsgConf().isVisible()) {
-                        return J;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, spannableStringBuilder)) == null) {
+            if (!TextUtils.isEmpty(spannableStringBuilder) && !ListUtils.isEmpty(a)) {
+                for (int[] iArr : a) {
+                    int i = iArr[0];
+                    int i2 = iArr[1];
+                    if (i < spannableStringBuilder.length() && i2 <= spannableStringBuilder.length() && i >= 0 && i2 >= 0) {
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(b), i, i2, 18);
                     }
                 }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
+            }
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public static void b(List<AtUserInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
+            a.clear();
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (AtUserInfo atUserInfo : list) {
+                if (atUserInfo != null) {
+                    int atPosition = atUserInfo.getAtPosition();
+                    a.add(new int[]{atPosition, atUserInfo.getAtName().length() + atPosition + 1});
+                }
             }
         }
-        return (BaseSysMsg) invokeL.objValue;
     }
 }

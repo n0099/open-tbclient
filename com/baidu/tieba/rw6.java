@@ -1,59 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.easteregg.data.EasterEggAdData;
+import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 @Service
 /* loaded from: classes7.dex */
-public final class rw6 implements j65 {
+public final class rw6 implements ze5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948136088, "Lcom/baidu/tieba/rw6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948136088, "Lcom/baidu/tieba/rw6;");
-        }
-    }
-
-    @Override // com.baidu.tieba.j65
-    public Class<? extends h65> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? qw6.class : (Class) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.j65
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "easterEgg" : (String) invokeV.objValue;
-    }
+    public final qw6 a;
 
     public rw6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
+        this.a = new qw6(inst);
+    }
+
+    @Override // com.baidu.tieba.ze5
+    public void parseJson(JSONObject json) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                JSONObject optJSONObject2 = json.optJSONObject("floating_icon");
+                if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("easter_egg")) != null) {
+                    EasterEggAdDataHolder.b.a().c(EasterEggAdData.Companion.b(optJSONObject));
+                    qw6 qw6Var = this.a;
+                    String jSONObject = optJSONObject.toString();
+                    Intrinsics.checkNotNullExpressionValue(jSONObject, "easterEggJsonObject.toString()");
+                    qw6Var.c(jSONObject);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

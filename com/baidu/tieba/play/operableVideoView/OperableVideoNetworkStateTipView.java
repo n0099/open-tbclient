@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e7a;
-import com.baidu.tieba.ia5;
+import com.baidu.tieba.j7a;
 import com.baidu.tieba.ka5;
+import com.baidu.tieba.ma5;
 import com.baidu.tieba.qx4;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -153,17 +153,17 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             LinearLayout.inflate(getContext(), getLayoutR(), this);
             this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c01);
             this.b = (TBSpecificationBtn) findViewById(R.id.free_flow);
-            ka5 ka5Var = new ka5();
-            ka5Var.t();
-            ka5Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            ka5Var.g(vi.g(getContext(), R.dimen.tbds32));
+            ma5 ma5Var = new ma5();
+            ma5Var.t();
+            ma5Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            ma5Var.g(vi.g(getContext(), R.dimen.tbds32));
             this.a.setText(getResources().getString(R.string.video_flow_play));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(ka5Var);
-            ia5 ia5Var = new ia5();
+            this.a.setConfig(ma5Var);
+            ka5 ka5Var = new ka5();
             this.b.setText(getResources().getString(R.string.video_open_free_data));
             this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(ia5Var);
+            this.b.setConfig(ka5Var);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             setOnClickListener(this);
@@ -174,7 +174,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (b() || e7a.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
+            if (b() || j7a.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
             }
             return false;
         }

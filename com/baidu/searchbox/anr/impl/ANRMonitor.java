@@ -16,7 +16,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.baidu.tieba.bh1;
-import com.baidu.tieba.d6b;
+import com.baidu.tieba.i6b;
 import com.baidu.tieba.zg1;
 import com.github.anrwatchdog.ANRError;
 import com.kwad.sdk.crash.handler.AnrHandler;
@@ -39,15 +39,15 @@ public class ANRMonitor implements IANRMonitor {
     public FileObserver mFileObserver;
     public zg1 nativeANRListener;
     public int mAnrWatchTimeOut = 5000;
-    public d6b mANRWatchDog = null;
+    public i6b mANRWatchDog = null;
     public boolean mMonitorStarted = false;
 
     /* loaded from: classes3.dex */
-    public static class ANRListenerImpl implements d6b.f {
+    public static class ANRListenerImpl implements i6b.f {
         public ANRListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.d6b.f
+        @Override // com.baidu.tieba.i6b.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(ANRMonitor.TAG, "ANRWatchDog catch ANR", aNRError);
             ANRMonitor.filiterANR(aNRError.getSTStackTrace());
@@ -149,9 +149,9 @@ public class ANRMonitor implements IANRMonitor {
     @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
     public void stopANRMonitor() {
         if (this.mMonitorStarted) {
-            d6b d6bVar = this.mANRWatchDog;
-            if (d6bVar != null) {
-                d6bVar.interrupt();
+            i6b i6bVar = this.mANRWatchDog;
+            if (i6bVar != null) {
+                i6bVar.interrupt();
                 this.mMonitorStarted = false;
             }
             FileObserver fileObserver = this.mFileObserver;
@@ -231,9 +231,9 @@ public class ANRMonitor implements IANRMonitor {
         } else {
             this.mAnrWatchTimeOut = i;
         }
-        d6b d6bVar = new d6b(this.mAnrWatchTimeOut);
-        this.mANRWatchDog = d6bVar;
-        d6bVar.e();
+        i6b i6bVar = new i6b(this.mAnrWatchTimeOut);
+        this.mANRWatchDog = i6bVar;
+        i6bVar.e();
         this.mANRWatchDog.c(new ANRListenerImpl());
         if (AppConfig.isDebug()) {
             String str = TAG;

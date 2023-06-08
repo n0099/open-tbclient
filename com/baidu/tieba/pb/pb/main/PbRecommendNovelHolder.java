@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h35;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.o35;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,13 +42,13 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public m35 l;
+    public o35 l;
     public b m;
     public View.OnClickListener n;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(m35 m35Var);
+        void a(o35 o35Var);
     }
 
     /* loaded from: classes7.dex */
@@ -89,9 +89,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.e1;
-                    h35 h35Var = new h35();
+                    j35 j35Var = new j35();
                     TbPageContext tbPageContext = (TbPageContext) q9.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, h35Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, j35Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.e1).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -145,19 +145,19 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.c.setOnClickListener(this.n);
     }
 
-    public void d(m35 m35Var) {
+    public void d(o35 o35Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, m35Var) != null) || m35Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, o35Var) != null) || o35Var == null) {
             return;
         }
-        this.l = m35Var;
-        this.b.setText(m35Var.b1);
-        this.c.setText(m35Var.c1);
-        this.i.N(m35Var.j1, 10, false);
-        this.d.N(m35Var.f1, 10, false);
-        this.h.setText(m35Var.i1);
-        this.e.setText(m35Var.g1);
-        List<String> list = m35Var.h1;
+        this.l = o35Var;
+        this.b.setText(o35Var.b1);
+        this.c.setText(o35Var.c1);
+        this.i.N(o35Var.j1, 10, false);
+        this.d.N(o35Var.f1, 10, false);
+        this.h.setText(o35Var.i1);
+        this.e.setText(o35Var.g1);
+        List<String> list = o35Var.h1;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

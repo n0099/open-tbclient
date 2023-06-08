@@ -1,29 +1,30 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class fb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<MetaData> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ArrayList<MetaData> a() {
+    @NonNull
+    public static List<MetaData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921765, a88.class);
+            if (runTask != null && runTask.getData() != null) {
+                return ((a88) runTask.getData()).b();
+            }
+            return new ArrayList();
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public static void b(ArrayList<MetaData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, arrayList) == null) {
-            a = arrayList;
-        }
+        return (List) invokeV.objValue;
     }
 }
