@@ -1,45 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.stamp.model.FetchStampModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FetchStampModel a;
+    public ex9 b;
 
-    public static boolean a(String str, Boolean bool) {
-        InterceptResult invokeLL;
+    public hx9(TbPageContext tbPageContext, ex9<ax9> ex9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
-            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, ex9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bool.booleanValue();
         }
-        return invokeLL.booleanValue;
+        this.b = ex9Var;
+        this.a = new FetchStampModel(tbPageContext, ex9Var);
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public void a() {
+        FetchStampModel fetchStampModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0766);
-            int length = stringArray.length;
-            for (int i = 0; i < length; i++) {
-                if (!stringArray[i].equals(str)) {
-                    if (str.equals(stringArray[i] + string)) {
-                        return true;
-                    }
-                } else {
-                    return true;
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fetchStampModel = this.a) != null) {
+            fetchStampModel.cancelLoadData();
         }
-        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        FetchStampModel fetchStampModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fetchStampModel = this.a) != null) {
+            fetchStampModel.loadData();
+        }
     }
 }

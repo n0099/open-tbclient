@@ -1,37 +1,97 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class u97 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmOverloads
-    public static final boolean a(View view2, Object obj, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, view2, obj, z)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<this>");
-            if (Intrinsics.areEqual(view2.getTag(R.id.obfuscated_res_0x7f092876), obj)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948165910, "Lcom/baidu/tieba/u97;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (z) {
-                view2.setTag(R.id.obfuscated_res_0x7f092876, obj);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948165910, "Lcom/baidu/tieba/u97;");
+                return;
             }
-            return false;
         }
-        return invokeLLZ.booleanValue;
+        a = new a(null);
     }
 
-    public static /* synthetic */ boolean b(View view2, Object obj, boolean z, int i, Object obj2) {
-        if ((i & 2) != 0) {
-            z = true;
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return a(view2, obj, z);
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final int a(k57 colorData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                int type = colorData.getType();
+                if (type != 1) {
+                    if (type == 2) {
+                        return SkinManager.getColor(l37.a.getResources().getIdentifier(colorData.b(), "color", l37.a.getPackageName()));
+                    }
+                } else {
+                    int currentSkinType = SkinManager.getCurrentSkinType();
+                    if (currentSkinType != 0) {
+                        if (currentSkinType == 4) {
+                            return gy9.f(colorData.a());
+                        }
+                    } else {
+                        return gy9.f(colorData.b());
+                    }
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public final int b(k57 colorData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                if (colorData.getType() == 2) {
+                    return l37.a.getResources().getIdentifier(colorData.b(), "color", l37.a.getPackageName());
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
     }
 }

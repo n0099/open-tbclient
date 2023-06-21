@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardPicView;
+import com.baidu.tieba.feed.component.CardHeadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a97 extends t77<CardPicView, k47> {
+public class a97 extends y77<CardHeadView, k47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class a97 extends t77<CardPicView, k47> {
         }
     }
 
-    @Override // com.baidu.tieba.t77, com.baidu.tieba.i87
+    @Override // com.baidu.tieba.y77, com.baidu.tieba.n87
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            q97.j(a);
+            v97.k(a, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i87
+    @Override // com.baidu.tieba.n87
     /* renamed from: e */
-    public void b(@NonNull CardPicView cardPicView, @NonNull k47 k47Var) {
+    public void b(@NonNull CardHeadView cardHeadView, @NonNull k47 k47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPicView, k47Var) == null) {
-            cardPicView.f(k47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, k47Var) == null) {
+            cardHeadView.e(k47Var);
         }
     }
 }

@@ -1,31 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import tbclient.ForumShowInfo;
+import tbclient.ForumShowInfoTag;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
 public class q25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
     public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public float h;
-    public boolean i;
+    public long c;
+    public a d;
+
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ThemeColorInfo a;
+        public ThemeColorInfo b;
+        public String c;
+
+        public a(q25 q25Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q25Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void e(ForumShowInfoTag forumShowInfoTag) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, forumShowInfoTag) != null) || forumShowInfoTag == null) {
+                return;
+            }
+            this.c = forumShowInfoTag.text;
+            this.a = forumShowInfoTag.text_color;
+            this.b = forumShowInfoTag.bg_color;
+        }
+
+        public ThemeColorInfo a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (ThemeColorInfo) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public ThemeColorInfo c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a;
+            }
+            return (ThemeColorInfo) invokeV.objValue;
+        }
+
+        public void d(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.c = jSONObject.optString("text");
+            this.a = n8a.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+            this.b = n8a.j(jSONObject.optJSONObject("bg_color"));
+        }
+    }
 
     public q25() {
         Interceptable interceptable = $ic;
@@ -37,134 +103,82 @@ public class q25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = true;
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public String b() {
+    public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (a) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public String d() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (StringUtils.isNull(this.c)) {
-                return false;
-            }
-            int i = this.d;
-            if (i == 1) {
-                int i2 = this.a;
-                if (i2 != 1 && i2 != 4 && i2 != 2 && i2 != 3) {
-                    return false;
-                }
-                return true;
-            } else if (i != 2 || StringUtils.isNull(this.e)) {
-                return false;
-            } else {
+            if (!vi.isEmpty(this.a) && this.c > 0) {
                 return true;
             }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void f(String str) {
+    public void e(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            String[] split = str.split(",");
-            if (split != null && split.length >= 2) {
-                int e = tg.e(split[0], 1);
-                int e2 = tg.e(split[1], 1);
-                if (e2 != 0) {
-                    this.h = e / e2;
-                }
-            }
-        } catch (Exception e3) {
-            BdLog.e(e3.getMessage());
+        this.a = jSONObject.optString("content");
+        this.c = jSONObject.optLong(RecordVideoActivityConfig.SHOW_TYPE, -1L);
+        JSONObject optJSONObject = jSONObject.optJSONObject("tag");
+        if (optJSONObject != null) {
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.d(optJSONObject);
         }
     }
 
-    public void h(Banner banner) {
+    public void f(ForumShowInfo forumShowInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, banner) != null) || banner == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, forumShowInfo) != null) || forumShowInfo == null) {
             return;
         }
-        this.a = banner.banner_type.intValue();
-        this.b = banner.banner_url;
-        this.c = banner.value;
-        this.d = banner.type.intValue();
-        this.e = banner.desc;
-        banner.template_id.intValue();
-        this.f = banner.obj_id;
-        String str = banner.tag_name;
-        this.g = banner.tag_name_url;
-        f(banner.tag_name_wh);
+        this.a = forumShowInfo.content;
+        this.c = forumShowInfo.show_type.longValue();
+        if (forumShowInfo.tag != null) {
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.e(forumShowInfo.tag);
+        }
     }
 
-    public void g(JSONObject jSONObject) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("bannerType");
-            this.b = jSONObject.optString("bannerUrl");
-            this.c = jSONObject.optString("value");
-            this.d = jSONObject.optInt("type");
-            this.e = jSONObject.optString("desc");
-            jSONObject.optInt("template_id");
-            this.f = jSONObject.optString("obj_id");
-            jSONObject.optString(PushConstants.SUB_TAGS_STATUS_NAME);
-            this.g = jSONObject.optString("tag_name_url");
-            f(jSONObject.optString("tag_name_wh"));
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
         }
     }
 }

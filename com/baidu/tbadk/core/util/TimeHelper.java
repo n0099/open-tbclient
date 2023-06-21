@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class TimeHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return tg.g(new SimpleDateFormat("yyyyMMdd").format(getNow()), 0L);
+            return ug.g(new SimpleDateFormat("yyyyMMdd").format(getNow()), 0L);
         }
         return invokeV.longValue;
     }

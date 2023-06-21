@@ -33,16 +33,16 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c55;
-import com.baidu.tieba.hp9;
-import com.baidu.tieba.ip9;
-import com.baidu.tieba.j55;
-import com.baidu.tieba.jp9;
-import com.baidu.tieba.kp9;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.n55;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.ar9;
+import com.baidu.tieba.br9;
+import com.baidu.tieba.cr9;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.k55;
+import com.baidu.tieba.m55;
+import com.baidu.tieba.o55;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,16 +55,16 @@ public class ForbiddenForumActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
     public BdRecyclerView b;
-    public jp9 c;
+    public br9 c;
     public View d;
     public PbListView e;
-    public l55 f;
-    public n55 g;
-    public hp9 h;
+    public m55 f;
+    public o55 g;
+    public zq9 h;
     public NoDataView i;
     public BdListView.p j;
     public RecyclerView.Adapter k;
-    public jp9.b l;
+    public br9.b l;
     public BdRecyclerView.i m;
     public HttpMessageListener n;
 
@@ -97,8 +97,8 @@ public class ForbiddenForumActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.c != null) {
                 if (this.a.c.g() != null || !ListUtils.isEmpty(this.a.c.g().a)) {
-                    ip9 ip9Var = this.a.c.g().a.get(i);
-                    this.a.K1(ip9Var.b, ip9Var.c);
+                    ar9 ar9Var = this.a.c.g().a.get(i);
+                    this.a.K1(ar9Var.b, ar9Var.c);
                 }
             }
         }
@@ -150,13 +150,13 @@ public class ForbiddenForumActivity extends BaseActivity {
                     str = String.valueOf(httpMessage.getParams().get("forum_id"));
                     BdTopToast bdTopToast = new BdTopToast(this.a);
                     if (httpResponsedMessage.getError() != 0) {
-                        bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f03cd));
+                        bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f03ce));
                         bdTopToast.h(true);
                         TiebaStatic.log(new StatisticItem("c14057").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", str));
                         this.a.c.f(str);
                         this.a.k.notifyDataSetChanged();
                     } else {
-                        bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f03cc));
+                        bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f03cd));
                         bdTopToast.h(false);
                     }
                     bdTopToast.i((ViewGroup) this.a.d);
@@ -259,7 +259,7 @@ public class ForbiddenForumActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements jp9.b {
+    public class e implements br9.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForbiddenForumActivity a;
@@ -282,10 +282,10 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.a = forbiddenForumActivity;
         }
 
-        @Override // com.baidu.tieba.jp9.b
-        public void a(kp9 kp9Var) {
+        @Override // com.baidu.tieba.br9.b
+        public void a(cr9 cr9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kp9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr9Var) == null) {
                 if (this.a.isLoadingViewAttached()) {
                     ForbiddenForumActivity forbiddenForumActivity = this.a;
                     forbiddenForumActivity.hideLoadingView(forbiddenForumActivity.d);
@@ -295,13 +295,13 @@ public class ForbiddenForumActivity extends BaseActivity {
                     return;
                 }
                 this.a.k.notifyDataSetChanged();
-                if (kp9Var != null && !kp9Var.b) {
+                if (cr9Var != null && !cr9Var.b) {
                     this.a.N1();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.jp9.b
+        @Override // com.baidu.tieba.br9.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -315,7 +315,7 @@ public class ForbiddenForumActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class f implements n55.c {
+    public class f implements o55.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForbiddenForumActivity a;
@@ -338,7 +338,7 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.a = forbiddenForumActivity;
         }
 
-        @Override // com.baidu.tieba.n55.c
+        @Override // com.baidu.tieba.o55.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -348,7 +348,7 @@ public class ForbiddenForumActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class g implements n55.e {
+    public class g implements o55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -375,7 +375,7 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.b = str2;
         }
 
-        @Override // com.baidu.tieba.n55.e
+        @Override // com.baidu.tieba.o55.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -387,7 +387,7 @@ public class ForbiddenForumActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class h implements n55.e {
+    public class h implements o55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -412,7 +412,7 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.n55.e
+        @Override // com.baidu.tieba.o55.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -457,7 +457,7 @@ public class ForbiddenForumActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class j implements c55.e {
+    public class j implements d55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -482,18 +482,18 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.c55.e
-        public void onClick(c55 c55Var) {
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
                 this.b.h.a(this.a);
-                c55Var.dismiss();
+                d55Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class k implements c55.e {
+    public class k implements d55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForbiddenForumActivity a;
@@ -516,11 +516,11 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.a = forbiddenForumActivity;
         }
 
-        @Override // com.baidu.tieba.c55.e
-        public void onClick(c55 c55Var) {
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
-                c55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
+                d55Var.dismiss();
             }
         }
     }
@@ -554,25 +554,25 @@ public class ForbiddenForumActivity extends BaseActivity {
             }
             this.d = forbiddenForumActivity;
             this.c = 3;
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f091088);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f09108d);
             this.a = barImageView;
             barImageView.setPlaceHolder(1);
             this.a.setShowOval(true);
             this.a.setAutoChangeStyle(true);
-            this.a.setStrokeWith(vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.a.setStrokeWith(wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b6);
         }
 
-        public void a(ip9 ip9Var) {
+        public void a(ar9 ar9Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, ip9Var) != null) || ip9Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, ar9Var) != null) || ar9Var == null) {
                 return;
             }
-            this.a.N(ip9Var.a, 10, false);
+            this.a.N(ar9Var.a, 10, false);
             TextView textView = this.b;
-            textView.setText(ip9Var.b + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0766));
+            textView.setText(ar9Var.b + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0767));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
 
@@ -613,9 +613,9 @@ public class ForbiddenForumActivity extends BaseActivity {
             super.onChangeSkinType(i2);
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0204);
             this.a.onChangeSkinType(getPageContext(), i2);
-            n55 n55Var = this.g;
-            if (n55Var != null) {
-                n55Var.j();
+            o55 o55Var = this.g;
+            if (o55Var != null) {
+                o55Var.j();
             }
             RecyclerView.Adapter adapter = this.k;
             if (adapter != null) {
@@ -625,9 +625,9 @@ public class ForbiddenForumActivity extends BaseActivity {
     }
 
     public final void J1() {
-        l55 l55Var;
+        m55 m55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (l55Var = this.f) != null && l55Var.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (m55Var = this.f) != null && m55Var.isShowing()) {
             this.f.dismiss();
         }
     }
@@ -638,7 +638,7 @@ public class ForbiddenForumActivity extends BaseActivity {
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (pbListView = this.e) == null) {
             return;
         }
-        pbListView.o(vi.g(this, R.dimen.tbds180));
+        pbListView.o(wi.g(this, R.dimen.tbds180));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -658,37 +658,37 @@ public class ForbiddenForumActivity extends BaseActivity {
             return;
         }
         if (this.g == null) {
-            n55 n55Var = new n55(this);
-            this.g = n55Var;
-            n55Var.o(new f(this));
+            o55 o55Var = new o55(this);
+            this.g = o55Var;
+            o55Var.o(new f(this));
         }
         ArrayList arrayList = new ArrayList();
-        j55 j55Var = new j55(this.g);
-        j55Var.n(getString(R.string.obfuscated_res_0x7f0f0eba));
-        j55Var.m(new g(this, str, str2));
-        arrayList.add(j55Var);
-        j55 j55Var2 = new j55(this.g);
-        j55Var2.n(getString(R.string.obfuscated_res_0x7f0f03cb));
-        j55Var2.m(new h(this, str2));
-        arrayList.add(j55Var2);
+        k55 k55Var = new k55(this.g);
+        k55Var.n(getString(R.string.obfuscated_res_0x7f0f0ebe));
+        k55Var.m(new g(this, str, str2));
+        arrayList.add(k55Var);
+        k55 k55Var2 = new k55(this.g);
+        k55Var2.n(getString(R.string.obfuscated_res_0x7f0f03cc));
+        k55Var2.m(new h(this, str2));
+        arrayList.add(k55Var2);
         this.g.l(arrayList);
-        n55 n55Var2 = this.g;
-        n55Var2.t(str + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0766));
-        l55 l55Var = new l55(getPageContext(), this.g);
-        this.f = l55Var;
-        l55Var.setOnDismissListener(new i(this));
+        o55 o55Var2 = this.g;
+        o55Var2.t(str + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0767));
+        m55 m55Var = new m55(getPageContext(), this.g);
+        this.f = m55Var;
+        m55Var.setOnDismissListener(new i(this));
         this.f.l();
     }
 
     public final void L1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            c55 c55Var = new c55(getActivity());
-            c55Var.setMessage(getString(R.string.obfuscated_res_0x7f0f04bc));
-            c55Var.setOnlyMessageShowCenter(true);
-            c55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04bb, new j(this, str));
-            c55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03c9, new k(this));
-            c55Var.create(getPageContext()).show();
+            d55 d55Var = new d55(getActivity());
+            d55Var.setMessage(getString(R.string.obfuscated_res_0x7f0f04bd));
+            d55Var.setOnlyMessageShowCenter(true);
+            d55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04bc, new j(this, str));
+            d55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ca, new k(this));
+            d55Var.create(getPageContext()).show();
         }
     }
 
@@ -717,7 +717,7 @@ public class ForbiddenForumActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.i == null) {
-                this.i = NoDataViewFactory.a(this, this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, vi.g(this, R.dimen.tbds308) + this.a.getBottom()), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0e1b), null);
+                this.i = NoDataViewFactory.a(this, this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, wi.g(this, R.dimen.tbds308) + this.a.getBottom()), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0e1f), null);
                 NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
                 aVar.i(NoDataViewFactory.ImgType.CREATE);
                 this.i.setImgOption(aVar.f());
@@ -736,13 +736,13 @@ public class ForbiddenForumActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0039);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091ed0);
-            jp9 jp9Var = new jp9(getUniqueId());
-            this.c = jp9Var;
-            jp9Var.k(this.l);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091edb);
+            br9 br9Var = new br9(getUniqueId());
+            this.c = br9Var;
+            br9Var.k(this.l);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10fa));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10fe));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.a.isShowBottomLine(true);
             BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.recycler_view);
@@ -753,7 +753,7 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.b.setOnItemClickListener(this.m);
             this.c.j();
             showLoadingView(this.d);
-            this.h = new hp9();
+            this.h = new zq9();
             registerListener(this.n);
             TiebaStatic.log(new StatisticItem("c14056").param("uid", TbadkCoreApplication.getCurrentAccount()));
         }

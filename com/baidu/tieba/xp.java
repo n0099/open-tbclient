@@ -1,29 +1,128 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.HttpDnsClient;
-import com.baidu.tieba.wp;
+import android.util.LruCache;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class xp implements HttpDnsClient.b {
+public class xp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wp a;
-    public final BDHttpDns b;
-    public final BDHttpDns.CachePolicy c;
-    public final HttpDnsClient d;
+    public final String a;
+    public final LruCache<String, a> b;
+    public boolean c;
 
-    public xp(Context context) {
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ArrayList<String> a;
+        public ArrayList<String> b;
+        public long c;
+        public long d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public ArrayList<String> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (ArrayList) invokeV.objValue;
+        }
+
+        public ArrayList<String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (ArrayList) invokeV.objValue;
+        }
+
+        public long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
+            }
+            return invokeV.longValue;
+        }
+
+        public long d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.c;
+            }
+            return invokeV.longValue;
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (c() + this.c < System.currentTimeMillis() / 1000) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void f(ArrayList<String> arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
+                this.a = arrayList;
+            }
+        }
+
+        public void g(ArrayList<String> arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
+                this.b = arrayList;
+            }
+        }
+
+        public void h(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                this.d = j;
+            }
+        }
+
+        public void i(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+                this.c = j;
+            }
+        }
+    }
+
+    public xp(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,45 +132,90 @@ public class xp implements HttpDnsClient.b {
                 return;
             }
         }
-        BDHttpDns h = BDHttpDns.h(context);
-        this.b = h;
-        this.a = h.e();
-        this.c = this.b.c();
-        this.d = this.b.f();
+        this.c = false;
+        this.b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+        this.a = str;
+        this.c = z;
     }
 
-    @Override // com.baidu.bdhttpdns.HttpDnsClient.b
-    public void a(int i, HttpDnsClient.RequestParamType requestParamType, Map<String, HttpDnsClient.e> map, String str) {
+    public void e(String str, a aVar) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), requestParamType, map, str}) == null) {
-            if (i != -1) {
-                if (i != 0) {
-                    yp.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, aVar) == null) {
+            ArrayList<String> a2 = aVar.a();
+            ArrayList<String> b = aVar.b();
+            if ((a2 != null && !a2.isEmpty()) || (b != null && !b.isEmpty())) {
+                this.b.put(str, aVar);
+                Object[] objArr = new Object[5];
+                objArr[0] = this.a;
+                objArr[1] = str;
+                String str3 = null;
+                if (a2 != null) {
+                    str2 = a2.toString();
                 } else {
-                    for (Map.Entry<String, HttpDnsClient.e> entry : map.entrySet()) {
-                        String key = entry.getKey();
-                        HttpDnsClient.e value = entry.getValue();
-                        if (value != null) {
-                            wp.a aVar = new wp.a();
-                            aVar.i(value.c());
-                            aVar.h(System.currentTimeMillis() / 1000);
-                            aVar.f(value.a());
-                            aVar.g(value.b());
-                            this.a.e(key, aVar);
-                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                            this.a.d(key);
-                        }
-                    }
+                    str2 = null;
                 }
-            } else if (requestParamType.equals(HttpDnsClient.RequestParamType.DNLIST_HOSTS) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                for (String str2 : str.split(",")) {
-                    this.a.d(str2);
+                objArr[2] = str2;
+                if (b != null) {
+                    str3 = b.toString();
                 }
+                objArr[3] = str3;
+                objArr[4] = Long.valueOf(aVar.d());
+                zp.a("Set entry to %s cache, host(%s), ipv4List(%s), ipv6List(%s), ttl(%d)", objArr);
             }
-            if (this.b.g() > 0 && !this.d.C()) {
-                this.d.M(true);
-                yp.a("preResolve has finished", new Object[0]);
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.evictAll();
+            zp.a("Clear %s cache", this.a);
+        }
+    }
+
+    public ArrayList<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (String str : this.b.snapshot().keySet()) {
+                arrayList.add(str);
             }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public a c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            a aVar = this.b.get(str);
+            if (aVar != null && aVar.e() && this.c) {
+                this.b.remove(str);
+                zp.a("Remove expired entry from %s cache while reading, host(%s)", this.a, str);
+                return null;
+            }
+            return aVar;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        a c;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || (c = c(str)) == null || !c.e()) {
+            return;
+        }
+        this.b.remove(str);
+        zp.a("Remove expired entry from %s cache, host(%s)", this.a, str);
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
         }
     }
 }

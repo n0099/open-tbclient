@@ -1,27 +1,44 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class i44 {
+public class i44 implements ux1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile h44 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized h44 a() {
-        InterceptResult invokeV;
-        h44 h44Var;
+    public i44() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (i44.class) {
-                if (a == null) {
-                    a = new h44();
-                }
-                h44Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return h44Var;
         }
-        return (h44) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ux1
+    @Nullable
+    public z32 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull dp2 dp2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, dp2Var)) == null) {
+            return h44.b().a(str, jSONObject, dp2Var);
+        }
+        return (z32) invokeLLL.objValue;
     }
 }

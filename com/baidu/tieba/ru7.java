@@ -1,85 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActivityPage.ActivityPageReqIdl;
-import tbclient.ActivityPage.DataReq;
+import java.util.Date;
 /* loaded from: classes7.dex */
-public class ru7 implements pu5<ActivityPageReqIdl> {
+public class ru7 extends e26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final ju5 b;
+    public BaseActivity<?> c;
+    public b d;
+    public final o26 e;
 
-    @Override // com.baidu.tieba.pu5
-    public void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(Date date, long j);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements o26 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ru7 a;
+
+        public a(ru7 ru7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ru7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ru7Var;
+        }
+
+        @Override // com.baidu.tieba.o26
+        public void a(Date date, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && date != null && this.a.c != null) {
+                if (date.getTime() > System.currentTimeMillis()) {
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f1014);
+                    return;
+                }
+                long time = date.getTime() / 1000;
+                if (this.a.d != null) {
+                    this.a.d.a(date, time);
+                }
+            }
         }
     }
 
-    public ru7(String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ru7(BaseActivity<?> baseActivity) {
+        super(baseActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ju5(false);
-        this.a = str2;
+        this.e = new a(this);
+        this.c = baseActivity;
     }
 
-    @Override // com.baidu.tieba.pu5
-    public ju5 c() {
-        InterceptResult invokeV;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.d = bVar;
+            super.c(this.e);
         }
-        return (ju5) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pu5
-    /* renamed from: d */
-    public ActivityPageReqIdl b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.activity_name = this.a;
-                builder.pn = Integer.valueOf(this.b.c);
-                builder.rn = 20;
-                builder.scr_h = Integer.valueOf(vi.j(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(vi.l(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) vi.i(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(n05.c().e());
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ww5.a(builder, true);
-                }
-                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

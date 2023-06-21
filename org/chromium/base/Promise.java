@@ -2,7 +2,7 @@ package org.chromium.base;
 
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.skb;
+import com.baidu.tieba.lmb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.annotation.Retention;
@@ -140,13 +140,13 @@ public class Promise<T> {
     public <RT> Promise<RT> then(final Function<T, RT> function) {
         checkThread();
         final Promise<RT> promise = new Promise<>();
-        thenInner(new Callback() { // from class: com.baidu.tieba.mkb
+        thenInner(new Callback() { // from class: com.baidu.tieba.fmb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             @Override // org.chromium.base.Callback
             public /* synthetic */ Runnable bind(T t) {
-                return tkb.$default$bind(this, t);
+                return mmb.$default$bind(this, t);
             }
 
             @Override // org.chromium.base.Callback
@@ -157,7 +157,7 @@ public class Promise<T> {
                 }
             }
         });
-        exceptInner(new skb(promise));
+        exceptInner(new lmb(promise));
         return promise;
     }
 
@@ -174,13 +174,13 @@ public class Promise<T> {
     public static /* synthetic */ void c(AsyncFunction asyncFunction, final Promise promise, Object obj) {
         try {
             Objects.requireNonNull(promise);
-            Callback<T> callback = new Callback() { // from class: com.baidu.tieba.hkb
+            Callback<T> callback = new Callback() { // from class: com.baidu.tieba.amb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 @Override // org.chromium.base.Callback
                 public /* synthetic */ Runnable bind(T t) {
-                    return tkb.$default$bind(this, t);
+                    return mmb.$default$bind(this, t);
                 }
 
                 @Override // org.chromium.base.Callback
@@ -192,7 +192,7 @@ public class Promise<T> {
                 }
             };
             Objects.requireNonNull(promise);
-            asyncFunction.apply(obj).then(callback, new skb(promise));
+            asyncFunction.apply(obj).then(callback, new lmb(promise));
         } catch (Exception e) {
             promise.reject(e);
         }
@@ -211,13 +211,13 @@ public class Promise<T> {
     public <RT> Promise<RT> then(final AsyncFunction<T, RT> asyncFunction) {
         checkThread();
         final Promise<RT> promise = new Promise<>();
-        thenInner(new Callback() { // from class: com.baidu.tieba.nkb
+        thenInner(new Callback() { // from class: com.baidu.tieba.gmb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             @Override // org.chromium.base.Callback
             public /* synthetic */ Runnable bind(T t) {
-                return tkb.$default$bind(this, t);
+                return mmb.$default$bind(this, t);
             }
 
             @Override // org.chromium.base.Callback
@@ -228,7 +228,7 @@ public class Promise<T> {
                 }
             }
         });
-        exceptInner(new skb(promise));
+        exceptInner(new lmb(promise));
         return promise;
     }
 
@@ -238,13 +238,13 @@ public class Promise<T> {
             thenInner(callback);
             return;
         }
-        then(callback, new Callback() { // from class: com.baidu.tieba.lkb
+        then(callback, new Callback() { // from class: com.baidu.tieba.emb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             @Override // org.chromium.base.Callback
             public /* synthetic */ Runnable bind(T t) {
-                return tkb.$default$bind(this, t);
+                return mmb.$default$bind(this, t);
             }
 
             @Override // org.chromium.base.Callback

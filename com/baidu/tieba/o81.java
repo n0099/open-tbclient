@@ -1,47 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import com.baidu.nadcore.webpanel.model.AdData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface o81 {
-    void a();
+public class o81 extends rn0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    ViewGroup.LayoutParams b();
-
-    void c(View.OnLayoutChangeListener onLayoutChangeListener);
-
-    void e();
-
-    void g(int i);
-
-    boolean h();
-
-    void i(FrameLayout.LayoutParams layoutParams);
-
-    boolean j();
-
-    void k(int i);
-
-    void l(s81 s81Var);
-
-    void m(boolean z);
-
-    boolean n();
-
-    void o(ViewGroup viewGroup);
-
-    void onDestroy();
-
-    void p(m81 m81Var);
-
-    void r(String str);
-
-    void s(View.OnLayoutChangeListener onLayoutChangeListener);
-
-    void t(int i, boolean z);
-
-    void u(q81 q81Var);
-
-    void v();
+    public o81(int i, AdData adData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), adData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -1,344 +1,225 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.appsearchlib.Info;
+import com.baidu.clientupdate.ClientUpdater;
+import com.baidu.clientupdate.IClientUpdaterCallback;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.clientupdate.appinfo.RuleInfo;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.BaseLegoCardView;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.io.IOException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ko8 extends mn {
+public class ko8 extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public List<ICardInfo> j;
-    public int k;
-    public boolean l;
-    public NoDataView m;
-    public FrameLayout n;
-    public NoDataViewFactory.e o;
-    public NoDataViewFactory.d p;
-    public NoDataViewFactory.c q;
-    public FrameLayout.LayoutParams r;
-    public String s;
-    public boolean t;
+    public ClientUpdater a;
+    public IClientUpdaterCallback b;
+    public volatile ClientUpdateInfo c;
+    public String d;
+    public boolean e;
+    public Handler f;
+    public Runnable g;
 
-    @Override // com.baidu.tieba.mn, android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i : invokeI.longValue;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ko8 a;
+
+        public a(ko8 ko8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ko8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ko8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && "1".equals(this.a.c.mStatus) && TbConfig.COULD_UPDATE) {
+                VersionData versionData = new VersionData();
+                versionData.setForceUpdate(Integer.parseInt(this.a.c.mIsForceUpdate));
+                versionData.setStrategy(0);
+                versionData.setNewVersion(this.a.c.mVername);
+                versionData.setNewVersionCode(Integer.parseInt(this.a.c.mVercode));
+                versionData.setNewFile(this.a.c.mPackageName + this.a.c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                versionData.setHasNewVer(Integer.parseInt(this.a.c.mStatus));
+                versionData.setNewVersionDesc(this.a.c.mChangelog);
+                versionData.setUrl(this.a.c.mDownurl);
+                versionData.setSize(this.a.c.mSize);
+                versionData.setPatch(this.a.c.mPatchDownUrl);
+                versionData.setPatchSize(this.a.c.mPatchSize);
+                versionData.setTiebaIconUrl(this.a.c.mIconUrl);
+                versionData.setApkMD5RSA(this.a.c.mSignMd5);
+                if (TbSingleton.getInstance().isSplashShowing()) {
+                    k7a.c().d(new m7a(versionData, this.a.c, this.a.d, this.a.e));
+                    return;
+                }
+                l7a.c(versionData, this.a.c, this.a.d, this.a.e);
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ko8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    /* loaded from: classes6.dex */
+    public class b implements IClientUpdaterCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ko8 a;
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onError(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            }
+        }
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onException(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            }
+        }
+
+        public b(ko8 ko8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ko8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ko8Var;
+        }
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onFetched(JSONObject jSONObject) {
+            JSONObject optJSONObject;
+            JSONObject optJSONObject2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("rule")) == null || (optJSONObject2 = optJSONObject.optJSONObject(ExceptionHandlerImpl.KEY_CUSTOM)) == null) {
+                return;
+            }
+            this.a.d = optJSONObject2.optString("apk_MD5_RSA");
+        }
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onCompleted(ClientUpdateInfo clientUpdateInfo, RuleInfo ruleInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, clientUpdateInfo, ruleInfo) != null) || clientUpdateInfo == null || TextUtils.isEmpty(this.a.d)) {
+                return;
+            }
+            this.a.c = clientUpdateInfo;
+            this.a.f.post(this.a.g);
+        }
+    }
+
+    public ko8(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 0;
-        this.l = true;
-        this.i = tbPageContext;
-    }
-
-    public final void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (this.t) {
-                int u = u(i - 1);
-                int u2 = u(i - 2);
-                B(u);
-                B(u2);
-                return;
-            }
-            int u3 = u(i + 1);
-            int u4 = u(i + 2);
-            B(u3);
-            B(u4);
-        }
-    }
-
-    public final ICardInfo x(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            for (ICardInfo iCardInfo : this.j) {
-                int adapterCount = iCardInfo.getAdapterCount();
-                if (i < adapterCount) {
-                    return iCardInfo.getAdapterItem(i);
-                }
-                i -= adapterCount;
-            }
-            return null;
-        }
-        return (ICardInfo) invokeI.objValue;
-    }
-
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<ICardInfo> list = this.j;
-            if (list != null && list.size() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mn, android.widget.Adapter, com.baidu.tieba.wn
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.k == 0 && this.l) {
-                return 1;
-            }
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mn, android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return oo8.a.size() + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mn, android.widget.BaseAdapter, android.widget.Adapter
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.k == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void v() {
-        FrameLayout frameLayout;
-        NoDataView noDataView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (frameLayout = this.n) != null && (noDataView = this.m) != null) {
-            frameLayout.removeView(noDataView);
-            this.m = null;
-        }
-    }
-
-    public final int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            List<ICardInfo> list = this.j;
-            int i = 0;
-            if (list == null) {
-                return 0;
-            }
-            for (ICardInfo iCardInfo : list) {
-                i += iCardInfo.getAdapterCount();
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void B(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            ICardInfo iCardInfo = this.j.get(i);
-            if (iCardInfo instanceof uo8) {
-                ((uo8) iCardInfo).doLoad(iCardInfo, this.i);
-            }
-        }
-    }
-
-    public void C(List<ICardInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            List<ICardInfo> list2 = this.j;
-            if (list2 == null) {
-                this.j = new ArrayList();
-            } else {
-                list2.clear();
-            }
-            if (list != null) {
-                this.j.addAll(list);
-            }
-            this.k = w();
-            notifyDataSetChanged();
-        }
-    }
-
-    public void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.s = str;
-        }
-    }
-
-    public void G(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void H(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.t = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.mn, android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            ICardInfo x = x(i);
-            if (x != null) {
-                return oo8.a.get(x.getAdapterType());
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public final int u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            if (i >= this.j.size()) {
-                return this.j.size() - 1;
-            }
-            return i;
-        }
-        return invokeI.intValue;
+        this.g = new a(this);
+        this.e = z;
+        ClientUpdater clientUpdater = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
+        this.a = clientUpdater;
+        clientUpdater.setUseCFG(false);
+        this.a.setUseRSA(false);
+        this.a.setFileProvider("com.baidu.tieba.fileprovider");
+        this.b = new b(this);
+        this.f = new Handler(Looper.getMainLooper());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mn, android.widget.Adapter, com.baidu.tieba.wn
-    /* renamed from: z */
-    public ICardInfo getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: i */
+    public ClientUpdateInfo doInBackground(String... strArr) throws IOException {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            return x(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            this.a.setOsName(Info.PASSWORD);
+            this.a.setTypeId("0");
+            this.a.setFrom("tieba");
+            this.a.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
+            this.a.addParamValue("tieba_versionname", TbConfig.getVersion());
+            ClientUpdater clientUpdater = this.a;
+            String str2 = "64";
+            if (li.a()) {
+                str = "64";
+            } else {
+                str = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
+            }
+            clientUpdater.addParamValue("running_abi", str);
+            ClientUpdater clientUpdater2 = this.a;
+            if (!li.b()) {
+                str2 = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
+            }
+            clientUpdater2.addParamValue("support_abi", str2);
+            this.a.checkUpdate(this.b);
+            return null;
         }
-        return (ICardInfo) invokeI.objValue;
+        return (ClientUpdateInfo) invokeL.objValue;
     }
 
-    public void F(NoDataViewFactory.d dVar, NoDataViewFactory.e eVar, NoDataViewFactory.c cVar, FrameLayout.LayoutParams layoutParams) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, dVar, eVar, cVar, layoutParams) == null) {
-            this.p = dVar;
-            this.o = eVar;
-            this.q = cVar;
-            this.r = layoutParams;
-            NoDataView noDataView = this.m;
-            if (noDataView != null) {
-                noDataView.setTextOption(eVar);
-                this.m.setImgOption(dVar);
-                this.m.setButtonOption(cVar);
-                if (layoutParams != null) {
-                    this.m.setLayoutParams(layoutParams);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.cancel();
+            this.f.removeCallbacks(this.g);
         }
     }
 
-    @Override // com.baidu.tieba.mn, android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048588, this, i, view2, viewGroup)) == null) {
-            if (this.l && A()) {
-                return t();
-            }
-            v();
-            D(i);
-            ICardInfo x = x(i);
-            BaseLegoCardView y = y(view2, x);
-            if (y != null) {
-                y.a = this.s;
-                y.update(x);
-            }
-            return y;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onPreExecute();
+            this.f.removeCallbacks(this.g);
         }
-        return (View) invokeILL.objValue;
-    }
-
-    public View t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.n == null) {
-                this.n = new FrameLayout(this.i.getPageActivity());
-            }
-            if (this.m == null) {
-                this.m = NoDataViewFactory.a(this.i.getPageActivity(), this.n, this.p, this.o, this.q);
-            }
-            this.m.setVisibility(0);
-            FrameLayout.LayoutParams layoutParams = this.r;
-            if (layoutParams != null) {
-                this.m.setLayoutParams(layoutParams);
-            }
-            this.n.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-            this.m.f(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return this.n;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public BaseLegoCardView y(View view2, ICardInfo iCardInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, view2, iCardInfo)) == null) {
-            if (iCardInfo == null) {
-                return null;
-            }
-            if (view2 instanceof BaseLegoCardView) {
-                return (BaseLegoCardView) view2;
-            }
-            return (BaseLegoCardView) mo8.h().a(this.i, iCardInfo, 0);
-        }
-        return (BaseLegoCardView) invokeLL.objValue;
     }
 }

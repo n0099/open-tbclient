@@ -27,7 +27,7 @@ public class zb implements wb {
     }
 
     @Override // com.baidu.tieba.wb
-    public gn a(byte[] bArr, int i, int i2) {
+    public hn a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -35,13 +35,13 @@ public class zb implements wb {
             if (f == null) {
                 return null;
             }
-            return new gn(f);
+            return new hn(f);
         }
-        return (gn) invokeLII.objValue;
+        return (hn) invokeLII.objValue;
     }
 
     @Override // com.baidu.tieba.wb
-    public gn get(String str) {
+    public hn get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -49,8 +49,8 @@ public class zb implements wb {
             if (e == null) {
                 return null;
             }
-            return new gn(e);
+            return new hn(e);
         }
-        return (gn) invokeL.objValue;
+        return (hn) invokeL.objValue;
     }
 }

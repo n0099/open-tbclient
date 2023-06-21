@@ -60,9 +60,9 @@ public class PraiseView extends LinearLayout {
     public void setPraiseCount(int i) {
         this.mCount = i;
         if (i == 0) {
-            this.mCommentlistitemPraisenum.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0490));
+            this.mCommentlistitemPraisenum.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0491));
         } else {
-            this.mCommentlistitemPraisenum.setText(displayLikeCount(i, getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0491)));
+            this.mCommentlistitemPraisenum.setText(displayLikeCount(i, getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0492)));
         }
     }
 
@@ -135,12 +135,12 @@ public class PraiseView extends LinearLayout {
                             UniversalToast.makeText(PraiseView.this.getContext().getApplicationContext(), (int) com.baidu.tieba.R.string.comment_detail_liked).showToast();
                         }
                     } else {
-                        PraiseView.this.mCommentlistitemPraiseicon.setImageDrawable(PraiseView.this.getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804fc));
+                        PraiseView.this.mCommentlistitemPraiseicon.setImageDrawable(PraiseView.this.getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804fe));
                         int i = PraiseView.this.mCount + 1;
                         int i2 = PraiseView.this.mCount;
                         TextView textView = PraiseView.this.mCommentlistitemPraisenum;
                         PraiseView praiseView = PraiseView.this;
-                        textView.setText(praiseView.displayLikeCount(i, praiseView.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0491)));
+                        textView.setText(praiseView.displayLikeCount(i, praiseView.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0492)));
                         PraiseView.this.mCommentlistitemPraisenum.setTextColor(PraiseView.this.getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0604f4));
                         PraiseView.this.startPraiseAnim(i2 + "", i + "");
                         PraiseView.this.mCount = i;
@@ -248,11 +248,11 @@ public class PraiseView extends LinearLayout {
     public void setPraise(boolean z) {
         this.mIsPraised = z;
         if (z) {
-            this.mCommentlistitemPraiseicon.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804fc));
+            this.mCommentlistitemPraiseicon.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804fe));
             this.mCommentlistitemPraisenum.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0604f4));
             return;
         }
-        this.mCommentlistitemPraiseicon.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804fd));
+        this.mCommentlistitemPraiseicon.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ff));
         this.mCommentlistitemPraisenum.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0604f5));
     }
 }

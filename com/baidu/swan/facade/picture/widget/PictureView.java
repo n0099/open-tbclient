@@ -14,10 +14,10 @@ import androidx.annotation.Nullable;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouch;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fv2;
-import com.baidu.tieba.pp3;
+import com.baidu.tieba.gv2;
 import com.baidu.tieba.qp3;
-import com.baidu.tieba.wo3;
+import com.baidu.tieba.rp3;
+import com.baidu.tieba.xo3;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -171,7 +171,7 @@ public class PictureView extends FrameLayout {
             if (drawable instanceof BitmapDrawable) {
                 return ((BitmapDrawable) drawable).getBitmap();
             }
-            return wo3.g(drawable);
+            return xo3.g(drawable);
         }
         return null;
     }
@@ -191,11 +191,11 @@ public class PictureView extends FrameLayout {
     }
 
     public final void g(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08da, this);
-        this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0929ce);
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091be8);
-        this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091dfb);
-        this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091be9);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08db, this);
+        this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0929db);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091bf2);
+        this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091e06);
+        this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091bf3);
         this.d.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
         this.d.setZoomRange(1.0f, 3.0f);
         this.d.setDoubleTapEnabled(true);
@@ -208,7 +208,7 @@ public class PictureView extends FrameLayout {
         String str = this.a;
         String str2 = this.b;
         String str3 = this.c;
-        Uri p = qp3.p(str);
+        Uri p = rp3.p(str);
         if (p == null) {
             z = true;
         } else {
@@ -237,8 +237,8 @@ public class PictureView extends FrameLayout {
             if (!TextUtils.isEmpty(str3)) {
                 hashMap.put("User-Agent", str3);
             }
-            ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(pp3.o(getContext()), pp3.o(getContext())));
-            fv2.C().e(resizeOptions, hashMap);
+            ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(qp3.o(getContext()), qp3.o(getContext())));
+            gv2.C().e(resizeOptions, hashMap);
             Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(), UiThreadImmediateExecutorService.getInstance());
         }
         return !z;

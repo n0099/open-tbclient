@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.df;
-import com.baidu.tieba.n95;
+import com.baidu.tieba.o95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -128,7 +128,7 @@ public final class FunnySpriteSwitch extends df {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (n95.m().n(FunnySpriteSwitch.KEY, 0) != 1) {
+                if (o95.p().q(FunnySpriteSwitch.KEY, 0) != 1) {
                     return false;
                 }
                 return true;

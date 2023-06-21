@@ -1,167 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.dx4;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
 public class g36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public dx4 b;
-    public b c;
-    public MarkData d;
-    public final dx4.a e;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements dx4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g36 a;
-
-        public a(g36 g36Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g36Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void a(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, str, str2, str3) == null) && tbPageContext != null && !TextUtils.isEmpty(str)) {
+            if (!TbadkCoreApplication.isLogin()) {
+                ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
+            } else if (str.equals(TbadkCoreApplication.getCurrentPortrait())) {
+                BdToast.b(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getString(R.string.can_not_raise_self)).q();
+            } else {
+                try {
+                    String str4 = "https://tieba.baidu.com/mo/q/hybrid-main-activity/worldcupPortrait?support_cache=1&thrown_flag_portrait=" + URLEncoder.encode(str, "utf-8");
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                        str4 = str4 + "&figure_url=" + URLEncoder.encode(str2, "utf-8") + "&background_value=" + URLEncoder.encode(str3, "utf-8");
+                    }
+                    TbWebViewActivityConfig h = rx4.h(tbPageContext.getPageActivity(), "", str4, false, true, true);
+                    h.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+                    h.setTranslucentAutoClose(true);
+                    h.setWebDialogName("WorldCupRaiseFlag");
+                    h.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-            this.a = g36Var;
         }
-
-        @Override // com.baidu.tieba.dx4.a
-        public void a(boolean z, boolean z2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                if (z) {
-                    if (z2) {
-                        vi.Q(this.a.a, this.a.a.getString(R.string.add_mark));
-                    } else {
-                        vi.Q(this.a.a, this.a.a.getString(R.string.remove_mark));
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a(z2);
-                    }
-                    if (this.a.d != null) {
-                        fy9 fy9Var = new fy9();
-                        fy9Var.a = this.a.d.getThreadId();
-                        fy9Var.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, fy9Var));
-                        return;
-                    }
-                    return;
-                }
-                vi.Q(this.a.a, this.a.a.getString(R.string.update_mark_failed));
-            }
-        }
-    }
-
-    public g36(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.e = new a(this);
-        this.a = context;
-        if (context instanceof BaseActivity) {
-            this.b = dx4.b((BaseActivity) context);
-        } else if (context instanceof BaseFragmentActivity) {
-            this.b = dx4.c((BaseFragmentActivity) context);
-        }
-        dx4 dx4Var = this.b;
-        if (dx4Var != null) {
-            dx4Var.j(this.e);
-        }
-    }
-
-    public void g(boolean z) {
-        dx4 dx4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (dx4Var = this.b) != null) {
-            dx4Var.h(z);
-        }
-    }
-
-    public void h(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
-            this.d = markData;
-            dx4 dx4Var = this.b;
-            if (dx4Var != null) {
-                dx4Var.i(markData);
-            }
-        }
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void d() {
-        dx4 dx4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dx4Var = this.b) != null) {
-            dx4Var.a();
-            this.b.h(true);
-        }
-    }
-
-    public void e() {
-        dx4 dx4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (dx4Var = this.b) != null && dx4Var.e()) {
-            this.b.d();
-            this.b.h(false);
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            dx4 dx4Var = this.b;
-            if (dx4Var != null) {
-                return dx4Var.e();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

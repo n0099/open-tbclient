@@ -1,62 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
-public final class mk8 extends ik8<VoiceMsgContent> implements j87<mk8> {
+public final class mk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    public mk8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (mk8) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mk8(tk8<VoiceMsgContent> data, String templateName) {
-        super(data);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947975663, "Lcom/baidu/tieba/mk8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((tk8) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947975663, "Lcom/baidu/tieba/mk8;");
+        }
     }
 
-    @Override // com.baidu.tieba.j87
-    public String a() {
+    @JvmStatic
+    public static final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return uf5.i(TbadkCoreApplication.getInst(), 4);
+            }
+            return im9.d.a().b("agree_message_bar");
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.j87
-    public /* bridge */ /* synthetic */ mk8 b() {
-        i();
-        return this;
+    @JvmStatic
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return uf5.i(TbadkCoreApplication.getInst(), 3);
+            }
+            return im9.d.a().b("at_message_bar");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return uf5.i(TbadkCoreApplication.getInst(), 5);
+            }
+            return im9.d.a().b("fan_message_bar");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return uf5.i(TbadkCoreApplication.getInst(), 0);
+            }
+            return im9.d.a().b("im");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return uf5.i(TbadkCoreApplication.getInst(), 6);
+            }
+            return im9.d.a().b("reply_message_bar");
+        }
+        return invokeV.booleanValue;
     }
 }

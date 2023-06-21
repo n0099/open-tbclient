@@ -8,17 +8,12 @@ public class rd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(gj2 gj2Var) {
+    public static void a(hj2 hj2Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, gj2Var) == null) && gj2Var != null && gj2Var.m().hasEventListener("audiointerruptionbegin") && b64.h().i()) {
-            gj2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
-        }
-    }
-
-    public static void b(gj2 gj2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, gj2Var) == null) && gj2Var != null && gj2Var.m().hasEventListener("audiointerruptionend")) {
-            gj2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
+        if ((interceptable == null || interceptable.invokeLL(65536, null, hj2Var, str) == null) && hj2Var != null && hj2Var.m().hasEventListener("deviceOrientationChange")) {
+            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
+            jSEvent.data = new td4(str);
+            hj2Var.dispatchEvent(jSEvent);
         }
     }
 }

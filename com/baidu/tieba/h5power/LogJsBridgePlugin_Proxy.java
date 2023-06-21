@@ -3,12 +3,12 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.az9;
-import com.baidu.tieba.bz9;
-import com.baidu.tieba.dz9;
-import com.baidu.tieba.oy4;
-import com.baidu.tieba.ul6;
-import com.baidu.tieba.zy9;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.r0a;
+import com.baidu.tieba.s0a;
+import com.baidu.tieba.t0a;
+import com.baidu.tieba.v0a;
+import com.baidu.tieba.zl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,17 +21,17 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class LogJsBridgePlugin_Proxy extends zy9 {
+public class LogJsBridgePlugin_Proxy extends r0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oy4 mJsBridge;
+    public py4 mJsBridge;
 
-    public LogJsBridgePlugin_Proxy(oy4 oy4Var) {
+    public LogJsBridgePlugin_Proxy(py4 py4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oy4Var};
+            Object[] objArr = {py4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,68 +41,68 @@ public class LogJsBridgePlugin_Proxy extends zy9 {
                 return;
             }
         }
-        this.mJsBridge = oy4Var;
+        this.mJsBridge = py4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
         hashSet.add("getPageLeaveTime");
     }
 
-    @Override // com.baidu.tieba.zy9
-    public bz9 dispatch(WebView webView, dz9 dz9Var, bz9 bz9Var) {
+    @Override // com.baidu.tieba.r0a
+    public t0a dispatch(WebView webView, v0a v0aVar, t0a t0aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, dz9Var, bz9Var)) == null) {
-            if (bz9Var == null) {
-                bz9Var = new bz9();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, v0aVar, t0aVar)) == null) {
+            if (t0aVar == null) {
+                t0aVar = new t0a();
             }
-            dz9Var.b();
-            dz9Var.e();
-            return bz9Var;
+            v0aVar.b();
+            v0aVar.e();
+            return t0aVar;
         }
-        return (bz9) invokeLLL.objValue;
+        return (t0a) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.zy9
-    public ul6 getJsBridge() {
+    @Override // com.baidu.tieba.r0a
+    public zl6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (ul6) invokeV.objValue;
+        return (zl6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zy9
-    public List<bz9> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.r0a
+    public List<t0a> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            bz9 bz9Var = null;
+            t0a t0aVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("getPageLeaveTime")) {
-                bz9Var = this.mJsBridge.c(webView, hashMap);
+                t0aVar = this.mJsBridge.c(webView, hashMap);
             }
-            if (bz9Var != null) {
-                bz9Var.z(0);
+            if (t0aVar != null) {
+                t0aVar.z(0);
             }
-            List<az9> list = this.mAsyncCallBackMethodList.get(str);
-            if (bz9Var != null && list != null) {
-                Iterator<az9> it = list.iterator();
-                if (!TextUtils.isEmpty(bz9Var.e())) {
+            List<s0a> list = this.mAsyncCallBackMethodList.get(str);
+            if (t0aVar != null && list != null) {
+                Iterator<s0a> it = list.iterator();
+                if (!TextUtils.isEmpty(t0aVar.e())) {
                     while (it.hasNext()) {
-                        az9 next = it.next();
-                        if (next.b().equals(bz9Var.e())) {
-                            bz9 bz9Var2 = new bz9();
-                            bz9Var2.w(next.a());
-                            bz9Var2.y(bz9Var.f());
-                            bz9Var2.u(bz9Var.b());
-                            bz9Var2.o(bz9Var.a());
-                            bz9Var2.A(bz9Var.l());
-                            arrayList.add(bz9Var2);
+                        s0a next = it.next();
+                        if (next.b().equals(t0aVar.e())) {
+                            t0a t0aVar2 = new t0a();
+                            t0aVar2.w(next.a());
+                            t0aVar2.y(t0aVar.f());
+                            t0aVar2.u(t0aVar.b());
+                            t0aVar2.o(t0aVar.a());
+                            t0aVar2.A(t0aVar.l());
+                            arrayList.add(t0aVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -110,14 +110,14 @@ public class LogJsBridgePlugin_Proxy extends zy9 {
                     }
                 } else {
                     while (it.hasNext()) {
-                        az9 next2 = it.next();
-                        bz9 bz9Var3 = new bz9();
-                        bz9Var3.w(next2.a());
-                        bz9Var3.y(bz9Var.f());
-                        bz9Var3.u(bz9Var.b());
-                        bz9Var3.o(bz9Var.a());
-                        bz9Var3.A(bz9Var.l());
-                        arrayList.add(bz9Var3);
+                        s0a next2 = it.next();
+                        t0a t0aVar3 = new t0a();
+                        t0aVar3.w(next2.a());
+                        t0aVar3.y(t0aVar.f());
+                        t0aVar3.u(t0aVar.b());
+                        t0aVar3.o(t0aVar.a());
+                        t0aVar3.A(t0aVar.l());
+                        arrayList.add(t0aVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

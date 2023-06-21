@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qc3;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +15,135 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class oc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean t;
+    public static final nc3<oc3> u;
+    public static final mc3<oc3> v;
     public transient /* synthetic */ FieldHolder $fh;
-    public qc3.d a;
-    public qc3.d b;
-    public Map<String, qc3.d> c;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+    public String g;
+    public boolean h;
+    public boolean i;
+    public String j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public String q;
+    public String r;
+    public String s;
+
+    /* loaded from: classes7.dex */
+    public static class a extends nc3<oc3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.nc3
+        /* renamed from: b */
+        public void a(@NonNull oc3 oc3Var, @NonNull fv2 fv2Var) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oc3Var, fv2Var) == null) {
+                fv2Var.writeInt(oc3Var.a);
+                fv2Var.f(oc3Var.b);
+                fv2Var.f(oc3Var.c);
+                fv2Var.f(oc3Var.d);
+                fv2Var.writeInt(oc3Var.e);
+                fv2Var.writeBoolean(oc3Var.f);
+                fv2Var.f(oc3Var.g);
+                fv2Var.writeBoolean(oc3Var.h);
+                fv2Var.writeBoolean(oc3Var.i);
+                fv2Var.f(oc3Var.j);
+                fv2Var.writeBoolean(oc3Var.k);
+                fv2Var.writeBoolean(oc3Var.l);
+                fv2Var.writeBoolean(oc3Var.m);
+                fv2Var.writeBoolean(oc3Var.n);
+                fv2Var.writeBoolean(oc3Var.o);
+                fv2Var.writeBoolean(oc3Var.p);
+                fv2Var.f(oc3Var.q);
+                fv2Var.f(oc3Var.r);
+                fv2Var.f(oc3Var.s);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends mc3<oc3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mc3
+        /* renamed from: b */
+        public oc3 a(@NonNull ev2 ev2Var) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ev2Var)) == null) {
+                oc3 oc3Var = new oc3();
+                oc3Var.a = ev2Var.readInt();
+                oc3Var.b = ev2Var.g();
+                oc3Var.c = ev2Var.g();
+                oc3Var.d = ev2Var.g();
+                oc3Var.e = ev2Var.readInt();
+                oc3Var.f = ev2Var.readBoolean();
+                oc3Var.g = ev2Var.g();
+                oc3Var.h = ev2Var.readBoolean();
+                oc3Var.i = ev2Var.readBoolean();
+                oc3Var.j = ev2Var.g();
+                oc3Var.k = ev2Var.readBoolean();
+                oc3Var.l = ev2Var.readBoolean();
+                oc3Var.m = ev2Var.readBoolean();
+                oc3Var.n = ev2Var.readBoolean();
+                oc3Var.o = ev2Var.readBoolean();
+                oc3Var.p = ev2Var.readBoolean();
+                oc3Var.q = ev2Var.g();
+                oc3Var.r = ev2Var.g();
+                oc3Var.s = ev2Var.g();
+                return oc3Var;
+            }
+            return (oc3) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +158,9 @@ public class oc3 {
                 return;
             }
         }
-        d = is1.a;
+        t = js1.a;
+        u = new a();
+        v = new b();
     }
 
     public oc3() {
@@ -54,130 +176,161 @@ public class oc3 {
                 return;
             }
         }
-        this.c = new ConcurrentHashMap();
+        this.l = false;
+        this.m = false;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.a = -16777216;
+        this.c = "#ffffff";
+        this.j = "default";
+        this.e = -1;
+        this.f = false;
     }
 
-    public List<String> b() {
+    public static oc3 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return qc3.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (t) {
+                Log.w("WindowConfig", "WindowConfig#createNullObject stack=" + Log.getStackTraceString(new Exception()));
+            }
+            return new oc3();
         }
-        return (List) invokeV.objValue;
+        return (oc3) invokeV.objValue;
     }
 
-    public void g() {
+    public static oc3 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            qc3.d dVar = this.a;
-            if (dVar != null) {
-                dVar.c();
-                this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d();
             }
-            qc3.d dVar2 = this.b;
-            if (dVar2 != null) {
-                dVar2.c();
-                this.b = null;
+            return c(jSONObject);
+        }
+        return (oc3) invokeL.objValue;
+    }
+
+    public static boolean f(oc3 oc3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, oc3Var)) == null) {
+            if (oc3Var == null) {
+                return false;
             }
-            y82.k("SwanAppWebSafe", "release cache done");
+            if (!oc3Var.h && !TextUtils.equals(oc3Var.j, ExceptionHandlerImpl.KEY_CUSTOM)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.p) {
+            this.p = true;
         }
     }
 
-    public static boolean a(qc3.d dVar, String str) {
+    public static oc3 b(String str, @NonNull oc3 oc3Var) {
         InterceptResult invokeLL;
-        boolean z;
-        List<String> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dVar, str)) == null) {
-            if (dVar != null && (list = dVar.b) != null && !list.isEmpty()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                File file = new File(str);
-                if (file.exists() && file.lastModified() == dVar.c) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public qc3.d c(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z)) == null) {
-            qc3.d dVar = this.c.get(str2);
-            if (a(dVar, qc3.i(str))) {
-                y82.k("SwanAppWebSafe", "read from cache: serverDomains.data=" + dVar.b);
-                return dVar;
-            }
-            if (dVar != null) {
-                dVar.c();
-            } else {
-                dVar = new qc3.d();
-            }
-            qc3.h(z, str, str2, dVar);
-            this.c.put(str2, dVar);
-            return dVar;
-        }
-        return (qc3.d) invokeLLZ.objValue;
-    }
-
-    public List<String> d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            if (a(this.b, qc3.j())) {
-                y82.k("SwanAppWebSafe", "read from cache: webActions.data=" + this.b.b);
-                return this.b.b;
-            }
-            qc3.d dVar = this.b;
-            if (dVar != null) {
-                dVar.c();
-            } else {
-                this.b = new qc3.d();
-            }
-            qc3.k(z, this.b);
-            return this.b.b;
-        }
-        return (List) invokeZ.objValue;
-    }
-
-    public List<String> e(@NonNull String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            if (a(this.a, qc3.m(str))) {
-                y82.k("SwanAppWebSafe", "read from cache: webDomains.data=" + this.a.b);
-                return this.a.b;
-            }
-            qc3.d dVar = this.a;
-            if (dVar != null) {
-                dVar.c();
-            } else {
-                this.a = new qc3.d();
-            }
-            qc3.l(z, str, this.a);
-            return this.a.b;
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, oc3Var)) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (!d) {
-                    return;
-                }
-                throw new RuntimeException("appId can not be empty");
+                return oc3Var;
             }
-            d(true);
-            e(str, true);
+            try {
+                return e(new JSONObject(str), oc3Var);
+            } catch (JSONException e) {
+                if (t) {
+                    Log.d("WindowConfig", "buildPageWindowConfig jsonString failed: " + Log.getStackTraceString(e));
+                }
+                return oc3Var;
+            }
         }
+        return (oc3) invokeLL.objValue;
+    }
+
+    public static oc3 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (optJSONObject == null) {
+                return d();
+            }
+            oc3 oc3Var = new oc3();
+            String optString = optJSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                optString = "#000000";
+            }
+            oc3Var.a = SwanAppConfigData.t(optString);
+            String optString2 = optJSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = "white";
+            }
+            oc3Var.c = optString2;
+            oc3Var.b = optJSONObject.optString("navigationBarTitleText");
+            oc3Var.d = optJSONObject.optString("backgroundTextStyle", "black");
+            oc3Var.e = SwanAppConfigData.t(optJSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            oc3Var.f = optJSONObject.optBoolean("enablePullDownRefresh");
+            oc3Var.g = optJSONObject.optString("onReachBottomDistance");
+            oc3Var.h = optJSONObject.optBoolean("enableOpacityNavigationBar");
+            oc3Var.i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
+            oc3Var.j = optJSONObject.optString("navigationStyle", "default");
+            oc3Var.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
+            oc3Var.q = optJSONObject.optString("textSizeAdjust");
+            oc3Var.s = optJSONObject.optString("htmlFontSize");
+            optJSONObject.optJSONArray("fontFace");
+            return oc3Var;
+        }
+        return (oc3) invokeL.objValue;
+    }
+
+    public static oc3 e(JSONObject jSONObject, @NonNull oc3 oc3Var) {
+        InterceptResult invokeLL;
+        int t2;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, oc3Var)) == null) {
+            oc3 oc3Var2 = new oc3();
+            String optString = jSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                t2 = oc3Var.a;
+            } else {
+                t2 = SwanAppConfigData.t(optString);
+            }
+            oc3Var2.a = t2;
+            oc3Var2.b = jSONObject.optString("navigationBarTitleText", oc3Var.b);
+            String optString2 = jSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = oc3Var.c;
+            }
+            oc3Var2.c = optString2;
+            oc3Var2.d = jSONObject.optString("backgroundTextStyle", oc3Var.d);
+            if (jSONObject.has(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) {
+                i = SwanAppConfigData.t(jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            } else {
+                i = oc3Var.e;
+            }
+            oc3Var2.e = i;
+            oc3Var2.f = jSONObject.optBoolean("enablePullDownRefresh", oc3Var.f);
+            oc3Var2.g = jSONObject.optString("onReachBottomDistance", oc3Var.g);
+            oc3Var2.h = jSONObject.optBoolean("enableOpacityNavigationBar", oc3Var.h);
+            oc3Var2.i = jSONObject.optBoolean("enableOpacityNavigationBarText", oc3Var.i);
+            oc3Var2.j = jSONObject.optString("navigationStyle", oc3Var.j);
+            oc3Var2.k = jSONObject.optBoolean("navigationHomeButtonHidden", oc3Var.k);
+            oc3Var2.l = jSONObject.optBoolean("disableSwipeBack", false);
+            oc3Var2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
+            oc3Var2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
+            oc3Var2.o = jSONObject.optBoolean("_hasVideo", false);
+            oc3Var2.r = jSONObject.optString("viewMode", oc3Var.r);
+            oc3Var2.s = jSONObject.optString("htmlFontSize", oc3Var.s);
+            jSONObject.optJSONArray("fontFace");
+            return oc3Var2;
+        }
+        return (oc3) invokeLL.objValue;
     }
 }

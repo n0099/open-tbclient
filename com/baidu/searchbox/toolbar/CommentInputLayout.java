@@ -141,12 +141,12 @@ public class CommentInputLayout extends LinearLayout implements IFontSizeViewLis
     private void initLayout(Context context) {
         LayoutInflater.from(context).inflate(R.layout.common_comment_intput_layout, (ViewGroup) this, true);
         setIsResponseFontSize(true);
-        SelectorTextView selectorTextView = (SelectorTextView) findViewById(R.id.obfuscated_res_0x7f092518);
+        SelectorTextView selectorTextView = (SelectorTextView) findViewById(R.id.obfuscated_res_0x7f092524);
         this.mCommentInputView = selectorTextView;
         selectorTextView.setPadding(getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070257), 0, 0, 0);
         FontSizeTextViewExtKt.setScaledSizeRes(this.mCommentInputView, 0, R.dimen.obfuscated_res_0x7f070254, 2);
-        setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f081495));
-        this.mCommentInputView.setText(R.string.obfuscated_res_0x7f0f049b);
+        setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f081499));
+        this.mCommentInputView.setText(R.string.obfuscated_res_0x7f0f049c);
         this.mCommentInputView.setSingleLine(true);
         this.mCommentInputView.setEllipsize(TextUtils.TruncateAt.END);
         this.mCommentInputView.setGravity(16);
@@ -286,7 +286,7 @@ public class CommentInputLayout extends LinearLayout implements IFontSizeViewLis
         }
         if (isResponseFontSize()) {
             FontSizeViewExtKt.setScaledHeightRes(this, 0, R.dimen.obfuscated_res_0x7f070252, 2);
-            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f081495);
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f081499);
             if (drawable instanceof GradientDrawable) {
                 ((GradientDrawable) drawable).setCornerRadius(FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070b15));
                 setBackground(drawable);

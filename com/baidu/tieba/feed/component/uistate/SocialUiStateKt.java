@@ -1,8 +1,8 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import android.content.Context;
-import com.baidu.tieba.b67;
-import com.baidu.tieba.c67;
+import com.baidu.tieba.g67;
+import com.baidu.tieba.h67;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,9 +17,9 @@ import kotlin.jvm.functions.Function3;
 /* loaded from: classes5.dex */
 public final class SocialUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function1<b67, Unit> a;
-    public static final Function3<Context, b67, c67, Boolean> b;
-    public static final Function1<b67, Unit> c;
+    public static final Function1<g67, Unit> a;
+    public static final Function3<Context, g67, h67, Boolean> b;
+    public static final Function1<g67, Unit> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

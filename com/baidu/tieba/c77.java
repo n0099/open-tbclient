@@ -1,45 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Voice;
 /* loaded from: classes5.dex */
-public class c77 {
+public final class c77 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, Class> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627750, "Lcom/baidu/tieba/c77;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947627750, "Lcom/baidu/tieba/c77;");
-                return;
-            }
+    public static final void a(Voice voice, List<o87<? extends Object>> mutableList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, voice, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(voice, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            mutableList.add(b(voice));
         }
-        HashMap<String, Class> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put("common_text", e77.class);
-        a.put("text_with_bg", h77.class);
-        a.put("common_icon", d77.class);
-        a.put("emoji", f77.class);
-        a.put("tie_plus", i77.class);
     }
 
-    public static HashMap<String, Class> a() {
-        InterceptResult invokeV;
+    public static final p87<VoiceData.VoiceModel> b(Voice voice) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voice)) == null) {
+            Intrinsics.checkNotNullParameter(voice, "<this>");
+            VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
+            voiceModel.from = CommonStatisticKey.FRS_VOICE_PLAY;
+            voiceModel.setVoiceId(voice.voice_md5);
+            voiceModel.setDuration(voice.during_time.intValue() / 1000);
+            return new p87<>(voiceModel, "feed_voice");
         }
-        return (HashMap) invokeV.objValue;
+        return (p87) invokeL.objValue;
     }
 }

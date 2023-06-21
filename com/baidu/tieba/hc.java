@@ -79,18 +79,18 @@ public class hc extends ic {
                     }
                     try {
                         this.a = BitmapFactory.decodeStream(byteArrayInputStream, this.f, this.b);
-                        sg.c(byteArrayInputStream);
+                        tg.c(byteArrayInputStream);
                     } catch (Error e2) {
                         e = e2;
                         byteArrayInputStream2 = byteArrayInputStream;
                         BdLog.e(e.getMessage());
-                        sg.c(byteArrayInputStream2);
+                        tg.c(byteArrayInputStream2);
                         if (this.a != null) {
                         }
                     } catch (Throwable th2) {
                         th = th2;
                         byteArrayInputStream2 = byteArrayInputStream;
-                        sg.c(byteArrayInputStream2);
+                        tg.c(byteArrayInputStream2);
                         throw th;
                     }
                     if (this.a != null) {

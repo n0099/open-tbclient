@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,9 +75,9 @@ public class IMUserListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            n95 m = n95.m();
-            long o = m.o("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            if (o == 0 || System.currentTimeMillis() - o > 7200000) {
+            o95 p = o95.p();
+            long r = p.r("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            if (r == 0 || System.currentTimeMillis() - r > 7200000) {
                 return true;
             }
             return false;
@@ -103,7 +103,7 @@ public class IMUserListModel extends BdBaseModel {
         }
         ArrayList arrayList = new ArrayList();
         for (String str : list) {
-            if (tg.g(str, 0L) <= 0) {
+            if (ug.g(str, 0L) <= 0) {
                 arrayList.add(str);
             }
         }
@@ -115,8 +115,8 @@ public class IMUserListModel extends BdBaseModel {
             sendMessage(new IMUserListHttpReqMessage(list));
         } else if (canRequestIfControl()) {
             sendMessage(new IMUserListHttpReqMessage(list));
-            n95 m = n95.m();
-            m.A("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+            o95 p = o95.p();
+            p.H("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
         }
     }
 

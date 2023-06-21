@@ -1,10 +1,10 @@
 package com.baidu.nadcore.thread.executor;
 
 import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.tieba.p41;
-import com.baidu.tieba.r41;
+import com.baidu.tieba.q41;
 import com.baidu.tieba.s41;
 import com.baidu.tieba.t41;
+import com.baidu.tieba.u41;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes3.dex */
@@ -100,15 +100,15 @@ public abstract class BaseExecutorCell {
             if (i2 != 2) {
                 if (i2 != 3) {
                     if (i2 != 4) {
-                        return new s41(i);
+                        return new t41(i);
                     }
-                    return new t41(i);
+                    return new u41(i);
                 }
-                return new r41(i);
+                return new s41(i);
             }
-            return new s41(i);
+            return new t41(i);
         }
-        return new p41(i);
+        return new q41(i);
     }
 
     public synchronized int e() {

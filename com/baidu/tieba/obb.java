@@ -1,37 +1,58 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class obb {
+public final class obb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public kbb b;
+    public InputStream c;
+    public final Map<String, String> d;
+    public final List<fcb> e;
 
-    public static String a(String str, nbb nbbVar) {
-        InterceptResult invokeLL;
+    public obb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, nbbVar)) == null) {
-            return gbb.g(str, nbbVar.c());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeLL.objValue;
+        this.b = kbb.b;
+        this.d = new HashMap();
+        this.e = new ArrayList();
     }
 
-    public static String b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public nbb a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bArr)) == null) {
-            return gbb.g(str, bArr);
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new vbb(context, this.a, this.b, this.c, this.d, this.e, null) : (nbb) invokeL.objValue;
     }
 
-    public static String c(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public obb b(InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
-            return gbb.k(str, bArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            this.c = inputStream;
+            return this;
         }
-        return (String) invokeLL.objValue;
+        return (obb) invokeL.objValue;
     }
 }

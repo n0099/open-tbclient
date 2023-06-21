@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ne<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public abstract class ne<T> {
 
     public abstract Cursor q(SQLiteDatabase sQLiteDatabase, String str);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public abstract class ne<T> {
             this.e++;
             if (this.e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
                 this.e = 0;
-                zg.a().b(new a(this));
+                ah.a().b(new a(this));
             }
         }
     }

@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.os.Build;
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q44 extends e44 {
+public class q44 extends f44 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,12 +30,12 @@ public class q44 extends e44 {
                 return;
             }
         }
-        c = is1.a;
+        c = js1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q44() {
-        super("startPermissionsPage");
+        super("StartAppUsagePage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,37 +51,30 @@ public class q44 extends e44 {
         }
     }
 
-    @Override // com.baidu.tieba.e44
-    public y32 a(JSONObject jSONObject, cp2 cp2Var) {
+    @Override // com.baidu.tieba.f44
+    public z32 a(@NonNull JSONObject jSONObject, @NonNull dp2 dp2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cp2Var)) == null) {
-            yb3 b0 = yb3.b0();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, dp2Var)) == null) {
+            zb3 b0 = zb3.b0();
             if (b0 != null && b0.w() != null) {
-                String str = Build.MANUFACTURER;
-                if (!TextUtils.isEmpty(str)) {
-                    str = str.toLowerCase(Locale.US);
-                }
-                if (TextUtils.equals(str, "oppo")) {
-                    try {
-                        Intent intent = new Intent(b0.w().getPackageName());
-                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
-                        b0.w().startActivity(intent);
-                    } catch (Exception e) {
-                        if (c) {
-                            e.printStackTrace();
-                        }
-                        cp3.f(b0.w());
+                try {
+                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
+                } catch (Exception e) {
+                    if (c) {
+                        e.printStackTrace();
                     }
-                } else {
-                    cp3.g(b0.w());
+                    dp3.f(b0.w());
                 }
-                cp2Var.onSuccess(null);
-            } else if (c) {
-                Log.d("StartPermissionsPage", "swan or activity is null");
+                dp2Var.onSuccess(null);
+            } else {
+                dp2Var.onFail(100, "swan or activity is null");
+                if (c) {
+                    Log.d("StartAppUsagePage", "swan or activity is null");
+                }
             }
             return null;
         }
-        return (y32) invokeLL.objValue;
+        return (z32) invokeLL.objValue;
     }
 }

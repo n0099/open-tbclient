@@ -1,7 +1,7 @@
 package com.huawei.hms.aaid.plugin;
 
 import android.content.Context;
-import com.baidu.tieba.wab;
+import com.baidu.tieba.pcb;
 import com.huawei.hms.common.ApiException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
@@ -16,11 +16,11 @@ public interface PushProxy {
 
     void getToken(Context context, String str, String str2) throws ApiException;
 
-    wab<Void> subscribe(Context context, String str, String str2);
+    pcb<Void> subscribe(Context context, String str, String str2);
 
-    wab<Void> turnOff(Context context, String str);
+    pcb<Void> turnOff(Context context, String str);
 
-    wab<Void> turnOn(Context context, String str);
+    pcb<Void> turnOn(Context context, String str);
 
-    wab<Void> unsubscribe(Context context, String str, String str2);
+    pcb<Void> unsubscribe(Context context, String str, String str2);
 }

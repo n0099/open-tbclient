@@ -1,25 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nk2 {
+public abstract class nk2 implements yx2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final Map<String, Integer> b;
-    public static final Object c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,115 +28,43 @@ public class nk2 {
                 return;
             }
         }
-        a = is1.a;
-        b = new HashMap();
-        c = new Object();
-        d = ok2.a();
+        a = js1.a;
     }
 
-    @NonNull
-    public static Set<String> b() {
-        InterceptResult invokeV;
-        String[] strArr;
+    public nk2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return cq3.a(strArr);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove all exclude appIds");
-        }
-        synchronized (c) {
-            b.clear();
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    @Override // com.baidu.tieba.yx2
+    public void a(boolean z, Activity activity) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!d || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            synchronized (c) {
-                containsKey = b.containsKey(str);
-            }
+        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && pk2.a() && !z) {
             if (a) {
-                Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-            }
-            return containsKey;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = b.get(str);
-            if (num == null) {
-                b.put(str, 1);
+                j = System.currentTimeMillis();
             } else {
-                b.put(str, Integer.valueOf(num.intValue() + 1));
+                j = 0;
             }
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = b.get(str);
-            if (num != null) {
-                int intValue = num.intValue() - 1;
-                if (intValue <= 0) {
-                    b.remove(str);
-                } else {
-                    b.put(str, Integer.valueOf(intValue));
-                }
+            boolean B = qp3.B();
+            if (a) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis - j) + "ms");
             }
-        }
-    }
-
-    public static void e(gp4 gp4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, gp4Var) == null) && d && gp4Var != null) {
-            for (wk4 wk4Var : gp4Var.j()) {
-                if (wk4Var instanceof xk4) {
-                    d(wk4Var.g);
-                } else if (wk4Var instanceof yk4) {
-                    d(((yk4) wk4Var).o);
-                }
+            if (B) {
+                boolean n = rk2.n();
+                z82.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
+                lk2.c().d().u(null, n, 16);
+                rk2.p(false);
             }
         }
     }

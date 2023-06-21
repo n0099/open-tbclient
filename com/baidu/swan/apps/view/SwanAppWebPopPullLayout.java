@@ -12,10 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import com.baidu.tieba.is1;
+import com.baidu.tieba.js1;
 /* loaded from: classes4.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
-    public static final boolean f = is1.a;
+    public static final boolean f = js1.a;
     public final ViewDragHelper a;
     public final int b;
     @Nullable

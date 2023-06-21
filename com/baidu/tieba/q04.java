@@ -1,43 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q04 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface q04 {
+    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
 
-    @Inject(force = false)
-    public static r04 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return r84.a();
-        }
-        return (r04) invokeV.objValue;
-    }
+    void b(String str, JSONObject jSONObject, ResponseCallback<i04> responseCallback);
 
-    @Inject
-    public static s04 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return kv2.a();
-        }
-        return (s04) invokeV.objValue;
-    }
+    void c(String str, ResponseCallback<rz3> responseCallback);
 
-    @Inject
-    public static t04 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new lv2();
-        }
-        return (t04) invokeV.objValue;
-    }
+    void d(String str);
+
+    void e(String str);
+
+    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
 }

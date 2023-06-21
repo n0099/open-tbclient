@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
+import android.app.Application;
+import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.BundleInfoGroup;
-import com.baidu.nps.utils.Constant;
+import com.baidu.nps.pm.SubBundleInfo;
 import com.baidu.nps.utils.ContextHolder;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,298 +19,416 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class pf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static pf1 a;
+    public static volatile pf1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public rf1 a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948060014, "Lcom/baidu/tieba/pf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948060014, "Lcom/baidu/tieba/pf1;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948060014, "Lcom/baidu/tieba/pf1;")) == null) {
+            return;
         }
-        a = new pf1();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948060014, "Lcom/baidu/tieba/pf1;");
+        }
     }
 
-    public pf1() {
+    public int delete(Uri uri, String str, String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
+            return 0;
+        }
+        return invokeLLL.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends sf1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ContentValues b;
+        public final /* synthetic */ pf1 c;
+
+        public a(pf1 pf1Var, ContentValues contentValues) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pf1Var, contentValues};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = pf1Var;
+            this.b = contentValues;
+        }
+
+        @Override // com.baidu.tieba.sf1
+        public boolean b(SQLiteDatabase sQLiteDatabase) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
+                return this.c.k(sQLiteDatabase, this.b);
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends sf1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BundleInfo b;
+        public final /* synthetic */ List c;
+        public final /* synthetic */ pf1 d;
+
+        public b(pf1 pf1Var, BundleInfo bundleInfo, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pf1Var, bundleInfo, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = pf1Var;
+            this.b = bundleInfo;
+            this.c = list;
+        }
+
+        @Override // com.baidu.tieba.sf1
+        public boolean b(SQLiteDatabase sQLiteDatabase) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
+                this.d.k(sQLiteDatabase, BundleInfo.toContentValues(this.b));
+                for (BundleInfo bundleInfo : this.c) {
+                    this.d.l(sQLiteDatabase, BundleInfo.toContentValues(bundleInfo));
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public pf1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = new rf1(context);
     }
 
-    public static pf1 j() {
+    public static pf1 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (b == null) {
+                synchronized (pf1.class) {
+                    if (b == null) {
+                        Application applicationContext = ContextHolder.getApplicationContext();
+                        if (applicationContext != null) {
+                            context = applicationContext;
+                        }
+                        b = new pf1(context);
+                    }
+                }
+            }
+            return b;
+        }
+        return (pf1) invokeL.objValue;
+    }
+
+    public int h(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bundleInfo)) == null) {
+            bundleInfo.setType(1);
+            this.a.getWritableDatabase().update("bundleinfo", BundleInfo.toContentValues(bundleInfo), "pkg_name =? AND version_code = ? ", new String[]{bundleInfo.getPackageName(), String.valueOf(bundleInfo.getVersionCode())});
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.a.getWritableDatabase().delete("bundleinfo", "abi <>? AND abi <> 3", new String[]{String.valueOf(hg1.a())});
+            return 0;
         }
-        return (pf1) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public Bundle c() {
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0029, code lost:
+        if (com.baidu.tieba.dg1.a() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x002b, code lost:
+        r0.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0044, code lost:
+        if (com.baidu.tieba.dg1.a() == false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<BundleInfo> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a(kg1.b(), "download_all", null, null);
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public Bundle f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return a(kg1.b(), "fetch", null, null);
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public Bundle k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return a(kg1.b(), "presetinfo", null, null);
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public final Bundle a(Uri uri, String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, uri, str, str2, bundle)) == null) {
+            Cursor query = this.a.getReadableDatabase().query("bundleinfo", null, "", null, null, null, null);
+            List<BundleInfo> arrayList = new ArrayList<>();
             try {
-                return ContextHolder.getApplicationContext().getContentResolver().call(uri, str, str2, bundle);
-            } catch (IllegalArgumentException e) {
-                if (cg1.a()) {
-                    e.printStackTrace();
+                try {
+                    arrayList = BundleInfo.toBundleInfoList(query);
+                    try {
+                        query.close();
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                } catch (Exception e2) {
+                    if (dg1.a()) {
+                        e2.printStackTrace();
+                    }
+                    try {
+                        query.close();
+                    } catch (Exception e3) {
+                        e = e3;
+                    }
                 }
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt(Constant.TAG.RET_CODE, 56);
-                return bundle2;
+                return arrayList;
+            } catch (Throwable th) {
+                try {
+                    query.close();
+                } catch (Exception e4) {
+                    if (dg1.a()) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
-        return (Bundle) invokeLLLL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void b(Bundle bundle) {
+    public Cursor f(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            a(kg1.b(), "cleardeprecated", null, bundle);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            return query(null, null, "pkg_name =? AND type = ? AND broken = ? ", new String[]{str, String.valueOf(i), "0"}, null);
         }
+        return (Cursor) invokeLI.objValue;
     }
 
-    public Bundle d(BundleInfo bundleInfo) {
+    public Cursor g(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i, i2)) == null) {
+            return query(null, null, "pkg_name =? AND type = ? AND version_code >= ? AND broken = ? ", new String[]{str, String.valueOf(i2), String.valueOf(i), "0"}, null);
+        }
+        return (Cursor) invokeLII.objValue;
+    }
+
+    public final boolean i(sf1 sf1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundleInfo)) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "downloadBackground", null, bundle);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sf1Var)) == null) {
+            sf1Var.c(this.a.getWritableDatabase());
+            return sf1Var.a();
         }
-        return (Bundle) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public Bundle e(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
+    public void j(BundleInfo bundleInfo) {
+        List<SubBundleInfo> subBundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundleInfo)) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "download", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle m(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bundleInfo)) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "installonly", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle n(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, bundleInfo)) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "localinstall", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle o(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bundleInfo)) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "presetinstallsingle", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putString(Constant.TAG.PARAM_PKG_NAME, str);
-            a(b, "record", null, bundle);
-        }
-    }
-
-    public void s(BundleInfo bundleInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundleInfo) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            ContextHolder.getApplicationContext().getContentResolver().call(b, "resettype", (String) null, bundle);
-        }
-    }
-
-    public Map<String, BundleInfoGroup> g(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(kg1.b(), null, "", null, null);
-            Map<String, BundleInfoGroup> u = u(BundleInfo.toBundleInfoList(query), j);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bundleInfo) == null) && (subBundle = bundleInfo.getSubBundle()) != null && !subBundle.isEmpty()) {
+            Cursor query = this.a.getReadableDatabase().query("bundleinfo", null, null, null, null, null, null);
+            Map<String, BundleInfoGroup> bundleInfoGroups = BundleInfo.toBundleInfoGroups(BundleInfo.toBundleInfoList(query), 0L);
             try {
                 query.close();
-            } catch (Exception unused) {
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return u;
+            ArrayList arrayList = new ArrayList();
+            for (SubBundleInfo subBundleInfo : subBundle) {
+                String packageName = subBundleInfo.getPackageName();
+                int minVersion = subBundleInfo.getMinVersion();
+                int maxVersion = subBundleInfo.getMaxVersion();
+                BundleInfoGroup bundleInfoGroup = bundleInfoGroups.get(packageName);
+                if (bundleInfoGroup != null) {
+                    BundleInfo bundleByType = bundleInfoGroup.getBundleByType(1);
+                    BundleInfo bundleByType2 = bundleInfoGroup.getBundleByType(2);
+                    BundleInfo bundleByType3 = bundleInfoGroup.getBundleByType(3);
+                    bundleByType = (bundleByType == null || bundleByType.getVersionCode() < minVersion || bundleByType.getVersionCode() > maxVersion) ? null : null;
+                    if (bundleByType2 == null || bundleByType2.getVersionCode() < minVersion || bundleByType2.getVersionCode() > maxVersion) {
+                        bundleByType2 = bundleByType;
+                    }
+                    if (bundleByType3 == null || bundleByType3.getVersionCode() < minVersion || bundleByType3.getVersionCode() > maxVersion) {
+                        bundleByType3 = bundleByType2;
+                    }
+                    if (bundleByType3 != null) {
+                        bundleByType3.setType(4);
+                        arrayList.add(bundleByType3);
+                    }
+                }
+            }
+            i(new b(this, bundleInfo, arrayList));
         }
-        return (Map) invokeJ.objValue;
     }
 
-    public List<BundleInfo> h(String str) {
-        InterceptResult invokeL;
+    public final boolean k(SQLiteDatabase sQLiteDatabase, ContentValues contentValues) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(kg1.b(), null, "pkg_name = ? ", new String[]{str}, null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, contentValues)) == null) {
+            BundleInfo bundleInfo = BundleInfo.toBundleInfo(contentValues);
+            if (bundleInfo == null) {
+                return false;
+            }
+            Cursor query = sQLiteDatabase.query("bundleinfo", null, "pkg_name =? ", new String[]{bundleInfo.getPackageName()}, null, null, null);
             List<BundleInfo> bundleInfoList = BundleInfo.toBundleInfoList(query);
             try {
                 query.close();
             } catch (Exception unused) {
             }
-            return bundleInfoList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putString(Constant.TAG.PARAM_PKG_NAME, str);
-            Bundle a2 = a(b, ApkCheckUBCManagerKt.PAGE, null, bundle);
-            if (a2 == null || a2.getInt(Constant.TAG.PARAM_PKG_STUS, -1) != 47) {
-                return false;
+            if (bundleInfoList.isEmpty()) {
+                sQLiteDatabase.insert("bundleinfo", null, contentValues);
+                return true;
+            }
+            HashMap hashMap = new HashMap();
+            for (BundleInfo bundleInfo2 : bundleInfoList) {
+                if (bundleInfo2 != null) {
+                    hashMap.put(Integer.valueOf(bundleInfo2.getType()), bundleInfo2);
+                }
+            }
+            BundleInfo bundleInfo3 = (BundleInfo) hashMap.get(3);
+            BundleInfo bundleInfo4 = (BundleInfo) hashMap.get(2);
+            BundleInfo bundleInfo5 = (BundleInfo) hashMap.get(1);
+            if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() > bundleInfo.getUpdateV()) {
+                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo3);
+            }
+            if (bundleInfo4 != null && bundleInfo4.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo4.getUpdateV() > bundleInfo.getUpdateV()) {
+                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo4);
+            }
+            if (bundleInfo5 != null && bundleInfo5.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo5.getUpdateV() > bundleInfo.getUpdateV()) {
+                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo5);
+            }
+            int type = bundleInfo.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type == 3) {
+                        if (bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.put(3, bundleInfo);
+                        }
+                        if (bundleInfo4 != null && bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.remove(2);
+                        }
+                        if (bundleInfo5 != null && bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.remove(1);
+                        }
+                    }
+                } else if (bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) {
+                    if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() <= bundleInfo.getUpdateV()) {
+                        BundleInfo.updateBundleInfoConfig(bundleInfo3, bundleInfo);
+                    } else {
+                        if (bundleInfo4 == null || bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.put(2, bundleInfo);
+                        }
+                        if (bundleInfo5 != null && bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.remove(1);
+                        }
+                    }
+                }
+            } else if ((bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) && (bundleInfo4 == null || bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode())) {
+                if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() <= bundleInfo.getUpdateV()) {
+                    BundleInfo.updateBundleInfoConfig(bundleInfo3, bundleInfo);
+                } else if (bundleInfo4 != null && bundleInfo4.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo4.getUpdateV() <= bundleInfo.getUpdateV()) {
+                    BundleInfo.updateBundleInfoConfig(bundleInfo4, bundleInfo);
+                } else if (bundleInfo5 == null || bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
+                    hashMap.put(1, bundleInfo);
+                }
+            }
+            sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{contentValues.getAsString("pkg_name")});
+            for (BundleInfo bundleInfo6 : hashMap.values()) {
+                sQLiteDatabase.insert("bundleinfo", null, BundleInfo.toContentValues(bundleInfo6));
             }
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public BundleInfoGroup i(String str, long j) {
-        InterceptResult invokeLJ;
+    public final void l(SQLiteDatabase sQLiteDatabase, ContentValues contentValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(kg1.b(), null, "pkg_name = ? ", new String[]{str}, null);
-            BundleInfoGroup t = t(BundleInfo.toBundleInfoList(query), j);
+        if (interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, contentValues) == null) {
+            boolean z = false;
+            String[] strArr = {contentValues.getAsString("pkg_name"), contentValues.getAsString("type")};
+            Cursor query = sQLiteDatabase.query("bundleinfo", null, "pkg_name =?  AND type =? ", strArr, null, null, null);
+            if (query.getCount() == 0) {
+                z = true;
+            }
             try {
                 query.close();
-            } catch (Exception unused) {
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return t;
-        }
-        return (BundleInfoGroup) invokeLJ.objValue;
-    }
-
-    public Bundle l(BundleInfo bundleInfo, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, bundleInfo, z)) == null) {
-            Uri b = kg1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            bundle.putBoolean(Constant.TAG.PARAM_MULTI_BUNDLE_ENABLE, z);
-            return a(b, "install", null, bundle);
-        }
-        return (Bundle) invokeLZ.objValue;
-    }
-
-    public void r(boolean z, ContentObserver contentObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048592, this, z, contentObserver) == null) {
-            ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(kg1.b(), z, contentObserver);
+            if (z) {
+                sQLiteDatabase.insert("bundleinfo", null, contentValues);
+            } else {
+                sQLiteDatabase.update("bundleinfo", contentValues, "pkg_name =?  AND type =? ", strArr);
+            }
         }
     }
 
-    public final BundleInfoGroup t(List<BundleInfo> list, long j) {
-        InterceptResult invokeLJ;
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048594, this, list, j)) == null) {
-            BundleInfoGroup bundleInfoGroup = new BundleInfoGroup(j);
-            for (BundleInfo bundleInfo : list) {
-                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
-            }
-            return bundleInfoGroup;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048586, this, uri, strArr, str, strArr2, str2)) == null) {
+            return this.a.getReadableDatabase().query("bundleinfo", null, str, strArr2, null, null, null);
         }
-        return (BundleInfoGroup) invokeLJ.objValue;
+        return (Cursor) invokeLLLLL.objValue;
     }
 
-    public final Map<String, BundleInfoGroup> u(List<BundleInfo> list, long j) {
-        InterceptResult invokeLJ;
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048595, this, list, j)) == null) {
-            HashMap hashMap = new HashMap();
-            if (list == null) {
-                return null;
-            }
-            for (BundleInfo bundleInfo : list) {
-                BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
-                if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j);
-                    hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
-                }
-                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
-            }
-            return hashMap;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, uri, contentValues, str, strArr)) == null) {
+            i(new a(this, contentValues));
+            return 1;
         }
-        return (Map) invokeLJ.objValue;
+        return invokeLLLL.intValue;
     }
 }

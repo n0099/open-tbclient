@@ -7,7 +7,7 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sp3;
+import com.baidu.tieba.tp3;
 /* loaded from: classes4.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
     public SwanAppActionBar b;
@@ -25,9 +25,9 @@ public class LoginServiceAgreementActivity extends BaseActivity {
 
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int c0 = sp3.c0(this);
+        int c0 = tp3.c0(this);
         super.onCreate(bundle);
-        sp3.g(this, c0);
+        tp3.g(this, c0);
         Intent intent = getIntent();
         if (intent == null) {
             finish();
@@ -43,7 +43,7 @@ public class LoginServiceAgreementActivity extends BaseActivity {
         this.b = swanAppActionBar;
         swanAppActionBar.setLeftBackViewVisibility(true);
         this.b.setLeftBackViewClickListener(new a());
-        this.b.setTitle(R.string.obfuscated_res_0x7f0f1522);
+        this.b.setTitle(R.string.obfuscated_res_0x7f0f1526);
         this.b.setRightZoneVisibility(false);
     }
 }

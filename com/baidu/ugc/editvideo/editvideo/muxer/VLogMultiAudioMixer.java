@@ -4,14 +4,14 @@ import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.iva;
-import com.baidu.tieba.jva;
-import com.baidu.tieba.nta;
-import com.baidu.tieba.ota;
-import com.baidu.tieba.tva;
-import com.baidu.tieba.uta;
-import com.baidu.tieba.vua;
-import com.baidu.tieba.yua;
+import com.baidu.tieba.bxa;
+import com.baidu.tieba.cxa;
+import com.baidu.tieba.gva;
+import com.baidu.tieba.hva;
+import com.baidu.tieba.mxa;
+import com.baidu.tieba.nva;
+import com.baidu.tieba.owa;
+import com.baidu.tieba.rwa;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.utils.FileUtils;
 import com.coremedia.iso.boxes.Container;
@@ -53,12 +53,12 @@ public class VLogMultiAudioMixer {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public static boolean appendAacList(List<AudioPlayData> list, String str, uta utaVar) throws IOException {
+    public static boolean appendAacList(List<AudioPlayData> list, String str, nva nvaVar) throws IOException {
         Movie movie = new Movie();
         LinkedList linkedList = new LinkedList();
         for (int i = 0; i < list.size(); i++) {
             AudioPlayData audioPlayData = list.get(i);
-            if (audioPlayData == null || !jointAACList(linkedList, audioPlayData.audioPath, audioPlayData.start, audioPlayData.end, utaVar)) {
+            if (audioPlayData == null || !jointAACList(linkedList, audioPlayData.audioPath, audioPlayData.start, audioPlayData.end, nvaVar)) {
                 return false;
             }
         }
@@ -80,7 +80,7 @@ public class VLogMultiAudioMixer {
                 }
                 return true;
             } catch (Exception e) {
-                utaVar.e += e.getMessage();
+                nvaVar.e += e.getMessage();
                 if (fileChannel != null) {
                     fileChannel.close();
                     return false;
@@ -204,7 +204,7 @@ public class VLogMultiAudioMixer {
                         sb2.append(" mp4parser 音频合成过程中发生异常-1:");
                         sb2.append(e.getMessage());
                         sb2.append(" 详细信息-1 :");
-                        sb2.append(iva.g(e));
+                        sb2.append(bxa.g(e));
                     }
                     e.printStackTrace();
                     return false;
@@ -219,7 +219,7 @@ public class VLogMultiAudioMixer {
             return false;
         }
         Movie movie3 = new Movie();
-        long d = tva.d(track);
+        long d = mxa.d(track);
         long j6 = d - j5;
         long j7 = 0;
         long j8 = j6 <= 0 ? d : j6;
@@ -239,8 +239,8 @@ public class VLogMultiAudioMixer {
         int i2 = (j > j8 ? 1 : (j == j8 ? 0 : -1));
         try {
             if (i2 < 0) {
-                long e2 = tva.e(track, (j5 * 1.0d) / 1000.0d);
-                long e3 = tva.e(track, ((j5 + j) * 1.0d) / 1000.0d);
+                long e2 = mxa.e(track, (j5 * 1.0d) / 1000.0d);
+                long e3 = mxa.e(track, ((j5 + j) * 1.0d) / 1000.0d);
                 if (isDebug) {
                     Log.d(TAG, "muxAacMp4 videoDuration < aacDuration (aac from to)=[" + e2 + "," + e3 + PreferencesUtil.RIGHT_MOUNT);
                 }
@@ -269,7 +269,7 @@ public class VLogMultiAudioMixer {
                             str7 = str8;
                             str3 = str9;
                             j3 = j8;
-                            arrayList.add(new AppendTrack(new CroppedTrack(track, tva.e(track, (j5 * 1.0d) / 1000.0d), tva.e(track, (d * 1.0d) / 1000.0d))));
+                            arrayList.add(new AppendTrack(new CroppedTrack(track, mxa.e(track, (j5 * 1.0d) / 1000.0d), mxa.e(track, (d * 1.0d) / 1000.0d))));
                         }
                         j9 += j3;
                         str4 = str6;
@@ -281,8 +281,8 @@ public class VLogMultiAudioMixer {
                         str3 = str9;
                         j3 = j8;
                         j4 = d;
-                        long e4 = tva.e(track, (j5 * 1.0d) / 1000.0d);
-                        long e5 = tva.e(track, ((j5 + j10) * 1.0d) / 1000.0d);
+                        long e4 = mxa.e(track, (j5 * 1.0d) / 1000.0d);
+                        long e5 = mxa.e(track, ((j5 + j10) * 1.0d) / 1000.0d);
                         arrayList.add(new AppendTrack(new CroppedTrack(track, e4, e5)));
                         if (isDebug) {
                             StringBuilder sb3 = new StringBuilder();
@@ -323,7 +323,7 @@ public class VLogMultiAudioMixer {
             FileOutputStream fileOutputStream = new FileOutputStream(new File(str2));
             build.writeContainer(fileOutputStream.getChannel());
             fileOutputStream.close();
-            long a = jva.a(str2);
+            long a = cxa.a(str2);
             if (a <= 0) {
                 if (sb != null) {
                     sb.append(", mp4parser afterDuration:");
@@ -380,11 +380,11 @@ public class VLogMultiAudioMixer {
         return i3;
     }
 
-    public static boolean getNearestBlankAudioPath(List<List<AudioPlayData>> list, int i, String str, final uta utaVar) {
+    public static boolean getNearestBlankAudioPath(List<List<AudioPlayData>> list, int i, String str, final nva nvaVar) {
         StringBuilder sb;
         if (list == null || list.size() == 0 || TextUtils.isEmpty(str)) {
             sb = new StringBuilder();
-            sb.append(utaVar.e);
+            sb.append(nvaVar.e);
             sb.append("list 为空, or outPath 为空");
         } else {
             AudioPlayData audioPlayData = null;
@@ -398,7 +398,7 @@ public class VLogMultiAudioMixer {
                         }
                         AudioPlayData audioPlayData2 = list2.get(i3);
                         if (audioPlayData2 != null && !TextUtils.isEmpty(audioPlayData2.audioPath)) {
-                            int f = jva.f(audioPlayData2.audioPath);
+                            int f = cxa.f(audioPlayData2.audioPath);
                             audioPlayData2.realDuration = f;
                             if (f <= 0) {
                                 continue;
@@ -414,15 +414,15 @@ public class VLogMultiAudioMixer {
                 }
             }
             if (audioPlayData != null && audioPlayData.realDuration != 0) {
-                yua.e(TAG, "blank 音频路径" + audioPlayData.audioPath);
-                nta.f e = nta.e(audioPlayData.audioPath);
+                rwa.e(TAG, "blank 音频路径" + audioPlayData.audioPath);
+                gva.f e = gva.e(audioPlayData.audioPath);
                 if (e == null) {
-                    e = new nta.f();
+                    e = new gva.f();
                 }
                 final boolean[] zArr = {false};
                 try {
-                    nta.l(audioPlayData.audioPath, str, e.a, e.b, 0.0f, e.c, 0.0f, (i * 1.0f) / 1000.0f, MimeTypes.AUDIO_MPEG.equals(e.d), new vua.a() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer.4
-                        @Override // com.baidu.tieba.vua.a
+                    gva.l(audioPlayData.audioPath, str, e.a, e.b, 0.0f, e.c, 0.0f, (i * 1.0f) / 1000.0f, MimeTypes.AUDIO_MPEG.equals(e.d), new owa.a() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer.4
+                        @Override // com.baidu.tieba.owa.a
                         public void onCompletion() {
                             zArr[0] = true;
                             synchronized (VLogMultiAudioMixer.lockObject) {
@@ -430,7 +430,7 @@ public class VLogMultiAudioMixer {
                             }
                         }
 
-                        @Override // com.baidu.tieba.vua.a
+                        @Override // com.baidu.tieba.owa.a
                         public boolean onError(int i4, int i5, Object obj) {
                             StringBuilder sb2 = new StringBuilder();
                             sb2.append(",ffmpegerror:");
@@ -440,9 +440,9 @@ public class VLogMultiAudioMixer {
                             sb2.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                             sb2.append(obj != null ? obj.toString() : "");
                             String sb3 = sb2.toString();
-                            uta utaVar2 = uta.this;
-                            if (utaVar2 != null) {
-                                utaVar2.e = uta.this.e + sb3;
+                            nva nvaVar2 = nva.this;
+                            if (nvaVar2 != null) {
+                                nvaVar2.e = nva.this.e + sb3;
                             }
                             synchronized (VLogMultiAudioMixer.lockObject) {
                                 VLogMultiAudioMixer.lockObject.notifyAll();
@@ -450,55 +450,55 @@ public class VLogMultiAudioMixer {
                             return false;
                         }
 
-                        @Override // com.baidu.tieba.vua.a
+                        @Override // com.baidu.tieba.owa.a
                         public boolean onInfo(int i4, int i5, Object obj) {
-                            yua.e(VLogMultiAudioMixer.TAG, " 进行blank 音量文件生成 进度i1 = " + i5);
+                            rwa.e(VLogMultiAudioMixer.TAG, " 进行blank 音量文件生成 进度i1 = " + i5);
                             return false;
                         }
                     });
-                    yua.e("VideoMuxer", "resampledone");
+                    rwa.e("VideoMuxer", "resampledone");
                     try {
                         synchronized (lockObject) {
                             lockObject.wait();
                         }
                         if (zArr[0] && FileUtils.isExists(str)) {
-                            yua.e(TAG, "blank volume 生成成功");
+                            rwa.e(TAG, "blank volume 生成成功");
                             return true;
                         }
-                        utaVar.e += " ffmpeg 调整音量失败了-2 ";
+                        nvaVar.e += " ffmpeg 调整音量失败了-2 ";
                         return false;
                     } catch (InterruptedException e2) {
                         StringBuilder sb2 = new StringBuilder();
-                        sb2.append(utaVar.e);
+                        sb2.append(nvaVar.e);
                         sb2.append(e2);
-                        utaVar.e = sb2.toString() != null ? e2.getMessage() : " ffmpeg 调整音量失败了-1 ";
+                        nvaVar.e = sb2.toString() != null ? e2.getMessage() : " ffmpeg 调整音量失败了-1 ";
                         return false;
                     }
                 } catch (Throwable th) {
                     StringBuilder sb3 = new StringBuilder();
-                    sb3.append(utaVar.e);
+                    sb3.append(nvaVar.e);
                     sb3.append(th);
-                    utaVar.e = sb3.toString() != null ? th.getMessage() : " ffmpeg 调整音量失败了-3 ";
+                    nvaVar.e = sb3.toString() != null ? th.getMessage() : " ffmpeg 调整音量失败了-3 ";
                     return false;
                 }
             }
             sb = new StringBuilder();
-            sb.append(utaVar.e);
+            sb.append(nvaVar.e);
             sb.append("音频源筛选为null or realDuration==0, closeTarget=");
             sb.append(audioPlayData);
         }
-        utaVar.e = sb.toString();
+        nvaVar.e = sb.toString();
         return false;
     }
 
-    public static boolean jointAACList(List<Track> list, String str, long j, long j2, uta utaVar) {
+    public static boolean jointAACList(List<Track> list, String str, long j, long j2, nva nvaVar) {
         Track track;
         long j3;
         long j4;
         long j5;
         long j6;
         String str2;
-        yua.e("VideoMuxer", "jointAACList" + str);
+        rwa.e("VideoMuxer", "jointAACList" + str);
         StringBuilder sb = new StringBuilder();
         char c = 0;
         if (list == null || TextUtils.isEmpty(str) || !new File(str).exists() || j > j2) {
@@ -506,8 +506,8 @@ public class VLogMultiAudioMixer {
         }
         try {
             try {
-                long f = jva.f(str);
-                nta.f e = nta.e(str);
+                long f = cxa.f(str);
+                gva.f e = gva.e(str);
                 sb.append(" , 音频duration=");
                 sb.append(f);
                 if (e != null) {
@@ -522,7 +522,7 @@ public class VLogMultiAudioMixer {
                     sb.append(e.a);
                 }
             } catch (Exception e2) {
-                sb.append(iva.g(e2));
+                sb.append(bxa.g(e2));
             }
             Track track2 = null;
             long j7 = j2 - j;
@@ -530,7 +530,7 @@ public class VLogMultiAudioMixer {
                 track = new AACTrackImpl(new FileDataSourceImpl(str));
             } catch (Exception e3) {
                 sb.append(" ,aacTrack error ");
-                sb.append(iva.g(e3));
+                sb.append(bxa.g(e3));
                 for (Track track3 : MovieCreator.build(str).getTracks()) {
                     if (track3 != null && "soun".equals(track3.getHandler())) {
                         track2 = track3;
@@ -539,12 +539,12 @@ public class VLogMultiAudioMixer {
                 track = track2;
             }
             if (track == null) {
-                if (utaVar != null) {
-                    utaVar.e += " mp4parser 音频合成没有找到aac音频-2  " + sb.toString();
+                if (nvaVar != null) {
+                    nvaVar.e += " mp4parser 音频合成没有找到aac音频-2  " + sb.toString();
                 }
                 return false;
             }
-            long d = tva.d(track);
+            long d = mxa.d(track);
             long j8 = d - j;
             if (j8 < 0) {
                 j8 = d;
@@ -556,7 +556,7 @@ public class VLogMultiAudioMixer {
             }
             int i = (j7 > j8 ? 1 : (j7 == j8 ? 0 : -1));
             if (i <= 0) {
-                list.add(new AppendTrack(new CroppedTrack(track, tva.e(track, (j * 1.0d) / 1000.0d), tva.e(track, ((j + j7) * 1.0d) / 1000.0d))));
+                list.add(new AppendTrack(new CroppedTrack(track, mxa.e(track, (j * 1.0d) / 1000.0d), mxa.e(track, ((j + j7) * 1.0d) / 1000.0d))));
                 return true;
             } else if (i <= 0) {
                 list.add(new AppendTrack(track));
@@ -587,7 +587,7 @@ public class VLogMultiAudioMixer {
                             str2 = str3;
                             j4 = j8;
                             j5 = d;
-                            list.add(new AppendTrack(new CroppedTrack(track, tva.e(track, (j * 1.0d) / 1000.0d), tva.e(track, (d * 1.0d) / 1000.0d))));
+                            list.add(new AppendTrack(new CroppedTrack(track, mxa.e(track, (j * 1.0d) / 1000.0d), mxa.e(track, (d * 1.0d) / 1000.0d))));
                         }
                         j6 = j11 + j4;
                         str3 = str2;
@@ -597,8 +597,8 @@ public class VLogMultiAudioMixer {
                         j3 = j7;
                         j4 = j8;
                         j5 = d;
-                        long e4 = tva.e(track, (j * 1.0d) / 1000.0d);
-                        long e5 = tva.e(track, ((j + j10) * 1.0d) / 1000.0d);
+                        long e4 = mxa.e(track, (j * 1.0d) / 1000.0d);
+                        long e5 = mxa.e(track, ((j + j10) * 1.0d) / 1000.0d);
                         list.add(new AppendTrack(new CroppedTrack(track, e4, e5)));
                         if (isDebug) {
                             str3 = str4;
@@ -617,15 +617,15 @@ public class VLogMultiAudioMixer {
                 return true;
             }
         } catch (Exception e6) {
-            if (utaVar != null) {
-                utaVar.e += sb.toString() + " mp4parser 音频合成过程中发生异常-2:" + e6.getMessage() + " 详细信息：" + iva.g(e6);
+            if (nvaVar != null) {
+                nvaVar.e += sb.toString() + " mp4parser 音频合成过程中发生异常-2:" + e6.getMessage() + " 详细信息：" + bxa.g(e6);
             }
             e6.printStackTrace();
             return false;
         }
     }
 
-    public static boolean mixtureAACFileList(List<AudioPlayData> list, String str, String str2, MultiAudioMixerListener multiAudioMixerListener, uta utaVar) {
+    public static boolean mixtureAACFileList(List<AudioPlayData> list, String str, String str2, MultiAudioMixerListener multiAudioMixerListener, nva nvaVar) {
         StringBuilder sb;
         StringBuilder sb2;
         removeAndCorrectErrorData(list);
@@ -634,56 +634,56 @@ public class VLogMultiAudioMixer {
         arrayList.clear();
         arrayList.addAll(list);
         if (!checkAACList(arrayList)) {
-            utaVar.e += "数据源错误-1";
+            nvaVar.e += "数据源错误-1";
             return false;
         }
         if (isDebug) {
             Log.d(TAG, "checkAACList ok");
         }
         int blankAudioDuration = getBlankAudioDuration(arrayList);
-        yua.e("AudioMuxCostTime", "getBlankAudioDuration:" + (System.currentTimeMillis() - currentTimeMillis));
+        rwa.e("AudioMuxCostTime", "getBlankAudioDuration:" + (System.currentTimeMillis() - currentTimeMillis));
         long currentTimeMillis2 = System.currentTimeMillis();
         if (multiAudioMixerListener != null) {
-            yua.e(TAG, "UPROGRESS_CALCULATE 阶段，当前进度：5");
+            rwa.e(TAG, "UPROGRESS_CALCULATE 阶段，当前进度：5");
             multiAudioMixerListener.mixerProgress(5);
         }
         if (blankAudioDuration < 0) {
-            utaVar.e += "数据源错误-2";
+            nvaVar.e += "数据源错误-2";
             if (multiAudioMixerListener != null) {
-                yua.e(TAG, "PROGRESS_ERROR 阶段 1，当前进度：100" + utaVar.e);
+                rwa.e(TAG, "PROGRESS_ERROR 阶段 1，当前进度：100" + nvaVar.e);
                 multiAudioMixerListener.mixerProgress(100);
             }
             return false;
         }
         if (blankAudioDuration == 0) {
             if (multiAudioMixerListener != null) {
-                yua.e(TAG, "PROGRESS_BLANK 阶段--单list--blank 0，当前进度：10");
+                rwa.e(TAG, "PROGRESS_BLANK 阶段--单list--blank 0，当前进度：10");
                 multiAudioMixerListener.mixerProgress(10);
             }
             boolean updateAACListVolume = updateAACListVolume(arrayList, null, "", str2, 5, 60, multiAudioMixerListener, new StringBuilder());
-            yua.e("AudioMuxCostTime", "updateAACListVolume:" + (System.currentTimeMillis() - currentTimeMillis2));
+            rwa.e("AudioMuxCostTime", "updateAACListVolume:" + (System.currentTimeMillis() - currentTimeMillis2));
             long currentTimeMillis3 = System.currentTimeMillis();
             if (!updateAACListVolume) {
-                utaVar.e += sb2.toString();
+                nvaVar.e += sb2.toString();
                 if (multiAudioMixerListener != null) {
-                    yua.e(TAG, "PROGRESS_ERROR 阶段 2，当前进度：100" + utaVar.e);
+                    rwa.e(TAG, "PROGRESS_ERROR 阶段 2，当前进度：100" + nvaVar.e);
                     multiAudioMixerListener.mixerProgress(100);
                     return false;
                 }
                 return false;
             }
             if (multiAudioMixerListener != null) {
-                yua.e(TAG, "PROGRESS_UNIFY 阶段，当前进度：60");
+                rwa.e(TAG, "PROGRESS_UNIFY 阶段，当前进度：60");
                 multiAudioMixerListener.mixerProgress(60);
             }
             if (isDebug) {
                 Log.d(TAG, "updateAACListVolume pass");
             }
             try {
-                boolean appendAacList = appendAacList(arrayList, str, utaVar);
-                yua.e("AudioMuxCostTime", "appendAacList:" + (System.currentTimeMillis() - currentTimeMillis3));
+                boolean appendAacList = appendAacList(arrayList, str, nvaVar);
+                rwa.e("AudioMuxCostTime", "appendAacList:" + (System.currentTimeMillis() - currentTimeMillis3));
                 if (multiAudioMixerListener != null) {
-                    yua.e(TAG, "PROGRESS_APPEND 阶段，当前进度：70");
+                    rwa.e(TAG, "PROGRESS_APPEND 阶段，当前进度：70");
                     multiAudioMixerListener.mixerProgress(70);
                 }
                 if (isDebug) {
@@ -695,28 +695,28 @@ public class VLogMultiAudioMixer {
                         Log.d(TAG, "appendAacList 拼接成功-文件路径：" + str + " , file size = " + file.length());
                     }
                     if (multiAudioMixerListener != null) {
-                        yua.e(TAG, "PROGRESS_SUCCESS 阶段，当前进度：100");
+                        rwa.e(TAG, "PROGRESS_SUCCESS 阶段，当前进度：100");
                         multiAudioMixerListener.mixerProgress(100);
                     }
                     return true;
                 }
-                utaVar.e += "拼接文件不存在-1";
+                nvaVar.e += "拼接文件不存在-1";
                 if (isDebug) {
                     Log.d(TAG, "appendAacList is not exists ");
                 }
                 if (multiAudioMixerListener != null) {
-                    yua.e(TAG, "PROGRESS_ERROR 阶段 4，当前进度：100" + utaVar.e);
+                    rwa.e(TAG, "PROGRESS_ERROR 阶段 4，当前进度：100" + nvaVar.e);
                     multiAudioMixerListener.mixerProgress(100);
                     return false;
                 }
                 return false;
             } catch (IOException e) {
                 StringBuilder sb3 = new StringBuilder();
-                sb3.append(utaVar.e);
+                sb3.append(nvaVar.e);
                 sb3.append(e);
-                utaVar.e = sb3.toString() != null ? e.getMessage() : "";
+                nvaVar.e = sb3.toString() != null ? e.getMessage() : "";
                 if (multiAudioMixerListener != null) {
-                    yua.e(TAG, "PROGRESS_ERROR 阶段 3，当前进度：100" + utaVar.e);
+                    rwa.e(TAG, "PROGRESS_ERROR 阶段 3，当前进度：100" + nvaVar.e);
                     multiAudioMixerListener.mixerProgress(100);
                     return false;
                 }
@@ -726,24 +726,24 @@ public class VLogMultiAudioMixer {
         ArrayList arrayList2 = new ArrayList();
         arrayList2.add(list);
         String str3 = str2 + "/blank_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
-        boolean nearestBlankAudioPath = getNearestBlankAudioPath(arrayList2, blankAudioDuration, str3, utaVar);
-        yua.c(TAG, "getNearestBlankAudioPath - 返回 " + nearestBlankAudioPath + " maxBlankDuration =" + blankAudioDuration);
+        boolean nearestBlankAudioPath = getNearestBlankAudioPath(arrayList2, blankAudioDuration, str3, nvaVar);
+        rwa.c(TAG, "getNearestBlankAudioPath - 返回 " + nearestBlankAudioPath + " maxBlankDuration =" + blankAudioDuration);
         StringBuilder sb4 = new StringBuilder();
         sb4.append("getNearestBlankAudioPath1:");
         sb4.append(System.currentTimeMillis() - currentTimeMillis2);
-        yua.e("AudioMuxCostTime", sb4.toString());
+        rwa.e("AudioMuxCostTime", sb4.toString());
         long currentTimeMillis4 = System.currentTimeMillis();
         File file2 = new File(str3);
         if (!nearestBlankAudioPath || !file2.exists()) {
             if (multiAudioMixerListener != null) {
-                Log.d(TAG, "当前进度 ：100错误信息" + utaVar.e);
+                Log.d(TAG, "当前进度 ：100错误信息" + nvaVar.e);
                 multiAudioMixerListener.mixerProgress(100);
                 return false;
             }
             return false;
         }
         if (multiAudioMixerListener != null) {
-            yua.e(TAG, "PROGRESS_BLANK 阶段单list--blank >0，当前进度：10");
+            rwa.e(TAG, "PROGRESS_BLANK 阶段单list--blank >0，当前进度：10");
             multiAudioMixerListener.mixerProgress(10);
         }
         changeAACListBlankAudioPath(arrayList, str3);
@@ -751,10 +751,10 @@ public class VLogMultiAudioMixer {
         if (isDebug) {
             Log.d(TAG, "changeVolumeSuccess ：" + updateAACListVolume2);
         }
-        yua.e("AudioMuxCostTime", "updateAACListVolume1:" + (System.currentTimeMillis() - currentTimeMillis4));
+        rwa.e("AudioMuxCostTime", "updateAACListVolume1:" + (System.currentTimeMillis() - currentTimeMillis4));
         long currentTimeMillis5 = System.currentTimeMillis();
         if (!updateAACListVolume2) {
-            utaVar.e += sb.toString();
+            nvaVar.e += sb.toString();
             if (multiAudioMixerListener != null) {
                 multiAudioMixerListener.mixerProgress(100);
                 return false;
@@ -762,19 +762,19 @@ public class VLogMultiAudioMixer {
             return false;
         }
         if (multiAudioMixerListener != null) {
-            yua.e(TAG, "PROGRESS_UNIFY 阶段，当前进度：60");
+            rwa.e(TAG, "PROGRESS_UNIFY 阶段，当前进度：60");
             multiAudioMixerListener.mixerProgress(60);
         }
         try {
-            appendAacList(arrayList, str, utaVar);
-            yua.e("AudioMuxCostTime", "appendAacList1:" + (System.currentTimeMillis() - currentTimeMillis5));
+            appendAacList(arrayList, str, nvaVar);
+            rwa.e("AudioMuxCostTime", "appendAacList1:" + (System.currentTimeMillis() - currentTimeMillis5));
             if (new File(str).exists()) {
                 if (multiAudioMixerListener != null) {
                     multiAudioMixerListener.mixerProgress(100);
                 }
                 return true;
             }
-            utaVar.e += "拼接文件不存在-2";
+            nvaVar.e += "拼接文件不存在-2";
             if (multiAudioMixerListener != null) {
                 multiAudioMixerListener.mixerProgress(100);
                 return false;
@@ -782,9 +782,9 @@ public class VLogMultiAudioMixer {
             return false;
         } catch (IOException e2) {
             StringBuilder sb5 = new StringBuilder();
-            sb5.append(utaVar.e);
+            sb5.append(nvaVar.e);
             sb5.append(e2);
-            utaVar.e = sb5.toString() != null ? e2.getMessage() : "";
+            nvaVar.e = sb5.toString() != null ? e2.getMessage() : "";
             if (multiAudioMixerListener != null) {
                 multiAudioMixerListener.mixerProgress(100);
                 return false;
@@ -793,7 +793,7 @@ public class VLogMultiAudioMixer {
         }
     }
 
-    public static boolean mixtureAACFileList(List<AudioPlayData> list, List<AudioPlayData> list2, String str, String str2, final MultiAudioMixerListener multiAudioMixerListener, uta utaVar) {
+    public static boolean mixtureAACFileList(List<AudioPlayData> list, List<AudioPlayData> list2, String str, String str2, final MultiAudioMixerListener multiAudioMixerListener, nva nvaVar) {
         removeAndCorrectErrorData(list, list2);
         long currentTimeMillis = System.currentTimeMillis();
         ArrayList arrayList = new ArrayList();
@@ -803,13 +803,13 @@ public class VLogMultiAudioMixer {
         arrayList.addAll(list);
         arrayList2.addAll(list2);
         if (checkListVolumeAllZero(arrayList)) {
-            yua.e(TAG, " video 音频数据全为zero , 直接走 audio 单集合方法  ");
-            return mixtureAACFileList(arrayList2, str, str2, multiAudioMixerListener, utaVar);
+            rwa.e(TAG, " video 音频数据全为zero , 直接走 audio 单集合方法  ");
+            return mixtureAACFileList(arrayList2, str, str2, multiAudioMixerListener, nvaVar);
         } else if (checkListVolumeAllZero(arrayList2)) {
-            yua.e(TAG, " audio 音频数据全为zero , 直接走 video 单集合方法  ");
-            return mixtureAACFileList(arrayList, str, str2, multiAudioMixerListener, utaVar);
+            rwa.e(TAG, " audio 音频数据全为zero , 直接走 video 单集合方法  ");
+            return mixtureAACFileList(arrayList, str, str2, multiAudioMixerListener, nvaVar);
         } else if (!checkAACList(arrayList, arrayList2)) {
-            utaVar.e += "数据源错误-3";
+            nvaVar.e += "数据源错误-3";
             if (multiAudioMixerListener != null) {
                 multiAudioMixerListener.mixerProgress(100);
             }
@@ -817,11 +817,11 @@ public class VLogMultiAudioMixer {
         } else {
             int blankAudioDuration = getBlankAudioDuration(arrayList, arrayList2);
             if (multiAudioMixerListener != null) {
-                yua.e(TAG, "PROGRESS_CALCULATE 阶段，当前进度：5");
+                rwa.e(TAG, "PROGRESS_CALCULATE 阶段，当前进度：5");
                 multiAudioMixerListener.mixerProgress(5);
             }
             if (blankAudioDuration < 0) {
-                utaVar.e += "数据源错误-4";
+                nvaVar.e += "数据源错误-4";
                 if (multiAudioMixerListener != null) {
                     multiAudioMixerListener.mixerProgress(100);
                 }
@@ -829,57 +829,57 @@ public class VLogMultiAudioMixer {
             }
             if (blankAudioDuration == 0) {
                 if (multiAudioMixerListener != null) {
-                    yua.e(TAG, "PROGRESS_BLANK 阶段--双 list--blank=0，当前进度：10");
+                    rwa.e(TAG, "PROGRESS_BLANK 阶段--双 list--blank=0，当前进度：10");
                     multiAudioMixerListener.mixerProgress(10);
                 }
                 StringBuilder sb = new StringBuilder();
                 if (!updateAACListVolume(arrayList, arrayList2, "", str2, 5, 60, multiAudioMixerListener, sb)) {
-                    utaVar.e += sb.toString();
+                    nvaVar.e += sb.toString();
                     if (multiAudioMixerListener != null) {
                         multiAudioMixerListener.mixerProgress(100);
                     }
                     return false;
                 }
-                yua.e("AudioMuxCostTime", "updateAACListVolume2:" + (System.currentTimeMillis() - currentTimeMillis));
+                rwa.e("AudioMuxCostTime", "updateAACListVolume2:" + (System.currentTimeMillis() - currentTimeMillis));
                 long currentTimeMillis2 = System.currentTimeMillis();
                 if (multiAudioMixerListener != null) {
-                    yua.e(TAG, "PROGRESS_UNIFY 阶段，当前进度：60");
+                    rwa.e(TAG, "PROGRESS_UNIFY 阶段，当前进度：60");
                     multiAudioMixerListener.mixerProgress(60);
                 }
                 String str3 = str2 + "/video_joint_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
                 String str4 = str2 + "/audio_joint_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
                 try {
-                    appendAacList(arrayList, str3, utaVar);
-                    yua.e("AudioMuxCostTime", "videoTempListappendAacList2:" + (System.currentTimeMillis() - currentTimeMillis2));
+                    appendAacList(arrayList, str3, nvaVar);
+                    rwa.e("AudioMuxCostTime", "videoTempListappendAacList2:" + (System.currentTimeMillis() - currentTimeMillis2));
                     long currentTimeMillis3 = System.currentTimeMillis();
                     try {
-                        appendAacList(arrayList2, str4, utaVar);
-                        yua.e("AudioMuxCostTime", "audioTempListappendAacList2:" + (System.currentTimeMillis() - currentTimeMillis3));
+                        appendAacList(arrayList2, str4, nvaVar);
+                        rwa.e("AudioMuxCostTime", "audioTempListappendAacList2:" + (System.currentTimeMillis() - currentTimeMillis3));
                         long currentTimeMillis4 = System.currentTimeMillis();
                         File file = new File(str3);
                         File file2 = new File(str4);
                         if (!file.exists() || !file2.exists()) {
-                            utaVar.e += "拼接文件不存在-3";
+                            nvaVar.e += "拼接文件不存在-3";
                             if (multiAudioMixerListener != null) {
                                 multiAudioMixerListener.mixerProgress(100);
                             }
                             return false;
                         }
                         if (multiAudioMixerListener != null) {
-                            yua.e(TAG, "PROGRESS_APPEND 阶段，当前进度：70");
+                            rwa.e(TAG, "PROGRESS_APPEND 阶段，当前进度：70");
                             multiAudioMixerListener.mixerProgress(70);
                         }
-                        boolean h = ota.h(str, new String[]{str4, str3}, sb, new vua.a() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer.1
-                            @Override // com.baidu.tieba.vua.a
+                        boolean h = hva.h(str, new String[]{str4, str3}, sb, new owa.a() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer.1
+                            @Override // com.baidu.tieba.owa.a
                             public void onCompletion() {
                             }
 
-                            @Override // com.baidu.tieba.vua.a
+                            @Override // com.baidu.tieba.owa.a
                             public boolean onError(int i, int i2, Object obj) {
                                 return false;
                             }
 
-                            @Override // com.baidu.tieba.vua.a
+                            @Override // com.baidu.tieba.owa.a
                             public boolean onInfo(int i, int i2, Object obj) {
                                 MultiAudioMixerListener multiAudioMixerListener2 = MultiAudioMixerListener.this;
                                 if (multiAudioMixerListener2 == null || i != 1001) {
@@ -887,16 +887,16 @@ public class VLogMultiAudioMixer {
                                 }
                                 int i3 = (int) ((((i2 * 30) * 1.0f) / 100.0f) + 70.0f);
                                 multiAudioMixerListener2.mixerProgress(i3);
-                                yua.e(VLogMultiAudioMixer.TAG, "mixAudioByFFmpeg 处理进度：" + i2 + "整体进度" + i3);
+                                rwa.e(VLogMultiAudioMixer.TAG, "mixAudioByFFmpeg 处理进度：" + i2 + "整体进度" + i3);
                                 return false;
                             }
                         });
-                        yua.e("AudioMuxCostTime", "mixAudioByFFmpeg2:" + (System.currentTimeMillis() - currentTimeMillis4));
+                        rwa.e("AudioMuxCostTime", "mixAudioByFFmpeg2:" + (System.currentTimeMillis() - currentTimeMillis4));
                         long currentTimeMillis5 = System.currentTimeMillis();
                         if (!h) {
-                            h = ota.i(str, new float[]{1.0f, 1.0f}, new long[]{0, 0}, new long[]{-1, -1}, new String[]{str4, str3}, sb);
+                            h = hva.i(str, new float[]{1.0f, 1.0f}, new long[]{0, 0}, new long[]{-1, -1}, new String[]{str4, str3}, sb);
                         }
-                        yua.e("AudioMuxCostTime", "mixingAudio2:" + (System.currentTimeMillis() - currentTimeMillis5));
+                        rwa.e("AudioMuxCostTime", "mixingAudio2:" + (System.currentTimeMillis() - currentTimeMillis5));
                         System.currentTimeMillis();
                         if (h) {
                             if (multiAudioMixerListener != null) {
@@ -904,16 +904,16 @@ public class VLogMultiAudioMixer {
                             }
                             return true;
                         }
-                        utaVar.e += sb.toString();
+                        nvaVar.e += sb.toString();
                         if (multiAudioMixerListener != null) {
                             multiAudioMixerListener.mixerProgress(100);
                         }
                         return false;
                     } catch (IOException e) {
                         StringBuilder sb2 = new StringBuilder();
-                        sb2.append(utaVar.e);
+                        sb2.append(nvaVar.e);
                         sb2.append(e);
-                        utaVar.e = sb2.toString() != null ? e.getMessage() : "";
+                        nvaVar.e = sb2.toString() != null ? e.getMessage() : "";
                         if (multiAudioMixerListener != null) {
                             multiAudioMixerListener.mixerProgress(100);
                         }
@@ -921,9 +921,9 @@ public class VLogMultiAudioMixer {
                     }
                 } catch (IOException e2) {
                     StringBuilder sb3 = new StringBuilder();
-                    sb3.append(utaVar.e);
+                    sb3.append(nvaVar.e);
                     sb3.append(e2);
-                    utaVar.e = sb3.toString() != null ? e2.getMessage() : "";
+                    nvaVar.e = sb3.toString() != null ? e2.getMessage() : "";
                     if (multiAudioMixerListener != null) {
                         multiAudioMixerListener.mixerProgress(100);
                     }
@@ -936,8 +936,8 @@ public class VLogMultiAudioMixer {
             String str5 = str2 + "/blank_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
             String str6 = str2 + "/video_joint_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
             String str7 = str2 + "/audio_joint_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
-            boolean nearestBlankAudioPath = getNearestBlankAudioPath(arrayList3, blankAudioDuration, str5, utaVar);
-            yua.e("AudioMuxCostTime", "getNearestBlankAudioPath3:" + (System.currentTimeMillis() - currentTimeMillis));
+            boolean nearestBlankAudioPath = getNearestBlankAudioPath(arrayList3, blankAudioDuration, str5, nvaVar);
+            rwa.e("AudioMuxCostTime", "getNearestBlankAudioPath3:" + (System.currentTimeMillis() - currentTimeMillis));
             long currentTimeMillis6 = System.currentTimeMillis();
             File file3 = new File(str5);
             if (!nearestBlankAudioPath || !file3.exists()) {
@@ -947,56 +947,56 @@ public class VLogMultiAudioMixer {
                 return false;
             }
             if (multiAudioMixerListener != null) {
-                yua.e(TAG, "PROGRESS_BLANK 阶段--双 list--blank > 0，当前进度：10");
+                rwa.e(TAG, "PROGRESS_BLANK 阶段--双 list--blank > 0，当前进度：10");
                 multiAudioMixerListener.mixerProgress(10);
             }
             changeAACListBlankAudioPath(arrayList, arrayList2, str5);
             StringBuilder sb4 = new StringBuilder();
             if (!updateAACListVolume(arrayList, arrayList2, str5, str2, 5, 60, multiAudioMixerListener, sb4)) {
-                utaVar.e += sb4.toString();
+                nvaVar.e += sb4.toString();
                 if (multiAudioMixerListener != null) {
                     multiAudioMixerListener.mixerProgress(100);
                 }
                 return false;
             }
-            yua.e("AudioMuxCostTime", "updateAACListVolume3:" + (System.currentTimeMillis() - currentTimeMillis6));
+            rwa.e("AudioMuxCostTime", "updateAACListVolume3:" + (System.currentTimeMillis() - currentTimeMillis6));
             long currentTimeMillis7 = System.currentTimeMillis();
             if (multiAudioMixerListener != null) {
-                yua.e(TAG, "PROGRESS_UNIFY 阶段，当前进度：60");
+                rwa.e(TAG, "PROGRESS_UNIFY 阶段，当前进度：60");
                 multiAudioMixerListener.mixerProgress(60);
             }
             try {
-                appendAacList(arrayList, str6, utaVar);
-                yua.e("AudioMuxCostTime", "videoTempListappendAacList3:" + (System.currentTimeMillis() - currentTimeMillis7));
+                appendAacList(arrayList, str6, nvaVar);
+                rwa.e("AudioMuxCostTime", "videoTempListappendAacList3:" + (System.currentTimeMillis() - currentTimeMillis7));
                 long currentTimeMillis8 = System.currentTimeMillis();
                 try {
-                    appendAacList(arrayList2, str7, utaVar);
-                    yua.e("AudioMuxCostTime", "audioTempListappendAacList3:" + (System.currentTimeMillis() - currentTimeMillis8));
+                    appendAacList(arrayList2, str7, nvaVar);
+                    rwa.e("AudioMuxCostTime", "audioTempListappendAacList3:" + (System.currentTimeMillis() - currentTimeMillis8));
                     long currentTimeMillis9 = System.currentTimeMillis();
                     File file4 = new File(str6);
                     File file5 = new File(str7);
                     if (!file4.exists() || !file5.exists()) {
-                        utaVar.e += "拼接文件不存在-4";
+                        nvaVar.e += "拼接文件不存在-4";
                         if (multiAudioMixerListener != null) {
                             multiAudioMixerListener.mixerProgress(100);
                         }
                         return false;
                     }
                     if (multiAudioMixerListener != null) {
-                        yua.e(TAG, "PROGRESS_APPEND 阶段，当前进度：70");
+                        rwa.e(TAG, "PROGRESS_APPEND 阶段，当前进度：70");
                         multiAudioMixerListener.mixerProgress(70);
                     }
-                    boolean h2 = ota.h(str, new String[]{str7, str6}, sb4, new vua.a() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer.2
-                        @Override // com.baidu.tieba.vua.a
+                    boolean h2 = hva.h(str, new String[]{str7, str6}, sb4, new owa.a() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer.2
+                        @Override // com.baidu.tieba.owa.a
                         public void onCompletion() {
                         }
 
-                        @Override // com.baidu.tieba.vua.a
+                        @Override // com.baidu.tieba.owa.a
                         public boolean onError(int i, int i2, Object obj) {
                             return false;
                         }
 
-                        @Override // com.baidu.tieba.vua.a
+                        @Override // com.baidu.tieba.owa.a
                         public boolean onInfo(int i, int i2, Object obj) {
                             MultiAudioMixerListener multiAudioMixerListener2 = MultiAudioMixerListener.this;
                             if (multiAudioMixerListener2 == null || i != 1001) {
@@ -1004,33 +1004,33 @@ public class VLogMultiAudioMixer {
                             }
                             int i3 = (int) ((((i2 * 30) * 1.0f) / 100.0f) + 70.0f);
                             multiAudioMixerListener2.mixerProgress(i3);
-                            yua.e(VLogMultiAudioMixer.TAG, "mixAudioByFFmpeg 处理进度：" + i2 + "整体进度" + i3);
+                            rwa.e(VLogMultiAudioMixer.TAG, "mixAudioByFFmpeg 处理进度：" + i2 + "整体进度" + i3);
                             return false;
                         }
                     });
-                    yua.e("AudioMuxCostTime", "mixAudioByFFmpeg3:" + (System.currentTimeMillis() - currentTimeMillis9));
+                    rwa.e("AudioMuxCostTime", "mixAudioByFFmpeg3:" + (System.currentTimeMillis() - currentTimeMillis9));
                     long currentTimeMillis10 = System.currentTimeMillis();
                     if (!h2) {
-                        h2 = ota.i(str, new float[]{1.0f, 1.0f}, new long[]{0, 0}, new long[]{-1, -1}, new String[]{str7, str6}, sb4);
+                        h2 = hva.i(str, new float[]{1.0f, 1.0f}, new long[]{0, 0}, new long[]{-1, -1}, new String[]{str7, str6}, sb4);
                     }
-                    yua.e("AudioMuxCostTime", "mixingAudio3:" + (System.currentTimeMillis() - currentTimeMillis10));
+                    rwa.e("AudioMuxCostTime", "mixingAudio3:" + (System.currentTimeMillis() - currentTimeMillis10));
                     if (h2) {
                         if (multiAudioMixerListener != null) {
-                            yua.e(TAG, "混音 阶段，当前进度：100");
+                            rwa.e(TAG, "混音 阶段，当前进度：100");
                             multiAudioMixerListener.mixerProgress(100);
                         }
                         return true;
                     }
-                    utaVar.e += sb4.toString();
+                    nvaVar.e += sb4.toString();
                     if (multiAudioMixerListener != null) {
                         multiAudioMixerListener.mixerProgress(100);
                     }
                     return false;
                 } catch (IOException e3) {
                     StringBuilder sb5 = new StringBuilder();
-                    sb5.append(utaVar.e);
+                    sb5.append(nvaVar.e);
                     sb5.append(e3);
-                    utaVar.e = sb5.toString() != null ? e3.getMessage() : "";
+                    nvaVar.e = sb5.toString() != null ? e3.getMessage() : "";
                     if (multiAudioMixerListener != null) {
                         multiAudioMixerListener.mixerProgress(100);
                     }
@@ -1038,9 +1038,9 @@ public class VLogMultiAudioMixer {
                 }
             } catch (IOException e4) {
                 StringBuilder sb6 = new StringBuilder();
-                sb6.append(utaVar.e);
+                sb6.append(nvaVar.e);
                 sb6.append(e4);
-                utaVar.e = sb6.toString() != null ? e4.getMessage() : "";
+                nvaVar.e = sb6.toString() != null ? e4.getMessage() : "";
                 if (multiAudioMixerListener != null) {
                     multiAudioMixerListener.mixerProgress(100);
                 }
@@ -1090,7 +1090,7 @@ public class VLogMultiAudioMixer {
         final int i4;
         int i5;
         final int i6;
-        nta.f fVar;
+        gva.f fVar;
         ArrayList arrayList;
         String str5 = str2;
         StringBuilder sb3 = sb;
@@ -1116,15 +1116,15 @@ public class VLogMultiAudioMixer {
             }
             str3 = audioPlayData.audioPath;
         }
-        yua.e(TAG, "defaultFormatAudioPath = " + str3);
+        rwa.e(TAG, "defaultFormatAudioPath = " + str3);
         if (isDebug) {
             Log.d(TAG, "updateAACListVolume-检验数据通过");
         }
-        nta.f e = nta.e(str3);
+        gva.f e = gva.e(str3);
         if (e == null) {
-            e = new nta.f();
+            e = new gva.f();
         }
-        nta.f fVar2 = e;
+        gva.f fVar2 = e;
         int size = arrayList2.size();
         int i7 = (i2 - i) / size;
         int i8 = 0;
@@ -1136,42 +1136,42 @@ public class VLogMultiAudioMixer {
             if (audioPlayData2 == null || !FileUtils.isExists(audioPlayData2.audioPath)) {
                 break;
             }
-            nta.f e2 = nta.e(((AudioPlayData) arrayList2.get(i8)).audioPath);
+            gva.f e2 = gva.e(((AudioPlayData) arrayList2.get(i8)).audioPath);
             if (e2 == null) {
-                e2 = new nta.f();
+                e2 = new gva.f();
                 z = true;
             } else {
                 z = false;
             }
-            nta.f[] fVarArr = new nta.f[2];
+            gva.f[] fVarArr = new gva.f[2];
             fVarArr[c] = fVar2;
             fVarArr[1] = e2;
-            boolean i9 = nta.i(fVarArr);
+            boolean i9 = gva.i(fVarArr);
             boolean z2 = !i9 && e2.c();
             boolean z3 = !i9 && e2.a();
             boolean z4 = !i9 && e2.b();
             boolean z5 = audioPlayData2.volume != 1.0f;
             boolean equals = MimeTypes.AUDIO_MPEG.equals(e2.d);
             int i10 = (z3 && (z2 || z4 || z5 || z || equals)) ? i7 / 2 : i7;
-            yua.e(TAG, "data.audioPath" + audioPlayData2.audioPath + "--audioformat:" + e2.a + "," + e2.b + "," + e2.c + "targetaudioformat:" + fVar2.a + "," + fVar2.b + "," + fVar2.c + "," + e2.c() + "," + e2.a() + "," + e2.b() + "," + z5);
+            rwa.e(TAG, "data.audioPath" + audioPlayData2.audioPath + "--audioformat:" + e2.a + "," + e2.b + "," + e2.c + "targetaudioformat:" + fVar2.a + "," + fVar2.b + "," + fVar2.c + "," + e2.c() + "," + e2.a() + "," + e2.b() + "," + z5);
             int i11 = i + (i8 * i7);
             if (z2 || z3 || z4 || z5 || z || equals) {
                 if (z3) {
                     String str6 = str5 + "/change_bit_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
-                    if (!ota.p(str6, audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, sb, audioPlayData2.volume, fVar2, e2) || !FileUtils.isExists(str6)) {
+                    if (!hva.p(str6, audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, sb, audioPlayData2.volume, fVar2, e2) || !FileUtils.isExists(str6)) {
                         return false;
                     }
                     if (multiAudioMixerListener != null) {
                         int i12 = i11 + i10;
                         multiAudioMixerListener.mixerProgress(i12);
-                        yua.e(TAG, "PROGRESS_UNIFY - ConvertBit -阶段，当前进度：" + i12);
+                        rwa.e(TAG, "PROGRESS_UNIFY - ConvertBit -阶段，当前进度：" + i12);
                         i11 = i12;
                     }
                     audioPlayData2.audioPath = str6;
                 }
                 if (z2 || z4 || z5 || z || equals) {
                     try {
-                        yua.e("VideoMuxer", "startresample,src:" + e2.a + "dest:" + fVar2.a);
+                        rwa.e("VideoMuxer", "startresample,src:" + e2.a + "dest:" + fVar2.a);
                         str4 = str2 + "/unify_property_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
                         i3 = i8;
                         i4 = i10;
@@ -1185,11 +1185,11 @@ public class VLogMultiAudioMixer {
                         sb2 = sb3;
                     }
                     try {
-                        nta.l(audioPlayData2.audioPath, str4, fVar2.a, fVar2.b, audioPlayData2.volume, fVar2.c, (audioPlayData2.start * 1.0f) / 1000.0f, ((audioPlayData2.end - audioPlayData2.start) * 1.0f) / 1000.0f, equals, new vua.a() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer.3
+                        gva.l(audioPlayData2.audioPath, str4, fVar2.a, fVar2.b, audioPlayData2.volume, fVar2.c, (audioPlayData2.start * 1.0f) / 1000.0f, ((audioPlayData2.end - audioPlayData2.start) * 1.0f) / 1000.0f, equals, new owa.a() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer.3
                             /* JADX WARN: Removed duplicated region for block: B:26:0x0071  */
                             /* JADX WARN: Removed duplicated region for block: B:27:0x007b  */
                             /* JADX WARN: Removed duplicated region for block: B:36:0x008a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-                            @Override // com.baidu.tieba.vua.a
+                            @Override // com.baidu.tieba.owa.a
                             /*
                                 Code decompiled incorrectly, please refer to instructions dump.
                             */
@@ -1200,9 +1200,9 @@ public class VLogMultiAudioMixer {
                                 String str7 = str4;
                                 audioPlayData3.audioPath = str7;
                                 try {
-                                    j = tva.b(str7);
+                                    j = mxa.b(str7);
                                     try {
-                                        yua.e("VideoMuxer", "after ffmpege duration1 = " + j);
+                                        rwa.e("VideoMuxer", "after ffmpege duration1 = " + j);
                                     } catch (Exception unused) {
                                     }
                                 } catch (Exception unused2) {
@@ -1220,7 +1220,7 @@ public class VLogMultiAudioMixer {
                                         mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
                                         String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
                                         j = Long.parseLong(extractMetadata);
-                                        yua.e("VideoMuxer", "after ffmpege duration2 = " + extractMetadata);
+                                        rwa.e("VideoMuxer", "after ffmpege duration2 = " + extractMetadata);
                                         mediaMetadataRetriever.release();
                                     } catch (Exception unused4) {
                                         mediaMetadataRetriever2 = mediaMetadataRetriever;
@@ -1253,7 +1253,7 @@ public class VLogMultiAudioMixer {
                                 }
                             }
 
-                            @Override // com.baidu.tieba.vua.a
+                            @Override // com.baidu.tieba.owa.a
                             public boolean onError(int i13, int i14, Object obj) {
                                 StringBuilder sb4 = new StringBuilder();
                                 sb4.append(",ffmpegerror:");
@@ -1273,7 +1273,7 @@ public class VLogMultiAudioMixer {
                                 return false;
                             }
 
-                            @Override // com.baidu.tieba.vua.a
+                            @Override // com.baidu.tieba.owa.a
                             public boolean onInfo(int i13, int i14, Object obj) {
                                 MultiAudioMixerListener multiAudioMixerListener2 = MultiAudioMixerListener.this;
                                 if (multiAudioMixerListener2 == null || i13 != 1001) {
@@ -1281,11 +1281,11 @@ public class VLogMultiAudioMixer {
                                 }
                                 int i15 = i6 + ((int) (((i14 * 1.0f) / 100.0f) * i4));
                                 multiAudioMixerListener2.mixerProgress(i15);
-                                yua.e(VLogMultiAudioMixer.TAG, "PROGRESS_UNIFY - other property - 阶段， finalItemProgress = " + i4 + " i1 = " + i14 + "当前进度：" + i15);
+                                rwa.e(VLogMultiAudioMixer.TAG, "PROGRESS_UNIFY - other property - 阶段， finalItemProgress = " + i4 + " i1 = " + i14 + "当前进度：" + i15);
                                 return false;
                             }
                         });
-                        yua.e("VideoMuxer", "resampledone");
+                        rwa.e("VideoMuxer", "resampledone");
                         try {
                             synchronized (lockObject) {
                                 lockObject.wait();
@@ -1297,7 +1297,7 @@ public class VLogMultiAudioMixer {
                             sb2.append("ffmpeg 重采样失败了");
                             return false;
                         }
-                        yua.e("VideoMuxer", "resampledone-nextstep");
+                        rwa.e("VideoMuxer", "resampledone-nextstep");
                     } catch (Throwable th2) {
                         th = th2;
                         sb2.append(th.getMessage());
@@ -1317,7 +1317,7 @@ public class VLogMultiAudioMixer {
                 if (multiAudioMixerListener != null) {
                     int i13 = i11 + i10;
                     multiAudioMixerListener.mixerProgress(i13);
-                    yua.e(TAG, "PROGRESS_UNIFY - 阶段，当前进度：" + i13);
+                    rwa.e(TAG, "PROGRESS_UNIFY - 阶段，当前进度：" + i13);
                 }
                 i3 = i8;
                 i5 = size;

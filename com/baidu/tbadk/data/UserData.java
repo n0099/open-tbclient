@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ShakeAdSwitchData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.hh5;
-import com.baidu.tieba.t45;
-import com.baidu.tieba.vn;
+import com.baidu.tieba.lh5;
+import com.baidu.tieba.u45;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,13 +82,13 @@ public class UserData extends MetaData {
     public String lng;
     public long loginTime;
     public ActivitySponsorData mActivitySponsorData;
-    public t45 mBirthdayInfo;
+    public u45 mBirthdayInfo;
     public List<MyGift> mGift;
     public int mGiftNum;
     public List<MyGroup> mGroup;
     public boolean mIsSelectTail;
     public List<MyLikeForum> mLikeForum;
-    public List<vn> mPhotoAlbum;
+    public List<wn> mPhotoAlbum;
     public ShakeAdSwitchData mShakeAdSwitch;
     public long mTDouNum;
     public String mTiebaUid;
@@ -317,13 +317,13 @@ public class UserData extends MetaData {
         return (String) invokeV.objValue;
     }
 
-    public t45 getBirthdayInfo() {
+    public u45 getBirthdayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mBirthdayInfo;
         }
-        return (t45) invokeV.objValue;
+        return (u45) invokeV.objValue;
     }
 
     public int getCanChat() {
@@ -625,7 +625,7 @@ public class UserData extends MetaData {
         return (PersonPrivateData) invokeV.objValue;
     }
 
-    public List<vn> getPhotoAlbum() {
+    public List<wn> getPhotoAlbum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
@@ -1006,7 +1006,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.mb5
+    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.nb5
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
@@ -1194,22 +1194,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                hh5 hh5Var = new hh5();
-                hh5Var.d(getPortraitH());
-                hh5Var.f(getPortrait());
-                hh5Var.e(true);
-                this.mPhotoAlbum.add(hh5Var);
+                lh5 lh5Var = new lh5();
+                lh5Var.d(getPortraitH());
+                lh5Var.f(getPortrait());
+                lh5Var.e(true);
+                this.mPhotoAlbum.add(lh5Var);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            hh5 hh5Var2 = new hh5();
-                            hh5Var2.d(jSONObject2.optString("big"));
-                            hh5Var2.f(jSONObject2.optString("small"));
-                            hh5Var2.e(false);
-                            this.mPhotoAlbum.add(hh5Var2);
+                            lh5 lh5Var2 = new lh5();
+                            lh5Var2.d(jSONObject2.optString("big"));
+                            lh5Var2.f(jSONObject2.optString("small"));
+                            lh5Var2.e(false);
+                            this.mPhotoAlbum.add(lh5Var2);
                         }
                     }
                 }
@@ -1263,9 +1263,9 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("birthday_info");
                 if (optJSONObject10 != null) {
-                    t45 t45Var = new t45();
-                    this.mBirthdayInfo = t45Var;
-                    t45Var.a(optJSONObject10);
+                    u45 u45Var = new u45();
+                    this.mBirthdayInfo = u45Var;
+                    u45Var.a(optJSONObject10);
                 }
                 this.mTiebaUid = jSONObject.optString("tieba_uid");
                 this.isBlocked = jSONObject.optInt("is_blocked");
@@ -1322,20 +1322,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        hh5 hh5Var = new hh5();
-        hh5Var.d(getPortraitH());
-        hh5Var.f(getPortrait());
-        hh5Var.e(true);
-        this.mPhotoAlbum.add(hh5Var);
+        lh5 lh5Var = new lh5();
+        lh5Var.d(getPortraitH());
+        lh5Var.f(getPortrait());
+        lh5Var.e(true);
+        this.mPhotoAlbum.add(lh5Var);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    hh5 hh5Var2 = new hh5();
-                    hh5Var2.d(userPics.big);
-                    hh5Var2.f(userPics.small);
-                    hh5Var2.e(false);
-                    this.mPhotoAlbum.add(hh5Var2);
+                    lh5 lh5Var2 = new lh5();
+                    lh5Var2.d(userPics.big);
+                    lh5Var2.f(userPics.small);
+                    lh5Var2.e(false);
+                    this.mPhotoAlbum.add(lh5Var2);
                 }
             }
         }
@@ -1470,9 +1470,9 @@ public class UserData extends MetaData {
         this.isShowRedPacket = z4;
         BirthdayInfo birthdayInfo = user.birthday_info;
         if (birthdayInfo != null) {
-            t45 t45Var = new t45();
-            this.mBirthdayInfo = t45Var;
-            t45Var.b(birthdayInfo);
+            u45 u45Var = new u45();
+            this.mBirthdayInfo = u45Var;
+            u45Var.b(birthdayInfo);
         }
         this.bawuThrones = user.bawu_thrones;
         this.showPbPrivateFlag = user.show_pb_private_flag.intValue();

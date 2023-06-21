@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.searchbox.common.security.PermissionStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,14 +16,6 @@ public class dm0 {
     public String a;
     public String b;
     public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public bm0 k;
 
     public dm0() {
         Interceptable interceptable = $ic;
@@ -35,8 +27,12 @@ public class dm0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
     }
 
     @NonNull
@@ -44,18 +40,11 @@ public class dm0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject c = y21.c(str);
             dm0 dm0Var = new dm0();
-            dm0Var.a = c.optString("als_ext");
-            dm0Var.b = c.optString("cmd");
-            dm0Var.c = c.optString("defer_cmd");
-            dm0Var.d = c.optString("init_text");
-            dm0Var.e = c.optString("opt_icon");
-            dm0Var.f = c.optString("opt_text");
-            dm0Var.g = c.optString("app_icon_url");
-            dm0Var.h = c.optString("app_name");
-            dm0Var.i = c.optString("version_code");
-            dm0Var.j = c.optString(LegoListActivityConfig.AD_ID);
+            JSONObject c = z21.c(str);
+            dm0Var.a = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_1);
+            dm0Var.b = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_2);
+            dm0Var.c = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_3);
             return dm0Var;
         }
         return (dm0) invokeL.objValue;
@@ -67,16 +56,9 @@ public class dm0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dm0Var)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("als_ext", dm0Var.a);
-                jSONObject.put("cmd", dm0Var.b);
-                jSONObject.put("defer_cmd", dm0Var.c);
-                jSONObject.put("init_text", dm0Var.d);
-                jSONObject.put("opt_icon", dm0Var.e);
-                jSONObject.put("opt_text", dm0Var.f);
-                jSONObject.put("app_icon_url", dm0Var.g);
-                jSONObject.put("app_name", dm0Var.h);
-                jSONObject.put("version_code", dm0Var.i);
-                jSONObject.put(LegoListActivityConfig.AD_ID, dm0Var.j);
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_1, dm0Var.a);
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_2, dm0Var.b);
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_3, dm0Var.c);
             } catch (JSONException unused) {
             }
             return jSONObject.toString();

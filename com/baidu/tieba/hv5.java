@@ -1,30 +1,28 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.view.View;
+import android.text.TextUtils;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.jv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class hv5 implements mv5 {
+public class hv5 extends fv5<an5, jv5.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public TbPageContext<?> e;
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public abstract View getView();
-
-    public hv5() {
+    public hv5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,26 +32,41 @@ public abstract class hv5 implements mv5 {
                 return;
             }
         }
-        this.a = false;
-        new SparseArray();
+        this.e = tbPageContext;
     }
 
-    public void b(View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fv5
+    /* renamed from: h */
+    public an5 f(ViewType viewType, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            c(view2, false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
+            return new an5(this.e.getPageActivity(), null);
         }
+        return (an5) invokeLL.objValue;
     }
 
-    public void c(View view2, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fv5
+    /* renamed from: g */
+    public void d(ViewType viewType, an5 an5Var, jv5.b bVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) && view2 != null && getView() != null) {
-            View view3 = getView();
-            if (view3.getParent() != null) {
-                return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, an5Var, bVar) == null) {
+            if (bVar.b && !TextUtils.isEmpty(bVar.a)) {
+                str = bVar.a;
+            } else {
+                str = bVar.g;
             }
-            tm5.a(view2, this.a).a(view2, view3, z);
-            d();
+            an5Var.m(str);
+            an5Var.k(bVar.d);
+            an5Var.i(bVar.c);
+            an5Var.n(bVar.f);
+            an5Var.g(bVar.e);
+            an5Var.p();
+            an5Var.onChangeSkinType();
+            an5Var.c().setOnClickListener(bVar.h);
         }
     }
 }

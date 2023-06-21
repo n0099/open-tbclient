@@ -13,8 +13,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ik0;
 import com.baidu.tieba.jk0;
+import com.baidu.tieba.kk0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -23,7 +23,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends jk0>, jk0> b;
+    public final SimpleArrayMap<Class<? extends kk0>, kk0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -57,7 +57,7 @@ public class ComponentArchManager implements LifecycleObserver {
         this.a.add(component);
     }
 
-    public final void t(Class<? extends jk0> clazz, jk0 componentService) {
+    public final void t(Class<? extends kk0> clazz, kk0 componentService) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
         Intrinsics.checkNotNullParameter(componentService, "componentService");
         this.b.put(clazz, componentService);
@@ -99,7 +99,7 @@ public class ComponentArchManager implements LifecycleObserver {
         iComponentPlugin.o();
     }
 
-    public final void g(ik0 event) {
+    public final void g(jk0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         for (IComponentPlugin iComponentPlugin : this.a) {
             iComponentPlugin.w(event);
@@ -117,13 +117,13 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends jk0> T q(Class<T> clazz) {
+    public <T extends kk0> T q(Class<T> clazz) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
-        jk0 jk0Var = this.b.get(clazz);
-        if (!(jk0Var instanceof jk0)) {
-            jk0Var = null;
+        kk0 kk0Var = this.b.get(clazz);
+        if (!(kk0Var instanceof kk0)) {
+            kk0Var = null;
         }
-        return (T) jk0Var;
+        return (T) kk0Var;
     }
 
     public final void v(IComponentPlugin componentPlugin) {

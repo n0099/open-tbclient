@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.bigday;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.a15;
-import com.baidu.tieba.b55;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.c55;
 import com.baidu.tieba.we;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a15> bigdayInfos;
+    public ArrayList<b15> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoHttpResMessage() {
@@ -49,8 +49,8 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            b55.d();
-            we<byte[]> b = b55.b("tb.bigday_datas");
+            c55.d();
+            we<byte[]> b = c55.b("tb.bigday_datas");
             b.remove("tb.bigday_datas");
             b.g("tb.bigday_datas", bArr);
         }
@@ -72,10 +72,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
                 this.bigdayInfos = new ArrayList<>();
                 for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                     if (bigdayInfo != null) {
-                        a15 a15Var = new a15();
-                        a15Var.b(bigdayInfo);
-                        if (a15Var.a()) {
-                            this.bigdayInfos.add(a15Var);
+                        b15 b15Var = new b15();
+                        b15Var.b(bigdayInfo);
+                        if (b15Var.a()) {
+                            this.bigdayInfos.add(b15Var);
                         }
                     }
                 }

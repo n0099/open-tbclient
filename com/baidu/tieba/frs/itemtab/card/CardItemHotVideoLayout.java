@@ -42,14 +42,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.WorkIntroSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm7;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.py;
+import com.baidu.tieba.gm7;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.ta5;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.qy;
+import com.baidu.tieba.s95;
+import com.baidu.tieba.ua5;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class CardItemHotVideoLayout extends LinearLayout implements py {
+public class CardItemHotVideoLayout extends LinearLayout implements qy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
@@ -108,9 +108,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
                     VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.b.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
                     videoPlayActivityConfig.setVideoShowIndex(this.a);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                    ta5 ta5Var = new ta5(12, this.a + 1);
-                    ta5Var.p(videoItemData.post_id);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ta5Var));
+                    ua5 ua5Var = new ua5(12, this.a + 1);
+                    ua5Var.r(videoItemData.post_id);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ua5Var));
                 }
             }
         }
@@ -155,7 +155,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
                 dVar.a((ThreadData) ListUtils.getItem(this.a.d, i), i);
                 dVar.itemView.setOnClickListener(new a(this, i));
                 if (TbSingleton.getInstance().isItemTabVisible) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ta5(11, i + 1)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ua5(11, i + 1)));
                 }
             }
         }
@@ -224,9 +224,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
                     VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.b.h.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
                     videoPlayActivityConfig.setVideoShowIndex(this.a);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                    ta5 ta5Var = new ta5(12, this.a + 1);
-                    ta5Var.p(videoItemData.post_id);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ta5Var));
+                    ua5 ua5Var = new ua5(12, this.a + 1);
+                    ua5Var.r(videoItemData.post_id);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ua5Var));
                 }
             }
         }
@@ -336,19 +336,19 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
                 }
             }
             this.h = cardItemHotVideoLayout;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cbd);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cbb);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setPageId(q9.a(view2.getContext()).getUniqueId());
-            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090cbe);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cbf);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cc0);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc1);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cbc);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc2);
+            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090cbc);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cbd);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cbe);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cbf);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cba);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc0);
         }
 
         @SuppressLint({"ClickableViewAccessibility"})
@@ -374,16 +374,16 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 SkinManager.setImageResource(this.b, R.drawable.icon_video26);
-                SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f0809db);
-                o75 d = o75.d(this.f);
-                d.B(R.dimen.T_X12);
-                d.w(R.color.CAM_X0105);
-                o75 d2 = o75.d(this.e);
-                d2.B(R.dimen.T_X09);
-                d2.w(R.color.CAM_X0101);
-                o75 d3 = o75.d(this.d);
-                d3.B(R.dimen.T_X09);
-                d3.w(R.color.CAM_X0101);
+                SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f0809dd);
+                p75 d = p75.d(this.f);
+                d.C(R.dimen.T_X12);
+                d.x(R.color.CAM_X0105);
+                p75 d2 = p75.d(this.e);
+                d2.C(R.dimen.T_X09);
+                d2.x(R.color.CAM_X0101);
+                p75 d3 = p75.d(this.d);
+                d3.C(R.dimen.T_X09);
+                d3.x(R.color.CAM_X0101);
                 SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f0802f2);
             }
         }
@@ -393,21 +393,21 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) != null) || spannableStringBuilder == null) {
                 return;
             }
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0827);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082b);
             spannableStringBuilder.insert(0, (CharSequence) string);
-            int g = vi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-            int g2 = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            int g3 = vi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-            int g4 = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            int g5 = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            r95 r95Var = new r95(g, -1, R.color.CAM_X0319, g3, R.color.CAM_X0101, g4, vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds40));
-            r95Var.b(g2);
-            r95Var.i(g5);
-            r95Var.f(true);
+            int g = wi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+            int g2 = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+            int g3 = wi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+            int g4 = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            int g5 = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            s95 s95Var = new s95(g, -1, R.color.CAM_X0319, g3, R.color.CAM_X0101, g4, wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds40));
+            s95Var.b(g2);
+            s95Var.i(g5);
+            s95Var.f(true);
             if (WorkIntroSwitch.isOn()) {
                 spannableStringBuilder.setSpan(new c(this), 0, string.length(), 33);
             }
-            spannableStringBuilder.setSpan(r95Var, 0, string.length(), 33);
+            spannableStringBuilder.setSpan(s95Var, 0, string.length(), 33);
         }
     }
 
@@ -440,11 +440,11 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
                 if (i == 0) {
-                    rect.set(vi.g(this.a.getContext(), R.dimen.M_W_X005), 0, vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
+                    rect.set(wi.g(this.a.getContext(), R.dimen.M_W_X005), 0, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
                 } else if (i == this.a.d.size() - 1) {
-                    rect.set(0, 0, vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
+                    rect.set(0, 0, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
                 } else {
-                    rect.set(0, 0, vi.g(this.a.getContext(), R.dimen.M_W_X005), 0);
+                    rect.set(0, 0, wi.g(this.a.getContext(), R.dimen.M_W_X005), 0);
                 }
             }
         }
@@ -483,9 +483,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
                 VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
                 videoPlayActivityConfig.setVideoShowIndex(i);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                ta5 ta5Var = new ta5(12, i + 1);
-                ta5Var.p(videoItemData.post_id);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ta5Var));
+                ua5 ua5Var = new ua5(12, i + 1);
+                ua5Var.r(videoItemData.post_id);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ua5Var));
             }
         }
     }
@@ -558,21 +558,21 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
         c();
     }
 
-    public void setData(bm7 bm7Var) {
+    public void setData(gm7 gm7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bm7Var) == null) {
-            this.d = bm7Var.c();
+        if (interceptable == null || interceptable.invokeL(1048579, this, gm7Var) == null) {
+            this.d = gm7Var.c();
             this.c.notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.py
+    @Override // com.baidu.tieba.qy
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            o75.d(this.a).w(R.color.CAM_X0105);
-            o75 d2 = o75.d(this);
+            p75.d(this.a).x(R.color.CAM_X0105);
+            p75 d2 = p75.d(this);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }
@@ -585,12 +585,12 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f0828);
+            this.a.setText(R.string.obfuscated_res_0x7f0f082c);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(vi.g(getContext(), R.dimen.M_W_X005), vi.g(getContext(), R.dimen.tbds32), 0, 0);
-            o75 d2 = o75.d(this.a);
-            d2.C(R.string.F_X02);
-            d2.B(R.dimen.T_X07);
+            layoutParams.setMargins(wi.g(getContext(), R.dimen.M_W_X005), wi.g(getContext(), R.dimen.tbds32), 0, 0);
+            p75 d2 = p75.d(this.a);
+            d2.D(R.string.F_X02);
+            d2.C(R.dimen.T_X07);
             addView(this.a, layoutParams);
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
             this.b = bdRecyclerView;
@@ -598,7 +598,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements py {
             this.b.addItemDecoration(new a(this));
             this.b.setOnItemClickListener(new b(this));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.setMargins(0, vi.g(getContext(), R.dimen.tbds36), 0, 0);
+            layoutParams2.setMargins(0, wi.g(getContext(), R.dimen.tbds36), 0, 0);
             addView(this.b, layoutParams2);
             c cVar = new c(this);
             this.c = cVar;

@@ -45,7 +45,7 @@ public class yb {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b(xi.g()) && a() && NSGif.f) {
+            if (b(yi.g()) && a() && NSGif.f) {
                 return true;
             }
             return false;

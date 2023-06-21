@@ -45,20 +45,20 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cd5;
+import com.baidu.tieba.cm5;
 import com.baidu.tieba.dd5;
-import com.baidu.tieba.eo5;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.kg;
+import com.baidu.tieba.ed5;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.io5;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.ni5;
-import com.baidu.tieba.nx6;
-import com.baidu.tieba.og;
+import com.baidu.tieba.mg;
 import com.baidu.tieba.pg;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.ri5;
+import com.baidu.tieba.sx6;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.uh5;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yl5;
+import com.baidu.tieba.xg;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,13 +78,13 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     public Context C;
     public int D;
     public Map<String, String> E;
-    public kg<GridView> F;
+    public lg<GridView> F;
     public boolean G;
     public boolean H;
     public List<String> I;
-    public og J;
+    public pg J;
     @Nullable
-    public ni5 K;
+    public ri5 K;
     public boolean L;
     public CustomMessageListener M;
     public final CustomMessageListener N;
@@ -106,9 +106,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     public int o;
     public boolean p;
     public int q;
-    public nx6 r;
-    public List<ni5> s;
-    public List<nx6> t;
+    public sx6 r;
+    public List<ri5> s;
+    public List<sx6> t;
     public int u;
     public int v;
     public int w;
@@ -181,7 +181,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     if (iVar == null || iVar.a() == null) {
                         return false;
                     }
-                    nx6 a = iVar.a();
+                    sx6 a = iVar.a();
                     if (a.c() != EmotionGroupType.BIG_EMOTION && a.c() != EmotionGroupType.USER_COLLECT && a.c() != EmotionGroupType.LOCAL && a.c() != EmotionGroupType.USER_DIY) {
                         return false;
                     }
@@ -223,44 +223,44 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                     adapterView.setSelection(-1);
                     if (this.a.a.A != null) {
-                        cd5 cd5Var = new cd5();
+                        dd5 dd5Var = new dd5();
                         i iVar = (i) adapterView.getAdapter();
                         if (iVar != null && iVar.a() != null) {
-                            nx6 a = iVar.a();
+                            sx6 a = iVar.a();
                             int b = iVar.b();
-                            ni5 j2 = a.j();
+                            ri5 j2 = a.j();
                             String b2 = a.j().b(b + i);
-                            gn o = a.j().o(b2);
-                            if (j2.h() == EmotionGroupType.USER_COLLECT && yl5.f.equals(b2)) {
+                            hn o = a.j().o(b2);
+                            if (j2.h() == EmotionGroupType.USER_COLLECT && cm5.f.equals(b2)) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UserCollectManageActivityConfig(this.a.a.C)));
                             } else if (j2.h() != EmotionGroupType.USER_DIY || !"#(meme,diysetting)".equals(b2)) {
-                                cd5Var.n(b2);
-                                cd5Var.q(j2.h());
-                                cd5Var.p(j2.g());
-                                cd5Var.o(j2.f());
-                                cd5Var.s(j2.l());
-                                cd5Var.l(j2.i());
-                                cd5Var.m(o);
-                                dd5 dd5Var = new dd5();
-                                dd5Var.a = this.a.a.A.getFid();
-                                dd5Var.b = this.a.a.A.getTid();
-                                dd5Var.d = a.g() + 1;
-                                dd5Var.h = a.e() + 1;
-                                dd5Var.f = (a.e() * 21) + i + 1;
-                                dd5Var.g = 0;
-                                dd5Var.e = 0;
+                                dd5Var.n(b2);
+                                dd5Var.q(j2.h());
+                                dd5Var.p(j2.g());
+                                dd5Var.o(j2.f());
+                                dd5Var.s(j2.l());
+                                dd5Var.l(j2.i());
+                                dd5Var.m(o);
+                                ed5 ed5Var = new ed5();
+                                ed5Var.a = this.a.a.A.getFid();
+                                ed5Var.b = this.a.a.A.getTid();
+                                ed5Var.d = a.g() + 1;
+                                ed5Var.h = a.e() + 1;
+                                ed5Var.f = (a.e() * 21) + i + 1;
+                                ed5Var.g = 0;
+                                ed5Var.e = 0;
                                 if (this.a.a.A.a.getBarLauncherType() == 3) {
-                                    dd5Var.e = 1;
+                                    ed5Var.e = 1;
                                 } else if (this.a.a.A.a.getBarLauncherType() == 2) {
-                                    dd5Var.e = 2;
+                                    ed5Var.e = 2;
                                 } else if (this.a.a.A.a.getBarLauncherType() == 7) {
-                                    dd5Var.e = 3;
+                                    ed5Var.e = 3;
                                 }
-                                dd5Var.c = TbadkCoreApplication.getCurrentAccount();
-                                cd5Var.k(dd5Var);
-                                this.a.a.A.C(new uh5(24, -1, cd5Var));
-                                dd5Var.c(j2, b2);
-                                this.a.a.F(dd5Var, "c14122");
+                                ed5Var.c = TbadkCoreApplication.getCurrentAccount();
+                                dd5Var.k(ed5Var);
+                                this.a.a.A.C(new yh5(24, -1, dd5Var));
+                                ed5Var.c(j2, b2);
+                                this.a.a.F(ed5Var, "c14122");
                             } else {
                                 this.a.a.K = j2;
                                 TiebaStatic.log(new StatisticItem("c14689").param("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -332,15 +332,15 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 }
                 gridView.setScrollbarFadingEnabled(false);
                 if (this.a.t != null && i < this.a.t.size()) {
-                    nx6 nx6Var = (nx6) this.a.t.get(i);
-                    gridView.setNumColumns(nx6Var.a());
+                    sx6 sx6Var = (sx6) this.a.t.get(i);
+                    gridView.setNumColumns(sx6Var.a());
                     gridView.setVerticalSpacing(0);
                     gridView.setHorizontalSpacing(0);
                     gridView.setSelector(R.color.common_color_10022);
                     gridView.setPadding(this.a.C.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), 0, this.a.C.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), 0);
                     gridView.setOnItemLongClickListener(new a(this));
                     gridView.setOnItemClickListener(new b(this));
-                    gridView.setAdapter((ListAdapter) new i(this.a, nx6Var));
+                    gridView.setAdapter((ListAdapter) new i(this.a, sx6Var));
                 }
                 viewGroup.addView(gridView);
                 return gridView;
@@ -356,24 +356,24 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 if (this.a.t != null) {
                     int size = this.a.t.size();
                     if (i == 0 && i < size && i != this.a.w) {
-                        nx6 nx6Var = (nx6) this.a.t.get(i);
-                        if (nx6Var != null) {
+                        sx6 sx6Var = (sx6) this.a.t.get(i);
+                        if (sx6Var != null) {
                             this.a.w = i;
                             IndicatorView indicatorView = this.a.d;
-                            if (nx6Var.f() > 1) {
+                            if (sx6Var.f() > 1) {
                                 i2 = 0;
                             } else {
                                 i2 = 4;
                             }
                             indicatorView.setVisibility(i2);
-                            this.a.d.setCount(nx6Var.f());
-                            this.a.d.setPosition(nx6Var.e());
-                            this.a.d.setContentDescription(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0645), Integer.valueOf(nx6Var.e() + 1)) + String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0644), Integer.valueOf(nx6Var.f())));
+                            this.a.d.setCount(sx6Var.f());
+                            this.a.d.setPosition(sx6Var.e());
+                            this.a.d.setContentDescription(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0646), Integer.valueOf(sx6Var.e() + 1)) + String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0645), Integer.valueOf(sx6Var.f())));
                         }
-                        if (nx6Var != null && nx6Var.g() != this.a.v) {
-                            this.a.v = nx6Var.g();
+                        if (sx6Var != null && sx6Var.g() != this.a.v) {
+                            this.a.v = sx6Var.g();
                             if (this.a.x != null) {
-                                this.a.x.b(nx6Var.g());
+                                this.a.x.b(sx6Var.g());
                             }
                         }
                     }
@@ -384,7 +384,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     }
 
     /* loaded from: classes5.dex */
-    public class a extends og<gn> {
+    public class a extends pg<hn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionTabContentView a;
@@ -408,15 +408,15 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
-        public void onLoaded(gn gnVar, String str, int i) {
+        @Override // com.baidu.tieba.pg
+        public void onLoaded(hn hnVar, String str, int i) {
             View findViewWithTag;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, gnVar, str, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
                 this.a.I.remove(str);
-                if (gnVar != null && (findViewWithTag = this.a.findViewWithTag(str)) != null && (findViewWithTag instanceof TbImageView) && str != null) {
+                if (hnVar != null && (findViewWithTag = this.a.findViewWithTag(str)) != null && (findViewWithTag instanceof TbImageView) && str != null) {
                     TbImageView tbImageView = (TbImageView) findViewWithTag;
-                    gnVar.h(tbImageView);
+                    hnVar.h(tbImageView);
                     tbImageView.setTag(null);
                 }
             }
@@ -424,7 +424,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     }
 
     /* loaded from: classes5.dex */
-    public class b implements lg<GridView> {
+    public class b implements mg<GridView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionTabContentView a;
@@ -455,7 +455,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
+        @Override // com.baidu.tieba.mg
         public /* bridge */ /* synthetic */ GridView a(GridView gridView) {
             GridView gridView2 = gridView;
             e(gridView2);
@@ -464,7 +464,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
+        @Override // com.baidu.tieba.mg
         public /* bridge */ /* synthetic */ GridView c(GridView gridView) {
             GridView gridView2 = gridView;
             h(gridView2);
@@ -472,7 +472,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
+        @Override // com.baidu.tieba.mg
         /* renamed from: f */
         public void b(GridView gridView) {
             Interceptable interceptable = $ic;
@@ -492,7 +492,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
+        @Override // com.baidu.tieba.mg
         /* renamed from: g */
         public GridView d() {
             InterceptResult invokeV;
@@ -644,15 +644,15 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             if (this.a.b != null) {
                 this.a.b.notifyDataSetChanged();
                 if (this.a.v >= 0 && this.a.v < this.a.s.size()) {
-                    ni5 ni5Var = (ni5) this.a.s.get(this.a.v);
-                    if (ni5Var.h() != EmotionGroupType.USER_COLLECT && ni5Var.h() != EmotionGroupType.USER_DIY) {
+                    ri5 ri5Var = (ri5) this.a.s.get(this.a.v);
+                    if (ri5Var.h() != EmotionGroupType.USER_COLLECT && ri5Var.h() != EmotionGroupType.USER_DIY) {
                         return;
                     }
                 }
                 if (this.a.b != null) {
                     if (this.a.w >= 0 && this.a.w < this.a.t.size()) {
                         EmotionTabContentView emotionTabContentView = this.a;
-                        emotionTabContentView.r = (nx6) emotionTabContentView.t.get(this.a.w);
+                        emotionTabContentView.r = (sx6) emotionTabContentView.t.get(this.a.w);
                         int f = this.a.r.f();
                         this.a.d.setCount(f);
                         IndicatorView indicatorView = this.a.d;
@@ -673,7 +673,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                                         i iVar = (i) gridView.getAdapter();
                                         int d = iVar.a().d();
                                         if (d >= 0 && d < this.a.t.size()) {
-                                            iVar.c((nx6) this.a.t.get(d));
+                                            iVar.c((sx6) this.a.t.get(d));
                                             iVar.notifyDataSetChanged();
                                         }
                                     }
@@ -723,37 +723,37 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof String) && this.a.A != null && this.a.K != null) {
                     String str = (String) data;
-                    ni5 ni5Var = this.a.K;
-                    gn o = ni5Var.o(str);
-                    cd5 cd5Var = new cd5();
-                    cd5Var.n(str);
-                    cd5Var.q(ni5Var.h());
-                    cd5Var.p(ni5Var.g());
-                    cd5Var.o(ni5Var.f());
-                    cd5Var.s(ni5Var.l());
-                    cd5Var.l(ni5Var.i());
-                    cd5Var.m(o);
-                    cd5Var.j(true);
+                    ri5 ri5Var = this.a.K;
+                    hn o = ri5Var.o(str);
                     dd5 dd5Var = new dd5();
-                    dd5Var.a = this.a.A.getFid();
-                    dd5Var.b = this.a.A.getTid();
-                    dd5Var.d = -1;
-                    dd5Var.h = -1;
-                    dd5Var.f = -1;
-                    dd5Var.g = 0;
-                    dd5Var.e = 0;
+                    dd5Var.n(str);
+                    dd5Var.q(ri5Var.h());
+                    dd5Var.p(ri5Var.g());
+                    dd5Var.o(ri5Var.f());
+                    dd5Var.s(ri5Var.l());
+                    dd5Var.l(ri5Var.i());
+                    dd5Var.m(o);
+                    dd5Var.j(true);
+                    ed5 ed5Var = new ed5();
+                    ed5Var.a = this.a.A.getFid();
+                    ed5Var.b = this.a.A.getTid();
+                    ed5Var.d = -1;
+                    ed5Var.h = -1;
+                    ed5Var.f = -1;
+                    ed5Var.g = 0;
+                    ed5Var.e = 0;
                     if (this.a.A.a.getBarLauncherType() == 3) {
-                        dd5Var.e = 1;
+                        ed5Var.e = 1;
                     } else if (this.a.A.a.getBarLauncherType() == 2) {
-                        dd5Var.e = 2;
+                        ed5Var.e = 2;
                     } else if (this.a.A.a.getBarLauncherType() == 7) {
-                        dd5Var.e = 3;
+                        ed5Var.e = 3;
                     }
-                    dd5Var.c = TbadkCoreApplication.getCurrentAccount();
-                    cd5Var.k(dd5Var);
-                    this.a.A.C(new uh5(24, -1, cd5Var));
-                    dd5Var.c(ni5Var, str);
-                    this.a.F(dd5Var, "c14122");
+                    ed5Var.c = TbadkCoreApplication.getCurrentAccount();
+                    dd5Var.k(ed5Var);
+                    this.a.A.C(new yh5(24, -1, dd5Var));
+                    ed5Var.c(ri5Var, str);
+                    this.a.F(ed5Var, "c14122");
                 }
             }
         }
@@ -803,7 +803,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     public class i extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public nx6 a;
+        public sx6 a;
         public final /* synthetic */ EmotionTabContentView b;
 
         @Override // android.widget.Adapter
@@ -813,12 +813,12 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
         }
 
-        public i(EmotionTabContentView emotionTabContentView, nx6 nx6Var) {
+        public i(EmotionTabContentView emotionTabContentView, sx6 sx6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {emotionTabContentView, nx6Var};
+                Object[] objArr = {emotionTabContentView, sx6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -829,27 +829,27 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 }
             }
             this.b = emotionTabContentView;
-            this.a = nx6Var;
+            this.a = sx6Var;
         }
 
-        public nx6 a() {
+        public sx6 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.a;
             }
-            return (nx6) invokeV.objValue;
+            return (sx6) invokeV.objValue;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                nx6 nx6Var = this.a;
-                if (nx6Var == null) {
+                sx6 sx6Var = this.a;
+                if (sx6Var == null) {
                     return 0;
                 }
-                return nx6Var.i();
+                return sx6Var.i();
             }
             return invokeV.intValue;
         }
@@ -859,19 +859,19 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                nx6 nx6Var = this.a;
-                if (nx6Var == null) {
+                sx6 sx6Var = this.a;
+                if (sx6Var == null) {
                     return 0;
                 }
-                return nx6Var.b();
+                return sx6Var.b();
             }
             return invokeV.intValue;
         }
 
-        public void c(nx6 nx6Var) {
+        public void c(sx6 sx6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nx6Var) == null) {
-                this.a = nx6Var;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sx6Var) == null) {
+                this.a = sx6Var;
             }
         }
 
@@ -893,7 +893,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             LinearLayout linearLayout;
             int i4;
             int color;
-            gn gnVar;
+            hn hnVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
                 if (view2 != null && !this.b.G && !this.b.H) {
@@ -927,12 +927,12 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     }
                 }
                 LinearLayout linearLayout3 = linearLayout;
-                nx6 nx6Var = this.a;
-                if (nx6Var == null) {
+                sx6 sx6Var = this.a;
+                if (sx6Var == null) {
                     return linearLayout3;
                 }
-                int i5 = nx6Var.i() + i;
-                TbImageView tbImageView = (TbImageView) linearLayout3.findViewById(R.id.obfuscated_res_0x7f0909c8);
+                int i5 = sx6Var.i() + i;
+                TbImageView tbImageView = (TbImageView) linearLayout3.findViewById(R.id.obfuscated_res_0x7f0909c6);
                 tbImageView.setAutoChangeStyle(false);
                 SkinManager.setBackgroundResource(tbImageView, R.drawable.btn_choose_face_selector, this.b.B);
                 tbImageView.setPadding(0, 0, 0, 0);
@@ -942,20 +942,20 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 if (!TextUtils.isEmpty(b)) {
                     this.b.I.add(b);
                     i4 = 3;
-                    Object k = pg.h().k(b, 20, this.b.J, 0, 0, null, null, b, Boolean.FALSE, null);
-                    if (k != null && (k instanceof gn)) {
-                        gnVar = (gn) k;
+                    Object k = qg.h().k(b, 20, this.b.J, 0, 0, null, null, b, Boolean.FALSE, null);
+                    if (k != null && (k instanceof hn)) {
+                        hnVar = (hn) k;
                     } else {
-                        gnVar = null;
+                        hnVar = null;
                     }
-                    if (gnVar != null) {
-                        gnVar.h(tbImageView);
+                    if (hnVar != null) {
+                        hnVar.h(tbImageView);
                         tbImageView.setTag(null);
                     }
                 } else {
                     i4 = 3;
                 }
-                TextView textView = (TextView) linearLayout3.findViewById(R.id.obfuscated_res_0x7f0909c9);
+                TextView textView = (TextView) linearLayout3.findViewById(R.id.obfuscated_res_0x7f0909c7);
                 if (this.a.c() == EmotionGroupType.BIG_EMOTION) {
                     String b2 = this.a.j().b(i5);
                     if (!TextUtils.isEmpty(b2) && !b2.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
@@ -1080,13 +1080,13 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         G(context);
     }
 
-    public final void F(dd5 dd5Var, String str) {
+    public final void F(ed5 ed5Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, dd5Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, ed5Var, str) == null) {
             StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("fid", dd5Var.a).param("tid", dd5Var.b).param("uid", dd5Var.c).param("obj_type", dd5Var.d).param("obj_source", dd5Var.e).param("obj_locate", dd5Var.f).param("obj_param1", dd5Var.g).param(TiebaStatic.Params.OBJ_PARAM2, dd5Var.h).param("nid", dd5Var.a());
-            if (!TextUtils.isEmpty(dd5Var.b())) {
-                statisticItem.param("obj_id", dd5Var.b());
+            statisticItem.param("fid", ed5Var.a).param("tid", ed5Var.b).param("uid", ed5Var.c).param("obj_type", ed5Var.d).param("obj_source", ed5Var.e).param("obj_locate", ed5Var.f).param("obj_param1", ed5Var.g).param(TiebaStatic.Params.OBJ_PARAM2, ed5Var.h).param("nid", ed5Var.a());
+            if (!TextUtils.isEmpty(ed5Var.b())) {
+                statisticItem.param("obj_id", ed5Var.b());
             }
             TiebaStatic.log(statisticItem);
         }
@@ -1149,7 +1149,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             for (int i2 = 0; i2 < this.I.size(); i2++) {
-                pg.h().d(this.I.get(i2), 20, this.J);
+                qg.h().d(this.I.get(i2), 20, this.J);
             }
         }
     }
@@ -1171,7 +1171,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             this.C = context;
             this.s = new ArrayList();
             this.t = new ArrayList();
-            this.F = new kg<>(new b(this), 3, 0);
+            this.F = new lg<>(new b(this), 3, 0);
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.emotion_tab_content, (ViewGroup) this, true);
             ViewPager viewPager = (ViewPager) findViewById(R.id.face_tab_viewpager);
@@ -1222,7 +1222,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         }
     }
 
-    public void O(List<ni5> list, int i2) {
+    public void O(List<ri5> list, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048585, this, list, i2) != null) || list == null) {
             return;
@@ -1245,7 +1245,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     }
 
     public final void I(int i2) {
-        List<nx6> list;
+        List<sx6> list;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048579, this, i2) != null) || (list = this.t) == null) {
             return;
@@ -1253,9 +1253,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         int size = list.size();
         if (i2 >= 0 && i2 < size) {
             for (int i3 = 0; i3 < size; i3++) {
-                nx6 nx6Var = this.t.get(i3);
-                if (nx6Var != null && nx6Var.g() == i2) {
-                    this.y = nx6Var.d();
+                sx6 sx6Var = this.t.get(i3);
+                if (sx6Var != null && sx6Var.g() == i2) {
+                    this.y = sx6Var.d();
                     return;
                 }
             }
@@ -1271,9 +1271,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 int i4 = 0;
                 while (true) {
                     if (i4 < size) {
-                        nx6 nx6Var = this.t.get(i4);
-                        if (nx6Var != null && nx6Var.g() == i2) {
-                            i3 = nx6Var.d();
+                        sx6 sx6Var = this.t.get(i4);
+                        if (sx6Var != null && sx6Var.g() == i2) {
+                            i3 = sx6Var.d();
                             break;
                         }
                         i4++;
@@ -1287,7 +1287,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         }
     }
 
-    public final void J(List<ni5> list) {
+    public final void J(List<ri5> list) {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
@@ -1298,41 +1298,41 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 this.s.addAll(list);
                 int size = list.size();
                 for (int i4 = 0; i4 < size; i4++) {
-                    ni5 ni5Var = list.get(i4);
-                    if (ni5Var != null) {
-                        int c2 = ni5Var.c();
-                        int a2 = ni5Var.a();
-                        int k = ni5Var.k();
+                    ri5 ri5Var = list.get(i4);
+                    if (ri5Var != null) {
+                        int c2 = ri5Var.c();
+                        int a2 = ri5Var.a();
+                        int k = ri5Var.k();
                         int i5 = a2 * k;
                         int i6 = c2 / i5;
                         if (c2 % i5 != 0) {
                             i6++;
                         }
                         for (int i7 = 0; i7 < i6; i7++) {
-                            nx6 nx6Var = new nx6();
+                            sx6 sx6Var = new sx6();
                             int i8 = i6 - 1;
                             if (i7 < i8) {
                                 i2 = i5;
                             } else {
                                 i2 = c2 - (i8 * i5);
                             }
-                            nx6Var.u(ni5Var);
-                            nx6Var.r(i4);
-                            nx6Var.m(ni5Var.h());
-                            nx6Var.s(k);
-                            nx6Var.k(a2);
-                            nx6Var.q(i6);
-                            nx6Var.p(i7);
-                            nx6Var.l(i2);
-                            nx6Var.t(i7 * a2 * k);
-                            nx6Var.n((i3 + i2) - 1);
-                            this.t.add(nx6Var);
+                            sx6Var.u(ri5Var);
+                            sx6Var.r(i4);
+                            sx6Var.m(ri5Var.h());
+                            sx6Var.s(k);
+                            sx6Var.k(a2);
+                            sx6Var.q(i6);
+                            sx6Var.p(i7);
+                            sx6Var.l(i2);
+                            sx6Var.t(i7 * a2 * k);
+                            sx6Var.n((i3 + i2) - 1);
+                            this.t.add(sx6Var);
                         }
                     }
                 }
                 this.u = this.t.size();
                 for (int i9 = 0; i9 < this.u; i9++) {
-                    List<nx6> list2 = this.t;
+                    List<sx6> list2 = this.t;
                     if (list2 != null && list2.get(i9) != null) {
                         this.t.get(i9).o(i9);
                     }
@@ -1373,7 +1373,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     }
                 }
             }
-            wg.a().postDelayed(new e(this), 300L);
+            xg.a().postDelayed(new e(this), 300L);
         }
     }
 
@@ -1404,11 +1404,11 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             this.D = i2;
             i iVar = (i) gridView.getAdapter();
             if (iVar != null && iVar.a() != null) {
-                nx6 a2 = iVar.a();
+                sx6 a2 = iVar.a();
                 String b2 = a2.j().b(iVar.b() + i2);
                 if (b2 == null) {
                     DefaultLog.getInstance().b("EmotionTabContentView", "EmotionTabContentView showFloatView getEmotionSharpText key is null, pos=" + i2);
-                } else if (a2.c() == EmotionGroupType.USER_COLLECT && yl5.f.equals(b2)) {
+                } else if (a2.c() == EmotionGroupType.USER_COLLECT && cm5.f.equals(b2)) {
                 } else {
                     if (a2.c() == EmotionGroupType.USER_DIY && "#(meme,diysetting)".equals(b2)) {
                         return;
@@ -1429,9 +1429,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     this.h.b(z);
                     this.h.c(gifInfo);
                     this.E.clear();
-                    String b3 = eo5.b.b(b2);
+                    String b3 = io5.b.b(b2);
                     this.E.put("pid", b3);
-                    this.E.put("filePath", TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + yl5.c() + "/" + b3 + "_s.jpg");
+                    this.E.put("filePath", TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + cm5.c() + "/" + b3 + "_s.jpg");
                     this.E.put("sharpText", b2);
                     this.E.put("uid", TbadkCoreApplication.getCurrentAccount());
                     LinearLayout linearLayout = (LinearLayout) gridView.getChildAt(i2 - gridView.getFirstVisiblePosition());
@@ -1559,21 +1559,21 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             }
             int size = this.t.size();
             if (i2 >= 0 && i2 < size) {
-                nx6 nx6Var = this.t.get(i2);
-                this.r = nx6Var;
+                sx6 sx6Var = this.t.get(i2);
+                this.r = sx6Var;
                 IndicatorView indicatorView = this.d;
-                if (indicatorView != null && nx6Var != null) {
+                if (indicatorView != null && sx6Var != null) {
                     if (this.w != i2) {
                         this.w = i2;
-                        if (nx6Var.f() > 1) {
+                        if (sx6Var.f() > 1) {
                             i4 = 0;
                         } else {
                             i4 = 4;
                         }
                         indicatorView.setVisibility(i4);
                         this.d.setCount(this.r.f());
-                        nx6 nx6Var2 = this.r;
-                        if (nx6Var2 != null && nx6Var2.g() != this.v) {
+                        sx6 sx6Var2 = this.r;
+                        if (sx6Var2 != null && sx6Var2.g() != this.v) {
                             this.v = this.r.g();
                             j jVar = this.x;
                             if (jVar != null) {
@@ -1588,26 +1588,26 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     this.d.setPosition(e2);
                     StringBuilder sb = new StringBuilder();
                     int i6 = ((int) e2) + 1;
-                    sb.append(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0645), Integer.valueOf(i6)));
-                    sb.append(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0644), Integer.valueOf(this.r.f())));
+                    sb.append(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0646), Integer.valueOf(i6)));
+                    sb.append(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0645), Integer.valueOf(this.r.f())));
                     this.e.setContentDescription(sb.toString());
-                    dd5 dd5Var = new dd5();
-                    dd5Var.a = this.A.getFid();
-                    dd5Var.b = this.A.getTid();
-                    dd5Var.d = this.r.g() + 1;
-                    dd5Var.f = this.r.b();
-                    dd5Var.h = i6;
-                    dd5Var.e = 0;
+                    ed5 ed5Var = new ed5();
+                    ed5Var.a = this.A.getFid();
+                    ed5Var.b = this.A.getTid();
+                    ed5Var.d = this.r.g() + 1;
+                    ed5Var.f = this.r.b();
+                    ed5Var.h = i6;
+                    ed5Var.e = 0;
                     if (this.A.a.getBarLauncherType() == 3) {
-                        dd5Var.e = 1;
+                        ed5Var.e = 1;
                     } else if (this.A.a.getBarLauncherType() == 2) {
-                        dd5Var.e = 2;
+                        ed5Var.e = 2;
                     } else if (this.A.a.getBarLauncherType() == 7) {
-                        dd5Var.e = 3;
+                        ed5Var.e = 3;
                     }
-                    dd5Var.c = TbadkCoreApplication.getCurrentAccount();
-                    dd5Var.c(this.r.j(), null);
-                    F(dd5Var, "c14124");
+                    ed5Var.c = TbadkCoreApplication.getCurrentAccount();
+                    ed5Var.c(this.r.j(), null);
+                    F(ed5Var, "c14124");
                 }
             }
         }

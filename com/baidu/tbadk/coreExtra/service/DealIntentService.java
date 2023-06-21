@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.i95;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.j95;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -175,7 +175,7 @@ public class DealIntentService extends BdBaseService {
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!ui.isEmpty(stringExtra2) && j == 0) {
+                if (!vi.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {
@@ -235,7 +235,7 @@ public class DealIntentService extends BdBaseService {
                 }
                 if (g9.f().b() != null) {
                     if (5 == this.a.getIntExtra("class", -1)) {
-                        if (g9.f().b().getClass().getName().equalsIgnoreCase(i95.c())) {
+                        if (g9.f().b().getClass().getName().equalsIgnoreCase(j95.c())) {
                             this.a.putExtra("class", 5);
                         } else {
                             this.a.putExtra("class", 21);

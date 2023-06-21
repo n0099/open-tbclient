@@ -1,34 +1,62 @@
 package com.baidu.tieba;
 
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetMoreMsg.MsgContent;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.yy.gslbsdk.db.DelayTB;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class zo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public String k;
-    public long l;
-    public long m;
-    public boolean n;
-    public boolean o;
-    public int p;
-    public String q;
-    public String r;
-    public long s;
-    public long t;
+    public List<a> b;
+
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public long b;
+        public long c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                this.a = jSONObject.optInt("style");
+                long optLong = jSONObject.optLong(DelayTB.DELAY);
+                this.b = optLong;
+                if (optLong < 0) {
+                    this.b = 0L;
+                }
+                this.c = jSONObject.optLong("duration");
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
 
     public zo9() {
         Interceptable interceptable = $ic;
@@ -40,43 +68,29 @@ public class zo9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = "";
     }
 
-    public zo9(MsgContent msgContent) {
+    public static zo9 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {msgContent};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            zo9 zo9Var = new zo9();
+            zo9Var.a = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
+            JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+            zo9Var.b = new ArrayList();
+            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
+                List<a> list = zo9Var.b;
+                a aVar = new a();
+                aVar.a(optJSONArray.optJSONObject(i));
+                list.add(aVar);
+            }
+            return zo9Var;
         }
-        this.k = "";
-        this.d = msgContent.title;
-        this.q = msgContent.url;
-        this.f = msgContent.src;
-        this.e = msgContent.text;
-        a(this);
-    }
-
-    public static void a(zo9 zo9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, zo9Var) == null) {
-            zo9Var.i = 0;
-            zo9Var.g = 4;
-            zo9Var.h = 4;
-            zo9Var.l = System.currentTimeMillis();
-            zo9Var.n = true;
-        }
+        return (zo9) invokeL.objValue;
     }
 }

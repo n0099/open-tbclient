@@ -9,12 +9,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b06;
 import com.baidu.tieba.g06;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.k56;
+import com.baidu.tieba.hn;
 import com.baidu.tieba.kg;
+import com.baidu.tieba.l06;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.p56;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,16 +27,16 @@ public class TbImageMemoryCache implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public static TbImageMemoryCache h;
     public transient /* synthetic */ FieldHolder $fh;
-    public jg<String, gn> a;
-    public jg<String, gn> b;
-    public k56<String, gn> c;
-    public jg<String, Bitmap> d;
-    public jg<String, gn> e;
-    public kg<b06> f;
-    public g06 g;
+    public kg<String, hn> a;
+    public kg<String, hn> b;
+    public p56<String, hn> c;
+    public kg<String, Bitmap> d;
+    public kg<String, hn> e;
+    public lg<g06> f;
+    public l06 g;
 
     /* loaded from: classes4.dex */
-    public class a extends jg<String, gn> {
+    public class a extends kg<String, hn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,18 +61,18 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jg
+        @Override // com.baidu.tieba.kg
         /* renamed from: o */
-        public void b(boolean z, String str, gn gnVar, gn gnVar2) {
+        public void b(boolean z, String str, hn hnVar, hn hnVar2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, gnVar, gnVar2}) == null) && gnVar != null) {
-                gnVar.x();
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, hnVar, hnVar2}) == null) && hnVar != null) {
+                hnVar.x();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends jg<String, gn> {
+    public class b extends kg<String, hn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageMemoryCache h;
@@ -99,14 +99,14 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jg
+        @Override // com.baidu.tieba.kg
         /* renamed from: p */
-        public int m(String str, gn gnVar) {
+        public int m(String str, hn hnVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, gnVar)) == null) {
-                if (gnVar != null) {
-                    return gnVar.B();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, hnVar)) == null) {
+                if (hnVar != null) {
+                    return hnVar.B();
                 }
                 return 0;
             }
@@ -114,19 +114,19 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jg
+        @Override // com.baidu.tieba.kg
         /* renamed from: o */
-        public void b(boolean z, String str, gn gnVar, gn gnVar2) {
+        public void b(boolean z, String str, hn hnVar, hn hnVar2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, gnVar, gnVar2}) == null) && gnVar != null && !this.h.c.b(str)) {
-                gnVar.x();
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, hnVar, hnVar2}) == null) && hnVar != null && !this.h.c.b(str)) {
+                hnVar.x();
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016308, str));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends jg<String, Bitmap> {
+    public class c extends kg<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -151,7 +151,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jg
+        @Override // com.baidu.tieba.kg
         /* renamed from: o */
         public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
             Interceptable interceptable = $ic;
@@ -196,10 +196,10 @@ public class TbImageMemoryCache implements LifecycleObserver {
     }
 
     public void H() {
-        kg<b06> kgVar;
+        lg<g06> lgVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (kgVar = this.f) != null) {
-            kgVar.g(0);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (lgVar = this.f) != null) {
+            lgVar.g(0);
             this.f.f(0);
             this.f.c();
             this.f = null;
@@ -241,13 +241,13 @@ public class TbImageMemoryCache implements LifecycleObserver {
         this.d = null;
         this.e = null;
         this.a = new a(this, 0);
-        this.c = new k56<>();
+        this.c = new p56<>();
         this.b = new b(this, 0);
         this.d = new c(this, 0);
-        this.e = new jg<>(Integer.MAX_VALUE);
+        this.e = new kg<>(Integer.MAX_VALUE);
     }
 
-    public gn D(String str) {
+    public hn D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -256,7 +256,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
             }
             return this.e.f(str);
         }
-        return (gn) invokeL.objValue;
+        return (hn) invokeL.objValue;
     }
 
     public void I(int i) {
@@ -280,17 +280,17 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
     }
 
-    public final gn p(String str) {
+    public final hn p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            gn f = this.b.f(str);
+            hn f = this.b.f(str);
             if (f != null && f.w()) {
                 d(str, f);
             }
             return f;
         }
-        return (gn) invokeL.objValue;
+        return (hn) invokeL.objValue;
     }
 
     public void q(String str) {
@@ -328,49 +328,49 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (Bitmap) invokeL.objValue;
     }
 
-    public gn v(String str) {
+    public hn v(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
             return this.a.f(str);
         }
-        return (gn) invokeL.objValue;
+        return (hn) invokeL.objValue;
     }
 
-    public gn z(String str) {
+    public hn z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-            gn c2 = this.c.c(str);
+            hn c2 = this.c.c(str);
             if (c2 != null && c2.w()) {
                 return c2;
             }
             return p(str);
         }
-        return (gn) invokeL.objValue;
+        return (hn) invokeL.objValue;
     }
 
-    public kg<b06> E(int i) {
+    public lg<g06> E(int i) {
         InterceptResult invokeI;
-        g06 g06Var;
+        l06 l06Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (this.f != null && (g06Var = this.g) != null) {
-                if (g06Var.g() == i) {
+            if (this.f != null && (l06Var = this.g) != null) {
+                if (l06Var.g() == i) {
                     return this.f;
                 }
                 this.g.j(i);
                 this.f.c();
             }
             if (this.g == null) {
-                this.g = new g06(i);
+                this.g = new l06(i);
             }
             if (this.f == null) {
-                this.f = new kg<>(this.g, 6, 0);
+                this.f = new lg<>(this.g, 6, 0);
             }
             return this.f;
         }
-        return (kg) invokeI.objValue;
+        return (lg) invokeI.objValue;
     }
 
     public void G(int i, int i2) {
@@ -382,10 +382,10 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
     }
 
-    public final void d(String str, gn gnVar) {
+    public final void d(String str, hn hnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, gnVar) == null) {
-            this.c.d(str, gnVar);
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, hnVar) == null) {
+            this.c.d(str, hnVar);
         }
     }
 
@@ -396,27 +396,27 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
     }
 
-    public void g(String str, gn gnVar) {
+    public void g(String str, hn hnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, gnVar) == null) {
-            j(str, gnVar, false);
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, hnVar) == null) {
+            j(str, hnVar, false);
         }
     }
 
-    public void l(String str, gn gnVar) {
-        jg<String, gn> jgVar;
+    public void l(String str, hn hnVar) {
+        kg<String, hn> kgVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, gnVar) == null) && gnVar != null && (jgVar = this.b) != null) {
-            jgVar.h(str, gnVar);
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, hnVar) == null) && hnVar != null && (kgVar = this.b) != null) {
+            kgVar.h(str, hnVar);
             p(str);
         }
     }
 
-    public void m(String str, gn gnVar) {
-        jg<String, gn> jgVar;
+    public void m(String str, hn hnVar) {
+        kg<String, hn> kgVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, str, gnVar) == null) && gnVar != null && (jgVar = this.e) != null) {
-            jgVar.h(str, gnVar);
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, str, hnVar) == null) && hnVar != null && (kgVar = this.e) != null) {
+            kgVar.h(str, hnVar);
         }
     }
 
@@ -429,11 +429,11 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (String) invokeV.objValue;
     }
 
-    public void j(String str, gn gnVar, boolean z) {
-        jg<String, gn> jgVar;
+    public void j(String str, hn hnVar, boolean z) {
+        kg<String, hn> kgVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048588, this, str, gnVar, z) == null) && gnVar != null && (jgVar = this.a) != null) {
-            jgVar.h(str, gnVar);
+        if ((interceptable == null || interceptable.invokeLLZ(1048588, this, str, hnVar, z) == null) && hnVar != null && (kgVar = this.a) != null) {
+            kgVar.h(str, hnVar);
         }
     }
 

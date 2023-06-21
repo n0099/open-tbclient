@@ -1,140 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.List;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.OnErrorThrowable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes8.dex */
-public final class zmb {
+public abstract class zmb implements bnb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Throwable th, Throwable th2) {
+    @Override // com.baidu.tieba.bnb
+    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, pnb pnbVar, wnb wnbVar) throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
-            HashSet hashSet = new HashSet();
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return;
-                }
-                th = th.getCause();
-                if (!hashSet.contains(th.getCause())) {
-                    hashSet.add(th.getCause());
-                    i = i2;
-                }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, pnbVar, wnbVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.bnb
+    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, pnb pnbVar) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, pnbVar) == null) {
+        }
+    }
+
+    @Deprecated
+    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
+
+    @Override // com.baidu.tieba.bnb
+    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
+        }
+    }
+
+    public zmb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            try {
-                th.initCause(th2);
-            } catch (Throwable unused) {
-            }
         }
     }
 
-    public static Throwable b(Throwable th) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bnb
+    public xnb onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, pnb pnbVar) throws InvalidDataException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return new RuntimeException("Stack too deep to get final cause");
-                }
-                th = th.getCause();
-                i = i2;
-            }
-            return th;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, pnbVar)) == null) {
+            return new tnb();
         }
-        return (Throwable) invokeL.objValue;
+        return (xnb) invokeLLL.objValue;
     }
 
-    public static RuntimeException c(Throwable th) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bnb
+    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
-                }
-                throw new RuntimeException(th);
-            }
-            throw ((RuntimeException) th);
-        }
-        return (RuntimeException) invokeL.objValue;
-    }
-
-    public static void d(List<? extends Throwable> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, list) == null) && list != null && !list.isEmpty()) {
-            if (list.size() == 1) {
-                Throwable th = list.get(0);
-                if (!(th instanceof RuntimeException)) {
-                    if (th instanceof Error) {
-                        throw ((Error) th);
-                    }
-                    throw new RuntimeException(th);
-                }
-                throw ((RuntimeException) th);
-            }
-            throw new CompositeException(list);
-        }
-    }
-
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof OnErrorNotImplementedException)) {
-                if (!(th instanceof OnErrorFailedException)) {
-                    if (!(th instanceof OnCompletedFailedException)) {
-                        if (!(th instanceof VirtualMachineError)) {
-                            if (!(th instanceof ThreadDeath)) {
-                                if (!(th instanceof LinkageError)) {
-                                    return;
-                                }
-                                throw ((LinkageError) th);
-                            }
-                            throw ((ThreadDeath) th);
-                        }
-                        throw ((VirtualMachineError) th);
-                    }
-                    throw ((OnCompletedFailedException) th);
-                }
-                throw ((OnErrorFailedException) th);
-            }
-            throw ((OnErrorNotImplementedException) th);
-        }
-    }
-
-    public static void f(Throwable th, omb<?> ombVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, ombVar) == null) {
-            e(th);
-            ombVar.onError(th);
-        }
-    }
-
-    public static void g(Throwable th, omb<?> ombVar, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, th, ombVar, obj) == null) {
-            e(th);
-            ombVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
-    }
-
-    public static void h(Throwable th, smb<?> smbVar, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, th, smbVar, obj) == null) {
-            e(th);
-            smbVar.b(OnErrorThrowable.addValueAsLastCause(th, obj));
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
+            webSocket.sendFrame(new nnb((mnb) framedata));
         }
     }
 }

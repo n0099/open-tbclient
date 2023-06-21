@@ -10,13 +10,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hf8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.TaskInfo;
-import com.baidu.tieba.iw5;
-import com.baidu.tieba.l17;
+import com.baidu.tieba.nw5;
+import com.baidu.tieba.q17;
+import com.baidu.tieba.xf8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,16 +32,16 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
     public static final BdUniqueId ADAPTER_TYPE;
     public static final int MSG_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    @iw5(serialize = false)
+    @nw5(serialize = false)
     public CharSequence cacheText;
-    @iw5(serialize = false)
+    @nw5(serialize = false)
     public boolean mIsRobotGuideMsg;
     @Nullable
     @SerializedName("robot_params")
     public Map<String, Object> robotParams;
-    @iw5(serialize = false)
+    @nw5(serialize = false)
     public String text;
-    @iw5(serialize = false)
+    @nw5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -65,7 +65,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
     }
 
     /* loaded from: classes6.dex */
-    public class a implements l17.i {
+    public class a implements q17.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TextMsg a;
@@ -88,7 +88,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
             this.a = textMsg;
         }
 
-        @Override // com.baidu.tieba.l17.i
+        @Override // com.baidu.tieba.q17.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) && this.a.thumbnailText.length() <= 0) {
@@ -159,7 +159,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.vn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -258,7 +258,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
                 return spannableStringBuilder;
             }
             this.thumbnailText = new SpannableStringBuilder();
-            l17.e(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
+            q17.e(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
             if (this.thumbnailText.length() <= 0) {
                 this.thumbnailText.append((CharSequence) this.text);
             }
@@ -278,7 +278,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
                 return null;
             }
             String originMsgKey = taskInfo.getOriginMsgKey();
-            if (TextUtils.isEmpty(originMsgKey) || !taskInfo.isComplete() || !getCommonMsgField().compareVersion() || !hf8.a.a(taskInfo.getTaskType())) {
+            if (TextUtils.isEmpty(originMsgKey) || !taskInfo.isComplete() || !getCommonMsgField().compareVersion() || !xf8.a.a(taskInfo.getTaskType())) {
                 return null;
             }
             return Action.a(taskInfo.getOriginMsgId(), originMsgKey, Action.Op.DELETE, null);

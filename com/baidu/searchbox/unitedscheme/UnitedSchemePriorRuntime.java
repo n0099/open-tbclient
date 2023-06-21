@@ -3,23 +3,23 @@ package com.baidu.searchbox.unitedscheme;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor_UnitedSchemePriorRuntime_ListProvider;
-import com.baidu.tieba.el1;
-import com.baidu.tieba.gl1;
+import com.baidu.tieba.fl1;
+import com.baidu.tieba.hl1;
 /* loaded from: classes4.dex */
 public class UnitedSchemePriorRuntime {
     @Inject(force = false)
-    public gl1<UnitedSchemeBaseInterceptor> sInterceptChainList;
+    public hl1<UnitedSchemeBaseInterceptor> sInterceptChainList;
     @Inject(force = false)
-    public gl1<UnitedSchemeBasePriorDispatcher> sPriorSubDispatchersList;
+    public hl1<UnitedSchemeBasePriorDispatcher> sPriorSubDispatchersList;
 
     public void initsInterceptChainList() {
-        el1 b = el1.b();
+        fl1 b = fl1.b();
         this.sInterceptChainList = b;
         b.a(new UnitedSchemeBaseInterceptor_UnitedSchemePriorRuntime_ListProvider());
     }
 
     public void initsPriorSubDispatchersList() {
-        el1 b = el1.b();
+        fl1 b = fl1.b();
         this.sPriorSubDispatchersList = b;
         b.a(new UnitedSchemeBasePriorDispatcher_UnitedSchemePriorRuntime_ListProvider());
     }

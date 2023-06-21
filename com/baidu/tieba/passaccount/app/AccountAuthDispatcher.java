@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.account.certification.CertificationRequestParams;
 import com.baidu.tbadk.core.account.certification.ICertificationCallback;
 import com.baidu.tbadk.core.account.certification.ICheckCertificationCallback;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.lq9;
 import com.baidu.tieba.t05;
-import com.baidu.tieba.to9;
+import com.baidu.tieba.u05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class AccountAuthDispatcher implements to9 {
+public class AccountAuthDispatcher implements lq9 {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, Integer> STATUS;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,12 +62,12 @@ public class AccountAuthDispatcher implements to9 {
         }
 
         @Override // com.baidu.tbadk.core.account.certification.ICheckCertificationCallback
-        public void onResult(@Nullable s05 s05Var) {
+        public void onResult(@Nullable t05 t05Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, s05Var) != null) || s05Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, t05Var) != null) || t05Var == null) {
                 return;
             }
-            if (!AccountAuthDispatcher.STATUS.containsKey(s05Var.b) || ((Integer) AccountAuthDispatcher.STATUS.get(s05Var.b)).intValue() < this.a) {
+            if (!AccountAuthDispatcher.STATUS.containsKey(t05Var.b) || ((Integer) AccountAuthDispatcher.STATUS.get(t05Var.b)).intValue() < this.a) {
                 this.d.launchRealName(this.b, this.c);
             } else {
                 this.d.dealOneLink(this.b, this.c);
@@ -104,18 +104,18 @@ public class AccountAuthDispatcher implements to9 {
         }
 
         @Override // com.baidu.tbadk.core.account.certification.ICertificationCallback
-        public void onResult(t05 t05Var) {
+        public void onResult(u05 u05Var) {
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, t05Var) != null) || t05Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, u05Var) != null) || u05Var == null) {
                 return;
             }
-            if (t05Var.a == 0) {
+            if (u05Var.a == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (!z || !t05Var.f) {
+            if (!z || !u05Var.f) {
                 return;
             }
             this.c.dealOneLink(this.a, this.b);
@@ -170,7 +170,7 @@ public class AccountAuthDispatcher implements to9 {
         }
     }
 
-    @Override // com.baidu.tieba.to9
+    @Override // com.baidu.tieba.lq9
     public void dispatch(JSONObject jSONObject, Context context) {
         String str;
         int i;

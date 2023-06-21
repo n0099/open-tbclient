@@ -1,255 +1,210 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.X509TrustManager;
 /* loaded from: classes6.dex */
-public final class ldb<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
+public class ldb extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
+    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<M> a;
-    public final Class<B> b;
-    public final Map<Integer, gdb<M, B>> c;
+    public SSLContext a;
+    public SSLSocket b;
+    public Context c;
+    public String[] d;
+    public String[] e;
+    public String[] f;
+    public String[] g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ldb(Class<M> cls, Class<B> cls2, Map<Integer, gdb<M, B>> map) {
-        super(FieldEncoding.LENGTH_DELIMITED, cls);
+    public void b(X509TrustManager x509TrustManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509TrustManager) == null) {
+        }
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getDefaultCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947940447, "Lcom/baidu/tieba/ldb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947940447, "Lcom/baidu/tieba/ldb;");
+                return;
+            }
+        }
+        h = ldb.class.getSimpleName();
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getSupportedCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String[] strArr = this.d;
+            if (strArr != null) {
+                return strArr;
+            }
+            return new String[0];
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public ldb(X509TrustManager x509TrustManager) throws NoSuchAlgorithmException, KeyManagementException, IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, map};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {x509TrustManager};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = cls;
-        this.b = cls2;
-        this.c = map;
+        this.a = null;
+        this.b = null;
+        this.a = jdb.f();
+        b(x509TrustManager);
+        this.a.init(null, new X509TrustManager[]{x509TrustManager}, null);
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> ldb<M, B> a(Class<M> cls) {
-        InterceptResult invokeL;
-        Field[] declaredFields;
+    public final void a(Socket socket) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            Class e = e(cls);
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (Field field : cls.getDeclaredFields()) {
-                WireField wireField = (WireField) field.getAnnotation(WireField.class);
-                if (wireField != null) {
-                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new gdb(wireField, field, e));
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, socket) == null) {
+            boolean z2 = true;
+            if (!sdb.a(this.g)) {
+                wdb.e(h, "set protocols");
+                jdb.e((SSLSocket) socket, this.g);
+                z = true;
+            } else {
+                z = false;
             }
-            return new ldb<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
-        }
-        return (ldb) invokeL.objValue;
-    }
-
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            try {
-                return (Class<B>) Class.forName(cls.getName() + "$Builder");
-            } catch (ClassNotFoundException unused) {
-                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
-            }
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: d */
-    public int encodedSize(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
-            int i = m.cachedSerializedSize;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = 0;
-            for (gdb<M, B> gdbVar : this.c.values()) {
-                Object b = gdbVar.b(m);
-                if (b != null) {
-                    i2 += gdbVar.a().encodedSizeWithTag(gdbVar.c, b);
-                }
-            }
-            int size = i2 + m.unknownFields().size();
-            m.cachedSerializedSize = size;
-            return size;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public M decode(idb idbVar) throws IOException {
-        InterceptResult invokeL;
-        ProtoAdapter<?> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, idbVar)) == null) {
-            B f = f();
-            long c = idbVar.c();
-            while (true) {
-                int f2 = idbVar.f();
-                if (f2 != -1) {
-                    gdb<M, B> gdbVar = this.c.get(Integer.valueOf(f2));
-                    if (gdbVar != null) {
-                        try {
-                            if (gdbVar.f()) {
-                                i = gdbVar.a();
-                            } else {
-                                i = gdbVar.i();
-                            }
-                            gdbVar.j(f, i.decode(idbVar));
-                        } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                            f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
-                        }
-                    } else {
-                        FieldEncoding g = idbVar.g();
-                        f.addUnknownField(f2, g, g.rawProtoAdapter().decode(idbVar));
-                    }
+            if (sdb.a(this.f) && sdb.a(this.e)) {
+                z2 = false;
+            } else {
+                wdb.e(h, "set white cipher or black cipher");
+                SSLSocket sSLSocket = (SSLSocket) socket;
+                jdb.d(sSLSocket);
+                if (!sdb.a(this.f)) {
+                    jdb.h(sSLSocket, this.f);
                 } else {
-                    idbVar.d(c);
-                    return (M) f.build();
+                    jdb.b(sSLSocket, this.e);
                 }
             }
-        } else {
-            return (M) invokeL.objValue;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: h */
-    public String toString(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (gdb<M, B> gdbVar : this.c.values()) {
-                Object b = gdbVar.b(m);
-                if (b != null) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(gdbVar.b);
-                    sb.append('=');
-                    if (gdbVar.f) {
-                        b = "██";
-                    }
-                    sb.append(b);
-                }
+            if (!z) {
+                wdb.e(h, "set default protocols");
+                jdb.d((SSLSocket) socket);
             }
-            sb.replace(0, 2, this.a.getSimpleName() + '{');
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public void encode(jdb jdbVar, M m) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jdbVar, m) == null) {
-            for (gdb<M, B> gdbVar : this.c.values()) {
-                Object b = gdbVar.b(m);
-                if (b != null) {
-                    gdbVar.a().encodeWithTag(jdbVar, gdbVar.c, b);
-                }
-            }
-            jdbVar.k(m.unknownFields());
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if ((obj instanceof ldb) && ((ldb) obj).a == this.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public B f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.b.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new AssertionError(e);
+            if (!z2) {
+                wdb.e(h, "set default cipher suites");
+                jdb.c((SSLSocket) socket);
             }
         }
-        return (B) invokeV.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i) throws IOException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: g */
-    public M redact(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
-            Message.a<M, B> newBuilder = m.newBuilder();
-            for (gdb<M, B> gdbVar : this.c.values()) {
-                if (gdbVar.f && gdbVar.a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", gdbVar.b, this.javaType.getName()));
-                }
-                boolean isAssignableFrom = Message.class.isAssignableFrom(gdbVar.i().javaType);
-                if (!gdbVar.f && (!isAssignableFrom || gdbVar.a.isRepeated())) {
-                    if (isAssignableFrom && gdbVar.a.isRepeated()) {
-                        ndb.k((List) gdbVar.e(newBuilder), gdbVar.i());
-                    }
-                } else {
-                    Object e = gdbVar.e(newBuilder);
-                    if (e != null) {
-                        gdbVar.h(newBuilder, gdbVar.a().redact(e));
-                    }
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            wdb.e(h, "createSocket: host , port");
+            Socket createSocket = this.a.getSocketFactory().createSocket(str, i);
+            if (createSocket instanceof SSLSocket) {
+                a(createSocket);
+                SSLSocket sSLSocket = (SSLSocket) createSocket;
+                this.b = sSLSocket;
+                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
             }
-            newBuilder.clearUnknownFields();
-            return newBuilder.build();
+            return createSocket;
         }
-        return (M) invokeL.objValue;
+        return (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
+            return createSocket(str, i);
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i)) == null) {
+            return createSocket(inetAddress.getHostAddress(), i);
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
+            return createSocket(inetAddress.getHostAddress(), i);
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            wdb.e(h, "createSocket s host port autoClose");
+            Socket createSocket = this.a.getSocketFactory().createSocket(socket, str, i, z);
+            if (createSocket instanceof SSLSocket) {
+                a(createSocket);
+                SSLSocket sSLSocket = (SSLSocket) createSocket;
+                this.b = sSLSocket;
+                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+            }
+            return createSocket;
+        }
+        return (Socket) invokeCommon.objValue;
     }
 }

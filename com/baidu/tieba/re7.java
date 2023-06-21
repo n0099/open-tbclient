@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.view.NavigationBar;
+import tbclient.ItemInfo;
 /* loaded from: classes7.dex */
 public interface re7 {
-    NavigationBar n();
+    ItemInfo C0();
+
+    boolean M();
+
+    void p1(ItemInfo itemInfo);
 }

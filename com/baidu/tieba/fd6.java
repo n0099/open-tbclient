@@ -4,14 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
 
     public fd6() {
         Interceptable interceptable = $ic;
@@ -23,9 +20,22 @@ public class fd6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = false;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optLong("user_id");
+        jSONObject.optInt("sign_time");
+        jSONObject.optInt("cont_sign_num");
+        jSONObject.optInt("cout_total_sign_num");
+        jSONObject.optInt("total_resign_num");
+        jSONObject.optInt("miss_sign_num");
+        jSONObject.optInt("is_sign_in");
+        jSONObject.optInt("user_sign_rank");
     }
 }

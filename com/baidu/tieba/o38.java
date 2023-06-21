@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,25 +13,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.NewHottopic.DataRes;
-import tbclient.NewHottopic.RelateThread;
-import tbclient.NewHottopic.SpecialTopic;
-import tbclient.NewHottopic.TopicDetail;
-import tbclient.NewHottopic.TopicThread;
+import tbclient.ActivityPage.DataRes;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.ActivityPage.RecommendForumList;
+import tbclient.ActivityPage.RecommendUserList;
+import tbclient.ActivityPage.SpecialColumnList;
+import tbclient.BannerImage;
+import tbclient.Page;
 import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
 public class o38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public p38 e;
-    public List<vn> f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public boolean a;
+    public int b;
+    public ArrayList<ThreadData> c;
+    public w15 d;
+    public w25 e;
+    public z35 f;
+    public d45 g;
+    public p38 h;
+    public SpecialColumnListData i;
 
     public o38() {
         Interceptable interceptable = $ic;
@@ -43,105 +48,155 @@ public class o38 {
                 return;
             }
         }
-        this.i = false;
+        this.a = true;
+        this.b = 1;
     }
 
-    public boolean a() {
+    public w15 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (w15) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public w25 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (w25) invokeV.objValue;
+    }
+
+    public p38 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return (p38) invokeV.objValue;
+    }
+
+    public z35 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (z35) invokeV.objValue;
+    }
+
+    public d45 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (d45) invokeV.objValue;
+    }
+
+    public SpecialColumnListData g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.i;
+        }
+        return (SpecialColumnListData) invokeV.objValue;
+    }
+
+    public ArrayList<ThreadData> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public void b(DataRes dataRes) {
+    public void j(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        boolean z = false;
-        this.h = false;
-        TopicDetail topicDetail = dataRes.topic_info;
-        if (topicDetail != null) {
-            this.a = topicDetail.topic_id.longValue();
-            TopicDetail topicDetail2 = dataRes.topic_info;
-            this.b = topicDetail2.topic_name;
-            this.c = topicDetail2.share_title;
-            this.d = topicDetail2.share_pic;
+        Page page = dataRes.page_info;
+        if (page != null) {
+            this.b = page.current_page.intValue();
+            boolean z = true;
+            if (page.has_more.intValue() != 1) {
+                z = false;
+            }
+            this.a = z;
+        }
+        this.c = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        for (ThreadInfo threadInfo : dataRes.thread_list) {
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(threadInfo);
+            threadData.insertItemToTitleOrAbstractText();
+            this.c.add(threadData);
+        }
+        List<BannerImage> list = dataRes.banner_image;
+        if (!ListUtils.isEmpty(list)) {
+            w15 w15Var = new w15();
+            this.d = w15Var;
+            w15Var.parserProtobuf(list);
+        }
+        List<BannerImage> list2 = dataRes.grid;
+        if (ListUtils.getCount(list2) >= 4) {
+            w25 w25Var = new w25();
+            this.e = w25Var;
+            w25Var.parserProtobuf(list2);
+        }
+        RecommendForumList recommendForumList = dataRes.recommend_forum;
+        if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
+            z35 z35Var = new z35();
+            this.f = z35Var;
+            z35Var.f(recommendForumList.forum_list);
+            z35 z35Var2 = this.f;
+            z35Var2.f = recommendForumList.class_name;
+            z35Var2.floorPosition = recommendForumList.floor_position.intValue();
+            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11af);
+            this.f.e = R.color.CAM_X0108;
+        }
+        RecommendUserList recommendUserList = dataRes.recommend_user;
+        if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
+            d45 d45Var = new d45();
+            this.g = d45Var;
+            d45Var.d(recommendUserList.user_list);
+            this.g.floorPosition = recommendUserList.floor_position.intValue();
+            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11c6);
+            this.g.b = R.color.CAM_X0108;
+        }
+        HotTopic hotTopic = dataRes.hot_topic;
+        if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
             p38 p38Var = new p38();
-            this.e = p38Var;
-            p38Var.a(dataRes.topic_info);
-            if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                this.h = true;
-            }
+            this.h = p38Var;
+            p38Var.e(hotTopic);
         }
-        if (dataRes.pk_module != null) {
-            this.i = true;
-            this.h = true;
-            if (this.e == null) {
-                this.e = new p38();
-            }
-            this.e.b(dataRes.pk_module);
-        } else {
-            this.i = false;
-        }
-        if (dataRes.time_line != null) {
-            this.h = true;
-            if (this.e == null) {
-                this.e = new p38();
-            }
-            this.e.c(dataRes.time_line);
-        }
-        this.f = new ArrayList();
-        if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.h = true;
-            int i = 1;
-            for (SpecialTopic specialTopic : dataRes.special_topic) {
-                if (specialTopic != null && !ListUtils.isEmpty(specialTopic.thread_list)) {
-                    boolean z2 = false;
-                    for (ThreadInfo threadInfo : specialTopic.thread_list) {
-                        if (threadInfo != null) {
-                            r38 r38Var = new r38();
-                            if (!z2) {
-                                r38Var.a = true;
-                                r38Var.d = specialTopic.title;
-                                z2 = true;
-                            }
-                            r38Var.b = i;
-                            r38Var.c = this.a;
-                            r38Var.c(threadInfo);
-                            this.f.add(r38Var);
-                            i++;
-                        }
-                    }
-                }
-            }
-        }
-        if (this.h) {
-            f48 f48Var = new f48();
-            f48Var.a = R.dimen.tbds78;
-            f48Var.b = R.color.CAM_X0201;
-            this.f.add(f48Var);
-        }
-        RelateThread relateThread = dataRes.relate_thread;
-        if (relateThread != null && !ListUtils.isEmpty(relateThread.thread_list)) {
-            f48 f48Var2 = new f48();
-            f48Var2.a = R.dimen.tbds16;
-            this.f.add(f48Var2);
-            if (dataRes.relate_thread.has_more.intValue() == 1) {
-                z = true;
-            }
-            this.g = z;
-            for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
-                if (topicThread != null) {
-                    q38 q38Var = new q38();
-                    q38Var.c(topicThread);
-                    q38Var.c = this.a;
-                    q38Var.f = this.i;
-                    this.f.add(q38Var);
-                }
-            }
+        SpecialColumnList specialColumnList = dataRes.special_column;
+        if (specialColumnList != null && ListUtils.getCount(specialColumnList.item_list) >= 3) {
+            SpecialColumnListData specialColumnListData = new SpecialColumnListData();
+            this.i = specialColumnListData;
+            specialColumnListData.parserProtobuf(specialColumnList);
         }
     }
 }

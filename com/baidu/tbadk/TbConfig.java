@@ -17,9 +17,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ki;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.li;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1057,7 +1057,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(vi.l(context) * vi.j(context));
+        int sqrt = (int) Math.sqrt(wi.l(context) * wi.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1302,7 +1302,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return vi.g(TbadkCoreApplication.getInst().getContext(), i);
+            return wi.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1311,7 +1311,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            int d = vi.d(context, 427.0f);
+            int d = wi.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1399,11 +1399,11 @@ public class TbConfig {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float d = tg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
+            float d = ug.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
             if (d >= f3 && d <= f4) {
                 f2 = d;
             }
-            if (!ki.a()) {
+            if (!li.a()) {
                 return f2 * 0.5f;
             }
             return f2;

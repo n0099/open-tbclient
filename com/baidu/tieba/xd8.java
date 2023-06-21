@@ -1,131 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.ChatRoomInfoData;
-import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xd8 {
+public class xd8 extends ld8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public long c;
 
-    public static AtInfo a(@NonNull ChatRoomInfoData.AtInfoData atInfoData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ld8
+    public int getViewType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, atInfoData)) == null) {
-            AtInfo atInfo = new AtInfo();
-            atInfo.setAtCountAll(atInfoData.getAtCountAll());
-            atInfo.setAtAllMsgCount(atInfoData.getAtAllMsgCount());
-            atInfo.setAtSingleMsgCount(atInfoData.getAtSingleMsgCount());
-            atInfo.setAllMsgList(b(atInfoData.getAllMsgList()));
-            atInfo.setSingleMsgList(b(atInfoData.getAllSingleList()));
-            return atInfo;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 3;
         }
-        return (AtInfo) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static List<AtInfoMsg> b(List<ChatRoomInfoData.AtMsgBaseData> list) {
-        InterceptResult invokeL;
+    public xd8(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return Collections.emptyList();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList();
-            for (ChatRoomInfoData.AtMsgBaseData atMsgBaseData : list) {
-                if (atMsgBaseData != null) {
-                    AtInfoMsg atInfoMsg = new AtInfoMsg();
-                    atInfoMsg.setMsgId(atMsgBaseData.getMsgId());
-                    atInfoMsg.setMsgKey(atMsgBaseData.getMsgKey());
-                    arrayList.add(atInfoMsg);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        this.a = str;
+        this.b = str2;
+        this.c = j;
     }
 
-    @NonNull
-    public static List<ChatRoomInfo> c(List<ChatRoomInfoData> list) {
-        InterceptResult invokeL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return Collections.emptyList();
-            }
-            ArrayList arrayList = new ArrayList();
-            for (ChatRoomInfoData chatRoomInfoData : list) {
-                if (chatRoomInfoData != null) {
-                    ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
-                    chatRoomInfo.setRoomId(chatRoomInfoData.getRoomId());
-                    ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
-                    if (chatroomInfoBasicData != null) {
-                        chatRoomInfo.setForumId(String.valueOf(chatroomInfoBasicData.getForumId()));
-                        chatRoomInfo.setForumName(chatroomInfoBasicData.getForumName());
-                        chatRoomInfo.setName(chatroomInfoBasicData.getName());
-                        chatRoomInfo.setAvatar(chatroomInfoBasicData.getAvatar());
-                        chatRoomInfo.setUnreadNum(tg.e(chatroomInfoBasicData.getUnreadNum(), 0));
-                    }
-                    chatRoomInfo.setJumpUrl(chatRoomInfoData.getJumpUrl());
-                    if (chatRoomInfoData.getAtInfoData() != null) {
-                        chatRoomInfo.setAtInfo(a(chatRoomInfoData.getAtInfoData()));
-                    }
-                    arrayList.add(chatRoomInfo);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (List) invokeL.objValue;
+        return invokeV.longValue;
     }
 
-    public static void d(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatRoomInfoData chatRoomInfoData) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, chatRoomInfo, chatRoomInfoData) == null) {
-            ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
-            if (chatroomInfoBasicData != null) {
-                chatroomInfoBasicData.setUnreadNum(String.valueOf(chatRoomInfo.getUnreadNum()));
-            }
-            ChatRoomInfoData.ChatroomMEMsgInfoData chatroomMEMsgInfoData = chatRoomInfoData.getChatroomMEMsgInfoData();
-            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
-            if (chatroomMEMsgInfoData != null && newMessage != null) {
-                chatroomMEMsgInfoData.setFromUid(tg.g(newMessage.getFromUid(), 0L));
-                chatroomMEMsgInfoData.setFromName(newMessage.getFromName());
-                chatroomMEMsgInfoData.setContent(newMessage.getContent());
-                chatroomMEMsgInfoData.setMsgId(newMessage.getMsgId());
-                if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
-                    chatroomMEMsgInfoData.setSpecialMsg("[有人@我]");
-                } else {
-                    chatroomMEMsgInfoData.setSpecialMsg("");
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static String e(@NonNull TbPageContext<?> tbPageContext, String str, String str2) {
-        InterceptResult invokeLLL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2)) == null) {
-            String str3 = "";
-            if (!StringUtils.isNull(str)) {
-                str3 = "" + str + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0407);
-            }
-            if (!StringUtils.isNull(str2)) {
-                return str3 + str2;
-            }
-            return str3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (String) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

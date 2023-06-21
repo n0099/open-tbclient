@@ -117,7 +117,7 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.V = 1;
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090e85);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090e83);
             chatShareCard.setCurrentCardType((short) 32);
             return new ViewHolder(chatShareCard);
         }

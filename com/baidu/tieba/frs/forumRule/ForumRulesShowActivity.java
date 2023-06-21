@@ -19,16 +19,16 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
-import com.baidu.tieba.cj7;
+import com.baidu.tieba.aj7;
 import com.baidu.tieba.frs.forumRule.model.ForumRulesShowModel;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.r16;
-import com.baidu.tieba.ri7;
-import com.baidu.tieba.ti7;
-import com.baidu.tieba.ui7;
-import com.baidu.tieba.vi7;
+import com.baidu.tieba.hj7;
+import com.baidu.tieba.lg;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.festivalview.FestivalTipView;
+import com.baidu.tieba.w16;
+import com.baidu.tieba.wi7;
+import com.baidu.tieba.yi7;
+import com.baidu.tieba.zi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,18 +40,18 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumRulesShowModel a;
-    public cj7 b;
+    public hj7 b;
     public String c;
-    public ri7 d;
+    public wi7 d;
     public CustomMessageListener e;
 
-    public kg<LinearLayout> A() {
+    public lg<LinearLayout> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
     public int E() {
@@ -63,13 +63,13 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         return invokeV.intValue;
     }
 
-    public kg<TiebaPlusRecommendCard> G1() {
+    public lg<TiebaPlusRecommendCard> G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
     public void I(Context context, String str) {
@@ -84,40 +84,40 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
     }
 
-    public kg<RelativeLayout> S() {
+    public lg<RelativeLayout> S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
-    public kg<FestivalTipView> U() {
+    public lg<FestivalTipView> U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
-    public kg<ImageView> W() {
+    public lg<ImageView> W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
-    public kg<View> X() {
+    public lg<View> X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
     public void Y(Context context, String str) {
@@ -126,13 +126,13 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
     }
 
-    public kg<TextView> Z0() {
+    public lg<TextView> Z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
     public void e0(Context context, String str, String str2) {
@@ -162,26 +162,26 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
     }
 
-    public kg<ItemCardView> o0() {
+    public lg<ItemCardView> o0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
-    public kg<GifView> x() {
+    public lg<GifView> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return null;
         }
-        return (kg) invokeV.objValue;
+        return (lg) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements ri7 {
+    public class a implements wi7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRulesShowActivity a;
@@ -204,31 +204,31 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a = forumRulesShowActivity;
         }
 
-        @Override // com.baidu.tieba.ri7
-        public void a(ti7 ti7Var) {
+        @Override // com.baidu.tieba.wi7
+        public void a(yi7 yi7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, ti7Var) == null) && this.a.b != null) {
-                this.a.b.y(ti7Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, yi7Var) == null) && this.a.b != null) {
+                this.a.b.y(yi7Var);
             }
         }
 
-        @Override // com.baidu.tieba.ri7
-        public void b(List<vi7> list) {
+        @Override // com.baidu.tieba.wi7
+        public void b(List<aj7> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && this.a.b != null) {
                 this.a.b.z(list);
             }
         }
 
-        @Override // com.baidu.tieba.ri7
-        public void d(ui7 ui7Var) {
+        @Override // com.baidu.tieba.wi7
+        public void d(zi7 zi7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, ui7Var) == null) && this.a.b != null) {
-                this.a.b.x(ui7Var);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, zi7Var) == null) && this.a.b != null) {
+                this.a.b.x(zi7Var);
             }
         }
 
-        @Override // com.baidu.tieba.ri7
+        @Override // com.baidu.tieba.wi7
         public void e(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.a.b != null) {
@@ -236,7 +236,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ri7
+        @Override // com.baidu.tieba.wi7
         public void c(boolean z, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) != null) || this.a.b == null) {
@@ -249,7 +249,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ri7
+        @Override // com.baidu.tieba.wi7
         public void f() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.b != null) {
@@ -260,7 +260,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ri7
+        @Override // com.baidu.tieba.wi7
         public void finish() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a.b != null) {
@@ -304,9 +304,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof r16.a)) {
-                r16.a aVar = (r16.a) customResponsedMessage.getData();
-                r16.b(this.a.getPageContext(), aVar.a, aVar.b, aVar.c);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof w16.a)) {
+                w16.a aVar = (w16.a) customResponsedMessage.getData();
+                w16.b(this.a.getPageContext(), aVar.a, aVar.b, aVar.c);
             }
         }
     }
@@ -333,9 +333,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             super.onChangeSkinType(i);
-            cj7 cj7Var = this.b;
-            if (cj7Var != null) {
-                cj7Var.onChangeSkinType(i);
+            hj7 hj7Var = this.b;
+            if (hj7Var != null) {
+                hj7Var.onChangeSkinType(i);
             }
         }
     }
@@ -355,9 +355,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.c = str;
-            cj7 cj7Var = this.b;
-            if (cj7Var != null) {
-                cj7Var.setFrom(str);
+            hj7 hj7Var = this.b;
+            if (hj7Var != null) {
+                hj7Var.setFrom(str);
             }
         }
     }
@@ -391,9 +391,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("from");
             }
-            cj7 cj7Var = new cj7(this, this.c);
-            this.b = cj7Var;
-            cj7Var.N(getRefreshView());
+            hj7 hj7Var = new hj7(this, this.c);
+            this.b = hj7Var;
+            hj7Var.N(getRefreshView());
         }
     }
 
@@ -406,9 +406,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             if (forumRulesShowModel != null) {
                 forumRulesShowModel.destory();
             }
-            cj7 cj7Var = this.b;
-            if (cj7Var != null) {
-                cj7Var.B();
+            hj7 hj7Var = this.b;
+            if (hj7Var != null) {
+                hj7Var.B();
             }
         }
     }
@@ -431,13 +431,13 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
     }
 
-    public cj7 y1() {
+    public hj7 y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.b;
         }
-        return (cj7) invokeV.objValue;
+        return (hj7) invokeV.objValue;
     }
 
     public void Z(Context context, String str, boolean z) {

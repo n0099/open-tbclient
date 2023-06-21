@@ -1,10 +1,10 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.gub;
+import com.baidu.tieba.zvb;
 @Keep
 /* loaded from: classes2.dex */
-public class PayFinishInfo extends gub {
+public class PayFinishInfo extends zvb {
     public int code;
     public String message;
     public int step;

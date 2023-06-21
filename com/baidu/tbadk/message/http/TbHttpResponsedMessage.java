@@ -6,12 +6,14 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.BdAlertData;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
+import com.baidu.tbadk.core.util.TBAlertBuilderHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.wf;
 import com.baidu.tieba.xf;
+import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,18 +89,18 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, xf xfVar) {
+    public void logStatInBackground(int i, yf yfVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, xfVar) == null) && xfVar.d().size() > 0) {
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, yfVar) == null) && yfVar.d().size() > 0) {
             int i2 = 1;
-            wf wfVar = xfVar.d().get(xfVar.d().size() - 1);
-            NetWorkState.mErrorNums.addAndGet(xfVar.d().size() - 1);
+            xf xfVar = yfVar.d().get(yfVar.d().size() - 1);
+            NetWorkState.mErrorNums.addAndGet(yfVar.d().size() - 1);
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = getMode(BdNetTypeUtil.netType());
-            statisticsData.mSize = wfVar.b;
-            statisticsData.mTime = wfVar.f;
-            statisticsData.mTimesNum = wfVar.e;
-            if (xfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
+            statisticsData.mSize = xfVar.b;
+            statisticsData.mTime = xfVar.f;
+            statisticsData.mTimesNum = xfVar.e;
+            if (yfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
                 i2 = 2;
             }
             statisticsData.mMethod = i2;
@@ -118,9 +120,19 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         return (String) invokeL.objValue;
     }
 
+    public void showDialog(BdAlertData bdAlertData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdAlertData) == null) {
+            MessageTask findTask = MessageManager.getInstance().findTask(getCmd());
+            if ((findTask instanceof TbHttpMessageTask) && ((TbHttpMessageTask) findTask).isNeedDialog()) {
+                TBAlertBuilderHelper.dialog(bdAlertData);
+            }
+        }
+    }
+
     public void showToast(BdToastData bdToastData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdToastData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdToastData) == null) {
             MessageTask findTask = MessageManager.getInstance().findTask(getCmd());
             if ((findTask instanceof TbHttpMessageTask) && ((TbHttpMessageTask) findTask).isIsNeedToast()) {
                 BdToastHelper.toast(bdToastData);

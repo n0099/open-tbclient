@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes6.dex */
-public class ka extends qj {
+public class ka extends rj {
     public static /* synthetic */ Interceptable $ic;
     public static Handler o;
     public transient /* synthetic */ FieldHolder $fh;
@@ -306,7 +306,7 @@ public class ka extends qj {
         throw new InvalidParameterException("SenderData msg null");
     }
 
-    @Override // com.baidu.tieba.tk
+    @Override // com.baidu.tieba.uk
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -323,7 +323,7 @@ public class ka extends qj {
         }
     }
 
-    @Override // com.baidu.tieba.tk
+    @Override // com.baidu.tieba.uk
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -350,7 +350,7 @@ public class ka extends qj {
         }
     }
 
-    @Override // com.baidu.tieba.qj
+    @Override // com.baidu.tieba.rj
     public byte[] d() {
         InterceptResult invokeV;
         long clientLogID;
@@ -396,7 +396,7 @@ public class ka extends qj {
         return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tk
+    @Override // com.baidu.tieba.uk
     public void c() {
         int i;
         Interceptable interceptable = $ic;

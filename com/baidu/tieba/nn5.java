@@ -1,77 +1,273 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface nn5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaLiveSdk", "IMSdkService");
-    public static final Comparator<ChatMsg> b = new a();
-
-    void a(@NonNull Context context, @NonNull List<Long> list, @NonNull xn5 xn5Var);
-
-    void b(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable ao5 ao5Var, @NonNull zn5 zn5Var);
-
-    void c(@NonNull Context context, @NonNull List<Long> list, @NonNull xn5 xn5Var);
-
-    void d(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull un5 un5Var);
-
-    void e(@NonNull yn5 yn5Var);
-
-    void f(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull vn5 vn5Var);
-
-    void g(@NonNull yn5 yn5Var);
-
-    void h(@NonNull Context context, @NonNull String str, @NonNull List<Long> list);
-
-    void i(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull bo5 bo5Var);
+public class nn5 implements mn5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public ConcurrentHashMap<String, kn5> c;
+    public int d;
+    public boolean e;
 
     /* loaded from: classes7.dex */
-    public static class a implements Comparator<ChatMsg> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final nn5 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-569837609, "Lcom/baidu/tieba/nn5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-569837609, "Lcom/baidu/tieba/nn5$a;");
+                    return;
+                }
+            }
+            a = new nn5();
+        }
+    }
+
+    public nn5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new ConcurrentHashMap<>();
+    }
+
+    public static final nn5 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (nn5) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (this.e && currentTimeMillis > h() && currentTimeMillis < g()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (a31.c(this.c) || this.d != this.c.hashCode()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Map<String, kn5> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.c.clear();
+            this.d = 0;
+            this.a = 0L;
+            this.b = 0L;
+            this.e = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.mn5
+    public void a() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<Map.Entry<String, kn5>> it = this.c.entrySet().iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    Map.Entry<String, kn5> next = it.next();
+                    if (next.getValue() != null && !next.getValue().v()) {
+                        z = false;
+                        break;
+                    }
+                } else {
+                    z = true;
+                    break;
+                }
+            }
+            this.e = z;
+            if (z) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
+            }
+        }
+    }
+
+    public kn5 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.c.get(str);
+        }
+        return (kn5) invokeL.objValue;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public ln5 i() {
+        InterceptResult invokeV;
+        ln5 r;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            kn5 d = f().d("style");
+            if (d != null && (r = d.r()) != null && StringUtils.isNotNull(r.b()) && StringUtils.isNotNull(r.c()) && StringUtils.isNotNull(r.a())) {
+                return r;
+            }
+            return null;
+        }
+        return (ln5) invokeV.objValue;
+    }
+
+    public void j() {
+        BdUniqueId bdUniqueId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity instanceof BaseActivity) {
+                bdUniqueId = ((BaseActivity) currentActivity).getUniqueId();
+            } else if (currentActivity instanceof BaseFragmentActivity) {
+                bdUniqueId = ((BaseFragmentActivity) currentActivity).getUniqueId();
+            } else {
+                bdUniqueId = null;
+            }
+            for (Map.Entry<String, kn5> entry : this.c.entrySet()) {
+                if (entry.getValue() != null) {
+                    entry.getValue().A(bdUniqueId);
+                    entry.getValue().z(this);
+                    entry.getValue().x();
                 }
             }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ChatMsg chatMsg, ChatMsg chatMsg2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMsg, chatMsg2)) == null) {
-                if (TextUtils.equals(chatMsg.getMsgKey(), chatMsg2.getMsgKey())) {
-                    return 0;
-                }
-                if (chatMsg.getMsgId() - chatMsg2.getMsgId() > 0) {
-                    return 1;
-                }
-                return -1;
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.c.clear();
+            this.a = jSONObject.optLong("start_time");
+            this.b = jSONObject.optLong("end_time");
+            JSONObject optJSONObject = jSONObject.optJSONObject("feed");
+            if (optJSONObject != null) {
+                kn5 kn5Var = new kn5();
+                kn5Var.y(optJSONObject);
+                this.c.put("homePage", kn5Var);
             }
-            return invokeLL.intValue;
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
+            if (optJSONObject2 != null) {
+                kn5 kn5Var2 = new kn5();
+                kn5Var2.y(optJSONObject2);
+                this.c.put("enterForum", kn5Var2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
+            if (optJSONObject3 != null) {
+                kn5 kn5Var3 = new kn5();
+                kn5Var3.y(optJSONObject3);
+                this.c.put("channel", kn5Var3);
+            }
+            JSONObject optJSONObject4 = jSONObject.optJSONObject(CommonToolbarStatisticConstants.TOOLBAR_MENU_NEW_DETAIL_BROWSER);
+            if (optJSONObject4 != null) {
+                kn5 kn5Var4 = new kn5();
+                kn5Var4.y(optJSONObject4);
+                this.c.put("message", kn5Var4);
+            }
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
+            if (optJSONObject5 != null) {
+                kn5 kn5Var5 = new kn5();
+                kn5Var5.y(optJSONObject5);
+                this.c.put("person", kn5Var5);
+            }
+            JSONObject optJSONObject6 = jSONObject.optJSONObject("write");
+            if (optJSONObject6 != null) {
+                kn5 kn5Var6 = new kn5();
+                kn5Var6.y(optJSONObject6);
+                this.c.put("write", kn5Var6);
+            }
+            JSONObject optJSONObject7 = jSONObject.optJSONObject("style");
+            if (optJSONObject7 != null) {
+                kn5 kn5Var7 = new kn5();
+                kn5Var7.y(optJSONObject7);
+                this.c.put("style", kn5Var7);
+            }
         }
     }
 }

@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
@@ -43,7 +42,7 @@ public class gn7 extends PriorityOrganizer.Task {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FrsFragment frsFragment = this.m;
-            if (frsFragment != null && !frsFragment.I3()) {
+            if (frsFragment != null && !frsFragment.I3() && TbSingleton.getInstance().getFrsResponseData() != null) {
                 return true;
             }
             return false;
@@ -56,10 +55,10 @@ public class gn7 extends PriorityOrganizer.Task {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (z55.j()) {
+            if (a65.j()) {
                 return false;
             }
-            return !n95.m().i("has_guide_popup_window_been_shown", false);
+            return uq7.a(TbSingleton.getInstance().getFrsResponseData(), this.m);
         }
         return invokeV.booleanValue;
     }
@@ -68,8 +67,6 @@ public class gn7 extends PriorityOrganizer.Task {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921476));
-            this.m.P4(true);
             t();
         }
     }

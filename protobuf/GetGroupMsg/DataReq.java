@@ -13,6 +13,12 @@ public final class DataReq extends Message {
     public static final String DEFAULT_MIN_TIME = "";
     public static final String DEFAULT_PROCESS_TYPE = "";
     public static final String DEFAULT_PUSHTIMES = "";
+    @ProtoField(tag = 16, type = Message.Datatype.INT32)
+    public final Integer agree_count;
+    @ProtoField(tag = 14, type = Message.Datatype.INT32)
+    public final Integer atme_count;
+    @ProtoField(tag = 13, type = Message.Datatype.INT32)
+    public final Integer fan_count;
     @ProtoField(tag = 7, type = Message.Datatype.STRING)
     public final String gettype;
     @ProtoField(label = Message.Label.REPEATED, tag = 6)
@@ -31,6 +37,8 @@ public final class DataReq extends Message {
     public final String process_type;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
     public final String pushTimes;
+    @ProtoField(tag = 15, type = Message.Datatype.INT32)
+    public final Integer replyme_count;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
     public final Integer smallHeight;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
@@ -43,9 +51,16 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_SMALLHEIGHT = 0;
     public static final List<GroupLastId> DEFAULT_GROUPMIDS = Collections.emptyList();
     public static final Long DEFAULT_NOTIFY_MSG_ID = 0L;
+    public static final Integer DEFAULT_FAN_COUNT = 0;
+    public static final Integer DEFAULT_ATME_COUNT = 0;
+    public static final Integer DEFAULT_REPLYME_COUNT = 0;
+    public static final Integer DEFAULT_AGREE_COUNT = 0;
 
     /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
+        public Integer agree_count;
+        public Integer atme_count;
+        public Integer fan_count;
         public String gettype;
         public List<GroupLastId> groupMids;
         public Integer height;
@@ -55,6 +70,7 @@ public final class DataReq extends Message {
         public Long notify_msg_id;
         public String process_type;
         public String pushTimes;
+        public Integer replyme_count;
         public Integer smallHeight;
         public Integer smallWidth;
         public Integer width;
@@ -79,6 +95,10 @@ public final class DataReq extends Message {
             this.process_type = dataReq.process_type;
             this.newpushRepire = dataReq.newpushRepire;
             this.notify_msg_id = dataReq.notify_msg_id;
+            this.fan_count = dataReq.fan_count;
+            this.atme_count = dataReq.atme_count;
+            this.replyme_count = dataReq.replyme_count;
+            this.agree_count = dataReq.agree_count;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,9 +175,33 @@ public final class DataReq extends Message {
             Long l = builder.notify_msg_id;
             if (l == null) {
                 this.notify_msg_id = DEFAULT_NOTIFY_MSG_ID;
-                return;
             } else {
                 this.notify_msg_id = l;
+            }
+            Integer num5 = builder.fan_count;
+            if (num5 == null) {
+                this.fan_count = DEFAULT_FAN_COUNT;
+            } else {
+                this.fan_count = num5;
+            }
+            Integer num6 = builder.atme_count;
+            if (num6 == null) {
+                this.atme_count = DEFAULT_ATME_COUNT;
+            } else {
+                this.atme_count = num6;
+            }
+            Integer num7 = builder.replyme_count;
+            if (num7 == null) {
+                this.replyme_count = DEFAULT_REPLYME_COUNT;
+            } else {
+                this.replyme_count = num7;
+            }
+            Integer num8 = builder.agree_count;
+            if (num8 == null) {
+                this.agree_count = DEFAULT_AGREE_COUNT;
+                return;
+            } else {
+                this.agree_count = num8;
                 return;
             }
         }
@@ -173,5 +217,9 @@ public final class DataReq extends Message {
         this.process_type = builder.process_type;
         this.newpushRepire = builder.newpushRepire;
         this.notify_msg_id = builder.notify_msg_id;
+        this.fan_count = builder.fan_count;
+        this.atme_count = builder.atme_count;
+        this.replyme_count = builder.replyme_count;
+        this.agree_count = builder.agree_count;
     }
 }

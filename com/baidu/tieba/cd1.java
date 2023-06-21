@@ -1,130 +1,104 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActivityOptions;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.NinePatch;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.NinePatchDrawable;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 /* loaded from: classes5.dex */
-public class cd1 {
-    public static /* synthetic */ Interceptable $ic;
+public final class cd1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] AdImageView;
+    public static final int AdImageView_adCornerRadius = 0;
+    public static final int AdImageView_borderColor = 1;
+    public static final int AdImageView_borderColorWidth = 2;
+    public static final int AdImageView_circleType = 3;
+    public static final int AdImageView_errorHolder = 4;
+    public static final int AdImageView_holder = 5;
+    public static final int AdImageView_imageScaleType = 6;
+    public static final int AdImageView_leftBottomRadius = 7;
+    public static final int AdImageView_leftTopRadius = 8;
+    public static final int AdImageView_loadingHolder = 9;
+    public static final int AdImageView_rightBottomRadius = 10;
+    public static final int AdImageView_rightTopRadius = 11;
+    public static final int[] ExpandIconView;
+    public static final int ExpandIconView_animationDuration = 0;
+    public static final int ExpandIconView_color = 1;
+    public static final int ExpandIconView_length = 2;
+    public static final int ExpandIconView_thick = 3;
+    public static final int[] NADUnifyTextView;
+    public static final int NADUnifyTextView_spannable_bottom_padding = 0;
+    public static final int NADUnifyTextView_spannable_top_padding = 1;
+    public static final int[] NadBdThumbSeekBar;
+    public static final int NadBdThumbSeekBar_nad_ThumbSeekBarStyle = 0;
+    public static final int[] NadEnhanceButtonView;
+    public static final int NadEnhanceButtonView_btnBackgroundEndColor = 0;
+    public static final int NadEnhanceButtonView_btnBackgroundStartColor = 1;
+    public static final int NadEnhanceButtonView_btnCornerRadius = 2;
+    public static final int[] NadRoundProgressBar;
+    public static final int NadRoundProgressBar_max = 0;
+    public static final int NadRoundProgressBar_nad_style = 1;
+    public static final int NadRoundProgressBar_reverse = 2;
+    public static final int NadRoundProgressBar_roundColor = 3;
+    public static final int NadRoundProgressBar_roundHintTextSize = 4;
+    public static final int NadRoundProgressBar_roundMax = 5;
+    public static final int NadRoundProgressBar_roundPaintCapRound = 6;
+    public static final int NadRoundProgressBar_roundProgressColor = 7;
+    public static final int NadRoundProgressBar_roundTextColor = 8;
+    public static final int NadRoundProgressBar_roundTextSize = 9;
+    public static final int NadRoundProgressBar_roundWidth = 10;
+    public static final int NadRoundProgressBar_textColor = 11;
+    public static final int NadRoundProgressBar_textIsDisplayable = 12;
+    public static final int NadRoundProgressBar_textSize = 13;
+    public static final int[] NadShadowViewGroup;
+    public static final int NadShadowViewGroup_containerCornerRadius = 0;
+    public static final int NadShadowViewGroup_containerDeltaHeight = 1;
+    public static final int NadShadowViewGroup_containerDeltaWidth = 2;
+    public static final int NadShadowViewGroup_containerShadowColor = 3;
+    public static final int NadShadowViewGroup_containerShadowRadius = 4;
+    public static final int NadShadowViewGroup_deltaX = 5;
+    public static final int NadShadowViewGroup_deltaY = 6;
+    public static final int NadShadowViewGroup_enable = 7;
+    public static final int NadShadowViewGroup_shadowAlpha = 8;
+    public static final int[] NadTextProgressView;
+    public static final int NadTextProgressView_nad_progressGravity = 0;
+    public static final int NadTextProgressView_nad_progressTextColor = 1;
+    public static final int NadTextProgressView_nad_progressTextMode = 2;
+    public static final int NadTextProgressView_nad_progressTextSize = 3;
+    public static final int[] RoundCornerRelativeLayout;
+    public static final int RoundCornerRelativeLayout_round_edge_radius = 0;
+    public static final int[] SimpleAdInfoView;
+    public static final int SimpleAdInfoView_layoutId = 0;
+    public static final int[] nad_bdvideoplayer_bdPlayerProgressView;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressGravity = 0;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextColor = 1;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextMode = 2;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextSize = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"DiscouragedPrivateApi"})
-    public static void a(Activity activity, ad1 ad1Var) {
-        Class<?>[] declaredClasses;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, activity, ad1Var) == null) {
-            try {
-                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
-                declaredMethod.setAccessible(true);
-                Object invoke = declaredMethod.invoke(activity, new Object[0]);
-                Class<?> cls = null;
-                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
-                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
-                        cls = cls2;
-                    }
-                }
-                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new dd1(ad1Var));
-                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
-                declaredMethod2.setAccessible(true);
-                declaredMethod2.invoke(activity, newProxyInstance, invoke);
-            } catch (Throwable unused) {
-                if (ad1Var != null) {
-                    ad1Var.onTranslucent(false);
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947670809, "Lcom/baidu/tieba/cd1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947670809, "Lcom/baidu/tieba/cd1;");
+                return;
             }
         }
-    }
-
-    public static void b(Activity activity, ad1 ad1Var) {
-        Class<?>[] declaredClasses;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, activity, ad1Var) == null) {
-            try {
-                Class<?> cls = null;
-                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
-                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
-                        cls = cls2;
-                    }
-                }
-                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(activity, null);
-                if (ad1Var != null) {
-                    ad1Var.onTranslucent(true);
-                }
-            } catch (Throwable unused) {
-                if (ad1Var != null) {
-                    ad1Var.onTranslucent(false);
-                }
-            }
-        }
-    }
-
-    public static Drawable e(Context context, String str) {
-        InterceptResult invokeLL;
-        Bitmap decodeFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
-                return null;
-            }
-            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
-            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
-                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
-            }
-            return new BitmapDrawable(context.getResources(), decodeFile);
-        }
-        return (Drawable) invokeLL.objValue;
-    }
-
-    public static void c(Activity activity, ad1 ad1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, activity, ad1Var) == null) {
-            try {
-                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(activity, new Object[0]);
-                if (ad1Var != null) {
-                    ad1Var.onTranslucent(false);
-                }
-            } catch (Throwable unused) {
-                if (ad1Var != null) {
-                    ad1Var.onTranslucent(true);
-                }
-            }
-        }
-    }
-
-    public static void d(Activity activity, ad1 ad1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, activity, ad1Var) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    a(activity, ad1Var);
-                } else {
-                    b(activity, ad1Var);
-                }
-            } catch (Throwable unused) {
-                if (ad1Var != null) {
-                    ad1Var.onTranslucent(false);
-                }
-            }
-        }
+        AdImageView = new int[]{R.attr.adCornerRadius, R.attr.obfuscated_res_0x7f0400ea, R.attr.borderColorWidth, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f0402a7, R.attr.obfuscated_res_0x7f040345, R.attr.imageScaleType, R.attr.leftBottomRadius, R.attr.leftTopRadius, R.attr.loadingHolder, R.attr.rightBottomRadius, R.attr.rightTopRadius};
+        ExpandIconView = new int[]{R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f040177, R.attr.obfuscated_res_0x7f040455, R.attr.obfuscated_res_0x7f04076c};
+        NADUnifyTextView = new int[]{R.attr.obfuscated_res_0x7f0406a7, R.attr.obfuscated_res_0x7f0406a8};
+        NadBdThumbSeekBar = new int[]{R.attr.nad_ThumbSeekBarStyle};
+        NadEnhanceButtonView = new int[]{R.attr.btnBackgroundEndColor, R.attr.btnBackgroundStartColor, R.attr.btnCornerRadius};
+        NadRoundProgressBar = new int[]{R.attr.obfuscated_res_0x7f0404e4, R.attr.nad_style, R.attr.obfuscated_res_0x7f040604, R.attr.obfuscated_res_0x7f040622, R.attr.roundHintTextSize, R.attr.obfuscated_res_0x7f040625, R.attr.obfuscated_res_0x7f040626, R.attr.obfuscated_res_0x7f040628, R.attr.roundTextColor, R.attr.roundTextSize, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040756, R.attr.obfuscated_res_0x7f040760, R.attr.obfuscated_res_0x7f040763};
+        NadShadowViewGroup = new int[]{R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f04019a, R.attr.obfuscated_res_0x7f04019b, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f04019d, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040254, R.attr.obfuscated_res_0x7f04029a, R.attr.obfuscated_res_0x7f040672};
+        NadTextProgressView = new int[]{R.attr.nad_progressGravity, R.attr.nad_progressTextColor, R.attr.nad_progressTextMode, R.attr.nad_progressTextSize};
+        RoundCornerRelativeLayout = new int[]{R.attr.round_edge_radius};
+        SimpleAdInfoView = new int[]{R.attr.obfuscated_res_0x7f040434};
+        nad_bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.nad_bdvideoplayer_progressGravity, R.attr.nad_bdvideoplayer_progressTextColor, R.attr.nad_bdvideoplayer_progressTextMode, R.attr.nad_bdvideoplayer_progressTextSize};
     }
 }

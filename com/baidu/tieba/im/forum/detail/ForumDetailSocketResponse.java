@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.forum.detail;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
-import tbclient.GetForumDetail.BzApplySwitch;
 import tbclient.GetForumDetail.DataRes;
 import tbclient.GetForumDetail.GetForumDetailResIdl;
 import tbclient.GetForumDetail.ManagerElectionTab;
@@ -25,7 +23,6 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ManagerApplyInfo applyInfo;
-    public BzApplySwitch bzApplySwitch;
     public RecommendForumInfo forumInfo;
     public int isBawuShow;
     public boolean isComplaintShow;
@@ -60,19 +57,10 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
         return (ManagerApplyInfo) invokeV.objValue;
     }
 
-    public BzApplySwitch getBzApplySwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.bzApplySwitch;
-        }
-        return (BzApplySwitch) invokeV.objValue;
-    }
-
     public RecommendForumInfo getForumInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.forumInfo;
         }
         return (RecommendForumInfo) invokeV.objValue;
@@ -81,7 +69,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public ManagerElectionTab getManagerElectionTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.managerElectionTab;
         }
         return (ManagerElectionTab) invokeV.objValue;
@@ -90,7 +78,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public PriManagerApplyInfo getPrivateApplyInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.privateApplyInfo;
         }
         return (PriManagerApplyInfo) invokeV.objValue;
@@ -99,7 +87,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public List<SimpleThreadInfo> getThreadInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.threadInfoList;
         }
         return (List) invokeV.objValue;
@@ -108,7 +96,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public int isBawuShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.isBawuShow;
         }
         return invokeV.intValue;
@@ -117,7 +105,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public boolean isComplaintShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.isComplaintShow;
         }
         return invokeV.booleanValue;

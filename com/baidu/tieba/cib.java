@@ -1,94 +1,136 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.NativeIttiam;
 import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class cib extends whb implements NativeIttiam.a {
-    public static /* synthetic */ Interceptable $ic;
+public class cib {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "Lifecycle";
+    public static final HashSet<WeakReference<a>> b;
+    public static AtomicInteger c;
+    public static int d;
+    public static long e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qhb
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(long j);
+
+        void b(long j);
     }
 
-    public cib(zgb zgbVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zgbVar, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947677133, "Lcom/baidu/tieba/cib;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947677133, "Lcom/baidu/tieba/cib;");
                 return;
             }
         }
-        this.l.d(-16);
-        this.G = new WeakReference<>(zgbVar);
-        this.w = true;
-        this.b = i;
-        this.A.i(i);
-        this.o = 2;
+        b = new HashSet<>();
+        c = new AtomicInteger(0);
+        d = 0;
+        e = 0L;
     }
 
-    public void M(MediaInfo mediaInfo) {
+    public static void a(boolean z) {
+        int i;
+        long j;
+        boolean z2;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
-            TLog.g(this, mediaInfo.toString());
-            synchronized (this) {
-                if (this.q.e(mediaInfo)) {
-                    this.q.c(mediaInfo);
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            int i2 = d;
+            boolean z3 = true;
+            if (z) {
+                i = 1;
+            } else {
+                i = -1;
+            }
+            d = i + i2;
+            String str2 = a;
+            TLog.h(str2, " count:" + d);
+            HashSet hashSet = new HashSet();
+            synchronized (b) {
+                j = e + 1;
+                e = j;
+                z2 = false;
+                if (d == 1 && i2 == 0) {
+                    TLog.h(a, " onForeground");
+                    if (b.isEmpty()) {
+                        c.incrementAndGet();
+                    }
+                    Iterator<WeakReference<a>> it = b.iterator();
+                    while (it.hasNext()) {
+                        hashSet.add(it.next());
+                    }
+                    z2 = true;
+                } else if (d == 0 && i2 == 1) {
+                    TLog.h(a, " onBackground");
+                    if (b.isEmpty()) {
+                        c.decrementAndGet();
+                    }
+                    Iterator<WeakReference<a>> it2 = b.iterator();
+                    while (it2.hasNext()) {
+                        hashSet.add(it2.next());
+                    }
+                } else {
+                    z3 = false;
                 }
-                if (this.B == null || this.B.capacity() < this.q.i) {
-                    this.B = ByteBuffer.allocateDirect(this.q.i);
-                }
-                int j = ((((int) mhb.j(this.q.d, 16L)) * ((int) mhb.j(this.q.e, 16L))) * 3) >> 1;
-                if (j > this.D) {
-                    this.D = j;
-                    this.C = ByteBuffer.allocateDirect(j);
+            }
+            if (z3) {
+                Iterator it3 = hashSet.iterator();
+                while (it3.hasNext()) {
+                    a aVar = (a) ((WeakReference) it3.next()).get();
+                    if (aVar == null) {
+                        String str3 = a;
+                        if (z2) {
+                            str = "appFront";
+                        } else {
+                            str = "appBackgroundnull ref";
+                        }
+                        TLog.h(str3, str);
+                    } else if (z2) {
+                        aVar.b(j);
+                    } else {
+                        aVar.a(j);
+                    }
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.qhb
-    public void z(MediaFormat mediaFormat, int i) {
-        int i2;
+    public static void b(a aVar) {
+        boolean z;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
-            this.x = System.currentTimeMillis();
-            this.a = i;
-            this.A.m(this);
-            this.A.h(i);
-            String string = mediaFormat.getString("mime");
-            if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
-                i2 = 7;
-            } else {
-                i2 = 0;
+        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
+            synchronized (b) {
+                b.add(new WeakReference<>(aVar));
+                if (c.get() > 0) {
+                    z = true;
+                    j = e;
+                } else {
+                    z = false;
+                    j = 0;
+                }
             }
-            if (this.A.j(i2, mediaFormat) != 0) {
-                m(50);
-                TLog.g(this, "createDecoder failed mine: " + string);
+            if (z) {
+                aVar.b(j);
             }
-            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
-            this.y = System.currentTimeMillis();
-            TLog.g(this, "ittiamDecoder handleCreateDecoder: taskId " + i + ", spent: " + (this.y - this.x));
         }
     }
 }

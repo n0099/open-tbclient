@@ -32,7 +32,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.addownload.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0717a {
+    public interface InterfaceC0718a {
         void a();
     }
 
@@ -49,7 +49,7 @@ public class a {
         return b;
     }
 
-    private void a(final Context context, final com.ss.android.downloadlib.addownload.b.a aVar, final InterfaceC0717a interfaceC0717a, boolean z) {
+    private void a(final Context context, final com.ss.android.downloadlib.addownload.b.a aVar, final InterfaceC0718a interfaceC0718a, boolean z) {
         String str;
         String str2;
         String format;
@@ -79,26 +79,26 @@ public class a {
         } else {
             format = String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes));
         }
-        c.b(c2.d(format).a(false).a(l.a(context, aVar.g)).a(new b.InterfaceC0712b() { // from class: com.ss.android.downloadlib.addownload.a.a.1
-            @Override // com.ss.android.download.api.model.b.InterfaceC0712b
+        c.b(c2.d(format).a(false).a(l.a(context, aVar.g)).a(new b.InterfaceC0713b() { // from class: com.ss.android.downloadlib.addownload.a.a.1
+            @Override // com.ss.android.download.api.model.b.InterfaceC0713b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("backdialog_install", d);
                 com.ss.android.socialbase.appdownloader.d.a(context, (int) aVar.a);
                 dialogInterface.dismiss();
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0712b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0713b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("backdialog_exit", d);
-                InterfaceC0717a interfaceC0717a2 = interfaceC0717a;
-                if (interfaceC0717a2 != null) {
-                    interfaceC0717a2.a();
+                InterfaceC0718a interfaceC0718a2 = interfaceC0718a;
+                if (interfaceC0718a2 != null) {
+                    interfaceC0718a2.a();
                 }
                 a.this.b("");
                 dialogInterface.dismiss();
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0712b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0713b
             public void c(DialogInterface dialogInterface) {
                 a.this.b("");
             }
@@ -107,7 +107,7 @@ public class a {
         this.e = aVar.d;
     }
 
-    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC0717a interfaceC0717a) {
+    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC0718a interfaceC0718a) {
         if (downloadInfo == null) {
             try {
                 if (this.c.isEmpty()) {
@@ -120,7 +120,7 @@ public class a {
         if (activity != null && !activity.isFinishing()) {
             boolean z2 = true;
             if (downloadInfo != null && this.c.isEmpty()) {
-                a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0717a);
+                a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0718a);
                 return true;
             }
             long j = 0;
@@ -133,9 +133,9 @@ public class a {
                     com.ss.android.downloadlib.addownload.b.a previous = listIterator.previous();
                     if (previous != null && !l.d(j.getContext(), previous.d) && l.a(previous.g)) {
                         if (new File(previous.g).lastModified() >= j) {
-                            a(activity, previous, z, interfaceC0717a);
+                            a(activity, previous, z, interfaceC0718a);
                         } else {
-                            a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0717a);
+                            a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0718a);
                         }
                     }
                 } else {
@@ -194,9 +194,9 @@ public class a {
         this.f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.c);
     }
 
-    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC0717a interfaceC0717a) {
+    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC0718a interfaceC0718a) {
         this.c.clear();
-        a(context, aVar, interfaceC0717a, z);
+        a(context, aVar, interfaceC0718a, z);
         this.d = true;
         g.a(context).c();
         this.f.b("sp_ad_install_back_dialog", "key_uninstalled_list");
@@ -219,9 +219,9 @@ public class a {
     }
 
     @MainThread
-    public boolean a(Activity activity, boolean z, InterfaceC0717a interfaceC0717a) {
+    public boolean a(Activity activity, boolean z, InterfaceC0718a interfaceC0718a) {
         if (j.i().optInt("disable_install_app_dialog") != 1 && !this.d) {
-            return a(activity, a(activity), z, interfaceC0717a);
+            return a(activity, a(activity), z, interfaceC0718a);
         }
         return false;
     }

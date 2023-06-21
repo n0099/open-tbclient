@@ -1,41 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.browser.core.async.BdRunnable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public abstract class zw extends BdRunnable {
+public final class zw {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, yw> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BdRunnable> c;
 
-    public zw() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448324112, "Lcom/baidu/tieba/zw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448324112, "Lcom/baidu/tieba/zw;");
                 return;
             }
         }
-        this.c = new ArrayList();
+        a = new HashMap<>();
     }
 
-    public List<BdRunnable> e() {
-        InterceptResult invokeV;
+    public static synchronized yw a(String str) {
+        InterceptResult invokeL;
+        yw b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            synchronized (zw.class) {
+                b = b(str, 0);
+            }
+            return b;
         }
-        return (List) invokeV.objValue;
+        return (yw) invokeL.objValue;
+    }
+
+    public static synchronized void c(yw ywVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, ywVar) == null) {
+            synchronized (zw.class) {
+                if (ywVar != null) {
+                    ywVar.a();
+                    a.values().remove(ywVar);
+                }
+            }
+        }
+    }
+
+    public static synchronized yw b(String str, int i) {
+        InterceptResult invokeLI;
+        yw ywVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            synchronized (zw.class) {
+                if (a.containsKey(str) && (ywVar = a.get(str)) != null) {
+                    return ywVar;
+                }
+                yw ywVar2 = new yw(str, i);
+                try {
+                    ywVar2.start();
+                } catch (Exception unused) {
+                }
+                a.put(str, ywVar2);
+                return ywVar2;
+            }
+        }
+        return (yw) invokeLI.objValue;
     }
 }

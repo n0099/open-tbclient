@@ -1,19 +1,201 @@
 package com.baidu.tieba;
+
+import android.os.Build;
+import android.os.Environment;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.zra;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.b;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface gsa {
-    int a(byte[] bArr, int i);
+public final class gsa extends lsa {
+    public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a();
+    public gsa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean a(int i, int i2, int i3, int i4);
+    public static void b(pra praVar, tra traVar, rra rraVar, jra jraVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{praVar, traVar, rraVar, jraVar, list, list2, list3}) == null) {
+            int i3 = 0;
+            if (list2.size() != 0) {
+                i = list2.get(list2.size() - 1).getId();
+            } else {
+                i = 0;
+            }
+            praVar.b(i);
+            traVar.a(isa.e().I());
+            if (list.size() != 0) {
+                i2 = list.get(list.size() - 1).getId();
+            } else {
+                i2 = 0;
+            }
+            rraVar.b(i2);
+            if (list3.size() != 0) {
+                i3 = list3.get(list3.size() - 1).getId();
+            }
+            jraVar.b(i3);
+        }
+    }
 
-    byte[] a(int i);
-
-    boolean b();
-
-    void c();
-
-    void d();
-
-    void e();
+    @Override // com.baidu.tieba.lsa
+    public final void a() {
+        zra zraVar;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zraVar = zra.a.a;
+            if (zraVar.a().size() == 0) {
+                jsa.b(" 线程轮询  app 应该是退出了");
+            }
+            if (a == null && Environment.getExternalStorageState().equals("mounted")) {
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
+                stringBuffer.append("/baidu/ab/");
+                stringBuffer.append(esa.l(ira.h().getContext()));
+                stringBuffer.append("/");
+                a = stringBuffer.toString();
+            }
+            pra praVar = new pra();
+            tra traVar = new tra();
+            rra rraVar = new rra();
+            jra jraVar = new jra();
+            List<com.baidu.ubs.analytics.a.i> a2 = praVar.a();
+            List<com.baidu.ubs.analytics.a.n> d = traVar.d();
+            List<com.baidu.ubs.analytics.a.l> a3 = rraVar.a();
+            List<com.baidu.ubs.analytics.a.a> a4 = jraVar.a();
+            jsa.b("这次查询结果       session ：    " + d.size() + "      点击事件   " + a4.size() + "    网络请求：  " + a2.size() + "    页面记录     " + a3.size());
+            if (a2.size() == 0 && a3.size() == 0 && a4.size() == 0) {
+                jsa.b("这次记录 json 为空的，就不传了  ………………");
+                if (d.size() > 1) {
+                    for (int i = 0; i < d.size(); i++) {
+                        if (d.get(i).O() == null) {
+                            traVar.c(d.get(i).I());
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            JSONArray jSONArray = new JSONArray();
+            String j = ira.h().j();
+            if (ira.h().k() != null) {
+                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : ira.h().k().entrySet()) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("exp_id", entry.getKey());
+                        jSONObject.put("sid", entry.getValue().L());
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        rsa.d(e);
+                    }
+                }
+            }
+            com.baidu.ubs.analytics.b bVar = new com.baidu.ubs.analytics.b();
+            b.a aVar = new b.a();
+            aVar.r(esa.l(ira.h().getContext()));
+            aVar.b(j);
+            aVar.q(jSONArray.toString());
+            aVar.g(Build.VERSION.RELEASE);
+            aVar.d(esa.g(ira.h().getContext()));
+            aVar.f(Build.MODEL);
+            aVar.e(Build.BRAND);
+            aVar.f(Build.MODEL);
+            aVar.h(esa.h(ira.h().getContext()));
+            aVar.i(com.baidu.ubs.analytics.d.a.c());
+            if (bsa.d()) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            aVar.j(str);
+            aVar.k(esa.i(ira.h().getContext()));
+            aVar.m(esa.j(ira.h().getContext()));
+            aVar.n(esa.m());
+            aVar.o(esa.n());
+            aVar.p(esa.a());
+            int f = esa.f(ira.h().getContext());
+            if (f == 1) {
+                str2 = "WIFI";
+            } else if (f == 2) {
+                str2 = "2G";
+            } else if (f == 3) {
+                str2 = "3G";
+            } else if (f == 4) {
+                str2 = "4G";
+            } else if (f == 5) {
+                str2 = "unKnow";
+            } else {
+                str2 = "noNet";
+            }
+            aVar.l(str2);
+            ira.h();
+            aVar.setPhone("");
+            bVar.a(aVar);
+            bVar.c(a4);
+            bVar.e(a2);
+            bVar.b(d);
+            bVar.d(a3);
+            String a5 = psa.a(bVar);
+            String e2 = osa.e(a, "ABJson.log");
+            if (!e2.equals("")) {
+                StringBuffer stringBuffer2 = new StringBuffer();
+                stringBuffer2.append(PreferencesUtil.LEFT_MOUNT);
+                stringBuffer2.append(e2);
+                stringBuffer2.append(a5);
+                stringBuffer2.append(PreferencesUtil.RIGHT_MOUNT);
+                if (ura.a(ira.h().getContext(), stringBuffer2.toString())) {
+                    jsa.b("上传成功，删除本地文件的       ");
+                    osa.b(a + "ABJson.log");
+                    b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
+                    return;
+                }
+                StringBuffer stringBuffer3 = new StringBuffer();
+                stringBuffer3.append(PreferencesUtil.LEFT_MOUNT);
+                stringBuffer3.append(a5);
+                stringBuffer3.append(PreferencesUtil.RIGHT_MOUNT);
+                if (ura.a(ira.h().getContext(), stringBuffer3.toString())) {
+                    b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
+                    return;
+                } else if (osa.d(a5, a, "ABJson.log")) {
+                    b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            StringBuffer stringBuffer4 = new StringBuffer();
+            stringBuffer4.append(PreferencesUtil.LEFT_MOUNT);
+            stringBuffer4.append(a5);
+            stringBuffer4.append(PreferencesUtil.RIGHT_MOUNT);
+            if (ura.a(ira.h().getContext(), stringBuffer4.toString())) {
+                b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
+            } else if (osa.d(a5, a, "ABJson.log")) {
+                b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
+            }
+        }
+    }
 }

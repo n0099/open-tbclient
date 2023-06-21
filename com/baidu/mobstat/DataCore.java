@@ -539,7 +539,7 @@ public class DataCore {
             jSONObject.put(Config.HEADER_PART, jSONObject2);
             jSONObject.put("pr", jSONArray);
             jSONObject.put(Config.EVENT_PART, jSONArray);
-            jSONObject.put(Config.EXCEPTION_PART, jSONArray);
+            jSONObject.put("ex", jSONArray);
             return jSONObject.toString();
         } catch (JSONException | Exception unused) {
             return null;
@@ -795,7 +795,7 @@ public class DataCore {
                             try {
                                 jSONObject2.put(Config.EVENT_PART, this.e);
                                 try {
-                                    jSONObject2.put(Config.EXCEPTION_PART, new JSONArray());
+                                    jSONObject2.put("ex", new JSONArray());
                                     try {
                                         jSONObject2.put(Config.PYD, b);
                                         a(context, jSONObject2, z2);

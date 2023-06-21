@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
-import tbclient.GetForumDetail.BzApplySwitch;
 import tbclient.GetForumDetail.DataRes;
 import tbclient.GetForumDetail.GetForumDetailResIdl;
 import tbclient.GetForumDetail.ManagerElectionTab;
@@ -24,7 +23,6 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ManagerApplyInfo applyInfo;
-    public BzApplySwitch bzApplySwitch;
     public RecommendForumInfo forumInfo;
     public int isBawuShow;
     public boolean isComplaintShow;
@@ -95,19 +93,10 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
         return (ManagerApplyInfo) invokeV.objValue;
     }
 
-    public BzApplySwitch getBzApplySwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.bzApplySwitch;
-        }
-        return (BzApplySwitch) invokeV.objValue;
-    }
-
     public RecommendForumInfo getForumInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.forumInfo;
         }
         return (RecommendForumInfo) invokeV.objValue;
@@ -116,7 +105,7 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public ManagerElectionTab getManagerElectionTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.managerElectionTab;
         }
         return (ManagerElectionTab) invokeV.objValue;
@@ -125,7 +114,7 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public PriManagerApplyInfo getPrivateApplyInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.privateApplyInfo;
         }
         return (PriManagerApplyInfo) invokeV.objValue;
@@ -134,7 +123,7 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public List<SimpleThreadInfo> getThreadInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.threadInfoList;
         }
         return (List) invokeV.objValue;
@@ -143,7 +132,7 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public int isBawuShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.isBawuShow;
         }
         return invokeV.intValue;
@@ -152,7 +141,7 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public boolean isComplaintShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.isComplaintShow;
         }
         return invokeV.booleanValue;

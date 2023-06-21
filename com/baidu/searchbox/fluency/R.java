@@ -16,19 +16,19 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static final int chart = 0x7f0906a3;
-        public static final int drop_expect = 0x7f09094e;
-        public static final int fps_view = 0x7f090c0c;
-        public static final int level_frozen = 0x7f0914b4;
-        public static final int level_frozens = 0x7f0914b5;
-        public static final int level_high = 0x7f0914b6;
-        public static final int level_highs = 0x7f0914b7;
-        public static final int level_middle = 0x7f0914b8;
-        public static final int level_middles = 0x7f0914b9;
-        public static final int level_normal = 0x7f0914bd;
-        public static final int level_normals = 0x7f0914be;
-        public static final int scene_view = 0x7f092009;
-        public static final int top_page = 0x7f092547;
+        public static final int chart = 0x7f0906a0;
+        public static final int drop_expect = 0x7f09094c;
+        public static final int fps_view = 0x7f090c0a;
+        public static final int level_frozen = 0x7f0914ba;
+        public static final int level_frozens = 0x7f0914bb;
+        public static final int level_high = 0x7f0914bc;
+        public static final int level_highs = 0x7f0914bd;
+        public static final int level_middle = 0x7f0914be;
+        public static final int level_middles = 0x7f0914bf;
+        public static final int level_normal = 0x7f0914c3;
+        public static final int level_normals = 0x7f0914c4;
+        public static final int scene_view = 0x7f092014;
+        public static final int top_page = 0x7f092553;
     }
 
     /* loaded from: classes3.dex */

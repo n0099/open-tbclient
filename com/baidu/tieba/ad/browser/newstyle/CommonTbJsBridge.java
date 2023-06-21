@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.bz9;
-import com.baidu.tieba.cj;
-import com.baidu.tieba.xy9;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.p0a;
+import com.baidu.tieba.t0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class CommonTbJsBridge implements xy9 {
+public class CommonTbJsBridge implements p0a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements xy9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xy9
+    @Override // com.baidu.tieba.p0a
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements xy9 {
         return invokeLLLL.booleanValue;
     }
 
-    public bz9 getSupplementInfo() {
+    public t0a getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            bz9 bz9Var = new bz9();
+            t0a t0aVar = new t0a();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements xy9 {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = cj.c(sb.toString());
+            String c = dj.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements xy9 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                bz9Var.o(jSONObject.toString());
-                return bz9Var;
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                bz9Var.o("");
-                return bz9Var;
+                t0aVar.o("");
+                return t0aVar;
             }
         }
-        return (bz9) invokeV.objValue;
+        return (t0a) invokeV.objValue;
     }
 }

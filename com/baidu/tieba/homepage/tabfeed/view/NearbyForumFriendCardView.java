@@ -17,20 +17,20 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.oy;
+import com.baidu.tieba.dh5;
+import com.baidu.tieba.kz8;
+import com.baidu.tieba.lz8;
+import com.baidu.tieba.p28;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.py;
-import com.baidu.tieba.qy8;
-import com.baidu.tieba.ry8;
-import com.baidu.tieba.z18;
-import com.baidu.tieba.zg5;
+import com.baidu.tieba.qy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry8>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements qy, py<lz8>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public qy8 j;
-    public ry8 k;
+    public kz8 j;
+    public lz8 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -67,20 +67,20 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oy
+    @Override // com.baidu.tieba.py
     /* renamed from: d */
-    public void a(ry8 ry8Var) {
+    public void a(lz8 lz8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ry8Var) == null) {
-            this.k = ry8Var;
-            qy8 qy8Var = this.j;
-            if (qy8Var != null) {
-                qy8Var.D(ry8Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, lz8Var) == null) {
+            this.k = lz8Var;
+            kz8 kz8Var = this.j;
+            if (kz8Var != null) {
+                kz8Var.D(lz8Var.a);
             }
-            this.i.setData(ry8Var.b);
-            if (ry8Var.c) {
+            this.i.setData(lz8Var.b);
+            if (lz8Var.c) {
                 this.d.setVisibility(0);
-                z18.q();
+                p28.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -90,9 +90,9 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091871 && getContext() != null && this.k != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091877 && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            z18.j();
+            p28.j();
         }
     }
 
@@ -143,7 +143,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new qy8(context, zg5.l, 1);
+            this.j = new kz8(context, dh5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -153,13 +153,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            ry8 ry8Var = this.k;
-            if (ry8Var != null) {
-                ry8Var.a = z;
+            lz8 lz8Var = this.k;
+            if (lz8Var != null) {
+                lz8Var.a = z;
             }
-            qy8 qy8Var = this.j;
-            if (qy8Var != null) {
-                qy8Var.D(z);
+            kz8 kz8Var = this.j;
+            if (kz8Var != null) {
+                kz8Var.D(z);
             }
         }
     }
@@ -167,17 +167,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06bc, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06ba, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09267a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092679);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911e7);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091871);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09186f);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09186e);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09146b);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091de2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092687);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092686);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ec);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091877);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091875);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091874);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091470);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091ded);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);
@@ -185,22 +185,22 @@ public class NearbyForumFriendCardView extends LinearLayout implements py, oy<ry
         }
     }
 
-    @Override // com.baidu.tieba.py
+    @Override // com.baidu.tieba.qy
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && this.a != i) {
             HomeGroupUbsUIHelper.handleLineColor(this.g);
-            o75 d = o75.d(this.c);
-            d.w(R.color.CAM_X0105);
-            d.B(R.dimen.T_X07);
-            d.C(R.string.F_X02);
-            o75 d2 = o75.d(this.e);
-            d2.w(R.color.CAM_X0109);
-            d2.B(R.dimen.T_X08);
-            d2.C(R.string.F_X01);
+            p75 d = p75.d(this.c);
+            d.x(R.color.CAM_X0105);
+            d.C(R.dimen.T_X07);
+            d.D(R.string.F_X02);
+            p75 d2 = p75.d(this.e);
+            d2.x(R.color.CAM_X0109);
+            d2.C(R.dimen.T_X08);
+            d2.D(R.string.F_X01);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.a = i;
-            o75 d3 = o75.d(this.h);
+            p75 d3 = p75.d(this.h);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

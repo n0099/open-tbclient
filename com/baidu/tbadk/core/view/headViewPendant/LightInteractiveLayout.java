@@ -41,10 +41,10 @@ import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.qa5;
 import com.baidu.tieba.ra5;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.sa5;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public ra5 f;
+    public sa5 f;
     public WeakReference<Context> g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -429,8 +429,8 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public void setListBackground(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) && this.e != null && getViewContext() != null) {
-            int l = vi.l(getViewContext()) / 2;
-            int j = vi.j(getViewContext()) / 3;
+            int l = wi.l(getViewContext()) / 2;
+            int j = wi.j(getViewContext()) / 3;
             if (i < l && i2 < j) {
                 SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_up);
             } else if (i < l && i2 > j) {
@@ -485,13 +485,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(ra5 ra5Var) {
+    public void setOnDismissListener(sa5 sa5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, ra5Var) == null) {
-            this.f = ra5Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, sa5Var) == null) {
+            this.f = sa5Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.p(ra5Var);
+                lightEmotionAdapter.p(sa5Var);
             }
         }
     }
@@ -536,9 +536,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
             if (weakReference != null) {
                 return weakReference.get();
             }
-            ra5 ra5Var = this.f;
-            if (ra5Var != null) {
-                ra5Var.onClose();
+            sa5 sa5Var = this.f;
+            if (sa5Var != null) {
+                sa5Var.onClose();
                 return null;
             }
             return null;
@@ -602,7 +602,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
             LightEmotionData lightEmotionData = this.z.get(i);
             String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
             MetaData metaData = this.A;
-            if (metaData != null && ui.isEquals(metaData.getUserId(), valueOf)) {
+            if (metaData != null && vi.isEquals(metaData.getUserId(), valueOf)) {
                 return;
             }
             int i2 = this.x;
@@ -610,7 +610,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 K(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    qa5.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    ra5.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -642,9 +642,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.A != null && getViewContext() != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getViewContext(), this.A.getUserId(), this.A.getUserName())));
-            ra5 ra5Var = this.f;
-            if (ra5Var != null) {
-                ra5Var.onClose();
+            sa5 sa5Var = this.f;
+            if (sa5Var != null) {
+                sa5Var.onClose();
             }
         }
     }
@@ -719,9 +719,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!G(this.b, this.v, rawY)) {
-                    ra5 ra5Var = this.f;
-                    if (ra5Var != null) {
-                        ra5Var.onClose();
+                    sa5 sa5Var = this.f;
+                    if (sa5Var != null) {
+                        sa5Var.onClose();
                         return true;
                     }
                     return true;
@@ -772,8 +772,8 @@ public class LightInteractiveLayout extends ConstraintLayout {
         if ((interceptable != null && interceptable.invokeII(1048593, this, i, i2) != null) || getViewContext() == null) {
             return;
         }
-        int l = vi.l(getViewContext()) / 2;
-        int j = vi.j(getViewContext()) / 3;
+        int l = wi.l(getViewContext()) / 2;
+        int j = wi.j(getViewContext()) / 3;
         this.t = i;
         this.u = i2;
         c cVar = new c(this, getViewContext());

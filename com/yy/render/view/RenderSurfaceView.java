@@ -8,7 +8,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.leb;
+import com.baidu.tieba.egb;
 import com.yy.render.IRemoteRender;
 import com.yy.render.RenderEngine;
 import kotlin.Metadata;
@@ -41,13 +41,13 @@ public final class RenderSurfaceView extends SurfaceView {
 
         /* renamed from: com.yy.render.view.RenderSurfaceView$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class RunnableC0777a implements Runnable {
+        public static final class RunnableC0778a implements Runnable {
             public final /* synthetic */ SurfaceHolder b;
             public final /* synthetic */ int c;
             public final /* synthetic */ int d;
             public final /* synthetic */ int e;
 
-            public RunnableC0777a(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+            public RunnableC0778a(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
                 this.b = surfaceHolder;
                 this.c = i;
                 this.d = i2;
@@ -117,7 +117,7 @@ public final class RenderSurfaceView extends SurfaceView {
                         iRemoteRender.surfaceDestroyed(RenderSurfaceView.this.getChannelId(), this.b.getSurface());
                     }
                 } catch (Exception e) {
-                    leb.a aVar = leb.b;
+                    egb.a aVar = egb.b;
                     e.printStackTrace();
                     aVar.g("sub_process_view", Unit.INSTANCE.toString());
                 }
@@ -131,14 +131,14 @@ public final class RenderSurfaceView extends SurfaceView {
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             RenderSurfaceView.this.a = surfaceHolder;
-            leb.a aVar = leb.b;
+            egb.a aVar = egb.b;
             aVar.f("surfaceCreated channelId: " + RenderSurfaceView.this.getChannelId());
             RenderSurfaceView.a(RenderSurfaceView.this).post(new b(surfaceHolder));
         }
 
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-            leb.a aVar = leb.b;
+            egb.a aVar = egb.b;
             aVar.f("surfaceDestroyed channelId: " + RenderSurfaceView.this.getChannelId());
             RenderSurfaceView.this.l = false;
             RenderSurfaceView.a(RenderSurfaceView.this).post(new c(surfaceHolder));
@@ -147,9 +147,9 @@ public final class RenderSurfaceView extends SurfaceView {
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
             RenderSurfaceView.this.a = surfaceHolder;
-            leb.a aVar = leb.b;
+            egb.a aVar = egb.b;
             aVar.f("surfaceChanged channelId: " + RenderSurfaceView.this.getChannelId() + StringUtil.ARRAY_ELEMENT_SEPARATOR + "width = " + i2 + ", height = " + i3);
-            RenderSurfaceView.a(RenderSurfaceView.this).post(new RunnableC0777a(surfaceHolder, i, i2, i3));
+            RenderSurfaceView.a(RenderSurfaceView.this).post(new RunnableC0778a(surfaceHolder, i, i2, i3));
         }
     }
 
@@ -207,7 +207,7 @@ public final class RenderSurfaceView extends SurfaceView {
 
     public final void setRemote(IRemoteRender iRemoteRender) {
         this.k = iRemoteRender;
-        leb.a aVar = leb.b;
+        egb.a aVar = egb.b;
         aVar.f("(setRemote) isSetRemoteSend: " + this.l + StringUtil.ARRAY_ELEMENT_SEPARATOR + "isSendSurfaceCreate: " + this.h + ", surface: " + this.b + ", channelId: " + getChannelId() + "remote: " + this.k + ", isSendSurfaceChange: " + this.i);
         if (this.b != null) {
             if (!this.h) {
@@ -217,7 +217,7 @@ public final class RenderSurfaceView extends SurfaceView {
                         iRemoteRender2.surfaceCreated(getChannelId(), this.b, this.g);
                     }
                 } catch (Exception e) {
-                    leb.a aVar2 = leb.b;
+                    egb.a aVar2 = egb.b;
                     aVar2.c("setRemote surfaceCreated ex: " + e.getMessage());
                 }
             }
@@ -228,14 +228,14 @@ public final class RenderSurfaceView extends SurfaceView {
                         iRemoteRender3.surfaceChanged(getChannelId(), this.b, this.g, this.e, this.d, this.c);
                     }
                 } catch (Exception e2) {
-                    leb.a aVar3 = leb.b;
+                    egb.a aVar3 = egb.b;
                     aVar3.c("setRemote surfaceChanged ex: " + e2.getMessage());
                 }
             }
         }
         if (!this.j) {
             try {
-                leb.a aVar4 = leb.b;
+                egb.a aVar4 = egb.b;
                 aVar4.c("addContentView send data to remote " + getChannelId());
                 IRemoteRender iRemoteRender4 = this.k;
                 if (iRemoteRender4 != null) {

@@ -1,103 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.bdeventbus.Action;
-import com.baidu.searchbox.bdeventbus.BdEventBus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pn8 extends sl1<yr6> {
+public final class pn8 extends kn8<TextMsg, rl8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements yr6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final BdEventBus b;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-512489934, "Lcom/baidu/tieba/pn8$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-512489934, "Lcom/baidu/tieba/pn8$a;");
-            }
+    @Override // com.baidu.tieba.kn8
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.b = BdEventBus.Companion.getDefault();
-        }
-
-        @Override // com.baidu.tieba.yr6
-        public <T extends xr6> void a(@NonNull Object obj, @NonNull final zr6<T> zr6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, zr6Var) == null) {
-                if (obj instanceof vr6) {
-                    vr6 vr6Var = (vr6) obj;
-                    vr6Var.a(zr6Var);
-                    on8.a(vr6Var);
-                    this.b.unregister(obj);
-                }
-                BdEventBus bdEventBus = this.b;
-                Class<T> a = zr6Var.a();
-                zr6Var.getClass();
-                bdEventBus.register(obj, a, new Action() { // from class: com.baidu.tieba.nn8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.searchbox.bdeventbus.Action
-                    public final void call(Object obj2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj2) == null) {
-                            zr6.this.onEvent((xr6) obj2);
-                        }
-                    }
-                });
-            }
-        }
-
-        @Override // com.baidu.tieba.yr6
-        public <T extends xr6> void b(@Nullable T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && t != null) {
-                this.b.post(t);
-            }
-        }
-
-        @Override // com.baidu.tieba.yr6
-        public void unregister(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.b.unregister(obj);
-            }
-        }
+        return invokeV.intValue;
     }
 
     public pn8() {
@@ -115,14 +40,51 @@ public class pn8 extends sl1<yr6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sl1
-    /* renamed from: a */
-    public yr6 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kn8
+    /* renamed from: h */
+    public TextMsg e(rl8 rl8Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rl8Var)) == null) {
+            TextMsg textMsg = new TextMsg();
+            textMsg.setText((rl8Var == null || (r5 = rl8Var.c()) == null) ? "" : "");
+            return textMsg;
         }
-        return (yr6) invokeV.objValue;
+        return (TextMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn8
+    /* renamed from: i */
+    public rl8 g(TextMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            rl8 rl8Var = new rl8();
+            String msgContent = sdkMsg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "sdkMsg.msgContent ?: \"\"");
+            }
+            if (!vi.isEmpty(msgContent)) {
+                try {
+                    rl8Var.e(new JSONObject(msgContent).optJSONArray("struct_data"));
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
+            if (rl8Var.b() == null) {
+                String text = sdkMsg.getText();
+                Intrinsics.checkNotNullExpressionValue(text, "sdkMsg.getText()");
+                rl8Var.f(text);
+            }
+            String text2 = sdkMsg.getText();
+            Intrinsics.checkNotNullExpressionValue(text2, "sdkMsg.getText()");
+            rl8Var.d(text2);
+            return rl8Var;
+        }
+        return (rl8) invokeL.objValue;
     }
 }

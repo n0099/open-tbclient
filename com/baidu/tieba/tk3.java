@@ -1,170 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class tk3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, sk3> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public long e;
-    public boolean f;
-    public long g;
-    public long h;
-    public int i;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements Comparator<tk3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948184045, "Lcom/baidu/tieba/tk3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(tk3 tk3Var, tk3 tk3Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tk3Var, tk3Var2)) == null) {
-                int length = tk3Var2.b.length() - tk3Var.b.length();
-                if (length != 0) {
-                    return length;
-                }
-                int length2 = tk3Var2.a.length() - tk3Var.a.length();
-                if (length2 != 0) {
-                    return length2;
-                }
-                int hashCode = tk3Var2.c.hashCode() - tk3Var.c.hashCode();
-                if (hashCode != 0) {
-                    return hashCode;
-                }
-                if (tk3Var2.d == null) {
-                    return -1;
-                }
-                if (tk3Var.d == null) {
-                    return 1;
-                }
-                return 0;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public tk3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public tk3(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948184045, "Lcom/baidu/tieba/tk3;");
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.e = -1L;
+        a = js1.a;
+        b = new ArrayMap();
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
+    @Nullable
+    public static AshmemFileDescriptor a(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
-                if (!this.a.startsWith(".")) {
-                    return str.equals(this.a);
-                }
-                if (str.endsWith(this.a.substring(1))) {
-                    int length = this.a.length();
-                    int length2 = str.length();
-                    if (length2 > length - 1 && str.charAt(length2 - length) != '.') {
-                        return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            try {
+                if (ProcessUtils.isMainProcess()) {
+                    synchronized (b) {
+                        sk3 sk3Var = b.get(str);
+                        if (sk3Var != null && sk3Var.a() != null) {
+                            return sk3Var.a();
+                        }
+                        int ashmemFD = SwanKV.getAshmemFD(str, i);
+                        if (ashmemFD >= 0) {
+                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
+                            pk3.e(ashmemFileDescriptor);
+                            return ashmemFileDescriptor;
+                        }
+                        return null;
                     }
-                    return true;
+                }
+                return ok3.c(str, i);
+            } catch (Throwable th) {
+                if (a) {
+                    th.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (AshmemFileDescriptor) invokeLI.objValue;
+    }
+
+    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
+            synchronized (tk3.class) {
+                if (ProcessUtils.isMainProcess()) {
+                    return;
+                }
+                sk3 sk3Var = b.get(ashmemFileDescriptor.getName());
+                if (sk3Var != null && sk3Var.a() != null && sk3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
+                    SwanKV b2 = sk3Var.b();
+                    sk3Var.c(new SwanKV(ashmemFileDescriptor));
+                    b2.release();
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(tk3 tk3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tk3Var)) == null) {
-            if (tk3Var == null || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || !TextUtils.equals(this.a, tk3Var.a) || !TextUtils.equals(this.b, tk3Var.b) || !TextUtils.equals(this.c, tk3Var.c)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b) || !str.startsWith(this.b)) {
-                return false;
-            }
-            int length = this.b.length();
-            int length2 = str.length();
-            if (this.b.charAt(length - 1) != '/' && length2 > length && str.charAt(length) != '/') {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "domain: " + this.a + "; path: " + this.b + "; name: " + this.c + "; value: " + this.d + "; expires: " + this.e + "; secure: " + this.f;
-        }
-        return (String) invokeV.objValue;
     }
 }

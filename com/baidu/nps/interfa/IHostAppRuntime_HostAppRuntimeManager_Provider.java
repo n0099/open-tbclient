@@ -1,14 +1,14 @@
 package com.baidu.nps.interfa;
 
-import com.baidu.tieba.cl1;
-import com.baidu.tieba.pl;
+import com.baidu.tieba.dl1;
+import com.baidu.tieba.ql;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class IHostAppRuntime_HostAppRuntimeManager_Provider implements cl1 {
+public class IHostAppRuntime_HostAppRuntimeManager_Provider implements dl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IHostAppRuntime_HostAppRuntimeManager_Provider implements cl1 {
         }
     }
 
-    @Override // com.baidu.tieba.cl1
+    @Override // com.baidu.tieba.dl1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new pl() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ql() : invokeV.objValue;
     }
 }

@@ -4,8 +4,8 @@ import android.content.Context;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tieba.ji;
 import com.baidu.tieba.ki;
+import com.baidu.tieba.li;
 /* loaded from: classes4.dex */
 public class InitAbi64WebViewCompatTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -25,12 +25,12 @@ public class InitAbi64WebViewCompatTask extends LaunchTask {
 
     public static void init(Context context) {
         if (TbadkSettings.getInst().isContains("key_last_running_in_64_bit")) {
-            if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != ki.a()) {
-                ji.b(context);
+            if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != li.a()) {
+                ki.b(context);
             }
         } else {
-            ji.b(context);
+            ki.b(context);
         }
-        TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", ki.a());
+        TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", li.a());
     }
 }

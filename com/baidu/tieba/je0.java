@@ -1,109 +1,145 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.view.Surface;
-import android.view.SurfaceHolder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class je0 extends le0 {
+public class je0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface d;
-    public boolean e;
+    public le0 a;
+    public pe0 b;
+    public we0 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public je0(ke0 ke0Var, SurfaceTexture surfaceTexture) {
-        super(ke0Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ke0Var, surfaceTexture};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ke0) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947880276, "Lcom/baidu/tieba/je0;")) == null) {
+            return;
         }
-        a(surfaceTexture);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947880276, "Lcom/baidu/tieba/je0;");
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public je0(ke0 ke0Var, Surface surface, boolean z) {
-        super(ke0Var);
+    public je0(we0 we0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ke0Var, surface, Boolean.valueOf(z)};
+            Object[] objArr = {we0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ke0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a(surface);
-        this.d = surface;
-        this.e = z;
+        this.c = we0Var;
+        this.a = new le0(we0Var.f(), 1);
+        d();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public je0(ke0 ke0Var, SurfaceHolder surfaceHolder) {
-        super(ke0Var);
+    public void b(long j) {
+        we0 we0Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ke0Var, surfaceHolder};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ke0) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b != null && (we0Var = this.c) != null) {
+            if (we0Var.l()) {
+                d();
             }
-        }
-        a(surfaceHolder);
-    }
-
-    public void f(ke0 ke0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ke0Var) == null) {
-            Surface surface = this.d;
-            if (surface != null) {
-                this.a = ke0Var;
-                a(surface);
-                return;
+            if (j != 0) {
+                this.c.h().h(j);
             }
-            throw new RuntimeException("not yet implemented for SurfaceTexture");
+            this.b.a(this.c.e(), this.c.h());
         }
     }
 
-    public void g() {
+    public final void a(pe0 pe0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c();
-            Surface surface = this.d;
-            if (surface != null) {
-                if (this.e) {
-                    surface.release();
-                }
-                this.d = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pe0Var) == null) {
+            if (pe0Var == null) {
+                this.b = new oe0();
+            } else {
+                this.b = pe0Var;
             }
+            this.b.b(this.c.j(), this.c.i());
+        }
+    }
+
+    public void g(pe0 pe0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, pe0Var) == null) {
+            we0 we0Var = this.c;
+            if (we0Var != null) {
+                we0Var.p(pe0Var);
+            }
+            this.b.release();
+            a(pe0Var);
+        }
+    }
+
+    public le0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (le0) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            pe0 pe0Var = this.b;
+            if (pe0Var != null) {
+                pe0Var.release();
+                this.b = null;
+            }
+            le0 le0Var = this.a;
+            if (le0Var != null) {
+                le0Var.f();
+                this.a = null;
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            pe0 g = this.c.g();
+            this.b = g;
+            a(g);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            float[] b = this.c.h().b();
+            ye0.b(b);
+            ue0 c = this.c.c();
+            ye0.e(b, c.g(), c.h());
+            ye0.a(b, c.d());
+            ye0.c(b, c.b());
+            if ((c.f() + 360) % 180 == 0) {
+                ye0.d(b, this.c.j(), this.c.i(), c.e(), c.c());
+                return;
+            }
+            se0 clone = this.c.i().clone();
+            clone.e(this.c.i().b());
+            clone.d(this.c.i().c());
+            ye0.d(b, this.c.j(), clone, c.e(), c.c());
         }
     }
 }

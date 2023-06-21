@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -14,18 +16,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes6.dex */
-public class hd3 extends vd3 {
+public class hd3 extends wd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public fy1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hd3(vc3 vc3Var) {
-        super(vc3Var, "/swanAPI/isLoginSync");
+    public hd3(wc3 wc3Var) {
+        super(wc3Var, "/swanAPI/getSlaveIdSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vc3Var};
+            Object[] objArr = {wc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,28 +42,38 @@ public class hd3 extends vd3 {
         }
     }
 
-    @Override // com.baidu.tieba.vd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+    @Override // com.baidu.tieba.wd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
-            if (yb3Var == null) {
-                y82.c("isLogin", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
+            if (wd3.b) {
+                Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            if (this.c == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            boolean e = yb3Var.N().e(context);
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("isLogin", e);
+                jSONObject.put("slaveId", this.c.a());
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                 return true;
-            } catch (JSONException unused) {
-                y82.c("isLogin", "json parse fail");
+            } catch (JSONException e) {
+                if (wd3.b) {
+                    Log.d("GetSlaveIdSyncAction", Log.getStackTraceString(e));
+                }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public void j(fy1 fy1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fy1Var) == null) {
+            this.c = fy1Var;
+        }
     }
 }

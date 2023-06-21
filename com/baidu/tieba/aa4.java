@@ -12,7 +12,7 @@ public class aa4 extends JSEvent {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa4() {
-        super("appMount");
+        super("appLoad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

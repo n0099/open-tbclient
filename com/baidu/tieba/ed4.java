@@ -1,148 +1,27 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ed4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dd4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ij2 a;
-    public cd4 b;
 
-    public ed4(ij2 ij2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ij2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = ij2Var;
-        this.b = new cd4();
-    }
-
-    @NonNull
-    public id4 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (str == null) {
-                return id4.b("parameter error: the key cannot be null.");
-            }
-            Object obj = null;
-            String p = this.b.p(str, null);
-            if (p != null) {
-                obj = this.a.A(Base64.decode(p, 2), true);
-            }
-            if (obj == null) {
-                obj = id4.h();
-            }
-            return id4.i(obj);
-        }
-        return (id4) invokeL.objValue;
-    }
-
-    @NonNull
-    public id4 a() {
+    public static synchronized dd4 a() {
         InterceptResult invokeV;
+        dd4 dd4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.b.j();
-            un3.h.update();
-            return id4.i(null);
-        }
-        return (id4) invokeV.objValue;
-    }
-
-    @NonNull
-    public hd4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] n = this.b.n();
-            hd4 hd4Var = new hd4();
-            hd4Var.keys = n;
-            hd4Var.currentSize = this.b.m() / 1024;
-            hd4Var.limitSize = this.b.s() / 1024;
-            hd4Var.errMsg = fd4.b("getStorageInfoSync");
-            return hd4Var;
-        }
-        return (hd4) invokeV.objValue;
-    }
-
-    public final void d(JsSerializeValue jsSerializeValue) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jsSerializeValue) == null) && jsSerializeValue != null) {
-            jsSerializeValue.release();
-        }
-    }
-
-    @NonNull
-    public id4 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null) {
-                return id4.b("parameter error: the key cannot be null.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ed4.class) {
+                if (a == null) {
+                    a = new dd4();
+                }
+                dd4Var = a;
             }
-            this.b.u(str);
-            un3.h.update();
-            return id4.i(null);
+            return dd4Var;
         }
-        return (id4) invokeL.objValue;
-    }
-
-    @NonNull
-    public id4 f(String str, JsSerializeValue jsSerializeValue) {
-        InterceptResult invokeLL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, jsSerializeValue)) == null) {
-            if (str == null) {
-                d(jsSerializeValue);
-                return id4.b("parameter error: the key cannot be null.");
-            } else if (jsSerializeValue == null) {
-                return id4.i(null);
-            } else {
-                byte[] K = this.a.K(jsSerializeValue, true);
-                d(jsSerializeValue);
-                if (K == null) {
-                    return id4.b("parameter error: the data parse failed.");
-                }
-                String encodeToString = Base64.encodeToString(K, 2);
-                String p = this.b.p(str, null);
-                int length2 = str.getBytes().length;
-                int length3 = encodeToString.length() + length2;
-                if (p == null) {
-                    length = 0;
-                } else {
-                    length = p.length() + length2;
-                }
-                if (this.b.s() - this.b.m() < length3 - length) {
-                    return id4.b("storage error: the storage space insufficient.");
-                }
-                boolean t = this.b.t(str, encodeToString);
-                un3.h.update();
-                if (t) {
-                    return id4.i(null);
-                }
-                return id4.b("storage error: the storage is invalid.");
-            }
-        }
-        return (id4) invokeLL.objValue;
+        return (dd4) invokeV.objValue;
     }
 }

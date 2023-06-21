@@ -1,104 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class lz7 extends in<s08, CardViewHolder<pn6>> {
+public class lz7 implements yy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public pn6 b;
-    public BdUniqueId c;
+    public zy7 a;
+    public xy7 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), u08.f);
+    public lz7(zy7 zy7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {zy7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        pn6 pn6Var = new pn6(tbPageContext);
-        this.b = pn6Var;
-        pn6Var.I("c10714", "c10739", "c10712", "c10738");
-        this.b.setFrom("home");
+        this.a = zy7Var;
+        this.b = new kz7(this);
     }
 
-    public void s(int i) {
-        pn6 pn6Var;
+    @Override // com.baidu.tieba.yy7
+    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (pn6Var = this.b) != null) {
-            pn6Var.j(this.a, i);
-        }
-    }
-
-    public void x(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.c = bdUniqueId;
-            pn6 pn6Var = this.b;
-            if (pn6Var != null) {
-                pn6Var.H(bdUniqueId);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
+            xy7 xy7Var = this.b;
+            if (xy7Var != null) {
+                return xy7Var.a(bdUniqueId, str, str2, str3);
             }
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
-    /* renamed from: t */
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yy7
+    public boolean b(int i, jz7 jz7Var) {
+        InterceptResult invokeIL;
+        zy7 zy7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            if (this.b == null) {
-                pn6 pn6Var = new pn6(this.a);
-                this.b = pn6Var;
-                pn6Var.H(this.c);
-                this.b.I("c10714", "c10739", "c10712", "c10738");
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, jz7Var)) == null) {
+            if (jz7Var != null && (zy7Var = this.a) != null) {
+                zy7Var.setData(jz7Var.getDataList());
+                return true;
             }
-            return new CardViewHolder(this.b);
+            return false;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeIL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, s08 s08Var, CardViewHolder cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.yy7
+    public boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s08Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            zy7 zy7Var = this.a;
+            if (zy7Var != null) {
+                zy7Var.b(i);
+                return true;
             }
-            cardViewHolder.a().i(s08Var);
-            zn6.b().a(new StatisticItem("c10714").param(TiebaStatic.Params.OBJ_PARAM3, sn6.e()));
-            return cardViewHolder.getView();
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yy7
+    public void setData(List<wn> list) {
+        zy7 zy7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (zy7Var = this.a) != null) {
+            zy7Var.setData(list);
+        }
     }
 }

@@ -113,12 +113,12 @@ public class t3 implements z6 {
 
         /* renamed from: com.baidu.tieba.t3$c$c  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0464c implements o<q> {
+        public class C0449c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C0464c(c cVar, String[] strArr) {
+            public C0449c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -728,7 +728,7 @@ public class t3 implements z6 {
                 o7Var2.i("offset", new n(this, strArr));
                 o7Var2.i("orig", new a(this, strArr));
                 o7Var2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                o7Var2.i("rotate", new C0464c(this, strArr));
+                o7Var2.i("rotate", new C0449c(this, strArr));
                 o7Var2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b3Var.m()), 1024);
                 try {

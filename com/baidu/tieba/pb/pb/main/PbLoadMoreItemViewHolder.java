@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -98,9 +98,9 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = (LinearLayout) view2.findViewById(R.id.pb_more_view);
         this.c = (TextView) view2.findViewById(R.id.pb_more_text);
         this.e = (ImageView) this.a.findViewById(R.id.no_data_image);
-        this.h = vi.g(this.a.getContext(), R.dimen.tbds156);
+        this.h = wi.g(this.a.getContext(), R.dimen.tbds156);
         this.f = this.a.findViewById(R.id.empty_view);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091cc9);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091cd3);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
@@ -132,7 +132,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0bce));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0bd2));
         }
     }
 

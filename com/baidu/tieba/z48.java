@@ -1,125 +1,175 @@
 package com.baidu.tieba;
 
-import android.widget.ExpandableListView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class z48 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<z48> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public TbPageContext a;
+    public BdTypeRecyclerView b;
+    public LinkedList<jn> c;
+    public f58 d;
+    public a58 e;
+    public d58 f;
+    public e58 g;
+    public c58 h;
+    public b58 i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310091, "Lcom/baidu/tieba/z48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310091, "Lcom/baidu/tieba/z48;");
-                return;
-            }
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        e = new ArrayList<>(5);
     }
 
-    public z48() {
+    public z48(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.b = bdTypeRecyclerView;
+        this.c = new LinkedList<>();
+        b();
     }
 
-    public long a() {
+    public List<wn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == 1) {
-                return ExpandableListView.getPackedPositionForChild(this.a, this.b);
+            BdTypeRecyclerView bdTypeRecyclerView = this.b;
+            if (bdTypeRecyclerView != null) {
+                return bdTypeRecyclerView.getData();
             }
-            return ExpandableListView.getPackedPositionForGroup(this.a);
+            return null;
         }
-        return invokeV.longValue;
+        return (List) invokeV.objValue;
+    }
+
+    public void c() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeRecyclerView = this.b) != null) {
+            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
+        }
     }
 
     public void e() {
+        a58 a58Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (a58Var = this.e) != null) {
+            a58Var.onPause();
+        }
+    }
+
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (e) {
-                if (e.size() < 5) {
-                    e.add(this);
-                }
+            this.d = new f58(this.a, bp6.D0);
+            this.e = new a58(this.a, cp6.U);
+            this.f = new d58(this.a, bp6.M0);
+            this.g = new e58(this.a, bp6.K0);
+            this.h = new c58(this.a, bp6.E0);
+            this.i = new b58(this.a, bp6.L0);
+            this.d.z(this.b);
+            this.e.F(this.b);
+            this.f.y(this.b);
+            this.g.z(this.b);
+            this.h.A(this.b);
+            this.i.C(this.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.c.add(this.f);
+            this.c.add(this.g);
+            this.c.add(this.h);
+            this.c.add(this.i);
+            this.b.addAdapters(this.c);
+        }
+    }
+
+    public void f(List<wn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b.setData(list);
+        }
+    }
+
+    public void g(NEGFeedBackView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            e58 e58Var = this.g;
+            if (e58Var != null) {
+                e58Var.x(bVar);
+            }
+            f58 f58Var = this.d;
+            if (f58Var != null) {
+                f58Var.x(bVar);
             }
         }
     }
 
-    public final void f() {
+    public void i(t18 t18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = 0;
-            this.b = 0;
-            this.c = 0;
-            this.d = 0;
-        }
-    }
-
-    public static z48 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (e) {
-                if (e.size() > 0) {
-                    z48 remove = e.remove(0);
-                    remove.f();
-                    return remove;
-                }
-                return new z48();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t18Var) == null) {
+            a58 a58Var = this.e;
+            if (a58Var != null) {
+                a58Var.E(t18Var);
+            }
+            b58 b58Var = this.i;
+            if (b58Var != null) {
+                b58Var.B(t18Var);
             }
         }
-        return (z48) invokeV.objValue;
     }
 
-    public static z48 c(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
+    public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
-            z48 b = b();
-            b.d = i;
-            b.a = i2;
-            b.b = i3;
-            b.c = i4;
-            return b;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            f58 f58Var = this.d;
+            if (f58Var != null) {
+                f58Var.y(bdUniqueId);
+            }
+            a58 a58Var = this.e;
+            if (a58Var != null) {
+                a58Var.D(bdUniqueId);
+            }
+            d58 d58Var = this.f;
+            if (d58Var != null) {
+                d58Var.x(bdUniqueId);
+            }
+            e58 e58Var = this.g;
+            if (e58Var != null) {
+                e58Var.y(bdUniqueId);
+            }
+            c58 c58Var = this.h;
+            if (c58Var != null) {
+                c58Var.z(bdUniqueId);
+            }
+            b58 b58Var = this.i;
+            if (b58Var != null) {
+                b58Var.A(bdUniqueId);
+            }
         }
-        return (z48) invokeIIII.objValue;
-    }
-
-    public static z48 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return c(2, i, 0, 0);
-        }
-        return (z48) invokeI.objValue;
     }
 }

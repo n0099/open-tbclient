@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.write.write.work.selectview.SelectTopicView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -79,7 +79,7 @@ public class SelectTopicView extends LinearLayout {
                 label.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                 label.setCompoundDrawables(pureDrawable, null, null, null);
                 String cutData = StringHelper.cutChineseAndEnglishWithEmoji(data, 16, "...");
-                o75 d = o75.d(label);
+                p75 d = p75.d(label);
                 d.o(R.string.J_X01);
                 d.f(R.color.CAM_X0204);
                 Intrinsics.checkNotNullExpressionValue(cutData, "cutData");
@@ -199,27 +199,27 @@ public class SelectTopicView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09c3, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09297d);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09c4, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09298a);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_topic_sign)");
             setMTopicTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0914aa);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0914b0);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090681);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09067e);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09255b);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f092568);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.topic_center_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091e5f);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091e6a);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.baidu.tieba.bla
+            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.baidu.tieba.uma
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -231,7 +231,7 @@ public class SelectTopicView extends LinearLayout {
                     }
                 }
             });
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fla
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yma
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

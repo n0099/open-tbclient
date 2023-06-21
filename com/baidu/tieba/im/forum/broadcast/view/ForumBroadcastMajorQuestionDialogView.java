@@ -17,10 +17,9 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
-    public Context b;
+    public TextView b;
     public TextView c;
     public TextView d;
-    public TextView e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumBroadcastMajorQuestionDialogView(Context context) {
@@ -40,7 +39,6 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
                 return;
             }
         }
-        this.b = context;
         a(context);
     }
 
@@ -48,25 +46,25 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e2, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b8f);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b8d);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090b91);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b90);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091212);
-            this.c.setText(R.string.subscribe_bar_title);
-            this.d.setText(R.string.obfuscated_res_0x7f0f076e);
-            this.e.setText(R.string.obfuscated_res_0x7f0f0b29);
+            this.b = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090b8f);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b8e);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091217);
+            this.b.setText(R.string.subscribe_bar_title);
+            this.c.setText(R.string.obfuscated_res_0x7f0f076f);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0b2d);
             SkinManager.setBackgroundResource(this.a, R.drawable.bg_frs_private_dialog);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
         }
     }
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && onClickListener != null) {
-            this.e.setOnClickListener(onClickListener);
+            this.d.setOnClickListener(onClickListener);
         }
     }
 }

@@ -1,16 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
 /* loaded from: classes8.dex */
 public interface zz1 {
     @NonNull
-    wa2 d();
+    a02 a();
 
-    @NonNull
-    CallbackHandler e();
-
-    @NonNull
-    Context getContext();
+    void d(String str, z32 z32Var);
 }

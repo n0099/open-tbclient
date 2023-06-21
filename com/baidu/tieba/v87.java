@@ -1,60 +1,57 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardHeadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v87 extends t77<CardHeadView, f47> {
+public abstract class v87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public a b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v87(String str) {
-        super(str);
+    /* loaded from: classes8.dex */
+    public interface a<T> {
+        void a(T t);
+    }
+
+    public abstract void a();
+
+    public abstract boolean b();
+
+    public abstract void c(Object obj);
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract boolean g(@NonNull String str);
+
+    public v87(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.t77, com.baidu.tieba.i87
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void f(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            q97.k(a, 0);
-            return a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i87
-    /* renamed from: e */
-    public void b(@NonNull CardHeadView cardHeadView, @NonNull f47 f47Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, f47Var) == null) {
-            cardHeadView.e(f47Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 }

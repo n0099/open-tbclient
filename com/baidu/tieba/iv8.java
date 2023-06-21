@@ -1,6 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
+import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
+import com.baidu.searchbox.yy.gameassist.GameAssistNPSPluginManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.wallet.YYPayManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,88 +17,165 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class iv8 implements vn {
+public class iv8 implements ThirdPartWxRechargeService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static BroadcastReceiver b;
     public transient /* synthetic */ FieldHolder $fh;
+    public IWXAPI a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867070, "Lcom/baidu/tieba/iv8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947867070, "Lcom/baidu/tieba/iv8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947867070, "Lcom/baidu/tieba/iv8;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iv8 this$0;
+        public final /* synthetic */ ThirdPartWxRechargeService.WxPayType val$wxPayType;
+
+        public a(iv8 iv8Var, ThirdPartWxRechargeService.WxPayType wxPayType) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iv8Var, wxPayType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947867070, "Lcom/baidu/tieba/iv8;");
-                return;
+            this.this$0 = iv8Var;
+            this.val$wxPayType = wxPayType;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                intent.getExtras();
+                if (this.val$wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
+                    str = "wx_pay_result";
+                } else {
+                    str = GameAssistNPSPluginManager.KEY_YY_WX_PAY_RESULT;
+                }
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt("errorCode", -1)));
+                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg"));
+                LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str, hashMap);
+                qt7.i().g(TbadkCoreApplication.getInst().getContext(), str, hashMap);
             }
         }
-        a = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.vn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public iv8(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
+    public iv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        if (dataRes != null && (vipUser = dataRes.user) != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUser.card_id;
-            String str2 = vipUser.total_scores_link;
-            String str3 = vipUser.speed_link;
-            String str4 = vipUser.task_scores_link;
-            vipUser.task_scores.intValue();
-            String str5 = vipUser.name;
-            vipUser.id.longValue();
-            String str6 = vipUser.portrait;
-            String str7 = vipUser.name_show;
-            String str8 = vipUser.vip_link;
-            VipInfo vipInfo = vipUser.vipInfo;
-            if (vipInfo != null) {
-                String str9 = vipInfo.icon_url;
-                vipInfo.s_time.intValue();
-                vipUser.vipInfo.e_time.intValue();
-                vipUser.now_time.intValue();
-                vipUser.vipInfo.v_status.intValue();
-                vipUser.vipInfo.v_level.intValue();
-                vipUser.vipInfo.ext_score.intValue();
-                vipUser.vipInfo.a_score.intValue();
-                vipUser.vipInfo.n_score.intValue();
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
+    public void initWx() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
+    public boolean isWxInstalled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
             }
-            dataRes.today_get_score.intValue();
-            dataRes.today_unget_score.intValue();
-            vipUpgrade.normal.intValue();
-            vipUpgrade.pay.intValue();
-            AutoPayInfo autoPayInfo = dataRes.autopay_info;
+            return this.a.isWXAppInstalled();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final PayReq a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            PayReq payReq = new PayReq();
+            payReq.appId = jSONObject.optString("appid");
+            payReq.partnerId = jSONObject.optString("partnerid");
+            payReq.prepayId = jSONObject.optString("prepayid");
+            payReq.packageValue = jSONObject.optString("package");
+            payReq.nonceStr = jSONObject.optString("noncestr");
+            payReq.timeStamp = jSONObject.optString("timestamp");
+            payReq.sign = jSONObject.optString("sign");
+            payReq.extData = "YY";
+            return payReq;
+        }
+        return (PayReq) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
+    public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
+            try {
+                if (this.a == null) {
+                    this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+                }
+                PayReq a2 = a(new JSONObject(str));
+                this.a.registerApp(a2.appId);
+                if (!this.a.sendReq(a2)) {
+                    if (wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
+                        str2 = "wx_pay_result";
+                    } else {
+                        str2 = GameAssistNPSPluginManager.KEY_YY_WX_PAY_RESULT;
+                    }
+                    HashMap<String, Object> hashMap = new HashMap<>();
+                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
+                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
+                    LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
+                    qt7.i().g(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
+                }
+                if (b != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(b);
+                }
+                b = new a(this, wxPayType);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("WXPayResult");
+                TbadkCoreApplication.getInst().registerReceiver(b, intentFilter);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -39,8 +39,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && (stringExtra = intent.getStringExtra("uid")) != null && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
             String stringExtra2 = intent.getStringExtra("task_id");
-            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ad3, intent.getStringExtra("title"));
-            String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b61);
+            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ad7, intent.getStringExtra("title"));
+            String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b65);
             Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), NotificationReceiver.class);
             int parseInt = Integer.parseInt(stringExtra2);
             intent2.putExtra("thread_id", intent.getStringExtra("tid"));

@@ -28,7 +28,7 @@ import com.baidu.searchbox.download.util.DownloadHelper;
 import com.baidu.searchbox.download.util.ExternalStorageCallBack;
 import com.baidu.searchbox.download.util.FileClassifyHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.u20;
+import com.baidu.tieba.v20;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -193,7 +193,7 @@ public class FileDownloader {
             sb.append("',");
         }
         String substring = sb.substring(0, sb.length() - 1);
-        queryDownloadData(i, i2, i3, "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND mimetype IN (" + substring + SmallTailInfo.EMOTION_SUFFIX, arrayList, u20.d(u20.a));
+        queryDownloadData(i, i2, i3, "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND mimetype IN (" + substring + SmallTailInfo.EMOTION_SUFFIX, arrayList, v20.d(v20.a));
         return arrayList;
     }
 
@@ -272,7 +272,7 @@ public class FileDownloader {
         if (docCategroy == DocClassifyHelper.DocCategroy.RECENT) {
             str = str + " AND extra_info IS NOT NULL";
         }
-        queryDownloadData(4, i, i2, str, arrayList, u20.d(u20.a));
+        queryDownloadData(4, i, i2, str, arrayList, v20.d(v20.a));
         if (docCategroy == DocClassifyHelper.DocCategroy.RECENT && arrayList.size() > 0) {
             ArrayList<CategoryInfoData> arrayList2 = new ArrayList<>();
             Iterator<CategoryInfoData> it2 = arrayList.iterator();
@@ -301,7 +301,7 @@ public class FileDownloader {
                 sb.append("',");
             }
             String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND _id IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-            if (!u20.d(u20.a)) {
+            if (!v20.d(v20.a)) {
                 str = str + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
             }
             String str2 = str;
@@ -364,7 +364,7 @@ public class FileDownloader {
             sb.append("',");
         }
         String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND mimetype IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-        if (!u20.d(u20.a)) {
+        if (!v20.d(v20.a)) {
             str = str + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
         }
         String str2 = str;
@@ -590,7 +590,7 @@ public class FileDownloader {
             sb.append("',");
         }
         String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND mimetype IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-        if (!u20.d(u20.a)) {
+        if (!v20.d(v20.a)) {
             str = str + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
         }
         String str2 = str;

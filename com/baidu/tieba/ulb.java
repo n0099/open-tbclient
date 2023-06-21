@@ -4,15 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.framing.Framedata;
 /* loaded from: classes8.dex */
-public class ulb extends qlb {
+public final class ulb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] a;
+    public int[] b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ulb() {
-        super(Framedata.Opcode.PONG);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,32 +19,29 @@ public class ulb extends qlb {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ulb(tlb tlbVar) {
-        super(Framedata.Opcode.PONG);
+    public static void a(ulb ulbVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tlbVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLI(65537, null, ulbVar, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                int[] iArr = ulbVar.b;
+                byte[] bArr = ulbVar.a;
+                int i3 = i2 * 4;
+                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
             }
         }
-        j(tlbVar.a());
+    }
+
+    public static void b(ulb ulbVar, byte[] bArr, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, ulbVar, bArr, iArr) == null) {
+            ulbVar.a = bArr;
+            ulbVar.b = iArr;
+        }
     }
 }

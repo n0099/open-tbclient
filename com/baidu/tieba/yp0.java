@@ -1,48 +1,37 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.requester.NadRequester;
+import com.baidu.nadcore.requester.RequestParameters;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class yp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final long b;
-    public final long c;
-    public long d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public long g;
-    public long h;
-    @SuppressLint({"HandlerLeak"})
-    public final Handler i;
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
+    public final Map<String, String> a;
 
     /* loaded from: classes8.dex */
-    public class a extends Handler {
+    public class a implements NadRequester.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yp0 a;
+        public final /* synthetic */ xc1 a;
+        public final /* synthetic */ yp0 b;
 
-        public a(yp0 yp0Var) {
+        public a(yp0 yp0Var, xc1 xc1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yp0Var};
+                Object[] objArr = {yp0Var, xc1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,52 +41,41 @@ public class yp0 {
                     return;
                 }
             }
-            this.a = yp0Var;
+            this.b = yp0Var;
+            this.a = xc1Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            long j;
+        @Override // com.baidu.nadcore.requester.NadRequester.b
+        public void a(@NonNull NadRequester.Error error) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                synchronized (this.a) {
-                    if (!this.a.e && !this.a.f) {
-                        long elapsedRealtime = this.a.d - SystemClock.elapsedRealtime();
-                        this.a.a = elapsedRealtime;
-                        if (elapsedRealtime <= this.a.g) {
-                            this.a.l();
-                            this.a.f = true;
-                        } else {
-                            long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                            this.a.m(elapsedRealtime);
-                            long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                            long j2 = 0;
-                            if (elapsedRealtime < this.a.c) {
-                                j = elapsedRealtime - elapsedRealtime3;
-                                if (j < 0) {
-                                    sendMessageDelayed(obtainMessage(1), j2);
-                                }
-                            } else {
-                                j = this.a.c - elapsedRealtime3;
-                                while (j < 0) {
-                                    j += this.a.c;
-                                }
-                            }
-                            j2 = j;
-                            sendMessageDelayed(obtainMessage(1), j2);
-                        }
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
+                try {
+                    this.a.dismiss();
+                } catch (Exception unused) {
                 }
+                this.b.f();
+            }
+        }
+
+        @Override // com.baidu.nadcore.requester.NadRequester.b
+        public void b(@NonNull List<AdBaseModel> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                try {
+                    this.a.dismiss();
+                } catch (Exception unused) {
+                }
+                this.b.d(list);
             }
         }
     }
 
-    public yp0(long j, long j2) {
+    public yp0(@NonNull Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -107,99 +85,51 @@ public class yp0 {
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.i = new a(this);
-        this.c = j2;
-        this.a = j;
-        this.b = j;
-        this.h = j;
+        this.a = map;
     }
 
-    public void m(long j) {
+    public final boolean c(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.h = j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adBaseModel)) == null) {
+            if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(@NonNull xc1 xc1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xc1Var, str) == null) {
+            RequestParameters.b bVar = new RequestParameters.b();
+            bVar.q(str);
+            bVar.n(this.a);
+            NadRequester.a(bVar.o(), new a(this, xc1Var));
         }
     }
 
-    public final synchronized void h() {
+    public final void d(@NonNull List<AdBaseModel> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.e = true;
-                this.i.removeCallbacksAndMessages(null);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            if (y21.g(list)) {
+                f();
+                return;
+            }
+            AdBaseModel adBaseModel = (AdBaseModel) y21.d(list, 0);
+            if (!c(adBaseModel)) {
+                f();
+            } else {
+                uj0.d(adBaseModel.f.c, lk0.b(), null);
             }
         }
     }
 
-    public final synchronized long j() {
-        InterceptResult invokeV;
-        long j;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                j = this.b - this.h;
-            }
-            return j;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            h51.a().showToast(lk0.b(), lk0.b().getString(R.string.nad_reward_video_lp_empty));
         }
-        return invokeV.longValue;
-    }
-
-    public final synchronized long k() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                j = this.a - this.g;
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public final synchronized yp0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.f) {
-                    return this;
-                }
-                this.e = false;
-                if (this.a <= 0) {
-                    l();
-                    this.f = true;
-                    return this;
-                }
-                this.d = SystemClock.elapsedRealtime() + this.a;
-                this.i.sendMessage(this.i.obtainMessage(1));
-                return this;
-            }
-        }
-        return (yp0) invokeV.objValue;
-    }
-
-    public final synchronized yp0 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                if (this.f) {
-                    return this;
-                }
-                this.e = false;
-                if (this.a <= this.g) {
-                    l();
-                    this.f = true;
-                    return this;
-                }
-                this.d = SystemClock.elapsedRealtime() + this.a;
-                this.i.sendMessage(this.i.obtainMessage(1));
-                return this;
-            }
-        }
-        return (yp0) invokeV.objValue;
     }
 }

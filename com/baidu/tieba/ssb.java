@@ -1,27 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tieba.awb;
-import com.baidu.tieba.yvb;
-import com.baidu.tieba.zvb;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface ssb {
-    IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, psb psbVar);
+public final class ssb extends rsb {
+    public static /* synthetic */ Interceptable $ic;
+    public static final ssb a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    wvb b(Activity activity);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163399, "Lcom/baidu/tieba/ssb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948163399, "Lcom/baidu/tieba/ssb;");
+                return;
+            }
+        }
+        a = new ssb();
+    }
 
-    vvb c(Activity activity);
+    public ssb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    xvb d(Activity activity);
-
-    IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, psb psbVar);
-
-    yvb f(Activity activity, yvb.b bVar, PayUIKitConfig payUIKitConfig);
-
-    awb g(Activity activity, awb.b bVar, usb usbVar);
-
-    zvb h(Activity activity, PayUIKitConfig payUIKitConfig, zvb.b bVar, usb usbVar);
+    public static rsb f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (rsb) invokeV.objValue;
+    }
 }

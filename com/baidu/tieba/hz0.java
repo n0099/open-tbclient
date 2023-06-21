@@ -1,157 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
+import android.view.View;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.nadcore.player.layer.LayerContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public abstract class hz0 implements uz0 {
+public abstract class hz0 extends qz0 implements xx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public b01 a;
-    public LayerContainer b;
-    public Context c;
-    public Handler d;
+    public FrameLayout e;
+    public nx0 f;
 
-    public void B(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-        }
-    }
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public void a(@NonNull uw0 uw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, uw0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public void d(@NonNull uw0 uw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, uw0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public int getExpectOrder() {
+    @Override // com.baidu.tieba.xx0
+    public wx0 getInterceptorLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, playerStatus, playerStatus2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public void j(@NonNull uw0 uw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, uw0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public void k(@NonNull uw0 uw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, uw0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public void n(@NonNull uw0 uw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, uw0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.uz0
-    public void onContainerDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vx0
-    public void q(@NonNull uw0 uw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, uw0Var) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<hz0> a;
-
-        public a(hz0 hz0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hz0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(hz0Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            hz0 hz0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (hz0Var = this.a.get()) != null && hz0Var.getContentView() != null && hz0Var.getContentView().getParent() != null) {
-                hz0Var.B(message);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (wx0) invokeV.objValue;
     }
 
     public hz0() {
@@ -167,24 +37,23 @@ public abstract class hz0 implements uz0 {
                 return;
             }
         }
-        C(null);
+        this.e = new FrameLayout(this.c);
+        R(8);
     }
 
-    @Nullable
-    public b01 A() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.iz0
+    public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            J(this);
         }
-        return (b01) invokeV.objValue;
     }
 
-    public final boolean E() {
+    public boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e.getVisibility() == 0) {
                 return true;
             }
             return false;
@@ -192,161 +61,70 @@ public abstract class hz0 implements uz0 {
         return invokeV.booleanValue;
     }
 
-    public final void G() {
-        int[] subscribeEvent;
+    public void P() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && E() && (subscribeEvent = getSubscribeEvent()) != null && subscribeEvent.length > 0) {
-            for (int i : subscribeEvent) {
-                this.a.c(i, this);
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.e.removeAllViews();
         }
     }
 
-    @Nullable
-    public Activity getActivity() {
+    @Override // com.baidu.tieba.vz0
+    @NonNull
+    public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return u().getActivity();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
         }
-        return (Activity) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uz0
+    @Override // com.baidu.tieba.qz0, com.baidu.tieba.iz0, com.baidu.tieba.vz0
     public void onLayerRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            e21.a("onLayerRelease() = " + this);
-            this.d.removeCallbacksAndMessages(null);
-            this.c = null;
-            this.a = null;
-        }
-    }
-
-    public void s() {
-        b01 b01Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (b01Var = this.a) != null) {
-            b01Var.e(this);
-            this.a = null;
-        }
-    }
-
-    @NonNull
-    public Context t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.c.getApplicationContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public au0 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            LayerContainer layerContainer = this.b;
-            if (layerContainer != null) {
-                return layerContainer.getBindPlayer();
-            }
-            return null;
-        }
-        return (au0) invokeV.objValue;
-    }
-
-    public hw0 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return u().q();
-        }
-        return (hw0) invokeV.objValue;
-    }
-
-    public Handler y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.d;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public LayerContainer z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.b;
-        }
-        return (LayerContainer) invokeV.objValue;
-    }
-
-    public hz0(@Nullable Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onLayerRelease();
+            J(null);
+            nx0 nx0Var = this.f;
+            if (nx0Var != null) {
+                nx0Var.onLayerRelease();
+                this.f = null;
             }
         }
-        e21.a("AbsLayer(context@" + System.identityHashCode(context) + ") = " + this);
-        C(context);
     }
 
-    public final void C(@Nullable Context context) {
+    public void N(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            if (context == null) {
-                this.c = zt0.b();
-            } else {
-                this.c = context;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.e.addView(view2);
+        }
+    }
+
+    public void Q(nx0 nx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nx0Var) == null) {
+            this.f = nx0Var;
+        }
+    }
+
+    public void R(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e.setVisibility(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.xx0
+    public boolean e(@NonNull vw0 vw0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, vw0Var)) == null) {
+            nx0 nx0Var = this.f;
+            if (nx0Var == null) {
+                return false;
             }
-            this.d = new a(this);
+            return nx0Var.b(vw0Var.c());
         }
-    }
-
-    public void H(uw0 uw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, uw0Var) == null) {
-            I(uw0Var);
-        }
-    }
-
-    public final void I(uw0 uw0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uw0Var) == null) && E()) {
-            uw0Var.t(this);
-            this.a.d(uw0Var);
-        }
-    }
-
-    public void J(@Nullable wx0 wx0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, wx0Var) == null) {
-            u().u0(wx0Var);
-        }
-    }
-
-    public void K(@NonNull LayerContainer layerContainer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, layerContainer) == null) {
-            this.b = layerContainer;
-        }
-    }
-
-    public void r(@NonNull b01 b01Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, b01Var) == null) {
-            this.a = b01Var;
-            G();
-        }
+        return invokeL.booleanValue;
     }
 }

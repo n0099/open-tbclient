@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,15 +10,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class zq6 implements m87 {
+public final class zq6 implements r87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.m87
+    @Override // com.baidu.tieba.r87
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13693" : (String) invokeV.objValue;
     }
 
     public zq6() {
@@ -36,20 +35,22 @@ public final class zq6 implements m87 {
         }
     }
 
-    @Override // com.baidu.tieba.m87
-    public Map<String, String> a(y47 businessInfo) {
+    @Override // com.baidu.tieba.r87
+    public Map<String, String> a(d57 businessInfo) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
             hashMap.put("obj_locate", "2");
-            String str = a.get("item_id");
-            if (str == null) {
-                str = "";
+            if (ug.e(a.get("is_video_work"), 0) == 1) {
+                str = "1";
+            } else {
+                str = "0";
             }
-            hashMap.put("obj_type", str);
+            hashMap.put("obj_source", str);
             return hashMap;
         }
         return (Map) invokeL.objValue;

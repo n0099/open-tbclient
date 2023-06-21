@@ -1,6 +1,10 @@
 package com.baidu.tbadk.core.util;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -67,6 +71,31 @@ public class CommonStatisticUtils {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_URL_NULL_REPORT);
             statisticItem.param("tid", str2);
             statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void statisticFriendBotView(@NonNull int i, @NonNull String str, @NonNull int i2, boolean z, @NonNull String str2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Boolean.valueOf(z), str2}) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRIEND_BOT_BUTTON_VIEW_SHOW);
+            if (!TextUtils.isEmpty(str)) {
+                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
+                if (!TextUtils.isEmpty(bdUidFromBdUK)) {
+                    statisticItem.param("obj_id", bdUidFromBdUK);
+                }
+            }
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_source", i2);
+            statisticItem.param("fid", str2);
+            if (z) {
+                i3 = 1;
+            } else {
+                i3 = 2;
+            }
+            statisticItem.param("obj_param1", i3);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
         }
     }

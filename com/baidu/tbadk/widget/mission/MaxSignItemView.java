@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -122,8 +122,8 @@ public class MaxSignItemView extends FrameLayout {
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091172);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09119f);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091177);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0911a4);
             CircleView circleView = (CircleView) this.f.findViewById(R.id.select_circle);
             this.i = circleView;
             circleView.setVisibility(4);
@@ -183,8 +183,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -208,8 +208,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -233,8 +233,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -266,8 +266,8 @@ public class MaxSignItemView extends FrameLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.max_sign_dialog_cus_view, (ViewGroup) this, true);
             this.a = (LinearLayout) findViewById(R.id.sign_item_container);
             this.b = (LineView) findViewById(R.id.line_view);
-            this.e = vi.g(getContext(), R.dimen.tbds3);
-            this.f = vi.g(getContext(), R.dimen.tbds0);
+            this.e = wi.g(getContext(), R.dimen.tbds3);
+            this.f = wi.g(getContext(), R.dimen.tbds0);
         }
     }
 

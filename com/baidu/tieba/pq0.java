@@ -1,16 +1,7 @@
 package com.baidu.tieba;
-
-import android.view.MotionEvent;
-import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
 /* loaded from: classes7.dex */
-public interface pq0 extends jk0 {
-    WebViewContainer b();
+public interface pq0 extends kk0 {
+    void a(String str, String str2);
 
-    void f(boolean z, boolean z2, boolean z3, int i);
-
-    boolean g();
-
-    void i(MotionEvent motionEvent);
-
-    void j(boolean z, boolean z2, boolean z3);
+    void c(String str, String str2, String str3);
 }

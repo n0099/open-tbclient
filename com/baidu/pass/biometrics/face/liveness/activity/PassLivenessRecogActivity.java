@@ -702,7 +702,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     private void l() {
         this.h.setVisibility(4);
         this.g.setVisibility(0);
-        this.g.setText(R.string.obfuscated_res_0x7f0f0f1f);
+        this.g.setText(R.string.obfuscated_res_0x7f0f0f23);
         this.F = null;
     }
 
@@ -766,7 +766,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     public void onBegin() {
         this.l.setVisibility(0);
         this.l.setBackgroundColor(-1);
-        this.g.setText(R.string.obfuscated_res_0x7f0f0f1f);
+        this.g.setText(R.string.obfuscated_res_0x7f0f0f23);
     }
 
     @Override // com.baidu.sofire.face.api.FaceProcessCallback
@@ -934,14 +934,14 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2.getId() == R.id.obfuscated_res_0x7f0919ba) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f0919c0) {
             h();
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919b9) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919bf) {
             this.L.setVisibility(8);
             this.K.setVisibility(8);
             this.M = Boolean.TRUE;
             i();
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919bd) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919c3) {
             startActivity(new Intent(this, YYProtocolActivity.class));
         }
     }
@@ -955,7 +955,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         getWindow().addFlags(128);
         super.onCreate(bundle);
         setRequestedOrientation(1);
-        setContentView(R.layout.obfuscated_res_0x7f0d0527);
+        setContentView(R.layout.obfuscated_res_0x7f0d0525);
         d();
         e();
         m();
@@ -1297,11 +1297,11 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     private void s() {
         this.E.z = 1;
         com.baidu.pass.biometrics.face.liveness.d.a aVar = new com.baidu.pass.biometrics.face.liveness.d.a(this);
-        aVar.b(getString(R.string.obfuscated_res_0x7f0f0f1e));
+        aVar.b(getString(R.string.obfuscated_res_0x7f0f0f22));
         aVar.c(0);
-        aVar.a(getString(R.string.obfuscated_res_0x7f0f0f1d));
-        aVar.c(getString(R.string.obfuscated_res_0x7f0f0ef7), new a(aVar));
-        aVar.a(getString(R.string.obfuscated_res_0x7f0f0efd), new b(aVar));
+        aVar.a(getString(R.string.obfuscated_res_0x7f0f0f21));
+        aVar.c(getString(R.string.obfuscated_res_0x7f0f0efb), new a(aVar));
+        aVar.a(getString(R.string.obfuscated_res_0x7f0f0f01), new b(aVar));
         aVar.setCancelable(false);
         if (!isFinishing() && !aVar.isShowing()) {
             aVar.show();
@@ -1342,7 +1342,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         com.baidu.pass.biometrics.face.liveness.d.b bVar = new com.baidu.pass.biometrics.face.liveness.d.b(this);
         bVar.c("继续刷脸", new g(bVar));
         bVar.a("放弃刷脸", new h(bVar));
-        bVar.a(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08089d));
+        bVar.a(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08089f));
         bVar.b("确定放弃刷脸吗？");
         bVar.a("刷脸验证通过后可以提升帐号的安全性和使用的便捷性，建议您继续完成刷脸验证~");
         bVar.show();
@@ -1351,10 +1351,10 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     private void n() {
         this.E.C = 1;
         com.baidu.pass.biometrics.face.liveness.d.a aVar = new com.baidu.pass.biometrics.face.liveness.d.a(this);
-        aVar.b(getString(R.string.obfuscated_res_0x7f0f0f24));
-        aVar.c(getString(R.string.obfuscated_res_0x7f0f0f23));
+        aVar.b(getString(R.string.obfuscated_res_0x7f0f0f28));
+        aVar.c(getString(R.string.obfuscated_res_0x7f0f0f27));
         aVar.a(1);
-        aVar.b(getString(R.string.obfuscated_res_0x7f0f0ef8), new c(aVar));
+        aVar.b(getString(R.string.obfuscated_res_0x7f0f0efc), new c(aVar));
         aVar.setCancelable(false);
         if (!isFinishing() && !aVar.isShowing()) {
             aVar.show();
@@ -1399,10 +1399,10 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                 return;
             } else if (shouldShowRequestPermissionRationale(PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
                 com.baidu.pass.biometrics.face.liveness.d.b bVar = new com.baidu.pass.biometrics.face.liveness.d.b(this);
-                bVar.c(getString(R.string.obfuscated_res_0x7f0f0f17), new l(bVar));
-                bVar.a(getString(R.string.obfuscated_res_0x7f0f0f15), new m(bVar));
-                bVar.b(String.format(getString(R.string.obfuscated_res_0x7f0f0f18), PassBiometricUtil.getAppName(this), getString(R.string.obfuscated_res_0x7f0f0f14)));
-                bVar.a(String.format(getString(R.string.obfuscated_res_0x7f0f0f16), PassBiometricUtil.getAppName(this), getString(R.string.obfuscated_res_0x7f0f0f14)));
+                bVar.c(getString(R.string.obfuscated_res_0x7f0f0f1b), new l(bVar));
+                bVar.a(getString(R.string.obfuscated_res_0x7f0f0f19), new m(bVar));
+                bVar.b(String.format(getString(R.string.obfuscated_res_0x7f0f0f1c), PassBiometricUtil.getAppName(this), getString(R.string.obfuscated_res_0x7f0f0f18)));
+                bVar.a(String.format(getString(R.string.obfuscated_res_0x7f0f0f1a), PassBiometricUtil.getAppName(this), getString(R.string.obfuscated_res_0x7f0f0f18)));
                 bVar.show();
                 return;
             } else {
@@ -1453,32 +1453,32 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
 
     private void m() {
         PassBioDisplayUtil.enableNavigationBarTint(this, getResources().getColor(17170445));
-        this.f = (CircleProgressView) findViewById(R.id.obfuscated_res_0x7f0919bb);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0919bc);
+        this.f = (CircleProgressView) findViewById(R.id.obfuscated_res_0x7f0919c1);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0919c2);
         this.f.setNormalColor(Color.parseColor("#FFE0E0E0"));
         this.f.setOnChangeListener(new k());
-        this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09146d);
-        this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911f0);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092695);
-        this.k = (CameraSurfaceView) findViewById(R.id.obfuscated_res_0x7f0919b0);
-        this.l = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f0919b2);
-        this.m = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f0919b1);
-        this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0919bf);
+        this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091472);
+        this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911f5);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0926a2);
+        this.k = (CameraSurfaceView) findViewById(R.id.obfuscated_res_0x7f0919b6);
+        this.l = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f0919b8);
+        this.m = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f0919b7);
+        this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0919c5);
         setBrightness(this, 255);
-        ((ImageView) findViewById(R.id.obfuscated_res_0x7f0919ba)).setOnClickListener(this);
+        ((ImageView) findViewById(R.id.obfuscated_res_0x7f0919c0)).setOnClickListener(this);
         PassFaceRecogDTO passFaceRecogDTO = this.mPassFaceRecogDTO;
         if (passFaceRecogDTO != null && passFaceRecogDTO.needAuthorizeCertInfo) {
             this.N = passFaceRecogDTO.extraParamsMap.get("yyOrderId");
             this.M = Boolean.FALSE;
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f091fdb)).setText(R.string.obfuscated_res_0x7f0f09c6);
-            this.K = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919b3);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0919be);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f091fe6)).setText(R.string.obfuscated_res_0x7f0f09ca);
+            this.K = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919b9);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0919c4);
             this.L = relativeLayout;
             relativeLayout.setVisibility(0);
             this.K.setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f0919bd).setOnClickListener(this);
-            findViewById(R.id.obfuscated_res_0x7f0919b9).setOnClickListener(this);
-            this.g.setText(R.string.obfuscated_res_0x7f0f09c2);
+            findViewById(R.id.obfuscated_res_0x7f0919c3).setOnClickListener(this);
+            findViewById(R.id.obfuscated_res_0x7f0919bf).setOnClickListener(this);
+            this.g.setText(R.string.obfuscated_res_0x7f0f09c6);
         }
     }
 
@@ -1487,11 +1487,11 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         if (this.o == null) {
             com.baidu.pass.biometrics.face.liveness.d.a aVar = new com.baidu.pass.biometrics.face.liveness.d.a(this);
             this.o = aVar;
-            aVar.b(getString(R.string.obfuscated_res_0x7f0f0f13));
+            aVar.b(getString(R.string.obfuscated_res_0x7f0f0f17));
             this.o.b(true);
-            this.o.c(getString(R.string.obfuscated_res_0x7f0f0f21));
-            this.o.c(getString(R.string.obfuscated_res_0x7f0f0efa), new o());
-            this.o.a(getString(R.string.obfuscated_res_0x7f0f0ef9), new p());
+            this.o.c(getString(R.string.obfuscated_res_0x7f0f0f25));
+            this.o.c(getString(R.string.obfuscated_res_0x7f0f0efe), new o());
+            this.o.a(getString(R.string.obfuscated_res_0x7f0f0efd), new p());
         }
         this.o.setCancelable(false);
         if (!isFinishing() && !this.o.isShowing()) {

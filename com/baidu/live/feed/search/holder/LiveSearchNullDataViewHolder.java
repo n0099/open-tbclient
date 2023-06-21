@@ -12,6 +12,6 @@ public class LiveSearchNullDataViewHolder extends RecyclerView.ViewHolder {
     public LiveSearchNullDataViewHolder(View view2) {
         super(view2);
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092129);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092134);
     }
 }

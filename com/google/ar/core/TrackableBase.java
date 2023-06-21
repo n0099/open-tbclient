@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.z6b;
+import com.baidu.tieba.s8b;
 /* loaded from: classes9.dex */
-public class TrackableBase implements z6b {
+public class TrackableBase implements s8b {
     public final long a;
     public final Session b;
 

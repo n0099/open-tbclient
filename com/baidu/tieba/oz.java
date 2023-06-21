@@ -1,91 +1,25 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.tieba.uz;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oz extends ux<h15> {
+public class oz extends cy {
     public static /* synthetic */ Interceptable $ic;
-    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public TextView g;
-    public TextView h;
-    public OriginalThreadCardView i;
-    public h15 j;
-    public boolean k;
-    public OriginalThreadCardView.b l;
-
-    /* loaded from: classes7.dex */
-    public class a implements OriginalThreadCardView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oz a;
-
-        public a(oz ozVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ozVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ozVar;
-        }
-
-        @Override // com.baidu.tieba.card.OriginalThreadCardView.b
-        public void a(OriginalThreadInfo originalThreadInfo) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) && this.a.j != null && this.a.j.getThreadData() != null) {
-                if (this.a.h() != null) {
-                    this.a.h().a(this.a.i, this.a.j);
-                }
-                String id = this.a.j.getThreadData().getId();
-                sn6.a(id);
-                this.a.y(id);
-                this.a.a.p(new uz.a(1));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448313634, "Lcom/baidu/tieba/oz;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448313634, "Lcom/baidu/tieba/oz;");
-                return;
-            }
-        }
-        m = vi.l(TbadkCoreApplication.getInst()) - ((vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
-    }
+    public FrameLayout h;
+    public ItemCardView i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public oz(Context context) {
@@ -95,89 +29,76 @@ public class oz extends ux<h15> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = false;
-        this.l = new a(this);
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
-            this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
-        } else {
-            this.f = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
-        }
-        this.g = (TextView) this.f.findViewById(R.id.thread_card_title);
-        this.h = (TextView) this.f.findViewById(R.id.thread_card_abstract);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.original_thread_view);
-        this.i = originalThreadCardView;
-        originalThreadCardView.setSubClickListener(this.l);
+        r(Boolean.TRUE);
     }
 
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.i.m = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.ux
-    public void p(go6<h15> go6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, go6Var) == null) {
-            super.p(go6Var);
-        }
-    }
-
-    public final void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            sn6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            sn6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(sn6.k(str));
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.py
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.i.s();
-        }
-    }
-
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.vx
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.h == null) {
+                FrameLayout frameLayout = new FrameLayout(this.b);
+                this.h = frameLayout;
+                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
+                this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            }
+            this.h.removeAllViews();
+            if (this.i == null) {
+                ItemCardView itemCardView = new ItemCardView(this.b);
+                this.i = itemCardView;
+                itemCardView.setBackGroundColor(R.color.CAM_X0205);
+                this.i.setIsShowRightBtn(true);
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.bottomMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            this.h.addView(this.i, layoutParams);
+            return this.h;
         }
         return (View) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oy
-    /* renamed from: x */
-    public void a(h15 h15Var) {
+    @Override // com.baidu.tieba.qy
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, h15Var) == null) && h15Var != null && h15Var.getThreadData() != null) {
-            this.j = h15Var;
-            ThreadCardUtils.setTitle(this.g, h15Var.getThreadData(), this.k);
-            ThreadCardUtils.setAbstract(this.h, this.g, h15Var.getThreadData(), m, this.k);
-            this.i.i(h15Var.getThreadData().originalThreadData);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
+            ItemCardView itemCardView = this.i;
+            if (itemCardView != null) {
+                itemCardView.G();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.py
+    /* renamed from: y */
+    public void a(i15 i15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, i15Var) == null) {
+            if (i15Var != null && i15Var.getThreadData() != null && i15Var.getThreadData().originalThreadData != null && i15Var.getThreadData().originalThreadData.C != null) {
+                if (!i15Var.getThreadData().originalThreadData.m && !i15Var.getThreadData().shouldShowBlockedState()) {
+                    this.h.setVisibility(0);
+                    this.i.setData(i15Var.getThreadData().originalThreadData.D, 13, i15Var.getThreadData().originalThreadData.f);
+                    return;
+                }
+                this.h.setVisibility(8);
+                return;
+            }
+            this.h.setVisibility(8);
         }
     }
 }

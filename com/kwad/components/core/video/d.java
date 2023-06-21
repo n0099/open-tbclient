@@ -79,7 +79,7 @@ public final class d extends com.kwad.components.core.video.a implements bg.a {
         super.oI();
         ImageView imageView = this.jQ;
         if (imageView != null) {
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080e28);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080e2c);
         }
         TextView textView = this.jR;
         if (textView != null) {

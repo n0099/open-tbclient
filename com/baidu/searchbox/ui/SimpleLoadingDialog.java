@@ -33,10 +33,10 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
     public void initView() {
         int i;
         setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d023d);
-        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ec2);
-        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0915f4);
-        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091705);
-        this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09071a);
+        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ecd);
+        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0915fa);
+        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09170b);
+        this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090717);
         this.mMsgTxtView.setText(this.mMsgText);
         this.mCloseImgView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.SimpleLoadingDialog.1
             @Override // android.view.View.OnClickListener
@@ -67,7 +67,7 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         SmoothProgressBar smoothProgressBar = this.mProgressBar;
         if (smoothProgressBar != null) {
             FontSizeViewExtKt.setScaledSizeRes(smoothProgressBar, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07077b, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070771);
-            this.mProgressBar.setIndeterminateDrawable(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080565));
+            this.mProgressBar.setIndeterminateDrawable(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080567));
         }
         TextView textView = this.mMsgTxtView;
         if (textView != null) {
@@ -76,7 +76,7 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         ImageView imageView = this.mCloseImgView;
         if (imageView != null) {
             FontSizeViewExtKt.setScaledSizeRes(imageView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070774, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070772);
-            this.mCloseImgView.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080567));
+            this.mCloseImgView.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080569));
         }
     }
 
@@ -85,11 +85,11 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         Resources resources = AppRuntime.getAppContext().getResources();
         View view2 = this.mRootView;
         if (view2 != null) {
-            view2.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080566));
+            view2.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080568));
         }
         SmoothProgressBar smoothProgressBar = this.mProgressBar;
         if (smoothProgressBar != null) {
-            smoothProgressBar.setIndeterminateDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080565));
+            smoothProgressBar.setIndeterminateDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080567));
         }
         TextView textView = this.mMsgTxtView;
         if (textView != null) {
@@ -97,7 +97,7 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         }
         ImageView imageView = this.mCloseImgView;
         if (imageView != null) {
-            imageView.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080567));
+            imageView.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080569));
         }
     }
 }

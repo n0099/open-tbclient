@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.idb;
-import com.baidu.tieba.jdb;
-import com.baidu.tieba.ndb;
+import com.baidu.tieba.bfb;
+import com.baidu.tieba.cfb;
+import com.baidu.tieba.gfb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                     return;
                 }
             }
-            this.frames = ndb.i();
+            this.frames = gfb.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                ndb.a(list);
+                gfb.a(list);
                 this.frames = list;
                 return this;
             }
@@ -114,27 +114,27 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public SpriteEntity decode(idb idbVar) throws IOException {
+        public SpriteEntity decode(bfb bfbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, idbVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bfbVar)) == null) {
                 Builder builder = new Builder();
-                long c = idbVar.c();
+                long c = bfbVar.c();
                 while (true) {
-                    int f = idbVar.f();
+                    int f = bfbVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
-                                FieldEncoding g = idbVar.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(idbVar));
+                                FieldEncoding g = bfbVar.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(bfbVar));
                             } else {
-                                builder.frames.add(FrameEntity.ADAPTER.decode(idbVar));
+                                builder.frames.add(FrameEntity.ADAPTER.decode(bfbVar));
                             }
                         } else {
-                            builder.imageKey(ProtoAdapter.STRING.decode(idbVar));
+                            builder.imageKey(ProtoAdapter.STRING.decode(bfbVar));
                         }
                     } else {
-                        idbVar.d(c);
+                        bfbVar.d(c);
                         return builder.build();
                     }
                 }
@@ -151,7 +151,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, spriteEntity)) == null) {
                 ?? newBuilder2 = spriteEntity.newBuilder2();
-                ndb.k(newBuilder2.frames, FrameEntity.ADAPTER);
+                gfb.k(newBuilder2.frames, FrameEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -160,15 +160,15 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(jdb jdbVar, SpriteEntity spriteEntity) throws IOException {
+        public void encode(cfb cfbVar, SpriteEntity spriteEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jdbVar, spriteEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cfbVar, spriteEntity) == null) {
                 String str = spriteEntity.imageKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(jdbVar, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(cfbVar, 1, str);
                 }
-                FrameEntity.ADAPTER.asRepeated().encodeWithTag(jdbVar, 2, spriteEntity.frames);
-                jdbVar.k(spriteEntity.unknownFields());
+                FrameEntity.ADAPTER.asRepeated().encodeWithTag(cfbVar, 2, spriteEntity.frames);
+                cfbVar.k(spriteEntity.unknownFields());
             }
         }
 
@@ -217,7 +217,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.imageKey = this.imageKey;
-            builder.frames = ndb.c("frames", this.frames);
+            builder.frames = gfb.c("frames", this.frames);
             builder.addUnknownFields(unknownFields());
             return builder;
         }
@@ -265,7 +265,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             }
         }
         this.imageKey = str;
-        this.frames = ndb.g("frames", list);
+        this.frames = gfb.g("frames", list);
     }
 
     public boolean equals(Object obj) {
@@ -279,7 +279,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                 return false;
             }
             SpriteEntity spriteEntity = (SpriteEntity) obj;
-            if (unknownFields().equals(spriteEntity.unknownFields()) && ndb.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
+            if (unknownFields().equals(spriteEntity.unknownFields()) && gfb.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
                 return true;
             }
             return false;

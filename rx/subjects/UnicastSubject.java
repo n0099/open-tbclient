@@ -1,30 +1,30 @@
 package rx.subjects;
 
-import com.baidu.tieba.anb;
-import com.baidu.tieba.gpb;
-import com.baidu.tieba.gqb;
-import com.baidu.tieba.hpb;
-import com.baidu.tieba.hqb;
-import com.baidu.tieba.inb;
-import com.baidu.tieba.irb;
-import com.baidu.tieba.nmb;
-import com.baidu.tieba.nqb;
-import com.baidu.tieba.omb;
-import com.baidu.tieba.pmb;
-import com.baidu.tieba.tmb;
-import com.baidu.tieba.umb;
-import com.baidu.tieba.zmb;
+import com.baidu.tieba.arb;
+import com.baidu.tieba.asb;
+import com.baidu.tieba.bpb;
+import com.baidu.tieba.btb;
+import com.baidu.tieba.gob;
+import com.baidu.tieba.gsb;
+import com.baidu.tieba.hob;
+import com.baidu.tieba.iob;
+import com.baidu.tieba.mob;
+import com.baidu.tieba.nob;
+import com.baidu.tieba.sob;
+import com.baidu.tieba.tob;
+import com.baidu.tieba.zqb;
+import com.baidu.tieba.zrb;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class UnicastSubject<T> extends irb<T, T> {
+public final class UnicastSubject<T> extends btb<T, T> {
     public final State<T> b;
 
     /* loaded from: classes2.dex */
-    public static final class State<T> extends AtomicLong implements pmb, omb<T>, nmb.a<T>, umb {
+    public static final class State<T> extends AtomicLong implements iob, hob<T>, gob.a<T>, nob {
         public static final long serialVersionUID = -9044104859202255786L;
         public volatile boolean caughtUp;
         public volatile boolean done;
@@ -32,46 +32,46 @@ public final class UnicastSubject<T> extends irb<T, T> {
         public Throwable error;
         public boolean missed;
         public final Queue<Object> queue;
-        public final AtomicReference<tmb<? super T>> subscriber = new AtomicReference<>();
-        public final AtomicReference<anb> terminateOnce;
+        public final AtomicReference<mob<? super T>> subscriber = new AtomicReference<>();
+        public final AtomicReference<tob> terminateOnce;
 
-        public State(int i, anb anbVar) {
-            AtomicReference<anb> atomicReference;
-            Queue<Object> gpbVar;
+        public State(int i, tob tobVar) {
+            AtomicReference<tob> atomicReference;
+            Queue<Object> zqbVar;
             Queue<Object> queue;
-            if (anbVar != null) {
-                atomicReference = new AtomicReference<>(anbVar);
+            if (tobVar != null) {
+                atomicReference = new AtomicReference<>(tobVar);
             } else {
                 atomicReference = null;
             }
             this.terminateOnce = atomicReference;
             if (i > 1) {
-                if (nqb.b()) {
-                    queue = new hqb<>(i);
+                if (gsb.b()) {
+                    queue = new asb<>(i);
                 } else {
-                    queue = new hpb<>(i);
+                    queue = new arb<>(i);
                 }
             } else {
-                if (nqb.b()) {
-                    gpbVar = new gqb<>();
+                if (gsb.b()) {
+                    zqbVar = new zrb<>();
                 } else {
-                    gpbVar = new gpb<>();
+                    zqbVar = new zqb<>();
                 }
-                queue = gpbVar;
+                queue = zqbVar;
             }
             this.queue = queue;
         }
 
-        public void call(tmb<? super T> tmbVar) {
-            if (this.subscriber.compareAndSet(null, tmbVar)) {
-                tmbVar.b(this);
-                tmbVar.f(this);
+        public void call(mob<? super T> mobVar) {
+            if (this.subscriber.compareAndSet(null, mobVar)) {
+                mobVar.b(this);
+                mobVar.f(this);
                 return;
             }
-            tmbVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
+            mobVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
         }
 
-        @Override // com.baidu.tieba.omb
+        @Override // com.baidu.tieba.hob
         public void onError(Throwable th) {
             if (!this.done) {
                 doTerminate();
@@ -93,12 +93,12 @@ public final class UnicastSubject<T> extends irb<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.pmb
+        @Override // com.baidu.tieba.iob
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i > 0) {
-                    inb.b(this, j);
+                    bpb.b(this, j);
                     replay();
                     return;
                 } else if (this.done) {
@@ -111,23 +111,23 @@ public final class UnicastSubject<T> extends irb<T, T> {
             throw new IllegalArgumentException("n >= 0 required");
         }
 
-        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+        @Override // com.baidu.tieba.gob.a, com.baidu.tieba.uob
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((tmb) ((tmb) obj));
+            call((mob) ((mob) obj));
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, tmb<? super T> tmbVar) {
-            if (tmbVar.isUnsubscribed()) {
+        public boolean checkTerminated(boolean z, boolean z2, mob<? super T> mobVar) {
+            if (mobVar.isUnsubscribed()) {
                 this.queue.clear();
                 return true;
             } else if (z) {
                 Throwable th = this.error;
                 if (th != null) {
                     this.queue.clear();
-                    tmbVar.onError(th);
+                    mobVar.onError(th);
                     return true;
                 } else if (z2) {
-                    tmbVar.onCompleted();
+                    mobVar.onCompleted();
                     return true;
                 } else {
                     return false;
@@ -138,19 +138,19 @@ public final class UnicastSubject<T> extends irb<T, T> {
         }
 
         public void doTerminate() {
-            anb anbVar;
-            AtomicReference<anb> atomicReference = this.terminateOnce;
-            if (atomicReference != null && (anbVar = atomicReference.get()) != null && atomicReference.compareAndSet(anbVar, null)) {
-                anbVar.call();
+            tob tobVar;
+            AtomicReference<tob> atomicReference = this.terminateOnce;
+            if (atomicReference != null && (tobVar = atomicReference.get()) != null && atomicReference.compareAndSet(tobVar, null)) {
+                tobVar.call();
             }
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public boolean isUnsubscribed() {
             return this.done;
         }
 
-        @Override // com.baidu.tieba.omb
+        @Override // com.baidu.tieba.hob
         public void onCompleted() {
             if (!this.done) {
                 doTerminate();
@@ -171,7 +171,7 @@ public final class UnicastSubject<T> extends irb<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public void unsubscribe() {
             doTerminate();
             this.done = true;
@@ -184,7 +184,7 @@ public final class UnicastSubject<T> extends irb<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.omb
+        @Override // com.baidu.tieba.hob
         public void onNext(T t) {
             if (!this.done) {
                 if (!this.caughtUp) {
@@ -200,11 +200,11 @@ public final class UnicastSubject<T> extends irb<T, T> {
                         return;
                     }
                 }
-                tmb<? super T> tmbVar = this.subscriber.get();
+                mob<? super T> mobVar = this.subscriber.get();
                 try {
-                    tmbVar.onNext(t);
+                    mobVar.onNext(t);
                 } catch (Throwable th) {
-                    zmb.g(th, tmbVar, t);
+                    sob.g(th, mobVar, t);
                 }
             }
         }
@@ -238,9 +238,9 @@ public final class UnicastSubject<T> extends irb<T, T> {
                 this.emitting = true;
                 Queue<Object> queue = this.queue;
                 while (true) {
-                    tmb<? super T> tmbVar = this.subscriber.get();
-                    if (tmbVar != null) {
-                        if (checkTerminated(this.done, queue.isEmpty(), tmbVar)) {
+                    mob<? super T> mobVar = this.subscriber.get();
+                    if (mobVar != null) {
+                        if (checkTerminated(this.done, queue.isEmpty(), mobVar)) {
                             return;
                         }
                         long j = get();
@@ -258,7 +258,7 @@ public final class UnicastSubject<T> extends irb<T, T> {
                             } else {
                                 z2 = false;
                             }
-                            if (checkTerminated(z3, z2, tmbVar)) {
+                            if (checkTerminated(z3, z2, mobVar)) {
                                 return;
                             }
                             if (z2) {
@@ -266,13 +266,13 @@ public final class UnicastSubject<T> extends irb<T, T> {
                             }
                             Object obj = (Object) NotificationLite.e(poll);
                             try {
-                                tmbVar.onNext(obj);
+                                mobVar.onNext(obj);
                                 j--;
                                 j2++;
                             } catch (Throwable th) {
                                 queue.clear();
-                                zmb.e(th);
-                                tmbVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+                                sob.e(th);
+                                mobVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                 return;
                             }
                         }
@@ -298,21 +298,21 @@ public final class UnicastSubject<T> extends irb<T, T> {
         this.b = state;
     }
 
-    @Override // com.baidu.tieba.omb
+    @Override // com.baidu.tieba.hob
     public void onError(Throwable th) {
         this.b.onError(th);
     }
 
-    @Override // com.baidu.tieba.omb
+    @Override // com.baidu.tieba.hob
     public void onNext(T t) {
         this.b.onNext(t);
     }
 
-    public static <T> UnicastSubject<T> H(int i, anb anbVar) {
-        return new UnicastSubject<>(new State(i, anbVar));
+    public static <T> UnicastSubject<T> H(int i, tob tobVar) {
+        return new UnicastSubject<>(new State(i, tobVar));
     }
 
-    @Override // com.baidu.tieba.omb
+    @Override // com.baidu.tieba.hob
     public void onCompleted() {
         this.b.onCompleted();
     }

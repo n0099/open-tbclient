@@ -2,73 +2,21 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class te4 implements pt1 {
+public class te4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xq3> a;
-    public FrameLayout b;
-    public boolean c;
-    public boolean d;
 
-    public te4(@NonNull FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frameLayout};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-        this.d = false;
-        this.b = frameLayout;
-    }
-
-    @Override // com.baidu.tieba.pt1
-    public boolean a(View view2, e23 e23Var) {
+    public static boolean a(View view2, f23 f23Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, e23Var)) == null) {
-            if (!d(view2)) {
-                return false;
-            }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(e23Var.f(), e23Var.c());
-            layoutParams.leftMargin = e23Var.d();
-            layoutParams.topMargin = e23Var.e();
-            this.b.updateViewLayout(view2, layoutParams);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pt1
-    public boolean c(View view2, e23 e23Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, e23Var)) == null) {
-            if (view2 != null && e23Var != null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(e23Var.f(), e23Var.c());
-                layoutParams.leftMargin = e23Var.d();
-                layoutParams.topMargin = e23Var.e();
-                this.b.addView(view2, layoutParams);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, f23Var)) == null) {
+            qt1 W = mx2.T().W();
+            if (W != null && W.c(view2, f23Var)) {
                 return true;
             }
             return false;
@@ -76,176 +24,58 @@ public class te4 implements pt1 {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pt1
-    public boolean b() {
-        InterceptResult invokeV;
+    public static boolean f(View view2, f23 f23Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, f23Var)) == null) {
+            qt1 W = mx2.T().W();
+            if (W != null && W.a(view2, f23Var)) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pt1
-    public Context getContext() {
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b.getContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            qt1 W = mx2.T().W();
+            if (W != null) {
+                return W.getContext();
+            }
+            return null;
         }
         return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pt1
-    public FrameLayout getRootView() {
-        InterceptResult invokeV;
+    public static void c(yq3 yq3Var) {
+        qt1 W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (FrameLayout) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pt1
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-            }
+        if ((interceptable == null || interceptable.invokeL(65538, null, yq3Var) == null) && (W = mx2.T().W()) != null) {
+            W.e(yq3Var);
         }
     }
 
-    public final synchronized xq3[] j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                xq3[] xq3VarArr = new xq3[this.a.size()];
-                this.a.toArray(xq3VarArr);
-                return xq3VarArr;
-            }
-        }
-        return (xq3[]) invokeV.objValue;
-    }
-
-    public void k() {
-        xq3[] j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (j = j()) != null) {
-            for (xq3 xq3Var : j) {
-                xq3Var.e();
-            }
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            xq3[] j = j();
-            if (j != null) {
-                for (xq3 xq3Var : j) {
-                    xq3Var.onViewDestroy();
-                }
-            }
-            i();
-        }
-    }
-
-    public void m() {
-        xq3[] j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (j = j()) != null) {
-            for (xq3 xq3Var : j) {
-                xq3Var.k();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pt1
-    public boolean d(View view2) {
+    public static boolean d(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            qt1 W = mx2.T().W();
+            if (W != null && W.removeView(view2)) {
+                return true;
             }
-            ViewParent parent = view2.getParent();
-            FrameLayout frameLayout = this.b;
-            if (parent != frameLayout || frameLayout.indexOfChild(view2) < 0) {
-                return false;
-            }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pt1
-    public synchronized void e(xq3 xq3Var) {
+    public static void e(yq3 yq3Var) {
+        qt1 W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xq3Var) == null) {
-            synchronized (this) {
-                if (xq3Var == null) {
-                    return;
-                }
-                if (!this.a.contains(xq3Var)) {
-                    this.a.add(xq3Var);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, yq3Var) == null) && (W = mx2.T().W()) != null) {
+            W.f(yq3Var);
         }
-    }
-
-    @Override // com.baidu.tieba.pt1
-    public synchronized void f(xq3 xq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xq3Var) == null) {
-            synchronized (this) {
-                if (xq3Var == null) {
-                    return;
-                }
-                this.a.remove(xq3Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pt1
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.pt1
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
-            if (!d(view2)) {
-                return false;
-            }
-            this.b.removeView(view2);
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

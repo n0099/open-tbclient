@@ -1,10 +1,7 @@
 package com.baidu.tieba;
-
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public interface rj4 {
-    @NonNull
-    Bundle m(@NonNull Bundle bundle, Set<String> set);
+public interface rj4 extends sj4 {
+    void b();
+
+    void n(String str, String str2);
 }

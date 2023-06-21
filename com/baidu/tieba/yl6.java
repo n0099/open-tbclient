@@ -1,20 +1,34 @@
 package com.baidu.tieba;
 
-import android.net.http.SslError;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceRequest;
+import android.util.Log;
 import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+/* compiled from: JsPromptInterface.java */
 /* loaded from: classes8.dex */
-public interface yl6 {
-    void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
+public final /* synthetic */ class yl6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
+    public static void b(zl6 zl6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, zl6Var) == null) {
+        }
+    }
 
-    void c(WebView webView, String str);
-
-    void d(WebView webView, String str);
-
-    void onPageFinished(WebView webView, String str);
-
-    boolean shouldOverrideUrlLoading(WebView webView, String str);
+    public static void a(zl6 zl6Var, WebView webView, String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65536, null, zl6Var, webView, str, jSONObject) != null) || webView == null) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
+        StringBuilder sb = new StringBuilder();
+        sb.append("javascript 执行成功:");
+        sb.append(str);
+        sb.append(" 耗时：");
+        sb.append(System.currentTimeMillis() - currentTimeMillis);
+        Log.i("newHybrid", sb.toString());
+    }
 }

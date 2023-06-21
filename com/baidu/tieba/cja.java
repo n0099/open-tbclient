@@ -1,54 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.BaseWriteConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.httpNet.WebClient;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tbadk.util.InsertGalleryAsyncTask;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class cja {
+public class cja extends dja<cka> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    public final List<pha> b;
-    public WriteImagesInfo c;
+    public RelativeLayout g;
+    public TbImageView h;
+    public View i;
+    public EMTextView j;
+    public ImageView k;
+    public b l;
 
     /* loaded from: classes5.dex */
-    public class a extends InsertGalleryAsyncTask.a {
+    public interface b {
+        void onClick();
+    }
+
+    @Override // com.baidu.tieba.ija
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ija
+    public void c(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ija
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cja a;
-
-        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            }
-        }
 
         public a(cja cjaVar) {
             Interceptable interceptable = $ic;
@@ -68,102 +78,18 @@ public class cja {
             this.a = cjaVar;
         }
 
-        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
-        public void b(String str) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists()) {
-                this.a.g().clear();
-                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.setFilePath(str);
-                imageFileInfo.isFromMoreForum = true;
-                this.a.g().addChooseFile(imageFileInfo);
-                this.a.g().setMaxImagesAllowed(1);
-                cja cjaVar = this.a;
-                cjaVar.l(cjaVar.g().toJsonString());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l != null) {
+                this.a.l.onClick();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends ix5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-
-        public b(cja cjaVar, WriteData writeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cjaVar, writeData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = writeData;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ix5
-        public String doInBackground() {
-            InterceptResult invokeV;
-            byte[] downloadImageBytes;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/imageCache" + cj.d(downloadImageBytes);
-                FileHelper.saveFileByAbsolutePath(str, new WebClient().downloadImageBytes(this.a.getNetImgUrl()));
-                return str;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements mw5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cja a;
-
-        public c(cja cjaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cjaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cjaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mw5
-        /* renamed from: a */
-        public void onReturnDataInUI(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-                this.a.g().clear();
-                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.setFilePath(str);
-                this.a.g().addChooseFile(imageFileInfo);
-                cja cjaVar = this.a;
-                cjaVar.l(cjaVar.g().toJsonString());
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cja(@NonNull TbPageContext<?> tbPageContext) {
+        super(tbPageContext, cka.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,214 +99,90 @@ public class cja {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-        this.c = writeImagesInfo;
-        this.a = tbPageContext;
-        writeImagesInfo.setMaxImagesAllowed(9);
     }
 
-    public void d(@NonNull WriteData writeData) {
+    public void A(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-            writeData.setWriteImagesInfo(this.c);
-            WriteImagesInfo writeImagesInfo = this.c;
-            if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
-                Iterator<ImageFileInfo> it = this.c.getChosedFiles().iterator();
-                int i = 0;
-                while (it.hasNext()) {
-                    ImageFileInfo next = it.next();
-                    if (next != null && next.isFromCamera()) {
-                        i++;
-                    }
-                }
-                writeData.setTakePhotoNum(i);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.l = bVar;
         }
     }
 
-    public void f(@NonNull tha thaVar, @NonNull WriteData writeData) {
+    public void B(int i) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, thaVar, writeData) != null) || this.a.getPageActivity() == null || StringUtils.isNull(writeData.getNetImgUrl())) {
-            return;
-        }
-        mx5.b(new b(this, writeData), new c(this));
-    }
-
-    public ImageFileInfo b(@NonNull tha thaVar, @NonNull cd5 cd5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thaVar, cd5Var)) == null) {
-            PermissionJudgePolicy t = thaVar.t();
-            t.clearRequestPermissionList();
-            t.appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (t.startRequestPermission(this.a.getPageActivity())) {
-                return null;
-            }
-            if (this.c.size() >= this.c.getMaxImagesAllowed()) {
-                this.a.showToast(String.format(this.a.getString(R.string.max_choose_image_count), Integer.valueOf(this.c.getMaxImagesAllowed())));
-                return null;
-            }
-            ImageFileInfo imageFileInfo = new ImageFileInfo();
-            imageFileInfo.setImageType(1);
-            imageFileInfo.setFilePath(cd5Var.d());
-            imageFileInfo.width = cd5Var.h();
-            imageFileInfo.height = cd5Var.b();
-            this.c.addChooseFile(imageFileInfo);
-            this.c.updateQuality();
-            return imageFileInfo;
-        }
-        return (ImageFileInfo) invokeLL.objValue;
-    }
-
-    public void e(@NonNull tha thaVar, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, thaVar, writeData) != null) || this.a.getPageActivity() == null || !WriteActivityConfig.FROM_FORUM_SHARE.equals(writeData.getFrom()) || StringUtils.isNull(writeData.getMoreForumImg())) {
-            return;
-        }
-        thaVar.t().clearRequestPermissionList();
-        thaVar.t().appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (thaVar.t().startRequestPermission(this.a.getPageActivity())) {
-            return;
-        }
-        InsertGalleryAsyncTask insertGalleryAsyncTask = new InsertGalleryAsyncTask(this.a.getPageActivity(), writeData.getMoreForumImg(), new a(this));
-        insertGalleryAsyncTask.setFrom(1);
-        insertGalleryAsyncTask.execute(new String[0]);
-    }
-
-    public void c(pha phaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, phaVar) != null) || this.b.contains(phaVar)) {
-            return;
-        }
-        this.b.add(phaVar);
-    }
-
-    public final void i(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, intent) != null) || intent == null) {
-            return;
-        }
-        String stringExtra = intent.getStringExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
-        for (pha phaVar : this.b) {
-            phaVar.v(stringExtra);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (relativeLayout = this.g) != null) {
+            relativeLayout.setVisibility(i);
         }
     }
 
-    public final void j(Intent intent) {
+    @Override // com.baidu.tieba.ija
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) != null) || intent == null) {
-            return;
-        }
-        String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
-        for (pha phaVar : this.b) {
-            phaVar.u(stringExtra);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            p75 d = p75.d(this.g);
+            d.o(R.string.J_X05);
+            d.m(R.dimen.L_X01);
+            d.l(R.color.CAM_X0112);
+            d.f(R.color.CAM_X0212);
+            p75.d(this.i).f(R.color.CAM_X0203);
+            p75 d2 = p75.d(this.j);
+            d2.x(R.color.CAM_X0107);
+            d2.C(R.dimen.T_X08);
+            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080bdc, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setMaskDrawable(this.h, R.drawable.obfuscated_res_0x7f080a1a, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
-    public final void k(Intent intent) {
+    @Override // com.baidu.tieba.ija
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, intent) != null) || intent == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
+            this.g = new RelativeLayout(this.a.getPageActivity());
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, wi.g(this.a.getPageActivity(), R.dimen.tbds117));
+            marginLayoutParams.setMargins(wi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0, wi.g(this.a.getPageActivity(), R.dimen.M_W_X007), wi.g(this.a.getPageActivity(), R.dimen.M_H_X004));
+            this.g.setLayoutParams(marginLayoutParams);
+            LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
+            linearLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            linearLayout.setOrientation(0);
+            linearLayout.setGravity(16);
+            this.h = new TbImageView(this.a.getPageActivity());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(wi.g(this.a.getPageActivity(), R.dimen.tbds104), wi.g(this.a.getPageActivity(), R.dimen.tbds75));
+            layoutParams.setMargins(wi.g(this.a.getPageActivity(), R.dimen.tbds39), 0, 0, 0);
+            this.h.setLayoutParams(layoutParams);
+            linearLayout.addView(this.h);
+            this.i = new View(this.a.getPageActivity());
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(wi.g(this.a.getPageActivity(), R.dimen.L_X01), wi.g(this.a.getPageActivity(), R.dimen.tbds69));
+            layoutParams2.setMargins(wi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0, wi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0);
+            this.i.setLayoutParams(layoutParams2);
+            linearLayout.addView(this.i);
+            EMTextView eMTextView = new EMTextView(this.a.getPageActivity());
+            this.j = eMTextView;
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f0428);
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams3.setMargins(0, 0, wi.g(this.a.getPageActivity(), R.dimen.tbds55), 0);
+            layoutParams3.weight = 1.0f;
+            this.j.setLayoutParams(layoutParams3);
+            linearLayout.addView(this.j);
+            ImageView imageView = new ImageView(this.a.getPageActivity());
+            this.k = imageView;
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(wi.g(this.a.getPageActivity(), R.dimen.tbds42), wi.g(this.a.getPageActivity(), R.dimen.tbds42));
+            layoutParams4.setMargins(0, 0, wi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0);
+            this.k.setLayoutParams(layoutParams4);
+            linearLayout.addView(this.k);
+            this.k.setOnClickListener(new a(this));
+            this.g.addView(linearLayout);
+            return this.g;
         }
-        String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
-        for (pha phaVar : this.b) {
-            phaVar.k(stringExtra);
-        }
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        for (pha phaVar : this.b) {
-            phaVar.i(str);
-        }
-    }
-
-    public void n(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, intent) != null) || intent == null) {
-            return;
-        }
-        i(intent);
-    }
-
-    public void o(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, bundle) != null) || bundle == null) {
-            return;
-        }
-        bundle.putString(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, this.c.toJsonString());
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !StringUtils.isNull(str)) {
-            this.c.parseJson(str);
-            this.c.updateQuality();
-        }
-    }
-
-    public void q(pha phaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, phaVar) == null) {
-            this.b.remove(phaVar);
-        }
-    }
-
-    public void r(@NonNull WriteImagesInfo writeImagesInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, writeImagesInfo) == null) {
-            this.c = writeImagesInfo;
-        }
-    }
-
-    @NonNull
-    public WriteImagesInfo g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (WriteImagesInfo) invokeV.objValue;
-    }
-
-    public void h(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
-        WriteData writeData2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, bundle, intent, writeData) == null) {
-            if (writeData.isFromErrorDialog() && (writeData2 = h0a.f) != null) {
-                this.c = writeData2.getWriteImagesInfo();
-                return;
-            }
-            String str = null;
-            if (bundle != null) {
-                str = bundle.getString(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
-            } else if (intent != null) {
-                str = intent.getStringExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
-                intent.putExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, "");
-            }
-            p(str);
-            writeData.setWriteImagesInfo(g());
-        }
-    }
-
-    public void m(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048587, this, i, i2, intent) != null) || intent == null || i2 != -1) {
-            return;
-        }
-        if (i == 12002) {
-            j(intent);
-        } else if (i == 12012) {
-            k(intent);
-        }
+        return (View) invokeL.objValue;
     }
 }

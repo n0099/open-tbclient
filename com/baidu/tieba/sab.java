@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface sab<TResult> {
-    void cancel();
+public interface sab {
 
-    void onComplete(wab<TResult> wabVar);
+    /* loaded from: classes7.dex */
+    public interface a {
+    }
 }

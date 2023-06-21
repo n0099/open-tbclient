@@ -1,12 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import java.io.IOException;
-/* loaded from: classes8.dex */
-public interface tz9 {
-    void a(wz9 wz9Var);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActBtn;
+/* loaded from: classes7.dex */
+public class tz9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    VideoFinishResult b(String str, int i) throws IOException;
+    public tz9(ActBtn actBtn) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {actBtn};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        if (actBtn == null) {
+            return;
+        }
+        this.a = actBtn.type.intValue();
+        String str = actBtn.url;
+        String str2 = actBtn.text;
+    }
 
-    void cancel();
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
 }

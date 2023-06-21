@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.dw4;
-import com.baidu.tieba.eo8;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.bp8;
+import com.baidu.tieba.cp8;
+import com.baidu.tieba.dp8;
 import com.baidu.tieba.ew4;
-import com.baidu.tieba.fo8;
-import com.baidu.tieba.go8;
-import com.baidu.tieba.ho8;
-import com.baidu.tieba.io8;
-import com.baidu.tieba.jo8;
-import com.baidu.tieba.mo8;
-import com.baidu.tieba.no8;
-import com.baidu.tieba.vp8;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.gp8;
+import com.baidu.tieba.hp8;
+import com.baidu.tieba.pq8;
+import com.baidu.tieba.yo8;
+import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        vp8.a.set(new eo8());
+        pq8.a.set(new yo8());
         TbConfig.setLegoLibVersion("3.0.0");
-        mo8.h().g(no8.f());
+        gp8.h().g(hp8.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        go8.a().b(new jo8());
-        fo8.a().b(new ho8());
-        fo8.a().b(new io8());
-        ew4.a.set(go8.a());
-        dw4.a.set(fo8.a());
+        ap8.a().b(new dp8());
+        zo8.a().b(new bp8());
+        zo8.a().b(new cp8());
+        fw4.a.set(ap8.a());
+        ew4.a.set(zo8.a());
     }
 
     public LegoListActivityStatic() {

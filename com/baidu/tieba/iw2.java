@@ -1,114 +1,119 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge;
+import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
+import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
+import com.baidu.swan.apps.jsbridge.SwanAppPreloadJsBridge;
+import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class iw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public hw2 a;
+    public hw2 b;
+    public SwanAppUtilsJavaScriptInterface c;
+    public xz1 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867845, "Lcom/baidu/tieba/iw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947867845, "Lcom/baidu/tieba/iw2;");
-                return;
+    public iw2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = is1.a;
     }
 
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public static String a(wa2 wa2Var) {
-        InterceptResult invokeL;
+    public void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wa2Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (wa2Var != null) {
-                try {
-                    jSONObject.put("containerId", wa2Var.getContainerId());
-                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
-                } catch (JSONException e) {
-                    if (!a) {
-                        e.printStackTrace();
-                    } else {
-                        throw new RuntimeException(e);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            hw2 hw2Var = this.a;
+            if (hw2Var != null) {
+                hw2Var.setActivityRef(activity);
             }
-            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-            String b = b(si2.U().T());
-            y82.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + ln2.r(b));
-            jSONObject.put("sdkExtension", b);
-            jSONObject.put("gameSdkExtension", b(gv2.i().s()));
-            jSONObject.put("isDebugSdk", a);
-            if ((wa2Var instanceof NgWebView) && ((NgWebView) wa2Var).isSwanWebMode()) {
-                jSONObject.put("ctsEnabled", mk3.a().getInt("aiapps_web_mode_cts_use_key", 0));
+            hw2 hw2Var2 = this.b;
+            if (hw2Var2 != null) {
+                hw2Var2.setActivityRef(activity);
             }
-            String string = mk3.a().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && x73.s()) {
-                jSONObject.put("ctsJsAddress", new JSONObject(string));
+            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.c;
+            if (swanAppUtilsJavaScriptInterface != null) {
+                swanAppUtilsJavaScriptInterface.setActivity(activity);
             }
-            String i = fv2.o().i();
-            if (!TextUtils.isEmpty(i)) {
-                jSONObject.put("hostName", i);
+            xz1 xz1Var = this.d;
+            if (xz1Var != null) {
+                xz1Var.i(activity);
             }
-            jSONObject.put(Constants.PARAM_PLATFORM, "android");
-            JSONObject a2 = el3.a();
-            a2.put("swanswitch_common_sys_info_binding", true);
-            a2.put("swanswitch_ab_sync_auth", true);
-            jSONObject.put("abTestSwitch", a2);
-            jSONObject.put("userDataPath", vn2.USER_DATA_PATH);
-            jSONObject.put("preloadId", si2.U().a0());
-            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
-            jSONObject.put("ttsExtractJSUrl", ho4.b().a());
-            jSONObject.put("coreJSPath", si2.U().c0());
-            if (i12.d()) {
-                jSONObject.put("pendingList", new JSONArray((Collection) t32.d()));
-            }
-            jSONObject.put("swanNativeVersion", js1.a());
-            String jSONObject2 = jSONObject.toString();
-            if (TextUtils.isEmpty(jSONObject2)) {
-                return "";
-            }
-            return jSONObject2;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(ExtensionCore extensionCore) {
-        InterceptResult invokeL;
+    public final void d(xa2 xa2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) {
-            if (extensionCore != null && !TextUtils.isEmpty(extensionCore.extensionCorePath)) {
-                return extensionCore.extensionCorePath;
-            }
-            return "";
+        if (interceptable == null || interceptable.invokeL(1048579, this, xa2Var) == null) {
+            xa2Var.addJavascriptInterface(new SwanAppNativeSwanJsBridge(xa2Var), SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final void b(xa2 xa2Var, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, @NonNull xz1 xz1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xa2Var, context, callbackHandler, unitedSchemeMainDispatcher, xz1Var) == null) {
+            SwanAppGlobalJsBridge swanAppGlobalJsBridge = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, xa2Var);
+            this.a = swanAppGlobalJsBridge;
+            xa2Var.addJavascriptInterface(swanAppGlobalJsBridge, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
+            SwanAppJsBridge swanAppJsBridge = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, xa2Var);
+            this.b = swanAppJsBridge;
+            xa2Var.addJavascriptInterface(swanAppJsBridge, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+            xa2Var.addJavascriptInterface(new SwanAppPreloadJsBridge(xa2Var), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
+            xz1Var.b(xa2Var);
+        }
+    }
+
+    public final void c(@NonNull xa2 xa2Var, Context context, @NonNull xz1 xz1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, xa2Var, context, xz1Var) == null) {
+            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, xa2Var);
+            this.c = swanAppUtilsJavaScriptInterface;
+            swanAppUtilsJavaScriptInterface.setSource("swan_");
+            xa2Var.addJavascriptInterface(this.c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+            xz1Var.a(xa2Var);
+        }
+    }
+
+    public void e(xa2 xa2Var, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, xa2Var, context, callbackHandler, unitedSchemeMainDispatcher) == null) && xa2Var != null && context != null && callbackHandler != null && unitedSchemeMainDispatcher != null) {
+            xz1 xz1Var = new xz1(context, callbackHandler, xa2Var);
+            this.d = xz1Var;
+            b(xa2Var, context, callbackHandler, unitedSchemeMainDispatcher, xz1Var);
+            if (xa2Var instanceof jj2) {
+                c(xa2Var, context, this.d);
+            } else {
+                d(xa2Var);
+            }
+        }
+    }
+
+    public void f(Context context, xa2 xa2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, xa2Var) == null) {
+            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, xa2Var);
+            this.c = swanAppUtilsJavaScriptInterface;
+            swanAppUtilsJavaScriptInterface.setSource("swan_");
+            xa2Var.addJavascriptInterface(this.c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+            this.c.setForceShareLight(true);
+        }
     }
 }

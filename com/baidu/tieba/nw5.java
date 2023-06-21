@@ -1,52 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes7.dex */
-public class nw5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public @interface nw5 {
+    boolean deserialize() default true;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return false;
-            }
-            int indexOf = str.indexOf("hiphotos");
-            if (indexOf > 0 && indexOf < 20) {
-                return true;
-            }
-            int indexOf2 = str.indexOf("tiebapic");
-            if (indexOf2 <= 0 || indexOf2 >= 20) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!FileHelper.checkSD() || !yb.c()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    boolean serialize() default true;
 }

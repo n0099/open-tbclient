@@ -1,344 +1,252 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
-import com.baidu.tieba.square.data.ForumInfoData;
-import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tbadk.switchs.FunAdDestroySwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uu9 extends BaseAdapter implements View.OnClickListener {
+public class uu9 implements ix4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public int b;
-    public LikeModel c;
-    public int d;
-    public int e;
-    public boolean f;
-    public ForumDetailActivityConfig.FromType g;
-    public ForumInfoData[] h;
+    @NonNull
+    public final nu9 a;
+    @NonNull
+    public final ou9 b;
+    @NonNull
+    public final vu9 c;
+    public boolean d;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public BarImageView a;
-        public TextView b;
-        public TextView c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public TextView g;
-        public TextView h;
-
-        public a(uu9 uu9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uu9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public uu9(TbPageContext tbPageContext, int i) {
+    public uu9(@NonNull nu9 nu9Var, @NonNull ou9 ou9Var, @NonNull vu9 vu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+            Object[] objArr = {nu9Var, ou9Var, vu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = -1;
-        this.d = 0;
-        this.e = 0;
-        this.f = true;
-        this.g = ForumDetailActivityConfig.FromType.BAR_DIR;
-        this.a = tbPageContext;
-        this.e = i;
-        this.h = new ForumInfoData[0];
+        this.d = false;
+        new FunAdDestroySwitch();
+        this.a = nu9Var;
+        this.b = ou9Var;
+        this.c = vu9Var;
     }
 
-    public ForumInfoData[] a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ix4
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
-        }
-        return (ForumInfoData[]) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LikeModel likeModel = this.c;
-            if (likeModel == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i > 0) {
+                SpeedStatsManager.getInstance().setAdLoadResult(i);
+            } else if (i == -1 && !this.d) {
+                SpeedStatsManager.getInstance().setAdLoadResult(i);
+                BaseVM.m(30);
+            } else if (i < -1) {
+                SpeedStatsManager.getInstance().setAdLoadResult(i);
+                BaseVM.m(30);
             }
-            return likeModel.k0();
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_POLICY_SO_END);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ix4
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ForumInfoData[] forumInfoDataArr = this.h;
-            if (forumInfoDataArr == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            m2a.a("BesAdLoadCallBackImpl onAdLoadFailed:" + str);
+            this.c.k(true);
+            this.a.getRootView().removeView(this.c.h());
+            this.c.j();
+            this.b.a();
+            xs5.b().k(System.currentTimeMillis() - this.c.g());
+            int q = o95.p().q("ad_load_fail_count", 0);
+            SpeedStatsManager.getInstance().setAdFailCount(q);
+            o95.p().F("ad_load_fail_count", q + 1);
+            BaseVM.m(99);
+        }
+    }
+
+    @Override // com.baidu.tieba.ix4
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a.c();
+            SpeedStatsManager.getInstance().setPlgAdType(str);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_CALL_SHOW_START_STAMP_KEY);
+            this.c.i();
+        }
+    }
+
+    @Override // com.baidu.tieba.ix4
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_CALL_SHOW_END_STAMP_KEY);
+        }
+    }
+
+    @Override // com.baidu.tieba.ix4
+    public void e(boolean z, boolean z2, int i, String str, String str2, String str3) {
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, str2, str3}) == null) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
+            SpeedStatsManager.getInstance().setStatsFlag(-1);
+            if (!this.a.h()) {
+                TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click2"));
             }
-            int i = this.d;
-            if (i > forumInfoDataArr.length) {
-                return forumInfoDataArr.length;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 100000) {
-                return String.valueOf(i / 10000) + this.a.getString(R.string.member_count_unit);
-            }
-            return String.valueOf(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            notifyDataSetChanged();
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d = i;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void f(ForumInfoData[] forumInfoDataArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, forumInfoDataArr) == null) {
-            this.h = forumInfoDataArr;
-            if (forumInfoDataArr != null) {
-                notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void g(ForumDetailActivityConfig.FromType fromType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fromType) == null) {
-            this.g = fromType;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (i > this.d) {
-                return null;
-            }
-            return this.h[i];
-        }
-        return invokeI.objValue;
-    }
-
-    public void h(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bool) == null) {
-            this.f = bool.booleanValue();
-        }
-    }
-
-    public void j(LikeModel likeModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, likeModel) == null) {
-            this.c = likeModel;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view2, viewGroup)) == null) {
-            if (view2 == null || view2.getTag() == null) {
-                view2 = View.inflate(this.a.getContext(), R.layout.obfuscated_res_0x7f0d02f5, null);
-                a aVar = new a(this);
-                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.forum_avatar);
-                aVar.a = barImageView;
-                barImageView.setGifIconSupport(false);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09181e);
-                aVar.e = (TextView) view2.findViewById(R.id.member_count);
-                aVar.f = (TextView) view2.findViewById(R.id.thread_count);
-                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09216f);
-                aVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914cf);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d6e);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e80);
-                view2.setTag(aVar);
-            }
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09037c);
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f09037b);
-            SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(findViewById2, R.color.CAM_X0204);
-            if (i == 0) {
-                findViewById.setVisibility(0);
+            this.a.e();
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_CLICK);
+            this.a.getActivity().overridePendingTransition(0, 0);
+            int i4 = 2;
+            if (z2) {
+                i2 = 2;
             } else {
-                findViewById.setVisibility(8);
+                i2 = 1;
             }
-            a aVar2 = (a) view2.getTag();
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            d05 layoutMode = this.a.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            } else {
-                z = false;
+            statisticItem.param("obj_type", i2).param("obj_source", i);
+            if (str2 != null) {
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
             }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(view2);
-            ForumInfoData[] forumInfoDataArr = this.h;
-            ForumInfoData forumInfoData = forumInfoDataArr[i];
-            String str = forumInfoDataArr[i].avatar;
-            aVar2.a.setTag(str);
-            aVar2.a.invalidate();
-            aVar2.a.N(str, 10, false);
-            aVar2.d.setText(forumInfoData.forum_name);
-            aVar2.d.setTag(Integer.valueOf(forumInfoData.forum_id));
-            aVar2.h.setTag(forumInfoData.forum_name);
-            TextView textView = aVar2.e;
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f02e5) + " " + b(forumInfoData.member_count));
-            TextView textView2 = aVar2.f;
-            textView2.setText(this.a.getString(R.string.text_post) + " " + b(forumInfoData.thread_count));
-            aVar2.g.setText(forumInfoData.slogan);
-            if (this.e == 0) {
-                aVar2.c.setVisibility(8);
-                if (!this.f) {
-                    aVar2.b.setVisibility(8);
+            if (str3 != null) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str3);
+            }
+            TiebaStatic.log(statisticItem);
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK);
+            statisticItem2.param("obj_source", i).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.i());
+            if (!StringUtils.isNull(str)) {
+                statisticItem2.param("nid", str);
+            }
+            if (!StringUtils.isNull(str2)) {
+                statisticItem2.param(TiebaStatic.Params.OBJ_TO, str2);
+            }
+            if (!StringUtils.isNull(str3)) {
+                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str3);
+            }
+            TiebaStatic.log(statisticItem2);
+            StatisticItem statisticItem3 = new StatisticItem("common_click");
+            statisticItem3.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", i).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
+            if (z) {
+                if (z2) {
+                    i3 = 4;
                 } else {
-                    aVar2.b.setVisibility(0);
-                    aVar2.b.setText((CharSequence) null);
-                    aVar2.b.setBackgroundDrawable(null);
-                    if (i != 0) {
-                        if (i != 1) {
-                            if (i != 2) {
-                                aVar2.b.setText(String.format("%02d", Integer.valueOf(i + 1)));
-                            } else {
-                                SkinManager.setBackgroundResource(aVar2.b, R.drawable.icon_brief_grade_green);
-                            }
-                        } else {
-                            SkinManager.setBackgroundResource(aVar2.b, R.drawable.icon_brief_grade_blue);
-                        }
-                    } else {
-                        SkinManager.setBackgroundResource(aVar2.b, R.drawable.icon_brief_grade_orange);
-                    }
+                    i3 = 3;
                 }
+                statisticItem3.param("obj_type", i3);
             } else {
-                aVar2.b.setVisibility(8);
-                aVar2.c.setVisibility(0);
-                aVar2.c.setText((CharSequence) null);
-                aVar2.c.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
-                TextView textView3 = aVar2.c;
-                textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f121f) + String.valueOf(forumInfoData.mbr_inter_rank) + this.a.getString(R.string.obfuscated_res_0x7f0f0e86));
-            }
-            aVar2.h.setOnClickListener(this);
-            view2.setOnClickListener(this);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public void i(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) && i != 0 && i2 != 0) {
-            notifyDataSetChanged();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            for (int i = 0; i < this.d; i++) {
-                int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(this.h[i].forum_name);
-                if (hasLikeForum == 1) {
-                    this.h[i].is_like = 1;
-                } else if (hasLikeForum == -1) {
-                    this.h[i].is_like = 0;
+                if (!z2) {
+                    i4 = 1;
                 }
+                statisticItem3.param("obj_type", i4);
+            }
+            dy9.g().c(this.a.getUniqueId(), statisticItem3);
+        }
+    }
+
+    @Override // com.baidu.tieba.ix4
+    public void f(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
+            if ("5".equals(str)) {
+                this.d = true;
+                SpeedStatsManager.getInstance().setPlgLoadResult(z);
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_PROLOGUE_END_STAMP_KEY);
+                if (!z) {
+                    BaseVM.m(99);
+                }
+            } else if ("6".equals(str)) {
+                SpeedStatsManager.getInstance().setBearLoadResult(z);
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY);
             }
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // com.baidu.tieba.ix4
+    public void g(boolean z, boolean z2, int i) {
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0914cf) {
-                TiebaStatic.eventStat(this.a.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-                this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg((String) view2.getTag(), null).setCallFrom(5)));
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
+            o95.p().F("ad_load_fail_count", 0);
+            int i4 = 1;
+            this.c.k(true);
+            SpeedStatsManager.getInstance().setAdSource(String.valueOf(i));
+            this.a.b(i);
+            this.c.j();
+            if (z2) {
+                this.a.getRootView().setBackgroundDrawable(null);
+            }
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_SHOW);
+            if (z2) {
+                i2 = 2;
+            } else {
+                i2 = 1;
+            }
+            TiebaStatic.log(statisticItem.param("obj_type", i2).param("obj_source", i));
+            StatisticItem statisticItem2 = new StatisticItem("common_exp");
+            statisticItem2.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", i).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
+            if (z) {
+                if (z2) {
+                    i3 = 4;
+                } else {
+                    i3 = 3;
+                }
+                statisticItem2.param("obj_type", i3);
+            } else {
+                if (z2) {
+                    i4 = 2;
+                }
+                statisticItem2.param("obj_type", i4);
+            }
+            dy9.g().d(this.a.getUniqueId(), "bes_ad_id", statisticItem2);
+            dy9.g().h(this.a.getUniqueId(), false);
+            if (this.a.h()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.a.getActivity()));
+            }
+            xs5.b().m(System.currentTimeMillis());
+            xs5.b().k(System.currentTimeMillis() - this.c.g());
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921688, null));
+        }
+    }
+
+    @Override // com.baidu.tieba.ix4
+    public void onAdDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
+            this.a.e();
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, hashCode()).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
+            m2a.a("BesAdLoadCallBackImpl onAdDismiss");
+            if (!this.a.d() && !ok1.r()) {
+                SpeedStatsManager.getInstance().setStatsFlag(-1);
+                if (!this.a.h()) {
+                    TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "dismiss"));
+                    return;
+                }
                 return;
             }
-            a aVar = (a) view2.getTag();
-            if (TbadkCoreApplication.getInst().isRegistedIntent(ForumDetailActivityConfig.class) && SwitchManager.getInstance().findType(BarDetailForDirSwitch.BAR_DETAIL_DIR) == 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.getPageActivity(), String.valueOf(aVar.d.getTag()), this.g)));
-                return;
-            }
-            TiebaStatic.eventStat(this.a.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-            this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(aVar.d.getText().toString(), null)));
+            this.b.a();
         }
     }
 }

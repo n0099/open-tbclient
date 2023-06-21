@@ -12,16 +12,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.df8;
-import com.baidu.tieba.hh8;
+import com.baidu.tieba.i78;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.SingleTextImageAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
-import com.baidu.tieba.l17;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.s68;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.q17;
+import com.baidu.tieba.tf8;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class TextGenImageView extends LinearLayout {
     public ChatImageWithTailView c;
 
     /* loaded from: classes6.dex */
-    public class a implements l17.i {
+    public class a implements q17.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleTextImageMsg a;
@@ -61,11 +61,11 @@ public class TextGenImageView extends LinearLayout {
             this.a = singleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.l17.i
+        @Override // com.baidu.tieba.q17.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                hh8.a(spannableStringBuilder);
+                xh8.a(spannableStringBuilder);
                 this.a.setCacheText(spannableStringBuilder);
                 this.b.b.setText(this.a.getCacheText());
             }
@@ -126,14 +126,14 @@ public class TextGenImageView extends LinearLayout {
     public void b(@NonNull SingleTextImageAdapter.Holder holder, @NonNull SingleTextImageMsg singleTextImageMsg, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, holder, singleTextImageMsg, i) == null) {
-            hh8.b(singleTextImageMsg.getAtUserInfoList());
+            xh8.b(singleTextImageMsg.getAtUserInfoList());
             CharSequence cacheText = singleTextImageMsg.getCacheText();
             if (cacheText != null) {
                 this.b.setText(cacheText);
             } else {
-                l17.e(getContext(), singleTextImageMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, singleTextImageMsg));
+                q17.e(getContext(), singleTextImageMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, singleTextImageMsg));
             }
-            df8.m(this.b, singleTextImageMsg, i);
+            tf8.m(this.b, singleTextImageMsg, i);
             c(this.c, singleTextImageMsg);
         }
     }
@@ -144,7 +144,7 @@ public class TextGenImageView extends LinearLayout {
             String thumbUrl = baseImageMsg.getThumbUrl();
             String thumbSize = baseImageMsg.getThumbSize();
             if (!StringUtils.isNull(thumbSize) && !StringUtils.isNull(thumbUrl)) {
-                baseImageMsg.setThumbSize(s68.d(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
+                baseImageMsg.setThumbSize(i78.d(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
             }
         }
     }
@@ -153,10 +153,10 @@ public class TextGenImageView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b = new TextView(this.a);
-            this.b.setLayoutParams(new LinearLayout.LayoutParams(vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds608), -2));
-            this.b.setId(R.id.obfuscated_res_0x7f090e88);
+            this.b.setLayoutParams(new LinearLayout.LayoutParams(wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds608), -2));
+            this.b.setId(R.id.obfuscated_res_0x7f090e86);
             this.b.setLineSpacing(1.0f, 1.2f);
-            o75.d(this.b).B(R.dimen.T_X05);
+            p75.d(this.b).C(R.dimen.T_X05);
             addView(this.b);
             this.c = new ChatImageWithTailView(this.a);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -165,7 +165,7 @@ public class TextGenImageView extends LinearLayout {
             this.c.e(false);
             this.c.setErrorResId(R.drawable.icon_pic_placeholder);
             this.c.setErrorBgResId(R.drawable.transparent_bg);
-            this.c.getImage().setId(R.id.obfuscated_res_0x7f090e64);
+            this.c.getImage().setId(R.id.obfuscated_res_0x7f090e62);
             addView(this.c);
         }
     }

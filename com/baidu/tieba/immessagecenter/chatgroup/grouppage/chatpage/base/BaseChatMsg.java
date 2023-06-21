@@ -19,7 +19,7 @@ public abstract class BaseChatMsg<SdkMsg extends ChatMsg> extends BaseMsg {
 
     public abstract void fromSdkMsg(@NonNull SdkMsg sdkmsg);
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.vn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.wn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean needBubbleInfo() {

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ww5;
+import com.baidu.tieba.bx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1111common;
+    public CommonReq f1108common;
     public long topicId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,11 +48,11 @@ public class RequestGetTopicDetailMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1447common = this.f1111common;
+            builder.f1445common = this.f1108common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.call_from = this.callFrom;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ww5.a(builder, true);
+                bx5.a(builder, true);
             }
             NewHottopicReqIdl.Builder builder2 = new NewHottopicReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -71,7 +71,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f1111common = commonReq;
+            this.f1108common = commonReq;
         }
     }
 

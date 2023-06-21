@@ -39,11 +39,11 @@ public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091ed1);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091edc);
         this.a = findViewById;
-        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09181e);
+        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091824);
         this.c = (ImageView) this.a.findViewById(R.id.forum_avatar);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bbf);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bbd);
     }
 
     public void a() {
@@ -51,7 +51,7 @@ public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f08098d, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f08098f, WebPManager.ResourceStateType.NORMAL);
         }
     }
 }

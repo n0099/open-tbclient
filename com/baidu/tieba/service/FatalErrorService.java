@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.si;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -116,8 +116,8 @@ public class FatalErrorService extends BdBaseService {
                     fileWriter.append("\n##TIEBA_NATIVE##\n");
                     b(fileWriter, StringHelper.getCurrentString(), null);
                     b(fileWriter, "version", TbConfig.getVersion());
-                    b(fileWriter, "model", xi.g());
-                    b(fileWriter, "android_version", xi.k());
+                    b(fileWriter, "model", yi.g());
+                    b(fileWriter, "android_version", yi.k());
                     b(fileWriter, MapController.ANDROID_SDK_LAYER_TAG, String.valueOf(Build.VERSION.SDK_INT));
                     b(fileWriter, "from", TbConfig.getFrom());
                     b(fileWriter, "current_from", TbConfig.getCurrentFrom());
@@ -126,16 +126,16 @@ public class FatalErrorService extends BdBaseService {
                     b(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
                     b(fileWriter, "uname", this.a.getStringExtra("uname"));
                     fileWriter.append("\n##TIEBA_NATIVE_END##\n");
-                    wi.h(fileWriter);
+                    xi.h(fileWriter);
                 } catch (Exception e2) {
                     e = e2;
                     fileWriter2 = fileWriter;
                     e.printStackTrace();
-                    wi.h(fileWriter2);
+                    xi.h(fileWriter2);
                 } catch (Throwable th2) {
                     th = th2;
                     fileWriter2 = fileWriter;
-                    wi.h(fileWriter2);
+                    xi.h(fileWriter2);
                     throw th;
                 }
             }
@@ -223,10 +223,10 @@ public class FatalErrorService extends BdBaseService {
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
                     f();
-                    if (TbConfig.getVersion().equals(n95.m().s("native_crash_dump_version", ""))) {
+                    if (TbConfig.getVersion().equals(o95.p().w("native_crash_dump_version", ""))) {
                         z = true;
                     } else {
-                        n95.m().B("native_crash_dump_version", TbConfig.getVersion());
+                        o95.p().J("native_crash_dump_version", TbConfig.getVersion());
                         z = false;
                     }
                     File GetFile = FileHelper.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);
@@ -290,7 +290,7 @@ public class FatalErrorService extends BdBaseService {
                                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                                     try {
                                         if (z) {
-                                            ri.a(fileInputStream, byteArrayOutputStream);
+                                            si.a(fileInputStream, byteArrayOutputStream);
                                         } else {
                                             byte[] bArr = new byte[1024];
                                             while (true) {

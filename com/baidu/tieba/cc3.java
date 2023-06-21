@@ -1,127 +1,53 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.tieba.cc3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.tieba.dc3;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public abstract class cc3<SelfT extends cc3<SelfT>> extends bx2<SelfT> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
+public interface cc3 {
+    public static final Set<String> p0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
-    /* loaded from: classes5.dex */
-    public static final class a extends cc3<a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void A(dc3.a aVar);
 
-        public a E() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
-        }
+    je3 B();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+    boolean E();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, Bundle bundle) {
-            super(str, bundle);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, bundle};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (Bundle) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
+    void G();
 
-        @Override // com.baidu.tieba.uq3
-        public /* bridge */ /* synthetic */ uq3 e() {
-            E();
-            return this;
-        }
-    }
+    String getAppId();
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public cc3(String str) {
-        this(str, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Bundle) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    int k();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc3(String str, Bundle bundle) {
-        super(bundle);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bundle};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Bundle) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = TextUtils.isEmpty(str) ? "" : str;
-    }
+    void l(Bundle bundle, String str);
 
-    @Override // com.baidu.tieba.bx2
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return String.format("Event(%s) Ext => %s", this.b, super.toString());
-        }
-        return (String) invokeV.objValue;
-    }
+    SwanAppCores m();
+
+    String n(String... strArr);
+
+    void o(sq3<dc3.a> sq3Var);
+
+    void p(String str);
+
+    zb3 q();
+
+    void r(SwanAppActivity swanAppActivity);
+
+    void s();
+
+    void t(SwanAppActivity swanAppActivity);
+
+    void u(sq3<dc3.a> sq3Var);
+
+    void v(String str, Bundle bundle);
+
+    SwanAppActivity w();
+
+    ct1 x();
+
+    u83 y();
 }

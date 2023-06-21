@@ -1,64 +1,102 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.il4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jl4 {
+public class jl4 extends gl4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final il4.a a;
 
-    public static void a(@NonNull sm4 sm4Var, @Nullable List<yk4> list, @Nullable List<zk4> list2, @NonNull tj4 tj4Var) {
+    public jl4(il4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, sm4Var, list, list2, tj4Var) == null) {
-            dm4 b = ll4.b(sm4Var, tj4Var);
-            if (list != null && !list.isEmpty()) {
-                ll4.a(b, cm4.h(list, tj4Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (list2 != null && !list2.isEmpty()) {
-                ll4.a(b, cm4.e(list2, tj4Var));
+        }
+        this.a = aVar;
+    }
+
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.il4.a
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, exc) == null) && a()) {
+            this.a.onFail(exc);
+        }
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
             }
-            b.e();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.il4.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a()) {
+            this.a.onStart();
         }
     }
 
-    public static void b(tm4 tm4Var, tj4 tj4Var) {
+    @Override // com.baidu.tieba.il4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, tm4Var, tj4Var) == null) {
-            ll4.c(tm4Var, tj4Var);
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
         }
     }
 
-    public static void c(um4 um4Var, tj4 tj4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, um4Var, tj4Var) == null) {
-            ll4.d(um4Var, tj4Var);
-        }
-    }
-
-    public static void d(vm4 vm4Var, tj4 tj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, vm4Var, tj4Var) == null) {
-            ll4.e(vm4Var, tj4Var);
-        }
-    }
-
-    public static void e(qo4 qo4Var, tj4 tj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, qo4Var, tj4Var) == null) {
-            ll4.f(qo4Var, tj4Var);
-        }
-    }
-
-    public static synchronized void f(List<zk4> list, tj4 tj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, list, tj4Var) == null) {
-            synchronized (jl4.class) {
-                ll4.g(list, tj4Var);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
+            String str2 = "";
+            if (response == null || response.body() == null) {
+                str = "";
+            } else {
+                str2 = response.request().url().toString();
+                str = response.body().string();
             }
+            b(str2, str, networkStatRecord.toUBCJson());
+            return str;
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onSuccess(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) && a()) {
+            this.a.onSuccess(str, i);
         }
     }
 }

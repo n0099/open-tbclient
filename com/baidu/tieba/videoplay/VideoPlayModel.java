@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
+import com.baidu.tieba.bw5;
+import com.baidu.tieba.bx4;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.vi;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wv5;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -183,7 +183,7 @@ public class VideoPlayModel extends BdBaseModel {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                vi.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0def));
+                wi.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0df3));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -257,13 +257,13 @@ public class VideoPlayModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<ax4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<bx4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<ax4> it = videoRecordList.iterator();
+                        Iterator<bx4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            ax4 next = it.next();
+                            bx4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());
@@ -304,7 +304,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", wv5.a());
+        httpMessage.addParam("app_transmit_data", bw5.a());
         sendMessage(httpMessage);
     }
 
@@ -347,7 +347,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", wv5.a());
+            httpMessage.addParam("app_transmit_data", bw5.a());
             sendMessage(httpMessage);
         }
     }

@@ -8,8 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.b26;
 import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
-import com.baidu.tieba.w16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements w16 {
+public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements b26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> a;
@@ -73,7 +73,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements w
         this.a = list;
     }
 
-    @Override // com.baidu.tieba.w16
+    @Override // com.baidu.tieba.b26
     public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;

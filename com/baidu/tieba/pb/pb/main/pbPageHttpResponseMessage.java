@@ -4,11 +4,11 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.f69;
-import com.baidu.tieba.l39;
-import com.baidu.tieba.m39;
+import com.baidu.tieba.d79;
+import com.baidu.tieba.i49;
+import com.baidu.tieba.j49;
+import com.baidu.tieba.op9;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.wn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,8 +26,8 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public l39 mAppealInfo;
-    public m39 pbData;
+    public i49 mAppealInfo;
+    public j49 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,12 +72,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             int i2 = this.updateType;
             if (i2 != 3) {
                 if (i2 == 4) {
-                    f69.b().f(this.cacheKey, bArr);
+                    d79.b().f(this.cacheKey, bArr);
                     return;
                 }
                 return;
             }
-            f69.b().e(this.cacheKey, this.isFromMark, bArr);
+            d79.b().e(this.cacheKey, this.isFromMark, bArr);
         }
     }
 
@@ -94,12 +94,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return;
                 }
-                l39 l39Var = new l39();
-                this.mAppealInfo = l39Var;
+                i49 i49Var = new i49();
+                this.mAppealInfo = i49Var;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    l39Var.a = appealInfo.source;
-                    l39Var.c = appealInfo.appeal_url;
+                    i49Var.a = appealInfo.source;
+                    i49Var.c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
@@ -108,9 +108,9 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 }
                 return;
             }
-            m39 m39Var = new m39();
-            this.pbData = m39Var;
-            m39Var.D0(2);
+            j49 j49Var = new j49();
+            this.pbData = j49Var;
+            j49Var.D0(2);
             this.pbData.C0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
@@ -120,33 +120,33 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 } else {
                     str = "";
                 }
-                JSONObject c = wn9.c(pbPageResIdl.data.thread, str);
+                JSONObject c = op9.c(pbPageResIdl.data.thread, str);
                 ArrayList arrayList = new ArrayList();
                 if (c != null) {
                     arrayList.add(c);
                 }
-                wn9.f().h("PB", arrayList);
+                op9.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
         }
     }
 
-    public l39 getAppealInfo() {
+    public i49 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mAppealInfo;
         }
-        return (l39) invokeV.objValue;
+        return (i49) invokeV.objValue;
     }
 
-    public m39 getPbData() {
+    public j49 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.pbData;
         }
-        return (m39) invokeV.objValue;
+        return (j49) invokeV.objValue;
     }
 
     public int getUpdateType() {

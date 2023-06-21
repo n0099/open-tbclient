@@ -1,27 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.tieba.rxb;
+import com.baidu.tieba.txb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public class ivb {
+public class ivb implements rxb.a {
     public static /* synthetic */ Interceptable $ic;
-    public static ivb a;
-    public static SharedPreferences b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public Dialog b;
+    public kub c;
+    public gwb d;
+    public cwb e;
+    public Dialog f;
+    public mxb g;
+    public AppCustomExpand h;
+    public txb.b i;
+    public IPayCallback<CurrencyChargeMessage> j;
 
-    public ivb(Context context, String str) {
+    public ivb(Activity activity, Dialog dialog, kub kubVar, cwb cwbVar, gwb gwbVar, Dialog dialog2, mxb mxbVar, AppCustomExpand appCustomExpand, txb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {activity, dialog, kubVar, cwbVar, gwbVar, dialog2, mxbVar, appCustomExpand, bVar, iPayCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,38 +43,26 @@ public class ivb {
                 return;
             }
         }
-        c = str;
-        b = context.getSharedPreferences(str, 0);
+        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
+        this.a = activity;
+        this.b = dialog;
+        this.c = kubVar;
+        this.d = gwbVar;
+        this.e = cwbVar;
+        this.f = dialog2;
+        this.g = mxbVar;
+        this.h = appCustomExpand;
+        this.i = bVar;
+        this.j = iPayCallback;
     }
 
-    public static ivb b(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.rxb.a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (str == null) {
-                str = "midPay";
-            }
-            if (a == null || !str.equals(c)) {
-                a = new ivb(context, str);
-            }
-            return a;
-        }
-        return (ivb) invokeLL.objValue;
-    }
-
-    public boolean a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            return b.getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void c(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            b.edit().putBoolean(str, z).apply();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RLog.info("PaySignViewCallback", "onBtnConfirm");
+            this.c.k(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
+            vwb.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
         }
     }
 }

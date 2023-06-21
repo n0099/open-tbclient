@@ -1,36 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.animation.ObjectAnimator;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tieba.play.VideoLoadingProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class ek9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lf9 a;
-    public mf9 b;
-    public eg9 c;
-    public List<in> d;
-    public ArrayList<vn> e;
-    public BdTypeListView f;
+    public ViewGroup a;
+    public ImageView b;
+    public VideoLoadingProgressView c;
+    public ObjectAnimator d;
+    public ObjectAnimator e;
+    public ObjectAnimator f;
 
-    public ek9(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    public ek9(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,81 +36,76 @@ public class ek9 {
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.e = new ArrayList<>();
-        this.f = bdTypeListView;
-        a(tbPageContext);
+        this.a = viewGroup;
+        this.b = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        d();
     }
 
-    public final void a(TbPageContext<?> tbPageContext) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.a = new lf9(tbPageContext);
-            this.b = new mf9(tbPageContext, wg9.b);
-            we9 we9Var = new we9(tbPageContext, this, tbPageContext.getUniqueId());
-            this.c = we9Var;
-            this.b.u(we9Var);
-            this.d.add(this.a);
-            this.d.add(this.b);
-            this.f.addAdapters(this.d);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.cancel();
+            this.e.cancel();
+            this.f.cancel();
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof mn)) {
-            this.f.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            this.a.setVisibility(8);
+            this.c.h();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            this.e.start();
+            this.f.start();
         }
     }
 
     public void e() {
-        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (bdTypeListView = this.f) != null) {
-            bdTypeListView.E();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a();
+            this.c.j();
         }
     }
 
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        ArrayList<vn> arrayList;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = false;
-            if (ui.isEmpty(str)) {
-                return false;
-            }
-            if (this.f != null && (arrayList = this.e) != null) {
-                Iterator<vn> it = arrayList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    vn next = it.next();
-                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).b)) {
-                        z = true;
-                        it.remove();
-                        break;
-                    }
-                }
-                if (z) {
-                    ArrayList<vn> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
-                    this.e = mergeDynamicThreadByTime;
-                    this.f.setData(mergeDynamicThreadByTime);
-                    b();
-                }
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a();
+            this.b.setAlpha(1.0f);
+            this.c.setAlpha(1.0f);
+            this.a.setVisibility(0);
+            this.c.l();
+            this.d.start();
         }
-        return invokeL.booleanValue;
     }
 
-    public void d(ArrayList<vn> arrayList) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) && arrayList != null && this.f != null) {
-            this.e.clear();
-            this.e.addAll(arrayList);
-            this.f.setData(this.e);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.5f);
+            this.e = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 0.5f, 0.0f);
+            this.f = ObjectAnimator.ofFloat(this.c, Key.ALPHA, 1.0f, 0.0f);
+            this.d.setDuration(50L);
+            this.e.setDuration(50L);
+            this.f.setDuration(50L);
+        }
+    }
+
+    public void f(VideoLoadingProgressView.c cVar) {
+        VideoLoadingProgressView videoLoadingProgressView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) && (videoLoadingProgressView = this.c) != null) {
+            videoLoadingProgressView.setLoadingAnimationListener(cVar);
         }
     }
 }

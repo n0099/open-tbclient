@@ -76,7 +76,11 @@ public final class MixLiveTranslucentActivity extends MixLiveActivity {
 
             @Override // com.baidu.searchbox.live.service.MixNotifyBackgroundService
             public void notifyActivityFinish() {
-                MixLiveTranslucentActivity.this.finishByNotifyWithNoAnim();
+                if (MixLiveTranslucentActivity.this.getIntent().getBooleanExtra("transitionSubStatus", false)) {
+                    MixLiveTranslucentActivity.this.finish();
+                } else {
+                    MixLiveTranslucentActivity.this.finishByNotifyWithNoAnim();
+                }
             }
 
             @Override // com.baidu.searchbox.live.service.MixNotifyBackgroundService

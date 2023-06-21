@@ -127,7 +127,7 @@ public abstract class j {
             }
             this.h.key(MapBundleKey.MapObjKey.OBJ_OFFSET).value(0);
             this.h.key("in").value(0);
-            this.h.key(MapBundleKey.MapObjKey.OBJ_TEXT).value("");
+            this.h.key("tx").value("");
             this.h.key(MapBundleKey.MapObjKey.OBJ_DIS).value(0);
             this.h.key(ConstPath.KEY_ALIGN).value(0);
             if (this.b) {

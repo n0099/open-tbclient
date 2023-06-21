@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalNavBinding;
 import com.baidu.tieba.impersonal.slices.ChatNavSlice;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,11 +80,11 @@ public final class ChatNavSlice extends Slice {
             }
             NavigationBar navigationBar = slicePersonalNavBinding.b;
             ImageView imageView = new ImageView(navigationBar.getContext());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(vi.g(imageView.getContext(), R.dimen.tbds104), vi.g(imageView.getContext(), R.dimen.tbds104));
-            marginLayoutParams.setMargins(vi.g(imageView.getContext(), R.dimen.M_W_X003), 0, 0, 0);
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(wi.g(imageView.getContext(), R.dimen.tbds104), wi.g(imageView.getContext(), R.dimen.tbds104));
+            marginLayoutParams.setMargins(wi.g(imageView.getContext(), R.dimen.M_W_X003), 0, 0, 0);
             imageView.setLayoutParams(marginLayoutParams);
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_topbar_return40_svg, imageView.getContext().getResources().getColor(R.color.CAM_X0105), null));
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.hl8
+            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.em8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

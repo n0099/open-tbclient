@@ -10,14 +10,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cm9;
-import com.baidu.tieba.m15;
-import com.baidu.tieba.mn9;
-import com.baidu.tieba.on9;
-import com.baidu.tieba.q46;
+import com.baidu.tieba.ep9;
+import com.baidu.tieba.gp9;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.qn9;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
-import com.baidu.tieba.yl9;
+import com.baidu.tieba.un9;
+import com.baidu.tieba.v46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class AdCardVideoView extends AdCardBaseView implements cm9 {
+public class AdCardVideoView extends AdCardBaseView implements un9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView j0;
@@ -134,22 +134,22 @@ public class AdCardVideoView extends AdCardBaseView implements cm9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cm9
-    public yl9 getVideoOrVrView() {
+    @Override // com.baidu.tieba.un9
+    public qn9 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.j0;
         }
-        return (yl9) invokeV.objValue;
+        return (qn9) invokeV.objValue;
     }
 
     public boolean A0(AdCard adCard) {
         InterceptResult invokeL;
-        mn9 mn9Var;
+        ep9 ep9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (mn9Var = adCard.verticalVideoStyle) == null || !mn9Var.a()) {
+            if (adCard == null || adCard.goodsStyle != 14 || (ep9Var = adCard.verticalVideoStyle) == null || !ep9Var.a()) {
                 return false;
             }
             return true;
@@ -174,38 +174,38 @@ public class AdCardVideoView extends AdCardBaseView implements cm9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adCard) == null) {
             if (adCard.goodsStyle == 14) {
-                if (q46.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
+                if (v46.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
                     int i = (this.B * 2) / 3;
                     this.s0 = i;
                     this.t0 = (i * 4) / 3;
                 } else {
                     int i2 = this.B / 2;
                     this.s0 = i2;
-                    this.t0 = on9.b(i2);
+                    this.t0 = gp9.b(i2);
                 }
             } else {
                 int i3 = this.B;
                 this.s0 = i3;
-                this.t0 = on9.a(i3);
+                this.t0 = gp9.a(i3);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j0.getLayoutParams();
             layoutParams.height = this.t0;
             layoutParams.width = this.s0;
             if (adCard.goodsStyle == 14 && !A0(adCard)) {
-                if (q46.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
+                if (v46.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
                     this.u0 = (this.B * 2) / 3;
                     this.v0 = (this.s0 * 4) / 3;
                 } else {
                     int i4 = this.B / 2;
                     this.u0 = i4;
-                    this.v0 = on9.b(i4);
+                    this.v0 = gp9.b(i4);
                 }
             } else {
                 int i5 = this.B;
                 this.u0 = i5;
-                this.v0 = on9.a(i5);
+                this.v0 = gp9.a(i5);
             }
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0917cf);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0917d5);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams2.width = this.u0;
             layoutParams2.height = this.v0;
@@ -234,10 +234,10 @@ public class AdCardVideoView extends AdCardBaseView implements cm9 {
                 } else {
                     str = advertAppInfo.j;
                 }
-                m15 m15Var = advertAppInfo.i;
-                if (m15Var != null) {
-                    i = m15Var.b;
-                    str = m15Var.a;
+                n15 n15Var = advertAppInfo.i;
+                if (n15Var != null) {
+                    i = n15Var.b;
+                    str = n15Var.a;
                 }
                 this.j0.setStatisticInfo(advertAppInfo, i, str);
             }

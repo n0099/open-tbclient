@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.go8;
-import com.baidu.tieba.vo8;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.pp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -94,33 +94,33 @@ public class CommonImageButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0590, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d058e, (ViewGroup) this, true);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091055);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09105b);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09105a);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091060);
         }
     }
 
-    public void b(vo8 vo8Var) {
+    public void b(pp8 pp8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vo8Var) != null) || vo8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pp8Var) != null) || pp8Var == null) {
             return;
         }
-        if (!vo8Var.i()) {
-            go8.a().d(vo8Var, vo8Var.g());
+        if (!pp8Var.i()) {
+            ap8.a().d(pp8Var, pp8Var.g());
         }
-        if (vo8Var.a()) {
-            c(vo8Var);
+        if (pp8Var.a()) {
+            c(pp8Var);
         } else {
-            d(vo8Var);
+            d(pp8Var);
         }
     }
 
-    public final void c(vo8 vo8Var) {
+    public final void c(pp8 pp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vo8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pp8Var) == null) {
             this.d.setVisibility(8);
-            int e = vo8Var.e();
+            int e = pp8Var.e();
             if (e != 0) {
                 this.c.setVisibility(0);
                 SkinManager.setBackgroundResource(this.c, e);
@@ -130,12 +130,12 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public final void d(vo8 vo8Var) {
+    public final void d(pp8 pp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vo8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, pp8Var) == null) {
             this.c.setVisibility(8);
             this.d.setVisibility(0);
-            this.d.N(vo8Var.d(), 10, false);
+            this.d.N(pp8Var.d(), 10, false);
         }
     }
 }

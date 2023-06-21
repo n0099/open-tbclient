@@ -1,57 +1,51 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.wf4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zf4 {
+public class zf4 extends yf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String errCode;
+    @V8JavascriptField
+    public String errMsg;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948358017, "Lcom/baidu/tieba/zf4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948358017, "Lcom/baidu/tieba/zf4;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zf4(String str, String str2, String str3) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = is1.a;
+        this.errCode = str2;
+        this.errMsg = str3;
     }
 
-    public static void a(@NonNull yb3 yb3Var, @NonNull wf4.e eVar) {
+    @Override // com.baidu.tieba.yf4
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, yb3Var, eVar) == null) {
-            long l = yb3Var.W().l("launch_time", 0L);
-            if (l <= 0) {
-                if (a) {
-                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
-                    return;
-                }
-                return;
-            }
-            aj3 aj3Var = new aj3();
-            aj3Var.a = ri3.n(yb3Var.W().G());
-            aj3Var.f = yb3Var.getAppId();
-            aj3Var.c = yb3Var.W().T();
-            aj3Var.b = "startup";
-            aj3Var.g = eVar.a;
-            aj3Var.e = eVar.b;
-            aj3Var.a("na_start", Long.valueOf(l));
-            aj3Var.a("h5_start", Long.valueOf(eVar.c));
-            aj3Var.a("h5_finish", Long.valueOf(eVar.d));
-            ri3.x("1235", aj3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "GameWebViewErrorResult{url=" + this.url + ", errMsg='" + this.errMsg + "'}";
         }
+        return (String) invokeV.objValue;
     }
 }

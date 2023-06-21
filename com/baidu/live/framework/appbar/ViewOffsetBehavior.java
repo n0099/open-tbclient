@@ -4,10 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.vc0;
 /* loaded from: classes3.dex */
 public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
-    public uc0 a;
+    public vc0 a;
     public int b;
     public int c;
 
@@ -17,9 +17,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     }
 
     public int E() {
-        uc0 uc0Var = this.a;
-        if (uc0Var != null) {
-            return uc0Var.a();
+        vc0 vc0Var = this.a;
+        if (vc0Var != null) {
+            return vc0Var.a();
         }
         return 0;
     }
@@ -38,7 +38,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     public boolean l(CoordinatorLayout coordinatorLayout, V v, int i) {
         F(coordinatorLayout, v, i);
         if (this.a == null) {
-            this.a = new uc0(v);
+            this.a = new vc0(v);
         }
         this.a.b();
         int i2 = this.b;
@@ -56,9 +56,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     }
 
     public boolean G(int i) {
-        uc0 uc0Var = this.a;
-        if (uc0Var != null) {
-            return uc0Var.d(i);
+        vc0 vc0Var = this.a;
+        if (vc0Var != null) {
+            return vc0Var.d(i);
         }
         this.b = i;
         return false;

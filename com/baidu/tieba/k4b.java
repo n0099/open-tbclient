@@ -1,70 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsFullScreenVideoAd;
-import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes6.dex */
-public class k4b extends q5b<KsFullScreenVideoAd> {
+public class k4b implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ModuleConfigGdt a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k4b(KsFullScreenVideoAd ksFullScreenVideoAd) {
-        super(ksFullScreenVideoAd);
+    public k4b(ModuleConfigGdt moduleConfigGdt) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ksFullScreenVideoAd};
+            Object[] objArr = {moduleConfigGdt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = moduleConfigGdt;
     }
 
-    @Override // com.baidu.tieba.q5b
-    public double a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            A a = this.a;
-            if (a == 0) {
-                return 0.0d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -942661506:
+                    if (str.equals(FunAdType.GDT_SPLASH)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -596233886:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 114133351:
+                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 125016359:
+                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 425812868:
+                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 543046357:
+                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1990506825:
+                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return ((KsFullScreenVideoAd) a).getECPM();
+            switch (c) {
+                case 0:
+                    return new d5b(pid);
+                case 1:
+                    return new r4b(pid);
+                case 2:
+                    return new e5b(pid);
+                case 3:
+                    return new f5b(pid, this.a);
+                case 4:
+                    return new x4b(pid);
+                case 5:
+                    return new c5b(pid, this.a);
+                case 6:
+                    return new q4b(pid, this.a);
+                default:
+                    return null;
+            }
         }
-        return invokeV.doubleValue;
-    }
-
-    @Override // com.baidu.tieba.q5b
-    public void b(int i, int i2, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
-            return;
-        }
-        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
-        adExposureFailedReason.winEcpm = i;
-        ((KsFullScreenVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
-    }
-
-    @Override // com.baidu.tieba.q5b
-    public void c(long j, long j2) {
-        A a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
-            return;
-        }
-        ((KsFullScreenVideoAd) a).setBidEcpm((int) j);
+        return (PidLoader) invokeL.objValue;
     }
 }

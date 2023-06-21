@@ -1,81 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.wea;
+import com.baidu.tieba.yea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.imageloader.core.ImageLoader;
+import java.io.File;
+import java.util.List;
+import java.util.Vector;
 /* loaded from: classes5.dex */
 public class afa {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile afa c;
     public transient /* synthetic */ FieldHolder $fh;
+    public yea a;
+    public List<ffa> b;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void a(int i);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends ix5<Integer> {
+    public class a implements efa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ afa a;
 
-        public a(int i, String str, String str2) {
+        public a(afa afaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ix5
-        /* renamed from: a */
-        public Integer doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.a;
-                b55.d();
-                we<String> e = b55.e("tb.write_privacy_state_space" + this.b);
-                if (e != null) {
-                    i = tg.e(e.get(this.c), this.a);
-                }
-                return Integer.valueOf(i);
-            }
-            return (Integer) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements mw5<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
+                Object[] objArr = {afaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,45 +44,140 @@ public class afa {
                     return;
                 }
             }
-            this.a = cVar;
+            this.a = afaVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mw5
-        /* renamed from: a */
-        public void onReturnDataInUI(Integer num) {
-            c cVar;
+        @Override // com.baidu.tieba.efa
+        public void a(wea.b bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, num) == null) && (cVar = this.a) != null) {
-                cVar.a(num.intValue());
+            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+                wea.a().c(bVar);
+                if (!wwa.e(this.a.b)) {
+                    afa afaVar = this.a;
+                    afaVar.h((ffa) wwa.c(afaVar.b, 0));
+                    wwa.g(this.a.b, 0);
+                }
             }
         }
     }
 
-    public static void a(String str, int i, c cVar) {
+    public afa() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) && !StringUtils.isNull(str) && cVar != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(currentAccount)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            mx5.b(new a(i, currentAccount, str), new b(cVar));
+        }
+        this.b = new Vector();
+        this.a = new yea.b().d();
+    }
+
+    public void i(gfa gfaVar, xea xeaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, gfaVar, xeaVar) == null) {
+            List<ffa> c2 = cfa.c(gfaVar, xeaVar);
+            if (!wwa.e(c2)) {
+                for (ffa ffaVar : c2) {
+                    h(ffaVar);
+                }
+            }
         }
     }
 
-    public static void b(String str, int i) {
+    public void j(hfa hfaVar, xea xeaVar) {
+        ffa b;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || StringUtils.isNull(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, hfaVar, xeaVar) == null) && (b = cfa.b(hfaVar, xeaVar)) != null) {
+            h(b);
+        }
+    }
+
+    public static afa f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (afa.class) {
+                    if (c == null) {
+                        c = new afa();
+                    }
+                }
+            }
+            return c;
+        }
+        return (afa) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
             return;
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (StringUtils.isNull(currentAccount)) {
-            return;
+        throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
+    }
+
+    public dfa g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c();
+            return this.a.b;
         }
-        b55.d();
-        we<String> e = b55.e("tb.write_privacy_state_space" + currentAccount);
-        if (e != null) {
-            e.a(str, String.valueOf(i));
+        return (dfa) invokeV.objValue;
+    }
+
+    public Bitmap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Bitmap a2 = g().a(str);
+            if (a2 != null && !a2.isRecycled()) {
+                return a2;
+            }
+            Bitmap a3 = e().a(str);
+            if (a3 == null || a3.isRecycled()) {
+                return null;
+            }
+            return a3;
         }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public final void h(ffa ffaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ffaVar) == null) {
+            c();
+            wea.b b = wea.a().b();
+            if (b != null) {
+                b.m(this.a.a);
+                b.setDataSource(ffaVar.a);
+                b.h(ffaVar, new a(this));
+                return;
+            }
+            this.b.add(ffaVar);
+        }
+    }
+
+    public tea e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            c();
+            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+            if (!TextUtils.equals(this.a.c.b(), str)) {
+                this.a.c.d(str);
+            }
+            return this.a.c;
+        }
+        return (tea) invokeV.objValue;
     }
 }

@@ -144,7 +144,7 @@ public class LruDiskCache implements DiskCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, Bitmap bitmap) {
-        a.C0662a by = this.cache.by(getKey(str));
+        a.C0663a by = this.cache.by(getKey(str));
         if (by == null) {
             return false;
         }
@@ -164,7 +164,7 @@ public class LruDiskCache implements DiskCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, InputStream inputStream, IoUtils.CopyListener copyListener) {
-        a.C0662a by = this.cache.by(getKey(str));
+        a.C0663a by = this.cache.by(getKey(str));
         if (by == null) {
             return false;
         }

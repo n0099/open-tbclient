@@ -4,8 +4,8 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.zs;
-import com.baidu.tieba.zu;
+import com.baidu.tieba.at;
+import com.baidu.tieba.av;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -123,12 +123,12 @@ public final class a {
 
     public final String d() {
         InterceptResult invokeV;
-        zs h;
+        at h;
         Context appContext;
         File filesDir;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            zu v = BDPTask.m.v();
+            av v = BDPTask.m.v();
             String str = (v == null || (h = v.h()) == null || (appContext = h.getAppContext()) == null || (filesDir = appContext.getFilesDir()) == null || (str = filesDir.getAbsolutePath()) == null) ? "" : "";
             return str + File.separator + "bdptask" + File.separator + "storage";
         }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public interface ye7 {
-    void a(ThreadData threadData);
+    void a(int i, int i2, jf7 jf7Var, ArrayList<wn> arrayList);
 }

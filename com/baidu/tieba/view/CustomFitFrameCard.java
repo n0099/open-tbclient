@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f45;
-import com.baidu.tieba.h15;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.g45;
+import com.baidu.tieba.i15;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.tbadkcore.databinding.LayoutHeadlinesFrameCardBinding;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.ug;
 import com.baidu.tieba.view.SimpleCountDownView;
 import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -207,9 +207,9 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         LayoutHeadlinesFrameCardBinding b2 = LayoutHeadlinesFrameCardBinding.b(LayoutInflater.from(context), this);
         Intrinsics.checkNotNullExpressionValue(b2, "inflate(LayoutInflater.from(context), this)");
         this.a = b2;
-        this.b = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
-        this.c = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.d = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds15);
+        this.b = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
+        this.c = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        this.d = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds15);
         this.e = new ArrayList<>();
         this.f = new a(context, this);
         TbImageAutoSwitch tbImageAutoSwitch = this.a.c;
@@ -245,31 +245,31 @@ public final class CustomFitFrameCard extends ConstraintLayout {
             if (drawable != null) {
                 this.a.b.setPlaceHolderDrawable(drawable);
             }
-            o75.d(this.a.e).w(R.color.CAM_X0101);
-            o75.d(this.a.g).w(R.color.CAM_X0101);
+            p75.d(this.a.e).x(R.color.CAM_X0101);
+            p75.d(this.a.g).x(R.color.CAM_X0101);
             this.a.f.j();
         }
     }
 
-    public final void i(h15 h15Var) {
+    public final void i(i15 i15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i15Var) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(this);
-            constraintSet.setDimensionRatio(R.id.background_card, h15Var.getThreadData().getTaskInfoData().a());
+            constraintSet.setDimensionRatio(R.id.background_card, i15Var.getThreadData().getTaskInfoData().a());
             constraintSet.applyTo(this);
             TbImage tbImage = this.a.b;
-            String m = h15Var.getThreadData().getTaskInfoData().m();
+            String m = i15Var.getThreadData().getTaskInfoData().m();
             Intrinsics.checkNotNullExpressionValue(m, "data.threadData.taskInfoData.threadImgUrl");
             tbImage.k(m);
         }
     }
 
-    public final void j(f45 f45Var) {
+    public final void j(g45 g45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f45Var) == null) {
-            this.a.g.setText(f45Var.c());
-            long g = tg.g(f45Var.d(), 0L) * 1000;
+        if (interceptable == null || interceptable.invokeL(1048579, this, g45Var) == null) {
+            this.a.g.setText(g45Var.c());
+            long g = ug.g(g45Var.d(), 0L) * 1000;
             if (g <= System.currentTimeMillis()) {
                 this.a.g.setVisibility(0);
                 this.a.f.setVisibility(8);
@@ -279,28 +279,28 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void l(f45 f45Var) {
+    public final void l(g45 g45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, f45Var) == null) {
-            if (ListUtils.isEmpty(f45Var.e())) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, g45Var) == null) {
+            if (ListUtils.isEmpty(g45Var.e())) {
                 h(8);
                 return;
             }
             this.e.clear();
-            this.e.addAll(f45Var.e());
+            this.e.addAll(g45Var.e());
             h(0);
             this.a.c.p();
-            if (!TextUtils.isEmpty(f45Var.m())) {
-                this.a.e.setText(f45Var.m());
+            if (!TextUtils.isEmpty(g45Var.m())) {
+                this.a.e.setText(g45Var.m());
             }
         }
     }
 
-    public final void setData(h15 h15Var) {
+    public final void setData(i15 i15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, h15Var) == null) && h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getTaskInfoData() != null && h15Var.getThreadData().getTaskInfoData().f() != null) {
-            f45 rewardCardData = h15Var.getThreadData().getTaskInfoData().f();
-            i(h15Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, i15Var) == null) && i15Var != null && i15Var.getThreadData() != null && i15Var.getThreadData().getTaskInfoData() != null && i15Var.getThreadData().getTaskInfoData().f() != null) {
+            g45 rewardCardData = i15Var.getThreadData().getTaskInfoData().f();
+            i(i15Var);
             Intrinsics.checkNotNullExpressionValue(rewardCardData, "rewardCardData");
             l(rewardCardData);
             j(rewardCardData);

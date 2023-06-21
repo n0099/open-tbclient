@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface q85 {
-    void a(s85 s85Var, JSONObject jSONObject);
-
-    void b(int i, Throwable th);
+    void a(List<Long> list);
 }

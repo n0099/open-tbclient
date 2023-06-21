@@ -1,74 +1,41 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.jbb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
-public class hcb {
+public class hcb extends jbb {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<jbb.a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
-            webSettings.setAllowContentAccess(false);
-        }
-    }
-
-    public static void b(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
-            webSettings.setAllowFileAccess(false);
-            if (Build.VERSION.SDK_INT >= 16) {
-                webSettings.setAllowFileAccessFromFileURLs(false);
-                webSettings.setAllowUniversalAccessFromFileURLs(false);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947820322, "Lcom/baidu/tieba/hcb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947820322, "Lcom/baidu/tieba/hcb;");
+                return;
             }
         }
+        a = new CopyOnWriteArrayList();
     }
 
-    public static void c(WebSettings webSettings) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
-            webSettings.setGeolocationEnabled(false);
-        }
-    }
-
-    public static void d(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
-            webSettings.setMixedContentMode(1);
-        }
-    }
-
-    public static void e(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
-            webSettings.setSavePassword(false);
-        }
-    }
-
-    public static void f(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
-            WebSettings settings = webView.getSettings();
-            b(settings);
-            g(webView);
-            e(settings);
-            c(settings);
-            d(settings);
-            a(settings);
-        }
-    }
-
-    public static void g(WebView webView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            for (jbb.a aVar : a) {
+                aVar.onFinish();
+            }
         }
     }
 }

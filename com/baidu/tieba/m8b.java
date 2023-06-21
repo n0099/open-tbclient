@@ -1,188 +1,283 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.content.pm.PackageInfo;
+import android.os.Build;
+import android.os.Process;
+import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.pose.PoseAR;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.entity.PushTokenResult;
-import com.hihonor.push.sdk.common.data.ApiException;
-import com.hihonor.push.sdk.common.data.DownMsgType;
-import com.hihonor.push.sdk.common.data.UpMsgType;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.Callable;
+import com.heytap.mcssdk.PushService;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes6.dex */
 public class m8b {
     public static /* synthetic */ Interceptable $ic;
+    public static String A;
+    public static int B;
+    public static final SimpleDateFormat x;
+    public static String y;
+    public static String z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public y8b b;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public String n;
+    public String o;
+    public boolean p;
+    public String q;
+    public String r;
+    public ArrayList<String> s;
+    public StringBuilder t;
+    public StringBuilder u;
+    public StringBuilder v;
+    public StringBuilder w;
 
-    public m8b(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927954, "Lcom/baidu/tieba/m8b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947927954, "Lcom/baidu/tieba/m8b;");
+                return;
+            }
+        }
+        x = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
+        A = "";
+        B = -1;
+        B = n8b.b();
+        z = Build.MODEL;
+        A = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
+        y = f8b.getContext().provideQualifier();
+    }
+
+    public m8b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = new y8b();
+        this.c = "";
+        this.d = -1;
+        this.g = "";
+        this.r = "-1";
+        this.s = new ArrayList<>();
+        this.t = new StringBuilder();
+        this.u = new StringBuilder();
+        this.v = new StringBuilder();
+        this.w = new StringBuilder();
     }
 
-    public static /* synthetic */ void f(z7b z7bVar, int i, String str) {
-        if (z7bVar != null) {
-            z7bVar.onFailure(i, str);
-        }
-    }
-
-    public final void b(final z7b<?> z7bVar, final int i, final String str) {
+    public static m8b b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z7bVar, i, str) == null) {
-            x8b.b(new Runnable() { // from class: com.baidu.tieba.y7b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        m8b.f(z7b.this, i, str);
-                    }
-                }
-            });
-        }
-    }
-
-    public static /* synthetic */ void g(z7b z7bVar, Object obj) {
-        if (z7bVar != null) {
-            z7bVar.onSuccess(obj);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void h(Callable callable, z7b z7bVar) {
-        try {
-            c(z7bVar, callable.call());
-        } catch (ApiException e) {
-            b(z7bVar, e.getErrorCode(), e.getMessage());
-        } catch (Exception unused) {
-            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_INTERNAL_ERROR;
-            b(z7bVar, honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
-        }
-    }
-
-    public final <T> void c(final z7b<T> z7bVar, final T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, z7bVar, t) == null) {
-            x8b.b(new Runnable() { // from class: com.baidu.tieba.x7b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        m8b.g(z7b.this, t);
-                    }
-                }
-            });
-        }
-    }
-
-    public void d(z7b<String> z7bVar, final boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, z7bVar, z) == null) {
-            e(new Callable() { // from class: com.baidu.tieba.r7b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.util.concurrent.Callable
-                public final Object call() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? m8b.this.a(z) : invokeV.objValue;
-                }
-            }, z7bVar);
-        }
-    }
-
-    public final <T> void e(final Callable<T> callable, final z7b<T> z7bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, callable, z7bVar) == null) {
-            Runnable runnable = new Runnable() { // from class: com.baidu.tieba.w7b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        m8b.this.h(callable, z7bVar);
-                    }
-                }
-            };
-            x8b x8bVar = x8b.f;
-            if (x8bVar.d == null) {
-                synchronized (x8bVar.e) {
-                    if (x8bVar.d == null) {
-                        x8bVar.d = x8bVar.c();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            m8b m8bVar = new m8b();
+            Context provideContext = f8b.getContext().provideContext();
+            String str = m8bVar.g;
+            if (str == null || str.length() == 0) {
+                try {
+                    PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
+                    m8bVar.h = packageInfo.versionCode;
+                    m8bVar.g = packageInfo.versionName;
+                } catch (Throwable th) {
+                    Log.e("BlockInfo", "newInstance: ", th);
                 }
             }
-            x8bVar.d.execute(runnable);
+            m8bVar.d = B;
+            m8bVar.b = z;
+            m8bVar.c = A;
+            m8bVar.a = y;
+            m8bVar.e = f8b.getContext().provideUid();
+            m8bVar.f = o8b.a();
+            m8bVar.i = f8b.getContext().provideNetworkType();
+            m8bVar.j = String.valueOf(n8b.a());
+            m8bVar.k = String.valueOf(n8b.c());
+            if (Build.VERSION.SDK_INT >= 24) {
+                m8bVar.r = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
+            }
+            return m8bVar;
         }
+        return (m8b) invokeV.objValue;
     }
 
-    public final String a(boolean z) throws Exception {
-        InterceptResult invokeZ;
+    public m8b a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.b.getClass();
-            try {
-                d9b d9bVar = new d9b(UpMsgType.REQUEST_PUSH_TOKEN, null);
-                d9bVar.d = d8b.a();
-                String pushToken = ((PushTokenResult) d8b.d(v8b.c.a(d9bVar))).getPushToken();
-                if (z && !TextUtils.isEmpty(pushToken)) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, DownMsgType.RECEIVE_TOKEN);
-                    bundle.putString("push_token", pushToken);
-                    h9b h9bVar = new h9b();
-                    Context context = this.a;
-                    Log.i("MessengerSrvConnection", "start bind service.");
-                    try {
-                        Intent intent = new Intent();
-                        intent.setPackage(context.getPackageName());
-                        intent.setAction("com.hihonor.push.action.MESSAGING_EVENT");
-                        Context applicationContext = context.getApplicationContext();
-                        h9bVar.c = applicationContext;
-                        h9bVar.b = bundle;
-                        if (applicationContext.bindService(intent, h9bVar, 1)) {
-                            Log.i("MessengerSrvConnection", "bind service succeeded.");
-                        }
-                    } catch (Exception e) {
-                        String str = "bind service failed." + e.getMessage();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuilder sb = this.t;
+            sb.append("qua");
+            sb.append(" = ");
+            sb.append(this.a);
+            sb.append("\r\n");
+            StringBuilder sb2 = this.t;
+            sb2.append(PushService.APP_VERSION_NAME);
+            sb2.append(" = ");
+            sb2.append(this.g);
+            sb2.append("\r\n");
+            StringBuilder sb3 = this.t;
+            sb3.append(PushService.APP_VERSION_CODE);
+            sb3.append(" = ");
+            sb3.append(this.h);
+            sb3.append("\r\n");
+            StringBuilder sb4 = this.t;
+            sb4.append("uid");
+            sb4.append(" = ");
+            sb4.append(this.e);
+            sb4.append("\r\n");
+            StringBuilder sb5 = this.t;
+            sb5.append("network");
+            sb5.append(" = ");
+            sb5.append(this.i);
+            sb5.append("\r\n");
+            StringBuilder sb6 = this.t;
+            sb6.append("model");
+            sb6.append(" = ");
+            sb6.append(this.b);
+            sb6.append("\r\n");
+            StringBuilder sb7 = this.t;
+            sb7.append("api-level");
+            sb7.append(" = ");
+            sb7.append(this.c);
+            sb7.append("\r\n");
+            StringBuilder sb8 = this.t;
+            sb8.append("cpu-core");
+            sb8.append(" = ");
+            sb8.append(this.d);
+            sb8.append("\r\n");
+            StringBuilder sb9 = this.t;
+            sb9.append("process");
+            sb9.append(" = ");
+            sb9.append(this.f);
+            sb9.append("\r\n");
+            StringBuilder sb10 = this.t;
+            sb10.append("freeMemory");
+            sb10.append(" = ");
+            sb10.append(this.j);
+            sb10.append("\r\n");
+            StringBuilder sb11 = this.t;
+            sb11.append("totalMemory");
+            sb11.append(" = ");
+            sb11.append(this.k);
+            sb11.append("\r\n");
+            StringBuilder sb12 = this.v;
+            sb12.append("time");
+            sb12.append(" = ");
+            sb12.append(this.l);
+            sb12.append("\r\n");
+            StringBuilder sb13 = this.v;
+            sb13.append("thread-time");
+            sb13.append(" = ");
+            sb13.append(this.m);
+            sb13.append("\r\n");
+            StringBuilder sb14 = this.v;
+            sb14.append("time-start");
+            sb14.append(" = ");
+            sb14.append(this.n);
+            sb14.append("\r\n");
+            StringBuilder sb15 = this.v;
+            sb15.append("time-end");
+            sb15.append(" = ");
+            sb15.append(this.o);
+            sb15.append("\r\n");
+            StringBuilder sb16 = this.u;
+            sb16.append("cpu-busy");
+            sb16.append(" = ");
+            sb16.append(this.p);
+            sb16.append("\r\n");
+            StringBuilder sb17 = this.u;
+            sb17.append("cpu-rate");
+            sb17.append(" = ");
+            sb17.append(this.q);
+            sb17.append("\r\n");
+            ArrayList<String> arrayList = this.s;
+            if (arrayList != null && !arrayList.isEmpty()) {
+                StringBuilder sb18 = new StringBuilder();
+                Iterator<String> it = this.s.iterator();
+                while (it.hasNext()) {
+                    sb18.append(it.next());
+                    sb18.append("\r\n");
                 }
-                return pushToken;
-            } catch (Exception e2) {
-                throw d8b.b(e2);
+                StringBuilder sb19 = this.w;
+                sb19.append("stack");
+                sb19.append(" = ");
+                sb19.append(sb18.toString());
+                sb19.append("\r\n");
             }
+            return this;
         }
-        return (String) invokeZ.objValue;
+        return (m8b) invokeV.objValue;
+    }
+
+    public m8b c(long j, long j2, long j3, long j4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+            this.l = j2 - j;
+            this.m = j4 - j3;
+            this.n = Long.toString(j);
+            this.o = Long.toString(j2);
+            return this;
+        }
+        return (m8b) invokeCommon.objValue;
+    }
+
+    public m8b d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.q = str;
+            return this;
+        }
+        return (m8b) invokeL.objValue;
+    }
+
+    public m8b e(ArrayList<String> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
+            this.s = arrayList;
+            return this;
+        }
+        return (m8b) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.valueOf(this.t) + ((Object) this.v) + ((Object) this.u) + ((Object) this.w);
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -11,18 +11,21 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.ne5;
-import com.baidu.tieba.pf5;
-import com.baidu.tieba.rz4;
+import com.baidu.tieba.im9;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.oe5;
 import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tieba.sz4;
 import com.baidu.tieba.uf5;
+import com.baidu.tieba.zf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
@@ -76,14 +79,14 @@ public class PushPermissionController {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements rz4 {
+    public class b implements sz4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
         public final /* synthetic */ boolean b;
         public final /* synthetic */ PushPermissionController c;
 
-        @Override // com.baidu.tieba.rz4
+        @Override // com.baidu.tieba.sz4
         public void onCancelClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -110,7 +113,7 @@ public class PushPermissionController {
             this.b = z2;
         }
 
-        @Override // com.baidu.tieba.rz4
+        @Override // com.baidu.tieba.sz4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -118,9 +121,9 @@ public class PushPermissionController {
                     new MsgRemindModel(this.c.mContext).Z(34, true, null);
                 }
                 if (this.b) {
-                    uf5.m(this.c.mActivity);
+                    zf5.m(this.c.mActivity);
                 } else {
-                    pf5.e(this.c.mContext);
+                    uf5.e(this.c.mContext);
                 }
             }
         }
@@ -156,10 +159,22 @@ public class PushPermissionController {
         MessageManager.getInstance().registerListener(this.mListener);
     }
 
+    private boolean checkShouldShowUserFollowPush() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return uf5.i(TbadkCoreApplication.getInst(), 7);
+            }
+            return im9.e().b("user_follow");
+        }
+        return invokeV.booleanValue;
+    }
+
     private void onSubscribeFriendSuccess(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && !n95.m().i("subcribe_friend_msg_update_flag", false)) {
-            n95.m().w("subcribe_friend_msg_update_flag", true);
+        if ((interceptable == null || interceptable.invokeL(65541, this, context) == null) && !o95.p().l("subcribe_friend_msg_update_flag", false)) {
+            o95.p().A("subcribe_friend_msg_update_flag", true);
             BdToastData bdToastData = new BdToastData();
             ArrayList arrayList = new ArrayList(1);
             BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
@@ -175,17 +190,18 @@ public class PushPermissionController {
     public void showPushPermissionDialog(int i) {
         Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65541, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
+        if ((interceptable == null || interceptable.invokeI(65542, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(activity).areNotificationsEnabled();
             if (i == 10) {
-                boolean m = ne5.d().m();
+                boolean m = oe5.d().m();
                 if (areNotificationsEnabled && m) {
                     onSubscribeFriendSuccess(this.mActivity);
                     return;
                 }
                 b bVar = new b(this, m, areNotificationsEnabled);
-                if (pf5.i(TbadkCoreApplication.getInst(), 7)) {
-                    uf5.l(this.mContext, this.mActivity, 10, bVar);
+                if (checkShouldShowUserFollowPush()) {
+                    zf5.l(this.mContext, this.mActivity, 10, bVar);
+                    im9.e().h("user_follow");
                 }
             }
         }

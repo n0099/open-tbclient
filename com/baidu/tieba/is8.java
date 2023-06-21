@@ -1,85 +1,34 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.utils.SocialEncodeUtils;
-import com.baidu.searchbox.live.interfaces.data.UserAccount;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchSug.DataRes;
 /* loaded from: classes6.dex */
-public class is8 implements AccountManagerService {
+public class is8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService.AccountStatusChangedListener a;
-    public AccountManagerService.LoginResultListener b;
+    public BdTypeRecyclerView a;
+    public final List<jn> b;
+    public ks8 c;
+    public ns8 d;
+    public ls8 e;
+    public ms8 f;
+    public os8 g;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ is8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(is8 is8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {is8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = is8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int i;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (this.a.b != null) {
-                    if (this.a.isLogin(2)) {
-                        i = 0;
-                    } else {
-                        i = -2;
-                    }
-                    this.a.b.onResult(i);
-                }
-                if (this.a.a != null) {
-                    this.a.a.onAccountStatusChanged(this.a.isLogin(2));
-                }
-            }
-        }
-    }
-
-    public is8() {
+    public is8(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,113 +38,67 @@ public class is8 implements AccountManagerService {
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(this, 2005016));
+        this.b = new ArrayList();
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        a(context, bdTypeRecyclerView);
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getUid() {
-        InterceptResult invokeV;
+    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            UserAccount account = getAccount();
-            if (account != null) {
-                return account.getUid();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
+            this.c = new ks8(context, ps8.c);
+            this.d = new ns8(context, ss8.l);
+            this.e = new ls8(context, qs8.i);
+            this.f = new ms8(context, rs8.g);
+            this.g = new os8(context, ts8.e);
+            this.b.add(this.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
+            this.b.add(this.g);
+            this.a = bdTypeRecyclerView;
+            bdTypeRecyclerView.addAdapters(this.b);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ks8 ks8Var = this.c;
+            if (ks8Var != null) {
+                ks8Var.notifyDataSetChanged();
             }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, accountStatusChangedListener) == null) {
-            this.a = accountStatusChangedListener;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public boolean isLogin(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return TbadkCoreApplication.isLogin();
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, accountStatusChangedListener) == null) {
-            this.a = null;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public UserAccount getAccount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            UserAccount userAccount = new UserAccount();
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            if (currentAccountInfo != null) {
-                userAccount.setDisplayname(currentAccountInfo.getAccountNameShow());
-                userAccount.setBduss(currentAccountInfo.getBDUSS());
-                userAccount.setUid(currentAccountInfo.getID());
-                userAccount.setProtrait(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
-                userAccount.setNickName(currentAccountInfo.getAccountNameShow());
-                userAccount.setUk(getSocialEncryption(currentAccountInfo.getID(), "baiduuid_"));
+            ns8 ns8Var = this.d;
+            if (ns8Var != null) {
+                ns8Var.notifyDataSetChanged();
             }
-            return userAccount;
-        }
-        return (UserAccount) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getSocialDecrypt(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
+            ls8 ls8Var = this.e;
+            if (ls8Var != null) {
+                ls8Var.notifyDataSetChanged();
             }
-            try {
-                return SocialEncodeUtils.getSocialDecrypt(str, str2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+            ms8 ms8Var = this.f;
+            if (ms8Var != null) {
+                ms8Var.notifyDataSetChanged();
+            }
+            os8 os8Var = this.g;
+            if (os8Var != null) {
+                os8Var.notifyDataSetChanged();
             }
         }
-        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
+    public void c(DataRes dataRes, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
-            this.b = loginResultListener;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getSocialEncryption(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = "";
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                str3 = SocialEncodeUtils.getSocialEncryption(str, str2);
-                return URLEncoder.encode(str3, "utf-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str3;
-            }
+        List<wn> a = us8.a(dataRes, str);
+        if (!ListUtils.isEmpty(a)) {
+            this.a.setData(a);
         }
-        return (String) invokeLL.objValue;
     }
 }

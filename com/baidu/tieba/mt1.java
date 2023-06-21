@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.searchbox.http.HttpManager;
+import okhttp3.Callback;
+import okhttp3.Request;
 /* loaded from: classes6.dex */
 public interface mt1 {
-    void a(f42 f42Var);
+    HttpManager a();
 
-    void b(fi4 fi4Var);
+    void call(HttpManager httpManager, Request request, Callback callback);
 }

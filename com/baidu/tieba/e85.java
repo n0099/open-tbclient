@@ -25,10 +25,10 @@ public class e85 implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(tw5 tw5Var) {
+    public void onFinish(yw5 yw5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, tw5Var) == null) && tw5Var != null) {
-            f85.a().c(tw5Var.b);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, yw5Var) == null) && yw5Var != null) {
+            d85.s(yw5Var.a, yw5Var.b);
         }
     }
 }

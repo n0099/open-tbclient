@@ -1,65 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
+import tbclient.NewFloorInfo;
 /* loaded from: classes7.dex */
 public class ok8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
 
-    public ok8() {
+    public static void a(zj8 zj8Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, zj8Var, i) == null) && zj8Var != null && zj8Var.w() != null && !ListUtils.isEmpty(zj8Var.k()) && zj8Var.k().size() >= 2) {
+            List<NewFloorInfo> k = zj8Var.k();
+            if (k.size() > 2) {
+                if (StringHelper.equals(zj8Var.w().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                    if (k.get(1) != null) {
+                        if (k.get(1).is_floor.intValue() == 0) {
+                            b(zj8Var, 12, i);
+                            return;
+                        } else if (k.get(1).is_floor.intValue() == 1) {
+                            b(zj8Var, 13, i);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    return;
+                } else if (k.get(1) != null) {
+                    if (k.get(1).is_floor.intValue() == 0) {
+                        if (zj8Var.q() != null) {
+                            if (StringHelper.equals(zj8Var.q().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                                b(zj8Var, 14, i);
+                                return;
+                            } else {
+                                b(zj8Var, 15, i);
+                                return;
+                            }
+                        }
+                        return;
+                    } else if (k.get(1).is_floor.intValue() == 1) {
+                        b(zj8Var, 16, i);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
             }
-        }
-        this.b = "";
-    }
-
-    public final long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
+            b(zj8Var, 11, i);
         }
     }
 
-    public final void d(String str) {
+    public static void b(zj8 zj8Var, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.b = str;
+        if ((interceptable == null || interceptable.invokeLII(65537, null, zj8Var, i, i2) == null) && zj8Var != null && zj8Var.s() != null && zj8Var.l() != null) {
+            StatisticItem statisticItem = new StatisticItem("c12928");
+            statisticItem.param("tid", zj8Var.l().f);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", zj8Var.l().e);
+            statisticItem.param("fname", zj8Var.l().d);
+            statisticItem.param("pid", zj8Var.n());
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_locate", i2);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

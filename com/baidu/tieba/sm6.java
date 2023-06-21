@@ -1,11 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.webkit.sdk.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public interface sm6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "EMManagerProvider");
+public class sm6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(View view2, int i);
+    public static void a(Closeable... closeableArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65536, null, closeableArr) != null) || om6.e(closeableArr)) {
+            return;
+        }
+        for (Closeable closeable : closeableArr) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                } catch (IOException unused) {
+                }
+            }
+        }
+    }
 }

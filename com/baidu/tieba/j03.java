@@ -1,10 +1,16 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapRegionDecoder;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.searchbox.permission.DangerousPermissionConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class j03 {
+public class j03 implements h03 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
+    public BitmapRegionDecoder a;
+    public final Object b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +44,7 @@ public class j03 {
                 return;
             }
         }
-        boolean z = is1.a;
+        c = js1.a;
     }
 
     public j03() {
@@ -54,164 +60,145 @@ public class j03 {
                 return;
             }
         }
-        this.a = 60000;
-        this.b = "aac";
-        this.c = 1;
-        this.d = 8000;
-        this.e = 16000;
-        this.f = 1;
+        this.b = new Object();
     }
 
-    public static j03 a(JSONObject jSONObject, j03 j03Var) {
+    @Override // com.baidu.tieba.h03
+    public boolean isReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BitmapRegionDecoder bitmapRegionDecoder = this.a;
+            if (bitmapRegionDecoder != null && !bitmapRegionDecoder.isRecycled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.h03
+    public void recycle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.recycle();
+        }
+    }
+
+    @Override // com.baidu.tieba.h03
+    public Point a(Context context, Bitmap bitmap) throws Exception {
+        InputStream inputStream;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, j03Var)) == null) {
-            if (jSONObject != null && jSONObject.length() > 0) {
-                j03Var = new j03();
-                j03Var.a = jSONObject.optInt("duration", 60000);
-                String optString = jSONObject.optString("format");
-                j03Var.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    j03Var.b = "aac";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bitmap)) == null) {
+            try {
+                inputStream = b(bitmap);
+                try {
+                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
+                    ds4.d(inputStream);
+                    return new Point(this.a.getWidth(), this.a.getHeight());
+                } catch (Throwable th) {
+                    th = th;
+                    ds4.d(inputStream);
+                    throw th;
                 }
-                j03Var.c = jSONObject.optInt("numberOfChannels", 1);
-                j03Var.d = jSONObject.optInt("sampleRate", 8000);
-                int optInt = jSONObject.optInt("encodeBitRate");
-                j03Var.e = optInt;
-                if (optInt == 0) {
-                    int i = j03Var.d;
-                    if (i != 8000) {
-                        if (i != 16000) {
-                            if (i == 44100) {
-                                j03Var.e = 64000;
-                            }
-                        } else {
-                            j03Var.e = 24000;
-                        }
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
+            }
+        } else {
+            return (Point) invokeLL.objValue;
+        }
+    }
+
+    @Override // com.baidu.tieba.h03
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decodeRegion(Rect rect, int i) {
+        InterceptResult invokeLI;
+        Bitmap decodeRegion;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rect, i)) == null) {
+            synchronized (this.b) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = i;
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                decodeRegion = this.a.decodeRegion(rect, options);
+                if (decodeRegion == null) {
+                    if (!c) {
+                        z82.k("SkiaImageRegionDecoder", "bitmap is null");
                     } else {
-                        j03Var.e = 16000;
+                        throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
                     }
                 }
-                j03Var.f = b(jSONObject.optString("audioSource", "auto"));
-                j03Var.g = jSONObject.optString("cb");
             }
-            return j03Var;
+            return decodeRegion;
         }
-        return (j03) invokeLL.objValue;
+        return (Bitmap) invokeLI.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static int b(String str) {
+    public InputStream b(Bitmap bitmap) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -401509030:
-                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 108103:
-                    if (str.equals(DangerousPermissionConstants.DANGEROUS_PERMISSION_MIC)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3005871:
-                    if (str.equals("auto")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1059882026:
-                    if (str.equals("voice_recognition")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1611170697:
-                    if (str.equals("voice_communication")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0 && c != 1) {
-                if (c != 2) {
-                    if (c != 3) {
-                        if (c != 4) {
-                            return -1;
-                        }
-                        return 6;
-                    }
-                    return 7;
-                }
-                return 5;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0086, code lost:
-        r2 = false;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0089  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.a;
-            if (i <= 600000 && i >= 0) {
-                int i2 = this.c;
-                boolean z = true;
-                if (i2 != 1 && i2 != 2) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
-                }
-                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
-                }
-                int i3 = this.d;
-                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
-                }
-                if (!TextUtils.equals(this.b, "pcm")) {
-                    if ((r3 = this.d) != 8000) {
-                        if (z) {
-                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
-                        }
-                    } else if (z) {
-                    }
-                }
-                if (this.f < 0) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            if (bitmap == null) {
                 return null;
             }
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
+            if (bitmap.hasAlpha()) {
+                compressFormat = Bitmap.CompressFormat.PNG;
+            }
+            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
         }
-        return (JSONObject) invokeV.objValue;
+        return (InputStream) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.h03
+    public Point init(Context context, Uri uri) throws Exception {
+        InterceptResult invokeLL;
+        Resources resourcesForApplication;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
+                }
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else {
+                    if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                        try {
+                            i = Integer.parseInt(pathSegments.get(0));
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    i = 0;
+                }
+                this.a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
+            } else if (uri2.startsWith("file:///android_asset/")) {
+                this.a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
+            } else if (uri2.startsWith("file://")) {
+                this.a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
+            } else {
+                InputStream inputStream = null;
+                try {
+                    inputStream = context.getContentResolver().openInputStream(uri);
+                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
+                } finally {
+                    ds4.d(inputStream);
+                }
+            }
+            return new Point(this.a.getWidth(), this.a.getHeight());
         }
-        return (String) invokeV.objValue;
+        return (Point) invokeLL.objValue;
     }
 }

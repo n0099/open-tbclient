@@ -7,14 +7,14 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public final class a extends d {
-    public C0659a SS;
+    public C0660a SS;
 
     /* renamed from: com.kwad.sdk.collector.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0659a {
+    public static class C0660a {
         public List<String> ST;
 
-        public C0659a(List<String> list) {
+        public C0660a(List<String> list) {
             this.ST = list;
         }
 
@@ -26,9 +26,9 @@ public final class a extends d {
     }
 
     public a(List<String> list) {
-        C0659a c0659a = new C0659a(list);
-        this.SS = c0659a;
-        putBody("targetAppInfo", c0659a.toJson());
+        C0660a c0660a = new C0660a(list);
+        this.SS = c0660a;
+        putBody("targetAppInfo", c0660a.toJson());
         putBody(com.heytap.mcssdk.constant.b.C, BuildConfig.VERSION_NAME);
         putBody("sdkVersionCode", BuildConfig.VERSION_CODE);
     }

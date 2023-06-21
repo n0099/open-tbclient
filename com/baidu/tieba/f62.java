@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.DashPathEffect;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class f62 extends e52 {
+public class f62 extends f52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DashPathEffect a;
+    public Paint.Cap a;
 
     public f62() {
         Interceptable interceptable = $ic;
@@ -28,36 +29,26 @@ public class f62 extends e52 {
         }
     }
 
-    @Override // com.baidu.tieba.e52
-    public void a(f52 f52Var, Canvas canvas) {
-        DashPathEffect dashPathEffect;
+    @Override // com.baidu.tieba.f52
+    public void a(g52 g52Var, Canvas canvas) {
+        Paint.Cap cap;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) && (dashPathEffect = this.a) != null) {
-            f52Var.c.setPathEffect(dashPathEffect);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) && (cap = this.a) != null) {
+            g52Var.c.setStrokeCap(cap);
         }
     }
 
-    @Override // com.baidu.tieba.e52
+    @Override // com.baidu.tieba.f52
     public void b(JSONArray jSONArray) {
-        float[] fArr;
-        JSONArray optJSONArray;
-        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            int i = 0;
-            if (jSONArray.length() > 0 && (optJSONArray = jSONArray.optJSONArray(0)) != null && (length = optJSONArray.length()) > 0) {
-                fArr = new float[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    fArr[i2] = pp3.g((float) optJSONArray.optDouble(i2));
-                }
-            } else {
-                fArr = null;
-            }
-            if (jSONArray.length() > 1) {
-                i = pp3.g((float) jSONArray.optDouble(1));
-            }
-            if (fArr != null && i >= 0) {
-                this.a = new DashPathEffect(fArr, i);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            String optString = jSONArray.optString(0);
+            if (TextUtils.equals(optString, "butt")) {
+                this.a = Paint.Cap.BUTT;
+            } else if (TextUtils.equals(optString, "round")) {
+                this.a = Paint.Cap.ROUND;
+            } else if (TextUtils.equals(optString, "square")) {
+                this.a = Paint.Cap.SQUARE;
             }
         }
     }

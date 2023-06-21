@@ -11,7 +11,7 @@ import com.baidu.searchbox.download.util.DownloadNetworkHelper;
 import com.baidu.searchbox.download.util.DuplicateHelper;
 import com.baidu.searchbox.download.util.ExternalStorageCallBack;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.w20;
+import com.baidu.tieba.x20;
 import com.baidu.webkit.internal.utils.NetWorkUtils;
 /* loaded from: classes3.dex */
 public abstract class EventActionForStart {
@@ -116,7 +116,7 @@ public abstract class EventActionForStart {
             EventCallback eventCallback2;
             if (this.eventControlInfoForStart.checkPermission) {
                 if (!DownloadHelper.isStoragePermissionGranted()) {
-                    w20.n(false, this.source);
+                    x20.n(false, this.source);
                     if (this.downloadParams.getDestination() == 4) {
                         String filePathHint = this.downloadParams.getFilePathHint();
                         if (TextUtils.isEmpty(filePathHint) && (eventCallback2 = this.eventCallback) != null) {
@@ -162,7 +162,7 @@ public abstract class EventActionForStart {
                         return;
                     }
                 }
-                w20.n(true, this.source);
+                x20.n(true, this.source);
                 if (iContinue != null) {
                     iContinue.continueCall(true, this);
                 }

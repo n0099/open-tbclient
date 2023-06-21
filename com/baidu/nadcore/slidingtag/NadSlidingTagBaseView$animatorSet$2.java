@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.c61;
+import com.baidu.tieba.d61;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.functions.Function0;
@@ -103,7 +103,7 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
                     if (NadSlidingTagBaseView$animatorSet$2.this.this$0.getLinear().getChildAt(0) instanceof AdImageView) {
                         a2 = NadSlidingTagBaseView$animatorSet$2.this.this$0.m;
                     } else {
-                        a2 = c61.c.a(NadSlidingTagBaseView$animatorSet$2.this.$context, 8.0f);
+                        a2 = d61.c.a(NadSlidingTagBaseView$animatorSet$2.this.$context, 8.0f);
                     }
                     nadSlidingTagBaseView5.setOriginalY(y + a2);
                     return;

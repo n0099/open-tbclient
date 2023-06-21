@@ -1,211 +1,755 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
+import android.content.IntentFilter;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.service.ChangeSkinReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
 /* loaded from: classes7.dex */
 public class q05 {
     public static /* synthetic */ Interceptable $ic;
+    public static q05 k;
     public transient /* synthetic */ FieldHolder $fh;
+    public AccountData a;
+    public boolean b;
+    public c c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
+    public int h;
+    public ChangeSkinReceiver i;
+    public boolean j;
 
-    public static boolean a(AccountData accountData, s9 s9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, accountData, s9Var)) == null) {
-            return s9Var.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ q05 c;
+
+        public a(q05 q05Var, AccountData accountData, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q05Var, accountData, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = q05Var;
+            this.a = accountData;
+            this.b = context;
         }
-        return invokeLL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.b) {
+                    BdSocketLinkService.setHasAbsoluteClose(false);
+                    BdSocketLinkService.setAvailable(true);
+                    sm5.b(0, 0, 0, 1, 2);
+                    BdSocketLinkService.startService(true, "account changed");
+                }
+                this.c.M(this.a, this.b);
+            }
+        }
     }
 
-    public static void b() {
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                a1a.a("", 7);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q05 this$0;
+
+        public c(q05 q05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = q05Var;
+        }
+
+        public /* synthetic */ c(q05 q05Var, a aVar) {
+            this(q05Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.E() && intent != null && "com.baidu.tieba.action.accountChange".equals(intent.getAction())) {
+                Serializable serializableExtra = intent.getSerializableExtra("intent_data_accountData");
+                if (serializableExtra instanceof AccountData) {
+                    this.this$0.a = (AccountData) serializableExtra;
+                } else {
+                    this.this$0.a = null;
+                }
+                lp5.o(this.this$0.C());
+                if (this.this$0.a != null) {
+                    lp5.n(this.this$0.a.getBDUSS());
+                    lp5.q(this.this$0.a.getTbs());
+                    lp5.p(this.this$0.a.getStoken());
+                }
+            }
+        }
+    }
+
+    public q05() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = false;
+        this.d = 0;
+        this.e = 0;
+        this.f = 0;
+        this.g = true;
+        this.j = false;
+    }
+
+    public void A() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !D(false) && E() && this.c == null) {
+            this.c = new c(this, null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.baidu.tieba.action.accountChange");
+            TbadkCoreApplication.getInst().registerReceiver(this.c, intentFilter);
+        }
+    }
+
+    public static void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TiebaDatabase.getInstance().getMainDBDatabaseManager().d("update account_data set isactive=0 where isactive=1");
+            ah.a().b(new b());
+            o95.p().H("app_inverval", System.currentTimeMillis());
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from account_data where id=?", new String[]{str});
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int d() {
+    public static q05 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            s9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            int i = 0;
-            Cursor cursor = null;
-            try {
-                if (mainDBDatabaseManager != null) {
-                    try {
-                        cursor = mainDBDatabaseManager.j("select count(*) from account_data", null);
-                        if (cursor != null && cursor.moveToFirst()) {
-                            i = cursor.getInt(0);
-                        }
-                    } catch (Exception e) {
-                        mainDBDatabaseManager.i(e, "getAccountNum");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (k == null) {
+                synchronized (q05.class) {
+                    if (k == null) {
+                        k = new q05();
                     }
                 }
-                return i;
-            } finally {
-                sg.a(cursor);
             }
+            return k;
+        }
+        return (q05) invokeV.objValue;
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && E()) {
+            this.i = new ChangeSkinReceiver();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(TbConfig.getBroadcastActionChangeSkin());
+            TbadkCoreApplication.getInst().registerReceiver(this.i, intentFilter);
+        }
+    }
+
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String h = h();
+            if (h != null && h.length() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return TbadkCoreApplication.getInst().isRemoteProcess();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            TbSingleton.getInstance().clearVideoRecord();
+        }
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getID();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            String h = h();
+            if (TextUtils.isEmpty(h)) {
+                AccountData e = r05.e();
+                if (e != null) {
+                    return e.getID();
+                }
+                return "";
+            }
+            return h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData == null) {
+                return 0L;
+            }
+            return ug.g(accountData.getID(), 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public AccountData k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.a;
+        }
+        return (AccountData) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getAccount();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getAccountNameShow();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AccountData n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.a;
+        }
+        return (AccountData) invokeV.objValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            AccountData n = n();
+            if (n == null) {
+                return null;
+            }
+            if (!TextUtils.isEmpty(n.getAvatar())) {
+                return n.getAvatar();
+            }
+            return n.getPortrait();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getBDUSS();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getMemberType();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b2: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x00b2 */
-    public static AccountData e() {
+    public String r() {
         InterceptResult invokeV;
-        Cursor cursor;
-        AccountData accountData;
-        Exception e;
-        Cursor cursor2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            s9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor3 = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            AccountData n = n();
+            if (n == null) {
+                return null;
+            }
+            return n.getPortrait();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null && accountData.getVipInfo() != null) {
+                return this.a.getVipInfo().getVipLevel();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getTbs();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void I(AccountData accountData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, accountData) == null) {
+            String str2 = null;
+            if (accountData != null) {
+                str2 = accountData.getID();
+                str = accountData.getAccount();
+            } else {
+                str = null;
+            }
+            String currentBduss = TbadkCoreApplication.getCurrentBduss();
+            Intent intent = new Intent();
+            intent.setAction("adp.bdstatisticsmanager.account_changed");
+            intent.putExtra("intent_data_userid", str2);
+            intent.putExtra("intent_data_username", str);
+            intent.putExtra("intent_data_bduss", currentBduss);
+            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
             try {
-                if (mainDBDatabaseManager != null) {
-                    try {
-                        cursor2 = mainDBDatabaseManager.j("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
-                        if (cursor2 != null) {
-                            try {
-                                if (cursor2.moveToFirst()) {
-                                    accountData = new AccountData();
-                                    try {
-                                        accountData.setID(cursor2.getString(0));
-                                        accountData.setAccount(cursor2.getString(1));
-                                        accountData.setPassword(cursor2.getString(2));
-                                        accountData.setBDUSS(cursor2.getString(3));
-                                        accountData.setIsActive(cursor2.getInt(4));
-                                        accountData.setTbs(cursor2.getString(5));
-                                        accountData.setTime(cursor2.getLong(6));
-                                        accountData.setPortrait(cursor2.getString(7));
-                                        accountData.setSex(cursor2.getInt(9));
-                                        accountData.setMemberIconUrl(cursor2.getString(10));
-                                        accountData.setStoken(cursor2.getString(cursor2.getColumnIndex("stoken")));
-                                        accountData.setNameShow(cursor2.getString(cursor2.getColumnIndex("name_show")));
-                                        cursor3 = cursor2;
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        mainDBDatabaseManager.i(e, "getActiveAccountData");
-                                        sg.a(cursor2);
-                                        return accountData;
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                accountData = null;
-                                e = e3;
-                            }
-                        }
-                        accountData = null;
-                        cursor3 = cursor2;
-                    } catch (Exception e4) {
-                        accountData = null;
-                        e = e4;
-                        cursor2 = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        sg.a(cursor3);
-                        throw th;
+                TbadkCoreApplication.getInst().sendStickyBroadcast(intent);
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+            }
+            Intent intent2 = new Intent();
+            intent2.setAction("com.baidu.tieba.action.accountChange");
+            intent2.putExtra("intent_data_accountData", accountData);
+            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            TbadkCoreApplication.getInst().sendBroadcast(intent2);
+            lp5.o(!TextUtils.isEmpty(str2));
+            if (accountData != null) {
+                lp5.n(accountData.getBDUSS());
+                lp5.q(accountData.getTbs());
+                lp5.p(accountData.getStoken());
+            }
+        }
+    }
+
+    public boolean D(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            return TbadkCoreApplication.getInst().isMainProcess(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public void N(int i) {
+        AccountData accountData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (accountData = this.a) != null) {
+            accountData.setMemberType(i);
+        }
+    }
+
+    public void P(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.d = i;
+            tr8 a2 = wk.a();
+            a2.c(Config.DEVICE_PART, "skinType status: " + i);
+        }
+    }
+
+    public void Q(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && str != null && str.length() > 0) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.setTbs(str);
+                }
+            }
+        }
+    }
+
+    public void L(AccountData accountData, Context context) {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, accountData, context) == null) {
+            this.a = accountData;
+            String str3 = null;
+            if (accountData != null) {
+                str3 = accountData.getID();
+                str2 = accountData.getAccount();
+                str = accountData.getBDUSS();
+            } else {
+                str = null;
+                str2 = null;
+            }
+            BdStatisticsManager.getInstance().setUser(str3, str2, str);
+        }
+    }
+
+    public void G(AccountData accountData, Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, accountData, application) == null) {
+            wb8.a("onAccountChanged()");
+            BdLog.e("账号切换");
+            o95 p = o95.p();
+            String w = p.w("current_used_theme_" + h(), null);
+            if (StringUtils.isNull(w)) {
+                this.e = 0;
+            } else {
+                String[] split = w.split("/");
+                if (split != null && split.length >= 2) {
+                    this.e = ug.e(split[0], 0);
+                } else {
+                    this.e = 0;
+                }
+            }
+            f();
+            MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
+            wb8.a("send METHOD_ACCOUNT_CHANGE");
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
+            MessageManager.getInstance().registerStickyMode(2005019);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+            TbSingleton.getInstance().onAccountChange();
+            if (accountData != null) {
+                tr8 a2 = wk.a();
+                a2.c(Config.DEVICE_PART, "账号切换 Account:" + accountData.toString());
+            }
+        }
+    }
+
+    public void J(AccountData accountData, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, accountData, str, str2) == null) {
+            if (accountData == null && this.a != null) {
+                this.b = true;
+            } else if (this.a == null && accountData != null) {
+                this.b = true;
+            } else {
+                AccountData accountData2 = this.a;
+                if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
+                    this.b = true;
+                }
+            }
+            if (this.a == null && accountData != null) {
+                this.a = accountData;
+            }
+            if (this.a == null) {
+                return;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                this.a.setBDUSS(str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                this.a.setTbs(str2);
+            }
+        }
+    }
+
+    public void K(AccountData accountData, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accountData, context) == null) {
+            String str = "set_application_account:";
+            if (accountData == null) {
+                str = "set_application_account:" + StringUtil.NULL_STRING;
+            } else if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
+                str = "set_application_account:valid_logined";
+            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
+                str = "set_application_account:valid";
+            } else if (!StringUtils.isNull(accountData.getID())) {
+                str = "set_application_account:logined";
+            }
+            d95.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
+            if (!this.b) {
+                if (accountData == null && this.a != null) {
+                    this.b = true;
+                    wb8.a("account == null && mAccount != null");
+                } else if (this.a == null && accountData != null) {
+                    this.b = true;
+                    wb8.a("mAccount == null && account != null 初始化");
+                } else {
+                    AccountData accountData2 = this.a;
+                    if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
+                        this.b = true;
+                        wb8.a("mAccount != null && account != null");
+                    }
+                }
+            }
+            this.a = accountData;
+            a1a.n();
+            ac.b().a("setCurrentAccountInUI", new a(this, accountData, context));
+        }
+    }
+
+    public final void M(AccountData accountData, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, accountData, context) == null) {
+            if (context != null) {
+                if (TbadkCoreApplication.getInst().isPushServiceOpen()) {
+                    UtilHelper.startPushService(context);
+                } else {
+                    UtilHelper.stopPushService(context);
+                }
+            }
+            I(accountData);
+            if (this.b) {
+                G(accountData, TbadkCoreApplication.getInst());
+            }
+            MessageManager.getInstance().runTask(2004603, (Class) null);
+            if (BdNetTypeUtil.isWifiNet() && accountData != null) {
+                MessageManager.getInstance().runTask(2004611, (Class) null);
+            }
+            TbadkCoreApplication.getInst().setActivityPrizeData(null);
+        }
+    }
+
+    public void g(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048593, this, str, z) != null) || str == null) {
+            return;
+        }
+        s9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from search_data where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from search_post_data where account=?", new Object[]{str});
+        if (z) {
+            mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
+        }
+    }
+
+    public void O(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.h = v();
+            H();
+            P(i);
+            TbadkSettings.getInst().saveInt("skin_", i);
+            a(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001304, Integer.valueOf(i)));
+        }
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            Intent intent = new Intent();
+            intent.setAction(TbConfig.getBroadcastActionChangeSkin());
+            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            intent.putExtra("skin_type", i);
+            TbadkCoreApplication.getInst().getContext().sendBroadcast(intent);
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048611, this) != null) || this.j) {
+            return;
+        }
+        this.j = true;
+        long currentTimeMillis = System.currentTimeMillis();
+        if (D(true)) {
+            try {
+                if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
+                    AccountData e = r05.e();
+                    if (e != null) {
+                        d95.a(DI.ACCOUNT, -1L, 0, "application_init_account", 0, "", new Object[0]);
+                        K(e, TbadkCoreApplication.getInst());
+                    } else {
+                        d95.a(DI.ACCOUNT, -1L, 0, "application_init_no_account", 0, "", new Object[0]);
                     }
                 } else {
-                    accountData = null;
+                    d95.a(DI.ACCOUNT, -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
                 }
-                sg.a(cursor3);
-                return accountData;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor3 = cursor;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
             }
-        } else {
-            return (AccountData) invokeV.objValue;
-        }
-    }
-
-    public static ArrayList<AccountData> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            s9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            ArrayList<AccountData> arrayList = new ArrayList<>();
-            Cursor cursor = null;
-            if (mainDBDatabaseManager != null) {
-                try {
-                    try {
-                        cursor = mainDBDatabaseManager.j("select * from account_data order by time desc", null);
-                        while (cursor.moveToNext()) {
-                            AccountData accountData = new AccountData();
-                            accountData.setID(cursor.getString(0));
-                            accountData.setAccount(cursor.getString(1));
-                            accountData.setPassword(cursor.getString(2));
-                            accountData.setBDUSS(cursor.getString(3));
-                            accountData.setIsActive(cursor.getInt(4));
-                            accountData.setTbs(cursor.getString(5));
-                            accountData.setTime(cursor.getLong(6));
-                            accountData.setPortrait(cursor.getString(7));
-                            accountData.setSex(cursor.getInt(9));
-                            accountData.setMemberIconUrl(cursor.getString(10));
-                            accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
-                            accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
-                            arrayList.add(accountData);
-                        }
-                    } catch (Exception e) {
-                        mainDBDatabaseManager.i(e, "getAllAccountData");
-                    }
-                } finally {
-                    sg.a(cursor);
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public static void g(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, accountData) == null) && accountData != null && accountData.getID() != null) {
-            Intent intent = new Intent();
-            intent.setAction("com.baidu.tieba.action.accountChange");
-            intent.putExtra("intent_data_accountData", TbadkCoreApplication.getCurrentAccountObj());
-            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            TbadkCoreApplication.getInst().sendBroadcast(intent);
-            String str = "set_basedata_account:";
-            if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_basedata_account:valid_logined";
-            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_basedata_account:valid";
-            } else if (!StringUtils.isNull(accountData.getID())) {
-                str = "set_basedata_account:logined";
-            }
-            c95.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
-            if (accountData.getIsActive() == 1) {
-                b();
-            }
-            s9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!c(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
-                if (!mainDBDatabaseManager.d("DROP TABLE IF EXISTS account_data")) {
-                    mainDBDatabaseManager.b();
-                }
-                mainDBDatabaseManager.d("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
-                a(accountData, mainDBDatabaseManager);
-            }
+            xs5.b().i(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 }

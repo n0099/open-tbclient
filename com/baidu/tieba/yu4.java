@@ -1,270 +1,190 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
-import android.os.Build;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.sapi2.utils.ThirdPartyUtil;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class yu4 implements SensorEventListener {
+public class yu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b b;
-    public SensorManager c;
-    public Sensor d;
-    public Vibrator e;
-    public SoundPool f;
-    public int g;
-    public int h;
-    public long i;
-    public boolean j;
-    public MediaPlayer k;
-    public double l;
-    public double m;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a();
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
+    public static void a(StatisticItem statisticItem, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, sensor, i) == null) {
+        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) {
+            String paramStr = UrlManager.getParamStr(str);
+            if (!TextUtils.isEmpty(paramStr)) {
+                b(statisticItem, UrlManager.getParamPair(paramStr));
+            }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements MediaPlayer.OnPreparedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yu4 a;
+    public static void b(StatisticItem statisticItem, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, statisticItem, map) == null) && statisticItem != null && map != null) {
+            statisticItem.param("refer", map.get("refer"));
+            statisticItem.param("pid", map.get("hightlight_anchor_pid"));
+        }
+    }
 
-        public a(yu4 yu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yu4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void c(Uri uri) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, uri) == null) && uri != null) {
+            String d = d(uri);
+            String queryParameter = uri.getQueryParameter("obj_source");
+            if ("shoubai".equals(queryParameter) || ThirdPartyUtil.TYPE_WEIXIN.equals(queryParameter) || "tbShareH5".equals(queryParameter) || PbModel.WISE.equals(queryParameter) || "zhongjianye".equals(queryParameter) || "PC".equals(queryParameter) || Constants.SOURCE_QQ.equals(queryParameter)) {
+                String queryParameter2 = uri.getQueryParameter("obj_locate");
+                uri.getQueryParameter("obj_type");
+                String queryParameter3 = uri.getQueryParameter("obj_param1");
+                String queryParameter4 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM2);
+                String queryParameter5 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM3);
+                String queryParameter6 = uri.getQueryParameter("tid");
+                String queryParameter7 = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
+                String queryParameter8 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+                String queryParameter9 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+                String queryParameter10 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
+                String queryParameter11 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
+                String queryParameter12 = uri.getQueryParameter("obj_name");
+                String queryParameter13 = uri.getQueryParameter(TiebaStatic.Params.EQID);
+                String queryParameter14 = uri.getQueryParameter("topic_id");
+                String queryParameter15 = uri.getQueryParameter("fid");
+                String queryParameter16 = uri.getQueryParameter("room_id");
+                String queryParameter17 = uri.getQueryParameter("refer");
+                String queryParameter18 = uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID);
+                String queryParameter19 = uri.getQueryParameter(TiebaStatic.Params.BDID);
+                String queryParameter20 = uri.getQueryParameter("hightlight_anchor_pid");
+                String queryParameter21 = uri.getQueryParameter(TiebaStatic.Params.QD);
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_CALL_NATIVE);
+                statisticItem.param("obj_locate", queryParameter2);
+                statisticItem.param("obj_type", d);
+                statisticItem.param("obj_param1", queryParameter3);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, queryParameter4);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, queryParameter5);
+                statisticItem.param("tid", queryParameter6);
+                statisticItem.param("fid", queryParameter15);
+                statisticItem.param("fname", queryParameter7);
+                statisticItem.param("room_id", queryParameter16);
+                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID, queryParameter8);
+                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID, queryParameter9);
+                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE, queryParameter10);
+                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID, queryParameter11);
+                statisticItem.param("obj_source", queryParameter);
+                statisticItem.param("obj_name", queryParameter12);
+                statisticItem.param("query", queryParameter13);
+                statisticItem.param("topic_id", queryParameter14);
+                statisticItem.param("obj_id", TbadkCoreApplication.getInst().getStartType());
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, 1);
+                statisticItem.param(TiebaStatic.Params.WISE_SAMPLE_ID, queryParameter18);
+                statisticItem.param(TiebaStatic.Params.BDID, queryParameter19);
+                if (TextUtils.isEmpty(queryParameter17)) {
+                    queryParameter17 = StringUtil.NULL_STRING;
                 }
-            }
-            this.a = yu4Var;
-        }
-
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        public void onPrepared(MediaPlayer mediaPlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.a.k.start();
+                statisticItem.param("refer", queryParameter17);
+                statisticItem.param("pid", queryParameter20);
+                statisticItem.param(TiebaStatic.Params.QD, queryParameter21);
+                TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    public yu4(@NonNull Context context, @Nullable b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.l = 2.5d;
-        this.m = 4.2d;
-        if (context == null) {
-            return;
-        }
-        this.a = context;
-        this.b = bVar;
-        SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-        this.c = sensorManager;
-        if (sensorManager != null) {
-            this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
-        }
-        this.e = (Vibrator) context.getSystemService("vibrator");
-        SoundPool soundPool = new SoundPool(1, 3, 0);
-        this.f = soundPool;
-        if (soundPool != null) {
-            try {
-                this.g = soundPool.load(context, R.raw.shake_tone, 1);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-        }
-    }
-
-    public void j(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.m = d;
-        }
-    }
-
-    public void k(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.l = d;
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.b) != null) {
-            bVar.a();
-        }
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.i > 2000) {
-                this.i = currentTimeMillis;
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        SensorManager sensorManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (sensorManager = this.c) != null) {
-            sensorManager.unregisterListener(this);
-            this.j = false;
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (sensor = this.d) != null) {
-            this.c.registerListener(this, sensor, 2);
-            this.j = true;
-        }
-    }
-
-    public final boolean e(float[] fArr) {
+    public static String d(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fArr)) == null) {
-            double sqrt = Math.sqrt(Math.pow(Math.abs(fArr[0]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[1]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[2]) / 9.8d, 2.0d));
-            if (Build.VERSION.SDK_INT <= 23) {
-                if (sqrt >= this.l && b()) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
+            if (uri == null) {
+                return "";
+            }
+            String uri2 = uri.toString();
+            if (TextUtils.isEmpty(uri2)) {
+                return "";
+            }
+            if (uri2.contains("unidispatch/openapp") || uri2.contains("donothing")) {
+                return "5";
+            }
+            if (!uri2.contains("tbpb") && !uri2.contains(PbModel.UNIDISPATCH_PB)) {
+                if (uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) {
+                    return "2";
                 }
-            } else if (sqrt >= this.m && b()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Context context = this.a;
-            if (context == null) {
-                return false;
-            }
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-            int i = -1;
-            if (audioManager != null) {
-                i = audioManager.getRingerMode();
-            }
-            Vibrator vibrator = this.e;
-            if (vibrator == null || !vibrator.hasVibrator() || i <= 0) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                this.e.vibrate(VibrationEffect.createOneShot(400L, 255));
-                return true;
-            }
-            this.e.vibrate(400L);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (!z && (i = this.h) != 0) {
-                SoundPool soundPool = this.f;
-                if (soundPool != null) {
-                    soundPool.play(i, 1.0f, 1.0f, 0, 0, 1.0f);
-                    return;
+                if (uri2.contains("tbwebview")) {
+                    return "9";
                 }
-                return;
-            }
-            SoundPool soundPool2 = this.f;
-            if (soundPool2 != null) {
-                soundPool2.play(this.g, 1.0f, 1.0f, 0, 0, 1.0f);
+                if (!uri2.contains("tbusercenter") && !uri2.contains("unidispatch/usercenter") && !uri2.contains("usercenter")) {
+                    if (!uri2.contains("tbtopicdetail") && !uri2.contains("unidispatch/topicdetail")) {
+                        if (uri2.contains("unidispatch/hotuserrank")) {
+                            return "7";
+                        }
+                        if (BdUniDispatchSchemeController.PATH_HOMEPAGE.equals(uri.getPath())) {
+                            return "5";
+                        }
+                        if (uri2.contains("unidispatch/searchResultPage")) {
+                            if (TextUtils.isEmpty(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY))) {
+                                return "5";
+                            }
+                            return "11";
+                        }
+                        return "10";
+                    }
+                    return "3";
+                }
+                return "4";
+            } else if ("tbpb://tieba.baidu.com".equals(uri2)) {
+                return "5";
+            } else {
+                if (!TextUtils.isEmpty(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID))) {
+                    return "6";
+                }
+                String queryParameter = uri.getQueryParameter("obj_param1");
+                if (BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter) || "2".equals(queryParameter)) {
+                    String queryParameter2 = uri.getQueryParameter("obj_source");
+                    String queryParameter3 = uri.getQueryParameter("tid");
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
+                    if (BdUniDispatchSchemeController.PARAM_WISE.equals(queryParameter2)) {
+                        statisticItem.param("obj_source", 2);
+                    } else if (BdUniDispatchSchemeController.PARAM_SHOUBAI.equals(queryParameter2)) {
+                        statisticItem.param("obj_source", 3);
+                    } else if (BdUniDispatchSchemeController.PARAM_TBSHAREH5.equals(queryParameter2)) {
+                        statisticItem.param("obj_source", 4);
+                    } else if (BdUniDispatchSchemeController.PARAM_QQ.equals(queryParameter2)) {
+                        statisticItem.param("obj_source", 5);
+                    }
+                    statisticItem.param("tid", queryParameter3);
+                    TiebaStatic.log(statisticItem);
+                    return "1";
+                }
+                return "1";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void i(String str) {
+    public static void e(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (this.k == null) {
-                this.k = new MediaPlayer();
-            }
-            try {
-                this.k.reset();
-                this.k.setLooping(false);
-                this.k.setDataSource(str);
-                this.k.prepareAsync();
-                this.k.setOnPreparedListener(new a(this));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri) == null) && uri != null) {
+            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.IS_NEW_SCHEMA);
+            if (!TextUtils.isEmpty(queryParameter) && queryParameter.equals("1")) {
+                String queryParameter2 = uri.getQueryParameter("obj_source");
+                String queryParameter3 = uri.getQueryParameter("obj_locate");
+                String queryParameter4 = uri.getQueryParameter("obj_type");
+                String queryParameter5 = uri.getQueryParameter("obj_param1");
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_PAY_PUT_TIE);
+                statisticItem.param("obj_source", queryParameter2);
+                statisticItem.param("obj_locate", queryParameter3);
+                statisticItem.param("obj_type", queryParameter4);
+                statisticItem.param("obj_param1", queryParameter5);
+                TiebaStatic.log(statisticItem);
             }
         }
     }

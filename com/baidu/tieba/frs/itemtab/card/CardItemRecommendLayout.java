@@ -30,13 +30,13 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dm7;
-import com.baidu.tieba.h15;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.py;
+import com.baidu.tieba.i15;
+import com.baidu.tieba.im7;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.ta5;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.qy;
+import com.baidu.tieba.ua5;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 /* loaded from: classes5.dex */
-public class CardItemRecommendLayout extends LinearLayout implements py {
+public class CardItemRecommendLayout extends LinearLayout implements qy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
@@ -119,7 +119,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cc7);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cc5);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -127,9 +127,9 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
             this.a.setPageId(q9.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc8);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cca);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc9);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc6);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cc8);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc7);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -175,7 +175,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_small_star, R.color.CAM_X0305, null);
-                o75.d(this.b).w(R.color.CAM_X0105);
+                p75.d(this.b).x(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {
                     i2 = R.color.CAM_X0109;
@@ -213,7 +213,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
         public void getItemOffsets(@NonNull Rect rect, int i, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
-                rect.set(0, 0, vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
+                rect.set(0, 0, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
             }
         }
     }
@@ -247,7 +247,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ta5(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ua5(3, i + 1, 2)));
             }
         }
     }
@@ -296,7 +296,7 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ta5(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ua5(3, i + 1, 1)));
             }
         }
 
@@ -384,12 +384,12 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
         b();
     }
 
-    public void setData(h15 h15Var) {
+    public void setData(i15 i15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, h15Var) == null) && (h15Var instanceof dm7)) {
-            dm7 dm7Var = (dm7) h15Var;
-            if (dm7Var.c() != null) {
-                this.d = dm7Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, i15Var) == null) && (i15Var instanceof im7)) {
+            im7 im7Var = (im7) i15Var;
+            if (im7Var.c() != null) {
+                this.d = im7Var.c();
                 this.c.notifyDataSetChanged();
             }
         }
@@ -402,16 +402,16 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f082b);
-            o75 d2 = o75.d(this.a);
-            d2.C(R.string.F_X02);
-            d2.B(R.dimen.T_X07);
-            this.a.setPadding(vi.g(getContext(), R.dimen.M_W_X005), vi.g(getContext(), R.dimen.M_H_X004), vi.g(getContext(), R.dimen.M_W_X005), vi.g(getContext(), R.dimen.M_H_X008));
+            this.a.setText(R.string.obfuscated_res_0x7f0f082f);
+            p75 d2 = p75.d(this.a);
+            d2.D(R.string.F_X02);
+            d2.C(R.dimen.T_X07);
+            this.a.setPadding(wi.g(getContext(), R.dimen.M_W_X005), wi.g(getContext(), R.dimen.M_H_X004), wi.g(getContext(), R.dimen.M_W_X005), wi.g(getContext(), R.dimen.M_H_X008));
             addView(this.a, new LinearLayout.LayoutParams(-1, -2));
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.b.setPadding(vi.g(getContext(), R.dimen.M_W_X004), 0, vi.g(getContext(), R.dimen.M_W_X005), 0);
+            this.b.setPadding(wi.g(getContext(), R.dimen.M_W_X004), 0, wi.g(getContext(), R.dimen.M_W_X005), 0);
             this.b.addItemDecoration(new a(this));
             this.b.setOnItemClickListener(new b(this));
             addView(this.b, new LinearLayout.LayoutParams(-1, -2));
@@ -421,13 +421,13 @@ public class CardItemRecommendLayout extends LinearLayout implements py {
         }
     }
 
-    @Override // com.baidu.tieba.py
+    @Override // com.baidu.tieba.qy
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            o75.d(this.a).w(R.color.CAM_X0105);
-            o75 d2 = o75.d(this);
+            p75.d(this.a).x(R.color.CAM_X0105);
+            p75 d2 = p75.d(this);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }

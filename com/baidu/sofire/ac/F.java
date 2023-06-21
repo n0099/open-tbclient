@@ -25,7 +25,7 @@ import com.baidu.sofire.k.q;
 import com.baidu.sofire.k.r;
 import com.baidu.sofire.k.u;
 import com.baidu.sofire.rp.Report;
-import com.baidu.tieba.j30;
+import com.baidu.tieba.k30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -476,7 +476,7 @@ public class F implements FI {
                     Object obj = o.a;
                     String[] strArr = {""};
                     boolean[] zArr = {false};
-                    j30.f(context).o(new m(strArr, zArr));
+                    k30.f(context).o(new m(strArr, zArr));
                     if (!zArr[0]) {
                         try {
                             synchronized (o.a) {

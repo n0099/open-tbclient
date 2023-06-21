@@ -20,7 +20,7 @@ public class BubbleButtonView extends BubbleTextView {
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public boolean initViewIfNeed() {
         if (super.initViewIfNeed()) {
-            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904fa);
+            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f7);
             return true;
         }
         return false;
@@ -56,7 +56,7 @@ public class BubbleButtonView extends BubbleTextView {
         }
         this.mBubbleBtn.setTextColor(i);
         this.mBubbleBtn.setText(charSequence);
-        this.mBubbleBtn.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080560));
+        this.mBubbleBtn.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080562));
         this.mBubbleBtn.setVisibility(0);
     }
 }

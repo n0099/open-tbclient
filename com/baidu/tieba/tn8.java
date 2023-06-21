@@ -3,12 +3,17 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class tn8 {
+public final class tn8 {
     public static /* synthetic */ Interceptable $ic;
-    public static int[] a;
+    public static final tn8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,6 +29,44 @@ public class tn8 {
                 return;
             }
         }
-        a = new int[]{R.color.CAM_X0313, R.color.CAM_X0308, R.color.CAM_X0314, R.color.CAM_X0204};
+        a = new tn8();
+    }
+
+    public tn8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final List<String> a(String content) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, content)) == null) {
+            Intrinsics.checkNotNullParameter(content, "content");
+            ArrayList arrayList = new ArrayList();
+            int codePointCount = content.codePointCount(0, content.length());
+            int i = 1;
+            if (1 <= codePointCount) {
+                while (true) {
+                    String substring = content.substring(content.offsetByCodePoints(0, i - 1), content.offsetByCodePoints(0, i));
+                    Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
+                    arrayList.add(substring);
+                    if (i == codePointCount) {
+                        break;
+                    }
+                    i++;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

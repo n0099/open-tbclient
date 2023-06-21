@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class e16 {
+public class e16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b16 b;
-
-    public abstract void a();
-
-    public abstract void d(int i);
-
-    public abstract void e();
+    public List<String> a;
+    public List<String> b;
+    public int c;
+    public String d;
 
     public e16() {
         Interceptable interceptable = $ic;
@@ -33,21 +32,30 @@ public abstract class e16 {
         }
     }
 
-    public a16 b() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (a16) invokeV.objValue;
-    }
-
-    public b16 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        JSONArray optJSONArray = jSONObject.optJSONArray("del_success");
+        if (optJSONArray != null) {
+            this.a = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
+                    this.a.add(optJSONArray.optString(i));
+                }
+            }
         }
-        return (b16) invokeV.objValue;
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("del_fail");
+        if (optJSONArray2 != null) {
+            this.b = new ArrayList();
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
+                    this.b.add(optJSONArray2.optString(i2));
+                }
+            }
+        }
+        this.c = jSONObject.optInt("ret_type");
+        this.d = jSONObject.optString("text");
     }
 }

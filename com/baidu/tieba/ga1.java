@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface ga1 {
-    void a(String str);
-
-    void b();
-
-    void cancel();
+    void a(String str, boolean z, boolean z2);
 }

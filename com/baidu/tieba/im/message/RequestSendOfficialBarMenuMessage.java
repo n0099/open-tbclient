@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,9 +14,9 @@ import protobuf.SendMenuMsg.SendMenuMsgReqIdl;
 public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String forum_id;
+    public String forumId;
     public String rid;
-    public String user_id;
+    public String userId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestSendOfficialBarMenuMessage() {
@@ -36,42 +36,15 @@ public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
         }
     }
 
-    public String getForum_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.forum_id;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getRid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.rid;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getUser_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.user_id;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.rid = Integer.valueOf(tg.e(this.rid, 0));
-            builder.forum_id = getForum_id();
-            builder.user_id = Long.valueOf(tg.g(this.user_id, 0L));
+            builder.rid = Integer.valueOf(ug.e(this.rid, 0));
+            builder.forum_id = this.forumId;
+            builder.user_id = Long.valueOf(ug.g(this.userId, 0L));
             SendMenuMsgReqIdl.Builder builder2 = new SendMenuMsgReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -79,24 +52,24 @@ public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
         return invokeV.objValue;
     }
 
-    public void setForum_id(String str) {
+    public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.forum_id = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.forumId = str;
         }
     }
 
     public void setRid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.rid = str;
         }
     }
 
-    public void setUser_id(String str) {
+    public void setUserId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.user_id = str;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.userId = str;
         }
     }
 }

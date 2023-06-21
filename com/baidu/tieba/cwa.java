@@ -1,14 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.TargetApi;
+import android.graphics.SurfaceTexture;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
+import android.opengl.EGL14;
+import android.opengl.EGLContext;
+import android.opengl.GLES20;
+import android.opengl.Matrix;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,37 +25,99 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.faceunity.gles.EglCore;
+import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
+import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
+import com.baidu.ugc.editvideo.faceunity.gles.WindowSurface;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.faceunity.encoder.TextureMovieEncoder;
+import com.faceunity.gles.GeneratedTexture;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
+import kotlinx.coroutines.CoroutineContextKt;
+@TargetApi(18)
 /* loaded from: classes5.dex */
 public class cwa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String c = "UnionIDHelper";
-    public static boolean d;
-    public static final String e;
-    public static final String f;
-    public static final Object g;
-    public static cwa h;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile fwa a;
-    public AtomicBoolean b;
+    public int A;
+    public jwa B;
+    public boolean C;
+    public boolean D;
+    public ata E;
+    public boolean F;
+    public f G;
+    public d H;
+    public final Object I;
+    public boolean J;
+    public final Object K;
+    public boolean L;
+    public String M;
+    public boolean N;
+    public volatile boolean O;
+    public long P;
+    public long Q;
+    public volatile long R;
+    public WindowSurface a;
+    public EglCore b;
+    public FullFrameRect c;
+    public int d;
+    public gwa e;
+    public dwa f;
+    public fwa g;
+    public volatile g h;
+    public Object i;
+    public boolean j;
+    public boolean k;
+    public int l;
+    public b m;
+    public e n;
+    public volatile long o;
+    public volatile long p;
+    public volatile long q;
+    public volatile long r;
+    public int s;
+    public int t;
+    public int u;
+    public volatile boolean v;
+    public float w;
+    public float x;
+    public long y;
+    public long z;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ cwa c;
+    }
 
-        public a(cwa cwaVar, Context context, b bVar) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onError(int i, String str);
+
+        void onProgress(long j);
+
+        void onStartSuccess();
+
+        @WorkerThread
+        void onStopSuccess();
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cwa a;
+
+        public c(cwa cwaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cwaVar, context, bVar};
+                Object[] objArr = {cwaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,104 +127,286 @@ public class cwa {
                     return;
                 }
             }
-            this.c = cwaVar;
-            this.a = context;
-            this.b = bVar;
+            this.a = cwaVar;
         }
 
-        @Override // java.lang.Runnable
+        public /* synthetic */ c(cwa cwaVar, a aVar) {
+            this(cwaVar);
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            boolean z;
+            dwa dwaVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (cwa.d) {
-                    Log.d(cwa.c, "asyncRequest, Thread runn！");
+                Process.setThreadPriority(-19);
+                int i = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
+                eta etaVar = (eta) hxa.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
+                if (etaVar != null) {
+                    etaVar.init(i, 1);
+                    etaVar.setSpeed(this.a.w);
                 }
-                dwa m = this.c.m(this.a);
-                if (cwa.d) {
-                    String str = cwa.c;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("asyncRequest, cachedBean == null ？");
-                    if (m == null) {
-                        z = true;
+                synchronized (this.a.I) {
+                    while (!this.a.J) {
+                        try {
+                            this.a.I.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                try {
+                    ewa ewaVar = new ewa(this.a.A);
+                    if (ewaVar.d() != null) {
+                        this.a.v = true;
+                        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(ewa.d);
+                        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(10240);
+                        ewaVar.c();
+                        if (ewaVar.e() != 3) {
+                            cwa cwaVar = this.a;
+                            cwaVar.e(1114, "音频开始录制失败 " + ewaVar.e());
+                            ewaVar.b();
+                            this.a.f.d();
+                            return;
+                        }
+                        this.a.l = 1;
+                        while (!this.a.O) {
+                            try {
+                                allocateDirect.clear();
+                                allocateDirect2.clear();
+                                int a = ewaVar.a(allocateDirect, ewa.d);
+                                if (this.a.C && this.a.B != null) {
+                                    double a2 = lwa.a(allocateDirect, a);
+                                    if (a2 > 0.0d) {
+                                        this.a.B.a(a2);
+                                    }
+                                }
+                                if (a > 0) {
+                                    if (etaVar == null) {
+                                        allocateDirect.position(a);
+                                        allocateDirect.flip();
+                                        this.a.f.b(allocateDirect, 0, a, this.a.G());
+                                        dwaVar = this.a.f;
+                                    } else {
+                                        byte[] bArr = new byte[a];
+                                        allocateDirect.get(bArr);
+                                        etaVar.putBytes(bArr, a);
+                                        allocateDirect.position(a);
+                                        allocateDirect.flip();
+                                        int availableBytes = etaVar.availableBytes();
+                                        if (availableBytes > 0) {
+                                            byte[] bArr2 = new byte[availableBytes];
+                                            etaVar.receiveBytes(bArr2, availableBytes);
+                                            if (this.a.D) {
+                                                byte[] k = hva.k(bArr2, 4.0d);
+                                                if (k != null) {
+                                                    availableBytes = k.length;
+                                                }
+                                                allocateDirect2.put(k);
+                                            } else {
+                                                allocateDirect2.put(bArr2);
+                                            }
+                                            int i2 = availableBytes;
+                                            allocateDirect2.position(i2);
+                                            allocateDirect2.flip();
+                                            this.a.f.b(allocateDirect2, 0, i2, this.a.G());
+                                            dwaVar = this.a.f;
+                                        }
+                                    }
+                                    dwaVar.c();
+                                }
+                            } finally {
+                                ewaVar.b();
+                            }
+                        }
+                        this.a.f.b(null, 0, 0, this.a.G());
+                        this.a.f.c();
+                        ewaVar.b();
+                        this.a.f.d();
                     } else {
-                        z = false;
+                        rwa.e(TextureMovieEncoder.TAG, "failed to initialize AudioRecord");
                     }
-                    sb.append(z);
-                    Log.d(str, sb.toString());
-                }
-                if (m == null || this.c.q(m)) {
-                    if (cwa.d) {
-                        Log.d(cwa.c, "asyncRequest, requestFromManufacturer");
-                    }
-                    this.c.r();
-                    if (cwa.d) {
-                        Log.d(cwa.c, "asyncRequest, trySaveFiles！");
-                    }
-                    this.c.b.set(this.c.t(this.a));
-                    if (cwa.d) {
-                        Log.d(cwa.c, "asyncRequest, trySaveFiles done");
+                } catch (Exception e2) {
+                    rwa.f(TextureMovieEncoder.TAG, "AudioThread#run", e2);
+                    rwa.g(e2);
+                    if (this.a.l != 6) {
+                        this.a.l = 6;
+                        String message = e2.getMessage();
+                        cwa cwaVar2 = this.a;
+                        cwaVar2.e(1115, "结束音频编码错误" + message);
                     }
                 }
-                if (cwa.d) {
-                    Log.d(cwa.c, "asyncRequest, send  innerHandler message");
+                synchronized (this.a.K) {
+                    this.a.L = true;
+                    this.a.K.notifyAll();
                 }
-                this.b.obtainMessage(100, this.c.a).sendToTarget();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends Handler {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ewa a;
+        public final File a;
+        public final int b;
+        public final int c;
+        public final int d;
+        public final EGLContext e;
+        public final long f;
+        public int g;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper, ewa ewaVar) {
-            super(looper);
+        public d(File file, int i, int i2, int i3, int i4, EGLContext eGLContext, long j, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper, ewaVar};
+                Object[] objArr = {file, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), eGLContext, Long.valueOf(j), Integer.valueOf(i5)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
+                int i6 = newInitContext.flag;
+                if ((i6 & 1) != 0) {
+                    int i7 = i6 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ewaVar;
+            this.g = 10000;
+            this.a = file;
+            this.b = i;
+            this.c = i2;
+            this.d = i3;
+            if (eGLContext != null) {
+                this.e = eGLContext;
+            } else {
+                this.e = EGL14.eglGetCurrentContext();
+            }
+            this.f = j;
+            this.g = i5;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "EncoderConfig: " + this.b + "x" + this.c + CoroutineContextKt.DEBUG_THREAD_NAME_SEPARATOR + this.d + " to '" + this.a.toString() + "' ctxt=" + this.e;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(long j);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public static class g extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<cwa> a;
+
+        public g(cwa cwaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cwaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(cwaVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            String oaid;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what == 100) {
-                    fwa fwaVar = (fwa) message.obj;
-                    if (cwa.d) {
-                        String str = cwa.c;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("handleMessage ，what：");
-                        if (fwaVar == null) {
-                            oaid = "";
-                        } else {
-                            oaid = fwaVar.getOAID();
-                        }
-                        sb.append(oaid);
-                        Log.d(str, sb.toString());
+                int i = message.what;
+                Object obj = message.obj;
+                cwa cwaVar = this.a.get();
+                if (cwaVar == null) {
+                    rwa.l(TextureMovieEncoder.TAG, "VideoEncoderHandler.handleMessage: encoder is null");
+                } else if (i == 0) {
+                    cwaVar.C((d) obj);
+                } else if (i == 1) {
+                    cwaVar.P();
+                } else if (i == 2) {
+                    if (cwaVar.N) {
+                        cwaVar.t((float[]) obj, (message.arg1 << 32) | (message.arg2 & 4294967295L));
                     }
-                    ewa ewaVar = this.a;
-                    if (ewaVar != null) {
-                        ewaVar.a(fwaVar);
+                } else if (i == 3) {
+                    if (cwaVar.N) {
+                        cwaVar.H(message.arg1);
                     }
+                } else if (i == 4) {
+                    if (cwaVar.N) {
+                        cwaVar.g((EGLContext) message.obj);
+                    }
+                } else if (i == 5) {
+                    Looper.myLooper().quit();
+                } else {
+                    throw new RuntimeException("Unhandled msg what=" + i);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cwa a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(cwa cwaVar, String str) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cwaVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cwaVar;
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Looper.prepare();
+                synchronized (this.a.i) {
+                    this.a.h = new g(this.a);
+                    this.a.j = true;
+                    this.a.i.notifyAll();
+                }
+                Looper.loop();
+                rwa.c(TextureMovieEncoder.TAG, "Encoder thread exiting");
+                synchronized (this.a.i) {
+                    cwa cwaVar = this.a;
+                    this.a.k = false;
+                    cwaVar.j = false;
+                    this.a.h = null;
                 }
             }
         }
@@ -162,20 +415,16 @@ public class cwa {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947690556, "Lcom/baidu/tieba/cwa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947690556, "Lcom/baidu/tieba/cwa;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947690556, "Lcom/baidu/tieba/cwa;")) == null) {
+            return;
         }
-        d = yva.e();
-        e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-        f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
-        g = new Object();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947690556, "Lcom/baidu/tieba/cwa;");
+        }
     }
 
     public cwa() {
@@ -191,315 +440,636 @@ public class cwa {
                 return;
             }
         }
-        new AtomicBoolean(false);
-        this.b = new AtomicBoolean(false);
+        this.i = new Object();
+        this.l = 4;
+        this.o = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.v = false;
+        this.w = 1.0f;
+        this.x = 0.0f;
+        this.y = -1L;
+        this.z = 0L;
+        this.A = -100;
+        this.E = null;
+        this.H = null;
+        this.I = new Object();
+        this.J = false;
+        this.K = new Object();
+        this.L = false;
+        this.M = null;
+        this.N = false;
+        this.O = false;
+        this.P = 0L;
+        this.Q = 0L;
+        this.R = 0L;
+        this.l = 2;
     }
 
-    public static cwa o() {
-        InterceptResult invokeV;
+    public void A(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (h == null) {
-                synchronized (cwa.class) {
-                    if (h == null) {
-                        h = new cwa();
-                    }
-                }
-            }
-            return h;
+        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
+            this.x = f2;
         }
-        return (cwa) invokeV.objValue;
     }
 
-    public final long n() {
+    public void B(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.A = i;
+        }
+    }
+
+    public final void C(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+            rwa.c(TextureMovieEncoder.TAG, "handleStartRecording " + dVar);
+            this.H = dVar;
+            nva nvaVar = new nva();
+            if (w(dVar.e, dVar.b, dVar.c, dVar.d, dVar.a, nvaVar)) {
+                this.O = false;
+                b bVar = this.m;
+                if (bVar != null) {
+                    bVar.onStartSuccess();
+                }
+            } else if (this.l != 6) {
+                this.l = 6;
+                String str = nvaVar.e;
+                e(1111, "开始录制编码错误" + dVar.toString() + " , 错误信息：" + str);
+            }
+        }
+    }
+
+    public void E(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.C = z;
+        }
+    }
+
+    public long G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return yva.a(zva.a()) * 60 * 1000;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.w == 1.0f) {
+                return M();
+            }
+            long nanoTime = System.nanoTime();
+            if (this.o != 0) {
+                if (this.r == 0) {
+                    this.r = nanoTime;
+                }
+                nanoTime = (((float) (nanoTime - this.r)) / this.w) + this.o;
+            }
+            long j = nanoTime / 1000;
+            long j2 = this.Q;
+            if (j < j2) {
+                j = 100 + j2;
+            }
+            this.Q = j;
+            return j;
         }
         return invokeV.longValue;
     }
 
-    public final boolean p() {
+    public final void H(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void I(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.D = z;
+        }
+    }
+
+    public long M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return yva.d(zva.a());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String j(byte[]... bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte[] bArr2 : bArr) {
-                sb.append(new String(mwa.a(bArr2)));
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return mwa.c(kwa.b(e, f, str.getBytes()), "utf-8");
-            } catch (UnsupportedEncodingException | Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean q(@NonNull dwa dwaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, dwaVar)) == null) {
-            if (Math.abs(System.currentTimeMillis() - dwaVar.a) > n()) {
-                if (d) {
-                    Log.d(c, "isExpireTime ：超过缓存有效期");
-                    return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long nanoTime = System.nanoTime();
+            if (this.o != 0) {
+                if (this.p == 0) {
+                    this.p = nanoTime;
                 }
-                return true;
-            } else if (d) {
-                Log.d(c, "isExpireTime ：没有超过缓存有效期");
-                return false;
-            } else {
-                return false;
+                nanoTime = (((float) (nanoTime - this.p)) / this.w) + this.o;
             }
+            long j = nanoTime / 1000;
+            if (j < this.R) {
+                j = this.R + 100;
+            }
+            this.R = j;
+            return j;
         }
-        return invokeL.booleanValue;
+        return invokeV.longValue;
     }
 
-    public static String k(String str) {
-        InterceptResult invokeL;
+    public final void P() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            rwa.c(TextureMovieEncoder.TAG, "handleStopRecording");
+            this.O = true;
             try {
-                return new String(kwa.a(e, f, mwa.a(str.getBytes())));
+                this.e.c(true);
             } catch (Exception e2) {
-                if (d) {
-                    String str2 = c;
-                    Log.d(str2, "getCacheObject ，decryptUnionID：" + e2.getMessage());
-                    return "";
+                e2.printStackTrace();
+            }
+            Q();
+            rwa.e(TextureMovieEncoder.TAG, "handleStopRecording before stop success");
+            while (!this.L && this.v) {
+                synchronized (this.K) {
+                    try {
+                        this.K.wait();
+                    } catch (InterruptedException e3) {
+                        e3.printStackTrace();
+                    }
                 }
-                return "";
+            }
+            long a2 = pva.a(this.M);
+            e eVar = this.n;
+            if (eVar != null) {
+                eVar.a(a2);
+            }
+            this.L = false;
+            b bVar = this.m;
+            if (bVar != null) {
+                bVar.onStopSuccess();
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public synchronized void i(Context context, @NonNull Looper looper, @Nullable ewa ewaVar) {
+    public final void Q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, looper, ewaVar) == null) {
-            synchronized (this) {
-                if (looper != null) {
-                    b bVar = new b(looper, ewaVar);
-                    if (p()) {
-                        bVar.obtainMessage(100, null).sendToTarget();
-                        return;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                this.e.d();
+                if (this.a != null) {
+                    this.a.release();
+                    this.a = null;
+                }
+                if (this.c != null) {
+                    this.c.release(false);
+                    this.c = null;
+                }
+                if (this.b != null) {
+                    this.b.release();
+                    this.b = null;
+                }
+            } catch (Exception e2) {
+                rwa.g(e2);
+            }
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this.i) {
+                while (!this.j) {
+                    try {
+                        this.i.wait();
+                    } catch (InterruptedException unused) {
                     }
-                    if (this.a != null && this.b.get()) {
-                        if (d) {
-                            String str = c;
-                            Log.d(str, "asyncRequest, mIUnionId.getOAID：" + this.a.getOAID());
-                            String str2 = c;
-                            Log.d(str2, "asyncRequest, mIUnionId.isTrackLimited：" + this.a.c());
-                            String str3 = c;
-                            Log.d(str3, "asyncRequest, mIUnionId.getStatusCode：" + this.a.getStatusCode());
+                }
+            }
+            this.s = 0;
+            fwa fwaVar = this.g;
+            if (fwaVar == null || !fwaVar.e()) {
+                this.O = true;
+                gwa gwaVar = this.e;
+                if (gwaVar != null) {
+                    gwaVar.e();
+                }
+                dwa dwaVar = this.f;
+                if (dwaVar != null) {
+                    dwaVar.a();
+                }
+            }
+            this.l = 4;
+            this.h.sendMessage(this.h.obtainMessage(1));
+            this.h.sendMessage(this.h.obtainMessage(5));
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0019, code lost:
+        if (r5 < 0.33333334f) goto L9;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void d(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048587, this, f2) == null) || f2 == this.w) {
+            return;
+        }
+        float f3 = f2 <= 3.0f ? 0.33333334f : 3.0f;
+        this.w = f3;
+        this.w = f2;
+    }
+
+    public final void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
+            c();
+            b bVar = this.m;
+            if (bVar != null) {
+                bVar.onError(i, str);
+            }
+        }
+    }
+
+    public void f(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, surfaceTexture) == null) {
+            synchronized (this.i) {
+                if (this.j) {
+                    synchronized (this.I) {
+                        if (!this.J && this.N) {
+                            this.J = true;
+                            this.I.notifyAll();
+                            this.l = 1;
+                            if (this.G != null) {
+                                this.G.a();
+                            }
                         }
-                        bVar.obtainMessage(100, this.a).sendToTarget();
-                    } else {
-                        if (!this.b.get()) {
-                            this.a = new awa(context).a;
+                    }
+                    if (this.J) {
+                        float[] fArr = new float[16];
+                        Matrix.setIdentityM(fArr, 0);
+                        long timestamp = surfaceTexture.getTimestamp();
+                        if (timestamp == 0) {
+                            rwa.l(TextureMovieEncoder.TAG, "HEY: got SurfaceTexture with timestamp of zero");
+                        } else {
+                            this.h.sendMessage(this.h.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
                         }
-                        new Thread(new a(this, context, bVar)).start();
+                    }
+                }
+            }
+        }
+    }
+
+    public final void g(EGLContext eGLContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, eGLContext) == null) {
+            rwa.c(TextureMovieEncoder.TAG, "handleUpdatedSharedContext " + eGLContext);
+            WindowSurface windowSurface = this.a;
+            if (windowSurface != null) {
+                windowSurface.releaseEglSurface();
+            }
+            this.c.release(false);
+            EglCore eglCore = this.b;
+            if (eglCore != null) {
+                eglCore.release();
+            }
+            EglCore eglCore2 = new EglCore(eGLContext, 2);
+            this.b = eglCore2;
+            WindowSurface windowSurface2 = this.a;
+            if (windowSurface2 != null) {
+                windowSurface2.recreate(eglCore2);
+                this.a.makeCurrent();
+            }
+            this.c = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        }
+    }
+
+    public void h(FullFrameRect fullFrameRect, int i, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(1048591, this, fullFrameRect, i, fArr) == null) || this.s == 0) {
+            return;
+        }
+        int[] iArr = new int[4];
+        GLES20.glGetIntegerv(2978, iArr, 0);
+        int[] iArr2 = new int[1];
+        GLES20.glGenFramebuffers(1, iArr2, 0);
+        GLES20.glBindFramebuffer(36160, iArr2[0]);
+        GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.s, 0);
+        GLES20.glViewport(0, 0, this.t, this.u);
+        if (fullFrameRect != null) {
+            try {
+                fullFrameRect.drawFrame(i, fArr);
+            } catch (Exception e2) {
+                e(1112, "setTextureId错误fuTex:" + i + "---" + e2.toString());
+            }
+        }
+        GLES20.glBindFramebuffer(36160, 0);
+        GLES20.glDeleteFramebuffers(1, iArr2, 0);
+        GLES20.glViewport(iArr[0], iArr[1], iArr[2], iArr[3]);
+        synchronized (this.i) {
+            if (this.j) {
+                this.h.sendMessage(this.h.obtainMessage(3, this.s, 0, null));
+            }
+        }
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, bVar) == null) {
+            this.m = bVar;
+        }
+    }
+
+    public void j(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, dVar) == null) {
+            this.t = dVar.b;
+            this.u = dVar.c;
+            int[] iArr = new int[1];
+            GLES20.glGenTextures(1, iArr, 0);
+            int i = iArr[0];
+            this.s = i;
+            GLES20.glBindTexture(3553, i);
+            GLES20.glTexParameteri(3553, 10241, 9729);
+            GLES20.glTexParameteri(3553, 10240, 9729);
+            GLES20.glTexParameterf(3553, 10242, 33071.0f);
+            GLES20.glTexParameterf(3553, 10243, 33071.0f);
+            GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.t, this.u, 0, GeneratedTexture.FORMAT, 5121, null);
+            GLES20.glBindTexture(3553, 0);
+            this.l = 5;
+            this.o = dVar.f;
+            this.p = System.nanoTime();
+            this.q = 0L;
+            this.r = 0L;
+            synchronized (this.i) {
+                if (this.k) {
+                    rwa.l(TextureMovieEncoder.TAG, "Encoder thread already running");
+                    if (this.l != 6) {
+                        this.l = 6;
+                        e(1113, "录制编码调起错误" + dVar.toString());
                     }
                     return;
                 }
-                throw new NullPointerException("param looper not null");
-            }
-        }
-    }
-
-    public final dwa m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
-            if (!file.exists()) {
-                if (d) {
-                    Log.d(c, "getCacheObject dir 不存在 , 首次需要创建");
-                }
-                return null;
-            }
-            File file2 = new File(file, ".bd_un_info.so");
-            if (!file2.exists()) {
-                if (d) {
-                    Log.d(c, "getCacheObject  file 不存在, 首次需要创建");
-                }
-                return null;
-            }
-            String a2 = owa.a(file2, g);
-            if (d) {
-                String str = c;
-                Log.d(str, "getCacheObject ，content：" + a2);
-            }
-            if (TextUtils.isEmpty(a2)) {
-                return null;
-            }
-            String k = k(a2);
-            if (d) {
-                String str2 = c;
-                Log.d(str2, "getCacheObject ，json：" + k);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(k);
-                dwa dwaVar = new dwa();
-                s(dwaVar, jSONObject);
-                return dwaVar;
-            } catch (Exception e2) {
-                if (d) {
-                    String str3 = c;
-                    Log.d(str3, "getCacheObject , " + e2.getMessage());
-                }
-                return null;
-            }
-        }
-        return (dwa) invokeL.objValue;
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = this.a.d();
-            if (d) {
-                String str = c;
-                Log.d(str, "asyncRequest, requestFromManufacturer done :" + this.a.getOAID());
-            }
-        }
-    }
-
-    public final boolean s(dwa dwaVar, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, dwaVar, jSONObject)) == null) {
-            try {
-                long optLong = jSONObject.optLong(new String(mwa.a("dGltZQ==".getBytes())));
-                dwaVar.a = optLong;
-                if (d) {
-                    String str = c;
-                    Log.d(str, "tryParseCacheJsonObject ，time：" + optLong);
-                    String str2 = c;
-                    Log.d(str2, "tryParseCacheJsonObject ，System.currentTimeMillis() - time：" + (System.currentTimeMillis() - optLong));
-                }
-                String str3 = new String(mwa.a("dW5pb25JRG9iag==".getBytes()));
-                if (d) {
-                    String str4 = c;
-                    Log.d(str4, "tryParseCacheJsonObject objKey：" + str3);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(str3);
-                if (d) {
-                    String str5 = c;
-                    Log.d(str5, "tryParseCacheJsonObject ，jsonObject：" + optJSONObject);
-                }
-                if (optJSONObject != null) {
-                    String str6 = new String(mwa.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
-                    String str7 = new String(mwa.a("aXNTdXBwb3J0".getBytes()));
-                    String str8 = new String(mwa.a("c3RhdHVzY29kZQ==".getBytes()));
-                    String str9 = new String(mwa.a("b2FpZA==".getBytes()));
-                    String str10 = new String(mwa.a("YWFpZA==".getBytes()));
-                    String str11 = new String(mwa.a("dmFpZA==".getBytes()));
-                    boolean optBoolean = optJSONObject.optBoolean(str6);
-                    boolean optBoolean2 = optJSONObject.optBoolean(str7);
-                    int optInt = optJSONObject.optInt(str8);
-                    String optString = optJSONObject.optString(str9);
-                    String optString2 = optJSONObject.optString(str10);
-                    String optString3 = optJSONObject.optString(str11);
-                    this.a.h(optBoolean);
-                    this.a.e(optBoolean2);
-                    this.a.a(optInt);
-                    this.a.g(optString);
-                    this.a.f(optString2);
-                    this.a.b(optString3);
-                    dwaVar.b = this.a;
-                    return true;
-                }
-                dwaVar.b = null;
-                if (d) {
-                    Log.d(c, "tryParseCacheJsonObject return cause null：");
-                }
-                return false;
-            } catch (Exception e2) {
-                if (d) {
-                    String str12 = c;
-                    Log.d(str12, "tryParseCacheJsonObject ：" + e2.getMessage());
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean t(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            try {
-                if (this.a != null && !TextUtils.isEmpty(this.a.getOAID())) {
-                    File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
-                    if (!file.exists()) {
-                        file.mkdirs();
+                this.k = true;
+                new h(this, "TextureMovieVideoEncoder").start();
+                new c(this, null).start();
+                while (!this.j) {
+                    try {
+                        this.i.wait();
+                    } catch (InterruptedException unused) {
                     }
-                    File file2 = new File(file, ".bd_un_info.so");
-                    String str = new String(mwa.a("dGltZQ==".getBytes()));
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(str, System.currentTimeMillis());
-                    String str2 = new String(mwa.a("dW5pb25JRG9iag==".getBytes()));
-                    JSONObject optJSONObject = jSONObject.optJSONObject(str2);
-                    if (optJSONObject == null) {
-                        optJSONObject = new JSONObject();
-                    }
-                    String str3 = new String(mwa.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
-                    String str4 = new String(mwa.a("aXNTdXBwb3J0".getBytes()));
-                    String str5 = new String(mwa.a("c3RhdHVzY29kZQ==".getBytes()));
-                    String str6 = new String(mwa.a("b2FpZA==".getBytes()));
-                    String str7 = new String(mwa.a("YWFpZA==".getBytes()));
-                    String str8 = new String(mwa.a("dmFpZA==".getBytes()));
-                    optJSONObject.put(str3, this.a.c());
-                    optJSONObject.put(str4, this.a.isSupport());
-                    optJSONObject.put(str5, this.a.getStatusCode());
-                    optJSONObject.put(str6, this.a.getOAID());
-                    optJSONObject.put(str7, this.a.getAAID());
-                    optJSONObject.put(str8, this.a.getVAID());
-                    jSONObject.put(str2, optJSONObject);
-                    owa.b(l(jSONObject.toString()), file2, false, g);
-                    if (d) {
-                        String str9 = c;
-                        Log.d(str9, "trySaveFiles, app: " + jSONObject.toString());
-                        return true;
-                    }
-                    return true;
                 }
+                this.y = -1L;
+                this.h.sendMessage(this.h.obtainMessage(0, dVar));
+            }
+        }
+    }
+
+    public void k(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, eVar) == null) {
+            this.n = eVar;
+        }
+    }
+
+    public void l(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, fVar) == null) {
+            this.G = fVar;
+        }
+    }
+
+    public void r(jwa jwaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, jwaVar) == null) {
+            this.B = jwaVar;
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.F = z;
+        }
+    }
+
+    public final void t(float[] fArr, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048598, this, fArr, j) == null) {
+            ata ataVar = this.E;
+            if (ataVar != null) {
+                ataVar.b();
+            }
+            if (this.s != 0) {
+                try {
+                    this.e.c(false);
+                } catch (Exception e2) {
+                    rwa.g(e2);
+                    if (this.l != 6) {
+                        this.l = 6;
+                        String message = e2.getMessage();
+                        e(FeatureCodes.SPLIT_FILTER, "录制编码错误transform:" + fArr + "timestampNanos:" + j + " , Exception : " + message);
+                    }
+                }
+                d dVar = this.H;
+                GLES20.glViewport(0, 0, dVar.b, dVar.c);
+                synchronized (cwa.class) {
+                    if (this.x != 0.0f) {
+                        this.c.setAngle(this.x);
+                    }
+                    this.c.drawFrame(this.d, fArr);
+                }
+                if (this.a != null) {
+                    long z = z();
+                    if (this.y == -1) {
+                        this.y = z;
+                        this.z = 0L;
+                    }
+                    this.a.setPresentationTime(z * 1000);
+                    this.a.swapBuffers();
+                    long j2 = z - this.y;
+                    this.z = j2;
+                    e eVar = this.n;
+                    if (eVar != null) {
+                        eVar.a(j2 / 1000);
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) ? this.l == i : invokeI.booleanValue;
+    }
+
+    public final boolean v(int i, int i2, String str) {
+        InterceptResult invokeIIL;
+        String str2;
+        File file;
+        MediaMuxer mediaMuxer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048600, this, i, i2, str)) == null) {
+            MediaMuxer mediaMuxer2 = null;
+            try {
+                if (bxa.m(MimeTypes.VIDEO_H265) != null) {
+                    str2 = str + File.separator + System.currentTimeMillis() + "_checkHevc.mp4";
+                    try {
+                        try {
+                            mediaMuxer = new MediaMuxer(str2, 0);
+                        } catch (Exception e2) {
+                            e = e2;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    try {
+                        mediaMuxer.addTrack(MediaFormat.createVideoFormat(MimeTypes.VIDEO_H265, i, i2));
+                        mediaMuxer2 = mediaMuxer;
+                    } catch (Exception e3) {
+                        e = e3;
+                        mediaMuxer2 = mediaMuxer;
+                        e.printStackTrace();
+                        this.F = false;
+                        if (mediaMuxer2 != null) {
+                            try {
+                                mediaMuxer2.release();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                        if (!TextUtils.isEmpty(str2)) {
+                            file = new File(str2);
+                            ch0.d(file);
+                        }
+                        return this.F;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        mediaMuxer2 = mediaMuxer;
+                        if (mediaMuxer2 != null) {
+                            try {
+                                mediaMuxer2.release();
+                            } catch (Exception e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                        if (!TextUtils.isEmpty(str2)) {
+                            ch0.d(new File(str2));
+                        }
+                        throw th;
+                    }
+                } else {
+                    str2 = null;
+                }
+                if (mediaMuxer2 != null) {
+                    try {
+                        mediaMuxer2.release();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+            } catch (Exception e7) {
+                e = e7;
+                str2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                str2 = null;
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                file = new File(str2);
+                ch0.d(file);
+            }
+            return this.F;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0093 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r8v1, types: [java.lang.RuntimeException] */
+    /* JADX WARN: Type inference failed for: r8v2 */
+    /* JADX WARN: Type inference failed for: r8v3, types: [java.lang.Throwable] */
+    /* JADX WARN: Type inference failed for: r8v4, types: [java.lang.IllegalStateException] */
+    /* JADX WARN: Type inference failed for: r8v8 */
+    /* JADX WARN: Type inference failed for: r8v9 */
+    public final boolean w(EGLContext eGLContext, int i, int i2, int i3, File file, nva nvaVar) {
+        InterceptResult invokeCommon;
+        String message;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{eGLContext, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), file, nvaVar})) == null) {
+            try {
+                if (this.D) {
+                    RecordConstants.MOVIE_ENCODE_SAMPLE_RATE = 16000;
+                    ewa.c = 16000;
+                    RecordConstants.AUDIO_ENCODE_SAMPLE_RATE = 16000;
+                } else {
+                    RecordConstants.MOVIE_ENCODE_SAMPLE_RATE = 44100;
+                    RecordConstants.AUDIO_ENCODE_SAMPLE_RATE = 44100;
+                    ewa.c = 44100;
+                }
+                this.M = file.toString();
+                this.g = new fwa(file.toString());
+                if (this.F && Build.VERSION.SDK_INT <= 23) {
+                    this.F = v(i, i2, new File(file.toString()).getParent());
+                }
+                gwa gwaVar = new gwa(i, i2, i3, this.F, this.g);
+                this.e = gwaVar;
+                gwaVar.b(this.H.g);
+                this.f = new dwa(this.g);
+                this.N = true;
+                EglCore eglCore = new EglCore(eGLContext, 2);
+                this.b = eglCore;
+                WindowSurface windowSurface = new WindowSurface(eglCore, this.e.a(), true);
+                this.a = windowSurface;
+                windowSurface.makeCurrent();
+                this.c = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+                return true;
+            } catch (IOException e2) {
+                if (nvaVar != null && !TextUtils.isEmpty(e2.getMessage())) {
+                    nvaVar.e = e2.getMessage();
+                }
+                rwa.g(e2);
                 return false;
-            } catch (Exception e2) {
-                if (d) {
-                    String str10 = c;
-                    Log.d(str10, "trySaveFiles, error " + e2.getMessage());
+            } catch (IllegalStateException e3) {
+                e = e3;
+                if (nvaVar != null && !TextUtils.isEmpty(e.getMessage())) {
+                    message = e.getMessage();
+                    e = e;
+                    nvaVar.e = message;
                 }
+                rwa.g(e);
+                this.N = false;
+                return false;
+            } catch (RuntimeException e4) {
+                e = e4;
+                if (nvaVar != null && !TextUtils.isEmpty(e.getMessage())) {
+                    message = e.getMessage();
+                    e = e;
+                    nvaVar.e = message;
+                }
+                rwa.g(e);
+                this.N = false;
                 return false;
             }
         }
-        return invokeL.booleanValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public long z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (this.w == 1.0f) {
+                return M();
+            }
+            long nanoTime = System.nanoTime();
+            if (this.o != 0) {
+                if (this.q == 0) {
+                    this.q = nanoTime;
+                }
+                nanoTime = (((float) (nanoTime - this.q)) / this.w) + this.o;
+            }
+            long j = nanoTime / 1000;
+            long j2 = this.P;
+            if (j < j2) {
+                j = 100 + j2;
+            }
+            this.P = j;
+            return j;
+        }
+        return invokeV.longValue;
     }
 }

@@ -1,52 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
-import tv.athena.revenue.RevenueManager;
+import android.app.Activity;
+import com.baidu.tieba.txb;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes7.dex */
-public class sub {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sub extends hub {
+    void a(Activity activity);
 
-    public static IPayEventStatisticsApi a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("PayUIEventStatisticsUtil", "getPayEventStatisticsApi error revenue null", new Object[0]);
-                return null;
-            }
-            return revenue.getPayEventStatisticApi();
-        }
-        return (IPayEventStatisticsApi) invokeII.objValue;
-    }
+    void b(boolean z);
 
-    public static void b(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
-            IPayEventStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
-            } else {
-                a.reportUiEvent(str);
-            }
-        }
-    }
+    void c(PayFlowType payFlowType, boolean z);
 
-    public static void c(int i, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            IPayEventStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
-            } else {
-                a.reportUiEvent(str, str2);
-            }
-        }
-    }
+    void d(String str, PayFlowType payFlowType);
+
+    boolean e();
+
+    void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void g(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void h(Activity activity, txb.b bVar, bwb bwbVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
+
+    boolean k(PayFlowType payFlowType);
+
+    void l(String str, PayFlowType payFlowType);
+
+    void m(Activity activity);
+
+    void refreshWindow(WindowParams windowParams);
 }

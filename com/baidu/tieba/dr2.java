@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class dr2 extends sp2<js2> {
+public class dr2 extends tp2<ks2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sp2
+    @Override // com.baidu.tieba.tp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableLocalMirror" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableCamera" : (String) invokeV.objValue;
     }
 
     public dr2() {
@@ -38,23 +36,16 @@ public class dr2 extends sp2<js2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sp2
+    @Override // com.baidu.tieba.tp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull js2 js2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ks2 ks2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, js2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ks2Var) == null) {
             String str = command.what;
-            d(js2Var, str, "" + command.obj, true);
+            d(ks2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof String) {
-                String str2 = (String) obj;
-                if (TextUtils.equals("auto", str2)) {
-                    js2Var.h0(str2);
-                } else if (TextUtils.equals("enable", str2)) {
-                    js2Var.h0(str2);
-                } else if (TextUtils.equals(PackageTable.DISABLE, str2)) {
-                    js2Var.h0(str2);
-                }
+            if (obj instanceof Boolean) {
+                ks2Var.g(((Boolean) obj).booleanValue());
             }
         }
     }

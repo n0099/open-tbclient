@@ -1,77 +1,69 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
-import com.baidu.tieba.feed.component.uistate.RichTextUiStateKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.reflect.KFunction;
 /* loaded from: classes7.dex */
-public class s47 extends h87 {
+public class s47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function2<Context, String, Unit> c;
-    public final Function1<c67, Unit> d;
+    public final Function1<h67, Unit> a;
 
-    @JvmOverloads
-    public s47(Function2<? super Context, ? super String, Unit> onRichTextClick, Function1<? super c67, Unit> onStat) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948101523, "Lcom/baidu/tieba/s47;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948101523, "Lcom/baidu/tieba/s47;");
+        }
+    }
+
+    public s47(Function2<? super Context, ? super String, Unit> onClick, Function1<? super h67, Unit> onStat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {onRichTextClick, onStat};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {onClick, onStat};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(onRichTextClick, "onRichTextClick");
+        Intrinsics.checkNotNullParameter(onClick, "onClick");
         Intrinsics.checkNotNullParameter(onStat, "onStat");
-        this.c = onRichTextClick;
-        this.d = onStat;
+        this.a = onStat;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public /* synthetic */ s47(Function2 function2, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(function2, (i & 2) != 0 ? CardUiStateKt.b() : function1);
-        KFunction kFunction;
-        if ((i & 1) != 0) {
-            kFunction = RichTextUiStateKt.a;
-            function2 = (Function2) kFunction;
-        }
+        this((i & 1) != 0 ? CardUiStateKt.a() : function2, (i & 2) != 0 ? CardUiStateKt.b() : function1);
     }
 
-    public final Function2<Context, String, Unit> d() {
+    public final Function1<h67, Unit> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final Function1<c67, Unit> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.a;
         }
         return (Function1) invokeV.objValue;
     }

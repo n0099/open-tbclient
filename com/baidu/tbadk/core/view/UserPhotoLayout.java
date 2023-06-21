@@ -13,9 +13,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public int mNormalShowCount;
     public int mPadding;
     public e mTbRecyclerListener;
-    public kg<HeadImageView> mUserPhotoPool;
+    public lg<HeadImageView> mUserPhotoPool;
 
     /* loaded from: classes4.dex */
     public interface d {
@@ -44,7 +44,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes4.dex */
     public interface f {
-        kg<HeadImageView> a();
+        lg<HeadImageView> a();
 
         int b();
 
@@ -92,7 +92,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements lg<HeadImageView> {
+    public static class b implements mg<HeadImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -123,7 +123,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
+        @Override // com.baidu.tieba.mg
         public /* bridge */ /* synthetic */ HeadImageView a(HeadImageView headImageView) {
             HeadImageView headImageView2 = headImageView;
             e(headImageView2);
@@ -132,7 +132,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
+        @Override // com.baidu.tieba.mg
         public /* bridge */ /* synthetic */ HeadImageView c(HeadImageView headImageView) {
             HeadImageView headImageView2 = headImageView;
             h(headImageView2);
@@ -140,7 +140,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
+        @Override // com.baidu.tieba.mg
         /* renamed from: f */
         public void b(HeadImageView headImageView) {
             Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
+        @Override // com.baidu.tieba.mg
         /* renamed from: g */
         public HeadImageView d() {
             InterceptResult invokeV;
@@ -316,7 +316,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mAutoChangeStyle = true;
         this.mNormalShowCount = 6;
         this.mContext = context;
-        this.mPadding = vi.d(context, 5);
+        this.mPadding = wi.d(context, 5);
         this.mItemSize = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070253);
         Context context2 = this.mContext;
         if (context2 instanceof f) {
@@ -335,9 +335,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            kg<HeadImageView> kgVar = this.mUserPhotoPool;
-            if (kgVar != null) {
-                headImageView = kgVar.b();
+            lg<HeadImageView> lgVar = this.mUserPhotoPool;
+            if (lgVar != null) {
+                headImageView = lgVar.b();
             } else {
                 headImageView = null;
             }
@@ -394,13 +394,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public static kg<HeadImageView> createUserPhotoPool(Context context, int i) {
+    public static lg<HeadImageView> createUserPhotoPool(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
-            return new kg<>(new b(context), i, 0);
+            return new lg<>(new b(context), i, 0);
         }
-        return (kg) invokeLI.objValue;
+        return (lg) invokeLI.objValue;
     }
 
     @Override // android.view.ViewGroup

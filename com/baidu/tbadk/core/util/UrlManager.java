@@ -17,12 +17,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.f05;
-import com.baidu.tieba.r16;
+import com.baidu.tieba.cf5;
+import com.baidu.tieba.g05;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.zq8;
+import com.baidu.tieba.te5;
+import com.baidu.tieba.tr8;
+import com.baidu.tieba.w16;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -176,10 +178,10 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (vi.E()) {
+            if (wi.E()) {
                 addListenerInner(urlDealListener);
             } else {
-                wg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
+                xg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UrlManager this$0;
@@ -290,7 +292,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new r16(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new w16(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -502,36 +504,36 @@ public class UrlManager {
         return invokeCommon.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:74:0x015b, code lost:
-        if (r12.mWebListener == null) goto L88;
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x017b, code lost:
+        if (r12.mWebListener == null) goto L93;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x0163, code lost:
-        if (r4.contains("nohead:url") != false) goto L87;
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0183, code lost:
+        if (r4.contains("nohead:url") != false) goto L92;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x016b, code lost:
-        if (r4.contains("booktown") != false) goto L87;
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x018b, code lost:
+        if (r4.contains("booktown") != false) goto L92;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x0173, code lost:
-        if (r4.contains("bookreader") == false) goto L79;
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x0193, code lost:
+        if (r4.contains("bookreader") == false) goto L84;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x0177, code lost:
-        if (r15.length <= 1) goto L86;
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x0197, code lost:
+        if (r15.length <= 1) goto L91;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:85:0x017f, code lost:
-        if (com.baidu.adp.lib.util.StringUtils.isNull(r15[1]) != false) goto L86;
+    /* JADX WARN: Code restructure failed: missing block: B:90:0x019f, code lost:
+        if (com.baidu.adp.lib.util.StringUtils.isNull(r15[1]) != false) goto L91;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x018a, code lost:
-        if (com.baidu.tbadk.core.util.UrlManager.YUN_PUSH_TAG.equals(r15[1]) == false) goto L86;
+    /* JADX WARN: Code restructure failed: missing block: B:92:0x01aa, code lost:
+        if (com.baidu.tbadk.core.util.UrlManager.YUN_PUSH_TAG.equals(r15[1]) == false) goto L91;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:88:0x018c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x01ac, code lost:
         r4 = new com.baidu.tbadk.core.atomData.MainTabActivityConfig(r13.getPageActivity());
         r4.setTargetScheme(r15[0]);
         com.baidu.adp.framework.MessageManager.getInstance().sendMessage(new com.baidu.adp.framework.message.CustomMessage(2015002, r4));
      */
-    /* JADX WARN: Code restructure failed: missing block: B:89:0x01aa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:94:0x01ca, code lost:
         jumpToWeb(r13, r14, r15[0], r16, r17, r18, r19);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:90:0x01bb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x01db, code lost:
         return true;
      */
     /*
@@ -547,22 +549,28 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            zq8 activityLog = ActivityLog.getInstance();
-            activityLog.c("scheme", "dealOneLinkWithDialog:" + str2);
-            if (str2.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
+            te5 a = new cf5().a(str2);
+            if (a.b() && StringUtils.isNotNull(a.a())) {
+                str2 = a.a();
+                strArr[0] = str2;
+            }
+            String str3 = str2;
+            tr8 activityLog = ActivityLog.getInstance();
+            activityLog.c("scheme", "dealOneLinkWithDialog:" + str3);
+            if (str3.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
                 try {
-                    Uri parse = Uri.parse(str2);
+                    Uri parse = Uri.parse(str3);
                     MessageTask findTask = MessageManager.getInstance().findTask(2002015);
                     HashMap hashMap = new HashMap();
                     String host = parse.getHost();
                     Set<String> queryParameterNames = parse.getQueryParameterNames();
                     if (queryParameterNames != null) {
-                        for (String str3 : queryParameterNames) {
-                            hashMap.put(str3, parse.getQueryParameter(str3));
+                        for (String str4 : queryParameterNames) {
+                            hashMap.put(str4, parse.getQueryParameter(str4));
                         }
                     }
                     FlutterOpenData flutterOpenData = new FlutterOpenData(tbPageContext.getPageActivity(), host, hashMap);
-                    if (f05.c().contains("-Flutter") && findTask == null) {
+                    if (g05.c().contains("-Flutter") && findTask == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, flutterOpenData));
                         return false;
                     }
@@ -573,23 +581,23 @@ public class UrlManager {
                     return false;
                 }
             }
-            String schemaKey = getSchemaKey(str2);
+            String schemaKey = getSchemaKey(str3);
             if (schemaKey != null && (urlSchemaHandler = this.mHandlers.get(schemaKey)) != null) {
-                urlSchemaHandler.deal(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str2)));
+                urlSchemaHandler.deal(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str3)));
                 return true;
             }
             List<String> values = CmdRouter.cmdMaps.getValues("3001000");
             if (values != null) {
-                for (String str4 : values) {
-                    List<ArrayList<String>> values2 = CmdRouter.configMaps.getValues(str4);
+                for (String str5 : values) {
+                    List<ArrayList<String>> values2 = CmdRouter.configMaps.getValues(str5);
                     if (values2 != null) {
                         for (ArrayList<String> arrayList : values2) {
                             if (arrayList != null) {
                                 Iterator<String> it = arrayList.iterator();
                                 while (it.hasNext()) {
-                                    if (str2.contains(it.next())) {
+                                    if (str3.contains(it.next())) {
                                         try {
-                                            Class.forName(str4);
+                                            Class.forName(str5);
                                         } catch (Throwable th) {
                                             BdLog.e(th);
                                         }
@@ -613,7 +621,7 @@ public class UrlManager {
                     break;
                 }
             }
-            if (!z3 && SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str2, bundle)) {
+            if (!z3 && SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str3, bundle)) {
                 return true;
             }
             return z3;
@@ -639,7 +647,7 @@ public class UrlManager {
                 return 3;
             }
             String str = strArr[0];
-            zq8 activityLog = ActivityLog.getInstance();
+            tr8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithOutJumpWebView:" + str);
             UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
             if (urlSchemaHandler != null) {

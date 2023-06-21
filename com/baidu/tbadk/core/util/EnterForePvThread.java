@@ -6,7 +6,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,7 +45,7 @@ public class EnterForePvThread extends Thread {
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.IN_PV_ADDRESS);
             netWork.addPostData("st_type", TbConfig.ST_TYPE_ENTER_FORE);
-            netWork.addPostData(HttpConstants.OS_VERSION, xi.k());
+            netWork.addPostData(HttpConstants.OS_VERSION, yi.k());
             netWork.addPostData(MapController.ANDROID_SDK_LAYER_TAG, String.valueOf(Build.VERSION.SDK_INT));
             netWork.addPostData("op_type", this.mOpType);
             netWork.postNetData();

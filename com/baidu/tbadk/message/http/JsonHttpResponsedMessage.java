@@ -4,10 +4,12 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BdAlertData;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xf;
+import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,29 +47,44 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         }
     }
 
-    private void parseErrorData(String str) {
+    private void parseDialogData(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && str != null) {
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("alert");
+                new BdAlertData();
+                if (optJSONObject != null) {
+                    showDialog((BdAlertData) DataExt.toEntity(optJSONObject.toString(), BdAlertData.class));
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    private void parseErrorData(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, this, str) == null) && str != null) {
             try {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0694));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0695));
                 } else {
                     setErrorString(errorData.getError_msg());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 setError(-1);
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0694));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0695));
             }
         }
     }
 
     private void parseToastData(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, this, str) == null) && str != null) {
+        if ((interceptable == null || interceptable.invokeL(65539, this, str) == null) && str != null) {
             try {
                 BdToastData bdToastData = new BdToastData();
                 bdToastData.parserJson(str);
@@ -95,6 +112,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
             try {
                 parseErrorData(str);
                 parseToastData(str);
+                parseDialogData(str);
                 return jSONObject;
             } catch (Exception e2) {
                 e = e2;
@@ -107,10 +125,10 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, xf xfVar) {
+    public void logStatInBackground(int i, yf yfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, xfVar) == null) {
-            super.logStatInBackground(i, xfVar);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, yfVar) == null) {
+            super.logStatInBackground(i, yfVar);
         }
     }
 

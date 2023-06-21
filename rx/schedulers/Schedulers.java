@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.arb;
-import com.baidu.tieba.brb;
-import com.baidu.tieba.mob;
-import com.baidu.tieba.nob;
-import com.baidu.tieba.oob;
-import com.baidu.tieba.qmb;
-import com.baidu.tieba.rob;
-import com.baidu.tieba.tob;
-import com.baidu.tieba.xqb;
+import com.baidu.tieba.fqb;
+import com.baidu.tieba.gqb;
+import com.baidu.tieba.hqb;
+import com.baidu.tieba.job;
+import com.baidu.tieba.kqb;
+import com.baidu.tieba.mqb;
+import com.baidu.tieba.qsb;
+import com.baidu.tieba.tsb;
+import com.baidu.tieba.usb;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final qmb a;
-    public final qmb b;
-    public final qmb c;
+    public final job a;
+    public final job b;
+    public final job c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static qmb computation() {
-        return xqb.f(a().a);
+    public static job computation() {
+        return qsb.f(a().a);
     }
 
-    public static qmb immediate() {
-        return oob.a;
+    public static job immediate() {
+        return hqb.a;
     }
 
-    public static qmb io() {
-        return xqb.k(a().b);
+    public static job io() {
+        return qsb.k(a().b);
     }
 
-    public static qmb newThread() {
-        return xqb.l(a().c);
+    public static job newThread() {
+        return qsb.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            nob.d.shutdown();
+            gqb.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            nob.d.start();
+            gqb.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static qmb trampoline() {
-        return tob.a;
+    public static job trampoline() {
+        return mqb.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof rob) {
-            ((rob) this.a).shutdown();
+        if (this.a instanceof kqb) {
+            ((kqb) this.a).shutdown();
         }
-        if (this.b instanceof rob) {
-            ((rob) this.b).shutdown();
+        if (this.b instanceof kqb) {
+            ((kqb) this.b).shutdown();
         }
-        if (this.c instanceof rob) {
-            ((rob) this.c).shutdown();
+        if (this.c instanceof kqb) {
+            ((kqb) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof rob) {
-            ((rob) this.a).start();
+        if (this.a instanceof kqb) {
+            ((kqb) this.a).start();
         }
-        if (this.b instanceof rob) {
-            ((rob) this.b).start();
+        if (this.b instanceof kqb) {
+            ((kqb) this.b).start();
         }
-        if (this.c instanceof rob) {
-            ((rob) this.c).start();
+        if (this.c instanceof kqb) {
+            ((kqb) this.c).start();
         }
     }
 
     public Schedulers() {
-        brb f = arb.c().f();
-        qmb g = f.g();
+        usb f = tsb.c().f();
+        job g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = brb.a();
+            this.a = usb.a();
         }
-        qmb i = f.i();
+        job i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = brb.c();
+            this.b = usb.c();
         }
-        qmb j = f.j();
+        job j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = brb.e();
+            this.c = usb.e();
         }
     }
 
-    public static qmb from(Executor executor) {
-        return new mob(executor);
+    public static job from(Executor executor) {
+        return new fqb(executor);
     }
 }

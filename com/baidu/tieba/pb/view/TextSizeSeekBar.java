@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r49;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.p59;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -193,7 +193,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        r49.a(Math.abs(i - 3));
+                        p59.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {
@@ -273,7 +273,7 @@ public class TextSizeSeekBar extends View {
             if (this.a == 0 || this.b == 0) {
                 this.a = View.MeasureSpec.getSize(i);
                 int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703f7) * 2;
-                if (UtilHelper.isFoldScreen() && this.a > vi.m(getContext(), true) - dimensionPixelSize) {
+                if (UtilHelper.isFoldScreen() && this.a > wi.m(getContext(), true) - dimensionPixelSize) {
                     this.a -= dimensionPixelSize;
                 }
                 int dimensionPixelSize2 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037d);

@@ -1,157 +1,245 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.or6;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.t55;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.List;
+import java.util.PriorityQueue;
 /* loaded from: classes8.dex */
-public class u55 extends s55 {
+public class u55 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static WeakReference<t55> b;
+    public static final PriorityQueue<t55> c;
+    public static final Handler d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HotEventData c;
-    public he5 d;
-    public SpriteAnimationTipManager e;
 
     /* loaded from: classes8.dex */
-    public class a implements or6.e {
+    public static class a implements t55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u55 a;
+        public final /* synthetic */ t55 a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ int c;
 
-        public a(u55 u55Var) {
+        /* renamed from: com.baidu.tieba.u55$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class RunnableC0468a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0468a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    u55.k(this.a.a);
+                }
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    u55.h(aVar.b, aVar.c + 1);
+                }
+            }
+        }
+
+        public a(t55 t55Var, List list, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u55Var};
+                Object[] objArr = {t55Var, list, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t55Var;
+            this.b = list;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tieba.t55.a
+        public void callback(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    u55.d.post(new RunnableC0468a(this));
+                } else {
+                    u55.d.post(new b(this));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = u55Var;
         }
 
-        @Override // com.baidu.tieba.or6.e
-        public void onDismiss() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            boolean unused = u55.a = false;
+            WeakReference unused2 = u55.b = null;
+            u55.k((t55) u55.c.poll());
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements or6.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u55 a;
-
-        public b(u55 u55Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948162004, "Lcom/baidu/tieba/u55;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = u55Var;
-        }
-
-        @Override // com.baidu.tieba.or6.e
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u55(Activity activity, HotEventData hotEventData) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, hotEventData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948162004, "Lcom/baidu/tieba/u55;");
                 return;
             }
         }
-        this.c = hotEventData;
+        c = new PriorityQueue<>();
+        d = new Handler(Looper.getMainLooper());
     }
 
-    @Override // com.baidu.tieba.s55
-    public void b() {
+    public static void i() {
+        t55 t55Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            he5 he5Var = this.d;
-            if (he5Var != null) {
-                he5Var.m();
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            a = false;
+            WeakReference<t55> weakReference = b;
+            if (weakReference != null && (t55Var = weakReference.get()) != null) {
+                t55Var.b();
             }
-            SpriteAnimationTipManager spriteAnimationTipManager = this.e;
-            if (spriteAnimationTipManager != null) {
-                spriteAnimationTipManager.p();
-            }
-            qf5.s(false);
-            wr6.b().b(new zv9(null, 1));
+            b = null;
+            c.clear();
+            d.removeCallbacksAndMessages(null);
         }
     }
 
-    @Override // com.baidu.tieba.s55
-    public void d(@NonNull s55.a aVar) {
+    public static void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (z55.j()) {
-                aVar.callback(false);
-                zq8 defaultLog = DefaultLog.getInstance();
-                defaultLog.b("HotEventTip", "S级事件弹窗无法展示，云弹窗正在展示：" + z55.i());
-            } else if (2 == w3a.a().b().a().c && 1 == w3a.a().b().b().c && 6 == w3a.a().b().c().c) {
-                DefaultLog.getInstance().b("HotEventTip", "直播tab不展示S级事件");
-                aVar.callback(false);
-            } else {
-                aVar.callback(true);
-            }
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            d.postDelayed(new b(), 500L);
         }
     }
 
-    @Override // com.baidu.tieba.s55
-    public void e() {
+    public static void g(List<t55> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (fn5.d()) {
-                DefaultLog.getInstance().b("HotEventTip", "展示精灵动画提示控件形式的S级事件弹窗");
-                this.e = qf5.t(this.c, new a(this));
-                return;
+        if (interceptable == null || interceptable.invokeL(65543, null, list) == null) {
+            h(list, 0);
+        }
+    }
+
+    public static void h(List<t55> list, int i) {
+        t55 t55Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65544, null, list, i) != null) || list == null || list.size() <= i || (t55Var = list.get(i)) == null) {
+            return;
+        }
+        if (t55Var.b != TbadkCoreApplication.getInst().getCurrentActivity()) {
+            for (t55 t55Var2 : list) {
+                t55Var2.f();
             }
-            DefaultLog.getInstance().b("HotEventTip", "展示页面顶部提示控件形式的S级事件弹窗");
-            this.d = qf5.p(this.c, new b(this));
+            return;
+        }
+        t55Var.d(new a(t55Var, list, i));
+    }
+
+    public static void k(t55 t55Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, t55Var) != null) || t55Var == null) {
+            return;
+        }
+        if (t55Var.b != TbadkCoreApplication.getInst().getCurrentActivity()) {
+            t55Var.f();
+            if (!a) {
+                j();
+            }
+        } else if (a) {
+            c.offer(t55Var);
+        } else {
+            a = true;
+            t55Var.e();
+            b = new WeakReference<>(t55Var);
         }
     }
 }

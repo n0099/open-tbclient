@@ -1,84 +1,196 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class o0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<p0a> a;
+    public final w0a b;
 
-    public static void a(NetWork netWork, WriteData writeData) {
+    public o0a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
-            netWork.addPostData("is_location", "2");
-            Address j = pf.n().j(false);
-            if (j != null) {
-                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            LocationData b = hz9.a().b();
-            if (b != null) {
-                netWork.addPostData("name", b.getFormatted_address());
-                netWork.addPostData(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, b.getSn());
+        }
+        this.a = new ArrayList<>();
+        this.b = new w0a();
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public void a(p0a p0aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, p0aVar) != null) || p0aVar == null) {
+            return;
+        }
+        this.a.add(p0aVar);
+        if (p0aVar.getClass().getAnnotation(jp.class) != null) {
+            try {
+                this.b.a((r0a) Class.forName("com.baidu.tieba.h5power." + p0aVar.getClass().getSimpleName() + r0a.PROXY_CLASS_NAME_SUFFIX).getConstructor(p0aVar.getClass()).newInstance(p0aVar));
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
     }
 
-    public static void b(Context context, String str, String str2, String str3) {
+    public boolean c(WebView webView, String str, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
-            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(vi.g(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            View findViewById = inflate.findViewById(R.id.experience_score);
-            TextView textView = (TextView) inflate.findViewById(R.id.success_text);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.pre_msg);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.color_msg);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
-            if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, null));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, jsPromptResult)) == null) {
+            if (str.startsWith("tiebaapp")) {
+                f(webView, str);
+                return false;
             }
+            return d(str, jsPromptResult);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean g(TbPageContext<?> tbPageContext, String str, t0a t0aVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, str, t0aVar)) == null) {
+            if (t0aVar == null || t0aVar.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
+                return false;
+            }
+            t0aVar.s(true);
+            t0aVar.z(0);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void i(WebView webView, String str, @Nullable HashMap hashMap) {
+        w0a w0aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, hashMap) != null) || (w0aVar = this.b) == null) {
+            return;
+        }
+        this.b.e(webView, w0aVar.f(webView, str, hashMap));
+    }
+
+    public boolean d(String str, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jsPromptResult)) == null) {
             if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.send_success);
+                return false;
             }
-            textView.setText(str);
-            if (str2 != null || str3 != null) {
-                findViewById.setVisibility(0);
-                textView2.setText(str2);
-                textView3.setText(str3);
+            try {
+                tr8 hybridLog = HybridLog.getInstance();
+                hybridLog.c("JsBridge", "processJSON json:" + str);
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("interfaceName");
+                String optString2 = jSONObject.optString("methodName");
+                String optString3 = jSONObject.optString("param");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
+                    return e(optString, optString2, optString3, jsPromptResult);
+                }
+                tr8 hybridLog2 = HybridLog.getInstance();
+                hybridLog2.b("JsBridge", "processJSON fail interfaceName:" + optString + " methodName:" + optString2 + " params:" + optString3);
+                return false;
+            } catch (JSONException e) {
+                tr8 hybridLog3 = HybridLog.getInstance();
+                hybridLog3.b("JsBridge", "processJSON JSONException:" + e);
+                return false;
             }
-            c(context, inflate);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void f(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, webView, str) != null) || this.b == null) {
+            return;
+        }
+        tr8 hybridLog = HybridLog.getInstance();
+        hybridLog.c("JsBridge", "processScheme scheme:" + str);
+        v0a v0aVar = new v0a();
+        t0a t0aVar = new t0a();
+        String a = x0a.a(str);
+        v0aVar.f(a);
+        String d = x0a.d(str);
+        v0aVar.h(d);
+        String b = x0a.b(str);
+        t0aVar.w(b);
+        if (vi.isEmpty(a) || vi.isEmpty(d) || vi.isEmpty(b)) {
+            t0aVar.z(101);
+        }
+        try {
+            v0aVar.j(x0a.f(str));
+        } catch (JSONException unused) {
+            v0aVar.j(new JSONObject());
+            t0aVar.z(101);
+        }
+        v0aVar.i(x0a.e(str));
+        v0aVar.g(x0a.c(str));
+        t0a c = this.b.c(v0aVar, t0aVar);
+        if (c.g()) {
+            this.b.d(webView, c);
+        } else {
+            g(ey9.a(webView.getContext()), str, c);
         }
     }
 
-    public static void c(Context context, View view2) {
+    public final boolean e(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
-            Toast toast = new Toast(context);
-            toast.setView(view2);
-            toast.setGravity(17, 0, 0);
-            toast.setDuration(3000);
-            GreyUtil.grey(toast);
-            toast.show();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, jsPromptResult)) == null) {
+            if (ListUtils.getCount(this.a) > 0) {
+                Iterator<p0a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    p0a next = it.next();
+                    if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 }

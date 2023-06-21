@@ -2,8 +2,8 @@ package com.baidu.tieba.lego.card.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gp8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.mo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class CardGroup extends BaseCardInfo {
         this.mCards = new ArrayList(length);
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-            if (optJSONObject != null && (j = mo8.j(optJSONObject)) != null) {
+            if (optJSONObject != null && (j = gp8.j(optJSONObject)) != null) {
                 j.setGroupId(this.itemId);
                 this.mCards.add((BaseCardInfo) j);
             }

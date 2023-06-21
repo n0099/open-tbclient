@@ -1,6 +1,6 @@
 package com.baidu.validation.js.interpreter;
 
-import com.baidu.tieba.swa;
+import com.baidu.tieba.lya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,13 +30,13 @@ public class ActionValidationResult extends BaseInterpreter {
     }
 
     @Override // com.baidu.validation.js.BaseInterpreter
-    public String interpret(swa swaVar) {
+    public String interpret(lya lyaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, swaVar)) == null) {
-            if (swaVar != null && swaVar.c() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lyaVar)) == null) {
+            if (lyaVar != null && lyaVar.c() != null) {
                 try {
-                    this.mInterpreterCallback.a(this.mName, ValidationResult.parseFromJson(new JSONObject(swaVar.c().get(0))));
+                    this.mInterpreterCallback.a(this.mName, ValidationResult.parseFromJson(new JSONObject(lyaVar.c().get(0))));
                 } catch (JSONException unused) {
                 }
             }

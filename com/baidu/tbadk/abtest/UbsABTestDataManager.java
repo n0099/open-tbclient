@@ -5,9 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.abtest.group.AuthVideoIconABTest;
 import com.baidu.tbadk.abtest.group.ConcernForumCardUbsABTest;
-import com.baidu.tbadk.abtest.group.EmotionABTest;
 import com.baidu.tbadk.abtest.group.FirstLoginABTest;
 import com.baidu.tbadk.abtest.group.FrsNewAreaTabSortUbsABTest;
 import com.baidu.tbadk.abtest.group.FrsTabLocationUbsABTest;
@@ -15,16 +13,10 @@ import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
 import com.baidu.tbadk.abtest.group.HomePagePromoteLoginUbsABTest;
 import com.baidu.tbadk.abtest.group.HttpsABTest;
 import com.baidu.tbadk.abtest.group.ImageViewerABTest;
-import com.baidu.tbadk.abtest.group.InduceSharingABTest;
-import com.baidu.tbadk.abtest.group.InteractionAlaLiveCardUbsABTest;
-import com.baidu.tbadk.abtest.group.PbSubABTest;
-import com.baidu.tbadk.abtest.group.RecommendBarUbsABTest;
-import com.baidu.tbadk.abtest.group.SearchLoginUbsABTest;
-import com.baidu.tbadk.abtest.group.StyleAlaLiveCardUbsABTest;
 import com.baidu.tbadk.abtest.group.TbNetABTest;
 import com.baidu.tbadk.abtest.group.ThreadCardGroupUbsABTest;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.n95;
+import com.baidu.tieba.o95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,7 +109,7 @@ public class UbsABTestDataManager {
             HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>();
             try {
                 getSharedPrefKeyForUbsABTest();
-                JSONArray jSONArray = new JSONArray(n95.m().s(getSharedPrefKeyForUbsABTest(), "[]"));
+                JSONArray jSONArray = new JSONArray(o95.p().w(getSharedPrefKeyForUbsABTest(), "[]"));
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
@@ -131,6 +123,22 @@ public class UbsABTestDataManager {
             return hashMap;
         }
         return (HashMap) invokeV.objValue;
+    }
+
+    private void registerABTestGroup() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            registerABTestGroup(new ThreadCardGroupUbsABTest());
+            registerABTestGroup(new HomeGroupUbsABTest());
+            registerABTestGroup(new ConcernForumCardUbsABTest());
+            registerABTestGroup(new FrsTabLocationUbsABTest());
+            registerABTestGroup(new FrsNewAreaTabSortUbsABTest());
+            registerABTestGroup(new ImageViewerABTest());
+            registerABTestGroup(new HomePagePromoteLoginUbsABTest());
+            registerABTestGroup(new FirstLoginABTest());
+            registerABTestGroup(new TbNetABTest());
+            registerABTestGroup(new HttpsABTest());
+        }
     }
 
     public static UbsABTestDataManager getInstance() {
@@ -218,30 +226,6 @@ public class UbsABTestDataManager {
         }
     }
 
-    private void registerABTestGroup() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            registerABTestGroup(new ThreadCardGroupUbsABTest());
-            registerABTestGroup(new HomeGroupUbsABTest());
-            registerABTestGroup(new RecommendBarUbsABTest());
-            registerABTestGroup(new ConcernForumCardUbsABTest());
-            registerABTestGroup(new FrsTabLocationUbsABTest());
-            registerABTestGroup(new FrsNewAreaTabSortUbsABTest());
-            registerABTestGroup(new ImageViewerABTest());
-            registerABTestGroup(new SearchLoginUbsABTest());
-            registerABTestGroup(new PbSubABTest());
-            registerABTestGroup(new HomePagePromoteLoginUbsABTest());
-            registerABTestGroup(new FirstLoginABTest());
-            registerABTestGroup(new EmotionABTest());
-            registerABTestGroup(new InduceSharingABTest());
-            registerABTestGroup(new AuthVideoIconABTest());
-            registerABTestGroup(new TbNetABTest());
-            registerABTestGroup(new HttpsABTest());
-            registerABTestGroup(new StyleAlaLiveCardUbsABTest());
-            registerABTestGroup(new InteractionAlaLiveCardUbsABTest());
-        }
-    }
-
     private void setUbsABTestForGroup(AbsGroupUbsABTest absGroupUbsABTest) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65544, this, absGroupUbsABTest) != null) || absGroupUbsABTest == null) {
@@ -270,7 +254,7 @@ public class UbsABTestDataManager {
                 String sharedPrefKeyForUbsABTest = getSharedPrefKeyForUbsABTest();
                 if (jSONArray == null) {
                     this.mSwitchs.clear();
-                    n95.m().H(sharedPrefKeyForUbsABTest);
+                    o95.p().Q(sharedPrefKeyForUbsABTest);
                     return;
                 }
                 HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>();
@@ -282,7 +266,7 @@ public class UbsABTestDataManager {
                     }
                 }
                 putAllUsbAbTest(hashMap);
-                n95.m().B(sharedPrefKeyForUbsABTest, jSONArray.toString());
+                o95.p().J(sharedPrefKeyForUbsABTest, jSONArray.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -295,7 +279,7 @@ public class UbsABTestDataManager {
             synchronized (this.mSwitchs) {
                 if (TextUtils.isEmpty(str)) {
                     this.mSwitchs.clear();
-                    n95.m().H(getSharedPrefKeyForUbsABTest());
+                    o95.p().Q(getSharedPrefKeyForUbsABTest());
                     return;
                 }
                 try {
@@ -304,7 +288,7 @@ public class UbsABTestDataManager {
                     jSONObject.put("sid", str);
                     jSONArray.put(jSONObject);
                     String jSONArray2 = jSONArray.toString();
-                    n95.m().B(getSharedPrefKeyForUbsABTest(), jSONArray2);
+                    o95.p().J(getSharedPrefKeyForUbsABTest(), jSONArray2);
                     HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>(1);
                     hashMap.put(str, new UsbAbTestSwitch(str));
                     putAllUsbAbTest(hashMap);

@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.je5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class p65 extends j65 {
+public final class p65 extends k65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,16 +32,59 @@ public class p65 extends j65 {
         }
     }
 
-    @Override // com.baidu.tieba.j65
-    public void a(@NonNull Context context, @NonNull b65 b65Var) {
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b65Var) == null) {
-            TbWebViewActivityConfig h = qx4.h(context, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
-            h.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            h.setWebDialogName("newGod");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, h));
-            n95.m().w(n95.q("key_new_god_pop_is_show"), false);
-            z55.m("newGod");
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a65.s("homeLiveRemind");
+        }
+    }
+
+    @Override // com.baidu.tieba.k65
+    public void a(Context context, c65 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
+                int i = 0;
+                LiveRemindRecommendData c = b95.a().c(0);
+                HashMap hashMap = new HashMap();
+                if (c.getRemindType() == 1) {
+                    i = 3;
+                } else if (c.getRemindType() == 2) {
+                    i = 4;
+                } else if (c.getRemindType() == 3) {
+                    i = 2;
+                }
+                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
+                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
+                hashMap.put("view_top_params_user_name", c.getUserName());
+                hashMap.put("view_top_params_key_desc", c.getDesc());
+                hashMap.put("view_top_params_room_id", c.getRoomId());
+                hashMap.put("view_top_params_btn_text", c.getBtnText());
+                hashMap.put("view_top_params_key_title", c.getTitle());
+                hashMap.put("view_top_params_key_nid", c.getFeedId());
+                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
+                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
+                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
+                ke5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new je5.h() { // from class: com.baidu.tieba.h65
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.je5.h
+                    public final void dismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            p65.b();
+                        }
+                    }
+                });
+                c95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                a65.m("homeLiveRemind");
+                return;
+            }
+            a65.s("homeLiveRemind");
         }
     }
 }

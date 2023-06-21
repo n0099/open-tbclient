@@ -21,15 +21,15 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.a48;
+import com.baidu.tieba.e48;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
-import com.baidu.tieba.k38;
-import com.baidu.tieba.o38;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.ui;
-import com.baidu.tieba.vn;
-import com.baidu.tieba.xu4;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.wn;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements k38 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -55,7 +55,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public long e;
     public boolean f;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.sr5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.xr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_TOPIC_ID) instanceof String)) {
                 String str = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_TOPIC_ID);
                 if (!StringUtils.isNull(str)) {
-                    this.a.e = tg.g(str, -1L);
+                    this.a.e = ug.g(str, -1L);
                 }
             }
         }
@@ -148,8 +148,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.k38
-    public void L0(int i, boolean z, List<vn> list) {
+    @Override // com.baidu.tieba.a48
+    public void L0(int i, boolean z, List<wn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
             this.b.setNextData(i, z, list);
@@ -168,7 +168,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.k38
+    @Override // com.baidu.tieba.a48
     public void a() {
         int i;
         String substring;
@@ -202,7 +202,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                         substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.e = tg.g(substring, -1L);
+                        this.e = ug.g(substring, -1L);
                     }
                 }
             } else {
@@ -278,14 +278,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.k38
-    public void t(int i, o38 o38Var) {
+    @Override // com.baidu.tieba.a48
+    public void t(int i, e48 e48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, o38Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, e48Var) == null) {
             this.b.r();
-            if (i == 0 && o38Var != null && !ListUtils.isEmpty(o38Var.f)) {
+            if (i == 0 && e48Var != null && !ListUtils.isEmpty(e48Var.f)) {
                 this.b.s();
-                this.b.setData(o38Var);
+                this.b.setData(e48Var);
                 return;
             }
             this.b.D(true);
@@ -301,7 +301,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                xu4.b(statisticItem, paramPair);
+                yu4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -311,7 +311,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!ui.isEmpty(paramPair.get(BasicVideoParserKt.EXT_LOG))) {
+                if (!vi.isEmpty(paramPair.get(BasicVideoParserKt.EXT_LOG))) {
                     try {
                         JSONObject jSONObject = new JSONObject(paramPair.get(BasicVideoParserKt.EXT_LOG));
                         Iterator<String> keys = jSONObject.keys();

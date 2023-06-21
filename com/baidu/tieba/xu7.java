@@ -1,125 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.TbImageView;
+import android.app.Application;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.MtjConfig;
+import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.q5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.DiscoverHotForum;
-import tbclient.DiscoverTabCard;
-import tbclient.RecommendForumInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xu7 {
+public class xu7 implements q5a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ThreadData threadData, int i) {
-        StatisticItem k;
+    public xu7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, threadData, i) == null) {
-            if (i != 1) {
-                k = null;
-            } else {
-                k = jw9.k("c13692", threadData, 3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            TiebaStatic.log(k);
+        }
+        String version = TbConfig.getVersion();
+        if (!TextUtils.isEmpty(version)) {
+            StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
+        }
+        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+        if (!TextUtils.isEmpty(lastCachedOid)) {
+            StatService.setOaid(TbadkCoreApplication.getInst(), lastCachedOid);
         }
     }
 
-    public static void b(View view2, h15 h15Var, int i) {
+    @Override // com.baidu.tieba.q5a.a
+    public void a(Application application) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, view2, h15Var, i) == null) && view2 != null && h15Var != null && h15Var.getThreadData() != null && !StringUtils.isNull(h15Var.getThreadData().getTid())) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
-            ThreadData threadData = h15Var.getThreadData();
-            int i2 = 1;
-            if (threadData.isLinkThread()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.isShareThread) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.isBJHArticleThreadType()) {
-                statisticItem.param("obj_type", 6);
-            } else if (threadData.isBJHNormalThreadType()) {
-                statisticItem.param("obj_type", 7);
-            } else if (threadData.isBJHVideoThreadType()) {
-                statisticItem.param("obj_type", 8);
-            } else if (threadData.isBJHVideoDynamicThreadType()) {
-                statisticItem.param("obj_type", 9);
-            } else if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.isVideoThreadType()) {
-                statisticItem.param("obj_type", 2);
-            }
-            statisticItem.param("obj_locate", i);
-            if (i == 3 || (i == 6 && (view2 instanceof TbImageView))) {
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, 2);
-            }
-            statisticItem.param("tid", h15Var.getThreadData().getTid());
-            statisticItem.param("fid", h15Var.getThreadData().getFid());
-            statisticItem.param("fname", h15Var.getThreadData().getForum_name());
-            statisticItem.param("obj_source", 1);
-            if (h15Var instanceof oo6) {
-                if (((oo6) h15Var).x()) {
-                    i2 = 2;
-                }
-                statisticItem.param("obj_param1", i2);
-            }
-            if (h15Var.getThreadData().getAuthor() != null) {
-                statisticItem.param("uid", h15Var.getThreadData().getAuthor().getUserId());
-            }
-            if (threadData.getBaijiahaoData() != null) {
-                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.getTid());
-            }
-            if (h15Var.getThreadData().getThreadAlaInfo() != null) {
-                int calculateLiveType = YYLiveUtil.calculateLiveType(h15Var.getThreadData().getThreadAlaInfo());
-                if (h15Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(statisticItem, h15Var.getThreadData().getThreadAlaInfo().mYyExtData);
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
-            }
-            TiebaStatic.log(statisticItem);
-            a(threadData, i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+            StatService.enableAppList(application, false);
         }
     }
 
-    public static boolean c(DiscoverHotForum.Builder builder, long j, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.q5a.a
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{builder, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            if (j != 0 && builder != null) {
-                List<DiscoverTabCard> list = builder.tab_list;
-                if (ListUtils.isEmpty(list)) {
-                    return false;
-                }
-                for (int i = 0; i < list.size(); i++) {
-                    DiscoverTabCard.Builder builder2 = new DiscoverTabCard.Builder(list.get(i));
-                    List<RecommendForumInfo> list2 = builder2.forum_list;
-                    if (!ListUtils.isEmpty(list2)) {
-                        for (int i2 = 0; i2 < list2.size(); i2++) {
-                            RecommendForumInfo.Builder builder3 = new RecommendForumInfo.Builder(list2.get(i2));
-                            if (builder3.forum_id.longValue() == j && builder3.is_like.intValue() != z) {
-                                builder3.is_like = Integer.valueOf(z ? 1 : 0);
-                                list2.set(i2, builder3.build(true));
-                                list.set(i, builder2.build(true));
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
+            StatService.autoTrace(context);
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.q5a.a
+    public void c(Context context, WebView webView, WebChromeClient webChromeClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, webView, webChromeClient) == null) {
+            StatService.trackWebView(context, webView, webChromeClient);
+        }
+    }
+
+    @Override // com.baidu.tieba.q5a.a
+    public void d(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) {
+            StatService.setAppChannel(context, str, z);
+        }
     }
 }

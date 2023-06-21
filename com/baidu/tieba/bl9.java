@@ -1,308 +1,356 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.hardware.Camera;
-import android.view.WindowManager;
+import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tieba.post.ReplyLinearLayout;
+import com.baidu.tieba.vk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.regex.Pattern;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public final class bl9 {
+public class bl9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public Point b;
-    public Point c;
-    public Point d;
-    public Camera e;
+    public PersonPostModel.c a;
+    public PersonPostModel b;
+    public final String c;
+    public final String d;
+    public BdUniqueId e;
+    public String f;
+    public TbPageContext<BaseFragmentActivity> g;
+    public final PersonPostModel.c h;
+    public final vk9.a i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947648954, "Lcom/baidu/tieba/bl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements PersonPostModel.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bl9 a;
+
+        public a(bl9 bl9Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947648954, "Lcom/baidu/tieba/bl9;");
-                return;
+            this.a = bl9Var;
+        }
+
+        @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
+        public void s0(PersonPostModel personPostModel, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) {
+                if (!z) {
+                    if (this.a.b != null) {
+                        for (int i = 0; i < personPostModel.postList.size(); i++) {
+                            if (personPostModel.postList.get(i) instanceof PersonPostModel.PostInfoList) {
+                                this.a.b.postList.add(personPostModel.postList.get(i));
+                            }
+                        }
+                    }
+                } else {
+                    this.a.b = personPostModel;
+                    Iterator<wn> it = this.a.b.postList.iterator();
+                    while (it.hasNext()) {
+                        wn next = it.next();
+                        if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
+                            it.remove();
+                        }
+                    }
+                }
+                if (this.a.a != null) {
+                    this.a.a.s0(personPostModel, z);
+                }
+                this.a.notifyDataSetChanged();
             }
         }
-        f = Pattern.compile(",");
     }
 
-    public Point e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+    /* loaded from: classes5.dex */
+    public class b implements vk9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bl9 a;
+
+        public b(bl9 bl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bl9Var;
         }
-        return (Point) invokeV.objValue;
-    }
 
-    public void i() {
-        Camera camera;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (camera = this.e) != null) {
-            try {
-                h(camera);
-                j(this.e);
-            } catch (Exception unused) {
+        @Override // com.baidu.tieba.vk9.a
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                int id = view2.getId();
+                if (id == R.id.obfuscated_res_0x7f091c58) {
+                    ((BaseFragmentActivity) this.a.g.getOrignalPage()).finish();
+                } else if (id == R.id.obfuscated_res_0x7f0927a8) {
+                    ((BaseFragmentActivity) this.a.g.getOrignalPage()).finish();
+                } else if ((id == R.id.obfuscated_res_0x7f091173 || id == R.id.obfuscated_res_0x7f091976 || id == R.id.obfuscated_res_0x7f09116e || id == R.id.obfuscated_res_0x7f091e28) && this.a.b != null && this.a.g != null && this.a.g.getOrignalPage() != null) {
+                    PersonPostModel.PostInfoList h = this.a.h(((Integer) view2.getTag()).intValue());
+                    if (TextUtils.isEmpty(h.targetScheme) || !UrlManager.getInstance().dealOneLink(((BaseFragmentActivity) this.a.g.getOrignalPage()).getPageContext(), new String[]{h.targetScheme})) {
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(this.a.g.getPageActivity()).createNormalCfg(String.valueOf(h.thread_id), String.valueOf(h.post_id), "person_page");
+                        createNormalCfg.setStartFrom(4);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+                    }
+                }
             }
         }
     }
 
-    public bl9(Context context) {
+    @SuppressLint({"ResourceAsColor"})
+    /* loaded from: classes5.dex */
+    public static class c extends vk9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ReplyLinearLayout r;
+        public TextView s;
+        public View t;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(View view2, TbPageContext<BaseFragmentActivity> tbPageContext) {
+            super(view2, tbPageContext);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((View) objArr2[0], (TbPageContext) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.t = view2.findViewById(R.id.obfuscated_res_0x7f091b2b);
+            this.i.setIsRound(true);
+            ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.content_container);
+            this.r = replyLinearLayout;
+            replyLinearLayout.setPageContext(tbPageContext);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091976);
+            this.s = textView;
+            textView.setOnClickListener(this);
+            this.e.setVisibility(8);
+        }
+
+        @Override // com.baidu.tieba.vk9
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                super.a(i);
+                p75 d = p75.d(this.s);
+                d.x(R.color.CAM_X0107);
+                d.o(R.string.J_X05);
+                d.f(R.color.CAM_X0206);
+                p75 d2 = p75.d(this.t);
+                d2.o(R.string.J_X05);
+                d2.f(R.color.CAM_X0201);
+            }
+        }
+    }
+
+    public bl9(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, str, str2, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.h = new a(this);
+        this.i = new b(this);
+        this.g = tbPageContext;
+        this.c = str;
+        this.d = str2;
+        this.e = bdUniqueId;
     }
 
-    public static boolean a(Camera camera) {
-        InterceptResult invokeL;
+    public PersonPostModel.PostInfoList h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, camera)) == null) {
-            if (d(camera.getParameters().getSupportedFocusModes(), "auto") != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return (PersonPostModel.PostInfoList) this.b.postList.get(i);
         }
-        return invokeL.booleanValue;
+        return (PersonPostModel.PostInfoList) invokeI.objValue;
     }
 
-    public void j(Camera camera) {
+    public void i(PersonPostModel.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, camera) == null) {
-            Camera.Parameters parameters = camera.getParameters();
-            Point point = this.d;
-            parameters.setPreviewSize(point.x, point.y);
-            k(parameters);
-            camera.setDisplayOrientation(f());
-            camera.setParameters(parameters);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.a = cVar;
         }
     }
 
-    public static int b(CharSequence charSequence, int i) {
-        InterceptResult invokeLI;
+    public void e() {
+        PersonPostModel personPostModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i)) == null) {
-            int i2 = 0;
-            for (String str : f.split(charSequence)) {
-                try {
-                    double parseDouble = Double.parseDouble(str.trim());
-                    int i3 = (int) (10.0d * parseDouble);
-                    if (Math.abs(i - parseDouble) < Math.abs(i - i2)) {
-                        i2 = i3;
-                    }
-                } catch (NumberFormatException unused) {
-                    return i;
-                }
-            }
-            return i2;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (personPostModel = this.b) != null) {
+            personPostModel.cancelLoadData();
         }
-        return invokeLI.intValue;
     }
 
-    public static Point c(List<Camera.Size> list, Point point) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, point)) == null) {
-            Iterator<Camera.Size> it = list.iterator();
-            int i = 0;
-            int i2 = 0;
-            int i3 = Integer.MAX_VALUE;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                Camera.Size next = it.next();
-                int i4 = next.width;
-                int i5 = next.height;
-                int abs = Math.abs(i4 - point.x) + Math.abs(i5 - point.y);
-                if (abs == 0) {
-                    i2 = i5;
-                    i = i4;
-                    break;
-                } else if (abs < i3) {
-                    i2 = i5;
-                    i = i4;
-                    i3 = abs;
-                }
-            }
-            if (i > 0 && i2 > 0) {
-                return new Point(i, i2);
-            }
-            return null;
-        }
-        return (Point) invokeLL.objValue;
-    }
-
-    public static String d(Collection<String> collection, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, collection, strArr)) == null) {
-            if (collection != null) {
-                for (String str : strArr) {
-                    if (collection.contains(str)) {
-                        return str;
-                    }
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static Point g(Camera.Parameters parameters, Point point) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, parameters, point)) == null) {
-            Point c = c(parameters.getSupportedPreviewSizes(), point);
-            if (c == null) {
-                return new Point((point.x >> 3) << 3, (point.y >> 3) << 3);
-            }
-            return c;
-        }
-        return (Point) invokeLL.objValue;
-    }
-
-    public int f() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
+        ArrayList<wn> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            int i = 0;
-            Camera.getCameraInfo(0, cameraInfo);
-            int rotation = ((WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRotation();
-            if (rotation != 0) {
-                if (rotation != 1) {
-                    if (rotation != 2) {
-                        if (rotation == 3) {
-                            i = 270;
-                        }
-                    } else {
-                        i = 180;
-                    }
-                } else {
-                    i = 90;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            PersonPostModel personPostModel = this.b;
+            if (personPostModel != null && (arrayList = personPostModel.postList) != null) {
+                return arrayList.size();
             }
-            if (cameraInfo.facing == 1) {
-                return (360 - ((cameraInfo.orientation + i) % 360)) % 360;
-            }
-            return ((cameraInfo.orientation - i) + 360) % 360;
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public void h(Camera camera) {
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, camera) == null) {
-            this.e = camera;
-            Camera.Parameters parameters = camera.getParameters();
-            if (a(camera)) {
-                parameters.setFocusMode("auto");
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (this.b == null) {
+                PersonPostModel personPostModel = new PersonPostModel(this.g, this.e, null, true, 2);
+                this.b = personPostModel;
+                personPostModel.setUniqueId(this.e);
             }
-            this.b = al9.d(this.a);
-            Point point = new Point();
-            Point point2 = this.b;
-            point.x = point2.x;
-            point.y = point2.y;
-            int c = al9.c(this.a);
-            if (c == 0) {
-                Point point3 = this.b;
-                point.x = point3.y;
-                point.y = point3.x;
-            }
-            if (UtilHelper.isOppoFoldLargeScreen(this.a)) {
-                this.d = new Point(1792, 1920);
-            } else {
-                this.d = g(parameters, point);
-            }
-            if (c == 0) {
-                Point point4 = this.d;
-                this.c = new Point(point4.y, point4.x);
-                return;
-            }
-            this.c = this.d;
+            this.b.fetchPost(this.g, this.h, z, this.c, false, 0, true, false, null, this.d);
         }
     }
 
-    public final void k(Camera.Parameters parameters) {
+    public final void g(int i, c cVar, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, parameters) == null) {
-            String str = parameters.get("zoom-supported");
-            if (str != null && !Boolean.parseBoolean(str)) {
-                return;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, cVar, viewGroup) == null) {
+            PersonPostModel.PostInfoList h = h(i);
+            if (this.f == null) {
+                this.f = h.user_portrait;
             }
-            int i = 27;
-            String str2 = parameters.get("max-zoom");
-            if (str2 != null) {
-                try {
-                    int parseDouble = (int) (Double.parseDouble(str2) * 10.0d);
-                    if (27 > parseDouble) {
-                        i = parseDouble;
-                    }
-                } catch (NumberFormatException unused) {
-                }
+            cVar.d(h, false, this.f, i);
+            cVar.r.setPost(h);
+            cVar.r.setContent(h.content);
+            if (Pattern.compile("^回复：").matcher(h.title).find()) {
+                cVar.s.setText(h.title.replaceFirst("回复：", "原贴："));
+            } else {
+                cVar.s.setText(h.title);
             }
-            String str3 = parameters.get("taking-picture-zoom-max");
-            if (str3 != null) {
-                try {
-                    int parseInt = Integer.parseInt(str3);
-                    if (i > parseInt) {
-                        i = parseInt;
-                    }
-                } catch (NumberFormatException unused2) {
-                }
+            OriginalThreadInfo originalThreadInfo = h.originalThreadInfo;
+            if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.b)) {
+                TextView textView = cVar.s;
+                textView.setText("分享：" + h.originalThreadInfo.b);
             }
-            String str4 = parameters.get("mot-zoom-values");
-            if (str4 != null) {
-                i = b(str4, i);
+            cVar.s.setTag(Integer.valueOf(i));
+            if (h.thread_type == 33) {
+                cVar.s.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+            } else {
+                cVar.s.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            String str5 = parameters.get("mot-zoom-step");
-            if (str5 != null) {
-                try {
-                    int parseDouble2 = (int) (Double.parseDouble(str5.trim()) * 10.0d);
-                    if (parseDouble2 > 1) {
-                        i -= i % parseDouble2;
-                    }
-                } catch (NumberFormatException unused3) {
-                }
-            }
-            if (str2 != null || str4 != null) {
-                parameters.set("zoom", String.valueOf(i / 10.0d));
-            }
-            if (str3 != null) {
-                parameters.set("taking-picture-zoom", i);
-            }
+            SkinManager.setBackgroundResource(cVar.s, R.drawable.person_post_line);
+            SkinManager.setViewTextColor(cVar.s, R.color.common_color_10039, 1);
+            int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
+            cVar.s.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+            cVar.c(this.i);
+            cVar.a(TbadkCoreApplication.getInst().getSkinType());
         }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07bf, viewGroup, false);
+                cVar = new c(view2, this.g);
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            if (i == 0) {
+                cVar.h.setVisibility(0);
+            } else {
+                cVar.h.setVisibility(8);
+            }
+            g(i, cVar, viewGroup);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

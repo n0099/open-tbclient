@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface da1 {
-    void onHideLoading();
+    void onDestroy();
 
-    void onLoadFailure();
-
-    void onLoadSuccess();
+    void onPause();
 }

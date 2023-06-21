@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wq4;
+import com.baidu.tieba.ar4;
 import com.baidu.tieba.xq4;
 import com.baidu.tieba.yq4;
 import com.baidu.tieba.zq4;
@@ -21,7 +21,7 @@ import java.util.Set;
 public class TraceInfoActivity extends Activity implements View.OnClickListener {
     public TextView a;
     public Button b;
-    public List<wq4> c;
+    public List<xq4> c;
     public Set<String> d;
     public int e;
 
@@ -58,14 +58,14 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     }
 
     public final void e() {
-        for (wq4 wq4Var : this.c) {
-            this.d.add(wq4Var.f());
+        for (xq4 xq4Var : this.c) {
+            this.d.add(xq4Var.f());
         }
     }
 
     public final void g() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0925bf);
-        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09227d);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0925cc);
+        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092288);
         this.b = button;
         button.setOnClickListener(this);
         this.d = new HashSet();
@@ -77,8 +77,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<wq4> list;
-        if (view2.getId() == R.id.obfuscated_res_0x7f09227d && (list = this.c) != null && list.size() > 0) {
+        List<xq4> list;
+        if (view2.getId() == R.id.obfuscated_res_0x7f092288 && (list = this.c) != null && list.size() > 0) {
             d();
         }
     }
@@ -97,21 +97,21 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         this.e = i + 1;
         String str = (String) arrayList.get(i % arrayList.size());
         ArrayList arrayList2 = new ArrayList();
-        for (wq4 wq4Var : this.c) {
-            if (TextUtils.equals(wq4Var.f(), str)) {
-                arrayList2.add(wq4Var);
+        for (xq4 xq4Var : this.c) {
+            if (TextUtils.equals(xq4Var.f(), str)) {
+                arrayList2.add(xq4Var);
             }
         }
-        return zq4.c(arrayList2, null);
+        return ar4.c(arrayList2, null);
     }
 
     public final void i() {
-        yq4<List<wq4>> c = xq4.b().c();
+        zq4<List<xq4>> c = yq4.b().c();
         if (c == null) {
             this.a.setText("NO DATA");
             return;
         }
-        List<wq4> a2 = c.a();
+        List<xq4> a2 = c.a();
         if (a2 != null && a2.size() > 0) {
             this.c = a2;
             this.e = 0;

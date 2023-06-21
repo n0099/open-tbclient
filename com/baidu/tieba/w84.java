@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,18 +26,10 @@ public class w84 implements n94 {
     }
 
     @Override // com.baidu.tieba.n94
-    public void a(mc4 mc4Var, lc4 lc4Var) {
+    public void a(@NonNull Activity activity, m84 m84Var, q94 q94Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, mc4Var, lc4Var) == null) && lc4Var != null) {
-            lc4Var.a(mc4Var, "Method 'shareVideo' is not implemented.");
-        }
-    }
-
-    @Override // com.baidu.tieba.n94
-    public void b(dc4 dc4Var, cc4 cc4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dc4Var, cc4Var) == null) && cc4Var != null) {
-            cc4Var.a(dc4Var, "Method 'clipVideo' is not implemented.");
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, m84Var, q94Var) == null) {
+            q94Var.a();
         }
     }
 }

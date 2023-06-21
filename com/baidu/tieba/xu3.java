@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.so.SoLoader;
-import com.baidu.swan.bdtls.BdtlsController;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.cl4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,46 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Callback;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class xu3 {
+public class xu3 implements mv1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xu3 b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public uu3 a;
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements BdtlsController.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.swan.bdtls.BdtlsController.a
-        public void loadLibrary(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoader.load(fv2.c(), str);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -64,8 +36,7 @@ public class xu3 {
                 return;
             }
         }
-        boolean z = uu3.a;
-        BdtlsController.a(new a());
+        a = js1.a;
     }
 
     public xu3() {
@@ -78,65 +49,78 @@ public class xu3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new uu3();
     }
 
-    public static xu3 b() {
+    @Override // com.baidu.tieba.mv1
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (xu3.class) {
-                    if (b == null) {
-                        b = new xu3();
-                    }
-                }
-            }
-            return b;
-        }
-        return (xu3) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            uu3 uu3Var = this.a;
-            if (uu3Var == null) {
-                return false;
-            }
-            return uu3Var.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return yu3.b().d();
         }
         return invokeV.booleanValue;
     }
 
-    public void a(String str, ov3 ov3Var) {
+    @Override // com.baidu.tieba.mv1
+    public void d(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ov3Var) == null) {
-            av3.l().p(str, ov3Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
+            yu3.b().c(bArr);
         }
     }
 
-    public void c(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            BdtlsController.handleConfsk(bArr);
-        }
-    }
-
-    public boolean e(String str) {
+    @Override // com.baidu.tieba.mv1
+    public boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            uu3 uu3Var = this.a;
-            if (uu3Var != null && uu3Var.b(str)) {
-                return true;
-            }
-            return false;
+            return yu3.b().e(str);
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.mv1
+    public <T> void e(String str, String str2, ResponseCallback<T> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, responseCallback) == null) {
+            new ov3().q(str, str2, responseCallback);
+        }
+    }
+
+    @Override // com.baidu.tieba.mv1
+    public void f(String str, String str2, cl4.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
+            new nv3().k(str, str2, cVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.mv1
+    public boolean i(@NonNull zb3 zb3Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, sq3<String> sq3Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{zb3Var, jSONObject, str, str2, callback, sq3Var})) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
+                return false;
+            }
+            String optString = optJSONObject.optString("serviceId");
+            if (TextUtils.isEmpty(optString)) {
+                if (a) {
+                    Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
+                }
+                if (sq3Var != null) {
+                    sq3Var.a("serviceId is invalid");
+                    return true;
+                }
+                return true;
+            }
+            si3.D(str, zb3Var.Y().G(), null, str2);
+            new qv3(zb3Var, jSONObject, str2, callback).o(optString);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

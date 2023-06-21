@@ -1,15 +1,23 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes6.dex */
 public interface nb5 {
-    void a(View view2);
+    int getFansNum();
 
-    void b(boolean z, int i, boolean z2);
+    boolean getIsLike();
 
-    void c(int i);
+    int getLikeStatus();
 
-    void d(boolean z, int i);
+    String getPortrait();
 
-    void e(View.OnClickListener onClickListener);
+    String getUserId();
+
+    boolean isGod();
+
+    void setFansNum(int i);
+
+    void setIsFromNetWork(boolean z);
+
+    void setIsLike(boolean z);
+
+    void setLikeStatus(int i);
 }

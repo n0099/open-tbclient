@@ -10,14 +10,14 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fe5;
+import com.baidu.tieba.bs6;
 import com.baidu.tieba.feed.helper.CommonOnClickKt$FeedBackOnClick$1;
-import com.baidu.tieba.n57;
-import com.baidu.tieba.n77;
-import com.baidu.tieba.o57;
-import com.baidu.tieba.qe5;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.wr6;
+import com.baidu.tieba.ge5;
+import com.baidu.tieba.re5;
+import com.baidu.tieba.s57;
+import com.baidu.tieba.s77;
+import com.baidu.tieba.t57;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\n¢\u0006\u0002\b\u0006"}, d2 = {"<anonymous>", "", "data", "Lcom/baidu/tieba/feed/data/FeedFeedbackData;", "view", "Landroid/view/View;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements Function2<n57, View, Unit> {
+public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements Function2<s57, View, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public static final CommonOnClickKt$FeedBackOnClick$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,25 +73,25 @@ public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements F
     }
 
     /* renamed from: invoke$lambda-0  reason: not valid java name */
-    public static final void m134invoke$lambda0(n57 data, View view2, List list, boolean z) {
+    public static final void m134invoke$lambda0(s57 data, View view2, List list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{data, view2, list, Boolean.valueOf(z)}) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
             Intrinsics.checkNotNullParameter(view2, "$view");
-            if (Intrinsics.areEqual(data.getType(), ImageViewerConfig.FROM_CONCERN) && (data.a() instanceof o57) && (view2.getContext() instanceof TbPageContextSupport)) {
+            if (Intrinsics.areEqual(data.getType(), ImageViewerConfig.FROM_CONCERN) && (data.a() instanceof t57) && (view2.getContext() instanceof TbPageContextSupport)) {
                 Context context = view2.getContext();
                 if (context != null) {
                     TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
                     if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                        vi.P(view2.getContext(), R.string.obfuscated_res_0x7f0f0def);
+                        wi.P(view2.getContext(), R.string.obfuscated_res_0x7f0f0df3);
                     } else if (ViewHelper.checkUpIsLogin(view2.getContext())) {
-                        qe5 qe5Var = new qe5(pageContext);
+                        re5 re5Var = new re5(pageContext);
                         Object a = data.a();
                         if (a != null) {
-                            String a2 = ((o57) a).a();
+                            String a2 = ((t57) a).a();
                             Object a3 = data.a();
                             if (a3 != null) {
-                                qe5Var.i(false, a2, ((o57) a3).b(), false, "0", pageContext.getUniqueId(), null, "0");
+                                re5Var.i(false, a2, ((t57) a3).b(), false, "0", pageContext.getUniqueId(), null, "0");
                             } else {
                                 throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.FeedFeedbackUserData");
                             }
@@ -103,42 +103,42 @@ public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements F
                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.TbPageContextSupport");
                 }
             }
-            wr6.b().b(new fe5(data.getType()));
+            bs6.b().b(new ge5(data.getType()));
         }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function2
-    public /* bridge */ /* synthetic */ Unit invoke(n57 n57Var, View view2) {
-        invoke2(n57Var, view2);
+    public /* bridge */ /* synthetic */ Unit invoke(s57 s57Var, View view2) {
+        invoke2(s57Var, view2);
         return Unit.INSTANCE;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(final n57 data, final View view2) {
+    public final void invoke2(final s57 data, final View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Intrinsics.checkNotNullParameter(view2, "view");
-            n77 n77Var = new n77(view2);
-            n77Var.t(true);
-            n77Var.p(data.c());
-            n77Var.r(data.b());
-            n77Var.q(new n77.f() { // from class: com.baidu.tieba.m77
+            s77 s77Var = new s77(view2);
+            s77Var.t(true);
+            s77Var.p(data.c());
+            s77Var.r(data.b());
+            s77Var.q(new s77.f() { // from class: com.baidu.tieba.r77
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.n77.f
+                @Override // com.baidu.tieba.s77.f
                 public final void a(List list, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, list, z) == null) {
-                        CommonOnClickKt$FeedBackOnClick$1.m134invoke$lambda0(n57.this, view2, list, z);
+                        CommonOnClickKt$FeedBackOnClick$1.m134invoke$lambda0(s57.this, view2, list, z);
                     }
                 }
             });
-            n77Var.o(true);
-            n77Var.s(view2);
+            s77Var.o(true);
+            s77Var.s(view2);
         }
     }
 }

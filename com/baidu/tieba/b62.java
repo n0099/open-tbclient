@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class b62 extends e52 {
+public class b62 extends f52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m52 a;
+    public float a;
+    public float b;
 
     public b62() {
         Interceptable interceptable = $ic;
@@ -27,26 +28,23 @@ public class b62 extends e52 {
         }
     }
 
-    @Override // com.baidu.tieba.e52
-    public void a(f52 f52Var, Canvas canvas) {
-        m52 m52Var;
+    @Override // com.baidu.tieba.f52
+    public void a(g52 g52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) && (m52Var = this.a) != null && m52Var.d()) {
-            if (this.a.c()) {
-                f52Var.b.setShader(this.a.b());
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) {
+            if (g52Var.a() == 0) {
+                g52Var.b(canvas.save());
             }
-            f52Var.e.setColor(this.a.a());
-            f52Var.b.setColor(this.a.a());
-            f52Var.b.setShader(null);
+            canvas.scale(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.e52
+    @Override // com.baidu.tieba.f52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new m52(jSONArray);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
+            this.a = (float) jSONArray.optDouble(0);
+            this.b = (float) jSONArray.optDouble(1);
         }
     }
 }

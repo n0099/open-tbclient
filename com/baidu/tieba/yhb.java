@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.log.TLog;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public class yhb {
     public static /* synthetic */ Interceptable $ic;
+    public static yhb b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public ConcurrentHashMap<String, xhb> a;
 
     public yhb() {
         Interceptable interceptable = $ic;
@@ -26,30 +31,89 @@ public class yhb {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
+        this.a = new ConcurrentHashMap<>();
     }
 
-    public String g() {
+    public static yhb b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return String.format("playerContextId:%d playTaskId:%d ", Integer.valueOf(this.b), Integer.valueOf(this.a));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (yhb.class) {
+                    if (b == null) {
+                        b = new yhb();
+                    }
+                }
+            }
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (yhb) invokeV.objValue;
     }
 
-    public void h(int i) {
+    public void a(String str, xhb xhbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, xhbVar) == null) {
+            TLog.h("[VodPlayerManager]", "bindUniqueKeyForPlayer key:" + str + "-vodPlayer:" + xhbVar);
+            if (!TextUtils.isEmpty(str) && xhbVar != null) {
+                if (this.a.containsKey(str) && this.a.get(str) != null) {
+                    TLog.h("[VodPlayerManager]", "bindUniqueKeyForPlayer contain key and player");
+                    return;
+                }
+                if (this.a.containsValue(xhbVar)) {
+                    Iterator<Map.Entry<String, xhb>> it = this.a.entrySet().iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        Map.Entry<String, xhb> next = it.next();
+                        if (xhbVar == next.getValue()) {
+                            this.a.remove(next.getKey());
+                            break;
+                        }
+                    }
+                }
+                this.a.put(str, xhbVar);
+                TLog.h("[VodPlayerManager]", "player bind suc, tastId:" + xhbVar.d());
+                return;
+            }
+            TLog.h("[VodPlayerManager]", "player or key is null");
         }
     }
 
-    public void i(int i) {
+    public xhb c(String str, boolean z) {
+        InterceptResult invokeLZ;
+        qhb f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            TLog.h("[VodPlayerManager]", "obtainPlayer key:" + str);
+            if (!TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                xhb xhbVar = this.a.get(str);
+                TLog.h("[VodPlayerManager]", "TaskID:" + xhbVar.d() + "-obtainPlayer vodPlayer:" + xhbVar);
+                if (z && (f = xhbVar.f()) != null) {
+                    f.onPlayerStateUpdate(xhbVar, 10, 0);
+                }
+                return xhbVar;
+            }
+            TLog.h("[VodPlayerManager]", "player is null");
+            return null;
+        }
+        return (xhb) invokeLZ.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str, "");
+        }
+    }
+
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            TLog.h("[VodPlayerManager]", "removePlayerUniqueKey key:" + str + ", source:" + str2);
+            if (!TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                this.a.remove(str);
+            }
         }
     }
 }

@@ -44,7 +44,7 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13fc), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13fd)};
+        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1400), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1401)};
         c = new int[]{100, 200};
     }
 

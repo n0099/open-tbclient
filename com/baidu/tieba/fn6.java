@@ -1,223 +1,150 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class fn6 {
+public class fn6 extends dn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public final String c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public boolean h;
-    public List<Pair<String, Long>> i;
-    public final Map<String, Pair<Long, Long>> j;
+    public final dm6 b;
 
-    public fn6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fn6(dn6 dn6Var, dm6 dm6Var) {
+        super(dn6Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dn6Var, dm6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((WebViewClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = false;
-        this.j = new ConcurrentHashMap();
-        this.d = System.currentTimeMillis();
-        this.c = UUID.randomUUID().toString();
-        this.e = System.currentTimeMillis();
+        this.b = dm6Var;
     }
 
-    public static boolean l(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dn6, android.webkit.WebViewClient
+    public void onLoadResource(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            super.onLoadResource(webView, str);
+            dm6 dm6Var = this.b;
+            if (dm6Var != null) {
+                dm6Var.c(webView, str);
             }
-            if (URLUtil.isAssetUrl(str) || URLUtil.isFileUrl(str)) {
+        }
+    }
+
+    @Override // com.baidu.tieba.dn6, android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onPageFinished(webView, str);
+            dm6 dm6Var = this.b;
+            if (dm6Var != null) {
+                dm6Var.onPageFinished(webView, str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dn6, android.webkit.WebViewClient
+    @RequiresApi(24)
+    public boolean shouldOverrideUrlLoading(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, webResourceRequest)) == null) {
+            Uri url = webResourceRequest.getUrl();
+            dm6 dm6Var = this.b;
+            if (dm6Var != null && url != null && dm6Var.shouldOverrideUrlLoading(webView, url.toString())) {
                 return true;
             }
-            if (!URLUtil.isHttpUrl(str) && !URLUtil.isHttpsUrl(str)) {
-                return false;
-            }
-            if (!str.contains("tieba.baidu.com") && !str.contains("tieba.baidu-int.com")) {
-                return false;
-            }
-            return true;
+            return super.shouldOverrideUrlLoading(webView, webResourceRequest);
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public void a(String str, String str2, Long l) {
+    @Override // com.baidu.tieba.dn6, android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, l) == null) {
-            try {
-                this.j.put(str, Pair.create(Long.valueOf(Long.parseLong(str2)), l));
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+            dm6 dm6Var = this.b;
+            if (dm6Var != null) {
+                dm6Var.d(webView, str);
             }
         }
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dn6, android.webkit.WebViewClient
+    @RequiresApi(23)
+    public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.longValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<Pair<String, Long>> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Map<String, Pair<Long, Long>> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
+            super.onReceivedError(webView, webResourceRequest, webResourceError);
+            dm6 dm6Var = this.b;
+            if (dm6Var != null) {
+                dm6Var.b(webView, webResourceRequest, webResourceError.getErrorCode(), webResourceError.getDescription());
+            }
         }
     }
 
-    public void n(long j) {
+    @Override // com.baidu.tieba.dn6, android.webkit.WebViewClient
+    @RequiresApi(23)
+    public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, webResourceRequest, webResourceResponse) == null) {
+            super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
+            dm6 dm6Var = this.b;
+            if (dm6Var != null) {
+                dm6Var.b(webView, webResourceRequest, webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase());
+            }
         }
     }
 
-    public void o(String str) {
+    @Override // com.baidu.tieba.dn6, android.webkit.WebViewClient
+    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, sslErrorHandler, sslError) == null) {
+            super.onReceivedSslError(webView, sslErrorHandler, sslError);
+            dm6 dm6Var = this.b;
+            if (dm6Var != null) {
+                dm6Var.a(webView, sslErrorHandler, sslError);
+            }
         }
     }
 
-    public void p(List<Pair<String, Long>> list) {
+    @Override // com.baidu.tieba.dn6, android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
-            this.i = list;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
+            dm6 dm6Var = this.b;
+            if (dm6Var != null && dm6Var.shouldOverrideUrlLoading(webView, str)) {
+                return true;
+            }
+            return super.shouldOverrideUrlLoading(webView, str);
         }
-    }
-
-    public void q(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.e = j;
-        }
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && l(str)) {
-            this.g = System.currentTimeMillis();
-            this.a = str;
-            hm6.b("newHybrid", "startLoadUrl:" + str);
-        }
+        return invokeLL.booleanValue;
     }
 }

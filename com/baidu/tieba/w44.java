@@ -1,109 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.vw2;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w44 {
+public class w44 extends bj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String k;
 
-    public static void a(String str, String str2, long j) {
+    public w44() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            v44 v44Var = new v44();
-            v44Var.b = str;
-            v44Var.e = str2;
-            if (yb3.M() != null && yb3.M().Y() != null) {
-                vw2.a Y = yb3.M().Y();
-                v44Var.a = ri3.n(Y.G());
-                v44Var.f = Y.H();
-                v44Var.c = Y.T();
-                v44Var.a("play_time", Long.valueOf(j));
-            }
-            ri3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, v44Var);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        String str3;
-        vw2.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (yb3.M() != null && yb3.M().Y() != null) {
-                aVar = yb3.M().Y();
-                str3 = ri3.n(aVar.G());
-            } else {
-                str3 = "";
-                aVar = null;
-            }
-            if (aVar != null && TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                v44 v44Var = new v44();
-                v44Var.b = str;
-                v44Var.e = str2;
-                v44Var.a = str3;
-                v44Var.f = aVar.H();
-                v44Var.c = aVar.T();
-                ri3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, v44Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = "";
     }
 
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            v44 v44Var = new v44();
-            v44Var.b = str;
-            v44Var.e = str2;
-            if (yb3.M() != null && yb3.M().Y() != null) {
-                vw2.a Y = yb3.M().Y();
-                v44Var.a = ri3.n(Y.G());
-                v44Var.f = Y.H();
-                v44Var.c = Y.T();
-            }
-            v44Var.k = str3;
-            ri3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, v44Var);
-        }
-    }
-
-    public static void d(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            v44 v44Var = new v44();
-            v44Var.b = str;
-            v44Var.e = "show";
-            if (yb3.M() != null && yb3.M().Y() != null) {
-                vw2.a Y = yb3.M().Y();
-                v44Var.a = ri3.n(Y.G());
-                v44Var.f = Y.H();
-                v44Var.c = Y.T();
-            }
-            if (e()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            v44Var.a("early", str2);
-            ri3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, v44Var);
-        }
-    }
-
-    public static boolean e() {
+    @Override // com.baidu.tieba.bj3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (vc4.c() > 0 && i84.c() && System.currentTimeMillis() - vc4.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
-            return false;
+            try {
+                this.h.put("error_code", this.k);
+            } catch (JSONException e) {
+                if (bj3.j) {
+                    e.printStackTrace();
+                }
+            }
+            if (bj3.j) {
+                Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+            }
+            return super.f();
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

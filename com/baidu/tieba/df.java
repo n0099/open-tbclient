@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.gf;
+import com.baidu.tieba.hf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public abstract class df {
     public int mMaxCrashTimes;
     public String mName;
     public int mOffType;
-    public gf.a mSwitchListener;
+    public hf.a mSwitchListener;
 
     public abstract void changeSettingByType(int i);
 
@@ -45,7 +45,7 @@ public abstract class df {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements gf.a {
+    public class a implements hf.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ df a;
@@ -68,7 +68,7 @@ public abstract class df {
             this.a = dfVar;
         }
 
-        @Override // com.baidu.tieba.gf.a
+        @Override // com.baidu.tieba.hf.a
         public void a(String str, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -101,10 +101,10 @@ public abstract class df {
     public void addToManager() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gf gfVar = new gf(this.mName, this.mDefaultType, this.mSwitchListener);
-            gfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
-            gfVar.j(getSwitchLibs());
-            SwitchManager.getInstance().addSwitchData(gfVar);
+            hf hfVar = new hf(this.mName, this.mDefaultType, this.mSwitchListener);
+            hfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
+            hfVar.j(getSwitchLibs());
+            SwitchManager.getInstance().addSwitchData(hfVar);
         }
     }
 

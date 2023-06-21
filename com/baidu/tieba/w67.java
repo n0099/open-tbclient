@@ -1,100 +1,114 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StringHelper;
+import android.text.SpannableStringBuilder;
+import com.baidu.tieba.v77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-import tbclient.FeedVideoComponent;
-import tbclient.ThumbnailInfo;
+import tbclient.FeedContentResource;
+import tbclient.FeedItem;
+import tbclient.FeedKV;
+import tbclient.FeedOriginComponent;
+import tbclient.FeedOriginPic;
+import tbclient.PicInfo;
 import tbclient.VideoField;
 /* loaded from: classes8.dex */
 public final class w67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String schema, l57 feedExtraData) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, schema, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            String a = s77.a(schema, "author_is_living", feedExtraData.a().a().get("author_is_living"));
-            String str = feedExtraData.a().a().get("yy_ext");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                Intrinsics.checkNotNullExpressionValue(a, "{\n        result\n    }");
-                return a;
-            }
-            String a2 = s77.a(a, "yy_ext", str);
-            Intrinsics.checkNotNullExpressionValue(a2, "{\n        SchemaUtil.app…yy_ext\", yyExtInfo)\n    }");
-            return a2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static final o47 b(VideoField videoField, f67 videoSchemaData, l57 feedExtraData) {
-        InterceptResult invokeLLL;
+    public static final void a(FeedOriginComponent feedOriginComponent, List<o87<?>> dataList, q57 feedExtraData) {
+        p47 p47Var;
+        t47 t47Var;
         String str;
+        i47 i47Var;
+        m47 m47Var;
+        String str2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, videoField, videoSchemaData, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(videoField, "videoField");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            e67 e67Var = new e67();
-            ThumbnailInfo thumbnailInfo = videoField.thumbnail;
-            if (thumbnailInfo != null) {
-                str = thumbnailInfo.url;
-            } else {
-                str = null;
-            }
-            e67Var.a = str;
-            Integer num = videoField.is_vertical;
-            if (num != null && num.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            e67Var.b = z;
-            Integer num2 = videoField.width;
-            Intrinsics.checkNotNullExpressionValue(num2, "videoField.width");
-            num2.intValue();
-            Integer num3 = videoField.height;
-            Intrinsics.checkNotNullExpressionValue(num3, "videoField.height");
-            num3.intValue();
-            StringBuilder sb = new StringBuilder();
-            sb.append(StringHelper.stringForVideoTime(videoField.duration.intValue() * 1000));
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = g37.a.getString(R.string.play_count_new);
-            Intrinsics.checkNotNullExpressionValue(string, "FeedAppContext.getString(R.string.play_count_new)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{StringHelper.numFormatOverWan(videoField.play_count.intValue())}, 1));
-            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
-            sb.append(format);
-            e67Var.c = sb.toString();
-            return new o47(e67Var, videoSchemaData, m57.b(feedExtraData, "video_click"), null, 8, null);
-        }
-        return (o47) invokeLLL.objValue;
-    }
-
-    public static final void c(FeedVideoComponent feedVideoComponent, List<j87<?>> dataList, f67 videoSchemaData, l57 feedExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, feedVideoComponent, dataList, videoSchemaData, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedVideoComponent, "<this>");
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedOriginComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedOriginComponent, "<this>");
             Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            VideoField videoField = feedVideoComponent.video_info;
-            if (videoField != null) {
-                dataList.add(new k87(b(videoField, videoSchemaData, feedExtraData), "video"));
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            List<FeedContentResource> _abstract = feedOriginComponent._abstract;
+            Intrinsics.checkNotNullExpressionValue(_abstract, "_abstract");
+            h47 a = o67.a(spannableStringBuilder, _abstract, new q57());
+            if (a.g()) {
+                FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
+                if (feedOriginPic != null && feedOriginPic.pics != null) {
+                    String str3 = feedOriginPic.schema;
+                    if (str3 == null) {
+                        str3 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str3, "pic_info.schema ?: \"\"");
+                    }
+                    List<PicInfo> list = feedOriginComponent.pic_info.pics;
+                    Intrinsics.checkNotNullExpressionValue(list, "pic_info.pics");
+                    p47Var = x67.a(list, str3, new q57());
+                } else {
+                    p47Var = null;
+                }
+                if (feedOriginComponent.video != null) {
+                    k67 k67Var = new k67();
+                    String schema = feedOriginComponent.schema;
+                    Intrinsics.checkNotNullExpressionValue(schema, "schema");
+                    k67Var.g(schema);
+                    VideoField video = feedOriginComponent.video;
+                    Intrinsics.checkNotNullExpressionValue(video, "video");
+                    t47Var = b77.b(video, k67Var, new q57());
+                } else {
+                    t47Var = null;
+                }
+                v77.a aVar = v77.a;
+                List<FeedKV> list2 = feedOriginComponent.item.business_info;
+                Intrinsics.checkNotNullExpressionValue(list2, "item.business_info");
+                HashMap<String, String> a2 = aVar.a(list2);
+                String str4 = a2.get("apk_detail");
+                String str5 = feedExtraData.a().a().get("origin_thread_id");
+                if (str5 == null) {
+                    str = "";
+                } else {
+                    str = str5;
+                }
+                long g = ug.g(a2.get("item_id"), 0L);
+                if (str4 == null) {
+                    String str6 = feedOriginComponent.item.name;
+                    if (str6 != null && str6.length() != 0) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (!z) {
+                        FeedItem item = feedOriginComponent.item;
+                        Intrinsics.checkNotNullExpressionValue(item, "item");
+                        m47 b = s67.b(item, g, str, "", "");
+                        b.a().j = R.color.CAM_X0205;
+                        b.d(false);
+                        m47Var = b;
+                    } else {
+                        m47Var = null;
+                    }
+                    i47Var = null;
+                } else {
+                    FeedItem item2 = feedOriginComponent.item;
+                    Intrinsics.checkNotNullExpressionValue(item2, "item");
+                    i47 a3 = s67.a(item2, str4, g, str, "", "");
+                    a3.a().j = R.color.CAM_X0205;
+                    a3.d(false);
+                    i47Var = a3;
+                    m47Var = null;
+                }
+                h67 b2 = r57.b(feedExtraData, "origin_card_click");
+                String str7 = feedOriginComponent.schema;
+                if (str7 == null) {
+                    str2 = "";
+                } else {
+                    str2 = str7;
+                }
+                dataList.add(new p87(new o47(a, p47Var, t47Var, m47Var, i47Var, str2, b2, null, 128, null), "origin_card"));
             }
         }
     }

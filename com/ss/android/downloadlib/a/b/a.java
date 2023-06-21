@@ -27,15 +27,15 @@ public class a {
     public boolean i = false;
     public volatile boolean j = false;
     public final List<Pair<b, d>> l = new ArrayList();
-    public final List<InterfaceC0714a> b = new ArrayList();
+    public final List<InterfaceC0715a> b = new ArrayList();
     public final ServiceConnection m = new ServiceConnection() { // from class: com.ss.android.downloadlib.a.b.a.1
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             synchronized (a.this.c) {
                 a.this.a(false);
                 a.this.a = null;
-                for (InterfaceC0714a interfaceC0714a : a.this.b) {
-                    interfaceC0714a.b();
+                for (InterfaceC0715a interfaceC0715a : a.this.b) {
+                    interfaceC0715a.b();
                 }
             }
         }
@@ -46,8 +46,8 @@ public class a {
                 a.this.a(false);
                 a.this.a = c.a.a(iBinder);
                 a.this.c();
-                for (InterfaceC0714a interfaceC0714a : a.this.b) {
-                    interfaceC0714a.a();
+                for (InterfaceC0715a interfaceC0715a : a.this.b) {
+                    interfaceC0715a.a();
                 }
             }
         }
@@ -57,7 +57,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0714a {
+    public interface InterfaceC0715a {
         void a();
 
         void b();

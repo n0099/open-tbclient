@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.gk9;
-import com.baidu.tieba.ik9;
-import com.baidu.tieba.lk9;
+import com.baidu.tieba.kl9;
+import com.baidu.tieba.ml9;
+import com.baidu.tieba.pl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PostSearchActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lk9 a;
-    public ik9 b;
+    public pl9 a;
+    public ml9 b;
     public String c;
     public String d;
     public String e;
@@ -96,30 +96,30 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            lk9 lk9Var = this.a;
-            if (lk9Var != null) {
-                lk9Var.h();
+            pl9 pl9Var = this.a;
+            if (pl9Var != null) {
+                pl9Var.h();
             }
             super.onDestroy();
         }
     }
 
-    public ik9 u1() {
+    public ml9 u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.b;
         }
-        return (ik9) invokeV.objValue;
+        return (ml9) invokeV.objValue;
     }
 
-    public lk9 v1() {
+    public pl9 v1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.a;
         }
-        return (lk9) invokeV.objValue;
+        return (pl9) invokeV.objValue;
     }
 
     public void w1() {
@@ -157,17 +157,17 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
     }
 
-    public void A1(int i, gk9 gk9Var, boolean z) {
+    public void A1(int i, kl9 kl9Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), gk9Var, Boolean.valueOf(z)}) == null) {
-            if (i == 1 && (gk9Var == null || !gk9Var.a())) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), kl9Var, Boolean.valueOf(z)}) == null) {
+            if (i == 1 && (kl9Var == null || !kl9Var.a())) {
                 this.a.c();
                 this.a.n();
                 return;
             }
             this.a.c();
             this.a.b();
-            this.a.j(i, gk9Var, z);
+            this.a.j(i, kl9Var, z);
         }
     }
 
@@ -201,12 +201,12 @@ public class PostSearchActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            lk9 lk9Var = new lk9(this);
-            this.a = lk9Var;
-            lk9Var.e();
+            pl9 pl9Var = new pl9(this);
+            this.a = pl9Var;
+            pl9Var.e();
             this.a.l(this.f);
             addGlobalLayoutListener();
-            this.b = new ik9(this);
+            this.b = new ml9(this);
             x1();
         }
     }

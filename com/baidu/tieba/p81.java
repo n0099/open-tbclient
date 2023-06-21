@@ -1,44 +1,47 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 /* loaded from: classes7.dex */
 public interface p81 {
-    public static final p81 a = new a();
+    void a();
 
-    o81 a(Activity activity);
+    ViewGroup.LayoutParams b();
 
-    /* loaded from: classes7.dex */
-    public static class a implements p81 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void c(View.OnLayoutChangeListener onLayoutChangeListener);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void e();
 
-        @Override // com.baidu.tieba.p81
-        public o81 a(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-                return new k81(activity);
-            }
-            return (o81) invokeL.objValue;
-        }
-    }
+    void g(int i);
+
+    boolean h();
+
+    void i(FrameLayout.LayoutParams layoutParams);
+
+    boolean j();
+
+    void k(int i);
+
+    void l(t81 t81Var);
+
+    void m(boolean z);
+
+    boolean n();
+
+    void o(ViewGroup viewGroup);
+
+    void onDestroy();
+
+    void p(n81 n81Var);
+
+    void r(String str);
+
+    void s(View.OnLayoutChangeListener onLayoutChangeListener);
+
+    void t(int i, boolean z);
+
+    void u(r81 r81Var);
+
+    void v();
 }

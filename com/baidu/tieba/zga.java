@@ -1,66 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.location.Address;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SelectForumConfig;
-import com.baidu.tbadk.core.data.GameData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tieba.write.view.ForumSelectedView;
-import com.baidu.tieba.xia;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ThemeColorInfo;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zga extends mha<aia> {
+public class zga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ForumSelectedView g;
-    @Nullable
-    public xia h;
-    @Nullable
-    public SelectForumData i;
-    public final xia.b j;
+    public String a;
+    public BdUniqueId b;
+    public yga c;
 
-    @Override // com.baidu.tieba.rha
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.rha
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
-        }
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public class a implements xia.b {
+    public class b extends BdAsyncTask<wga, Integer, xga> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zga a;
 
-        public a(zga zgaVar) {
+        public b(zga zgaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,200 +65,182 @@ public class zga extends mha<aia> {
             this.a = zgaVar;
         }
 
-        @Override // com.baidu.tieba.xia.b
-        public void a(@NonNull SelectForumData selectForumData) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(xga xgaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, selectForumData) != null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xgaVar) == null) && this.a.c != null) {
+                this.a.c.a(xgaVar);
             }
-            this.a.i = selectForumData;
-            if (this.a.e != null) {
-                this.a.e.setForumId(selectForumData.forumId);
-                this.a.e.setForumName(selectForumData.forumName);
+        }
+
+        public /* synthetic */ b(zga zgaVar, a aVar) {
+            this(zgaVar);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public xga doInBackground(wga... wgaVarArr) {
+            InterceptResult invokeL;
+            wga wgaVar;
+            int netErrorCode;
+            ImageUploadResult.picInfo picinfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wgaVarArr)) == null) {
+                String str = null;
+                if (wgaVarArr.length == 0 || (wgaVar = wgaVarArr[0]) == null) {
+                    return null;
+                }
+                ic icVar = new ic("images", TbMd5.getNameMd5FromUrl(wgaVar.i + 42), DiskFileOperate.Action.READ);
+                icVar.setSubFolder(true);
+                icVar.setIsFormatData(false);
+                ImageUploadResult uploadInBackground = new ImageUploader(null).uploadInBackground(c(icVar.buildPath(), icVar.getName()), true, false);
+                if (uploadInBackground != null && (picinfo = uploadInBackground.picInfo) != null) {
+                    ImageUploadResult.PicDetailedInfo picDetailedInfo = picinfo.originPic;
+                    if (picDetailedInfo != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
+                        str = uploadInBackground.picInfo.originPic.picUrl;
+                    } else {
+                        ImageUploadResult.PicDetailedInfo picDetailedInfo2 = uploadInBackground.picInfo.bigPic;
+                        if (picDetailedInfo2 != null && !StringUtils.isNull(picDetailedInfo2.picUrl)) {
+                            str = uploadInBackground.picInfo.bigPic.picUrl;
+                        } else {
+                            ImageUploadResult.PicDetailedInfo picDetailedInfo3 = uploadInBackground.picInfo.smallPic;
+                            if (picDetailedInfo3 != null && !StringUtils.isNull(picDetailedInfo3.picUrl)) {
+                                str = uploadInBackground.picInfo.smallPic.picUrl;
+                            }
+                        }
+                    }
+                }
+                if (StringUtils.isNull(str)) {
+                    str = wgaVar.j;
+                }
+                NetWork netWork = new NetWork();
+                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
+                netWork.getNetContext().getRequest().mIsNeedTbs = true;
+                netWork.addPostData("anonymous", "1");
+                netWork.addPostData("can_no_forum", "0");
+                netWork.addPostData("is_feedback", "0");
+                if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
+                    netWork.addPostData("vcode_tag", "12");
+                }
+                netWork.addPostData("new_vcode", "1");
+                netWork.addPostData("content", wgaVar.m);
+                netWork.addPostData("fid", wgaVar.e);
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, wgaVar.f);
+                netWork.addPostData("is_hide", "0");
+                netWork.addPostData(IntentConfig.CALL_FROM, "2");
+                netWork.addPostData("title", wgaVar.m);
+                netWork.addPostData("is_ntitle", "1");
+                netWork.addPostData("st_type", "notitle");
+                netWork.addPostData("is_location", "2");
+                Address j = qf.n().j(false);
+                if (j != null && TbadkCoreApplication.getInst().getIsLocationOn()) {
+                    netWork.addPostData("lbs", String.valueOf(j.getLatitude()) + "," + String.valueOf(j.getLongitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+                }
+                LocationData b = z0a.a().b();
+                if (b != null) {
+                    netWork.addPostData("name", b.getFormatted_address());
+                    netWork.addPostData(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, b.getSn());
+                }
+                netWork.addPostData("is_link_thread", "0");
+                if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+                    netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                }
+                netWork.addPostData("tbopen_app_key", wgaVar.a);
+                netWork.addPostData("tbopen_app_icon", wgaVar.d);
+                netWork.addPostData("tbopen_app_name", wgaVar.c);
+                netWork.addPostData("share_abstract", wgaVar.h);
+                netWork.addPostData("share_image", str);
+                netWork.addPostData("share_h5_url", wgaVar.k);
+                netWork.addPostData("share_naws_app_key", wgaVar.b);
+                netWork.addPostData("share_naws_path", wgaVar.l);
+                String postNetData = netWork.postNetData();
+                xga xgaVar = new xga();
+                try {
+                    JSONObject jSONObject = new JSONObject(postNetData);
+                    jSONObject.optString("msg");
+                    jSONObject.optString("pre_msg");
+                    xgaVar.b = wgaVar.e;
+                    xgaVar.c = jSONObject.optString("tid");
+                    jSONObject.optString("pid");
+                    jSONObject.optString("video_id");
+                } catch (Exception unused) {
+                }
+                ErrorData errorData = new ErrorData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    errorData.parserJson(postNetData);
+                } else {
+                    if (netWork.isNetSuccess()) {
+                        netErrorCode = netWork.getServerErrorCode();
+                    } else {
+                        netErrorCode = netWork.getNetErrorCode();
+                    }
+                    errorData.setError_code(netErrorCode);
+                    errorData.setError_msg(netWork.getErrorString());
+                }
+                if (errorData.error_code != 0 && !BdNetTypeUtil.isNetWorkAvailable()) {
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0df3));
+                }
+                xgaVar.a = errorData;
+                try {
+                    new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
+                } catch (Exception unused2) {
+                }
+                return xgaVar;
             }
-            if (this.a.g != null) {
-                this.a.g.setSelectedForum(selectForumData.forumName);
+            return (xga) invokeL.objValue;
+        }
+
+        public String c(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                String str3 = this.a.a + str2;
+                if (str != null) {
+                    return this.a.a + str + "/" + str2;
+                }
+                return str3;
             }
-            this.a.y(selectForumData);
+            return (String) invokeLL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zga(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, aia.class);
+    public zga(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = new a(this);
+        this.a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+        this.b = bdUniqueId;
     }
 
-    @Override // com.baidu.tieba.mha, com.baidu.tieba.rha
-    public void q(@NonNull List<rha<?>> list) {
+    public void c(yga ygaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            super.q(list);
-            for (rha<?> rhaVar : list) {
-                if (rhaVar instanceof aha) {
-                    w((aha) rhaVar);
-                } else if (rhaVar instanceof iha) {
-                    w((iha) rhaVar);
-                } else if (rhaVar instanceof wga) {
-                    w((wga) rhaVar);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, ygaVar) == null) {
+            this.c = ygaVar;
         }
     }
 
-    @Override // com.baidu.tieba.rha
-    public void c(WriteData writeData) {
-        SelectForumData selectForumData;
+    public void d(wga wgaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && (selectForumData = this.i) != null) {
-            writeData.setForumId(selectForumData.forumId);
-            writeData.setForumName(this.i.forumName);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wgaVar) == null) {
+            b bVar = new b(this, null);
+            bVar.setTag(this.b);
+            bVar.execute(wgaVar);
         }
-    }
-
-    @Override // com.baidu.tieba.rha
-    public void onChangeSkinType(int i) {
-        ForumSelectedView forumSelectedView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (forumSelectedView = this.g) != null) {
-            forumSelectedView.c();
-        }
-    }
-
-    public final boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WriteData writeData = this.e;
-            if (writeData != null && "2".equals(writeData.getCallFrom())) {
-                return TextUtils.isEmpty(this.e.getForumName());
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mha, com.baidu.tieba.rha
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.d();
-            xia xiaVar = this.h;
-            if (xiaVar != null) {
-                xiaVar.d();
-            }
-        }
-    }
-
-    public final void G() {
-        ThemeColorInfo themeColorInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            or6 or6Var = new or6(this.a, this.c);
-            or6Var.L(R.drawable.bg_tip_blue_dropup_left);
-            if (lk5.b().a() != null) {
-                themeColorInfo = lk5.b().a().f;
-            } else {
-                themeColorInfo = null;
-            }
-            or6Var.M(SkinManager.getColorFromServerColor(themeColorInfo, R.color.CAM_X0301));
-            or6Var.o(32);
-            or6Var.l(4);
-            or6Var.Q(-50);
-            or6Var.R(-10);
-            or6Var.J(R.dimen.T_X08);
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
-            or6Var.E(dimenPixelSize, UtilHelper.getDimenPixelSize(R.dimen.tbds40), dimenPixelSize, UtilHelper.getDimenPixelSize(R.dimen.tbds23));
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13e8);
-            if (lk5.b().a() != null && !TextUtils.isEmpty(lk5.b().a().d)) {
-                string = lk5.b().a().d;
-            }
-            if (StringHelper.getChineseAndEnglishLength(string) > 40) {
-                or6Var.Q(0);
-            }
-            or6Var.T(string, ga7.a("springfestival", "write_select_forum"));
-        }
-    }
-
-    @Override // com.baidu.tieba.mha, com.baidu.tieba.rha
-    public void j(@NonNull tha thaVar) {
-        WriteData writeData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, thaVar) == null) {
-            super.j(thaVar);
-            if (this.h == null) {
-                xia xiaVar = new xia();
-                this.h = xiaVar;
-                xiaVar.c(this.j);
-            }
-            this.h.b(this.a.getUniqueId());
-            if (mk5.b.a().a("show_write_tip") && (writeData = this.e) != null && "springfestival".equals(writeData.getActiveName()) && "write_select_forum".equals(this.e.getActiveTaskName())) {
-                G();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mha, com.baidu.tieba.rha
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (F()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a.getPageActivity())));
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rha
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d050e, viewGroup, false);
-            this.c = inflate;
-            ForumSelectedView forumSelectedView = (ForumSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f09208e);
-            this.g = forumSelectedView;
-            WriteData writeData = this.e;
-            if (writeData != null && forumSelectedView != null) {
-                if ("main_tab".equals(writeData.getFrom()) && !this.e.isFromErrorDialog()) {
-                    this.g.setVisibility(0);
-                } else if (!TextUtils.isEmpty(this.e.getForumName())) {
-                    this.g.setVisibility(0);
-                    this.g.setSelectedForum(this.e.getForumName());
-                    if (this.e.isFromGameRank()) {
-                        GameData gameData = new GameData();
-                        gameData.gameId = this.e.getGameId();
-                        gameData.gameName = this.e.getGameName();
-                        this.g.setGameData(gameData);
-                    } else {
-                        this.g.a();
-                        this.g.setOnClickListener(null);
-                    }
-                } else {
-                    this.g.setVisibility(8);
-                }
-            }
-            return this.c;
-        }
-        return (View) invokeL.objValue;
     }
 }

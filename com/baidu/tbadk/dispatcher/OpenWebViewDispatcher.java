@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.lz4;
-import com.baidu.tieba.to9;
+import com.baidu.tieba.lq9;
+import com.baidu.tieba.mz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class OpenWebViewDispatcher implements to9 {
+public class OpenWebViewDispatcher implements lq9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,11 +40,9 @@ public class OpenWebViewDispatcher implements to9 {
         }
     }
 
-    @Override // com.baidu.tieba.to9
+    @Override // com.baidu.tieba.lq9
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
-        boolean z;
-        TbPageContext tbPageContext;
         String str;
         Bundle bundle;
         Interceptable interceptable = $ic;
@@ -54,29 +52,22 @@ public class OpenWebViewDispatcher implements to9 {
         String optString = jSONObject.optString("url");
         jSONObject.optString("pageType");
         String optString2 = jSONObject.optString("title");
-        boolean z2 = true;
+        boolean z = true;
         boolean optBoolean = jSONObject.optBoolean("navigationBar", true);
         boolean optBoolean2 = jSONObject.optBoolean("cookie", true);
         boolean optBoolean3 = jSONObject.optBoolean("enableJs", true);
         boolean optBoolean4 = jSONObject.optBoolean(WebViewActivityConfig.TAG_ADD_PARMAS, true);
         boolean optBoolean5 = jSONObject.optBoolean("immersiveSticky", false);
         boolean optBoolean6 = jSONObject.optBoolean("fixTitle", false);
-        if (jSONObject.optInt(WebViewActivityConfig.TAG_AUTO_PLAY_VIDEO) == 1) {
-            z = true;
-        } else {
+        if (jSONObject.optInt(WebViewActivityConfig.TAG_AUTO_PLAY_VIDEO) != 1) {
             z = false;
-        }
-        if (jSONObject.optInt("isClose", 0) != 1) {
-            z2 = false;
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("initData");
         try {
             Uri parse = Uri.parse(optString);
             if (parse != null) {
-                tbPageContext = currentPageContext;
                 str = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_OPEN_TYPE);
             } else {
-                tbPageContext = currentPageContext;
                 str = null;
             }
             String optString3 = jSONObject.optString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE);
@@ -89,7 +80,7 @@ public class OpenWebViewDispatcher implements to9 {
             } else {
                 bundle = null;
             }
-            lz4 j = lz4.j(context, optString);
+            mz4 j = mz4.j(context, optString);
             j.p(optString2);
             j.m(optBoolean);
             j.k(optBoolean2);
@@ -108,9 +99,6 @@ public class OpenWebViewDispatcher implements to9 {
                 j.f(hashMap);
             }
             j.o();
-            if (z2 && tbPageContext.getPageActivity() != null) {
-                tbPageContext.getPageActivity().finish();
-            }
         } catch (Exception e) {
             BdLog.e(e);
         }

@@ -1,295 +1,311 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
-import androidx.core.view.InputDeviceCompat;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Looper;
+import android.telephony.TelephonyManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public final class rib {
+public class rib {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "rib";
+    public static final String f = "rib";
+    public static ConnectivityManager g;
+    public static NetworkInfo h;
+    public static final Handler i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ExecutorService b;
+    public uib c;
+    public AtomicBoolean d;
+    public BroadcastReceiver e;
+
+    /* loaded from: classes7.dex */
+    public class a extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rib this$0;
+
+        public a(rib ribVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ribVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = ribVar;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                TLog.h("[tinyvideo]", "[netrecv] NetworkStateService onReceive pid " + Thread.currentThread().getId());
+                if (intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
+                    TLog.h("[tinyvideo]", "[netrecv]  current network connectivity action begin");
+                    this.this$0.j();
+                    TLog.h("[tinyvideo]", "[netrecv] current network connectivity action end");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rib a;
+
+        public b(rib ribVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ribVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ribVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (this.a.d) {
+                if (!this.a.d.get()) {
+                    return;
+                }
+                rib.g(this.a.a, this.a.c);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rib a;
+
+        public c(rib ribVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ribVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ribVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b.shutdownNow();
+                this.a.b = null;
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948123998, "Lcom/baidu/tieba/rib;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948123998, "Lcom/baidu/tieba/rib;");
-        }
-    }
-
-    public static int f(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65542, null, f)) == null) ? (int) (f + 0.5f) : invokeF.intValue;
-    }
-
-    public static float g(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65543, null, f)) == null) ? ((int) (f * 100.0f)) / 100.0f : invokeF.floatValue;
-    }
-
-    public static void a(float[] fArr, int i, int i2, MediaInfo mediaInfo, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), mediaInfo, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int i5 = mediaInfo.b;
-            int i6 = mediaInfo.c;
-            float f = i5 / mediaInfo.d;
-            float f2 = i6 / mediaInfo.e;
-            if (i2 == 1 || i2 == 3) {
-                i5 = mediaInfo.c;
-                i6 = mediaInfo.b;
-                f = i5 / mediaInfo.e;
-                f2 = i6 / mediaInfo.d;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948123998, "Lcom/baidu/tieba/rib;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            float g = g(f);
-            float g2 = g(f2);
-            fArr[2] = 0.0f;
-            fArr[3] = 0.0f;
-            fArr[6] = g;
-            fArr[7] = 0.0f;
-            fArr[10] = 0.0f;
-            fArr[11] = g2;
-            fArr[14] = g;
-            fArr[15] = g2;
-            if (i == 2) {
-                float f3 = i6 / i5;
-                int f4 = f(i3 * f3);
-                if (f4 > i4) {
-                    float f5 = ((f4 - i4) >> 1) / f4;
-                    if (i2 != 1 && i2 != 3) {
-                        fArr[3] = fArr[3] + f5;
-                        fArr[7] = fArr[7] + f5;
-                        fArr[11] = fArr[11] - f5;
-                        fArr[15] = fArr[15] - f5;
-                        return;
-                    }
-                    fArr[2] = fArr[2] + f5;
-                    fArr[6] = fArr[6] - f5;
-                    fArr[10] = fArr[10] + f5;
-                    fArr[14] = fArr[14] - f5;
-                    return;
-                }
-                int f6 = f(i4 / f3);
-                float f7 = ((f6 - i3) >> 1) / f6;
-                if (i2 != 1 && i2 != 3) {
-                    fArr[2] = fArr[2] + f7;
-                    fArr[6] = fArr[6] - f7;
-                    fArr[10] = fArr[10] + f7;
-                    fArr[14] = fArr[14] - f7;
-                    return;
-                }
-                fArr[3] = fArr[3] + f7;
-                fArr[7] = fArr[7] + f7;
-                fArr[11] = fArr[11] - f7;
-                fArr[15] = fArr[15] - f7;
-            }
-        }
-    }
-
-    public static void b(float[] fArr, int i, int i2, MediaInfo mediaInfo, int i3, int i4) {
-        int f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), mediaInfo, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            fArr[0] = -1.0f;
-            fArr[1] = 1.0f;
-            fArr[4] = 1.0f;
-            fArr[5] = 1.0f;
-            fArr[8] = -1.0f;
-            fArr[9] = -1.0f;
-            fArr[12] = 1.0f;
-            fArr[13] = -1.0f;
-            int i5 = mediaInfo.b;
-            int i6 = mediaInfo.c;
-            if (i2 == 1 || i2 == 3) {
-                i5 = mediaInfo.c;
-                i6 = mediaInfo.b;
-            }
-            if (i == 1) {
-                float f2 = i6 / i5;
-                float f3 = i3;
-                if (f(f3 * f2) <= i4) {
-                    float f4 = (i4 - f) / i4;
-                    if (i2 != 1 && i2 != 3) {
-                        fArr[1] = fArr[1] - f4;
-                        fArr[5] = fArr[5] - f4;
-                        fArr[9] = fArr[9] + f4;
-                        fArr[13] = fArr[13] + f4;
-                        return;
-                    }
-                    fArr[0] = fArr[0] + f4;
-                    fArr[4] = fArr[4] - f4;
-                    fArr[8] = fArr[8] + f4;
-                    fArr[12] = fArr[12] - f4;
-                    return;
-                }
-                float f5 = (i3 - f(i4 / f2)) / f3;
-                if (i2 != 1 && i2 != 3) {
-                    fArr[0] = fArr[0] + f5;
-                    fArr[4] = fArr[4] - f5;
-                    fArr[8] = fArr[8] + f5;
-                    fArr[12] = fArr[12] - f5;
-                    return;
-                }
-                fArr[1] = fArr[1] - f5;
-                fArr[5] = fArr[5] - f5;
-                fArr[9] = fArr[9] + f5;
-                fArr[13] = fArr[13] + f5;
-            }
-        }
-    }
-
-    public static void c(String str, qib qibVar) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65539, null, str, qibVar) != null) {
-            return;
-        }
-        while (true) {
-            int glGetError = GLES20.glGetError();
-            if (glGetError != 0) {
-                String format = String.format("%s failed. glError() = 0x%04x", str, Integer.valueOf(glGetError));
-                if (glGetError == 1285 && qibVar != null && (i = qibVar.a) < 10000) {
-                    qibVar.a = i + 1;
-                }
-                TLog.d(a, format);
-            } else {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948123998, "Lcom/baidu/tieba/rib;");
                 return;
             }
         }
+        i = new Handler(Looper.getMainLooper());
     }
 
-    public static int d(String str, String str2, qib qibVar) {
-        InterceptResult invokeLLL;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, qibVar)) == null) {
-            int[] iArr = new int[1];
-            int h = h(str, 35633);
-            if (h <= 0) {
-                c("loadShader(GL_VERTEX_SHADER)", qibVar);
-                return -1;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv]  updateNetInfo");
+            ExecutorService executorService = this.b;
+            if (executorService != null) {
+                executorService.submit(new b(this));
             }
-            int h2 = h(str2, 35632);
-            if (h2 <= 0) {
-                c("loadShader(GL_FRAGMENT_SHADER)", qibVar);
-                k(h, qibVar);
-                return -1;
-            }
-            int glCreateProgram = GLES20.glCreateProgram();
-            c("glCreateProgram()", qibVar);
-            GLES20.glAttachShader(glCreateProgram, h);
-            GLES20.glAttachShader(glCreateProgram, h2);
-            GLES20.glLinkProgram(glCreateProgram);
-            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-            if (iArr[0] <= 0) {
-                String str3 = a;
-                TLog.d(str3, "glLinkProgram() failed.\n" + GLES20.glGetProgramInfoLog(glCreateProgram));
-                glCreateProgram = j(glCreateProgram, qibVar);
-            }
-            GLES20.glDeleteShader(h);
-            GLES20.glDeleteShader(h2);
-            return glCreateProgram;
         }
-        return invokeLLL.intValue;
     }
 
-    public static int e(qib qibVar) {
+    public rib(Context context, uib uibVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, uibVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.c = null;
+        this.d = new AtomicBoolean(false);
+        this.e = new a(this);
+        this.a = context;
+        this.c = uibVar;
+    }
+
+    public static void g(Context context, uib uibVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, uibVar) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo");
+            if (context == null) {
+                return;
+            }
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo begin");
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            g = connectivityManager;
+            h = connectivityManager.getActiveNetworkInfo();
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo end");
+            NetworkInfo networkInfo = h;
+            if (networkInfo != null && networkInfo.isAvailable()) {
+                int type = h.getType();
+                if (type == 0) {
+                    byte h2 = h(context);
+                    uibVar.e(h2);
+                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName() + ", mobileNetType:" + ((int) h2));
+                    return;
+                } else if (type == 1) {
+                    uibVar.e(0);
+                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName());
+                    return;
+                } else {
+                    String str = f;
+                    TLog.h(str, "[netrecv] current network: " + h.getTypeName());
+                    return;
+                }
+            }
+            TLog.h("[tinyvideo]", "[netrecv] current network No usable network!!");
+            uibVar.e(2);
+        }
+    }
+
+    public static byte h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, qibVar)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            c("glGenTextures()", qibVar);
-            return iArr[0];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            try {
+                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                    case 1:
+                    case 2:
+                        return (byte) 3;
+                    case 3:
+                        return (byte) 4;
+                    case 4:
+                        return (byte) 3;
+                    case 5:
+                    case 6:
+                        return (byte) 4;
+                    case 7:
+                        return (byte) 3;
+                    case 8:
+                    case 9:
+                    case 10:
+                        return (byte) 4;
+                    case 11:
+                        return (byte) 3;
+                    case 12:
+                        return (byte) 4;
+                    case 13:
+                        return (byte) 5;
+                    case 14:
+                    case 15:
+                        return (byte) 4;
+                    default:
+                        return (byte) 1;
+                }
+            } catch (SecurityException e) {
+                e.printStackTrace();
+                return (byte) 1;
+            }
         }
-        return invokeL.intValue;
+        return invokeL.byteValue;
     }
 
-    public static int h(String str, int i) {
-        InterceptResult invokeLI;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
-            int[] iArr = new int[1];
-            int glCreateShader = GLES20.glCreateShader(i);
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] != 1) {
-                String str2 = a;
-                TLog.h(str2, "[seek] glCompileShader() failed." + GLES20.glGetShaderInfoLog(glCreateShader));
-                return -1;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] NetStatManager deInit ");
+            if (this.a != null) {
+                synchronized (this.d) {
+                    if (this.d.get()) {
+                        this.d.set(false);
+                        this.a.unregisterReceiver(this.e);
+                    }
+                }
+                i.post(new c(this));
             }
-            return glCreateShader;
         }
-        return invokeLI.intValue;
     }
 
-    public static int i(int i, qib qibVar) {
-        InterceptResult invokeIL;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, null, i, qibVar)) == null) {
-            if (i > 0) {
-                GLES20.glDeleteBuffers(1, new int[]{i}, 0);
-                c("glDeleteBuffers()", qibVar);
-                return -1;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup");
+            if (this.a != null) {
+                synchronized (this.d) {
+                    if (!this.d.get()) {
+                        IntentFilter intentFilter = new IntentFilter();
+                        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+                        this.a.registerReceiver(this.e, intentFilter);
+                        this.b = Executors.newSingleThreadExecutor();
+                        this.d.set(true);
+                        TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup done");
+                    }
+                }
             }
-            return -1;
         }
-        return invokeIL.intValue;
-    }
-
-    public static int j(int i, qib qibVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i, qibVar)) == null) {
-            if (i > 0) {
-                GLES20.glDeleteProgram(i);
-                c("glDeleteProgram()", qibVar);
-                return -1;
-            }
-            return -1;
-        }
-        return invokeIL.intValue;
-    }
-
-    public static int k(int i, qib qibVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i, qibVar)) == null) {
-            if (i > 0) {
-                GLES20.glDeleteShader(i);
-                c("glDeleteShader()", qibVar);
-                return -1;
-            }
-            return -1;
-        }
-        return invokeIL.intValue;
-    }
-
-    public static int l(int i, qib qibVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, qibVar)) == null) {
-            if (i > 0) {
-                GLES20.glDeleteTextures(1, new int[]{i}, 0);
-                c("glDeleteTextures()", qibVar);
-                return -1;
-            }
-            return -1;
-        }
-        return invokeIL.intValue;
     }
 }

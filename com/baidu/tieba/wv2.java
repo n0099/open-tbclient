@@ -1,18 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
+import android.content.Context;
 /* loaded from: classes8.dex */
 public interface wv2 {
-    void a(vc3 vc3Var);
-
-    @Nullable
-    Map<String, Object> b(@NonNull zz1 zz1Var);
-
-    @Nullable
-    Map<String, Object> c(@NonNull zz1 zz1Var);
-
-    @Nullable
-    Map<Class, Object> d();
+    void a(Context context, String str, String str2, ss1 ss1Var);
 }

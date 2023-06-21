@@ -1,12 +1,9 @@
 package com.baidu.tieba;
-
-import android.graphics.Bitmap;
-import android.os.Bundle;
 /* loaded from: classes5.dex */
 public interface geb {
-    void b(Bundle bundle);
+    void a(int i, double d);
 
-    void c(Bitmap bitmap);
+    void b();
 
-    void d(String str);
+    void onFinished();
 }

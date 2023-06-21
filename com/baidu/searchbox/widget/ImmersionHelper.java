@@ -220,7 +220,7 @@ public class ImmersionHelper {
     }
 
     public static boolean isImmersionEnabled(View view2) {
-        if (!SUPPORT_IMMERSION || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f0910dd) == null) {
+        if (!SUPPORT_IMMERSION || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f0910e2) == null) {
             return false;
         }
         return true;
@@ -362,7 +362,7 @@ public class ImmersionHelper {
             childAt.setLayoutParams(layoutParams2);
             View view2 = new View(this.mActivity);
             view2.setTag(VIEW_TAG);
-            view2.setId(R.id.obfuscated_res_0x7f0910dd);
+            view2.setId(R.id.obfuscated_res_0x7f0910e2);
             this.mRootView.addView(view2, 0, new ViewGroup.LayoutParams(-1, statusBarHeight));
             return view2;
         }

@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class gv1 implements xx1 {
+public class gv1 implements wx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.xx1
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-        }
-    }
 
     public gv1() {
         Interceptable interceptable = $ic;
@@ -29,5 +23,41 @@ public class gv1 implements xx1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.wx1
+    public void a(Context context, sq3<Boolean> sq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, sq3Var) != null) || sq3Var == null) {
+            return;
+        }
+        sq3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.wx1
+    public void b(boolean z, sq3<String> sq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, sq3Var) != null) || sq3Var == null) {
+            return;
+        }
+        sq3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.wx1
+    public void c(Context context, sq3<String> sq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sq3Var) != null) || sq3Var == null) {
+            return;
+        }
+        sq3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.wx1
+    public void d(sq3<Integer> sq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, sq3Var) != null) || sq3Var == null) {
+            return;
+        }
+        sq3Var.a(null);
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ww5;
+import com.baidu.tieba.bx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class GetPersonalGiftListRequest extends NetMessage {
             builder.st_type = this.type;
             builder.account_type = Integer.valueOf(this.userType);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ww5.a(builder, true);
+                bx5.a(builder, true);
             }
             GetMyGiftReqIdl.Builder builder2 = new GetMyGiftReqIdl.Builder();
             builder2.data = builder.build(false);

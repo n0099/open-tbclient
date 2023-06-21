@@ -1,7 +1,7 @@
 package com.baidu.swan.bdtls.impl.model;
 
-import com.baidu.tieba.cv3;
 import com.baidu.tieba.dv3;
+import com.baidu.tieba.ev3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
 /* loaded from: classes4.dex */
-public final class Bdtls$Extension extends GeneratedMessageLite implements dv3 {
+public final class Bdtls$Extension extends GeneratedMessageLite implements ev3 {
     public static final int DATA_FIELD_NUMBER = 2;
     public static Parser<Bdtls$Extension> PARSER = new a();
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -29,7 +29,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements dv3 {
     public int type_;
 
     /* loaded from: classes4.dex */
-    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements dv3 {
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements ev3 {
         public int a;
         public int b;
         public ByteString c = ByteString.EMPTY;
@@ -89,7 +89,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements dv3 {
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$Extension buildPartial() {
-            Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (cv3) null);
+            Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (dv3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -377,7 +377,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements dv3 {
         }
     }
 
-    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, cv3 cv3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, dv3 dv3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -412,7 +412,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements dv3 {
         }
     }
 
-    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, cv3 cv3Var) {
+    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, dv3 dv3Var) {
         this(builder);
     }
 

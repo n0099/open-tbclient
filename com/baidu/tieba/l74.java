@@ -1,14 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.gm2;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,37 +11,45 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l74 extends km2<t74, u74> {
+public class l74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile l74 e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends gm2.a {
+    public static class a implements sq3<zg3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g42 a;
 
-        @Override // com.baidu.tieba.gm2.a
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public a() {
+        public a(g42 g42Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g42Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g42Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sq3
+        /* renamed from: b */
+        public void a(zg3 zg3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zg3Var) == null) {
+                if (zg3Var == null || zg3Var.d || zg3Var.j != 1) {
+                    l74.c(this.a, false, "system deny");
+                } else {
+                    l74.c(this.a, true, "authorize:ok");
                 }
             }
         }
@@ -66,75 +68,32 @@ public class l74 extends km2<t74, u74> {
                 return;
             }
         }
-        d = is1.a;
+        a = js1.a;
     }
 
-    public static l74 i() {
-        InterceptResult invokeV;
+    public static void b(JsObject jsObject) {
+        g42 F;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (l74.class) {
-                    if (e == null) {
-                        e = new l74();
-                    }
-                }
-            }
-            return e;
+        if ((interceptable != null && interceptable.invokeL(65538, null, jsObject) != null) || (F = g42.F(jsObject)) == null) {
+            return;
         }
-        return (l74) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l74() {
-        super(new t74(), new u74());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((kn2) objArr[0], (nn2) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        zb3 b0 = zb3.b0();
+        if (b0 == null) {
+            c(F, false, "authorize:fail internal error");
+        } else {
+            b0.e0().e("mapp_enable_eval", new a(F));
         }
     }
 
-    @Override // com.baidu.tieba.km2
-    public String b(int i) {
-        InterceptResult invokeI;
+    public static void c(g42 g42Var, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return n74.b().getPath();
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{g42Var, Boolean.valueOf(z), str}) == null) {
+            if (a) {
+                Log.i("AuthorizeEvalApi", "callAsyncCallback: " + str);
             }
-            return null;
+            i64 i64Var = new i64();
+            i64Var.errMsg = str;
+            le4.call(g42Var, z, i64Var);
         }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.km2
-    @Nullable
-    public ExtensionCore c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return d();
-            }
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
-            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (d) {
-                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
-                return extensionCore;
-            }
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
     }
 }

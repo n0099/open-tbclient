@@ -1,128 +1,163 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
 /* loaded from: classes8.dex */
-public class u58 extends id7<ThreadData, CardViewHolder<co6>> implements do6 {
+public class u58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext l;
-    public go6<ThreadData> m;
-
-    @Override // com.baidu.tieba.do6
-    public String from() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "FrsHottopicVideoDelegateAdapter" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.id7
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-        }
-    }
+    public BaseActivity<?> a;
+    public SparseArray<String> b;
 
     /* loaded from: classes8.dex */
-    public class a extends go6<ThreadData> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ u58 b;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.go6
-        /* renamed from: d */
-        public void b(View view2, ThreadData threadData, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData, obj) == null) {
-            }
-        }
-
-        public a(u58 u58Var) {
+        public a(u58 u58Var, ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u58Var};
+                Object[] objArr = {u58Var, shareItem};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.b = u58Var;
+            this.a = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                mi.a(this.a.x);
+                wi.Q(this.b.a.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u58(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public u58(BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = new a(this);
-        this.l = tbPageContext;
+        this.b = null;
+        this.a = baseActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
-    /* renamed from: G */
-    public CardViewHolder<co6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void b(ShareItem shareItem, String str, long j, String str2) {
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new co6(this.l, viewGroup));
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.id7, com.baidu.tieba.in
-    /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, CardViewHolder<co6> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, cardViewHolder})) == null) {
-            if (cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().k(this.m);
-                cardViewHolder.a().i(threadData);
-                return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, str, Long.valueOf(j), str2}) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!StringUtils.isNull(str) && !StringUtil.NULL_STRING.equals(str)) {
+                if (str.length() > 20) {
+                    sb.append(str.substring(0, 20));
+                    sb.append("...");
+                } else {
+                    sb.append(str);
+                }
+                sb.append(StringUtils.lineSeparator);
             }
-            return null;
+            if (j > 0) {
+                sb.append(this.a.getActivity().getString(R.string.topic_temperature));
+                sb.append(StringHelper.numFormatOver10000(j));
+            }
+            shareItem.J0 = sb.toString();
+            if (StringUtils.isNull(str2)) {
+                parse = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
+            } else {
+                parse = Uri.parse(str2);
+            }
+            shareItem.K0 = parse;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.id7
-    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+    public final SparseArray<String> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) && tbPageContext != null) {
-            this.mContext = tbPageContext.getPageActivity();
-            this.l = tbPageContext;
-            this.mPageId = bdUniqueId;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                SparseArray<String> sparseArray = new SparseArray<>(8);
+                this.b = sparseArray;
+                sparseArray.put(2, "topic_wx_timeline");
+                this.b.put(3, "topic_wx_friend");
+                this.b.put(4, "topic_qq_zone");
+                this.b.put(5, "topic_tencent_weibo");
+                this.b.put(6, "topic_sina_weibo");
+            }
+            return this.b;
+        }
+        return (SparseArray) invokeV.objValue;
+    }
+
+    public void d(String str, String str2, String str3, String str4, String str5, String str6, boolean z, long j) {
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (TextUtils.isEmpty(str) && z) {
+                BaseActivity<?> baseActivity = this.a;
+                baseActivity.showToast(baseActivity.getActivity().getString(R.string.no_hot_topic_data));
+                return;
+            }
+            if (StringUtils.isNull(str3)) {
+                str3 = TbConfig.TIEBA_ADDRESS + "mo/q/hotMessage?topic_id=" + str + "&topic_name=" + URLEncoder.encode(str2);
+            }
+            if (StringUtils.isNull(str4)) {
+                parse = null;
+            } else {
+                parse = Uri.parse(str4);
+            }
+            ShareItem shareItem = new ShareItem();
+            shareItem.v = str2;
+            shareItem.w = str5;
+            shareItem.x = str3;
+            shareItem.b = true;
+            shareItem.u = str;
+            shareItem.z = parse;
+            shareItem.i = true;
+            b(shareItem, str5, j, str6);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a.getActivity(), shareItem, true, c());
+            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+            shareDialogConfig.setIsCopyLink(true);
+            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 }

@@ -1,60 +1,63 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.awb;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gob;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface rsb {
-    void a(Activity activity, jub jubVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+public abstract class rsb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
+    @Deprecated
+    public <T> gob.a<T> a(gob.a<T> aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar : (gob.a) invokeL.objValue;
+    }
 
-    boolean c(Activity activity, AbsViewEventHandler absViewEventHandler);
+    @Deprecated
+    public <T, R> gob.b<? extends R, ? super T> b(gob.b<? extends R, ? super T> bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? bVar : (gob.b) invokeL.objValue;
+    }
 
-    void d(Activity activity, awb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    @Deprecated
+    public <T> Throwable c(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) ? th : (Throwable) invokeL.objValue;
+    }
 
-    void e(int i, String str, PayCallBackBean payCallBackBean);
+    @Deprecated
+    public <T> nob d(nob nobVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, nobVar)) == null) ? nobVar : (nob) invokeL.objValue;
+    }
 
-    void g(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
+    @Deprecated
+    public <T> gob.a<T> e(gob<? extends T> gobVar, gob.a<T> aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, gobVar, aVar)) == null) ? aVar : (gob.a) invokeLL.objValue;
+    }
 
-    usb h();
-
-    void j(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
-
-    void k(Activity activity, nub nubVar, jub jubVar, Dialog dialog, tvb tvbVar, AppCustomExpand appCustomExpand, awb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void l(PayFinishInfo payFinishInfo);
-
-    void m(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
-
-    void n(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void p(Activity activity, jub jubVar, nub nubVar, Dialog dialog, tvb tvbVar, AppCustomExpand appCustomExpand, awb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void q(Activity activity, String str);
-
-    void r(uvb uvbVar, Dialog dialog);
-
-    void refreshWindow(WindowParams windowParams);
-
-    boolean s(Activity activity, awb awbVar, AbsViewEventHandler absViewEventHandler);
-
-    void t(Activity activity, jub jubVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void u(Activity activity);
-
-    PayDialogType v();
+    public rsb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

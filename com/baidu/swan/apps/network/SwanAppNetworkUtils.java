@@ -11,19 +11,19 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.h83;
-import com.baidu.tieba.is1;
-import com.baidu.tieba.l33;
-import com.baidu.tieba.l83;
-import com.baidu.tieba.si2;
-import com.baidu.tieba.sp3;
+import com.baidu.tieba.i83;
+import com.baidu.tieba.js1;
+import com.baidu.tieba.m33;
+import com.baidu.tieba.m83;
+import com.baidu.tieba.ti2;
+import com.baidu.tieba.tp3;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SwanAppNetworkUtils {
-    public static final boolean a = is1.a;
+    public static final boolean a = js1.a;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -31,7 +31,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes4.dex */
-    public static class a implements h83<Bundle> {
+    public static class a implements i83<Bundle> {
         public final /* synthetic */ b a;
 
         public a(b bVar) {
@@ -39,7 +39,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.h83
+        @Override // com.baidu.tieba.i83
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar = this.a;
@@ -50,7 +50,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static String g() {
-        String f = sp3.f(si2.U().g0());
+        String f = tp3.f(ti2.U().g0());
         if (TextUtils.isEmpty(f)) {
             return "";
         }
@@ -139,7 +139,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static void b(@NonNull b bVar) {
-        l83.a(l33.class, null, new a(bVar));
+        m83.a(m33.class, null, new a(bVar));
     }
 
     public static NetworkInfo c(Context context) {

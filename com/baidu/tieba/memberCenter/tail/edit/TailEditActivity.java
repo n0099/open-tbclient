@@ -13,18 +13,18 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c55;
-import com.baidu.tieba.cd5;
+import com.baidu.tieba.cx8;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.dd5;
 import com.baidu.tieba.dx8;
-import com.baidu.tieba.ex8;
-import com.baidu.tieba.fw8;
-import com.baidu.tieba.iw8;
-import com.baidu.tieba.jw8;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.uh5;
-import com.baidu.tieba.vh5;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.xx8;
+import com.baidu.tieba.yh5;
+import com.baidu.tieba.yx8;
+import com.baidu.tieba.zh5;
+import com.baidu.tieba.zw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,19 +34,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iw8 a;
-    public jw8 b;
+    public cx8 a;
+    public dx8 b;
     public View c;
-    public dx8<Integer> d;
-    public dx8<Integer> e;
+    public xx8<Integer> d;
+    public xx8<Integer> e;
     public View.OnClickListener f;
     public View.OnClickListener g;
     public View.OnTouchListener h;
     public TextWatcher i;
-    public vh5 j;
+    public zh5 j;
 
     /* loaded from: classes6.dex */
-    public class a implements dx8<Integer> {
+    public class a implements xx8<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -70,7 +70,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dx8
+        @Override // com.baidu.tieba.xx8
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements dx8<Integer> {
+    public class b implements xx8<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -106,7 +106,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dx8
+        @Override // com.baidu.tieba.xx8
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.b.h().length() == 0) {
                     TailEditActivity tailEditActivity = this.a;
-                    tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1595));
+                    tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1599));
                     return;
                 }
                 this.a.b.r();
@@ -283,7 +283,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements vh5 {
+    public class g implements zh5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -306,13 +306,13 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             this.a = tailEditActivity;
         }
 
-        @Override // com.baidu.tieba.vh5
-        public void C(uh5 uh5Var) {
+        @Override // com.baidu.tieba.zh5
+        public void C(yh5 yh5Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, uh5Var) != null) || uh5Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, yh5Var) != null) || yh5Var == null) {
                 return;
             }
-            int i = uh5Var.a;
+            int i = yh5Var.a;
             if (i != 24) {
                 if (i != 26) {
                     if (i == 3) {
@@ -321,26 +321,26 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     }
                     return;
                 }
-                this.a.H1(uh5Var.c);
+                this.a.H1(yh5Var.c);
                 return;
             }
-            this.a.F1(uh5Var.c);
+            this.a.F1(yh5Var.c);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class h implements c55.e {
+    public class h implements d55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c55 a;
+        public final /* synthetic */ d55 a;
         public final /* synthetic */ TailEditActivity b;
 
-        public h(TailEditActivity tailEditActivity, c55 c55Var) {
+        public h(TailEditActivity tailEditActivity, d55 d55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tailEditActivity, c55Var};
+                Object[] objArr = {tailEditActivity, d55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -351,31 +351,31 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 }
             }
             this.b = tailEditActivity;
-            this.a = c55Var;
+            this.a = d55Var;
         }
 
-        @Override // com.baidu.tieba.c55.e
-        public void onClick(c55 c55Var) {
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class i implements c55.e {
+    public class i implements d55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c55 a;
+        public final /* synthetic */ d55 a;
         public final /* synthetic */ TailEditActivity b;
 
-        public i(TailEditActivity tailEditActivity, c55 c55Var) {
+        public i(TailEditActivity tailEditActivity, d55 d55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tailEditActivity, c55Var};
+                Object[] objArr = {tailEditActivity, d55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -386,13 +386,13 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 }
             }
             this.b = tailEditActivity;
-            this.a = c55Var;
+            this.a = d55Var;
         }
 
-        @Override // com.baidu.tieba.c55.e
-        public void onClick(c55 c55Var) {
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
                 this.a.dismiss();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
                 this.b.finish();
@@ -425,12 +425,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c55 c55Var = new c55(getActivity());
-            c55Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f158a));
-            c55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03c9, new h(this, c55Var));
-            c55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04bb, new i(this, c55Var));
-            c55Var.create(getPageContext());
-            c55Var.show();
+            d55 d55Var = new d55(getActivity());
+            d55Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f158e));
+            d55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ca, new h(this, d55Var));
+            d55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04bc, new i(this, d55Var));
+            d55Var.create(getPageContext());
+            d55Var.show();
         }
     }
 
@@ -473,7 +473,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             this.b.l(i2);
-            o75 d2 = o75.d(this.c);
+            p75 d2 = p75.d(this.c);
             d2.o(R.string.J_X05);
             d2.f(R.color.CAM_X0201);
         }
@@ -483,11 +483,11 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
             this.a.i().setContent(this.b.g());
-            iw8 iw8Var = this.a;
-            if (iw8Var.l(iw8Var.e(iw8Var.i().getContent()))) {
+            cx8 cx8Var = this.a;
+            if (cx8Var.l(cx8Var.e(cx8Var.i().getContent()))) {
                 showToast(R.string.over_limit_tip);
-            } else if (obj != null && (obj instanceof cd5)) {
-                new ex8().b(this, this.b.h(), (cd5) obj);
+            } else if (obj != null && (obj instanceof dd5)) {
+                new yx8().b(this, this.b.h(), (dd5) obj);
             }
         }
     }
@@ -497,12 +497,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d091d);
+            setContentView(R.layout.obfuscated_res_0x7f0d091e);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
-            this.b = new jw8(this, this.f, this.g);
-            this.a = new iw8(getPageContext());
-            this.c = findViewById(R.id.obfuscated_res_0x7f092330);
+            this.b = new dx8(this, this.f, this.g);
+            this.a = new cx8(getPageContext());
+            this.c = findViewById(R.id.obfuscated_res_0x7f09233b);
             L1();
             M1();
             K1();
@@ -563,9 +563,9 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 tailData.setId(num.intValue());
                 tailData.setContent(this.a.i().getContent());
                 tailData.setFontColor(this.a.g());
-                fw8 fw8Var = new fw8(1, tailData);
+                zw8 zw8Var = new zw8(1, tailData);
                 if (!z) {
-                    fw8Var.a = 2;
+                    zw8Var.a = 2;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
                 Intent intent = new Intent();
@@ -574,7 +574,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 intent.putExtra("tailContent", tailData.getContent());
                 setResult(-1, intent);
                 finish();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, fw8Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, zw8Var));
             }
         }
     }

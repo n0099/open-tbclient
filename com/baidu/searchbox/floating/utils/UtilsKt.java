@@ -133,7 +133,7 @@ public final class UtilsKt {
         Intrinsics.checkNotNullParameter(endSize, "endSize");
         Intrinsics.checkNotNullParameter(updateListener, "updateListener");
         final ValueAnimator ofPropertyValuesHolder = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofInt("width", startSize.getFirst().intValue(), endSize.getFirst().intValue()), PropertyValuesHolder.ofInt("height", startSize.getSecond().intValue(), endSize.getSecond().intValue()));
-        ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.po1
+        ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.qo1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -226,17 +226,17 @@ public final class UtilsKt {
         }
         String str5 = str;
         if ((i2 & 8) != 0) {
-            str2 = context.getString(R.string.obfuscated_res_0x7f0f1088);
+            str2 = context.getString(R.string.obfuscated_res_0x7f0f108c);
             Intrinsics.checkNotNullExpressionValue(str2, "context.getString(R.stri…ing_notification_channel)");
         }
         String str6 = str2;
         if ((i2 & 16) != 0) {
-            str3 = context.getString(R.string.obfuscated_res_0x7f0f108a);
+            str3 = context.getString(R.string.obfuscated_res_0x7f0f108e);
             Intrinsics.checkNotNullExpressionValue(str3, "context.getString(R.stri…ating_notification_title)");
         }
         String str7 = str3;
         if ((i2 & 32) != 0) {
-            str4 = context.getString(R.string.obfuscated_res_0x7f0f1089);
+            str4 = context.getString(R.string.obfuscated_res_0x7f0f108d);
             Intrinsics.checkNotNullExpressionValue(str4, "context.getString(R.stri…ing_notification_content)");
         }
         return getDefaultNotification(context, i, str5, str6, str7, str4);

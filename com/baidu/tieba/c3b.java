@@ -1,25 +1,29 @@
 package com.baidu.tieba;
 
+import android.util.Pair;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tieba.z2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.fun.ad.sdk.internal.api.utils.MD5Utils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class c3b extends BaseAdRipper {
+public class c3b<A extends z2b> extends AdReporter<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean e;
+    public final String f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c3b(Ssp.Pid pid) {
-        super(pid);
+        super(pid.pid, pid.type, pid.ssp.type);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,51 +33,39 @@ public class c3b extends BaseAdRipper {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = pid.isBidding;
+        this.f = pid.pid;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReport(Object obj, String str) {
+        InterceptResult invokeLL;
+        double a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                Object obj2 = ((q3b) obj).a;
-                Field declaredField = obj2.getClass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj3 = declaredField.get(obj2);
-                if (obj3 == null) {
-                    return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
+            z2b z2bVar = (z2b) obj;
+            if (z2bVar != null && z2bVar.a != 0) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Pair.create("csj_rq_id", z2bVar.c()));
+                if (!this.e) {
+                    a = FunAdSdk.getARPU(this.f);
+                } else {
+                    a = z2bVar.a() / 1000.0d;
                 }
-                Field declaredField2 = obj3.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField2.setAccessible(true);
-                Object obj4 = declaredField2.get(obj3);
-                if (obj4 == null) {
-                    return null;
-                }
-                Object field = ReflectionUtils.getField(obj4, "c", "c");
-                Field declaredField3 = field.getClass().getSuperclass().getDeclaredField("k");
-                declaredField3.setAccessible(true);
-                Object field2 = ReflectionUtils.getField(declaredField3.get(field), "e", "e", "c");
-                Field declaredField4 = field2.getClass().getSuperclass().getDeclaredField("d");
-                declaredField4.setAccessible(true);
-                Object obj5 = declaredField4.get(field2);
-                Field declaredField5 = obj5.getClass().getSuperclass().getDeclaredField("M");
-                declaredField5.setAccessible(true);
-                return z2b.a((JSONObject) declaredField5.get(obj5));
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+                arrayList.add(Pair.create("rvn", Double.valueOf(a)));
+                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * a)))));
+                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
+                return arrayList;
             }
+            return null;
         }
-        return (RippedAd) invokeL.objValue;
+        return (List) invokeLL.objValue;
     }
 }

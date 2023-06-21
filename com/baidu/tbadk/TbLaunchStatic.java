@@ -2,9 +2,9 @@ package com.baidu.tbadk;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
-import com.baidu.tieba.g68;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseDelSystemMessage;
+import com.baidu.tieba.w68;
 import com.baidu.tieba.wxapi.WXEntryActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -60,8 +60,8 @@ public class TbLaunchStatic {
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            g68.b(202004, ResponseDelSystemMessage.class, false);
-            g68.b(202001, ResponseCommitGroupMessage.class, false);
+            w68.b(202004, ResponseDelSystemMessage.class, false);
+            w68.b(202001, ResponseCommitGroupMessage.class, false);
         }
     }
 }

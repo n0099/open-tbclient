@@ -1,149 +1,162 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.StrangeCleanSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class f98 {
-    public static /* synthetic */ Interceptable $ic;
-    public static Pattern a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1500;
+    public static int b = 500;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public int g;
-        public long h;
-        public String i;
-        public int j;
-        public long k;
-        public long l;
-        public long m;
-        public String n;
-        public int o;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947719076, "Lcom/baidu/tieba/f98;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947719076, "Lcom/baidu/tieba/f98;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947719076, "Lcom/baidu/tieba/f98;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947719076, "Lcom/baidu/tieba/f98;");
+        }
+    }
+
+    public static void a() {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (!StrangeCleanSwitch.isOn()) {
+                d95.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
                 return;
             }
-        }
-        a = Pattern.compile(UrlSchemaHelper.PB_URL);
-    }
-
-    public static List<a> a(String str, String str2, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return b(str, str2, null, 0L, j, j2);
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    public static List<a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            int i2 = -1;
-            if (userData != null) {
-                i = userData.getUserType();
-            } else {
-                i = -1;
-            }
-            LinkedList linkedList = new LinkedList();
             try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                int i3 = 0;
-                while (i3 < length) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i3);
-                    String optString = optJSONObject.optString("title");
-                    String optString2 = optJSONObject.optString("url");
-                    String optString3 = optJSONObject.optString("src");
-                    String optString4 = optJSONObject.optString("text");
-                    optJSONObject.optLong("picId");
-                    String optString5 = optJSONObject.optString("msg_src");
-                    a aVar = new a();
-                    if (!TextUtils.isEmpty(optString2)) {
-                        optString2 = optString2.trim();
-                        Matcher matcher = a.matcher(optString2);
-                        if (matcher.find()) {
-                            aVar.n = matcher.group(1);
+                try {
+                    z88.d().f();
+                    d = d();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (TextUtils.isEmpty(d)) {
+                    return;
+                }
+                boolean b2 = b(d);
+                d95.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + b2, new Object[0]);
+            } finally {
+                z88.d().b();
+            }
+        }
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                z88 d = z88.d();
+                return d.c("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return o95.p().q("key_max_stranger", a);
+        }
+        return invokeV.intValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        List<String> e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                e = e();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getStrangeData", new Object[0]);
+            }
+            if (e != null && e.size() != 0) {
+                int c = c();
+                d95.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + e.size() + " max is " + c, new Object[0]);
+                if (e.size() > c) {
+                    int i = 2000;
+                    if (2000 >= e.size() - c) {
+                        i = e.size() - c;
+                    }
+                    boolean z = true;
+                    for (String str : e.subList(0, i)) {
+                        if (!z) {
+                            sb.append(",");
+                        } else {
+                            z = false;
+                        }
+                        sb.append(str);
+                    }
+                }
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static List<String> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = z88.d().e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
                         }
                     }
-                    aVar.d = optString2;
-                    aVar.a = optString;
-                    aVar.b = optString4;
-                    aVar.c = optString3;
-                    aVar.e = str2;
-                    aVar.k = j2;
-                    aVar.l = j3;
-                    aVar.f = optString5;
-                    if (i > i2) {
-                        aVar.g = i;
-                    }
-                    if (userData != null) {
-                        aVar.h = j;
-                        aVar.i = userData.getUserId();
-                        aVar.j = userData.getUserType();
-                    }
-                    linkedList.add(aVar);
-                    i3++;
-                    i2 = -1;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeDataFromDb", new Object[0]);
                 }
-                return linkedList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+                return arrayList;
+            } finally {
+                xi.a(cursor);
             }
         }
-        return (List) invokeCommon.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public static void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            int i2 = b;
+            if (i < i2) {
+                i = i2;
+            }
+            o95.p().F("key_max_stranger", i);
+        }
     }
 }

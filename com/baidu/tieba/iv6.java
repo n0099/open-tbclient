@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.j0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class iv6 extends BaseCardInfo {
+public final class iv6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final iv6 a;
+    public static final j0 b;
+    public static final Class<? extends kt6>[] c;
+    public static final j0 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +32,16 @@ public class iv6 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new iv6();
+        j0 b2 = j0.d(pt6.class).b();
+        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
+        b = b2;
+        c = new Class[]{pt6.class, ot6.class};
+        j0.b d2 = j0.d(pt6.class, ot6.class);
+        d2.c(qt6.class, st6.class);
+        j0 b3 = d2.b();
+        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
+        d = b3;
     }
 
     public iv6() {
@@ -48,29 +58,30 @@ public class iv6 extends BaseCardInfo {
         }
     }
 
-    public ThreadData getThreadData() {
+    public final j0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (j0) invokeV.objValue;
+    }
+
+    public final Class<? extends kt6>[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return c;
         }
-        return (ThreadData) invokeV.objValue;
+        return (Class[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
-    public BdUniqueId getType() {
+    public final j0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+            return d;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            this.a = threadData;
-        }
+        return (j0) invokeV.objValue;
     }
 }

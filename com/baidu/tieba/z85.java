@@ -1,72 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.data.ChatRoomEntranceData;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tbadk.data.LiveRemindData;
+import com.baidu.tbadk.data.MemberBroadcastData;
+import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
+import java.util.List;
+import tbclient.AlaLiveInfo;
 /* loaded from: classes8.dex */
-public class z85 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile z85 b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+public interface z85 {
+    MemberBroadcastData getActivityBroadcastData();
 
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 600000L;
-        }
-        return invokeV.longValue;
-    }
+    ChatRoomEntranceData getChatRoomEntranceData();
 
-    public z85() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 300000L;
-    }
+    wg5 getFestivalConfigData();
 
-    public static z85 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (z85.class) {
-                    if (b == null) {
-                        b = new z85();
-                    }
-                }
-            }
-            return b;
-        }
-        return (z85) invokeV.objValue;
-    }
+    IconPopData getIconPopData();
 
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
+    LevePopData getLevePopData();
 
-    public void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
-        }
-    }
+    List<AlaLiveInfo> getLiveFollowSecondFloor();
+
+    List<AlaLiveInfo> getLiveIndexSecondFloor();
+
+    List<AlaLiveInfo> getLivePicSecondFloor();
+
+    LiveRemindData getLiveRemindData();
+
+    MemberBroadcastData getMemberBroadcastData();
+
+    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
+
+    String getUniqueId();
 }

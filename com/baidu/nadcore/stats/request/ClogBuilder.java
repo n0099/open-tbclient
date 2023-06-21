@@ -11,33 +11,33 @@ import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.h51;
 import com.baidu.tieba.i51;
-import com.baidu.tieba.k51;
-import com.baidu.tieba.m51;
-import com.baidu.tieba.o51;
-import com.baidu.tieba.qk0;
-import com.baidu.tieba.s31;
+import com.baidu.tieba.j51;
+import com.baidu.tieba.l51;
+import com.baidu.tieba.n51;
+import com.baidu.tieba.p51;
+import com.baidu.tieba.rk0;
 import com.baidu.tieba.t31;
-import com.baidu.tieba.y21;
+import com.baidu.tieba.u31;
+import com.baidu.tieba.z21;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ClogBuilder extends s31 {
-    public final JSONObject c = y21.c(null);
+public class ClogBuilder extends t31 {
+    public final JSONObject c = z21.c(null);
 
     public ClogBuilder() {
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // com.baidu.tieba.q31, com.baidu.tieba.t31
+    @Override // com.baidu.tieba.r31, com.baidu.tieba.u31
     public void a() {
-        qk0 qk0Var = (qk0) ServiceManager.getService(qk0.a);
-        if (qk0Var != null) {
-            A(qk0Var.a(this.c.optString("extra_param")));
+        rk0 rk0Var = (rk0) ServiceManager.getService(rk0.a);
+        if (rk0Var != null) {
+            A(rk0Var.a(this.c.optString("extra_param")));
         }
         g();
     }
@@ -47,7 +47,7 @@ public class ClogBuilder extends s31 {
         return this.c;
     }
 
-    @Override // com.baidu.tieba.s31, com.baidu.tieba.t31
+    @Override // com.baidu.tieba.t31, com.baidu.tieba.u31
     public boolean isValid() {
         if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
             return super.isValid();
@@ -320,40 +320,40 @@ public class ClogBuilder extends s31 {
         return this;
     }
 
-    @Override // com.baidu.tieba.q31, com.baidu.tieba.t31
-    public <T extends t31> T b(String str, String str2) {
+    @Override // com.baidu.tieba.r31, com.baidu.tieba.u31
+    public <T extends u31> T b(String str, String str2) {
         d(str, str2);
         return this;
     }
 
-    @Override // com.baidu.tieba.q31
-    public <T extends t31> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.r31
+    public <T extends u31> T d(String str, Object obj) {
         if (TextUtils.isEmpty(str)) {
             return this;
         }
-        y21.f(this.c, str, obj);
+        z21.f(this.c, str, obj);
         return this;
     }
 
     public final void g() {
-        if (!i51.a) {
+        if (!j51.a) {
             return;
         }
-        o51 o51Var = (o51) h51.a().a(o51.class);
-        if (o51Var != null) {
-            o51Var.a(h());
+        p51 p51Var = (p51) i51.a().a(p51.class);
+        if (p51Var != null) {
+            p51Var.a(h());
         }
-        k51 k51Var = (k51) h51.a().a(k51.class);
-        if (k51Var != null) {
-            k51Var.a(h());
+        l51 l51Var = (l51) i51.a().a(l51.class);
+        if (l51Var != null) {
+            l51Var.a(h());
         }
-        m51 m51Var = (m51) h51.a().a(m51.class);
-        if (m51Var != null) {
-            m51Var.a(h());
+        n51 n51Var = (n51) i51.a().a(n51.class);
+        if (n51Var != null) {
+            n51Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.s31, com.baidu.tieba.q31, com.baidu.tieba.t31
+    @Override // com.baidu.tieba.t31, com.baidu.tieba.r31, com.baidu.tieba.u31
     @NonNull
     public String toString() {
         super.toString();

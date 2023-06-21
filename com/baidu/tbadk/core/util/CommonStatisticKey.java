@@ -72,6 +72,7 @@ public class CommonStatisticKey {
     public static final String KEY_FORUM_INSIDE_LIVE_SHOW = "c14136";
     public static final String KEY_FORUM_REC_THREAD_CLICK = "c19001";
     public static final String KEY_FORUM_REC_THREAD_SHOW = "c19000";
+    public static final String KEY_FRIEND_BOT_BUTTON_VIEW_SHOW = "c15302";
     public static final String KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5 = "c14197";
     public static final String KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5 = "c14196";
     public static final String KEY_FRS_ADVANCED_AD_COMPLETE_SHOW = "c14195";
@@ -161,8 +162,6 @@ public class CommonStatisticKey {
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_SHOW = "c14437";
     public static final String KEY_PB_FOLD_ICON_CLICK = "c14435";
     public static final String KEY_PB_FOLD_ICON_SHOW = "c14434";
-    public static final String KEY_PB_FORUM_GUIDE_VIEW_CLICK = "c14595";
-    public static final String KEY_PB_FORUM_GUIDE_VIEW_SHOW = "c14594";
     public static final String KEY_PB_HAS_FOLD_ICON_SHOW = "c14436";
     public static final String KEY_PB_MORE_DIALOG_MUSK_CLICK = "c14338";
     public static final String KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK = "c14517";

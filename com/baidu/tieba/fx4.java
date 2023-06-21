@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.gx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,55 +11,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public abstract class fx4 {
+public class fx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakReference<TbPageContext<?>> a;
-    public static boolean b;
+    public static gx4 a;
+    public static fx4 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947779495, "Lcom/baidu/tieba/fx4;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779495, "Lcom/baidu/tieba/fx4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947779495, "Lcom/baidu/tieba/fx4;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947779495, "Lcom/baidu/tieba/fx4;");
-        }
+        new ArrayList(5);
     }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g(int i);
-
-    public abstract void i();
-
-    public abstract void k(a aVar);
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    public abstract void m();
 
     public fx4() {
         Interceptable interceptable = $ic;
@@ -72,55 +46,183 @@ public abstract class fx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        new ArrayList(5);
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    public void h() {
-        WeakReference<TbPageContext<?>> weakReference;
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (weakReference = a) != null) {
-            weakReference.get();
-            a.clear();
-            a = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b();
+            gx4 gx4Var = a;
+            if (gx4Var != null) {
+                gx4Var.d();
+                c = false;
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+            gx4 gx4Var = a;
+            if (gx4Var != null) {
+                gx4Var.c();
+                c = false;
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            gx4 gx4Var = a;
+            if (gx4Var != null) {
+                gx4Var.h();
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b();
+            i();
+            m();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b();
+            gx4 gx4Var = a;
+            if (gx4Var != null) {
+                gx4Var.m();
+                c = true;
+            }
         }
     }
 
     public static fx4 a(BaseFragmentActivity baseFragmentActivity) {
         InterceptResult invokeL;
+        gx4 gx4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, fx4.class, baseFragmentActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (fx4) runTask.getData();
+            if (b == null) {
+                synchronized (fx4.class) {
+                    if (b == null) {
+                        b = new fx4();
+                        a = gx4.a(baseFragmentActivity);
+                    }
+                }
+            } else {
+                gx4 gx4Var2 = a;
+                if (gx4Var2 != null) {
+                    gx4Var2.j(baseFragmentActivity.getPageContext());
+                }
             }
-            return null;
+            if (c && (gx4Var = a) != null) {
+                gx4Var.d();
+                a.c();
+                c = false;
+            }
+            return b;
         }
         return (fx4) invokeL.objValue;
     }
 
-    public void j(TbPageContext<?> tbPageContext) {
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
-            WeakReference<TbPageContext<?>> weakReference = a;
-            if (weakReference == null) {
-                a = new WeakReference<>(tbPageContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                if (a != null) {
+                    if (b != null) {
+                        b.j();
+                    }
+                    a.e();
+                    a.i();
+                    a = null;
+                }
+                if (b != null) {
+                    b = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-            weakReference.clear();
-            a = null;
-            a = new WeakReference<>(tbPageContext);
+        }
+    }
+
+    public void e(boolean z, boolean z2, boolean z3, gx4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
+            b();
+            if (z) {
+                c();
+            }
+            if (z2) {
+                d();
+            }
+            l(z3);
+            k(aVar);
+        }
+    }
+
+    public void f(gx4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            b();
+            gx4 gx4Var = a;
+            if (gx4Var != null) {
+                if (gx4Var.b()) {
+                    a.k(aVar);
+                }
+                a.f();
+            }
+        }
+    }
+
+    public void k(gx4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            b();
+            gx4 gx4Var = a;
+            if (gx4Var != null) {
+                gx4Var.k(aVar);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            b();
+            gx4 gx4Var = a;
+            if (gx4Var != null) {
+                gx4Var.l(z);
+            }
+        }
+    }
+
+    public void g(int i, gx4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
+            b();
+            gx4 gx4Var = a;
+            if (gx4Var != null) {
+                if (gx4Var.b()) {
+                    a.k(aVar);
+                }
+                a.g(i);
+            }
         }
     }
 }

@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.RC4;
-import com.yy.hiidostatis.inner.util.cipher.Coder;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Deprecated
 /* loaded from: classes7.dex */
-public abstract class qbb {
+public abstract class qbb implements nbb {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
-    public static final String[] b;
-    public static final String[] c;
+    public static final Map<String, qbb> a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,160 +31,57 @@ public abstract class qbb {
                 return;
             }
         }
-        a = new String[]{"TLS_DHE_DSS_WITH_AES_128_CBC_SHA", "TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_DHE_DSS_WITH_AES_256_CBC_SHA", "TLS_DHE_RSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"};
-        b = new String[]{"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", "TLS_DHE_DSS_WITH_AES_256_GCM_SHA384"};
-        c = new String[]{"TLS_RSA", "CBC", "TEA", "SHA0", MessageDigestAlgorithms.MD2, "MD4", "RIPEMD", "NULL", RC4.LOGTAG, Coder.KEY_DES, "DESX", "DES40", "RC2", "MD5", "ANON", "TLS_EMPTY_RENEGOTIATION_INFO_SCSV"};
+        a = new HashMap();
+        b = new Object();
     }
 
-    public static boolean a(SSLSocket sSLSocket) {
+    public qbb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static qbb c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sSLSocket)) == null) {
-            if (sSLSocket == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                context = applicationContext;
             }
-            return b(sSLSocket, c);
+            return d(context, context.getPackageName());
         }
-        return invokeL.booleanValue;
+        return (qbb) invokeL.objValue;
     }
 
-    public static void c(SSLSocket sSLSocket) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, sSLSocket) == null) && sSLSocket != null && !g(sSLSocket)) {
-            a(sSLSocket);
-        }
-    }
-
-    public static boolean g(SSLSocket sSLSocket) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sSLSocket)) == null) {
-            if (sSLSocket == null) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT > 19) {
-                return h(sSLSocket, b);
-            }
-            return h(sSLSocket, a);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(SSLSocket sSLSocket, String[] strArr) {
+    public static qbb d(Context context, String str) {
         InterceptResult invokeLL;
+        qbb qbbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sSLSocket, strArr)) == null) {
-            if (sSLSocket == null) {
-                return false;
-            }
-            String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
-            ArrayList arrayList = new ArrayList();
-            int length = enabledCipherSuites.length;
-            int i = 0;
-            while (true) {
-                boolean z = true;
-                if (i >= length) {
-                    break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            synchronized (b) {
+                qbbVar = a.get(str);
+                if (qbbVar == null) {
+                    qbbVar = new wbb(context, str);
+                    a.put(str, qbbVar);
                 }
-                String str = enabledCipherSuites[i];
-                String upperCase = str.toUpperCase(Locale.ENGLISH);
-                int length2 = strArr.length;
-                int i2 = 0;
-                while (true) {
-                    if (i2 < length2) {
-                        if (upperCase.contains(strArr[i2].toUpperCase(Locale.ENGLISH))) {
-                            break;
-                        }
-                        i2++;
-                    } else {
-                        z = false;
-                        break;
-                    }
-                }
-                if (!z) {
-                    arrayList.add(str);
-                }
-                i++;
             }
-            if (arrayList.isEmpty()) {
-                return false;
-            }
-            sSLSocket.setEnabledCipherSuites((String[]) arrayList.toArray(new String[arrayList.size()]));
-            return true;
+            return qbbVar;
         }
-        return invokeLL.booleanValue;
+        return (qbb) invokeLL.objValue;
     }
 
-    public static boolean h(SSLSocket sSLSocket, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, sSLSocket, strArr)) == null) {
-            if (sSLSocket == null) {
-                return false;
-            }
-            String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
-            ArrayList arrayList = new ArrayList();
-            List asList = Arrays.asList(strArr);
-            for (String str : enabledCipherSuites) {
-                if (asList.contains(str.toUpperCase(Locale.ENGLISH))) {
-                    arrayList.add(str);
-                }
-            }
-            if (arrayList.isEmpty()) {
-                return false;
-            }
-            sSLSocket.setEnabledCipherSuites((String[]) arrayList.toArray(new String[arrayList.size()]));
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
+    @Override // com.baidu.tieba.nbb
+    public abstract /* synthetic */ Context getContext();
 
-    public static void d(SSLSocket sSLSocket) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sSLSocket) != null) || sSLSocket == null) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT >= 29) {
-            sSLSocket.setEnabledProtocols(new String[]{"TLSv1.3", "TLSv1.2"});
-        }
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 16 && i < 29) {
-            sSLSocket.setEnabledProtocols(new String[]{"TLSv1.2"});
-        } else if (Build.VERSION.SDK_INT < 16) {
-            sSLSocket.setEnabledProtocols(new String[]{"TLSv1"});
-        }
-    }
-
-    public static boolean e(SSLSocket sSLSocket, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, sSLSocket, strArr)) == null) {
-            if (sSLSocket != null && strArr != null) {
-                try {
-                    sSLSocket.setEnabledProtocols(strArr);
-                    return true;
-                } catch (Exception e) {
-                    dcb.d("SSLUtil", "setEnabledProtocols: exception : " + e.getMessage());
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static SSLContext f() throws NoSuchAlgorithmException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 29) {
-                return SSLContext.getInstance("TLSv1.3");
-            }
-            if (i >= 16) {
-                return SSLContext.getInstance("TLSv1.2");
-            }
-            return SSLContext.getInstance("TLS");
-        }
-        return (SSLContext) invokeV.objValue;
-    }
+    @Override // com.baidu.tieba.nbb
+    public abstract /* synthetic */ String getIdentifier();
 }

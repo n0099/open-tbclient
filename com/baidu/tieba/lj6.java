@@ -1,294 +1,114 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.net.http.SslError;
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import android.webkit.RenderProcessGoneDetail;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import androidx.annotation.NonNull;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.browser.core.cache.prerender.WebViewMapper;
-import com.baidu.tieba.browser.data.PreRenderMode;
-import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.jn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Objects;
 /* loaded from: classes6.dex */
-public class lj6 extends sl1<um6> {
+public abstract class lj6<T extends jn6> implements mj6<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final b a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final T[] b;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b implements um6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes6.dex */
-        public class a extends WebViewClient {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ boolean b;
-            public final /* synthetic */ MonitorWebView c;
-            public final /* synthetic */ boolean d;
-
-            public a(b bVar, String str, boolean z, MonitorWebView monitorWebView, boolean z2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str, Boolean.valueOf(z), monitorWebView, Boolean.valueOf(z2)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = str;
-                this.b = z;
-                this.c = monitorWebView;
-                this.d = z2;
-            }
-
-            @Override // android.webkit.WebViewClient
-            public void onPageFinished(WebView webView, String str) {
-                PreRenderMode preRenderMode;
-                PreRenderMode preRenderMode2;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                    super.onPageFinished(webView, str);
-                    if (str.startsWith(this.a)) {
-                        if (this.b) {
-                            MonitorWebView monitorWebView = this.c;
-                            if (this.d) {
-                                preRenderMode2 = PreRenderMode.MULTI_AUTO_REMOVE;
-                            } else {
-                                preRenderMode2 = PreRenderMode.ONCE_AUTO_REMOVE;
-                            }
-                            monitorWebView.setPreRenderMode(preRenderMode2);
-                        } else {
-                            MonitorWebView monitorWebView2 = this.c;
-                            if (this.d) {
-                                preRenderMode = PreRenderMode.MULTI;
-                            } else {
-                                preRenderMode = PreRenderMode.ONCE;
-                            }
-                            monitorWebView2.setPreRenderMode(preRenderMode);
-                        }
-                        zq8 defaultLog = DefaultLog.getInstance();
-                        defaultLog.c("PrerenderManagerFetcher", "onPageFinished， 预渲染成功，url：" + str);
-                        return;
-                    }
-                    ej6.e().i(WebViewMapper.getInstance().getAndRemove(this.a));
-                    zq8 defaultLog2 = DefaultLog.getInstance();
-                    defaultLog2.c("PrerenderManagerFetcher", "onPageFinished， 预渲染失败，url：" + str);
-                }
-            }
-
-            @Override // android.webkit.WebViewClient
-            public void onReceivedError(WebView webView, int i, String str, String str2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
-                    DefaultLog.getInstance().c("PrerenderManagerFetcher", "onReceivedError， 预渲染失败");
-                    ej6.e().i(WebViewMapper.getInstance().getAndRemove(this.a));
-                }
-            }
-
-            @Override // android.webkit.WebViewClient
-            public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
-                    DefaultLog.getInstance().c("PrerenderManagerFetcher", "onReceivedError， 预渲染失败");
-                    if (webResourceRequest.isForMainFrame()) {
-                        ej6.e().i(WebViewMapper.getInstance().getAndRemove(this.a));
-                    }
-                }
-            }
-
-            @Override // android.webkit.WebViewClient
-            public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceResponse) == null) {
-                    DefaultLog.getInstance().c("PrerenderManagerFetcher", "onReceivedHttpError， 预渲染失败");
-                    ej6.e().i(WebViewMapper.getInstance().getAndRemove(this.a));
-                }
-            }
-
-            @Override // android.webkit.WebViewClient
-            public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, sslErrorHandler, sslError) == null) {
-                    DefaultLog.getInstance().c("PrerenderManagerFetcher", "onReceivedSslError， 预渲染失败");
-                    ej6.e().i(WebViewMapper.getInstance().getAndRemove(this.a));
-                }
-            }
-
-            @Override // android.webkit.WebViewClient
-            public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                    WebView andRemove = WebViewMapper.getInstance().getAndRemove(this.a);
-                    if (andRemove != null) {
-                        andRemove.destroy();
-                    }
-                    return super.onRenderProcessGone(webView, renderProcessGoneDetail);
-                }
-                return invokeLL.booleanValue;
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.um6
-        public void a(@NonNull Activity activity, @NonNull String str, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && !WebViewMapper.getInstance().contain(str)) {
-                MonitorWebView h = ej6.e().h(jl6.getContext());
-                if (activity != null) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, 1);
-                    marginLayoutParams.topMargin = -1;
-                    ((ViewGroup) activity.findViewById(16908290)).addView(h, marginLayoutParams);
-                }
-                h.setWebViewClient(new a(this, str, z2, h, z));
-                h.loadUrl(str);
-                h.setPreRenderMode(PreRenderMode.NONE);
-                WebViewMapper.getInstance().save(str, h, z2);
-            }
-        }
-
-        @Override // com.baidu.tieba.um6
-        @NonNull
-        public WebView b(Context context, @NonNull String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-                WebView andRemove = WebViewMapper.getInstance().getAndRemove(str);
-                if (andRemove == null) {
-                    return ej6.e().h(context);
-                }
-                Context context2 = andRemove.getContext();
-                if (context2 instanceof MutableContextWrapper) {
-                    ((MutableContextWrapper) context2).setBaseContext(context);
-                    return andRemove;
-                }
-                return andRemove;
-            }
-            return (WebView) invokeLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.um6
-        public boolean c(@NonNull String str, WebView webView) {
-            InterceptResult invokeLL;
-            PreRenderMode preRenderMode;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, webView)) == null) {
-                rm6.d(webView);
-                Context context = webView.getContext();
-                if (context instanceof MutableContextWrapper) {
-                    ((MutableContextWrapper) context).setBaseContext(jl6.getContext());
-                }
-                boolean z = false;
-                if (TextUtils.isEmpty(str) || WebViewMapper.getInstance().contain(str)) {
-                    return false;
-                }
-                if ((webView instanceof MonitorWebView) && ((preRenderMode = ((MonitorWebView) webView).getPreRenderMode()) == PreRenderMode.ONCE_AUTO_REMOVE || preRenderMode == PreRenderMode.MULTI_AUTO_REMOVE)) {
-                    z = true;
-                }
-                return WebViewMapper.getInstance().save(str, webView, z);
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947944849, "Lcom/baidu/tieba/lj6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947944849, "Lcom/baidu/tieba/lj6;");
-                return;
-            }
-        }
-        a = new b(null);
-    }
-
-    public lj6() {
+    public lj6(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        if (i > 0) {
+            this.b = (T[]) new jn6[i];
+        } else {
+            this.b = (T[]) new jn6[5];
+        }
+        Arrays.fill(this.b, (Object) null);
+    }
+
+    public synchronized T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a <= 0) {
+                    return null;
+                }
+                T[] tArr = this.b;
+                int i = this.a - 1;
+                this.a = i;
+                T t = tArr[i];
+                this.b[i] = null;
+                return t;
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a < this.b.length) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Arrays.fill(this.b, (Object) null);
+                this.a = 0;
             }
         }
     }
 
-    public static um6 b() {
-        InterceptResult invokeV;
+    public boolean e(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            for (int i = 0; i < this.a; i++) {
+                if (Objects.equals(this.b[i], t)) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (um6) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sl1
-    /* renamed from: a */
-    public um6 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public synchronized void f(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b();
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            synchronized (this) {
+                T[] tArr = this.b;
+                int i = this.a;
+                this.a = i + 1;
+                tArr[i] = t;
+            }
         }
-        return (um6) invokeV.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +43,7 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6);
         a();
     }
 
@@ -67,7 +67,7 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6);
         a();
     }
 
@@ -91,7 +91,7 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6);
         a();
     }
 
@@ -100,7 +100,7 @@ public class CommonLikeButton extends AppCompatTextView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setSingleLine();
             setIncludeFontPadding(false);
-            setTextSize(0, vi.g(getContext(), R.dimen.tbds34));
+            setTextSize(0, wi.g(getContext(), R.dimen.tbds34));
             setGravity(17);
         }
     }

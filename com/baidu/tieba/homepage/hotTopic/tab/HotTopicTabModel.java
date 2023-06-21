@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gy7;
+import com.baidu.tieba.by7;
 import com.baidu.tieba.homepage.hotTopic.tab.net.HotTopicTabRequest;
 import com.baidu.tieba.jb;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.ox7;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.vn;
+import com.baidu.tieba.ty7;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +30,12 @@ import java.util.List;
 public class HotTopicTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ox7 a;
+    public by7 a;
     public jb b;
     public boolean c;
     public String d;
     public int e;
-    public final HashMap<String, List<vn>> f;
+    public final HashMap<String, List<wn>> f;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -80,7 +80,7 @@ public class HotTopicTabModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (this.a.a == null || !(responsedMessage instanceof gy7) || this.a.unique_id != responsedMessage.getOrginalMessage().getTag()) {
+                if (this.a.a == null || !(responsedMessage instanceof ty7) || this.a.unique_id != responsedMessage.getOrginalMessage().getTag()) {
                     return;
                 }
                 if (responsedMessage.getOrginalMessage() == null) {
@@ -88,11 +88,11 @@ public class HotTopicTabModel extends BdBaseModel {
                     return;
                 }
                 HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
-                gy7 gy7Var = (gy7) responsedMessage;
+                ty7 ty7Var = (ty7) responsedMessage;
                 if (!TextUtils.isEmpty(this.a.d)) {
-                    this.a.f.put(this.a.d, gy7Var.getDataList());
+                    this.a.f.put(this.a.d, ty7Var.getDataList());
                 }
-                this.a.a.N0(responsedMessage.getError(), gy7Var);
+                this.a.a.N0(responsedMessage.getError(), ty7Var);
             }
         }
     }
@@ -121,7 +121,7 @@ public class HotTopicTabModel extends BdBaseModel {
         c0();
     }
 
-    public List<vn> a0(String str) {
+    public List<wn> a0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -130,10 +130,10 @@ public class HotTopicTabModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public void d0(ox7 ox7Var) {
+    public void d0(by7 by7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ox7Var) == null) {
-            this.a = ox7Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, by7Var) == null) {
+            this.a = by7Var;
         }
     }
 
@@ -147,7 +147,7 @@ public class HotTopicTabModel extends BdBaseModel {
         }
     }
 
-    public List<vn> Z() {
+    public List<wn> Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -195,7 +195,7 @@ public class HotTopicTabModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                vi.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0def);
+                wi.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0df3);
                 return false;
             } else if (this.c) {
                 return false;

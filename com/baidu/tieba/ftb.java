@@ -1,40 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes5.dex */
-public class ftb implements lwb {
+public final class ftb implements nob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rsb a;
-    public AbsViewEventHandler b;
-    public PayUIKitConfig c;
-    public Activity d;
-    public List<PayWayInfo> e;
-    public IYYPayAmountView.ViewParams f;
-    public IPayCallback<CurrencyChargeMessage> g;
-    public String h;
+    public final SequentialSubscription a;
 
-    public ftb(rsb rsbVar, AbsViewEventHandler absViewEventHandler, PayUIKitConfig payUIKitConfig, Activity activity, List<PayWayInfo> list, IYYPayAmountView.ViewParams viewParams, String str, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public ftb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rsbVar, absViewEventHandler, payUIKitConfig, activity, list, viewParams, str, iPayCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,38 +26,35 @@ public class ftb implements lwb {
                 return;
             }
         }
-        RLog.info("AmountInputDialogListener", "create AmountInputDialogListener");
-        this.a = rsbVar;
-        this.b = absViewEventHandler;
-        this.c = payUIKitConfig;
-        this.d = activity;
-        this.e = list;
-        this.f = viewParams;
-        this.g = iPayCallback;
-        this.h = str;
+        this.a = new SequentialSubscription();
     }
 
-    @Override // com.baidu.tieba.lwb
-    public void a(CancelType cancelType) {
+    @Override // com.baidu.tieba.nob
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("AmountInputDialogListener", "InputDialog notifyCancelType clickArea:" + cancelType);
-            this.a.g(cancelType, this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isUnsubscribed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nob
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.lwb
-    public void b(int i) {
+    public void a(nob nobVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            jub a = wub.a((int) (i * 100.0d), this.c);
-            if (jvb.b(i)) {
-                this.a.a(this.d, a, this.e, this.h, PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG, this.f, this.g);
-                RLog.info("AmountInputDialogListener", "confirm but ShowSplitOrderDialog");
+        if (interceptable == null || interceptable.invokeL(1048576, this, nobVar) == null) {
+            if (nobVar != null) {
+                this.a.update(nobVar);
                 return;
             }
-            RLog.info("AmountInputDialogListener", "showInputDialog: mPayAmountCustom:%s", a);
-            this.a.t(this.d, a, this.e, this.h, this.f, this.g);
+            throw new IllegalArgumentException("Subscription can not be null");
         }
     }
 }

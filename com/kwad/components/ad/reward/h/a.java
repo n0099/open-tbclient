@@ -3,11 +3,11 @@ package com.kwad.components.ad.reward.h;
 import androidx.annotation.NonNull;
 /* loaded from: classes9.dex */
 public class a implements com.kwad.sdk.core.webview.kwai.a {
-    public InterfaceC0605a tJ;
+    public InterfaceC0606a tJ;
 
     /* renamed from: com.kwad.components.ad.reward.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0605a {
+    public interface InterfaceC0606a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a

@@ -19,8 +19,8 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f49;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.b59;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,9 +78,9 @@ public class SubPbView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.k = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 SubPbView subPbView = this.a;
-                subPbView.p = 1.0f - (subPbView.k / vi.j(this.a.getContext()));
+                subPbView.p = 1.0f - (subPbView.k / wi.j(this.a.getContext()));
                 if (this.a.k != 0) {
-                    if (this.a.k == vi.j(this.a.getContext())) {
+                    if (this.a.k == wi.j(this.a.getContext())) {
                         this.a.p = 0.0f;
                         if (this.a.i && (this.a.getContext() instanceof Activity)) {
                             ((Activity) this.a.getContext()).finish();
@@ -175,12 +175,12 @@ public class SubPbView extends LinearLayout {
         this.n = false;
         this.p = 0.0f;
         if (0 != 0) {
-            this.o = vi.j(context) / 10;
+            this.o = wi.j(context) / 10;
         } else {
-            this.o = (vi.j(context) / 3) - vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070374);
+            this.o = (wi.j(context) / 3) - wi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070374);
         }
-        this.k = vi.j(context);
-        ValueAnimator ofInt = ValueAnimator.ofInt(vi.j(context), 0);
+        this.k = wi.j(context);
+        ValueAnimator ofInt = ValueAnimator.ofInt(wi.j(context), 0);
         this.j = ofInt;
         ofInt.setDuration(this.l);
         this.j.setInterpolator(new LinearInterpolator());
@@ -276,9 +276,9 @@ public class SubPbView extends LinearLayout {
                         if (action == 2) {
                             float rawY = motionEvent.getRawY();
                             this.g = rawY;
-                            this.p = 1.0f - ((rawY - this.f) / vi.j(getContext()));
+                            this.p = 1.0f - ((rawY - this.f) / wi.j(getContext()));
                             if ((this.m || this.n) && this.b.getTop() == 0 && this.d.getFirstVisiblePosition() == 0 && !this.i) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new f49(this.g, this.f, this.k, this.p, this.i)));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new b59(this.g, this.f, this.k, this.p, this.i)));
                             }
                         }
                     }
@@ -297,9 +297,9 @@ public class SubPbView extends LinearLayout {
                     this.i = z2;
                     if (z2) {
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new f49(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new b59(this.g, this.f, this.k, this.p, this.i)));
                         }
-                        this.j.setIntValues((int) (this.g - this.f), vi.j(getContext()));
+                        this.j.setIntValues((int) (this.g - this.f), wi.j(getContext()));
                         this.j.setDuration(300L);
                         this.j.start();
                     } else {
@@ -307,7 +307,7 @@ public class SubPbView extends LinearLayout {
                         this.f = 0.0f;
                         this.g = 0.0f;
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new f49(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new b59(this.g, this.f, this.k, this.p, this.i)));
                         }
                         requestLayout();
                     }
@@ -375,9 +375,9 @@ public class SubPbView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.i = true;
             if (this.m || this.n) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new f49(this.g, this.f, this.k, this.p, this.i)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new b59(this.g, this.f, this.k, this.p, this.i)));
             }
-            this.j.setIntValues(0, vi.j(getContext()));
+            this.j.setIntValues(0, wi.j(getContext()));
             this.j.setDuration(300L);
             this.j.start();
         }
@@ -410,26 +410,26 @@ public class SubPbView extends LinearLayout {
         }
     }
 
-    public void setSubPbViewData(f49 f49Var) {
+    public void setSubPbViewData(b59 b59Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, f49Var) != null) || f49Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, b59Var) != null) || b59Var == null) {
             return;
         }
-        this.p = f49Var.d;
-        float f = f49Var.b;
+        this.p = b59Var.d;
+        float f = b59Var.b;
         this.f = f;
-        float f2 = f49Var.a;
+        float f2 = b59Var.a;
         this.g = f2;
-        this.k = f49Var.c;
-        this.i = f49Var.e;
+        this.k = b59Var.c;
+        this.i = b59Var.e;
         if (f2 > f) {
             z = true;
         } else {
             z = false;
         }
         if (this.i) {
-            this.j.setIntValues((int) (this.g - this.f), vi.j(getContext()));
+            this.j.setIntValues((int) (this.g - this.f), wi.j(getContext()));
             this.j.setDuration(0L);
             this.j.start();
         }

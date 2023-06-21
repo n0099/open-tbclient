@@ -1,87 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Deprecated
+import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public abstract class x9b implements u9b {
+public final class x9b<TResult> implements dbb<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, x9b> a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Executor a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948256616, "Lcom/baidu/tieba/x9b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948256616, "Lcom/baidu/tieba/x9b;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public x9b() {
+    public x9b(Executor executor, tab tabVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, tabVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = executor;
     }
 
-    public static x9b c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dbb
+    public final void a(pab<TResult> pabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            return d(context, context.getPackageName());
+        if (interceptable == null || interceptable.invokeL(1048576, this, pabVar) == null) {
+            pabVar.e();
         }
-        return (x9b) invokeL.objValue;
     }
-
-    public static x9b d(Context context, String str) {
-        InterceptResult invokeLL;
-        x9b x9bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            synchronized (b) {
-                x9bVar = a.get(str);
-                if (x9bVar == null) {
-                    x9bVar = new dab(context, str);
-                    a.put(str, x9bVar);
-                }
-            }
-            return x9bVar;
-        }
-        return (x9b) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.u9b
-    public abstract /* synthetic */ Context getContext();
-
-    @Override // com.baidu.tieba.u9b
-    public abstract /* synthetic */ String getIdentifier();
 }

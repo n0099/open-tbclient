@@ -20,8 +20,8 @@ public final class o extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f0912db);
-        this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f0912dc);
+        this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f0912e0);
+        this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f0912e1);
         this.vU.setOnClickListener(this);
         this.vV.setOnClickListener(this);
     }

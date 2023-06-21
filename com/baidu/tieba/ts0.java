@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public abstract class ts0 implements ft0 {
+public abstract class ts0 implements et0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract dt0 b(String str);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(Exception exc, int i);
+
+        void b(Headers headers, InputStream inputStream, int i) throws Exception;
+
+        void c(Headers headers, String str, int i) throws Exception;
+    }
 
     public ts0() {
         Interceptable interceptable = $ic;

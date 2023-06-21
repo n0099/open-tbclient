@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import com.baidu.tbadk.TbPageContextSupport;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.ie5;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 /* loaded from: classes7.dex */
-public final class o65 extends j65 {
+public class o65 extends k65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,59 +33,31 @@ public final class o65 extends j65 {
         }
     }
 
-    public static final void b() {
+    @Override // com.baidu.tieba.k65
+    public void a(@NonNull Context context, @NonNull c65 c65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            z55.s("homeLiveRemind");
-        }
-    }
-
-    @Override // com.baidu.tieba.j65
-    public void a(Context context, b65 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
-                int i = 0;
-                LiveRemindRecommendData c = a95.a().c(0);
-                HashMap hashMap = new HashMap();
-                if (c.getRemindType() == 1) {
-                    i = 3;
-                } else if (c.getRemindType() == 2) {
-                    i = 4;
-                } else if (c.getRemindType() == 3) {
-                    i = 2;
-                }
-                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
-                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
-                hashMap.put("view_top_params_user_name", c.getUserName());
-                hashMap.put("view_top_params_key_desc", c.getDesc());
-                hashMap.put("view_top_params_room_id", c.getRoomId());
-                hashMap.put("view_top_params_btn_text", c.getBtnText());
-                hashMap.put("view_top_params_key_title", c.getTitle());
-                hashMap.put("view_top_params_key_nid", c.getFeedId());
-                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
-                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
-                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                je5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new ie5.h() { // from class: com.baidu.tieba.g65
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.ie5.h
-                    public final void dismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            o65.b();
-                        }
-                    }
-                });
-                b95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-                z55.m("homeLiveRemind");
-                return;
-            }
-            z55.s("homeLiveRemind");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c65Var) == null) {
+            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
+            clientUpdateInfo.mIsForceUpdate = c65Var.a("is_force_update");
+            clientUpdateInfo.mStatus = c65Var.a("status");
+            clientUpdateInfo.mReverson = c65Var.a("reverson");
+            clientUpdateInfo.mContentUrl = c65Var.a("content_url");
+            clientUpdateInfo.mVercode = c65Var.a("version_code");
+            clientUpdateInfo.mVername = c65Var.a(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+            clientUpdateInfo.mDownurl = c65Var.a("download_url");
+            clientUpdateInfo.mChangelog = c65Var.a("change_log");
+            clientUpdateInfo.mSize = c65Var.a("size");
+            clientUpdateInfo.mPackageName = c65Var.a("package_name");
+            clientUpdateInfo.mSign = c65Var.a("sign");
+            clientUpdateInfo.mProdline = c65Var.a("prod_line");
+            clientUpdateInfo.mSignMd5 = c65Var.a(FkApkInfoSearchRequestKt.PARAMS_KEY_SIGN_MD5);
+            clientUpdateInfo.mApkMd5 = c65Var.a("apk_md5");
+            clientUpdateInfo.mPatchDownUrl = c65Var.a("patch_download_url");
+            clientUpdateInfo.mPatchSize = c65Var.a("patch_size");
+            clientUpdateInfo.mIconUrl = c65Var.a("icon_url");
+            clientUpdateInfo.mSname = c65Var.a(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME);
+            clientUpdateInfo.mUpdateTime = c65Var.a("update_time");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, c65Var.a("apk_md5_rsa"))));
         }
     }
 }

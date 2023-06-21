@@ -44,13 +44,13 @@ public class ActionBarH5 extends FrameLayout implements c {
 
     private void E(Context context) {
         FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04de, this);
-        this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091286);
-        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09128a);
-        this.wS = findViewById(R.id.obfuscated_res_0x7f091268);
+        this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09128b);
+        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09128f);
+        this.wS = findViewById(R.id.obfuscated_res_0x7f09126d);
     }
 
     private void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0630a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
+        com.kwad.components.core.c.a.a.a(new a.C0631a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 if (ActionBarH5.this.wR != null) {

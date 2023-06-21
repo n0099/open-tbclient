@@ -1,159 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
+import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.tieba.ik2;
-import com.baidu.tieba.w82;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class kk2 implements ik2.d {
+public class kk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ik2 a;
-    public volatile boolean b;
-    public final boolean c;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ix1 a;
-
-        public a(kk2 kk2Var, ix1 ix1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kk2Var, ix1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ix1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(kk2 kk2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kk2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fv2.s0().b();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ kk2 c;
-
-        public c(kk2 kk2Var, int i, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kk2Var, Integer.valueOf(i), bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = kk2Var;
-            this.a = i;
-            this.b = bundle;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (kk2.d) {
-                    Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + this.a);
-                }
-                w83.k(this.c.a(), this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kk2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-658584905, "Lcom/baidu/tieba/kk2$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-658584905, "Lcom/baidu/tieba/kk2$d;");
-                    return;
-                }
-            }
-            a = new kk2(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -168,128 +37,165 @@ public final class kk2 implements ik2.d {
                 return;
             }
         }
-        d = is1.a;
+        a = js1.a;
     }
 
-    public static kk2 c() {
-        InterceptResult invokeV;
+    @Nullable
+    public static Set<String> a(int i, List<String> list) {
+        InterceptResult invokeIL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d.a;
-        }
-        return (kk2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gk2
-    @NonNull
-    public Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public ik2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ik2) invokeV.objValue;
-    }
-
-    public kk2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                HashSet hashSet = new HashSet();
+                for (y83 y83Var : a93.k().q()) {
+                    String appId = y83Var.getAppId();
+                    if (TextUtils.isEmpty(appId)) {
+                        appId = y83Var.N();
+                    }
+                    if (!y83Var.E() && !y83Var.Q()) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (y83Var.T() && z && list.contains(appId)) {
+                        p83 e = p83.e();
+                        r83 r83Var = new r83(i);
+                        r83Var.b(y83Var.b);
+                        e.h(r83Var);
+                        hashSet.add(appId);
+                        if (a) {
+                            Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                    }
+                }
+                return hashSet;
             }
+            return null;
         }
-        this.b = false;
-        fv2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
-        this.c = true;
-        this.a = new ik2(this);
-        lp2.i();
-        SwanFavorDataManager.h();
-        lm2.d().f();
+        return (Set) invokeIL.objValue;
     }
 
-    public /* synthetic */ kk2(a aVar) {
-        this();
-    }
-
-    public void e(Bundle bundle) {
+    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    f(bundle);
-                    this.b = true;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
+            c(file, str, str2, set, z, null);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable iw3<Pair<String, File>> iw3Var) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), iw3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+            for (File file2 : listFiles) {
+                String name = file2.getName();
+                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
+                    int length = name.length();
+                    int length2 = str.length();
+                    int length3 = str2.length();
+                    if (length >= length2 + length3) {
+                        String substring = name.substring(length2, length - length3);
+                        if (set == null) {
+                            set = Collections.emptySet();
+                        }
+                        if (!TextUtils.isEmpty(substring)) {
+                            if (z) {
+                                if (set.contains(substring)) {
+                                }
+                                if (a) {
+                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
+                                }
+                                if (iw3Var == null) {
+                                    iw3Var.run(Pair.create(str + substring, file2));
+                                } else {
+                                    ds4.L(file2);
+                                }
+                            } else {
+                                if (!set.contains(substring)) {
+                                }
+                                if (a) {
+                                }
+                                if (iw3Var == null) {
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 
-    public final void f(Bundle bundle) {
+    @Nullable
+    public static Set<String> d(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            g(bundle);
-            SwanLauncher.j().l(null);
-            w82.b.c();
-            zp3.a();
-            if (d) {
-                Log.d("SwanAppEnv", "swan_env_init_thread_pool_optimize: " + this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return a(106, list);
             }
-            if (this.c) {
-                ExecutorUtilsExt.postOnElastic(new a(this, fv2.s0()), "requestBatchRebateInfo", 2);
-            } else {
-                ExecutorUtilsExt.postOnElastic(new b(this), "requestBatchRebateInfo", 2);
-            }
+            return null;
         }
+        return (Set) invokeL.objValue;
     }
 
-    public final void g(Bundle bundle) {
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
+        InterceptResult invokeCommon;
+        File[] listFiles;
+        String J;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            if (d) {
-                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
-            }
-            bw1 g = fv2.g();
-            if (g == null) {
-                return;
-            }
-            int a2 = g.a();
-            if (d) {
-                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + a2);
-            }
-            if (g.e()) {
-                return;
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (TextUtils.isEmpty(bundle.getString("bundle_key_preload_preload_scene"))) {
-                bundle.putString("bundle_key_preload_preload_scene", "0");
-            }
-            if (bundle.getBoolean("bundle_key_preload_delay", false) && g.f()) {
-                if (d) {
-                    Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + a2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                for (File file2 : listFiles) {
+                    String name = file2.getName();
+                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
+                        int length = name.length();
+                        int length2 = str.length();
+                        int length3 = str2.length();
+                        if (length >= length2 + length3) {
+                            String substring = name.substring(length2, length - length3);
+                            if (set == null) {
+                                set = Collections.emptySet();
+                            }
+                            if (!TextUtils.isEmpty(substring)) {
+                                if (z) {
+                                    if (set.contains(substring)) {
+                                    }
+                                    J = ds4.J(file2);
+                                    if (a) {
+                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
+                                    }
+                                    if (TextUtils.isEmpty(J)) {
+                                        arraySet.add(J);
+                                    }
+                                } else {
+                                    if (!set.contains(substring)) {
+                                    }
+                                    J = ds4.J(file2);
+                                    if (a) {
+                                    }
+                                    if (TextUtils.isEmpty(J)) {
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                sp3.b0(new c(this, a2, bundle), fv2.g().c());
-                return;
             }
-            if (d) {
-                Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + a2);
-            }
-            w83.k(a(), bundle);
+            return arraySet;
         }
+        return (ArraySet) invokeCommon.objValue;
     }
 }

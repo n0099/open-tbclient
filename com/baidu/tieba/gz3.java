@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class gz3 {
+public class gz3 implements nv1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fz3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized fz3 a() {
-        InterceptResult invokeV;
-        fz3 fz3Var;
+    public gz3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (gz3.class) {
-                if (a == null) {
-                    a = new fz3();
-                }
-                fz3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return fz3Var;
         }
-        return (fz3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nv1
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return context.getPackageName() + ".swan.fileprovider";
+        }
+        return (String) invokeL.objValue;
     }
 }

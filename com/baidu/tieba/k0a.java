@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k0a extends n0a {
+public class k0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
 
     public k0a() {
         Interceptable interceptable = $ic;
@@ -23,8 +26,19 @@ public class k0a extends n0a {
                 return;
             }
         }
-        i(true);
-        f(-1);
-        h(TbErrInfo.getErrMsg(-51));
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
+        }
     }
 }

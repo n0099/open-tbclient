@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,9 +11,51 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hd2 extends zc2<JSONObject, y32> {
+public class hd2 extends ad2<JSONObject, z32> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements bd2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.bd2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yc2 yc2Var = new yc2();
+                yc2Var.g(this.a);
+                yc2Var.f(SceneType.SCENE_SKELETON_DEV_TIMEOUT);
+            }
+        }
+
+        public static bd2 b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                a aVar = new a();
+                aVar.a = str;
+                return aVar;
+            }
+            return (bd2) invokeL.objValue;
+        }
+    }
 
     public hd2() {
         Interceptable interceptable = $ic;
@@ -29,41 +72,30 @@ public class hd2 extends zc2<JSONObject, y32> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dd2
+    @Override // com.baidu.tieba.ed2
     @NonNull
     /* renamed from: c */
-    public y32 a(@NonNull JSONObject jSONObject) {
+    public z32 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             if (jSONObject == null) {
-                return new y32(202);
+                return new z32(202);
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                return new y32(202, "data is required");
+                return new z32(202, "data is required");
             }
-            String optString = optJSONObject.optString("status");
+            String optString = optJSONObject.optString("path");
             if (TextUtils.isEmpty(optString)) {
-                return new y32(202, "status is required");
+                return new z32(202, "path is required");
             }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 48) {
-                if (hashCode == 49 && optString.equals("1")) {
-                    c = 0;
-                }
-            } else if (optString.equals("0")) {
-                c = 1;
+            oc2 b = oc2.b();
+            if (!b.d()) {
+                b.g(a.b(optString));
             }
-            if (c != 0) {
-                if (c != 1) {
-                    return new y32(202, "status value is invalid");
-                }
-                new xc2().d();
-            }
-            return new y32(0);
+            return new z32(0);
         }
-        return (y32) invokeL.objValue;
+        return (z32) invokeL.objValue;
     }
 }

@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew7;
-import com.baidu.tieba.gn;
+import com.baidu.tieba.hn;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.og;
+import com.baidu.tieba.n8a;
+import com.baidu.tieba.nw7;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.py;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.w6a;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.qy;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes6.dex */
-public class RecommendCollectLayout extends RelativeLayout implements py {
+public class RecommendCollectLayout extends RelativeLayout implements qy {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,14 +47,14 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
     public BdRecyclerView c;
     public EMTextView d;
     public int e;
-    public ew7 f;
+    public nw7 f;
     public int g;
     public BdUniqueId h;
     public Boolean i;
-    public final og<gn> j;
+    public final pg<hn> j;
 
     /* loaded from: classes6.dex */
-    public class a extends og<gn> {
+    public class a extends pg<hn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendCollectLayout a;
@@ -78,12 +78,12 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
-        public void onLoaded(gn gnVar, String str, int i) {
+        @Override // com.baidu.tieba.pg
+        public void onLoaded(hn hnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, gnVar, str, i) == null) {
-                if (gnVar != null && gnVar.j() != null) {
-                    this.a.setBackground(gnVar.j());
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
+                if (hnVar != null && hnVar.j() != null) {
+                    this.a.setBackground(hnVar.j());
                 } else {
                     this.a.c(true);
                 }
@@ -134,15 +134,15 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
     }
 
     public final void c(boolean z) {
-        ew7 ew7Var;
+        nw7 nw7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (ew7Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (nw7Var = this.f) == null) {
             return;
         }
-        if (!z && ew7Var.d() != null && !TextUtils.isEmpty(w6a.g(this.f.d()))) {
-            gn gnVar = (gn) pg.h().m(w6a.g(this.f.d()), 45, this.j, this.h);
-            if (gnVar != null) {
-                setBackground(gnVar.j());
+        if (!z && nw7Var.d() != null && !TextUtils.isEmpty(n8a.g(this.f.d()))) {
+            hn hnVar = (hn) qg.h().m(n8a.g(this.f.d()), 45, this.j, this.h);
+            if (hnVar != null) {
+                setBackground(hnVar.j());
                 return;
             }
             return;
@@ -152,11 +152,11 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
 
     private int getDefaultIdByNumber() {
         InterceptResult invokeV;
-        ew7 ew7Var;
+        nw7 nw7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            ew7 ew7Var2 = this.f;
-            if ((ew7Var2 != null && ew7Var2.e()) || (ew7Var = this.f) == null || ListUtils.getCount(ew7Var.getDataList()) <= k.intValue()) {
+            nw7 nw7Var2 = this.f;
+            if ((nw7Var2 != null && nw7Var2.e()) || (nw7Var = this.f) == null || ListUtils.getCount(nw7Var.getDataList()) <= k.intValue()) {
                 return R.drawable.bg_home_card_heji_two;
             }
             return R.drawable.bg_home_card_heji;
@@ -167,29 +167,29 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0818, (ViewGroup) this, true);
-            int g = vi.g(getContext(), R.dimen.M_W_X004);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0816, (ViewGroup) this, true);
+            int g = wi.g(getContext(), R.dimen.M_W_X004);
             setPadding(g, 0, g, 0);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090739);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09073f);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090736);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09073c);
             this.b = new ContentCollectListAdapter(this.a);
             this.c.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.c.setAdapter(this.b);
         }
     }
 
-    @Override // com.baidu.tieba.py
+    @Override // com.baidu.tieba.qy
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.g != i) {
-            o75 d = o75.d(this.d);
-            d.C(R.string.F_X02);
-            d.B(R.dimen.T_X07);
-            d.w(R.color.CAM_X0105);
+            p75 d = p75.d(this.d);
+            d.D(R.string.F_X02);
+            d.C(R.dimen.T_X07);
+            d.x(R.color.CAM_X0105);
             int i5 = 0;
             c(false);
             ContentCollectListAdapter contentCollectListAdapter = this.b;
@@ -205,19 +205,19 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
                 }
                 ShadowDrawable shadowColor = makeShadowDrawable.setBgColor(i2).setShadowColor(R.color.CAM_X0802);
                 if (this.i.booleanValue()) {
-                    i3 = vi.g(getContext(), R.dimen.tbds31);
+                    i3 = wi.g(getContext(), R.dimen.tbds31);
                 } else {
                     i3 = 0;
                 }
                 ShadowDrawable shadowSide = shadowColor.setShapeRadius(i3).setShadowSide(ShadowDrawable.ALL);
                 if (this.i.booleanValue()) {
-                    i4 = vi.g(getContext(), R.dimen.tbds10);
+                    i4 = wi.g(getContext(), R.dimen.tbds10);
                 } else {
                     i4 = 0;
                 }
                 ShadowDrawable offsetX = shadowSide.setShadowRadius(i4).setOffsetX(0);
                 if (this.i.booleanValue()) {
-                    i5 = vi.g(getContext(), R.dimen.tbds5);
+                    i5 = wi.g(getContext(), R.dimen.tbds5);
                 }
                 offsetX.setOffsetY(i5).into(this.c);
             }
@@ -225,35 +225,35 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
         }
     }
 
-    public void setData(ew7 ew7Var) {
+    public void setData(nw7 nw7Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, ew7Var) != null) || ew7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, nw7Var) != null) || nw7Var == null) {
             return;
         }
-        this.f = ew7Var;
+        this.f = nw7Var;
         if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            if (ew7Var.c() > 0) {
-                marginLayoutParams.topMargin = vi.g(getContext(), R.dimen.M_H_X001);
+            if (nw7Var.c() > 0) {
+                marginLayoutParams.topMargin = wi.g(getContext(), R.dimen.M_H_X001);
             } else {
                 marginLayoutParams.topMargin = 0;
             }
             setLayoutParams(marginLayoutParams);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b32, SkinManager.getColor(R.color.CAM_X0306), null);
-        pureDrawable.setBounds(0, 0, vi.g(getContext(), R.dimen.tbds96), vi.g(getContext(), R.dimen.T_X07));
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b36, SkinManager.getColor(R.color.CAM_X0306), null);
+        pureDrawable.setBounds(0, 0, wi.g(getContext(), R.dimen.tbds96), wi.g(getContext(), R.dimen.T_X07));
         this.d.setCompoundDrawables(pureDrawable, null, null, null);
-        this.d.setCompoundDrawablePadding(vi.g(getContext(), R.dimen.M_W_X001));
-        this.d.setText(ew7Var.getTitle());
-        this.b.q(ew7Var.getDataList());
+        this.d.setCompoundDrawablePadding(wi.g(getContext(), R.dimen.M_W_X001));
+        this.d.setText(nw7Var.getTitle());
+        this.b.q(nw7Var.getDataList());
         this.b.r(this.e);
         Boolean bool = this.i;
-        if (bool == null || bool.booleanValue() != ew7Var.e()) {
-            boolean e = ew7Var.e();
+        if (bool == null || bool.booleanValue() != nw7Var.e()) {
+            boolean e = nw7Var.e();
             if (e) {
                 this.b.p(ContentCollectListAdapter.CornerType.FULL);
             } else {
@@ -267,19 +267,19 @@ public class RecommendCollectLayout extends RelativeLayout implements py {
             }
             ShadowDrawable shadowColor = makeShadowDrawable.setBgColor(i).setShadowColor(R.color.CAM_X0802);
             if (e) {
-                i2 = vi.g(getContext(), R.dimen.tbds31);
+                i2 = wi.g(getContext(), R.dimen.tbds31);
             } else {
                 i2 = 0;
             }
             ShadowDrawable shadowSide = shadowColor.setShapeRadius(i2).setShadowSide(ShadowDrawable.ALL);
             if (e) {
-                i3 = vi.g(getContext(), R.dimen.tbds10);
+                i3 = wi.g(getContext(), R.dimen.tbds10);
             } else {
                 i3 = 0;
             }
             ShadowDrawable offsetX = shadowSide.setShadowRadius(i3).setOffsetX(0);
             if (e) {
-                i4 = vi.g(getContext(), R.dimen.tbds5);
+                i4 = wi.g(getContext(), R.dimen.tbds5);
             } else {
                 i4 = 0;
             }

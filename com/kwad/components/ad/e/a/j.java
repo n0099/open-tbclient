@@ -31,6 +31,6 @@ public final class j extends com.kwad.components.ad.e.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ki = findViewById(R.id.obfuscated_res_0x7f0913ee);
+        this.ki = findViewById(R.id.obfuscated_res_0x7f0913f3);
     }
 }

@@ -1,47 +1,51 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class bk6 {
+public class bk6 extends ak6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(WebView webView, List<String> list) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bk6(WebView webView) {
+        super(webView);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, webView, list) == null) {
-            try {
-                Method declaredMethod = WebView.class.getDeclaredMethod("setSafeBrowsingWhitelist", List.class, ValueCallback.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(webView, list, null);
-            } catch (Throwable th) {
-                th.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((WebView) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @SuppressLint({"WebViewApiAvailability"})
-    public static void b(WebView webView) {
+    public static void d(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i == 26) {
-                webView.setImportantForAutofill(2);
-                webView.getSettings().setSafeBrowsingEnabled(false);
-            } else if (i >= 27) {
-                List<String> a = dj6.a();
-                try {
-                    WebView.setSafeBrowsingWhitelist(a, null);
-                } catch (Throwable unused) {
-                    a(webView, a);
-                }
-            }
+            webView.setHorizontalScrollBarEnabled(false);
+            webView.setHorizontalScrollbarOverlay(false);
+            webView.setVerticalScrollBarEnabled(true);
+            webView.setVerticalScrollbarOverlay(true);
+            new bk6(webView).a();
+        }
+    }
+
+    @Override // com.baidu.tieba.ak6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
         }
     }
 }

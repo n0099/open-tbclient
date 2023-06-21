@@ -1,12 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface up8 {
-    mp8 a(qp8 qp8Var);
+public class up8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    qo8 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i);
-
-    wp8 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948218796, "Lcom/baidu/tieba/up8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948218796, "Lcom/baidu/tieba/up8;");
+        }
+    }
 }

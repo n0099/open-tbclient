@@ -1,186 +1,250 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import com.baidu.adp.log.DefaultLog;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.FunnySpriteSwitch;
-import com.baidu.tieba.or6;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
-import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
-import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
-import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.LoginDialogData;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t55;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j5a extends s55 {
+public class j5a extends w55 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
-    public static long f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SpriteTipHttpResponseMessage c;
-    public final HomePageSpriteBottomTipView d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835667, "Lcom/baidu/tieba/j5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947835667, "Lcom/baidu/tieba/j5a;");
-                return;
-            }
-        }
-        e = new a(null);
-    }
+    public final MainTabActivity f;
+    public final s2a g;
+    public yg5 h;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j5a a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(j5a j5aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j5aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j5aVar;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                a65.s("operateNew");
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ j5a b;
+
+        public b(j5a j5aVar, AlertDialog alertDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j5aVar, alertDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j5aVar;
+            this.a = alertDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            String str2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getContext() != null) {
+                this.a.dismiss();
+                LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
+                String b = this.b.h.b();
+                if (TextUtils.isEmpty(b)) {
+                    return;
+                }
+                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    str = "skin=dark";
+                } else {
+                    str = "skin=default";
+                }
+                if (b.contains("?")) {
+                    str2 = b + "&customfullscreen=1&nonavigationbar=1&" + str;
+                } else {
+                    str2 = b + "?customfullscreen=1&nonavigationbar=1&" + str;
+                }
+                loginDialogData.setJumpUrl(str2);
+                if (DialogLoginHelper.checkUpIsLogin(loginDialogData)) {
+                    rx4.v(view2.getContext(), null, str2, true);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements TbImageView.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBAlertBuilder a;
+        public final /* synthetic */ AlertDialog b;
+        public final /* synthetic */ j5a c;
+
+        public c(j5a j5aVar, TBAlertBuilder tBAlertBuilder, AlertDialog alertDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j5aVar, tBAlertBuilder, alertDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = j5aVar;
+            this.a = tBAlertBuilder;
+            this.b = alertDialog;
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+                if (!z) {
+                    this.c.c();
+                } else {
+                    this.a.A(this.b);
                 }
             }
         }
 
-        public final long a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void onCancel() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return invokeV.longValue;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.c();
             }
-            return j5a.f;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j5a(Activity activity, SpriteTipHttpResponseMessage data, HomePageSpriteBottomTipView tipView) {
-        super(activity);
+    public j5a(@NonNull MainTabActivity mainTabActivity, @NonNull s2a s2aVar) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, data, tipView};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {mainTabActivity, s2aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(tipView, "tipView");
-        this.c = data;
-        this.d = tipView;
+        this.g = s2aVar;
+        this.f = mainTabActivity;
     }
 
-    @Override // com.baidu.tieba.s55
-    public void b() {
+    @Override // com.baidu.tieba.t55
+    public void d(@NonNull t55.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.d();
-        }
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c.isSuccess() && this.c.getScene() != 2 && HomeSpriteEdgeFloatManager.j.b()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final void i(j5a this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.s55
-    public void d(s55.a shouldShowCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            if (w3a.g.a().e()) {
-                if (h()) {
-                    gu9.b.a().c(this.c);
-                }
-                DefaultLog.getInstance().b("SpriteTip", "not show Tip because home easter egg is showing");
-                shouldShowCallback.callback(false);
-            } else if (h()) {
-                shouldShowCallback.callback(true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            boolean z = false;
+            if (a65.j()) {
+                aVar.callback(false);
+            } else if (!o95.p().l(f75.d(), true)) {
+                aVar.callback(false);
             } else {
-                zq8 defaultLog = DefaultLog.getInstance();
-                defaultLog.b("SpriteTip", "not show Tip switch:" + FunnySpriteSwitch.Companion.isOn() + " isAllResExist:" + FunnySpriteResDownloadUtil.k().invoke().booleanValue() + " canShowSpriteAndTip:" + HomeSpriteEdgeFloatManager.j.b());
-                shouldShowCallback.callback(false);
+                yg5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
+                this.h = homeOperateData;
+                if (homeOperateData == null) {
+                    aVar.callback(false);
+                } else if (!homeOperateData.c()) {
+                    aVar.callback(false);
+                } else {
+                    if (!TextUtils.isEmpty(this.h.a()) && this.h.a().contains("not_show")) {
+                        o95.p().A(f75.d(), false);
+                    } else if (this.g.y() != null && this.g.y().getCurrentTabType() == 2) {
+                        z = true;
+                    }
+                    aVar.callback(z);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.s55
-    public void e() {
+    @Override // com.baidu.tieba.w55
+    public void h(TBAlertBuilder tBAlertBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            o95.p().A(f75.d(), false);
+            int h = TBAlertBuilder.h(TbadkCoreApplication.getInst());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(h, (h * 4) / 3);
+            TbImageView tbImageView = new TbImageView(this.b);
+            tbImageView.setLayoutParams(layoutParams);
+            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            tBAlertBuilder.k(tbImageView);
+            tBAlertBuilder.r(true);
+            tBAlertBuilder.v(true);
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.s(new a(this));
+            AlertDialog d = tBAlertBuilder.d();
+            tbImageView.setOnClickListener(new b(this, d));
+            tbImageView.setEvent(new c(this, tBAlertBuilder, d));
+            tbImageView.N(this.h.a(), 10, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.w55
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (2 == w3a.g.a().b().a().c && 1 == w3a.g.a().b().b().c && 6 == w3a.g.a().b().c().c) {
-                DefaultLog.getInstance().c("SpriteTip", "show responseTip：直播tab不展示轻互动");
-                c();
-                return;
-            }
-            zq8 defaultLog = DefaultLog.getInstance();
-            defaultLog.c("SpriteTip", "show responseTip:" + this.c.getText());
-            f = System.currentTimeMillis();
-            String s = n95.m().s("key_sprite_speech_version", "");
-            String version = this.c.getVersion();
-            if (!TextUtils.isEmpty(version) && !Intrinsics.areEqual(s, version)) {
-                n95.m().B("key_sprite_speech_version", version);
-            }
-            this.d.setDataAndShow(this.c, new or6.e() { // from class: com.baidu.tieba.h5a
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.or6.e
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        j5a.i(j5a.this);
-                    }
-                }
-            });
+            a65.m("operateNew");
         }
     }
 }

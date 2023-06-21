@@ -1,136 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.transvod.player.log.TLog;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class jgb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "Lifecycle";
-    public static final HashSet<WeakReference<a>> b;
-    public static AtomicInteger c;
-    public static int d;
-    public static long e;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile int a;
+    public volatile int b;
+    public volatile int c;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(long j);
-
-        void b(long j);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947883748, "Lcom/baidu/tieba/jgb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947883748, "Lcom/baidu/tieba/jgb;");
+    public jgb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new HashSet<>();
-        c = new AtomicInteger(0);
-        d = 0;
-        e = 0L;
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
     }
 
-    public static void a(boolean z) {
-        int i;
-        long j;
-        boolean z2;
-        String str;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            int i2 = d;
-            boolean z3 = true;
-            if (z) {
-                i = 1;
-            } else {
-                i = -1;
-            }
-            d = i + i2;
-            String str2 = a;
-            TLog.h(str2, " count:" + d);
-            HashSet hashSet = new HashSet();
-            synchronized (b) {
-                j = e + 1;
-                e = j;
-                z2 = false;
-                if (d == 1 && i2 == 0) {
-                    TLog.h(a, " onForeground");
-                    if (b.isEmpty()) {
-                        c.incrementAndGet();
-                    }
-                    Iterator<WeakReference<a>> it = b.iterator();
-                    while (it.hasNext()) {
-                        hashSet.add(it.next());
-                    }
-                    z2 = true;
-                } else if (d == 0 && i2 == 1) {
-                    TLog.h(a, " onBackground");
-                    if (b.isEmpty()) {
-                        c.decrementAndGet();
-                    }
-                    Iterator<WeakReference<a>> it2 = b.iterator();
-                    while (it2.hasNext()) {
-                        hashSet.add(it2.next());
-                    }
-                } else {
-                    z3 = false;
-                }
-            }
-            if (z3) {
-                Iterator it3 = hashSet.iterator();
-                while (it3.hasNext()) {
-                    a aVar = (a) ((WeakReference) it3.next()).get();
-                    if (aVar == null) {
-                        String str3 = a;
-                        if (z2) {
-                            str = "appFront";
-                        } else {
-                            str = "appBackgroundnull ref";
-                        }
-                        TLog.h(str3, str);
-                    } else if (z2) {
-                        aVar.b(j);
-                    } else {
-                        aVar.a(j);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (this.a != 2) {
+                    this.b++;
+                    if (this.b >= this.c) {
+                        this.a = 2;
+                        notify();
                     }
                 }
             }
         }
     }
 
-    public static void b(a aVar) {
-        boolean z;
-        long j;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            synchronized (b) {
-                b.add(new WeakReference<>(aVar));
-                if (c.get() > 0) {
-                    z = true;
-                    j = e;
-                } else {
-                    z = false;
-                    j = 0;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = i;
+        }
+    }
+
+    public synchronized boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            synchronized (this) {
+                if (this.a != 0) {
+                    return true;
+                }
+                try {
+                    this.a = 1;
+                    wait(i);
+                    return true;
+                } catch (Exception unused) {
+                    this.a = 2;
+                    return false;
                 }
             }
-            if (z) {
-                aVar.b(j);
-            }
         }
+        return invokeI.booleanValue;
     }
 }

@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import tbclient.FrsPage.BrandForumInfo;
 /* loaded from: classes5.dex */
 public class gd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Drawable> a;
 
     public gd7() {
         Interceptable interceptable = $ic;
@@ -22,16 +20,17 @@ public class gd7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public void a() {
+    public void a(BrandForumInfo brandForumInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.isEmpty()) {
-            this.a.clear();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, brandForumInfo) != null) || brandForumInfo == null) {
+            return;
         }
+        String str = brandForumInfo.brand_desc;
+        String str2 = brandForumInfo.jump_url;
+        String str3 = brandForumInfo.jump_desc;
     }
 }

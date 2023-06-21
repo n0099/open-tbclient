@@ -42,13 +42,14 @@ import com.baidu.tbadk.mutiprocess.face.EmotionReloadEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c27;
-import com.baidu.tieba.e27;
+import com.baidu.tieba.cm5;
 import com.baidu.tieba.faceshop.emotioncenter.EmotionCenterActivity;
 import com.baidu.tieba.faceshop.emotiondetail.EmotionDetailActivity;
 import com.baidu.tieba.h27;
-import com.baidu.tieba.i27;
-import com.baidu.tieba.ip5;
-import com.baidu.tieba.l27;
+import com.baidu.tieba.j27;
+import com.baidu.tieba.m09;
+import com.baidu.tieba.m27;
+import com.baidu.tieba.n27;
 import com.baidu.tieba.newfaceshop.CommonEmotionManagerActivity;
 import com.baidu.tieba.newfaceshop.NativeEmotionManagerActivity;
 import com.baidu.tieba.newfaceshop.NewFaceShopActivity;
@@ -56,19 +57,18 @@ import com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity;
 import com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity;
 import com.baidu.tieba.newfaceshop.facemake.SelectSingleForumActivity;
 import com.baidu.tieba.newfaceshop.message.GetFaceGroupInfoResponseMessage;
-import com.baidu.tieba.p17;
-import com.baidu.tieba.rz8;
+import com.baidu.tieba.np5;
+import com.baidu.tieba.o09;
+import com.baidu.tieba.p09;
+import com.baidu.tieba.q09;
+import com.baidu.tieba.q27;
+import com.baidu.tieba.s09;
+import com.baidu.tieba.t09;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
-import com.baidu.tieba.tz8;
 import com.baidu.tieba.u17;
-import com.baidu.tieba.uz8;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.vz8;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.x17;
-import com.baidu.tieba.xz8;
-import com.baidu.tieba.yl5;
-import com.baidu.tieba.yz8;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xg;
+import com.baidu.tieba.z17;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,25 +92,25 @@ public class FaceshopStatic {
 
         /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0298a implements Runnable {
+        public class RunnableC0282a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0299a implements Runnable {
+            public class RunnableC0283a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ StringBuilder a;
-                public final /* synthetic */ RunnableC0298a b;
+                public final /* synthetic */ RunnableC0282a b;
 
-                public RunnableC0299a(RunnableC0298a runnableC0298a, StringBuilder sb) {
+                public RunnableC0283a(RunnableC0282a runnableC0282a, StringBuilder sb) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0298a, sb};
+                        Object[] objArr = {runnableC0282a, sb};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -120,7 +120,7 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    this.b = runnableC0298a;
+                    this.b = runnableC0282a;
                     this.a = sb;
                 }
 
@@ -133,7 +133,7 @@ public class FaceshopStatic {
                 }
             }
 
-            public RunnableC0298a(a aVar, int i) {
+            public RunnableC0282a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,7 +155,7 @@ public class FaceshopStatic {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    List<MyEmotionGroupData> f = uz8.i().f();
+                    List<MyEmotionGroupData> f = p09.i().f();
                     StringBuilder sb = new StringBuilder();
                     if (f != null) {
                         int size = f.size();
@@ -166,7 +166,7 @@ public class FaceshopStatic {
                             }
                         }
                     }
-                    wg.a().post(new RunnableC0299a(this, sb));
+                    xg.a().post(new RunnableC0283a(this, sb));
                 }
             }
         }
@@ -198,7 +198,7 @@ public class FaceshopStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer)) {
                 return;
             }
-            rz8.b().a(new RunnableC0298a(this, ((Integer) customResponsedMessage.getData()).intValue()));
+            m09.b().a(new RunnableC0282a(this, ((Integer) customResponsedMessage.getData()).intValue()));
         }
     }
 
@@ -208,21 +208,21 @@ public class FaceshopStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a implements xz8 {
+        public class a implements s09 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ yz8 a;
-            public final /* synthetic */ xz8 b;
+            public final /* synthetic */ t09 a;
+            public final /* synthetic */ s09 b;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0300a extends BdAsyncTask<Void, Void, Boolean> {
+            public class C0284a extends BdAsyncTask<Void, Void, Boolean> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
                 public final /* synthetic */ a b;
 
-                public C0300a(a aVar, String str) {
+                public C0284a(a aVar, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -247,7 +247,7 @@ public class FaceshopStatic {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                        int f = p17.c().f(this.b.a);
+                        int f = u17.c().f(this.b.a);
                         if (f == 0) {
                             return Boolean.FALSE;
                         }
@@ -259,8 +259,8 @@ public class FaceshopStatic {
                         emotionGroupData.setDownloadTime(System.currentTimeMillis());
                         emotionGroupData.setGroupName(this.b.a.b);
                         emotionGroupData.setStatus(1);
-                        if (x17.o().g(emotionGroupData)) {
-                            return Boolean.valueOf(x17.o().h(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
+                        if (c27.o().g(emotionGroupData)) {
+                            return Boolean.valueOf(c27.o().h(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
                         }
                         return Boolean.FALSE;
                     }
@@ -273,28 +273,28 @@ public class FaceshopStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                         if (bool != null && bool.booleanValue()) {
-                            ip5.i(new EmotionReloadEvent());
-                            xz8 xz8Var = this.b.b;
-                            if (xz8Var != null) {
-                                xz8Var.onSuccess(this.a);
+                            np5.i(new EmotionReloadEvent());
+                            s09 s09Var = this.b.b;
+                            if (s09Var != null) {
+                                s09Var.onSuccess(this.a);
                                 return;
                             }
                             return;
                         }
-                        xz8 xz8Var2 = this.b.b;
-                        if (xz8Var2 != null) {
-                            xz8Var2.onFail("failed to download");
+                        s09 s09Var2 = this.b.b;
+                        if (s09Var2 != null) {
+                            s09Var2.onFail("failed to download");
                         }
                     }
                 }
             }
 
-            public a(e eVar, yz8 yz8Var, xz8 xz8Var) {
+            public a(e eVar, t09 t09Var, s09 s09Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar, yz8Var, xz8Var};
+                    Object[] objArr = {eVar, t09Var, s09Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -304,36 +304,36 @@ public class FaceshopStatic {
                         return;
                     }
                 }
-                this.a = yz8Var;
-                this.b = xz8Var;
+                this.a = t09Var;
+                this.b = s09Var;
             }
 
-            @Override // com.baidu.tieba.xz8
+            @Override // com.baidu.tieba.s09
             public void onFail(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                     BdLog.e("FaceDownload:" + str);
-                    xz8 xz8Var = this.b;
-                    if (xz8Var != null) {
-                        xz8Var.onFail(str);
+                    s09 s09Var = this.b;
+                    if (s09Var != null) {
+                        s09Var.onFail(str);
                     }
                 }
             }
 
-            @Override // com.baidu.tieba.xz8
+            @Override // com.baidu.tieba.s09
             public void onProgress(int i) {
-                xz8 xz8Var;
+                s09 s09Var;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (xz8Var = this.b) != null) {
-                    xz8Var.onProgress(i);
+                if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (s09Var = this.b) != null) {
+                    s09Var.onProgress(i);
                 }
             }
 
-            @Override // com.baidu.tieba.xz8
+            @Override // com.baidu.tieba.s09
             public void onSuccess(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                    new C0300a(this, str).execute(new Void[0]);
+                    new C0284a(this, str).execute(new Void[0]);
                 }
             }
         }
@@ -369,14 +369,14 @@ public class FaceshopStatic {
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003338 && (httpResponsedMessage instanceof GetFaceGroupInfoResponseMessage)) {
-                xz8 xz8Var = null;
+                s09 s09Var = null;
                 if (httpResponsedMessage.getOrginalMessage() != null) {
                     Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
                     if (extra instanceof HashMap) {
                         HashMap hashMap = (HashMap) extra;
                         Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                        if (obj instanceof xz8) {
-                            xz8Var = (xz8) obj;
+                        if (obj instanceof s09) {
+                            s09Var = (s09) obj;
                         }
                         Object obj2 = hashMap.get("fromImage");
                         if (obj2 instanceof Boolean) {
@@ -384,18 +384,18 @@ public class FaceshopStatic {
                             if (z) {
                                 return;
                             }
-                            yz8 data = ((GetFaceGroupInfoResponseMessage) httpResponsedMessage).getData();
+                            t09 data = ((GetFaceGroupInfoResponseMessage) httpResponsedMessage).getData();
                             if (data == null) {
-                                if (xz8Var != null) {
-                                    xz8Var.onFail("group data null");
+                                if (s09Var != null) {
+                                    s09Var.onFail("group data null");
                                     return;
                                 }
                                 return;
                             }
-                            if (xz8Var != null) {
-                                xz8Var.onProgress(0);
+                            if (s09Var != null) {
+                                s09Var.onProgress(0);
                             }
-                            tz8.c(data, new a(this, data, xz8Var));
+                            o09.c(data, new a(this, data, s09Var));
                             return;
                         }
                     }
@@ -413,7 +413,7 @@ public class FaceshopStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a implements xz8 {
+        public class a implements s09 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FaceGroupInfoData a;
@@ -436,7 +436,7 @@ public class FaceshopStatic {
                 this.a = faceGroupInfoData;
             }
 
-            @Override // com.baidu.tieba.xz8
+            @Override // com.baidu.tieba.s09
             public void onFail(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -446,7 +446,7 @@ public class FaceshopStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.xz8
+            @Override // com.baidu.tieba.s09
             public void onProgress(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -456,7 +456,7 @@ public class FaceshopStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.xz8
+            @Override // com.baidu.tieba.s09
             public void onSuccess(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -505,10 +505,10 @@ public class FaceshopStatic {
     public static class i extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final l27.k a;
+        public final q27.k a;
 
         /* loaded from: classes5.dex */
-        public class a implements l27.k {
+        public class a implements q27.k {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i a;
@@ -531,7 +531,7 @@ public class FaceshopStatic {
                 this.a = iVar;
             }
 
-            @Override // com.baidu.tieba.l27.k
+            @Override // com.baidu.tieba.q27.k
             public void a(int i, int i2, int i3, @Nullable Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
@@ -543,7 +543,7 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    vi.P(TbadkCoreApplication.getInst(), R.string.send_diy_emotion_failed);
+                    wi.P(TbadkCoreApplication.getInst(), R.string.send_diy_emotion_failed);
                 }
             }
         }
@@ -581,7 +581,7 @@ public class FaceshopStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            l27.k kVar;
+            q27.k kVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2921701 && customResponsedMessage.getData() != null) {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
@@ -591,7 +591,7 @@ public class FaceshopStatic {
                 } else {
                     kVar = null;
                 }
-                l27.q().g(str, null, kVar);
+                q27.q().g(str, null, kVar);
             }
         }
     }
@@ -602,7 +602,7 @@ public class FaceshopStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a implements l27.k {
+        public class a implements q27.k {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -622,7 +622,7 @@ public class FaceshopStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.l27.k
+            @Override // com.baidu.tieba.q27.k
             public void a(int i, int i2, int i3, @Nullable Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
@@ -665,7 +665,7 @@ public class FaceshopStatic {
                 diyEmotionData.imageFileInfo = imageFileInfo;
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(diyEmotionData);
-                l27.q().k(arrayList, true, new a(this));
+                q27.q().k(arrayList, true, new a(this));
             }
         }
     }
@@ -767,7 +767,7 @@ public class FaceshopStatic {
                 if (customMessage != null && customMessage.getData() != null) {
                     String data = customMessage.getData();
                     if (data != null) {
-                        return new CustomResponsedMessage<>(2921699, Boolean.valueOf(p17.c().e(data)));
+                        return new CustomResponsedMessage<>(2921699, Boolean.valueOf(u17.c().e(data)));
                     }
                     return new CustomResponsedMessage<>(2921699, Boolean.FALSE);
                 }
@@ -810,10 +810,10 @@ public class FaceshopStatic {
                 return;
             }
             List list = (List) customResponsedMessage.getData();
-            list.add(u17.e());
-            list.add(i27.e());
-            list.add(e27.f());
-            list.add(c27.e());
+            list.add(z17.e());
+            list.add(n27.e());
+            list.add(j27.f());
+            list.add(h27.e());
         }
     }
 
@@ -850,13 +850,13 @@ public class FaceshopStatic {
                 return;
             }
             if (customResponsedMessage.getData() instanceof String) {
-                h27.t().g((String) customResponsedMessage.getData(), null);
-            } else if (customResponsedMessage.getData() instanceof yl5.a) {
-                yl5.a aVar = (yl5.a) customResponsedMessage.getData();
-                h27.t().g(aVar.a, aVar.b);
-            } else if (customResponsedMessage.getData() instanceof yl5.b) {
-                yl5.b bVar = (yl5.b) customResponsedMessage.getData();
-                h27.t().h(bVar.a, bVar.b, null, bVar.c);
+                m27.t().g((String) customResponsedMessage.getData(), null);
+            } else if (customResponsedMessage.getData() instanceof cm5.a) {
+                cm5.a aVar = (cm5.a) customResponsedMessage.getData();
+                m27.t().g(aVar.a, aVar.b);
+            } else if (customResponsedMessage.getData() instanceof cm5.b) {
+                cm5.b bVar = (cm5.b) customResponsedMessage.getData();
+                m27.t().h(bVar.a, bVar.b, null, bVar.c);
             }
         }
     }
@@ -883,10 +883,10 @@ public class FaceshopStatic {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(yl5.b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(cm5.b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            h27.t().h(intent.getStringExtra(yl5.b), intent.getStringExtra(yl5.c), intent.getStringExtra(yl5.e), intent.getStringExtra(yl5.d));
+            m27.t().h(intent.getStringExtra(cm5.b), intent.getStringExtra(cm5.c), intent.getStringExtra(cm5.e), intent.getStringExtra(cm5.d));
         }
     }
 
@@ -914,7 +914,7 @@ public class FaceshopStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                vz8.o().y();
+                q09.o().y();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -1018,7 +1018,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerListener(new j(2921704));
         k kVar = new k();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(yl5.a);
+        intentFilter.addAction(cm5.a);
         TbadkCoreApplication.getInst().registerReceiver(kVar, intentFilter);
         CustomMessageTask customMessageTask = new CustomMessageTask(2004611, new l());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

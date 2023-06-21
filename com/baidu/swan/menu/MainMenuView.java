@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi4;
+import com.baidu.tieba.hi4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MainMenuView extends BaseMenuView {
@@ -22,7 +22,7 @@ public class MainMenuView extends BaseMenuView {
     public MenuContentAdapter j;
     public RecyclerView k;
     public MenuContentAdapter l;
-    public List<List<gi4>> m;
+    public List<List<hi4>> m;
     public View n;
     public boolean o;
 
@@ -90,7 +90,7 @@ public class MainMenuView extends BaseMenuView {
 
     @Override // com.baidu.swan.menu.BaseMenuView
     public boolean a() {
-        List<List<gi4>> list = this.m;
+        List<List<hi4>> list = this.m;
         if (list != null && list.size() > 1) {
             return true;
         }
@@ -140,7 +140,7 @@ public class MainMenuView extends BaseMenuView {
         this.l.n(this.m.subList(1, 2), this.o, i);
     }
 
-    public final void g(List<List<gi4>> list, boolean z, int i) {
+    public final void g(List<List<hi4>> list, boolean z, int i) {
         this.m = list;
         this.o = z;
         if (z && list.size() > 1) {
@@ -150,7 +150,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public void update(List<List<gi4>> list, View view2, boolean z, int i) {
+    public void update(List<List<hi4>> list, View view2, boolean z, int i) {
         setMode();
         setMenuHeader(view2);
         g(list, z, i);

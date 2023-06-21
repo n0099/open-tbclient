@@ -1,87 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.TaskState;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.ITaskModelData;
+import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ju extends ku<TaskState> {
+public final class ju {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mu a;
+    public final nu a;
+    public final String b;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.key : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ju(mu muVar) {
-        super(muVar);
+    public ju(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {muVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((mu) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = muVar;
+        this.b = str;
+        this.a = new nu();
     }
 
-    public final <T extends ITaskModelData> T b(mu muVar, String str, String str2) {
-        InterceptResult invokeLLL;
+    public final TaskInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, muVar, str, str2)) == null) {
-            return muVar.a(str).a(str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String a = nw.c.a(this.b);
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("parse taskInfo str:" + a);
+            return (TaskInfo) this.a.a("info").a(a);
         }
-        return (T) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ku
-    /* renamed from: d */
-    public TaskState a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                mu muVar = this.a;
-                String optString = jSONObject.optString("info");
-                Intrinsics.checkExpressionValueIsNotNull(optString, "jsonObject.optString(TaskInfo.key)");
-                TaskInfo taskInfo = (TaskInfo) b(muVar, "info", optString);
-                if (taskInfo != null) {
-                    mu muVar2 = this.a;
-                    String optString2 = jSONObject.optString(TaskStatus.key);
-                    Intrinsics.checkExpressionValueIsNotNull(optString2, "jsonObject.optString(TaskStatus.key)");
-                    TaskStatus taskStatus = (TaskStatus) b(muVar2, TaskStatus.key, optString2);
-                    if (taskStatus != null) {
-                        return new TaskState(taskInfo, taskStatus);
-                    }
-                }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (TaskState) invokeL.objValue;
+        return (TaskInfo) invokeV.objValue;
     }
 }

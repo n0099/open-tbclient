@@ -28,15 +28,15 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kf7;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.ox9;
-import com.baidu.tieba.pn7;
-import com.baidu.tieba.px9;
-import com.baidu.tieba.rn7;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.hz9;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.pf7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xn7;
+import com.baidu.tieba.zn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,12 +45,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class MultiServiceViewController implements pn7 {
+public class MultiServiceViewController implements xn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public RecyclerView b;
-    public List<px9> c;
+    public List<hz9> c;
     public FrsViewData d;
     public RecyclerView.Adapter e;
 
@@ -62,7 +62,7 @@ public class MultiServiceViewController implements pn7 {
         public TbClipImageView b;
         public TextView c;
         public MessageRedDotView d;
-        public px9 e;
+        public hz9 e;
         public List<String> f;
         public FrsViewData g;
         public View.OnClickListener h;
@@ -96,7 +96,7 @@ public class MultiServiceViewController implements pn7 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     if (this.a.e != null && "tiebaclient://accelerator".equals(this.a.e.d)) {
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new kf7(3));
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new pf7(3));
                         CustomMessage customMessage = new CustomMessage(2921662);
                         customMessage.setTag(this.a.g.getFrsFragmentTag());
                         customResponsedMessage.setOrginalMessage(customMessage);
@@ -104,11 +104,11 @@ public class MultiServiceViewController implements pn7 {
                     }
                     if (this.a.d.getVisibility() == 0) {
                         this.a.d.setVisibility(8);
-                        n95.m().w("key_is_click_game_season_red_dot", true);
+                        o95.p().A("key_is_click_game_season_red_dot", true);
                     }
-                    if (TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0a10), this.a.e.b) && this.a.g != null && this.a.g.getForum() != null && !TextUtils.isEmpty(this.a.g.getForum().getId())) {
+                    if (TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0a14), this.a.e.b) && this.a.g != null && this.a.g.getForum() != null && !TextUtils.isEmpty(this.a.g.getForum().getId())) {
                         HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
-                        hotUserRankActivityConfig.setForumId(Long.valueOf(tg.g(this.a.g.getForum().getId(), 0L)));
+                        hotUserRankActivityConfig.setForumId(Long.valueOf(ug.g(this.a.g.getForum().getId(), 0L)));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
                         StatisticItem statisticItem = new StatisticItem("c13666");
                         statisticItem.param("fid", this.a.g.getForum().getId());
@@ -119,9 +119,9 @@ public class MultiServiceViewController implements pn7 {
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.e.g).param("obj_source", "frs_card").param("obj_id", this.a.e.f.b).param("obj_name", this.a.e.f.a).param("obj_param1", this.a.e.f.d.intValue()));
                     }
                     if (this.a.e != null && !"tiebaclient://accelerator".equals(this.a.e.d)) {
-                        rn7.b(view2.getContext(), this.a.e);
+                        zn7.b(view2.getContext(), this.a.e);
                     }
-                    rn7.c(this.a.e);
+                    zn7.c(this.a.e);
                 }
             }
         }
@@ -154,10 +154,10 @@ public class MultiServiceViewController implements pn7 {
             relativeLayout.setGravity(16);
             this.b = new TbClipImageView(context);
             this.d = new MessageRedDotView(context);
-            int g = vi.g(context, R.dimen.tbds62);
+            int g = wi.g(context, R.dimen.tbds62);
             this.b.setDrawerType(1);
             this.b.setIsRound(true);
-            this.b.setId(R.id.obfuscated_res_0x7f0920b9);
+            this.b.setId(R.id.obfuscated_res_0x7f0920c4);
             this.b.setBorderWidth(R.dimen.L_X01);
             this.b.setBorderColor(R.color.CAM_X0401);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -171,45 +171,45 @@ public class MultiServiceViewController implements pn7 {
             this.a.addView(this.d, layoutParams);
             TextView textView = new TextView(context);
             this.c = textView;
-            textView.setTextSize(0, vi.g(context, R.dimen.T_X08));
+            textView.setTextSize(0, wi.g(context, R.dimen.T_X08));
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.leftMargin = vi.g(context, R.dimen.tbds10);
-            layoutParams2.rightMargin = vi.g(context, R.dimen.M_W_X008);
+            layoutParams2.leftMargin = wi.g(context, R.dimen.tbds10);
+            layoutParams2.rightMargin = wi.g(context, R.dimen.M_W_X008);
             layoutParams2.addRule(15);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0920b9);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0920c4);
             this.a.addView(this.c, layoutParams2);
             view2.setOnClickListener(this.h);
         }
 
-        public void d(px9 px9Var) {
+        public void d(hz9 hz9Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, px9Var) != null) || px9Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, hz9Var) != null) || hz9Var == null) {
                 return;
             }
-            this.e = px9Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0a10), px9Var.b)) {
+            this.e = hz9Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0a14), hz9Var.b)) {
                 this.b.setImageResource(R.drawable.icon_mask_service_celebrity24);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams.width = vi.g(this.b.getContext(), R.dimen.tbds62);
-                layoutParams.height = vi.g(this.b.getContext(), R.dimen.tbds62);
+                layoutParams.width = wi.g(this.b.getContext(), R.dimen.tbds62);
+                layoutParams.height = wi.g(this.b.getContext(), R.dimen.tbds62);
             } else {
-                this.b.N(px9Var.b, 10, false);
+                this.b.N(hz9Var.b, 10, false);
             }
-            if (StringUtils.isNotNull(px9Var.j)) {
-                if (!n95.m().i("key_is_click_game_season_red_dot", false)) {
+            if (StringUtils.isNotNull(hz9Var.j)) {
+                if (!o95.p().l("key_is_click_game_season_red_dot", false)) {
                     this.d.setVisibility(0);
-                    this.d.g(px9Var.j, false);
+                    this.d.g(hz9Var.j, false);
                 } else {
                     this.d.setVisibility(8);
                 }
             } else {
                 this.d.setVisibility(8);
             }
-            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(px9Var.c, 10, ""));
+            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(hz9Var.c, 10, ""));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            if (!this.f.contains(px9Var.c)) {
-                rn7.d(px9Var);
-                this.f.add(px9Var.c);
+            if (!this.f.contains(hz9Var.c)) {
+                zn7.d(hz9Var);
+                this.f.add(hz9Var.c);
             }
         }
     }
@@ -254,7 +254,7 @@ public class MultiServiceViewController implements pn7 {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, serviceViewHolder, i) == null) {
-                serviceViewHolder.d((px9) this.a.c.get(i));
+                serviceViewHolder.d((hz9) this.a.c.get(i));
             }
         }
 
@@ -296,7 +296,7 @@ public class MultiServiceViewController implements pn7 {
         this.b.setAdapter(this.e);
     }
 
-    @Override // com.baidu.tieba.pn7
+    @Override // com.baidu.tieba.xn7
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -304,21 +304,21 @@ public class MultiServiceViewController implements pn7 {
         }
     }
 
-    @Override // com.baidu.tieba.pn7
-    public void a(ox9 ox9Var, FrsViewData frsViewData) {
+    @Override // com.baidu.tieba.xn7
+    public void a(gz9 gz9Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, ox9Var, frsViewData) == null) && ox9Var != null && !ListUtils.isEmpty(ox9Var.b)) {
-            this.c = ox9Var.b;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, gz9Var, frsViewData) == null) && gz9Var != null && !ListUtils.isEmpty(gz9Var.b)) {
+            this.c = gz9Var.b;
             this.d = frsViewData;
             this.e.notifyDataSetChanged();
             RecyclerView recyclerView = this.b;
-            recyclerView.setPadding(vi.g(recyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
+            recyclerView.setPadding(wi.g(recyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
             this.b.setClipChildren(false);
             this.b.setClipToPadding(false);
         }
     }
 
-    @Override // com.baidu.tieba.pn7
+    @Override // com.baidu.tieba.xn7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

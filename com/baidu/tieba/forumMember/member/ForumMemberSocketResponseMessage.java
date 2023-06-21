@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eb7;
-import com.baidu.tieba.jx9;
+import com.baidu.tieba.bz9;
+import com.baidu.tieba.jb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public jx9 mUserInfo;
+    public bz9 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberSocketResponseMessage() {
@@ -64,8 +64,8 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
             forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
         }
         if (forumMemberRequestMessage != null) {
-            eb7 eb7Var = new eb7();
-            eb7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+            jb7 jb7Var = new jb7();
+            jb7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
         }
     }
 
@@ -90,9 +90,9 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 DataRes dataRes = getMemberInfoResIdl.data;
                 if (dataRes != null) {
                     if (dataRes.forum_member_info != null) {
-                        jx9 jx9Var = new jx9();
-                        this.mUserInfo = jx9Var;
-                        jx9Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        bz9 bz9Var = new bz9();
+                        this.mUserInfo = bz9Var;
+                        bz9Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.A(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -159,13 +159,13 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         return (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public jx9 getUserInfo() {
+    public bz9 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mUserInfo;
         }
-        return (jx9) invokeV.objValue;
+        return (bz9) invokeV.objValue;
     }
 
     public boolean isBawuShow() {

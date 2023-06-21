@@ -6,21 +6,21 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sm1;
 import com.baidu.tieba.tm1;
+import com.baidu.tieba.um1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, tm1 {
+public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, um1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
-    public sm1 d;
+    public tm1 d;
 
     public void setEndSurface() {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseSurfaceView(Context context, sm1 sm1Var) {
+    public BaseSurfaceView(Context context, tm1 tm1Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, sm1Var};
+            Object[] objArr = {context, tm1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,7 +54,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
         this.a = 1;
-        this.d = sm1Var;
+        this.d = tm1Var;
         getHolder().addCallback(this);
     }
 
@@ -137,7 +137,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    @Override // com.baidu.tieba.tm1
+    @Override // com.baidu.tieba.um1
     public void onVideoSizeChanged(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -149,7 +149,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    @Override // com.baidu.tieba.tm1
+    @Override // com.baidu.tieba.um1
     public void setDisplayMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -159,19 +159,19 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        sm1 sm1Var;
+        tm1 tm1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) && (sm1Var = this.d) != null) {
-            sm1Var.surfaceCreated(surfaceHolder);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) && (tm1Var = this.d) != null) {
+            tm1Var.surfaceCreated(surfaceHolder);
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        sm1 sm1Var;
+        tm1 tm1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) && (sm1Var = this.d) != null) {
-            sm1Var.b();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) && (tm1Var = this.d) != null) {
+            tm1Var.b();
         }
     }
 }

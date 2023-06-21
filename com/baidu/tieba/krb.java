@@ -6,106 +6,138 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public final class krb implements umb {
+public final class krb<E> extends orb<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<umb> a;
-    public volatile boolean b;
 
-    public krb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public krb(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.umb
-    public boolean isUnsubscribed() {
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (k() == h()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.umb
-    public void unsubscribe() {
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            long k = k();
+            while (true) {
+                long h = h();
+                long k2 = k();
+                if (k == k2) {
+                    return (int) (h - k2);
                 }
-                this.b = true;
-                Set<umb> set = this.a;
-                this.a = null;
-                c(set);
+                k = k2;
             }
+        } else {
+            return invokeV.intValue;
         }
     }
 
-    public static void c(Collection<umb> collection) {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, collection) != null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (umb umbVar : collection) {
-            try {
-                umbVar.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        zmb.d(arrayList);
-    }
-
-    public void a(umb umbVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, umbVar) != null) || umbVar.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    if (this.a == null) {
-                        this.a = new HashSet(4);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
+            if (e != null) {
+                E[] eArr = this.b;
+                long j = this.a;
+                long h = h();
+                long a = a(h);
+                if (e(eArr, a) != null) {
+                    if (h - k() > j) {
+                        return false;
                     }
-                    this.a.add(umbVar);
-                    return;
+                    do {
+                    } while (e(eArr, a) != null);
+                    g(eArr, a, e);
+                    i(h + 1);
+                    return true;
                 }
+                g(eArr, a, e);
+                i(h + 1);
+                return true;
             }
+            throw new NullPointerException("Null is not a valid element");
         }
-        umbVar.unsubscribe();
+        return invokeL.booleanValue;
     }
 
-    public void b(umb umbVar) {
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
+        E d;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, umbVar) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b && this.a != null) {
-                    boolean remove = this.a.remove(umbVar);
-                    if (remove) {
-                        umbVar.unsubscribe();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long l = l();
+            do {
+                long k = k();
+                if (k >= l) {
+                    long h = h();
+                    if (k >= h) {
+                        return null;
                     }
+                    m(h);
                 }
-            }
+                d = d(a(k));
+            } while (d == null);
+            return d;
         }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue, com.baidu.tieba.irb
+    public E poll() {
+        InterceptResult invokeV;
+        long k;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long l = l();
+            do {
+                k = k();
+                if (k >= l) {
+                    long h = h();
+                    if (k >= h) {
+                        return null;
+                    }
+                    m(h);
+                }
+            } while (!j(k, 1 + k));
+            long a = a(k);
+            E[] eArr = this.b;
+            E c = c(eArr, a);
+            f(eArr, a, null);
+            return c;
+        }
+        return (E) invokeV.objValue;
     }
 }

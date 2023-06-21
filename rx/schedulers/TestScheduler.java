@@ -1,33 +1,33 @@
 package rx.schedulers;
 
-import com.baidu.tieba.anb;
-import com.baidu.tieba.jrb;
-import com.baidu.tieba.nrb;
-import com.baidu.tieba.qmb;
-import com.baidu.tieba.umb;
+import com.baidu.tieba.ctb;
+import com.baidu.tieba.gtb;
+import com.baidu.tieba.job;
+import com.baidu.tieba.nob;
+import com.baidu.tieba.tob;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
-public class TestScheduler extends qmb {
+public class TestScheduler extends job {
     public static long c;
     public final Queue<c> a = new PriorityQueue(11, new a());
     public long b;
 
     /* loaded from: classes2.dex */
-    public final class b extends qmb.a {
-        public final jrb a = new jrb();
+    public final class b extends job.a {
+        public final ctb a = new ctb();
 
         /* loaded from: classes2.dex */
-        public class a implements anb {
+        public class a implements tob {
             public final /* synthetic */ c a;
 
             public a(c cVar) {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.anb
+            @Override // com.baidu.tieba.tob
             public void call() {
                 TestScheduler.this.a.remove(this.a);
             }
@@ -35,14 +35,14 @@ public class TestScheduler extends qmb {
 
         /* renamed from: rx.schedulers.TestScheduler$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0786b implements anb {
+        public class C0787b implements tob {
             public final /* synthetic */ c a;
 
-            public C0786b(c cVar) {
+            public C0787b(c cVar) {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.anb
+            @Override // com.baidu.tieba.tob
             public void call() {
                 TestScheduler.this.a.remove(this.a);
             }
@@ -51,49 +51,49 @@ public class TestScheduler extends qmb {
         public b() {
         }
 
-        @Override // com.baidu.tieba.qmb.a
-        public umb b(anb anbVar) {
-            c cVar = new c(this, 0L, anbVar);
+        @Override // com.baidu.tieba.job.a
+        public nob b(tob tobVar) {
+            c cVar = new c(this, 0L, tobVar);
             TestScheduler.this.a.add(cVar);
-            return nrb.a(new C0786b(cVar));
+            return gtb.a(new C0787b(cVar));
         }
 
-        @Override // com.baidu.tieba.qmb.a
+        @Override // com.baidu.tieba.job.a
         public long a() {
             return TestScheduler.this.now();
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public boolean isUnsubscribed() {
             return this.a.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public void unsubscribe() {
             this.a.unsubscribe();
         }
 
-        @Override // com.baidu.tieba.qmb.a
-        public umb c(anb anbVar, long j, TimeUnit timeUnit) {
-            c cVar = new c(this, TestScheduler.this.b + timeUnit.toNanos(j), anbVar);
+        @Override // com.baidu.tieba.job.a
+        public nob c(tob tobVar, long j, TimeUnit timeUnit) {
+            c cVar = new c(this, TestScheduler.this.b + timeUnit.toNanos(j), tobVar);
             TestScheduler.this.a.add(cVar);
-            return nrb.a(new a(cVar));
+            return gtb.a(new a(cVar));
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class c {
         public final long a;
-        public final anb b;
-        public final qmb.a c;
+        public final tob b;
+        public final job.a c;
         public final long d;
 
-        public c(qmb.a aVar, long j, anb anbVar) {
+        public c(job.a aVar, long j, tob tobVar) {
             long j2 = TestScheduler.c;
             TestScheduler.c = 1 + j2;
             this.d = j2;
             this.a = j;
-            this.b = anbVar;
+            this.b = tobVar;
             this.c = aVar;
         }
 
@@ -102,12 +102,12 @@ public class TestScheduler extends qmb {
         }
     }
 
-    @Override // com.baidu.tieba.qmb
-    public qmb.a createWorker() {
+    @Override // com.baidu.tieba.job
+    public job.a createWorker() {
         return new b();
     }
 
-    @Override // com.baidu.tieba.qmb
+    @Override // com.baidu.tieba.job
     public long now() {
         return TimeUnit.NANOSECONDS.toMillis(this.b);
     }

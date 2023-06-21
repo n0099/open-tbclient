@@ -2,15 +2,16 @@ package com.baidu.tieba.personPolymeric.dispatcher;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
+import com.baidu.tieba.lq9;
 import com.baidu.tieba.post.PersonPostActivity;
-import com.baidu.tieba.to9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PersonPostDispatcher implements to9 {
+public class PersonPostDispatcher implements lq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,13 +29,15 @@ public class PersonPostDispatcher implements to9 {
         }
     }
 
-    @Override // com.baidu.tieba.to9
+    @Override // com.baidu.tieba.lq9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             String optString = jSONObject.optString("uid");
+            String optString2 = jSONObject.optString("portrait");
             Intent intent = new Intent();
             intent.putExtra("key_uid", optString);
+            intent.putExtra(PersonPostActivityConfig.KEY_PORTRAIT_URL, optString2);
             intent.setClass(context, PersonPostActivity.class);
             context.startActivity(intent);
         }

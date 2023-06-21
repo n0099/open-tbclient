@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface ko0 {
-    public static final ko0 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
+    public static final ko0 b = new a();
 
-    void a(boolean z);
+    @NonNull
+    jo0 a();
+
+    @NonNull
+    lo0 request();
 
     /* loaded from: classes6.dex */
     public static class a implements ko0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ko0
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            }
-        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -34,6 +36,28 @@ public interface ko0 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.ko0
+        @NonNull
+        public jo0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return jo0.a;
+            }
+            return (jo0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.ko0
+        @NonNull
+        public lo0 request() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return lo0.a;
+            }
+            return (lo0) invokeV.objValue;
         }
     }
 }

@@ -71,8 +71,8 @@ public class RecommendViewPager extends ViewPager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x002e, code lost:
-        if (r1 != 3) goto L18;
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0026, code lost:
+        if (r3 != 3) goto L14;
      */
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     /*
@@ -82,6 +82,7 @@ public class RecommendViewPager extends ViewPager {
         InterceptResult invokeL;
         int count;
         boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int currentItem = getCurrentItem();
@@ -90,20 +91,25 @@ public class RecommendViewPager extends ViewPager {
             } else {
                 count = getAdapter().getCount();
             }
-            if (currentItem != 0 && currentItem != count - 1) {
-                z = true;
-            } else {
-                z = false;
-            }
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
                         float abs = Math.abs(motionEvent.getX() - this.a);
                         float abs2 = Math.abs(motionEvent.getY() - this.b);
+                        if (currentItem != count - 1 && motionEvent.getX() < this.a) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (currentItem != 0 && motionEvent.getX() > this.a) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
                         this.a = motionEvent.getX();
                         this.b = motionEvent.getY();
-                        if (abs2 / abs < 1.0f && z) {
+                        if (abs2 / abs < 1.0f && (z2 || z)) {
                             a(true);
                         } else {
                             a(false);

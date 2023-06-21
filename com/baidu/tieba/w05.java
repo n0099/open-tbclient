@@ -1,256 +1,88 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.account.data.DelAllUerDataReqMsg;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.security.cert.CertificateException;
+import javax.security.cert.X509Certificate;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public class w05 {
     public static /* synthetic */ Interceptable $ic;
-    public static w05 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProgressDialog a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948216781, "Lcom/baidu/tieba/w05;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948216781, "Lcom/baidu/tieba/w05;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements mw5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w05 a;
-
-        /* loaded from: classes8.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    l6a.b(true);
-                }
-            }
-        }
-
-        public b(w05 w05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w05Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mw5
-        /* renamed from: a */
-        public void onReturnDataInUI(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.a.d();
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity == null) {
-                    return;
-                }
-                if (bool.booleanValue()) {
-                    TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(currentActivity);
-                    tBAlertBuilder.w(R.string.delete_success);
-                    tBAlertBuilder.m(R.string.delete_all_user_data_hint);
-                    tBAlertBuilder.u(new TBAlertConfig.a(currentActivity.getString(R.string.obfuscated_res_0x7f0f10bf), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
-                    tBAlertBuilder.z();
-                    return;
-                }
-                vi.P(currentActivity, R.string.delete_fail);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends ix5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(w05 w05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ix5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
-                    le5.h0().X(true);
-                    NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    mx9.y("");
-                    p05.t().g(currentAccount, false);
-                    BdCacheService.n().a(currentAccount);
-                    n95.m().e(currentAccount);
-                    return Boolean.TRUE;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return Boolean.FALSE;
-                }
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
 
     public w05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static w05 c() {
-        InterceptResult invokeV;
+    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (w05.class) {
-                    if (b == null) {
-                        b = new w05();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
+                JSONArray jSONArray = new JSONArray();
+                byte[] bytes = str2.getBytes("UTF-8");
+                if (bytes.length % 116 == 0) {
+                    length = bytes.length / 116;
+                } else {
+                    length = (bytes.length / 116) + 1;
+                }
+                for (int i = 0; i < length; i++) {
+                    if (1 == length) {
+                        jSONArray.put(oi.j(b(publicKey, bytes)));
+                    } else if (i != length - 1) {
+                        byte[] bArr = new byte[116];
+                        System.arraycopy(bytes, i * 116, bArr, 0, 116);
+                        jSONArray.put(oi.j(b(publicKey, bArr)));
+                    } else {
+                        int i2 = i * 116;
+                        int length2 = bytes.length - i2;
+                        byte[] bArr2 = new byte[length2];
+                        System.arraycopy(bytes, i2, bArr2, 0, length2);
+                        jSONArray.put(oi.j(b(publicKey, bArr2)));
                     }
                 }
+                return oi.j(jSONArray.toString().getBytes("UTF-8"));
             }
-            return b;
+            return null;
         }
-        return (w05) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final void b() {
+    public final byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            mx5.b(new a(this), new b(this));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, key);
+            return cipher.doFinal(bArr);
         }
-    }
-
-    public final void d() {
-        ProgressDialog progressDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (progressDialog = this.a) != null && progressDialog.isShowing()) {
-            this.a.dismiss();
-            this.a = null;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            DelAllUerDataReqMsg delAllUerDataReqMsg = new DelAllUerDataReqMsg();
-            delAllUerDataReqMsg.setOpType(1);
-            MessageManager.getInstance().sendMessage(delAllUerDataReqMsg);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ProgressDialog progressDialog = this.a;
-            if (progressDialog == null) {
-                this.a = vi.L(TbadkCoreApplication.getInst().getCurrentActivity(), null);
-            } else {
-                progressDialog.show();
-            }
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
-            f();
-        }
-    }
-
-    public void e(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
-            if (z) {
-                d();
-                vi.Q(TbadkCoreApplication.getInst().getCurrentActivity(), str);
-                return;
-            }
-            b();
-        }
+        return (byte[]) invokeLL.objValue;
     }
 }

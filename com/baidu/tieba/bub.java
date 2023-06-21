@@ -1,140 +1,203 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zvb;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes5.dex */
-public class bub implements usb {
+public class bub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ssb a;
-    public PayFlowType b;
-    public mub c;
-    public rsb d;
-    public PayUIKitConfig e;
-    public int f;
-    public int g;
 
-    public bub(ssb ssbVar, PayFlowType payFlowType, rsb rsbVar, int i, int i2, PayUIKitConfig payUIKitConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ssbVar, payFlowType, rsbVar, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = ssbVar;
-        this.b = payFlowType;
-        this.d = rsbVar;
-        this.f = i;
-        this.g = i2;
-        this.e = payUIKitConfig;
-    }
-
-    @Override // com.baidu.tieba.usb
-    public void a(Activity activity, jub jubVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        WindowParams windowParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, jubVar, list, str, paySplitOrderViewSource, viewParams, iPayCallback}) == null) {
-            if (wub.b(this.f, this.g) == null) {
-                RLog.error("PaySplitOrderManager", "prepareShowSplitOrderDialog error appPayService null", new Object[0]);
-                return;
-            }
-            zvb.b bVar = new zvb.b();
-            bVar.a = jubVar;
-            bVar.h = paySplitOrderViewSource;
-            bVar.c = this.b;
-            AbsViewEventHandler absViewEventHandler = null;
-            if (viewParams != null) {
-                windowParams = viewParams.windowParams;
-            } else {
-                windowParams = null;
-            }
-            bVar.b = windowParams;
-            bVar.d = list;
-            bVar.e = str;
-            bVar.f = viewParams;
-            if (viewParams != null) {
-                absViewEventHandler = viewParams.viewEventListener;
-            }
-            bVar.g = absViewEventHandler;
-            e(activity, bVar, iPayCallback);
-        }
-    }
-
-    @Override // com.baidu.tieba.usb
-    public mub b() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                String str = (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "ro.build.hw_emui_api_level");
+                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
+                    return 0;
+                }
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return 0;
+            }
         }
-        return (mub) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.usb
-    public void release() {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            RLog.info("PaySplitOrderManager", "release mPaySplitOrderInfo:" + this.c);
-            this.c = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!g()) {
+                return "";
+            }
+            return f("ro.build.version.emui", "");
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.usb
-    public void c(mub mubVar) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mubVar) == null) {
-            RLog.info("PaySplitOrderManager", "setPaySplitOrderInfo info:" + mubVar);
-            this.c = mubVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
         }
+        return (String) invokeV.objValue;
     }
 
-    public Dialog d(Activity activity, zvb zvbVar, AbsViewEventHandler absViewEventHandler) {
-        InterceptResult invokeLLL;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, activity, zvbVar, absViewEventHandler)) == null) {
-            RLog.info("PaySplitOrderManager", "createSplitOrderDialog");
-            this.d.m(absViewEventHandler, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            return iwb.b.e(activity, activity.getString(R.string.pay_ui_pay_split_order_dialog_title), zvbVar.getContentView(), new qtb(this.f, this.g, activity, absViewEventHandler, this.d, zvbVar), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG, this.b, this.e, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!j()) {
+                return "";
+            }
+            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
         }
-        return (Dialog) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void e(Activity activity, zvb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, bVar, iPayCallback) == null) {
-            RLog.info("PaySplitOrderManager", "pay_dialog_show_flow:showSplitOrderDialog splitOrderViewParams:" + bVar);
-            zvb h = this.a.h(activity, this.e, bVar, this);
-            h.refreshView();
-            Dialog d = d(activity, h, bVar.g);
-            h.setCallback(new rtb(activity, d, bVar, iPayCallback, this.d));
-            this.d.r(h, d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (!l()) {
+                return "";
+            }
+            return f("ro.miui.ui.version.name", "");
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (a() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (b().contains("EmotionUI_3.0")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String b = b();
+            if (!"EmotionUI 3".equals(b) && !b.contains("EmotionUI_3.1")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return c().toLowerCase().contains("flyme");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return !TextUtils.isEmpty(f("ro.miui.ui.version.name", ""));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            String e = e();
+            if (e.isEmpty()) {
+                return false;
+            }
+            try {
+                if (Integer.valueOf(e.substring(1)).intValue() < 6) {
+                    return false;
+                }
+                return true;
+            } catch (NumberFormatException unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return "OPPO".equals(Build.MANUFACTURER);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                return (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, str, str2);
+            } catch (Exception unused) {
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        int intValue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            String d = d();
+            if (d.isEmpty()) {
+                return false;
+            }
+            try {
+                if (d.toLowerCase().contains("os")) {
+                    intValue = Integer.valueOf(d.substring(9, 10)).intValue();
+                } else {
+                    intValue = Integer.valueOf(d.substring(6, 7)).intValue();
+                }
+                if (intValue < 4) {
+                    return false;
+                }
+                return true;
+            } catch (NumberFormatException unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

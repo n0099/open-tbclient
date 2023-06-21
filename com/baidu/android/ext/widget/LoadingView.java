@@ -166,10 +166,10 @@ public class LoadingView extends FrameLayout implements LoadingViewHolder<Loadin
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d070b, (ViewGroup) this, true);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ec2);
-            this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f0915f4);
-            this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f091705);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0709, (ViewGroup) this, true);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ecd);
+            this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f0915fa);
+            this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f09170b);
             setPageResources();
         }
     }
@@ -179,11 +179,11 @@ public class LoadingView extends FrameLayout implements LoadingViewHolder<Loadin
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             View view2 = this.mRootView;
             if (view2 != null) {
-                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109e));
+                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a2));
             }
             SmoothProgressBar smoothProgressBar = this.mProgressBar;
             if (smoothProgressBar != null) {
-                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f3d));
+                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f41));
             }
             TextView textView = this.mMsg;
             if (textView != null) {

@@ -1,416 +1,122 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.poly.util.HttpSigner;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class oi1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static List<li1> i;
-    public static Object j;
+    public static volatile oi1 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public Handler b;
+    public int c;
+    public int d;
+    public Runnable e;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oi1 a;
 
-        public a() {
+        public a(oi1 oi1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oi1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = oi1Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                oi1.d();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends fh1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hh1 a;
-        public final /* synthetic */ gh1 b;
-
-        @Override // com.baidu.tieba.fh1
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            }
-        }
-
-        public b(hh1 hh1Var, gh1 gh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hh1Var, gh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                yi1.g("开始重试");
+                if (pi1.n()) {
+                    yi1.g("重试成功");
+                    this.a.c = 0;
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
                     return;
                 }
-            }
-            this.a = hh1Var;
-            this.b = gh1Var;
-        }
-
-        @Override // com.baidu.tieba.fh1
-        public void a(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                oi1.l(this.a.b(), this.b.b());
-                ni1.g().h();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends fh1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ JSONArray b;
-
-        public c(JSONObject jSONObject, JSONArray jSONArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, jSONArray};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                oi1.c(this.a);
+                if (this.a.c < 3) {
+                    yi1.g("重试失败继续重试");
+                    this.a.b.postDelayed(this, this.a.d);
                     return;
                 }
-            }
-            this.a = jSONObject;
-            this.b = jSONArray;
-        }
-
-        @Override // com.baidu.tieba.fh1
-        public void a(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.b.put(this.a);
-                xi1.g("localObject" + this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.fh1
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                xi1.g("localObject success" + this.a);
+                this.a.c = 0;
+                yi1.g("重试三次结束重试");
+                this.a.a.quitSafely();
+                this.a.b.removeCallbacks(this);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948033106, "Lcom/baidu/tieba/oi1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948033106, "Lcom/baidu/tieba/oi1;");
+    public oi1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j = new Object();
+        this.d = 10000;
+        this.e = new a(this);
     }
 
-    public static void c() {
-        List<li1> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && (list = i) != null) {
-            list.clear();
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            pi1.a(new a());
-        }
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            a = null;
-            b = null;
-            e = null;
-            f = null;
-            g = null;
-            h = null;
-        }
-    }
-
-    public static synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (oi1.class) {
-                List<li1> list = i;
-                if (list != null && !list.isEmpty()) {
-                    gh1 g2 = g();
-                    synchronized (j) {
-                        JSONArray jSONArray = new JSONArray();
-                        for (li1 li1Var : i) {
-                            JSONObject d2 = li1Var.d();
-                            if (d2 != null) {
-                                jSONArray.put(d2);
-                            }
-                        }
-                        g2.d("data", jSONArray.toString());
-                        g2.d("s", HttpSigner.a(g2, "key", mh1.a()));
-                        c();
-                    }
-                    hh1 h2 = h();
-                    if (zi1.d()) {
-                        n();
-                        new mi1().a(h2, g2, new b(h2, g2));
-                    } else {
-                        l(h2.b(), g2.b());
-                        ni1.g().h();
-                    }
-                }
-            }
-        }
-    }
-
-    public static gh1 g() {
+    public static oi1 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            gh1 gh1Var = new gh1();
-            gh1Var.d(com.kuaishou.weapon.p0.u.A, "cashier");
-            gh1Var.d("os", "android");
-            gh1Var.d("v", "2.8.7.9");
-            if (!TextUtils.isEmpty(g)) {
-                gh1Var.d("n", g);
-            }
-            String b2 = oh1.b();
-            if (!TextUtils.isEmpty(b2)) {
-                gh1Var.d("nv", b2);
-            }
-            if (!TextUtils.isEmpty(h)) {
-                gh1Var.d("ss", h);
-            }
-            if (!TextUtils.isEmpty(b)) {
-                gh1Var.d("d", b);
-            }
-            if (!TextUtils.isEmpty(e)) {
-                gh1Var.d("dt", e);
-            }
-            if (!TextUtils.isEmpty(f)) {
-                gh1Var.d(com.kuaishou.weapon.p0.u.v, f);
-            }
-            if (!TextUtils.isEmpty(c)) {
-                gh1Var.d("ak", c);
-            }
-            if (!TextUtils.isEmpty(d)) {
-                gh1Var.d(Config.DEVICE_ID_SEC, d);
-            }
-            return gh1Var;
-        }
-        return (gh1) invokeV.objValue;
-    }
-
-    public static void e(li1 li1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, li1Var) == null) {
-            if (i == null) {
-                i = new ArrayList();
-            }
-            if (li1Var != null) {
-                synchronized (j) {
-                    i.add(li1Var);
-                }
-            }
-        }
-    }
-
-    public static hh1 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            hh1 hh1Var = new hh1();
-            if (!TextUtils.isEmpty(a)) {
-                hh1Var.d("Cookie", "BDUSS=" + a);
-            }
-            return hh1Var;
-        }
-        return (hh1) invokeV.objValue;
-    }
-
-    public static JSONArray i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            File file = new File(bj1.a().getFilesDir(), "poly_cashier_statistics.json");
-            if (!file.exists()) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(vi1.b(file));
-                try {
-                    file.delete();
-                } catch (Exception unused) {
-                }
-                return jSONArray;
-            } catch (Exception unused2) {
-                return null;
-            }
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public static void j(int i2, String str, String str2) {
-        li1 li1Var;
-        li1 li1Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65546, null, i2, str, str2) == null) {
-            if (i2 != 0) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        li1Var = null;
-                    } else {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("exceptionType", str2);
-                            jSONObject.put("msg", str);
-                        } catch (JSONException unused) {
-                        }
-                        li1Var2 = new li1("3");
-                        li1Var2.c(jSONObject);
+            if (f == null) {
+                synchronized (oi1.class) {
+                    if (f == null) {
+                        f = new oi1();
                     }
-                } else {
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("selects", ji1.a);
-                        ji1.a = 0;
-                        jSONObject2.put("hbit", ji1.b);
-                        ji1.b = "0";
-                    } catch (JSONException unused2) {
-                    }
-                    li1Var2 = new li1("4");
-                    li1Var2.c(jSONObject2);
                 }
-                li1Var = li1Var2;
-            } else {
-                li1Var = new li1("2");
             }
-            if (li1Var != null) {
-                e(li1Var);
-            }
+            return f;
         }
+        return (oi1) invokeV.objValue;
     }
 
-    public static void l(Map map, Map map2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, map, map2) == null) {
-            try {
-                JSONArray i2 = i();
-                if (i2 != null) {
-                    if (i2.length() >= 20) {
-                        i2.remove(0);
-                    }
-                } else {
-                    i2 = new JSONArray();
-                }
-                JSONObject jSONObject = new JSONObject();
-                JSONObject b2 = yi1.b(map);
-                JSONObject b3 = yi1.b(map2);
-                jSONObject.put("header", b2);
-                jSONObject.put("body", b3);
-                i2.put(jSONObject);
-                m(i2);
-            } catch (Exception unused) {
-            }
-        }
+    public static /* synthetic */ int c(oi1 oi1Var) {
+        int i = oi1Var.c;
+        oi1Var.c = i + 1;
+        return i;
     }
 
-    public static void m(JSONArray jSONArray) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0) {
-            xi1.g("localArray" + jSONArray.length() + jSONArray.toString());
-            vi1.d(jSONArray.toString(), new File(bj1.a().getFilesDir(), "poly_cashier_statistics.json"));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            yi1.g("触发重试");
+            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
+            this.a = handlerThread;
+            handlerThread.start();
+            Handler handler = new Handler(this.a.getLooper());
+            this.b = handler;
+            handler.postDelayed(this.e, this.d);
         }
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            JSONArray i2 = i();
-            if (i2 == null || i2.length() == 0) {
-                return true;
-            }
-            try {
-                jSONArray = new JSONArray();
-                for (int i3 = 0; i3 < i2.length(); i3++) {
-                    JSONObject jSONObject = i2.getJSONObject(i3);
-                    hh1 hh1Var = new hh1();
-                    hh1Var.e(yi1.d(jSONObject.optJSONObject("header")));
-                    gh1 gh1Var = new gh1();
-                    gh1Var.e(yi1.d(jSONObject.optJSONObject("body")));
-                    new mi1().a(hh1Var, gh1Var, new c(jSONObject, jSONArray));
-                }
-            } catch (Exception unused) {
-            }
-            if (jSONArray.length() == 0) {
-                return true;
-            }
-            m(jSONArray);
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

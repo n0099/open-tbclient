@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.or6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,46 +10,14 @@ import kotlin.jvm.internal.Intrinsics;
 public final class aw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HotEventData a;
-    public final or6.e b;
+    public js6 a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof aw9) {
-                aw9 aw9Var = (aw9) obj;
-                return Intrinsics.areEqual(this.a, aw9Var.a) && Intrinsics.areEqual(this.b, aw9Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "HotEventShowData(hotEventData=" + this.a + ", dismissListener=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public aw9(HotEventData hotEventData, or6.e dismissListener) {
+    public aw9(js6 spriteAnimData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hotEventData, dismissListener};
+            Object[] objArr = {spriteAnimData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,27 +27,16 @@ public final class aw9 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(hotEventData, "hotEventData");
-        Intrinsics.checkNotNullParameter(dismissListener, "dismissListener");
-        this.a = hotEventData;
-        this.b = dismissListener;
+        Intrinsics.checkNotNullParameter(spriteAnimData, "spriteAnimData");
+        this.a = spriteAnimData;
     }
 
-    public final or6.e a() {
+    public final js6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (or6.e) invokeV.objValue;
-    }
-
-    public final HotEventData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (HotEventData) invokeV.objValue;
+        return (js6) invokeV.objValue;
     }
 }

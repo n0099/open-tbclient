@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.Map;
 /* loaded from: classes6.dex */
 public interface hc1 {
-    void a(String str, String str2);
-
-    void cancel();
-
-    void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4);
+    void loadUrl(String str, Map<String, String> map);
 }

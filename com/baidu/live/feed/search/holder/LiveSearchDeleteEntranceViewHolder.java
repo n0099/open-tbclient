@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce0;
+import com.baidu.tieba.de0;
 /* loaded from: classes3.dex */
 public class LiveSearchDeleteEntranceViewHolder extends RecyclerView.ViewHolder {
     public View a;
@@ -16,17 +16,17 @@ public class LiveSearchDeleteEntranceViewHolder extends RecyclerView.ViewHolder 
     public LiveSearchDeleteEntranceViewHolder(View view2) {
         super(view2);
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09156d);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09156c);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091573);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091572);
     }
 
     public void a(int i) {
-        this.b.setTextColor(ce0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-        String r = ce0.f().r();
+        this.b.setTextColor(de0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        String r = de0.f().r();
         if ("day".equals(r)) {
-            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f1c);
+            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f20);
         } else if ("night".equals(r)) {
-            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f1d);
+            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f21);
         }
     }
 }

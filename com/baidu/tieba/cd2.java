@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cd2 extends zc2<JSONObject, y32> {
+public class cd2 extends ad2<JSONObject, z32> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,15 +28,16 @@ public class cd2 extends zc2<JSONObject, y32> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dd2
+    @Override // com.baidu.tieba.ed2
     @NonNull
     /* renamed from: c */
-    public y32 a(@NonNull JSONObject jSONObject) {
+    public z32 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            return new y32(101, "error type is not support");
+            new vc2().c();
+            return new z32(0);
         }
-        return (y32) invokeL.objValue;
+        return (z32) invokeL.objValue;
     }
 }

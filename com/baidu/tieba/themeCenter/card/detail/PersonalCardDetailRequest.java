@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ww5;
+import com.baidu.tieba.bx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ public class PersonalCardDetailRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.props_id = Long.valueOf(this.cardId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ww5.a(builder, true);
+                bx5.a(builder, true);
             }
             GetCardReqIdl.Builder builder2 = new GetCardReqIdl.Builder();
             builder2.data = builder.build(false);

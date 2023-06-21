@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.omb;
-import com.baidu.tieba.pmb;
-import com.baidu.tieba.tmb;
-import com.baidu.tieba.umb;
-import com.baidu.tieba.ynb;
+import com.baidu.tieba.hob;
+import com.baidu.tieba.iob;
+import com.baidu.tieba.mob;
+import com.baidu.tieba.nob;
+import com.baidu.tieba.rpb;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements pmb, umb, omb<T> {
+public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements iob, nob, hob<T> {
     public static final Object EMPTY = new Object();
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long serialVersionUID = -1364393685005146274L;
-    public final tmb<? super T> child;
+    public final mob<? super T> child;
     public volatile boolean done;
     public boolean emitting;
     public boolean missed;
-    public ynb<? super T> parent;
+    public rpb<? super T> parent;
     public Throwable terminal;
     public final AtomicReference<Object> value = new AtomicReference<>(EMPTY);
 
-    @Override // com.baidu.tieba.umb
+    @Override // com.baidu.tieba.nob
     public boolean isUnsubscribed() {
         if (get() == Long.MIN_VALUE) {
             return true;
@@ -28,32 +28,32 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         return false;
     }
 
-    @Override // com.baidu.tieba.omb
+    @Override // com.baidu.tieba.hob
     public void onCompleted() {
         this.done = true;
         emit();
     }
 
-    @Override // com.baidu.tieba.umb
+    @Override // com.baidu.tieba.nob
     public void unsubscribe() {
         if (get() >= 0) {
             getAndSet(Long.MIN_VALUE);
         }
     }
 
-    public OperatorOnBackpressureLatest$LatestEmitter(tmb<? super T> tmbVar) {
-        this.child = tmbVar;
+    public OperatorOnBackpressureLatest$LatestEmitter(mob<? super T> mobVar) {
+        this.child = mobVar;
         lazySet(-4611686018427387904L);
     }
 
-    @Override // com.baidu.tieba.omb
+    @Override // com.baidu.tieba.hob
     public void onError(Throwable th) {
         this.terminal = th;
         this.done = true;
         emit();
     }
 
-    @Override // com.baidu.tieba.omb
+    @Override // com.baidu.tieba.hob
     public void onNext(T t) {
         this.value.lazySet(t);
         emit();
@@ -139,7 +139,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // com.baidu.tieba.pmb
+    @Override // com.baidu.tieba.iob
     public void request(long j) {
         long j2;
         int i;

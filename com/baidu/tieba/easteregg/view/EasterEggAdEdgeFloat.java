@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.ft9;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xu9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -231,19 +231,19 @@ public final class EasterEggAdEdgeFloat {
                 }
                 c2 = this.this$0.c();
                 c2.addView(this.$view);
-                ft9 ft9Var = new ft9(this.$activity);
+                xu9 xu9Var = new xu9(this.$activity);
                 c3 = this.this$0.c();
-                ft9Var.M(c3);
-                ft9Var.y(this.$gravity);
-                ft9Var.I(this.$startX);
-                ft9Var.J(this.$startY);
-                ft9Var.d(this.$canDrag);
-                ft9Var.N(vi.l(TbadkCoreApplication.getInst()));
-                ft9Var.z(EasterEggAdEdgeFloat.c.a());
-                ft9Var.D(this.$pageSupportList);
-                ft9Var.H(false);
-                ft9Var.G(this.$onScreenSizeChangedCallback);
-                return ft9Var.c();
+                xu9Var.M(c3);
+                xu9Var.y(this.$gravity);
+                xu9Var.I(this.$startX);
+                xu9Var.J(this.$startY);
+                xu9Var.d(this.$canDrag);
+                xu9Var.N(wi.l(TbadkCoreApplication.getInst()));
+                xu9Var.z(EasterEggAdEdgeFloat.c.a());
+                xu9Var.D(this.$pageSupportList);
+                xu9Var.H(false);
+                xu9Var.G(this.$onScreenSizeChangedCallback);
+                return xu9Var.c();
             }
         });
     }

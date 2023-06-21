@@ -206,7 +206,7 @@ public class BottomCloseBtnDialog extends BaseDialog {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             setContentView(R.layout.bottom_close_btn_dialog_layout);
             this.mUpperContainer = (ViewGroup) findViewById(R.id.upper_container);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090721);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09071e);
             this.mCloseBtn = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.android.ext.widget.dialog.BottomCloseBtnDialog.2
                 public static /* synthetic */ Interceptable $ic;

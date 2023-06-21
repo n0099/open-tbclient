@@ -31,16 +31,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c55;
-import com.baidu.tieba.d05;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.jt5;
-import com.baidu.tieba.kt5;
-import com.baidu.tieba.og;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.e05;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.ot5;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.q95;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.pt5;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.t95;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,15 +57,15 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public View c;
     public BdGridView d;
     public LinearLayout e;
-    public jt5 f;
-    public ArrayList<kt5> g;
+    public ot5 f;
+    public ArrayList<pt5> g;
     public int h;
     public h i;
-    public gn j;
+    public hn j;
     public String k;
     public boolean l;
-    public q95 m;
-    public og<gn> n;
+    public r95 m;
+    public pg<hn> n;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -134,7 +134,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != -1) {
                 ChangeSystemPhotoActivity changeSystemPhotoActivity = this.a;
-                changeSystemPhotoActivity.N1((kt5) changeSystemPhotoActivity.g.get(this.a.h));
+                changeSystemPhotoActivity.N1((pt5) changeSystemPhotoActivity.g.get(this.a.h));
             }
         }
     }
@@ -232,11 +232,11 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getPopularPortraitsInfoResult) == null) && getPopularPortraitsInfoResult != null && (list = getPopularPortraitsInfoResult.popularPortraitsInfoList) != null && list.size() > 0) {
                 for (GetPopularPortraitsInfoResult.PopularPortraitsInfo popularPortraitsInfo : getPopularPortraitsInfoResult.popularPortraitsInfoList) {
                     if (popularPortraitsInfo != null && popularPortraitsInfo.url != null) {
-                        kt5 kt5Var = new kt5();
-                        kt5Var.d(popularPortraitsInfo.url);
-                        kt5Var.c(popularPortraitsInfo.num);
-                        kt5Var.b(popularPortraitsInfo.myItem);
-                        this.a.g.add(kt5Var);
+                        pt5 pt5Var = new pt5();
+                        pt5Var.d(popularPortraitsInfo.url);
+                        pt5Var.c(popularPortraitsInfo.num);
+                        pt5Var.b(popularPortraitsInfo.myItem);
+                        this.a.g.add(pt5Var);
                     }
                 }
                 this.a.f.c(this.a.g);
@@ -246,7 +246,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     }
 
     /* loaded from: classes4.dex */
-    public class e implements c55.e {
+    public class e implements d55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChangeSystemPhotoActivity a;
@@ -269,17 +269,17 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             this.a = changeSystemPhotoActivity;
         }
 
-        @Override // com.baidu.tieba.c55.e
-        public void onClick(c55 c55Var) {
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
-                c55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
+                d55Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements c55.e {
+    public class f implements d55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChangeSystemPhotoActivity a;
@@ -302,10 +302,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             this.a = changeSystemPhotoActivity;
         }
 
-        @Override // com.baidu.tieba.c55.e
-        public void onClick(c55 c55Var) {
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c55Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
                 this.a.setResult(0);
                 this.a.finish();
             }
@@ -313,7 +313,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     }
 
     /* loaded from: classes4.dex */
-    public class g extends og<gn> {
+    public class g extends pg<hn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChangeSystemPhotoActivity a;
@@ -337,34 +337,34 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
-        public void onLoaded(gn gnVar, String str, int i) {
+        @Override // com.baidu.tieba.pg
+        public void onLoaded(hn hnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, gnVar, str, i) == null) {
-                super.onLoaded((g) gnVar, str, i);
-                if (gnVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
+                super.onLoaded((g) hnVar, str, i);
+                if (hnVar == null) {
                     return;
                 }
                 ChangeSystemPhotoActivity changeSystemPhotoActivity = this.a;
                 if (changeSystemPhotoActivity.m == null) {
-                    changeSystemPhotoActivity.m = new q95(changeSystemPhotoActivity.getPageContext());
+                    changeSystemPhotoActivity.m = new r95(changeSystemPhotoActivity.getPageContext());
                     this.a.m.e(null);
                 }
                 this.a.m.h(true);
                 if (!this.a.l) {
-                    Bitmap p = gnVar.p();
+                    Bitmap p = hnVar.p();
                     if (p != null) {
                         if (!this.a.O1(TbConfig.PERSON_USER_PIC_TEMP_FILE, p)) {
-                            q95 q95Var = this.a.m;
-                            if (q95Var != null) {
-                                q95Var.h(false);
+                            r95 r95Var = this.a.m;
+                            if (r95Var != null) {
+                                r95Var.h(false);
                                 return;
                             }
                             return;
                         }
-                        q95 q95Var2 = this.a.m;
-                        if (q95Var2 != null) {
-                            q95Var2.h(false);
+                        r95 r95Var2 = this.a.m;
+                        if (r95Var2 != null) {
+                            r95Var2.h(false);
                         }
                         Intent intent = new Intent();
                         intent.putExtra("upload_image_type", 2);
@@ -372,14 +372,14 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                         this.a.finish();
                         return;
                     }
-                    q95 q95Var3 = this.a.m;
-                    if (q95Var3 != null) {
-                        q95Var3.h(false);
+                    r95 r95Var3 = this.a.m;
+                    if (r95Var3 != null) {
+                        r95Var3.h(false);
                         return;
                     }
                     return;
                 }
-                this.a.j = gnVar;
+                this.a.j = hnVar;
                 if (this.a.i != null) {
                     this.a.i.cancel();
                 }
@@ -475,15 +475,15 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.a != null) {
-                q95 q95Var = this.b.m;
-                if (q95Var != null) {
-                    q95Var.h(false);
+                r95 r95Var = this.b.m;
+                if (r95Var != null) {
+                    r95Var.h(false);
                 }
                 if (!TbSingleton.getInstance().isUserGrowthTaskCompleted(UserGrowthTaskRequestMessage.SET_USER_AVATAR)) {
                     MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SET_USER_AVATAR));
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    new s95().d(this.b.getResources().getString(R.string.reset_success));
+                    new t95().d(this.b.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, this.b.k);
                     intent.putExtra("upload_image_type", 1);
@@ -495,7 +495,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     }
                     return;
                 }
-                new s95().c(this.a.getNetContext().getResponse().mErrorString);
+                new t95().c(this.a.getNetContext().getResponse().mErrorString);
                 this.b.finish();
             }
         }
@@ -532,11 +532,11 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void P1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c55 c55Var = new c55(getPageContext().getPageActivity());
-            c55Var.setMessageId(R.string.enter_forum_cancel_change_tip);
-            c55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03c9, new e(this));
-            c55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04bb, new f(this));
-            c55Var.create(getPageContext()).show();
+            d55 d55Var = new d55(getPageContext().getPageActivity());
+            d55Var.setMessageId(R.string.enter_forum_cancel_change_tip);
+            d55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ca, new e(this));
+            d55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04bc, new f(this));
+            d55Var.create(getPageContext()).show();
         }
     }
 
@@ -614,37 +614,37 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090694);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090691);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new a(this));
             this.a.setTitleText(R.string.choose_system_photo);
-            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f05a0));
+            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f05a1));
             this.b = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
-            layoutParams.rightMargin = vi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
+            layoutParams.rightMargin = wi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
             this.b.setLayoutParams(layoutParams);
-            int g2 = vi.g(getPageContext().getPageActivity(), R.dimen.tbds27);
+            int g2 = wi.g(getPageContext().getPageActivity(), R.dimen.tbds27);
             this.b.setPadding(g2, 0, g2, 0);
             K1(false);
             SkinManager.setBackgroundResource(this.b, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.b, R.color.navbar_btn_color, 1);
             this.b.setOnClickListener(new b(this));
-            this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091dce);
-            jt5 jt5Var = new jt5(getPageContext());
-            this.f = jt5Var;
-            this.d.setAdapter((ListAdapter) jt5Var);
+            this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091dd9);
+            ot5 ot5Var = new ot5(getPageContext());
+            this.f = ot5Var;
+            this.d.setAdapter((ListAdapter) ot5Var);
             this.d.setOnItemClickListener(new c(this));
         }
     }
 
-    public void N1(kt5 kt5Var) {
+    public void N1(pt5 pt5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, kt5Var) == null) && kt5Var != null && !StringUtils.isNull(kt5Var.a())) {
-            this.k = kt5Var.a();
-            pg.h().k(kt5Var.a(), 10, this.n, 0, 0, getUniqueId(), new Object[0]);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, pt5Var) == null) && pt5Var != null && !StringUtils.isNull(pt5Var.a())) {
+            this.k = pt5Var.a();
+            qg.h().k(pt5Var.a(), 10, this.n, 0, 0, getUniqueId(), new Object[0]);
         }
     }
 
@@ -654,7 +654,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            d05 layoutMode = getLayoutMode();
+            e05 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

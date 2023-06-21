@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s38;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.i48;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     public TextView d;
     public int e;
     public int f;
-    public s38 g;
+    public i48 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -110,11 +110,11 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01de, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090628);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090629);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09062a);
-            this.e = vi.g(context, R.dimen.tbds340);
-            this.f = vi.g(context, R.dimen.tbds230);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090625);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090626);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090627);
+            this.e = wi.g(context, R.dimen.tbds340);
+            this.f = wi.g(context, R.dimen.tbds230);
             setOnClickListener(this);
             b();
         }
@@ -142,19 +142,19 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.g.b), "", "")));
     }
 
-    public void setData(s38 s38Var) {
+    public void setData(i48 i48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, s38Var) == null) {
-            if (s38Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, i48Var) == null) {
+            if (i48Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = s38Var;
-            this.c.setText(s38Var.d);
-            this.d.setText(s38Var.c);
-            if (StringUtils.isNull(s38Var.e)) {
-                int i = s38Var.f;
+            this.g = i48Var;
+            this.c.setText(i48Var.d);
+            this.d.setText(i48Var.c);
+            if (StringUtils.isNull(i48Var.e)) {
+                int i = i48Var.f;
                 if (i == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                     return;
@@ -167,11 +167,11 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 }
             }
             try {
-                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0814b4);
-                gradientDrawable.setColor(Color.parseColor(s38Var.e));
+                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0814b8);
+                gradientDrawable.setColor(Color.parseColor(i48Var.e));
                 this.b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {
-                int i2 = s38Var.f;
+                int i2 = i48Var.f;
                 if (i2 == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                 } else if (i2 == 1) {

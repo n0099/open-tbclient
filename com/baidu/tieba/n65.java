@@ -1,18 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class n65 extends j65 {
+public class n65 implements dl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,16 +25,22 @@ public class n65 extends j65 {
         }
     }
 
-    @Override // com.baidu.tieba.j65
-    public void a(@NonNull Context context, @NonNull b65 b65Var) {
+    @Override // com.baidu.tieba.dl1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b65Var) == null) {
-            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
-            clientUpdateInfo.mIsForceUpdate = b65Var.a("is_force_update");
-            clientUpdateInfo.mStatus = b65Var.a("status");
-            clientUpdateInfo.mReverson = b65Var.a("reverson");
-            clientUpdateInfo.mContentUrl = b65Var.a("content_url");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, b65Var.a("apk_md5_rsa"))));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new yw6());
+            arrayList.add(new yo7());
+            arrayList.add(new cp7());
+            arrayList.add(new gp7());
+            arrayList.add(new kp7());
+            arrayList.add(new op7());
+            arrayList.add(new sp7());
+            arrayList.add(new wp7());
+            return arrayList;
         }
+        return invokeV.objValue;
     }
 }

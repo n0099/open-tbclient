@@ -43,56 +43,56 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aq0;
+import com.baidu.tieba.as0;
 import com.baidu.tieba.bq0;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.cs0;
+import com.baidu.tieba.cq0;
+import com.baidu.tieba.d61;
 import com.baidu.tieba.ds0;
 import com.baidu.tieba.es0;
 import com.baidu.tieba.fs0;
-import com.baidu.tieba.g51;
-import com.baidu.tieba.gk0;
 import com.baidu.tieba.gs0;
+import com.baidu.tieba.h51;
 import com.baidu.tieba.hk0;
-import com.baidu.tieba.hp0;
-import com.baidu.tieba.ir0;
-import com.baidu.tieba.iu0;
-import com.baidu.tieba.j61;
+import com.baidu.tieba.hs0;
+import com.baidu.tieba.ik0;
+import com.baidu.tieba.ip0;
+import com.baidu.tieba.jr0;
 import com.baidu.tieba.ju0;
-import com.baidu.tieba.ks0;
-import com.baidu.tieba.l81;
-import com.baidu.tieba.li0;
-import com.baidu.tieba.lp0;
-import com.baidu.tieba.lr0;
+import com.baidu.tieba.k61;
+import com.baidu.tieba.ku0;
 import com.baidu.tieba.ls0;
+import com.baidu.tieba.m81;
+import com.baidu.tieba.mi0;
 import com.baidu.tieba.mp0;
 import com.baidu.tieba.mr0;
 import com.baidu.tieba.ms0;
-import com.baidu.tieba.mu0;
 import com.baidu.tieba.np0;
-import com.baidu.tieba.o31;
-import com.baidu.tieba.os0;
-import com.baidu.tieba.pn0;
-import com.baidu.tieba.pp0;
-import com.baidu.tieba.qe1;
-import com.baidu.tieba.qs0;
-import com.baidu.tieba.r81;
-import com.baidu.tieba.s11;
-import com.baidu.tieba.s51;
-import com.baidu.tieba.s71;
+import com.baidu.tieba.nr0;
+import com.baidu.tieba.ns0;
+import com.baidu.tieba.nu0;
+import com.baidu.tieba.op0;
+import com.baidu.tieba.p31;
+import com.baidu.tieba.ps0;
+import com.baidu.tieba.qn0;
+import com.baidu.tieba.qp0;
+import com.baidu.tieba.re1;
+import com.baidu.tieba.rs0;
 import com.baidu.tieba.s81;
+import com.baidu.tieba.t11;
+import com.baidu.tieba.t51;
 import com.baidu.tieba.t71;
-import com.baidu.tieba.tj0;
-import com.baidu.tieba.tn0;
-import com.baidu.tieba.tp0;
+import com.baidu.tieba.t81;
+import com.baidu.tieba.u71;
+import com.baidu.tieba.uj0;
+import com.baidu.tieba.un0;
 import com.baidu.tieba.up0;
-import com.baidu.tieba.ur0;
-import com.baidu.tieba.vh0;
-import com.baidu.tieba.wn0;
-import com.baidu.tieba.xr0;
-import com.baidu.tieba.yj0;
-import com.baidu.tieba.yt;
-import com.baidu.tieba.zp0;
-import com.baidu.tieba.zr0;
+import com.baidu.tieba.vp0;
+import com.baidu.tieba.vr0;
+import com.baidu.tieba.wh0;
+import com.baidu.tieba.xn0;
+import com.baidu.tieba.yr0;
+import com.baidu.tieba.zj0;
+import com.baidu.tieba.zt;
 import com.google.android.material.badge.BadgeDrawable;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -117,20 +117,20 @@ import org.json.JSONObject;
 public final class NadRewardVideoActivity extends BaseActivity {
     public AdImageView A;
     public AbsRewardCountDownView C;
-    public pp0 D;
-    public l81 E;
-    public l81 F;
+    public qp0 D;
+    public m81 E;
+    public m81 F;
     public NadHighLightTextView G;
     public NadIconTextButton H;
-    public iu0 I;
+    public ju0 I;
     public NadRewardVideoDialog J;
     public NadRewardVideoDialog K;
     public NadRewardVideoDialog L;
     public NadRewardSuspendDialog M;
     public NadRewardLottieDialog N;
     public NadRewardBigCardView O;
-    public ur0 P;
-    public mp0 Q;
+    public vr0 P;
+    public np0 Q;
     public float R;
     public int S;
 
@@ -282,37 +282,37 @@ public final class NadRewardVideoActivity extends BaseActivity {
         }
 
         /* loaded from: classes3.dex */
-        public static final class a implements zp0.a {
+        public static final class a implements aq0.a {
             public a() {
             }
 
-            @Override // com.baidu.tieba.zp0.a
+            @Override // com.baidu.tieba.aq0.a
             public void onFail(Exception exc) {
-                bq0.j(NadRewardVideoActivity.Q1(l.this.b).f.d, "4");
+                cq0.j(NadRewardVideoActivity.Q1(l.this.b).f.d, "4");
                 Toast.makeText(l.this.b, (int) R.string.nad_reward_request_fail_toast, 0).show();
             }
 
-            @Override // com.baidu.tieba.zp0.a
-            public void a(gs0 gs0Var) {
+            @Override // com.baidu.tieba.aq0.a
+            public void a(hs0 hs0Var) {
                 String str;
-                NadRewardVideoActivity.Q1(l.this.b).g().E(gs0Var);
+                NadRewardVideoActivity.Q1(l.this.b).g().E(hs0Var);
                 String str2 = null;
-                if (gs0Var != null) {
-                    str = gs0Var.f();
+                if (hs0Var != null) {
+                    str = hs0Var.f();
                 } else {
                     str = null;
                 }
                 if (!Intrinsics.areEqual(str, "1")) {
                     l.this.b.m3();
                     String str3 = NadRewardVideoActivity.Q1(l.this.b).f.d;
-                    if (gs0Var != null) {
-                        str2 = gs0Var.a();
+                    if (hs0Var != null) {
+                        str2 = hs0Var.a();
                     }
-                    bq0.k(str3, "4", str2);
+                    cq0.k(str3, "4", str2);
                     return;
                 }
                 l.this.a.setFestivalEntranceContainerInvisible();
-                Toast.makeText(l.this.b, gs0Var.d(), 0).show();
+                Toast.makeText(l.this.b, hs0Var.d(), 0).show();
             }
         }
 
@@ -320,11 +320,11 @@ public final class NadRewardVideoActivity extends BaseActivity {
         public final void onClick(View view2) {
             String str;
             if (NadRewardVideoActivity.Q1(this.b).g().k() != null) {
-                gs0 k = NadRewardVideoActivity.Q1(this.b).g().k();
+                hs0 k = NadRewardVideoActivity.Q1(this.b).g().k();
                 Intrinsics.checkNotNull(k);
                 if (Intrinsics.areEqual(k.f(), "1")) {
                     NadRewardVideoActivity nadRewardVideoActivity = this.b;
-                    gs0 k2 = NadRewardVideoActivity.Q1(nadRewardVideoActivity).g().k();
+                    hs0 k2 = NadRewardVideoActivity.Q1(nadRewardVideoActivity).g().k();
                     Intrinsics.checkNotNull(k2);
                     Toast.makeText(nadRewardVideoActivity, k2.d(), 0).show();
                     return;
@@ -332,57 +332,57 @@ public final class NadRewardVideoActivity extends BaseActivity {
                 this.b.m3();
                 return;
             }
-            zp0 zp0Var = zp0.a;
-            ls0 g = NadRewardVideoActivity.Q1(this.b).g();
-            ms0 m = NadRewardVideoActivity.Q1(this.b).g().m();
+            aq0 aq0Var = aq0.a;
+            ms0 g = NadRewardVideoActivity.Q1(this.b).g();
+            ns0 m = NadRewardVideoActivity.Q1(this.b).g().m();
             if (m != null) {
                 str = m.b();
             } else {
                 str = null;
             }
-            zp0Var.d(g, str, new a());
+            aq0Var.d(g, str, new a());
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class q extends tn0<wn0> {
+    public static final class q extends un0<xn0> {
 
         /* loaded from: classes3.dex */
-        public static final class a implements zp0.a {
+        public static final class a implements aq0.a {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public a() {
             }
 
-            @Override // com.baidu.tieba.zp0.a
+            @Override // com.baidu.tieba.aq0.a
             public void onFail(Exception exc) {
-                bq0.j(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, "5");
+                cq0.j(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, "5");
                 Toast.makeText(NadRewardVideoActivity.this, (int) R.string.nad_reward_request_fail_toast, 0).show();
             }
 
-            @Override // com.baidu.tieba.zp0.a
-            public void a(gs0 gs0Var) {
+            @Override // com.baidu.tieba.aq0.a
+            public void a(hs0 hs0Var) {
                 String str;
                 String str2;
                 NadRewardVideoActivity.this.D2().setFestivalEntranceContainerInvisible();
                 NadRewardVideoActivity nadRewardVideoActivity = NadRewardVideoActivity.this;
                 String str3 = null;
-                if (gs0Var != null) {
-                    str = gs0Var.d();
+                if (hs0Var != null) {
+                    str = hs0Var.d();
                 } else {
                     str = null;
                 }
                 Toast.makeText(nadRewardVideoActivity, str, 0).show();
-                if (gs0Var != null) {
-                    str2 = gs0Var.f();
+                if (hs0Var != null) {
+                    str2 = hs0Var.f();
                 } else {
                     str2 = null;
                 }
                 if (!Intrinsics.areEqual(str2, "1")) {
                     String str4 = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d;
-                    if (gs0Var != null) {
-                        str3 = gs0Var.a();
+                    if (hs0Var != null) {
+                        str3 = hs0Var.a();
                     }
-                    bq0.k(str4, "5", str3);
+                    cq0.k(str4, "5", str3);
                 }
             }
         }
@@ -392,20 +392,20 @@ public final class NadRewardVideoActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tn0
-        public void onEvent(wn0 event) {
+        @Override // com.baidu.tieba.un0
+        public void onEvent(xn0 event) {
             String str;
             Intrinsics.checkNotNullParameter(event, "event");
             if (event.a && NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).h().b()) {
-                zp0 zp0Var = zp0.a;
-                ls0 g = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).g();
-                gs0 k = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).g().k();
+                aq0 aq0Var = aq0.a;
+                ms0 g = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).g();
+                hs0 k = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).g().k();
                 if (k != null) {
                     str = k.b();
                 } else {
                     str = null;
                 }
-                zp0Var.d(g, str, new a());
+                aq0Var.d(g, str, new a());
                 NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).h().f(false);
             }
         }
@@ -445,22 +445,22 @@ public final class NadRewardVideoActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            li0 li0Var;
-            ir0 ir0Var;
+            mi0 mi0Var;
+            jr0 jr0Var;
             if (NadRewardVideoActivity.Q1(this.b).d() != null) {
-                fs0 d = NadRewardVideoActivity.Q1(this.b).d();
+                gs0 d = NadRewardVideoActivity.Q1(this.b).d();
                 Intrinsics.checkNotNull(d);
-                li0Var = new li0(d.b());
+                mi0Var = new mi0(d.b());
             } else {
-                mr0 mr0Var = NadRewardVideoActivity.Q1(this.b).m;
-                if (mr0Var != null) {
-                    ir0Var = mr0Var.p;
+                nr0 nr0Var = NadRewardVideoActivity.Q1(this.b).m;
+                if (nr0Var != null) {
+                    jr0Var = nr0Var.p;
                 } else {
-                    ir0Var = null;
+                    jr0Var = null;
                 }
-                li0Var = new li0(ir0Var);
+                mi0Var = new mi0(jr0Var);
             }
-            pn0.a().a(li0Var);
+            qn0.a().a(mi0Var);
             this.a.dismiss();
         }
     }
@@ -517,7 +517,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             NadRewardVideoActivity.this.n3();
-            bq0.f(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this));
+            cq0.f(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this));
         }
     }
 
@@ -531,9 +531,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
             String str;
             boolean z;
             String str2 = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d;
-            mp0 mp0Var = NadRewardVideoActivity.this.Q;
-            if (mp0Var != null) {
-                str = mp0Var.d();
+            np0 np0Var = NadRewardVideoActivity.this.Q;
+            if (np0Var != null) {
+                str = np0Var.d();
             } else {
                 str = null;
             }
@@ -542,7 +542,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
             } else {
                 z = true;
             }
-            bq0.p(str2, !z);
+            cq0.p(str2, !z);
             if (NadRewardVideoActivity.this.k3()) {
                 return;
             }
@@ -552,28 +552,28 @@ public final class NadRewardVideoActivity extends BaseActivity {
 
     /* loaded from: classes3.dex */
     public static final class j implements View.OnClickListener {
-        public final /* synthetic */ t71 b;
+        public final /* synthetic */ u71 b;
 
-        public j(t71 t71Var) {
-            this.b = t71Var;
+        public j(u71 u71Var) {
+            this.b = u71Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            bq0.r(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this));
+            cq0.r(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this));
             if (!NadRewardVideoActivity.this.A2(this.b.c)) {
                 if (Intrinsics.areEqual(this.b.c, "__CONVERT_CMD__")) {
                     if (NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).m()) {
-                        tj0.c(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f(), NadRewardVideoActivity.this);
+                        uj0.c(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f(), NadRewardVideoActivity.this);
                         return;
                     }
                     String str2 = null;
                     if (NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).l()) {
                         NadRewardVideoActivity nadRewardVideoActivity = NadRewardVideoActivity.this;
-                        mr0 mr0Var = NadRewardVideoActivity.Q1(nadRewardVideoActivity).m;
-                        if (mr0Var != null) {
-                            str = mr0Var.t;
+                        nr0 nr0Var = NadRewardVideoActivity.Q1(nadRewardVideoActivity).m;
+                        if (nr0Var != null) {
+                            str = nr0Var.t;
                         } else {
                             str = null;
                         }
@@ -582,14 +582,14 @@ public final class NadRewardVideoActivity extends BaseActivity {
                             return;
                         }
                     }
-                    mr0 mr0Var2 = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).m;
-                    if (mr0Var2 != null) {
-                        str2 = mr0Var2.t;
+                    nr0 nr0Var2 = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).m;
+                    if (nr0Var2 != null) {
+                        str2 = nr0Var2.t;
                     }
-                    tj0.c(str2, NadRewardVideoActivity.this);
+                    uj0.c(str2, NadRewardVideoActivity.this);
                     return;
                 }
-                tj0.c(this.b.c, NadRewardVideoActivity.this);
+                uj0.c(this.b.c, NadRewardVideoActivity.this);
                 return;
             }
             NadRewardVideoActivity.this.n3();
@@ -608,27 +608,27 @@ public final class NadRewardVideoActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            mr0 mr0Var;
-            ir0 ir0Var;
+            nr0 nr0Var;
+            jr0 jr0Var;
             String str;
             boolean z;
             String str2;
             String str3;
-            ir0 ir0Var2;
-            ir0 ir0Var3;
-            ir0 ir0Var4;
-            ir0 ir0Var5;
+            jr0 jr0Var2;
+            jr0 jr0Var3;
+            jr0 jr0Var4;
+            jr0 jr0Var5;
             if (NadRewardVideoActivity.Q1(this.b).l()) {
                 NadRewardVideoActivity nadRewardVideoActivity = this.b;
                 if (nadRewardVideoActivity.A2(NadRewardVideoActivity.Q1(nadRewardVideoActivity).f.c)) {
                     this.b.n3();
                 }
             }
-            if (NadRewardVideoActivity.Q1(this.b).m() && (mr0Var = NadRewardVideoActivity.Q1(this.b).m) != null && (ir0Var = mr0Var.p) != null && ir0Var.e) {
-                mr0 mr0Var2 = NadRewardVideoActivity.Q1(this.b).m;
+            if (NadRewardVideoActivity.Q1(this.b).m() && (nr0Var = NadRewardVideoActivity.Q1(this.b).m) != null && (jr0Var = nr0Var.p) != null && jr0Var.e) {
+                nr0 nr0Var2 = NadRewardVideoActivity.Q1(this.b).m;
                 String str4 = null;
-                if (mr0Var2 != null && (ir0Var5 = mr0Var2.p) != null) {
-                    str = ir0Var5.b;
+                if (nr0Var2 != null && (jr0Var5 = nr0Var2.p) != null) {
+                    str = jr0Var5.b;
                 } else {
                     str = null;
                 }
@@ -639,31 +639,31 @@ public final class NadRewardVideoActivity extends BaseActivity {
                     z = true;
                 }
                 if (z) {
-                    mr0 mr0Var3 = NadRewardVideoActivity.Q1(this.b).m;
-                    if (mr0Var3 != null && (ir0Var4 = mr0Var3.p) != null) {
-                        str2 = ir0Var4.a;
+                    nr0 nr0Var3 = NadRewardVideoActivity.Q1(this.b).m;
+                    if (nr0Var3 != null && (jr0Var4 = nr0Var3.p) != null) {
+                        str2 = jr0Var4.a;
                     } else {
                         str2 = null;
                     }
                     if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                        mr0 mr0Var4 = NadRewardVideoActivity.Q1(this.b).m;
-                        if (mr0Var4 != null && (ir0Var3 = mr0Var4.p) != null) {
-                            str3 = ir0Var3.a;
+                        nr0 nr0Var4 = NadRewardVideoActivity.Q1(this.b).m;
+                        if (nr0Var4 != null && (jr0Var3 = nr0Var4.p) != null) {
+                            str3 = jr0Var3.a;
                         } else {
                             str3 = null;
                         }
-                        if (s51.d(str3)) {
+                        if (t51.d(str3)) {
                             Context context = this.a.getContext();
-                            mr0 mr0Var5 = NadRewardVideoActivity.Q1(this.b).m;
-                            if (mr0Var5 != null && (ir0Var2 = mr0Var5.p) != null) {
-                                str4 = ir0Var2.a;
+                            nr0 nr0Var5 = NadRewardVideoActivity.Q1(this.b).m;
+                            if (nr0Var5 != null && (jr0Var2 = nr0Var5.p) != null) {
+                                str4 = jr0Var2.a;
                             }
                             Intrinsics.checkNotNull(str4);
-                            gk0.b(context, str4);
+                            hk0.b(context, str4);
                         }
                     }
                 }
-                tj0.b(s51.b(NadRewardVideoActivity.Q1(this.b), NadRewardVideoActivity.Q1(this.b).f()));
+                uj0.b(t51.b(NadRewardVideoActivity.Q1(this.b), NadRewardVideoActivity.Q1(this.b).f()));
             }
             this.b.z2();
             NadRewardVideoActivity.Q1(this.b).h().e(true);
@@ -671,20 +671,20 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public static final class m extends mu0 {
+    public static final class m extends nu0 {
         public m() {
         }
 
-        @Override // com.baidu.tieba.mu0, com.baidu.tieba.fu0
+        @Override // com.baidu.tieba.nu0, com.baidu.tieba.gu0
         public void onEnd(int i) {
             String str;
-            zr0 zr0Var;
-            l81 l81Var;
+            as0 as0Var;
+            m81 m81Var;
             NadRewardBigCardView nadRewardBigCardView;
             if (NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).b() == null) {
-                pp0 pp0Var = NadRewardVideoActivity.this.D;
-                if (pp0Var != null) {
-                    pp0Var.setVisibility(true);
+                qp0 qp0Var = NadRewardVideoActivity.this.D;
+                if (qp0Var != null) {
+                    qp0Var.setVisibility(true);
                 }
                 NadRewardBigCardView nadRewardBigCardView2 = NadRewardVideoActivity.this.O;
                 if (nadRewardBigCardView2 != null) {
@@ -692,21 +692,21 @@ public final class NadRewardVideoActivity extends BaseActivity {
                 }
                 NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).h().i(true);
                 String str2 = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d;
-                mp0 mp0Var = NadRewardVideoActivity.this.Q;
+                np0 np0Var = NadRewardVideoActivity.this.Q;
                 String str3 = null;
-                if (mp0Var != null) {
-                    str = mp0Var.f();
+                if (np0Var != null) {
+                    str = np0Var.f();
                 } else {
                     str = null;
                 }
-                xr0 xr0Var = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).j;
-                if (xr0Var != null && (zr0Var = xr0Var.i) != null) {
-                    str3 = zr0Var.a;
+                yr0 yr0Var = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).j;
+                if (yr0Var != null && (as0Var = yr0Var.i) != null) {
+                    str3 = as0Var.a;
                 }
-                bq0.t(str2, str, str3);
+                cq0.t(str2, str, str3);
             } else {
-                ds0 c = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).c();
-                if (c != null && c.b() && (((l81Var = NadRewardVideoActivity.this.E) == null || !l81Var.isShowing()) && (nadRewardBigCardView = NadRewardVideoActivity.this.O) != null)) {
+                es0 c = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).c();
+                if (c != null && c.b() && (((m81Var = NadRewardVideoActivity.this.E) == null || !m81Var.isShowing()) && (nadRewardBigCardView = NadRewardVideoActivity.this.O) != null)) {
                     nadRewardBigCardView.y(true);
                 }
                 NadRewardVideoActivity.this.i3(true);
@@ -722,12 +722,12 @@ public final class NadRewardVideoActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.mu0, com.baidu.tieba.fu0
+        @Override // com.baidu.tieba.nu0, com.baidu.tieba.gu0
         public void onStart() {
             NadRewardVideoActivity.this.i3(false);
-            pp0 pp0Var = NadRewardVideoActivity.this.D;
-            if (pp0Var != null) {
-                pp0Var.setVisibility(false);
+            qp0 qp0Var = NadRewardVideoActivity.this.D;
+            if (qp0Var != null) {
+                qp0Var.setVisibility(false);
             }
             AbsRewardCountDownView absRewardCountDownView = NadRewardVideoActivity.this.C;
             if (absRewardCountDownView != null) {
@@ -737,10 +737,10 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public static final class n extends s11 {
-        @Override // com.baidu.tieba.s11, com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public static final class n extends t11 {
+        @Override // com.baidu.tieba.t11, com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
         public int i() {
-            if (up0.a().a()) {
+            if (vp0.a().a()) {
                 return 2;
             }
             return 1;
@@ -762,30 +762,30 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public static final class p implements tp0.b {
+    public static final class p implements up0.b {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public p() {
         }
 
-        @Override // com.baidu.tieba.tp0.b
+        @Override // com.baidu.tieba.up0.b
         public void onFail(Exception e) {
             Intrinsics.checkNotNullParameter(e, "e");
             NadRewardVideoActivity.this.Q = null;
             NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).h().j(false);
         }
 
-        @Override // com.baidu.tieba.tp0.b
-        public void a(mp0 mp0Var) {
+        @Override // com.baidu.tieba.up0.b
+        public void a(np0 np0Var) {
             boolean z;
             AdDownloadStatus adDownloadStatus;
             boolean z2;
-            NadRewardVideoActivity.this.Q = mp0Var;
-            if (mp0Var == null) {
+            NadRewardVideoActivity.this.Q = np0Var;
+            if (np0Var == null) {
                 return;
             }
             NadRewardVideoActivity.this.f1050T++;
             int i = 0;
-            if (mp0Var.d().length() > 0) {
+            if (np0Var.d().length() > 0) {
                 z = true;
             } else {
                 z = false;
@@ -793,33 +793,33 @@ public final class NadRewardVideoActivity extends BaseActivity {
             if (z) {
                 AbsRewardCountDownView absRewardCountDownView = NadRewardVideoActivity.this.C;
                 if (absRewardCountDownView != null) {
-                    absRewardCountDownView.f(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).g().b(mp0Var.d()));
+                    absRewardCountDownView.f(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).g().b(np0Var.d()));
                 }
-                bq0.d(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, mp0Var.d(), NadRewardVideoActivity.this.G2(), mp0Var.f(), mp0Var.h());
-                if (mp0Var.h().length() > 0) {
+                cq0.d(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, np0Var.d(), NadRewardVideoActivity.this.G2(), np0Var.f(), np0Var.h());
+                if (np0Var.h().length() > 0) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
                 if (z2) {
-                    bq0.u(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, "2", mp0Var.h());
+                    cq0.u(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, "2", np0Var.h());
                 }
-                Integer intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(mp0Var.d());
+                Integer intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(np0Var.d());
                 if (intOrNull != null) {
                     i = intOrNull.intValue();
                 }
                 if (i <= 0) {
-                    bq0.l(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, "1", "3");
+                    cq0.l(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, "1", "3");
                 }
             }
-            bq0.g(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, "1", mp0Var.d());
-            NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).h().j(mp0Var.c());
-            NadRewardVideoActivity.this.a0 = !mp0Var.c();
+            cq0.g(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d, "1", np0Var.d());
+            NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).h().j(np0Var.c());
+            NadRewardVideoActivity.this.a0 = !np0Var.c();
             HashMap hashMap = new HashMap();
             hashMap.put("callBackName", "taskComplete");
             hashMap.put("taskFrom", NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).g().t());
             NadRewardVideoActivity.this.d3("0", "任务完成回调", hashMap);
-            qe1<View> transitionButtonView = NadRewardVideoActivity.this.D2().getTransitionButtonView();
+            re1<View> transitionButtonView = NadRewardVideoActivity.this.D2().getTransitionButtonView();
             Intrinsics.checkNotNullExpressionValue(transitionButtonView, "adInfoContainer.transitionButtonView");
             View realView = transitionButtonView.getRealView();
             if (!(realView instanceof NadEnhanceButtonDownloadView)) {
@@ -834,7 +834,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
             if (nadRewardTaskHelper != null) {
                 String str = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d;
                 Intrinsics.checkNotNullExpressionValue(str, "adModel.common.extraParam");
-                nadRewardTaskHelper.t(mp0Var, adDownloadStatus, str);
+                nadRewardTaskHelper.t(np0Var, adDownloadStatus, str);
             }
         }
     }
@@ -851,20 +851,20 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public static final class s implements r81 {
+    public static final class s implements s81 {
         public final /* synthetic */ Boolean a;
         public final /* synthetic */ NadRewardVideoActivity b;
         public final /* synthetic */ long c;
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void a() {
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void dismiss() {
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void f() {
         }
 
@@ -874,46 +874,46 @@ public final class NadRewardVideoActivity extends BaseActivity {
             this.c = j;
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void b() {
             this.b.onBackPressed();
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void d() {
             this.b.onBackPressed();
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void c() {
             String valueOf = String.valueOf((System.currentTimeMillis() - this.c) / 1000);
             if (this.b.Y) {
-                ur0 Q1 = NadRewardVideoActivity.Q1(this.b);
+                vr0 Q1 = NadRewardVideoActivity.Q1(this.b);
                 String str = ClogBuilder.Area.REWARD_LANDING_PAGE.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.REWARD_LANDING_PAGE.type");
-                bq0.o(Q1, str, ClogBuilder.LogType.CLICK, valueOf, "1");
+                cq0.o(Q1, str, ClogBuilder.LogType.CLICK, valueOf, "1");
                 return;
             }
-            ur0 Q12 = NadRewardVideoActivity.Q1(this.b);
+            vr0 Q12 = NadRewardVideoActivity.Q1(this.b);
             String str2 = ClogBuilder.Area.REWARD_LANDING_PAGE.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.REWARD_LANDING_PAGE.type");
-            bq0.o(Q12, str2, ClogBuilder.LogType.FREE_CLICK, valueOf, "1");
+            cq0.o(Q12, str2, ClogBuilder.LogType.FREE_CLICK, valueOf, "1");
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void e() {
             String valueOf = String.valueOf((System.currentTimeMillis() - this.c) / 1000);
             if (Intrinsics.areEqual(this.a, Boolean.TRUE) && this.b.Y) {
-                ur0 Q1 = NadRewardVideoActivity.Q1(this.b);
+                vr0 Q1 = NadRewardVideoActivity.Q1(this.b);
                 String str = ClogBuilder.Area.REWARD_LANDING_PAGE.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.REWARD_LANDING_PAGE.type");
-                bq0.o(Q1, str, ClogBuilder.LogType.CLICK, valueOf, "2");
+                cq0.o(Q1, str, ClogBuilder.LogType.CLICK, valueOf, "2");
                 return;
             }
-            ur0 Q12 = NadRewardVideoActivity.Q1(this.b);
+            vr0 Q12 = NadRewardVideoActivity.Q1(this.b);
             String str2 = ClogBuilder.Area.REWARD_LANDING_PAGE.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.REWARD_LANDING_PAGE.type");
-            bq0.o(Q12, str2, ClogBuilder.LogType.FREE_CLICK, valueOf, "2");
+            cq0.o(Q12, str2, ClogBuilder.LogType.FREE_CLICK, valueOf, "2");
         }
     }
 
@@ -924,9 +924,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public final void onDismiss() {
-            iu0 iu0Var = NadRewardVideoActivity.this.I;
-            if (iu0Var != null) {
-                iu0Var.resume();
+            ju0 ju0Var = NadRewardVideoActivity.this.I;
+            if (ju0Var != null) {
+                ju0Var.resume();
             }
             AdImageView adImageView = NadRewardVideoActivity.this.A;
             if (adImageView != null) {
@@ -936,37 +936,37 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public static final class u implements r81 {
-        @Override // com.baidu.tieba.r81
+    public static final class u implements s81 {
+        @Override // com.baidu.tieba.s81
         public void b() {
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void c() {
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void d() {
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void dismiss() {
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void e() {
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void f() {
         }
 
         public u() {
         }
 
-        @Override // com.baidu.tieba.r81
+        @Override // com.baidu.tieba.s81
         public void a() {
-            bq0.i(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d);
+            cq0.i(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d);
         }
     }
 
@@ -977,9 +977,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (absRewardCountDownView != null) {
             absRewardCountDownView.e();
         }
-        iu0 iu0Var = this.I;
-        if (iu0Var != null) {
-            iu0Var.release();
+        ju0 ju0Var = this.I;
+        if (ju0Var != null) {
+            ju0Var.release();
         }
         this.I = null;
         NadRewardVideoDialog nadRewardVideoDialog = this.J;
@@ -1022,15 +1022,15 @@ public final class NadRewardVideoActivity extends BaseActivity {
             this.A = new AdImageView(this);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = BadgeDrawable.TOP_END;
-            layoutParams.topMargin = c61.c.a(this, 1.5f);
-            layoutParams.setMarginEnd(c61.c.a(this, 5.0f));
-            layoutParams.height = c61.c.a(this, 39.0f);
-            layoutParams.width = c61.c.a(this, 39.0f);
+            layoutParams.topMargin = d61.c.a(this, 1.5f);
+            layoutParams.setMarginEnd(d61.c.a(this, 5.0f));
+            layoutParams.height = d61.c.a(this, 39.0f);
+            layoutParams.width = d61.c.a(this, 39.0f);
             F2().addView(this.A, layoutParams);
         }
         AdImageView adImageView = this.A;
         if (adImageView != null) {
-            int a2 = c61.c.a(adImageView.getContext(), 10.0f);
+            int a2 = d61.c.a(adImageView.getContext(), 10.0f);
             adImageView.setPadding(a2, a2, a2, a2);
             adImageView.setImageResource(R.drawable.nad_reward_video_lp_close_btn);
             adImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -1055,16 +1055,16 @@ public final class NadRewardVideoActivity extends BaseActivity {
         }
         AbsRewardCountDownView absRewardCountDownView3 = this.C;
         if (absRewardCountDownView3 != null) {
-            ur0 ur0Var = this.P;
-            if (ur0Var == null) {
+            vr0 vr0Var = this.P;
+            if (vr0Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            int s2 = ur0Var.g().s();
-            ur0 ur0Var2 = this.P;
-            if (ur0Var2 == null) {
+            int s2 = vr0Var.g().s();
+            vr0 vr0Var2 = this.P;
+            if (vr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            absRewardCountDownView3.setData(s2, ur0Var2.g(), new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$initCountDownView$2
+            absRewardCountDownView3.setData(s2, vr0Var2.g(), new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$initCountDownView$2
                 {
                     super(0);
                 }
@@ -1091,14 +1091,14 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (!this.a0) {
             return false;
         }
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        ls0 g2 = ur0Var.g();
-        mp0 mp0Var = this.Q;
-        if (mp0Var != null) {
-            str = mp0Var.e();
+        ms0 g2 = vr0Var.g();
+        np0 np0Var = this.Q;
+        if (np0Var != null) {
+            str = np0Var.e();
         } else {
             str = null;
         }
@@ -1122,11 +1122,11 @@ public final class NadRewardVideoActivity extends BaseActivity {
 
     public final void z2() {
         boolean z;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        List<MonitorUrl> list = ur0Var.e;
+        List<MonitorUrl> list = vr0Var.e;
         Intrinsics.checkNotNullExpressionValue(list, "adModel.monitorUrls");
         ArrayList<MonitorUrl> arrayList = new ArrayList();
         for (Object obj : list) {
@@ -1141,16 +1141,16 @@ public final class NadRewardVideoActivity extends BaseActivity {
             }
         }
         for (MonitorUrl monitorUrl : arrayList) {
-            o31.b(monitorUrl.clickUrl);
+            p31.b(monitorUrl.clickUrl);
         }
     }
 
-    public static final /* synthetic */ ur0 Q1(NadRewardVideoActivity nadRewardVideoActivity) {
-        ur0 ur0Var = nadRewardVideoActivity.P;
-        if (ur0Var == null) {
+    public static final /* synthetic */ vr0 Q1(NadRewardVideoActivity nadRewardVideoActivity) {
+        vr0 vr0Var = nadRewardVideoActivity.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        return ur0Var;
+        return vr0Var;
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -1174,10 +1174,10 @@ public final class NadRewardVideoActivity extends BaseActivity {
         } else {
             z = true;
         }
-        if (z || !hk0.o(str)) {
+        if (z || !ik0.o(str)) {
             return false;
         }
-        return Intrinsics.areEqual(new yj0(str).a(), "rewardWebPanel");
+        return Intrinsics.areEqual(new zj0(str).a(), "rewardWebPanel");
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -1185,7 +1185,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
         super.D1(intent);
         setIntent(intent);
         if (!b3()) {
-            g51.a().a(this, R.string.nad_reward_video_lp_parse_data_error);
+            h51.a().a(this, R.string.nad_reward_video_lp_parse_data_error);
             return;
         }
         L2();
@@ -1215,9 +1215,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
             i2 = 0;
         }
         if (z) {
-            layoutParams.height = c61.c.c(this) - i2;
+            layoutParams.height = d61.c.c(this) - i2;
         } else {
-            layoutParams.height = c61.c.a(this, 33.0f);
+            layoutParams.height = d61.c.a(this, 33.0f);
         }
         I2().setLayoutParams(layoutParams);
     }
@@ -1258,18 +1258,18 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (z || !StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null).contains(String.valueOf(this.U))) {
             return false;
         }
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        ur0Var.h().h(this.U);
+        vr0Var.h().h(this.U);
         return true;
     }
 
     public final void C2() {
-        int a2 = j61.a("nad_reward_sp", "key_reward_shown_index", 1);
+        int a2 = k61.a("nad_reward_sp", "key_reward_shown_index", 1);
         this.U = a2;
-        j61.e("nad_reward_sp", "key_reward_shown_index", a2 + 1);
+        k61.e("nad_reward_sp", "key_reward_shown_index", a2 + 1);
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -1279,9 +1279,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (absRewardCountDownView != null) {
             absRewardCountDownView.g();
         }
-        iu0 iu0Var = this.I;
-        if (iu0Var != null) {
-            iu0Var.pause();
+        ju0 ju0Var = this.I;
+        if (ju0Var != null) {
+            ju0Var.pause();
         }
     }
 
@@ -1327,28 +1327,28 @@ public final class NadRewardVideoActivity extends BaseActivity {
         }
         NadRewardTaskHelper nadRewardTaskHelper = this.W;
         if (nadRewardTaskHelper != null) {
-            ur0 ur0Var = this.P;
-            if (ur0Var == null) {
+            vr0 vr0Var = this.P;
+            if (vr0Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            nadRewardTaskHelper.H(ur0Var);
+            nadRewardTaskHelper.H(vr0Var);
         }
     }
 
     public final void R2() {
-        int a2 = j61.a("nad_reward_sp", "key_session_count", 1);
+        int a2 = k61.a("nad_reward_sp", "key_session_count", 1);
         this.S = a2;
-        j61.e("nad_reward_sp", "key_session_count", a2 + 1);
+        k61.e("nad_reward_sp", "key_session_count", a2 + 1);
     }
 
     public final void V2() {
         boolean z;
         ImageView J2 = J2();
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var.d() != null) {
+        if (vr0Var.d() != null) {
             z = true;
         } else {
             z = false;
@@ -1361,18 +1361,18 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     public final void a3() {
-        tp0 b2 = up0.b();
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        up0 b2 = vp0.b();
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        b2.a(ur0Var, new ks0(this.S, this.f1050T), new p());
+        b2.a(vr0Var, new ls0(this.S, this.f1050T), new p());
     }
 
     public final void c3() {
-        iu0 iu0Var = this.I;
-        if (iu0Var != null) {
-            iu0Var.pause();
+        ju0 ju0Var = this.I;
+        if (ju0Var != null) {
+            ju0Var.pause();
         }
         AbsRewardCountDownView absRewardCountDownView = this.C;
         if (absRewardCountDownView != null) {
@@ -1381,19 +1381,19 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     public final void f3() {
-        pn0.a().b(this, new q(wn0.class));
+        qn0.a().b(this, new q(xn0.class));
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity, android.app.Activity
     public void finish() {
         String str;
         boolean z;
-        ur0 ur0Var = this.P;
-        if (ur0Var != null) {
-            if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var != null) {
+            if (vr0Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            es0 f2 = ur0Var.g().f();
+            fs0 f2 = vr0Var.g().f();
             if (f2 != null) {
                 str = f2.b();
             } else {
@@ -1405,7 +1405,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
                 z = true;
             }
             if (!z) {
-                tj0.c(str, this);
+                uj0.c(str, this);
             }
         }
         super.finish();
@@ -1426,19 +1426,19 @@ public final class NadRewardVideoActivity extends BaseActivity {
     public final void h3() {
         ViewGroup view2;
         boolean z;
-        l81 l81Var = this.E;
-        if (l81Var == null || !l81Var.isShowing()) {
-            pp0 pp0Var = this.D;
-            if (pp0Var != null && (view2 = pp0Var.getView()) != null) {
+        m81 m81Var = this.E;
+        if (m81Var == null || !m81Var.isShowing()) {
+            qp0 qp0Var = this.D;
+            if (qp0Var != null && (view2 = qp0Var.getView()) != null) {
                 if (view2.getVisibility() == 0) {
                     z = true;
                 } else {
                     z = false;
                 }
             }
-            iu0 iu0Var = this.I;
-            if (iu0Var != null) {
-                iu0Var.resume();
+            ju0 ju0Var = this.I;
+            if (ju0Var != null) {
+                ju0Var.resume();
             }
         }
         AbsRewardCountDownView absRewardCountDownView = this.C;
@@ -1462,17 +1462,17 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     public final void t3() {
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        bq0.q(ur0Var);
+        cq0.q(vr0Var);
         C2();
-        ur0 ur0Var2 = this.P;
-        if (ur0Var2 == null) {
+        vr0 vr0Var2 = this.P;
+        if (vr0Var2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        tj0.c(ur0Var2.f.m, this);
+        uj0.c(vr0Var2.f.m, this);
         r3();
     }
 
@@ -1484,20 +1484,20 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (nadRewardBigCardView != null) {
             nadRewardBigCardView.setVisibility(false);
         }
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var.b() == null) {
+        if (vr0Var.b() == null) {
             this.O = null;
             return;
         }
         NadRewardBigCardView nadRewardBigCardView2 = new NadRewardBigCardView(this, null, 0, 6, null);
-        ur0 ur0Var2 = this.P;
-        if (ur0Var2 == null) {
+        vr0 vr0Var2 = this.P;
+        if (vr0Var2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        nadRewardBigCardView2.setData(ur0Var2);
+        nadRewardBigCardView2.setData(vr0Var2);
         nadRewardBigCardView2.setShowPanelPopCallback(new Function1<Boolean, Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$initBigCard$$inlined$apply$lambda$1
             {
                 super(1);
@@ -1516,9 +1516,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
                 if (adImageView != null) {
                     ExtensionsKt.e(adImageView, z);
                 }
-                iu0 iu0Var = NadRewardVideoActivity.this.I;
-                if (iu0Var != null) {
-                    iu0Var.pause();
+                ju0 ju0Var = NadRewardVideoActivity.this.I;
+                if (ju0Var != null) {
+                    ju0Var.pause();
                 }
             }
         });
@@ -1549,9 +1549,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
                 if (absRewardCountDownView != null) {
                     absRewardCountDownView.bringToFront();
                 }
-                iu0 iu0Var = NadRewardVideoActivity.this.I;
-                if (iu0Var != null) {
-                    iu0Var.resume();
+                ju0 ju0Var = NadRewardVideoActivity.this.I;
+                if (ju0Var != null) {
+                    ju0Var.resume();
                 }
             }
         });
@@ -1612,7 +1612,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
         this.O = nadRewardBigCardView2;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
-        layoutParams.bottomMargin = -c61.c.c(this);
+        layoutParams.bottomMargin = -d61.c.c(this);
         F2().addView(this.O, layoutParams);
         NadRewardBigCardView nadRewardBigCardView3 = this.O;
         if (nadRewardBigCardView3 != null) {
@@ -1622,16 +1622,16 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (nadRewardBigCardView4 != null) {
             nadRewardBigCardView4.bringToFront();
         }
-        ur0 ur0Var3 = this.P;
-        if (ur0Var3 == null) {
+        vr0 vr0Var3 = this.P;
+        if (vr0Var3 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        int s2 = ur0Var3.g().s();
-        ur0 ur0Var4 = this.P;
-        if (ur0Var4 == null) {
+        int s2 = vr0Var3.g().s();
+        vr0 vr0Var4 = this.P;
+        if (vr0Var4 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        cs0 b2 = ur0Var4.b();
+        ds0 b2 = vr0Var4.b();
         if (b2 != null && (f2 = b2.f()) != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(f2)) != null) {
             i2 = intOrNull.intValue();
         }
@@ -1666,55 +1666,55 @@ public final class NadRewardVideoActivity extends BaseActivity {
     */
     public final boolean m3() {
         String str;
-        l81 l81Var;
+        m81 m81Var;
         ViewGroup view2;
         boolean z;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var.g().k() != null) {
-            ur0 ur0Var2 = this.P;
-            if (ur0Var2 == null) {
+        if (vr0Var.g().k() != null) {
+            vr0 vr0Var2 = this.P;
+            if (vr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            if (ur0Var2.g().m() != null) {
-                ur0 ur0Var3 = this.P;
-                if (ur0Var3 == null) {
+            if (vr0Var2.g().m() != null) {
+                vr0 vr0Var3 = this.P;
+                if (vr0Var3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                ms0 m2 = ur0Var3.g().m();
+                ns0 m2 = vr0Var3.g().m();
                 if (m2 != null) {
                     str = m2.a();
                 } else {
                     str = null;
                 }
-                if (!TextUtils.isEmpty(str) && !yt.a(this) && !Z2() && ((l81Var = this.E) == null || !l81Var.isShowing())) {
-                    pp0 pp0Var = this.D;
-                    if (pp0Var != null && (view2 = pp0Var.getView()) != null) {
+                if (!TextUtils.isEmpty(str) && !zt.a(this) && !Z2() && ((m81Var = this.E) == null || !m81Var.isShowing())) {
+                    qp0 qp0Var = this.D;
+                    if (qp0Var != null && (view2 = qp0Var.getView()) != null) {
                         if (view2.getVisibility() == 0) {
                             z = true;
                         } else {
                             z = false;
                         }
                     }
-                    ur0 ur0Var4 = this.P;
-                    if (ur0Var4 == null) {
+                    vr0 vr0Var4 = this.P;
+                    if (vr0Var4 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    ls0 g2 = ur0Var4.g();
-                    ur0 ur0Var5 = this.P;
-                    if (ur0Var5 == null) {
+                    ms0 g2 = vr0Var4.g();
+                    vr0 vr0Var5 = this.P;
+                    if (vr0Var5 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    gs0 k2 = ur0Var5.g().k();
+                    hs0 k2 = vr0Var5.g().k();
                     Intrinsics.checkNotNull(k2);
                     String c2 = k2.c();
-                    ur0 ur0Var6 = this.P;
-                    if (ur0Var6 == null) {
+                    vr0 vr0Var6 = this.P;
+                    if (vr0Var6 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    gs0 k3 = ur0Var6.g().k();
+                    hs0 k3 = vr0Var6.g().k();
                     Intrinsics.checkNotNull(k3);
                     NadRewardLottieDialog x2 = x2(g2.j(c2, k3.a()));
                     FragmentManager supportFragmentManager = getSupportFragmentManager();
@@ -1731,11 +1731,11 @@ public final class NadRewardVideoActivity extends BaseActivity {
 
     public final void n3() {
         boolean z;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var.e().length() == 0) {
+        if (vr0Var.e().length() == 0) {
             z = true;
         } else {
             z = false;
@@ -1744,66 +1744,66 @@ public final class NadRewardVideoActivity extends BaseActivity {
             this.E = null;
             return;
         }
-        l81 l81Var = this.E;
-        if (l81Var != null && l81Var.isShowing()) {
+        m81 m81Var = this.E;
+        if (m81Var != null && m81Var.isShowing()) {
             return;
         }
-        l81 l81Var2 = new l81(this);
-        l81Var2.setOnDismissListener(new t());
-        l81Var2.i(new u());
-        double a2 = 1 - (c61.c.a(this, 41.0f) / c61.c.c(this));
-        ur0 ur0Var2 = this.P;
-        if (ur0Var2 == null) {
+        m81 m81Var2 = new m81(this);
+        m81Var2.setOnDismissListener(new t());
+        m81Var2.i(new u());
+        double a2 = 1 - (d61.c.a(this, 41.0f) / d61.c.c(this));
+        vr0 vr0Var2 = this.P;
+        if (vr0Var2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        String e2 = ur0Var2.e();
-        ur0 ur0Var3 = this.P;
-        if (ur0Var3 == null) {
+        String e2 = vr0Var2.e();
+        vr0 vr0Var3 = this.P;
+        if (vr0Var3 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        s81 s81Var = new s81(e2, a2, 0, ur0Var3.f.d);
-        s81Var.A(false);
-        s81Var.C(true);
-        s81Var.B(true);
-        s81Var.y(true);
-        ur0 ur0Var4 = this.P;
-        if (ur0Var4 == null) {
+        t81 t81Var = new t81(e2, a2, 0, vr0Var3.f.d);
+        t81Var.A(false);
+        t81Var.C(true);
+        t81Var.B(true);
+        t81Var.y(true);
+        vr0 vr0Var4 = this.P;
+        if (vr0Var4 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (!TextUtils.isEmpty(ur0Var4.f.m)) {
-            ur0 ur0Var5 = this.P;
-            if (ur0Var5 == null) {
+        if (!TextUtils.isEmpty(vr0Var4.f.m)) {
+            vr0 vr0Var5 = this.P;
+            if (vr0Var5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            s81Var.v(ur0Var5.f.l);
+            t81Var.v(vr0Var5.f.l);
         }
         Unit unit = Unit.INSTANCE;
-        l81Var2.h(s81Var);
-        l81Var2.j();
+        m81Var2.h(t81Var);
+        m81Var2.j();
         Unit unit2 = Unit.INSTANCE;
-        this.E = l81Var2;
-        iu0 iu0Var = this.I;
-        if (iu0Var != null) {
-            iu0Var.pause();
+        this.E = m81Var2;
+        ju0 ju0Var = this.I;
+        if (ju0Var != null) {
+            ju0Var.pause();
         }
         AdImageView adImageView = this.A;
         if (adImageView != null) {
             ExtensionsKt.e(adImageView, false);
         }
-        ur0 ur0Var6 = this.P;
-        if (ur0Var6 == null) {
+        vr0 vr0Var6 = this.P;
+        if (vr0Var6 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        ur0Var6.h().g(true);
+        vr0Var6.h().g(true);
     }
 
     public final void N2() {
         ExpandIconView E2 = E2();
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        ds0 c2 = ur0Var.c();
+        es0 c2 = vr0Var.c();
         boolean z = true;
         if ((c2 == null || !c2.e()) ? false : false) {
             E2.setVisibility(0);
@@ -1843,11 +1843,11 @@ public final class NadRewardVideoActivity extends BaseActivity {
     public final boolean k3() {
         NadRewardTaskHelper nadRewardTaskHelper = this.W;
         if (nadRewardTaskHelper != null && nadRewardTaskHelper.A()) {
-            ur0 ur0Var = this.P;
-            if (ur0Var == null) {
+            vr0 vr0Var = this.P;
+            if (vr0Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            return s3(ur0Var.g().c());
+            return s3(vr0Var.g().c());
         }
         TimeUnit timeUnit = TimeUnit.MILLISECONDS;
         AbsRewardCountDownView absRewardCountDownView = this.C;
@@ -1862,17 +1862,17 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     public final void S2() {
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        t71 a2 = t71.a(ur0Var.j());
+        u71 a2 = u71.a(vr0Var.j());
         if (a2 != null && !TextUtils.isEmpty(a2.b)) {
             if (this.H == null) {
                 this.H = new NadIconTextButton(this);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                layoutParams.topMargin = (((c61.c.e(this) * 9) / 16) / 2) + c61.c.a(this, 26.0f);
+                layoutParams.topMargin = (((d61.c.e(this) * 9) / 16) / 2) + d61.c.a(this, 26.0f);
                 F2().addView(this.H, layoutParams);
             }
             NadIconTextButton nadIconTextButton = this.H;
@@ -1891,24 +1891,24 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     public final void T2() {
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        s71 a2 = s71.a(ur0Var.k());
+        t71 a2 = t71.a(vr0Var.k());
         if (a2 != null && !TextUtils.isEmpty(a2.a)) {
             if (this.G == null) {
                 this.G = new NadHighLightTextView(this);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                 layoutParams.gravity = 17;
-                layoutParams.bottomMargin = (((c61.c.e(this) * 9) / 16) / 2) + c61.c.a(this, 52.0f);
-                layoutParams.setMarginStart(c61.c.a(this, 9.0f));
-                layoutParams.setMarginEnd(c61.c.a(this, 8.0f));
+                layoutParams.bottomMargin = (((d61.c.e(this) * 9) / 16) / 2) + d61.c.a(this, 52.0f);
+                layoutParams.setMarginStart(d61.c.a(this, 9.0f));
+                layoutParams.setMarginEnd(d61.c.a(this, 8.0f));
                 F2().addView(this.G, layoutParams);
             }
             NadHighLightTextView nadHighLightTextView = this.G;
             if (nadHighLightTextView != null) {
-                nadHighLightTextView.setLineSpacing(c61.c.a(nadHighLightTextView.getContext(), 3.0f), 1.0f);
+                nadHighLightTextView.setLineSpacing(d61.c.a(nadHighLightTextView.getContext(), 3.0f), 1.0f);
                 nadHighLightTextView.setAlpha(0.8f);
                 nadHighLightTextView.setGravity(17);
                 nadHighLightTextView.update(a2);
@@ -1928,17 +1928,17 @@ public final class NadRewardVideoActivity extends BaseActivity {
         int i2;
         String d2;
         Integer intOrNull;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        os0 p2 = ur0Var.g().p();
+        ps0 p2 = vr0Var.g().p();
         if (p2 != null && p2.f() != null) {
-            ur0 ur0Var2 = this.P;
-            if (ur0Var2 == null) {
+            vr0 vr0Var2 = this.P;
+            if (vr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            os0 p3 = ur0Var2.g().p();
+            ps0 p3 = vr0Var2.g().p();
             TimeUnit timeUnit = TimeUnit.MILLISECONDS;
             AbsRewardCountDownView absRewardCountDownView = this.C;
             if (absRewardCountDownView != null) {
@@ -1963,11 +1963,11 @@ public final class NadRewardVideoActivity extends BaseActivity {
             }
             AbsRewardCountDownView absRewardCountDownView3 = this.C;
             if (absRewardCountDownView3 != null) {
-                ur0 ur0Var3 = this.P;
-                if (ur0Var3 == null) {
+                vr0 vr0Var3 = this.P;
+                if (vr0Var3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                absRewardCountDownView3.setData(i3, ur0Var3.g(), new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$recomputeCountDownSecond$1
+                absRewardCountDownView3.setData(i3, vr0Var3.g(), new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$recomputeCountDownSecond$1
                     {
                         super(0);
                     }
@@ -1993,28 +1993,28 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (this.b0) {
             return;
         }
-        l81 l81Var = this.E;
-        if (l81Var != null && l81Var.isShowing()) {
+        m81 m81Var = this.E;
+        if (m81Var != null && m81Var.isShowing()) {
             return;
         }
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        ds0 c2 = ur0Var.c();
+        es0 c2 = vr0Var.c();
         if (c2 != null && c2.b()) {
-            ur0 ur0Var2 = this.P;
-            if (ur0Var2 == null) {
+            vr0 vr0Var2 = this.P;
+            if (vr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            xr0 xr0Var = ur0Var2.j;
-            if (xr0Var != null) {
-                int i2 = xr0Var.c;
-                ur0 ur0Var3 = this.P;
-                if (ur0Var3 == null) {
+            yr0 yr0Var = vr0Var2.j;
+            if (yr0Var != null) {
+                int i2 = yr0Var.c;
+                vr0 vr0Var3 = this.P;
+                if (vr0Var3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                if (i2 == ur0Var3.g().s()) {
+                if (i2 == vr0Var3.g().s()) {
                     return;
                 }
             }
@@ -2024,9 +2024,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (nadRewardBigCardView != null) {
             nadRewardBigCardView.setVisibility(true);
         }
-        pp0 pp0Var = this.D;
-        if (pp0Var != null) {
-            pp0Var.setVisibility(false);
+        qp0 qp0Var = this.D;
+        if (qp0Var != null) {
+            qp0Var.setVisibility(false);
         }
         NadHighLightTextView nadHighLightTextView = this.G;
         if (nadHighLightTextView != null) {
@@ -2042,23 +2042,23 @@ public final class NadRewardVideoActivity extends BaseActivity {
     public final boolean q3() {
         JSONObject jSONObject;
         String f2;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        os0 p2 = ur0Var.g().p();
+        ps0 p2 = vr0Var.g().p();
         if (p2 == null || p2.f() == null || this.V) {
             return false;
         }
-        l81 l81Var = this.E;
-        if (l81Var != null && l81Var.isShowing()) {
+        m81 m81Var = this.E;
+        if (m81Var != null && m81Var.isShowing()) {
             return false;
         }
-        ur0 ur0Var2 = this.P;
-        if (ur0Var2 == null) {
+        vr0 vr0Var2 = this.P;
+        if (vr0Var2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        os0 p3 = ur0Var2.g().p();
+        ps0 p3 = vr0Var2.g().p();
         if (p3 != null && (f2 = p3.f()) != null) {
             jSONObject = ExtensionsKt.a(f2);
         } else {
@@ -2080,17 +2080,17 @@ public final class NadRewardVideoActivity extends BaseActivity {
         Integer intOrNull;
         int i2 = 0;
         this.V = false;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        os0 p2 = ur0Var.g().p();
+        ps0 p2 = vr0Var.g().p();
         if (p2 != null && p2.f() != null) {
-            ur0 ur0Var2 = this.P;
-            if (ur0Var2 == null) {
+            vr0 vr0Var2 = this.P;
+            if (vr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            final os0 p3 = ur0Var2.g().p();
+            final ps0 p3 = vr0Var2.g().p();
             if (p3 != null) {
                 str = p3.b();
             } else {
@@ -2108,11 +2108,11 @@ public final class NadRewardVideoActivity extends BaseActivity {
                 }
                 return;
             }
-            ur0 ur0Var3 = this.P;
-            if (ur0Var3 == null) {
+            vr0 vr0Var3 = this.P;
+            if (vr0Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            int s2 = ur0Var3.g().s();
+            int s2 = vr0Var3.g().s();
             if (p3 != null && (c2 = p3.c()) != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(c2)) != null) {
                 i2 = intOrNull.intValue();
             }
@@ -2140,13 +2140,13 @@ public final class NadRewardVideoActivity extends BaseActivity {
                         if (q3) {
                             String str3 = NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).f.d;
                             String valueOf = String.valueOf(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this).h().c());
-                            os0 os0Var = p3;
-                            if (os0Var != null) {
-                                str2 = os0Var.b();
+                            ps0 ps0Var = p3;
+                            if (ps0Var != null) {
+                                str2 = ps0Var.b();
                             } else {
                                 str2 = null;
                             }
-                            bq0.h(str3, "3", valueOf, str2);
+                            cq0.h(str3, "3", valueOf, str2);
                         }
                     }
                 });
@@ -2155,79 +2155,79 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     public final void U2() {
-        zr0 zr0Var;
-        zr0 zr0Var2;
+        as0 as0Var;
+        as0 as0Var2;
         String str;
-        zr0 zr0Var3;
+        as0 as0Var3;
         String str2;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        xr0 xr0Var = ur0Var.j;
+        yr0 yr0Var = vr0Var.j;
         NadRewardHalfTailHolder nadRewardHalfTailHolder = null;
-        if (xr0Var != null) {
-            zr0Var = xr0Var.i;
+        if (yr0Var != null) {
+            as0Var = yr0Var.i;
         } else {
-            zr0Var = null;
+            as0Var = null;
         }
-        if (zr0Var != null) {
-            ur0 ur0Var2 = this.P;
-            if (ur0Var2 == null) {
+        if (as0Var != null) {
+            vr0 vr0Var2 = this.P;
+            if (vr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            ds0 c2 = ur0Var2.c();
+            es0 c2 = vr0Var2.c();
             if (c2 == null || c2.n()) {
-                ur0 ur0Var3 = this.P;
-                if (ur0Var3 == null) {
+                vr0 vr0Var3 = this.P;
+                if (vr0Var3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                xr0 xr0Var2 = ur0Var3.j;
-                if (xr0Var2 != null && (zr0Var2 = xr0Var2.i) != null) {
-                    ur0 ur0Var4 = this.P;
-                    if (ur0Var4 == null) {
+                yr0 yr0Var2 = vr0Var3.j;
+                if (yr0Var2 != null && (as0Var2 = yr0Var2.i) != null) {
+                    vr0 vr0Var4 = this.P;
+                    if (vr0Var4 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    xr0 xr0Var3 = ur0Var4.j;
-                    if (xr0Var3 != null && (zr0Var3 = xr0Var3.i) != null && (str2 = zr0Var3.x) != null) {
-                        mp0 mp0Var = this.Q;
-                        str = StringsKt__StringsJVMKt.replace$default(str2, "__COINTIPS__", (mp0Var == null || (r4 = mp0Var.e()) == null) ? "再看一个领取更多福利" : "再看一个领取更多福利", false, 4, (Object) null);
+                    yr0 yr0Var3 = vr0Var4.j;
+                    if (yr0Var3 != null && (as0Var3 = yr0Var3.i) != null && (str2 = as0Var3.x) != null) {
+                        np0 np0Var = this.Q;
+                        str = StringsKt__StringsJVMKt.replace$default(str2, "__COINTIPS__", (np0Var == null || (r4 = np0Var.e()) == null) ? "再看一个领取更多福利" : "再看一个领取更多福利", false, 4, (Object) null);
                     } else {
                         str = null;
                     }
-                    zr0Var2.x = str;
+                    as0Var2.x = str;
                 }
-                pp0 pp0Var = this.D;
-                if (pp0Var != null) {
-                    pp0Var.setVisibility(false);
+                qp0 qp0Var = this.D;
+                if (qp0Var != null) {
+                    qp0Var.setVisibility(false);
                 }
-                pp0.a aVar = pp0.k0;
-                ur0 ur0Var5 = this.P;
-                if (ur0Var5 == null) {
+                qp0.a aVar = qp0.k0;
+                vr0 vr0Var5 = this.P;
+                if (vr0Var5 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                pp0 a2 = aVar.a(ur0Var5, this);
+                qp0 a2 = aVar.a(vr0Var5, this);
                 this.D = a2;
                 if (a2 != null) {
-                    ur0 ur0Var6 = this.P;
-                    if (ur0Var6 == null) {
+                    vr0 vr0Var6 = this.P;
+                    if (vr0Var6 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    a2.setData(ur0Var6);
+                    a2.setData(vr0Var6);
                 }
-                pp0 pp0Var2 = this.D;
-                if (!(pp0Var2 instanceof View)) {
-                    pp0Var2 = null;
+                qp0 qp0Var2 = this.D;
+                if (!(qp0Var2 instanceof View)) {
+                    qp0Var2 = null;
                 }
-                View view2 = (View) pp0Var2;
+                View view2 = (View) qp0Var2;
                 if (view2 != null) {
                     H2().removeAllViews();
                     H2().addView(view2);
                     H2().bringToFront();
                 }
-                pp0 pp0Var3 = this.D;
-                if (pp0Var3 != null) {
-                    pp0Var3.setOnReplayClickListener(new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$initTailFrame$2
+                qp0 qp0Var3 = this.D;
+                if (qp0Var3 != null) {
+                    qp0Var3.setOnReplayClickListener(new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$initTailFrame$2
                         {
                             super(0);
                         }
@@ -2242,20 +2242,20 @@ public final class NadRewardVideoActivity extends BaseActivity {
                         /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                         /* renamed from: invoke  reason: avoid collision after fix types in other method */
                         public final void invoke2() {
-                            pp0 pp0Var4 = NadRewardVideoActivity.this.D;
-                            if (pp0Var4 != null) {
-                                pp0Var4.setVisibility(false);
+                            qp0 qp0Var4 = NadRewardVideoActivity.this.D;
+                            if (qp0Var4 != null) {
+                                qp0Var4.setVisibility(false);
                             }
-                            iu0 iu0Var = NadRewardVideoActivity.this.I;
-                            if (iu0Var != null) {
-                                iu0Var.start();
+                            ju0 ju0Var = NadRewardVideoActivity.this.I;
+                            if (ju0Var != null) {
+                                ju0Var.start();
                             }
                         }
                     });
                 }
-                pp0 pp0Var4 = this.D;
-                if (pp0Var4 instanceof NadRewardHalfTailHolder) {
-                    nadRewardHalfTailHolder = pp0Var4;
+                qp0 qp0Var4 = this.D;
+                if (qp0Var4 instanceof NadRewardHalfTailHolder) {
+                    nadRewardHalfTailHolder = qp0Var4;
                 }
                 NadRewardHalfTailHolder nadRewardHalfTailHolder2 = nadRewardHalfTailHolder;
                 if (nadRewardHalfTailHolder2 != null) {
@@ -2349,24 +2349,24 @@ public final class NadRewardVideoActivity extends BaseActivity {
                 return;
             }
         }
-        pp0 pp0Var5 = this.D;
-        if (pp0Var5 != null) {
-            pp0Var5.setVisibility(false);
+        qp0 qp0Var5 = this.D;
+        if (qp0Var5 != null) {
+            qp0Var5.setVisibility(false);
         }
     }
 
     public final void W2() {
         boolean z;
         int i2;
-        lr0 lr0Var;
+        mr0 mr0Var;
         int i3;
-        zr0 zr0Var;
+        as0 as0Var;
         NadRewardVideoAdOverContainer D2 = D2();
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var.d() == null) {
+        if (vr0Var.d() == null) {
             z = true;
         } else {
             z = false;
@@ -2378,107 +2378,107 @@ public final class NadRewardVideoActivity extends BaseActivity {
         }
         D2.setVisibility(i2);
         D2.setAlsLogPage(ClogBuilder.Page.WELFAREMAXLP.type);
-        ur0 ur0Var2 = this.P;
-        if (ur0Var2 == null) {
+        vr0 vr0Var2 = this.P;
+        if (vr0Var2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var2.g().C()) {
-            ur0 ur0Var3 = this.P;
-            if (ur0Var3 == null) {
+        if (vr0Var2.g().C()) {
+            vr0 vr0Var3 = this.P;
+            if (vr0Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            String str = ur0Var3.f.c;
+            String str = vr0Var3.f.c;
             Context context = D2.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             if (Y2(str, context)) {
-                ur0 ur0Var4 = this.P;
-                if (ur0Var4 == null) {
+                vr0 vr0Var4 = this.P;
+                if (vr0Var4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                mr0 mr0Var = ur0Var4.m;
-                if (mr0Var != null) {
-                    mr0Var.g = true;
+                nr0 nr0Var = vr0Var4.m;
+                if (nr0Var != null) {
+                    nr0Var.g = true;
                 }
-                ur0 ur0Var5 = this.P;
-                if (ur0Var5 == null) {
+                vr0 vr0Var5 = this.P;
+                if (vr0Var5 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                xr0 xr0Var = ur0Var5.j;
-                if (xr0Var != null && (zr0Var = xr0Var.i) != null) {
-                    zr0Var.C = true;
+                yr0 yr0Var = vr0Var5.j;
+                if (yr0Var != null && (as0Var = yr0Var.i) != null) {
+                    as0Var.C = true;
                 }
             }
         }
-        ur0 ur0Var6 = this.P;
-        if (ur0Var6 == null) {
+        vr0 vr0Var6 = this.P;
+        if (vr0Var6 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var6.d() != null) {
-            ur0 ur0Var7 = this.P;
-            if (ur0Var7 == null) {
+        if (vr0Var6.d() != null) {
+            vr0 vr0Var7 = this.P;
+            if (vr0Var7 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            mr0 mr0Var2 = ur0Var7.m;
-            if (mr0Var2 != null) {
-                mr0Var2.e = true;
+            nr0 nr0Var2 = vr0Var7.m;
+            if (nr0Var2 != null) {
+                nr0Var2.e = true;
             }
-            ur0 ur0Var8 = this.P;
-            if (ur0Var8 == null) {
+            vr0 vr0Var8 = this.P;
+            if (vr0Var8 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            mr0 mr0Var3 = ur0Var8.m;
-            if (mr0Var3 != null) {
-                ur0 ur0Var9 = this.P;
-                if (ur0Var9 == null) {
+            nr0 nr0Var3 = vr0Var8.m;
+            if (nr0Var3 != null) {
+                vr0 vr0Var9 = this.P;
+                if (vr0Var9 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                if (ur0Var9.m()) {
+                if (vr0Var9.m()) {
                     i3 = 2;
                 } else {
                     i3 = 0;
                 }
-                mr0Var3.a = i3;
+                nr0Var3.a = i3;
             }
-            ur0 ur0Var10 = this.P;
-            if (ur0Var10 == null) {
+            vr0 vr0Var10 = this.P;
+            if (vr0Var10 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            mr0 mr0Var4 = ur0Var10.m;
-            if (mr0Var4 != null) {
-                ur0 ur0Var11 = this.P;
-                if (ur0Var11 == null) {
+            nr0 nr0Var4 = vr0Var10.m;
+            if (nr0Var4 != null) {
+                vr0 vr0Var11 = this.P;
+                if (vr0Var11 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                fs0 d2 = ur0Var11.d();
+                gs0 d2 = vr0Var11.d();
                 Intrinsics.checkNotNull(d2);
-                mr0Var4.p = d2.b();
+                nr0Var4.p = d2.b();
             }
-            ur0 ur0Var12 = this.P;
-            if (ur0Var12 == null) {
+            vr0 vr0Var12 = this.P;
+            if (vr0Var12 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            mr0 mr0Var5 = ur0Var12.m;
-            if (mr0Var5 != null && (lr0Var = mr0Var5.q) != null) {
-                ur0 ur0Var13 = this.P;
-                if (ur0Var13 == null) {
+            nr0 nr0Var5 = vr0Var12.m;
+            if (nr0Var5 != null && (mr0Var = nr0Var5.q) != null) {
+                vr0 vr0Var13 = this.P;
+                if (vr0Var13 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                lr0Var.d = ur0Var13.f.d;
+                mr0Var.d = vr0Var13.f.d;
             }
         }
-        ur0 ur0Var14 = this.P;
-        if (ur0Var14 == null) {
+        vr0 vr0Var14 = this.P;
+        if (vr0Var14 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        D2.setData(ur0Var14);
-        ur0 ur0Var15 = this.P;
-        if (ur0Var15 == null) {
+        D2.setData(vr0Var14);
+        vr0 vr0Var15 = this.P;
+        if (vr0Var15 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var15.l()) {
-            D2.setBottomLineHeight(c61.c.a(D2.getContext(), 41.0f));
+        if (vr0Var15.l()) {
+            D2.setBottomLineHeight(d61.c.a(D2.getContext(), 41.0f));
         } else {
-            D2.setBottomLineHeight(c61.c.a(D2.getContext(), 10.0f));
+            D2.setBottomLineHeight(d61.c.a(D2.getContext(), 10.0f));
         }
         D2.setOnUiClickListener(new k(D2, this));
         D2.setFeedbackBtnVisibility(false);
@@ -2488,77 +2488,77 @@ public final class NadRewardVideoActivity extends BaseActivity {
     public final void X2() {
         boolean z;
         if (this.I == null) {
-            ju0 ju0Var = new ju0();
-            ju0Var.a = 2;
-            iu0 b2 = iu0.a.b(this, 0, ju0Var);
+            ku0 ku0Var = new ku0();
+            ku0Var.a = 2;
+            ju0 b2 = ju0.a.b(this, 0, ku0Var);
             this.I = b2;
             if (b2 != null) {
                 b2.attachToContainer(K2());
             }
         }
-        iu0 iu0Var = this.I;
-        if (iu0Var != null) {
-            iu0Var.d(new n());
-            ur0 ur0Var = this.P;
-            if (ur0Var == null) {
+        ju0 ju0Var = this.I;
+        if (ju0Var != null) {
+            ju0Var.d(new n());
+            vr0 vr0Var = this.P;
+            if (vr0Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            xr0 xr0Var = ur0Var.j;
-            if (xr0Var != null && xr0Var.g) {
-                iu0Var.setVideoScalingMode(0);
+            yr0 yr0Var = vr0Var.j;
+            if (yr0Var != null && yr0Var.g) {
+                ju0Var.setVideoScalingMode(0);
             } else {
-                iu0Var.setVideoScalingMode(2);
+                ju0Var.setVideoScalingMode(2);
             }
-            iu0Var.a(new m());
+            ju0Var.a(new m());
         }
-        ur0 ur0Var2 = this.P;
-        if (ur0Var2 == null) {
+        vr0 vr0Var2 = this.P;
+        if (vr0Var2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var2.j == null) {
+        if (vr0Var2.j == null) {
             K2().setVisibility(8);
             this.I = null;
             return;
         }
-        iu0 iu0Var2 = this.I;
-        if (iu0Var2 != null) {
-            ur0 ur0Var3 = this.P;
-            if (ur0Var3 == null) {
+        ju0 ju0Var2 = this.I;
+        if (ju0Var2 != null) {
+            vr0 vr0Var3 = this.P;
+            if (vr0Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            xr0 xr0Var2 = ur0Var3.j;
-            Intrinsics.checkNotNull(xr0Var2);
-            iu0Var2.c(xr0Var2);
+            yr0 yr0Var2 = vr0Var3.j;
+            Intrinsics.checkNotNull(yr0Var2);
+            ju0Var2.c(yr0Var2);
         }
         if (NetUtil.a(this)) {
-            ur0 ur0Var4 = this.P;
-            if (ur0Var4 == null) {
+            vr0 vr0Var4 = this.P;
+            if (vr0Var4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            ds0 c2 = ur0Var4.c();
+            es0 c2 = vr0Var4.c();
             if (c2 != null) {
                 z = c2.n();
             } else {
                 z = false;
             }
-            iu0 iu0Var3 = this.I;
-            if (iu0Var3 != null) {
-                iu0Var3.setLooping(!z);
+            ju0 ju0Var3 = this.I;
+            if (ju0Var3 != null) {
+                ju0Var3.setLooping(!z);
             }
-            iu0 iu0Var4 = this.I;
-            if (iu0Var4 != null) {
-                iu0Var4.start();
+            ju0 ju0Var4 = this.I;
+            if (ju0Var4 != null) {
+                ju0Var4.start();
             }
         } else {
-            g51.a().a(this, R.string.nad_reward_video_lp_no_network);
+            h51.a().a(this, R.string.nad_reward_video_lp_no_network);
         }
         NadRewardInterceptFrameLayout K2 = K2();
         K2.setVisibility(0);
-        ur0 ur0Var5 = this.P;
-        if (ur0Var5 == null) {
+        vr0 vr0Var5 = this.P;
+        if (vr0Var5 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        K2.setEnableIntercept(ur0Var5.l());
+        K2.setEnableIntercept(vr0Var5.l());
         K2.setInterceptCallback(new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$initVideoPlayer$$inlined$apply$lambda$2
             {
                 super(0);
@@ -2575,7 +2575,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
                 NadRewardVideoActivity.this.n3();
-                bq0.s(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this));
+                cq0.s(NadRewardVideoActivity.Q1(NadRewardVideoActivity.this));
             }
         });
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
@@ -2588,11 +2588,11 @@ public final class NadRewardVideoActivity extends BaseActivity {
         boolean z;
         Boolean bool;
         long j2;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        fs0 d2 = ur0Var.d();
+        gs0 d2 = vr0Var.d();
         String str2 = null;
         if (d2 != null) {
             str = d2.c();
@@ -2605,26 +2605,26 @@ public final class NadRewardVideoActivity extends BaseActivity {
             z = true;
         }
         if (z) {
-            l81 l81Var = this.F;
-            if (l81Var != null) {
-                l81Var.e();
+            m81 m81Var = this.F;
+            if (m81Var != null) {
+                m81Var.e();
             }
             this.F = null;
             return;
         }
-        l81 l81Var2 = this.F;
-        if (l81Var2 != null) {
-            l81Var2.e();
+        m81 m81Var2 = this.F;
+        if (m81Var2 != null) {
+            m81Var2.e();
         }
         long currentTimeMillis = System.currentTimeMillis();
         Handler handler = this.X;
         if (handler != null) {
             Runnable runnable = this.Z;
-            ur0 ur0Var2 = this.P;
-            if (ur0Var2 == null) {
+            vr0 vr0Var2 = this.P;
+            if (vr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            fs0 d3 = ur0Var2.d();
+            gs0 d3 = vr0Var2.d();
             if (d3 != null) {
                 j2 = d3.a();
             } else {
@@ -2632,42 +2632,42 @@ public final class NadRewardVideoActivity extends BaseActivity {
             }
             handler.postDelayed(runnable, j2);
         }
-        l81 l81Var3 = new l81(this);
-        ur0 ur0Var3 = this.P;
-        if (ur0Var3 == null) {
+        m81 m81Var3 = new m81(this);
+        vr0 vr0Var3 = this.P;
+        if (vr0Var3 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        fs0 d4 = ur0Var3.d();
+        gs0 d4 = vr0Var3.d();
         if (d4 != null) {
             bool = Boolean.valueOf(d4.d());
         } else {
             bool = null;
         }
-        l81Var3.i(new s(bool, this, currentTimeMillis));
-        double a2 = 1 - (c61.c.a(this, 41.0f) / c61.c.c(this));
-        ur0 ur0Var4 = this.P;
-        if (ur0Var4 == null) {
+        m81Var3.i(new s(bool, this, currentTimeMillis));
+        double a2 = 1 - (d61.c.a(this, 41.0f) / d61.c.c(this));
+        vr0 vr0Var4 = this.P;
+        if (vr0Var4 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        fs0 d5 = ur0Var4.d();
+        gs0 d5 = vr0Var4.d();
         if (d5 != null) {
             str2 = d5.c();
         }
         String str3 = str2;
-        ur0 ur0Var5 = this.P;
-        if (ur0Var5 == null) {
+        vr0 vr0Var5 = this.P;
+        if (vr0Var5 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        s81 s81Var = new s81(str3, a2, 0, ur0Var5.f.d);
-        s81Var.A(false);
-        s81Var.C(true);
-        s81Var.w(true);
-        s81Var.x(true);
+        t81 t81Var = new t81(str3, a2, 0, vr0Var5.f.d);
+        t81Var.A(false);
+        t81Var.C(true);
+        t81Var.w(true);
+        t81Var.x(true);
         Unit unit = Unit.INSTANCE;
-        l81Var3.h(s81Var);
-        l81Var3.j();
+        m81Var3.h(t81Var);
+        m81Var3.j();
         Unit unit2 = Unit.INSTANCE;
-        this.F = l81Var3;
+        this.F = m81Var3;
     }
 
     public final boolean Y2(String str, Context context) {
@@ -2675,7 +2675,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        HashMap<String, String> d2 = new yj0(str).d();
+        HashMap<String, String> d2 = new zj0(str).d();
         Intrinsics.checkNotNullExpressionValue(d2, "entity.params");
         String str2 = d2.get("params");
         if (TextUtils.isEmpty(str2)) {
@@ -2724,9 +2724,9 @@ public final class NadRewardVideoActivity extends BaseActivity {
     */
     public final boolean b3() {
         Object m844constructorimpl;
-        zr0 zr0Var;
+        as0 as0Var;
         String str;
-        zr0 zr0Var2;
+        as0 as0Var2;
         Boolean bool;
         boolean z;
         String d2;
@@ -2734,7 +2734,7 @@ public final class NadRewardVideoActivity extends BaseActivity {
         String replace$default;
         String str3;
         String d3;
-        zr0 zr0Var3;
+        as0 as0Var3;
         String str4;
         String replace$default2;
         String str5;
@@ -2753,40 +2753,40 @@ public final class NadRewardVideoActivity extends BaseActivity {
             m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th));
         }
         if (serializable != null) {
-            m844constructorimpl = Result.m844constructorimpl(aq0.a.d((HashMap) serializable));
+            m844constructorimpl = Result.m844constructorimpl(bq0.a.d((HashMap) serializable));
             if (Result.m851isSuccessimpl(m844constructorimpl)) {
-                ur0 ur0Var = (ur0) m844constructorimpl;
-                this.P = ur0Var;
-                if (ur0Var == null) {
+                vr0 vr0Var = (vr0) m844constructorimpl;
+                this.P = vr0Var;
+                if (vr0Var == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                xr0 xr0Var = ur0Var.j;
+                yr0 yr0Var = vr0Var.j;
                 String str7 = "";
-                if (xr0Var != null && (zr0Var3 = xr0Var.i) != null) {
-                    ur0 ur0Var2 = this.P;
-                    if (ur0Var2 == null) {
+                if (yr0Var != null && (as0Var3 = yr0Var.i) != null) {
+                    vr0 vr0Var2 = this.P;
+                    if (vr0Var2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    if (ur0Var2.m()) {
-                        String str8 = zr0Var3.f;
+                    if (vr0Var2.m()) {
+                        String str8 = as0Var3.f;
                         if (str8 != null) {
-                            ur0 ur0Var3 = this.P;
-                            if (ur0Var3 == null) {
+                            vr0 vr0Var3 = this.P;
+                            if (vr0Var3 == null) {
                                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
                             }
-                            replace$default2 = StringsKt__StringsJVMKt.replace$default(str8, "__CONVERT_CMD__", ur0Var3.f(), false, 4, (Object) null);
+                            replace$default2 = StringsKt__StringsJVMKt.replace$default(str8, "__CONVERT_CMD__", vr0Var3.f(), false, 4, (Object) null);
                         }
                         replace$default2 = "";
-                        zr0Var3.f = replace$default2;
+                        as0Var3.f = replace$default2;
                     } else {
-                        String str9 = zr0Var3.f;
+                        String str9 = as0Var3.f;
                         if (str9 != null) {
-                            ur0 ur0Var4 = this.P;
-                            if (ur0Var4 == null) {
+                            vr0 vr0Var4 = this.P;
+                            if (vr0Var4 == null) {
                                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
                             }
-                            mr0 mr0Var = ur0Var4.m;
-                            if (mr0Var == null || (str5 = mr0Var.t) == null) {
+                            nr0 nr0Var = vr0Var4.m;
+                            if (nr0Var == null || (str5 = nr0Var.t) == null) {
                                 str4 = "";
                             } else {
                                 str4 = str5;
@@ -2794,46 +2794,46 @@ public final class NadRewardVideoActivity extends BaseActivity {
                             replace$default2 = StringsKt__StringsJVMKt.replace$default(str9, "__CONVERT_CMD__", str4, false, 4, (Object) null);
                         }
                         replace$default2 = "";
-                        zr0Var3.f = replace$default2;
+                        as0Var3.f = replace$default2;
                     }
                 }
-                ur0 ur0Var5 = this.P;
-                if (ur0Var5 == null) {
+                vr0 vr0Var5 = this.P;
+                if (vr0Var5 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                cs0 b2 = ur0Var5.b();
+                ds0 b2 = vr0Var5.b();
                 if (b2 != null) {
-                    ur0 ur0Var6 = this.P;
-                    if (ur0Var6 == null) {
+                    vr0 vr0Var6 = this.P;
+                    if (vr0Var6 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    if (ur0Var6.m()) {
-                        ur0 ur0Var7 = this.P;
-                        if (ur0Var7 == null) {
+                    if (vr0Var6.m()) {
+                        vr0 vr0Var7 = this.P;
+                        if (vr0Var7 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("adModel");
                         }
-                        cs0 b3 = ur0Var7.b();
+                        ds0 b3 = vr0Var7.b();
                         if (b3 != null && (d3 = b3.d()) != null) {
-                            ur0 ur0Var8 = this.P;
-                            if (ur0Var8 == null) {
+                            vr0 vr0Var8 = this.P;
+                            if (vr0Var8 == null) {
                                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
                             }
-                            replace$default = StringsKt__StringsJVMKt.replace$default(d3, "__CONVERT_CMD__", ur0Var8.f(), false, 4, (Object) null);
+                            replace$default = StringsKt__StringsJVMKt.replace$default(d3, "__CONVERT_CMD__", vr0Var8.f(), false, 4, (Object) null);
                         }
                         b2.h(str7);
                     } else {
-                        ur0 ur0Var9 = this.P;
-                        if (ur0Var9 == null) {
+                        vr0 vr0Var9 = this.P;
+                        if (vr0Var9 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("adModel");
                         }
-                        cs0 b4 = ur0Var9.b();
+                        ds0 b4 = vr0Var9.b();
                         if (b4 != null && (d2 = b4.d()) != null) {
-                            ur0 ur0Var10 = this.P;
-                            if (ur0Var10 == null) {
+                            vr0 vr0Var10 = this.P;
+                            if (vr0Var10 == null) {
                                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
                             }
-                            mr0 mr0Var2 = ur0Var10.m;
-                            if (mr0Var2 == null || (str3 = mr0Var2.t) == null) {
+                            nr0 nr0Var2 = vr0Var10.m;
+                            if (nr0Var2 == null || (str3 = nr0Var2.t) == null) {
                                 str2 = "";
                             } else {
                                 str2 = str3;
@@ -2843,114 +2843,114 @@ public final class NadRewardVideoActivity extends BaseActivity {
                         b2.h(str7);
                     }
                 }
-                ur0 ur0Var11 = this.P;
-                if (ur0Var11 == null) {
+                vr0 vr0Var11 = this.P;
+                if (vr0Var11 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                mr0 mr0Var3 = ur0Var11.m;
+                nr0 nr0Var3 = vr0Var11.m;
                 boolean z2 = true;
-                if (mr0Var3 != null) {
-                    mr0Var3.d = true;
+                if (nr0Var3 != null) {
+                    nr0Var3.d = true;
                 }
-                ur0 ur0Var12 = this.P;
-                if (ur0Var12 == null) {
+                vr0 vr0Var12 = this.P;
+                if (vr0Var12 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                mr0 mr0Var4 = ur0Var12.m;
-                if (mr0Var4 != null) {
-                    ur0 ur0Var13 = this.P;
-                    if (ur0Var13 == null) {
+                nr0 nr0Var4 = vr0Var12.m;
+                if (nr0Var4 != null) {
+                    vr0 vr0Var13 = this.P;
+                    if (vr0Var13 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    ds0 c2 = ur0Var13.c();
+                    es0 c2 = vr0Var13.c();
                     if (c2 != null) {
                         z = c2.f();
                     } else {
                         z = false;
                     }
-                    mr0Var4.f = z;
+                    nr0Var4.f = z;
                 }
-                ur0 ur0Var14 = this.P;
-                if (ur0Var14 == null) {
+                vr0 vr0Var14 = this.P;
+                if (vr0Var14 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                xr0 xr0Var2 = ur0Var14.j;
-                if (xr0Var2 != null && (zr0Var2 = xr0Var2.i) != null) {
-                    ur0 ur0Var15 = this.P;
-                    if (ur0Var15 == null) {
+                yr0 yr0Var2 = vr0Var14.j;
+                if (yr0Var2 != null && (as0Var2 = yr0Var2.i) != null) {
+                    vr0 vr0Var15 = this.P;
+                    if (vr0Var15 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    ds0 c3 = ur0Var15.c();
+                    es0 c3 = vr0Var15.c();
                     if (c3 != null) {
                         bool = Boolean.valueOf(c3.p());
                     } else {
                         bool = null;
                     }
-                    zr0Var2.D = bool;
+                    as0Var2.D = bool;
                 }
-                ur0 ur0Var16 = this.P;
-                if (ur0Var16 == null) {
+                vr0 vr0Var16 = this.P;
+                if (vr0Var16 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                xr0 xr0Var3 = ur0Var16.j;
-                if (xr0Var3 != null && (zr0Var = xr0Var3.i) != null) {
-                    ur0 ur0Var17 = this.P;
-                    if (ur0Var17 == null) {
+                yr0 yr0Var3 = vr0Var16.j;
+                if (yr0Var3 != null && (as0Var = yr0Var3.i) != null) {
+                    vr0 vr0Var17 = this.P;
+                    if (vr0Var17 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    ds0 c4 = ur0Var17.c();
+                    es0 c4 = vr0Var17.c();
                     if (c4 != null) {
                         str = c4.o();
                     } else {
                         str = null;
                     }
-                    zr0Var.E = str;
+                    as0Var.E = str;
                 }
-                hp0 hp0Var = (hp0) ServiceManager.getService(hp0.a);
-                ur0 ur0Var18 = this.P;
-                if (ur0Var18 == null) {
+                ip0 ip0Var = (ip0) ServiceManager.getService(ip0.a);
+                vr0 vr0Var18 = this.P;
+                if (vr0Var18 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                if (ur0Var18.g().u().length() != 0) {
+                if (vr0Var18.g().u().length() != 0) {
                     z2 = false;
                 }
-                if (z2 && hp0Var != null) {
-                    ur0 ur0Var19 = this.P;
-                    if (ur0Var19 == null) {
+                if (z2 && ip0Var != null) {
+                    vr0 vr0Var19 = this.P;
+                    if (vr0Var19 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    ls0 g2 = ur0Var19.g();
-                    String a2 = hp0Var.a();
+                    ms0 g2 = vr0Var19.g();
+                    String a2 = ip0Var.a();
                     Intrinsics.checkNotNullExpressionValue(a2, "nadRewardLpBDTaskCenterImpl.taskId");
                     g2.F(a2);
                 }
-                ur0 ur0Var20 = this.P;
-                if (ur0Var20 == null) {
+                vr0 vr0Var20 = this.P;
+                if (vr0Var20 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                mr0 mr0Var5 = ur0Var20.m;
-                if (mr0Var5 != null) {
-                    ur0 ur0Var21 = this.P;
-                    if (ur0Var21 == null) {
+                nr0 nr0Var5 = vr0Var20.m;
+                if (nr0Var5 != null) {
+                    vr0 vr0Var21 = this.P;
+                    if (vr0Var21 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("adModel");
                     }
-                    List<MonitorUrl> list = ur0Var21.e;
+                    List<MonitorUrl> list = vr0Var21.e;
                     Intrinsics.checkNotNullExpressionValue(list, "adModel.monitorUrls");
-                    mr0Var5.h = list;
+                    nr0Var5.h = list;
                 }
-                ur0 ur0Var22 = this.P;
-                if (ur0Var22 == null) {
+                vr0 vr0Var22 = this.P;
+                if (vr0Var22 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                es0 f2 = ur0Var22.g().f();
+                fs0 f2 = vr0Var22.g().f();
                 if (f2 != null) {
                     str6 = f2.c();
                 }
                 this.a0 = Intrinsics.areEqual(str6, "0");
             }
             Throwable m847exceptionOrNullimpl = Result.m847exceptionOrNullimpl(m844constructorimpl);
-            if (m847exceptionOrNullimpl != null && vh0.a) {
-                g51.a().showToast(this, m847exceptionOrNullimpl.getMessage());
+            if (m847exceptionOrNullimpl != null && wh0.a) {
+                h51.a().showToast(this, m847exceptionOrNullimpl.getMessage());
             }
             return Result.m851isSuccessimpl(m844constructorimpl);
         }
@@ -2958,19 +2958,19 @@ public final class NadRewardVideoActivity extends BaseActivity {
     }
 
     public final void d3(String str, String str2, HashMap<String, String> hashMap) {
-        np0 np0Var = new np0();
-        np0Var.a = str;
-        np0Var.b = hashMap;
-        pn0.a().a(np0Var);
+        op0 op0Var = new op0();
+        op0Var.a = str;
+        op0Var.b = hashMap;
+        qn0.a().a(op0Var);
     }
 
     public final boolean o3(long j2) {
         boolean z;
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        if (ur0Var.g().o().length() == 0) {
+        if (vr0Var.g().o().length() == 0) {
             z = true;
         } else {
             z = false;
@@ -2978,11 +2978,11 @@ public final class NadRewardVideoActivity extends BaseActivity {
         if (z) {
             return false;
         }
-        ur0 ur0Var2 = this.P;
-        if (ur0Var2 == null) {
+        vr0 vr0Var2 = this.P;
+        if (vr0Var2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        NadRewardVideoDialog w2 = w2(this, ur0Var2.g().n(j2), false, 2, null);
+        NadRewardVideoDialog w2 = w2(this, vr0Var2.g().n(j2), false, 2, null);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
         w2.show(supportFragmentManager, (String) null);
@@ -2994,18 +2994,18 @@ public final class NadRewardVideoActivity extends BaseActivity {
     public final NadRewardLottieDialog x2(final String str) {
         f3();
         NadRewardLottieDialog nadRewardLottieDialog = new NadRewardLottieDialog();
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        String str2 = ur0Var.f.d;
+        String str2 = vr0Var.f.d;
         Intrinsics.checkNotNullExpressionValue(str2, "adModel.common.extraParam");
         nadRewardLottieDialog.i2(str, str2);
-        ur0 ur0Var2 = this.P;
-        if (ur0Var2 == null) {
+        vr0 vr0Var2 = this.P;
+        if (vr0Var2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        nadRewardLottieDialog.x2(ur0Var2.g().k());
+        nadRewardLottieDialog.x2(vr0Var2.g().k());
         nadRewardLottieDialog.g2(new d(str));
         nadRewardLottieDialog.l2(new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.NadRewardVideoActivity$buildLottieDialog$$inlined$apply$lambda$2
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -3058,16 +3058,16 @@ public final class NadRewardVideoActivity extends BaseActivity {
         } else {
             f3 = 0.0f;
         }
-        float e2 = ((c61.c.e(this) / c61.c.c(this)) * f3) / 2.0f;
+        float e2 = ((d61.c.e(this) / d61.c.c(this)) * f3) / 2.0f;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.bottomMargin = (int) (f3 * f2);
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        xr0 xr0Var = ur0Var.j;
-        if (xr0Var != null) {
-            if (xr0Var.f > 0.0f) {
+        yr0 yr0Var = vr0Var.j;
+        if (yr0Var != null) {
+            if (yr0Var.f > 0.0f) {
                 z = true;
             } else {
                 z = false;
@@ -3094,22 +3094,22 @@ public final class NadRewardVideoActivity extends BaseActivity {
         String valueOf;
         boolean z3;
         final NadRewardVideoDialog nadRewardVideoDialog = new NadRewardVideoDialog();
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        String str2 = ur0Var.f.d;
+        String str2 = vr0Var.f.d;
         Intrinsics.checkNotNullExpressionValue(str2, "adModel.common.extraParam");
         nadRewardVideoDialog.i2(str, str2);
-        lp0 T1 = nadRewardVideoDialog.T1();
+        mp0 T1 = nadRewardVideoDialog.T1();
         boolean z4 = true;
         if (T1 != null) {
             if (z) {
-                ur0 ur0Var2 = this.P;
-                if (ur0Var2 == null) {
+                vr0 vr0Var2 = this.P;
+                if (vr0Var2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                if (ur0Var2.h().d()) {
+                if (vr0Var2.h().d()) {
                     z3 = true;
                     T1.M(z3);
                 }
@@ -3117,37 +3117,37 @@ public final class NadRewardVideoActivity extends BaseActivity {
             z3 = false;
             T1.M(z3);
         }
-        lp0 T12 = nadRewardVideoDialog.T1();
+        mp0 T12 = nadRewardVideoDialog.T1();
         if (T12 != null) {
-            ur0 ur0Var3 = this.P;
-            if (ur0Var3 == null) {
+            vr0 vr0Var3 = this.P;
+            if (vr0Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            T12.L(ur0Var3.g().r());
+            T12.L(vr0Var3.g().r());
         }
-        lp0 T13 = nadRewardVideoDialog.T1();
+        mp0 T13 = nadRewardVideoDialog.T1();
         if (T13 != null) {
-            ur0 ur0Var4 = this.P;
-            if (ur0Var4 == null) {
+            vr0 vr0Var4 = this.P;
+            if (vr0Var4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            if (ur0Var4.g().i().length() > 0) {
+            if (vr0Var4.g().i().length() > 0) {
                 z2 = true;
             } else {
                 z2 = false;
             }
             if (z2) {
-                ur0 ur0Var5 = this.P;
-                if (ur0Var5 == null) {
+                vr0 vr0Var5 = this.P;
+                if (vr0Var5 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                valueOf = ur0Var5.g().i();
+                valueOf = vr0Var5.g().i();
             } else {
-                ur0 ur0Var6 = this.P;
-                if (ur0Var6 == null) {
+                vr0 vr0Var6 = this.P;
+                if (vr0Var6 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("adModel");
                 }
-                qs0 q2 = ur0Var6.g().q();
+                rs0 q2 = vr0Var6.g().q();
                 if (q2 != null) {
                     num = Integer.valueOf(q2.b());
                 } else {
@@ -3157,13 +3157,13 @@ public final class NadRewardVideoActivity extends BaseActivity {
             }
             T13.I(valueOf);
         }
-        lp0 T14 = nadRewardVideoDialog.T1();
+        mp0 T14 = nadRewardVideoDialog.T1();
         if (T14 != null) {
-            ur0 ur0Var7 = this.P;
-            if (ur0Var7 == null) {
+            vr0 vr0Var7 = this.P;
+            if (vr0Var7 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            if (ur0Var7.d() == null) {
+            if (vr0Var7.d() == null) {
                 z4 = false;
             }
             T14.H(z4);
@@ -3211,45 +3211,45 @@ public final class NadRewardVideoActivity extends BaseActivity {
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public final void invoke2(String str3) {
-                mr0 mr0Var;
-                ir0 ir0Var;
+                nr0 nr0Var;
+                jr0 jr0Var;
                 String str4;
                 boolean z5;
                 String str5;
                 String str6;
-                ir0 ir0Var2;
-                ir0 ir0Var3;
-                ir0 ir0Var4;
-                ir0 ir0Var5;
-                l81 l81Var;
+                jr0 jr0Var2;
+                jr0 jr0Var3;
+                jr0 jr0Var4;
+                jr0 jr0Var5;
+                m81 m81Var;
                 ViewGroup view2;
                 boolean z6;
                 boolean z7 = false;
                 if (NadRewardVideoActivity.Q1(this).l() && this.A2(str3)) {
                     NadRewardVideoDialog.this.dismiss();
-                    pp0 pp0Var = this.D;
-                    if (pp0Var != null && (view2 = pp0Var.getView()) != null) {
+                    qp0 qp0Var = this.D;
+                    if (qp0Var != null && (view2 = qp0Var.getView()) != null) {
                         if (view2.getVisibility() == 0) {
                             z6 = true;
                         } else {
                             z6 = false;
                         }
                         if (z6) {
-                            ds0 c2 = NadRewardVideoActivity.Q1(this).c();
+                            es0 c2 = NadRewardVideoActivity.Q1(this).c();
                             if (c2 != null) {
                             }
                         }
                     }
-                    l81Var = this.F;
-                    if (l81Var == null || !l81Var.isShowing()) {
+                    m81Var = this.F;
+                    if (m81Var == null || !m81Var.isShowing()) {
                         this.n3();
                     }
                 }
-                if (NadRewardVideoActivity.Q1(this).m() && (mr0Var = NadRewardVideoActivity.Q1(this).m) != null && (ir0Var = mr0Var.p) != null && ir0Var.e) {
-                    mr0 mr0Var2 = NadRewardVideoActivity.Q1(this).m;
+                if (NadRewardVideoActivity.Q1(this).m() && (nr0Var = NadRewardVideoActivity.Q1(this).m) != null && (jr0Var = nr0Var.p) != null && jr0Var.e) {
+                    nr0 nr0Var2 = NadRewardVideoActivity.Q1(this).m;
                     String str7 = null;
-                    if (mr0Var2 != null && (ir0Var5 = mr0Var2.p) != null) {
-                        str4 = ir0Var5.b;
+                    if (nr0Var2 != null && (jr0Var5 = nr0Var2.p) != null) {
+                        str4 = jr0Var5.b;
                     } else {
                         str4 = null;
                     }
@@ -3259,35 +3259,35 @@ public final class NadRewardVideoActivity extends BaseActivity {
                         z5 = true;
                     }
                     if (z5) {
-                        mr0 mr0Var3 = NadRewardVideoActivity.Q1(this).m;
-                        if (mr0Var3 != null && (ir0Var4 = mr0Var3.p) != null) {
-                            str5 = ir0Var4.a;
+                        nr0 nr0Var3 = NadRewardVideoActivity.Q1(this).m;
+                        if (nr0Var3 != null && (jr0Var4 = nr0Var3.p) != null) {
+                            str5 = jr0Var4.a;
                         } else {
                             str5 = null;
                         }
                         if (!((str5 == null || str5.length() == 0) ? true : true)) {
-                            mr0 mr0Var4 = NadRewardVideoActivity.Q1(this).m;
-                            if (mr0Var4 != null && (ir0Var3 = mr0Var4.p) != null) {
-                                str6 = ir0Var3.a;
+                            nr0 nr0Var4 = NadRewardVideoActivity.Q1(this).m;
+                            if (nr0Var4 != null && (jr0Var3 = nr0Var4.p) != null) {
+                                str6 = jr0Var3.a;
                             } else {
                                 str6 = null;
                             }
-                            if (s51.d(str6)) {
+                            if (t51.d(str6)) {
                                 Context context = NadRewardVideoDialog.this.getContext();
                                 if (context != null) {
-                                    mr0 mr0Var5 = NadRewardVideoActivity.Q1(this).m;
-                                    if (mr0Var5 != null && (ir0Var2 = mr0Var5.p) != null) {
-                                        str7 = ir0Var2.a;
+                                    nr0 nr0Var5 = NadRewardVideoActivity.Q1(this).m;
+                                    if (nr0Var5 != null && (jr0Var2 = nr0Var5.p) != null) {
+                                        str7 = jr0Var2.a;
                                     }
                                     Intrinsics.checkNotNull(str7);
-                                    gk0.b(context, str7);
+                                    hk0.b(context, str7);
                                     return;
                                 }
                                 return;
                             }
                         }
                     }
-                    tj0.b(s51.b(NadRewardVideoActivity.Q1(this), NadRewardVideoActivity.Q1(this).f()));
+                    uj0.b(t51.b(NadRewardVideoActivity.Q1(this), NadRewardVideoActivity.Q1(this).f()));
                 }
             }
         });
@@ -3299,21 +3299,21 @@ public final class NadRewardVideoActivity extends BaseActivity {
         String str2;
         String str3;
         NadRewardSuspendDialog nadRewardSuspendDialog = new NadRewardSuspendDialog();
-        ur0 ur0Var = this.P;
-        if (ur0Var == null) {
+        vr0 vr0Var = this.P;
+        if (vr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adModel");
         }
-        String str4 = ur0Var.f.d;
+        String str4 = vr0Var.f.d;
         Intrinsics.checkNotNullExpressionValue(str4, "adModel.common.extraParam");
         nadRewardSuspendDialog.i2(str, str4);
-        lp0 T1 = nadRewardSuspendDialog.T1();
+        mp0 T1 = nadRewardSuspendDialog.T1();
         String str5 = null;
         if (T1 != null) {
-            ur0 ur0Var2 = this.P;
-            if (ur0Var2 == null) {
+            vr0 vr0Var2 = this.P;
+            if (vr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            os0 p2 = ur0Var2.g().p();
+            ps0 p2 = vr0Var2.g().p();
             if (p2 != null) {
                 str3 = p2.a();
             } else {
@@ -3321,13 +3321,13 @@ public final class NadRewardVideoActivity extends BaseActivity {
             }
             T1.G(str3);
         }
-        lp0 T12 = nadRewardSuspendDialog.T1();
+        mp0 T12 = nadRewardSuspendDialog.T1();
         if (T12 != null) {
-            ur0 ur0Var3 = this.P;
-            if (ur0Var3 == null) {
+            vr0 vr0Var3 = this.P;
+            if (vr0Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            os0 p3 = ur0Var3.g().p();
+            ps0 p3 = vr0Var3.g().p();
             if (p3 != null) {
                 str2 = p3.e();
             } else {
@@ -3335,13 +3335,13 @@ public final class NadRewardVideoActivity extends BaseActivity {
             }
             T12.K(str2);
         }
-        lp0 T13 = nadRewardSuspendDialog.T1();
+        mp0 T13 = nadRewardSuspendDialog.T1();
         if (T13 != null) {
-            ur0 ur0Var4 = this.P;
-            if (ur0Var4 == null) {
+            vr0 vr0Var4 = this.P;
+            if (vr0Var4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adModel");
             }
-            os0 p4 = ur0Var4.g().p();
+            ps0 p4 = vr0Var4.g().p();
             if (p4 != null) {
                 str5 = p4.g();
             }

@@ -1,27 +1,46 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.impersonal.template.PersonalImageMsgTemplate;
+import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class wk8 extends xr6 {
+public final class wk8 implements f87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public wk8(int i) {
+    public wk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.f87
+    public List<n87<?, ?>> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PersonalTextMsgTemplate("text_left"));
+            arrayList.add(new PersonalTextMsgTemplate("text_right"));
+            arrayList.add(new in8("loading_left"));
+            arrayList.add(new jn8("voice_left"));
+            arrayList.add(new PersonalImageMsgTemplate("image_left"));
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

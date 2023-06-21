@@ -1,85 +1,147 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
-import com.baidu.searchbox.config.AppConfig;
+import android.content.Context;
+import android.os.Looper;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class pxa {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "UnionIDHelper";
+    public static boolean c;
+    public static pxa d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static JSONObject a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
-            try {
-                jSONObject.put("bosMessage", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948078800, "Lcom/baidu/tieba/pxa;")) == null) {
+            return;
         }
-        return (JSONObject) invokeLL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948078800, "Lcom/baidu/tieba/pxa;");
+        }
     }
 
-    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", str2);
-                jSONObject.put("errmsg", str3);
-                if (z) {
-                    str4 = "1";
-                } else {
-                    str4 = "0";
-                }
-                jSONObject.put(FileMetaUtil.IS_FILE, str4);
-                if (file != null && file.exists() && file.isFile()) {
-                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
-                    jSONObject.put("size", String.valueOf(file.length()));
-                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
-                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
-                }
-            } catch (Exception e) {
-                if (AppConfig.isDebug()) {
-                    e.printStackTrace();
+    /* loaded from: classes7.dex */
+    public class a implements xxa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oxa a;
+
+        public a(pxa pxaVar, oxa oxaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pxaVar, oxaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return jSONObject;
+            this.a = oxaVar;
         }
-        return (JSONObject) invokeCommon.objValue;
+
+        @Override // com.baidu.tieba.xxa
+        public void a(yxa yxaVar) {
+            nxa nxaVar;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, yxaVar) == null) {
+                if (pxa.c) {
+                    String str = pxa.b;
+                    Log.d(str, "异步回调 结果:" + yxaVar);
+                    String str2 = pxa.b;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("异步回调 (listener != null):");
+                    if (this.a != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d(str2, sb.toString());
+                }
+                oxa oxaVar = this.a;
+                if (oxaVar != null) {
+                    if (yxaVar == null) {
+                        nxaVar = null;
+                    } else {
+                        nxaVar = new nxa(yxaVar.c(), yxaVar.isSupport(), yxaVar.getOAID(), yxaVar.getAAID(), yxaVar.getVAID(), yxaVar.getStatusCode());
+                    }
+                    oxaVar.a(0, nxaVar);
+                }
+            }
+        }
     }
 
-    public static JSONObject c(List<String> list) {
+    public pxa(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context.getApplicationContext();
+    }
+
+    public static pxa c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (list != null) {
-                try {
-                    if (list.size() > 0) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String str : list) {
-                            sb.append(str);
-                            sb.append("&");
-                        }
-                        jSONObject.put("space", sb.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (d == null) {
+                synchronized (pxa.class) {
+                    if (d == null) {
+                        d = new pxa(context);
+                        rxa.c(context);
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
             }
-            return jSONObject;
+            return d;
         }
-        return (JSONObject) invokeL.objValue;
+        return (pxa) invokeL.objValue;
+    }
+
+    public void e(oxa oxaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oxaVar) == null) {
+            qxa qxaVar = new qxa();
+            qxaVar.b(1);
+            qxaVar.a(false);
+            d(qxaVar, oxaVar, Looper.getMainLooper());
+        }
+    }
+
+    public void d(qxa qxaVar, oxa oxaVar, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, qxaVar, oxaVar, looper) == null) {
+            vxa.o().i(this.a, looper, new a(this, oxaVar));
+        }
     }
 }

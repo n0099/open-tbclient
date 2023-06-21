@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -61,8 +61,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 }
             }
             this.this$0 = scrollHorizontalTabView;
-            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092658);
-            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092653);
+            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092665);
+            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092660);
         }
     }
 
@@ -85,8 +85,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
         }
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e5);
-        this.mIndicatorWidth = vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = wi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e5);
+        this.mIndicatorWidth = wi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
         this.mCurrentPositionOffset = 0.0f;
@@ -114,8 +114,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
         }
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e5);
-        this.mIndicatorWidth = vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = wi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e5);
+        this.mIndicatorWidth = wi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
         this.mCurrentPositionOffset = 0.0f;
@@ -143,8 +143,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
         }
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e5);
-        this.mIndicatorWidth = vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = wi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e5);
+        this.mIndicatorWidth = wi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
         this.mCurrentPositionOffset = 0.0f;

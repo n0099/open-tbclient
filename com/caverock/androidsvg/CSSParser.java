@@ -12,7 +12,7 @@ import com.baidu.searchbox.security.WarmTipsManager;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.lya;
+import com.baidu.tieba.e0b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            lya lyaVar;
+            e0b e0bVar;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        lya c = lya.c(this.a, this.b, this.c, false);
+                        e0b c = e0b.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            lyaVar = c;
+                            e0bVar = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new lya(1L, this.b);
+                                c = new e0b(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                lyaVar = lya.c(this.a, this.b, this.c, false);
-                                if (lyaVar != null) {
-                                    this.b = lyaVar.a();
+                                e0bVar = e0b.c(this.a, this.b, this.c, false);
+                                if (e0bVar != null) {
+                                    this.b = e0bVar.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                lyaVar = null;
+                                e0bVar = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (lyaVar != null) {
-                            i4 = i * lyaVar.d();
+                        if (e0bVar != null) {
+                            i4 = i * e0bVar.d();
                         }
                         aVar = new a(d, i4);
                     }

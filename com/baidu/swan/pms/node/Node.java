@@ -1,28 +1,28 @@
 package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
-import com.baidu.tieba.jn4;
 import com.baidu.tieba.kn4;
-import com.baidu.tieba.oo4;
-import com.baidu.tieba.pn4;
+import com.baidu.tieba.ln4;
 import com.baidu.tieba.po4;
 import com.baidu.tieba.qn4;
-import com.baidu.tieba.tn4;
-import com.baidu.tieba.to4;
+import com.baidu.tieba.qo4;
+import com.baidu.tieba.rn4;
 import com.baidu.tieba.un4;
 import com.baidu.tieba.uo4;
+import com.baidu.tieba.vn4;
+import com.baidu.tieba.vo4;
 /* loaded from: classes4.dex */
 public enum Node {
-    HOST("host", oo4.class, po4.class),
-    PACKAGE("package", to4.class, uo4.class, true),
-    CERES("ceres", pn4.class, qn4.class),
-    COMMON("common", tn4.class, un4.class);
+    HOST("host", po4.class, qo4.class),
+    PACKAGE("package", uo4.class, vo4.class, true),
+    CERES("ceres", qn4.class, rn4.class),
+    COMMON("common", un4.class, vn4.class);
     
     public static final String TAG = "LXNODE";
     public boolean mIsDataArray;
     public String mName;
-    public Class<? extends kn4> mParamsProvider;
-    public Class<? extends jn4> mProcessor;
+    public Class<? extends ln4> mParamsProvider;
+    public Class<? extends kn4> mProcessor;
 
     Node(String str, Class cls, Class cls2) {
         this.mName = str;
@@ -48,8 +48,8 @@ public enum Node {
         return null;
     }
 
-    public static kn4 getProvider(Node node) {
-        Class<? extends kn4> paramsProvider;
+    public static ln4 getProvider(Node node) {
+        Class<? extends ln4> paramsProvider;
         if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
             return null;
         }
@@ -64,11 +64,11 @@ public enum Node {
         return this.mName;
     }
 
-    public Class<? extends kn4> getParamsProvider() {
+    public Class<? extends ln4> getParamsProvider() {
         return this.mParamsProvider;
     }
 
-    public Class<? extends jn4> getProcessor() {
+    public Class<? extends kn4> getProcessor() {
         return this.mProcessor;
     }
 

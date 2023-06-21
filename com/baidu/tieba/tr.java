@@ -1,114 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import kotlin.Pair;
-import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class tr {
     public static /* synthetic */ Interceptable $ic;
+    public static final tr a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<rr> a;
-    public final Set<Pair<Class<? extends pr>, qr<? extends pr>>> b;
-    public TaskInfo c;
 
-    public tr(TaskInfo taskInfo) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318191, "Lcom/baidu/tieba/tr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318191, "Lcom/baidu/tieba/tr;");
+                return;
+            }
+        }
+        a = new tr();
+    }
+
+    public tr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = taskInfo;
-        this.a = new HashSet();
-        this.b = new HashSet();
-    }
-
-    public final void b(qr<? extends pr> qrVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qrVar) != null) || qrVar == null) {
-            return;
-        }
-        Iterator<Pair<Class<? extends pr>, qr<? extends pr>>> it = this.b.iterator();
-        while (it.hasNext()) {
-            if (Intrinsics.areEqual(it.next().getSecond(), qrVar)) {
-                it.remove();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final Set<rr> a() {
-        InterceptResult invokeV;
+    public final qr a(TaskInfo taskInfo, UniqueId uniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return CollectionsKt___CollectionsKt.toSet(this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, uniqueId)) == null) {
+            if (Intrinsics.areEqual(uniqueId, vr.c.a())) {
+                return new vr(taskInfo);
+            }
+            if (Intrinsics.areEqual(uniqueId, wr.c.a())) {
+                return new wr(taskInfo);
+            }
+            if (Intrinsics.areEqual(uniqueId, xr.c.a())) {
+                return new xr(taskInfo);
+            }
+            return null;
         }
-        return (Set) invokeV.objValue;
-    }
-
-    public final Set<Pair<Class<? extends pr>, qr<? extends pr>>> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return CollectionsKt___CollectionsKt.toSet(this.b);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final TaskInfo h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (TaskInfo) invokeV.objValue;
-    }
-
-    public final void c(rr rrVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rrVar) != null) || rrVar == null) {
-            return;
-        }
-        this.a.add(rrVar);
-    }
-
-    public final void d(TaskInfo taskInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, taskInfo) == null) {
-            this.c = taskInfo;
-        }
-    }
-
-    public final void g(rr rrVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, rrVar) != null) || rrVar == null) {
-            return;
-        }
-        this.a.remove(rrVar);
-    }
-
-    public final <T extends pr> void e(Class<T> cls, qr<T> qrVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, cls, qrVar) != null) || qrVar == null) {
-            return;
-        }
-        this.b.add(new Pair<>(cls, qrVar));
+        return (qr) invokeLL.objValue;
     }
 }

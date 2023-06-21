@@ -1,33 +1,7 @@
 package com.baidu.tieba;
-
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public class v11 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface v11 {
+    void end(int i);
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void a(@Nullable Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) && activity != null) {
-            if (z) {
-                activity.setRequestedOrientation(8);
-            } else {
-                activity.setRequestedOrientation(0);
-            }
-            activity.getWindow().setFlags(1024, 1024);
-        }
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(@Nullable Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null) {
-            activity.setRequestedOrientation(1);
-        }
-    }
+    void stop(int i);
 }

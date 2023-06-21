@@ -17,11 +17,11 @@ import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
+import com.baidu.tieba.an5;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.ky6;
-import com.baidu.tieba.m36;
-import com.baidu.tieba.vm5;
-import com.baidu.tieba.wm5;
+import com.baidu.tieba.py6;
+import com.baidu.tieba.r36;
+import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,17 +31,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class LatelyView extends FrameLayout implements m36<String> {
+public class LatelyView extends FrameLayout implements r36<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public vm5 e;
-    public wm5 f;
+    public zm5 e;
+    public an5 f;
 
-    @Override // com.baidu.tieba.m36
+    @Override // com.baidu.tieba.r36
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -146,7 +146,7 @@ public class LatelyView extends FrameLayout implements m36<String> {
         f();
     }
 
-    @Override // com.baidu.tieba.m36
+    @Override // com.baidu.tieba.r36
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -154,22 +154,22 @@ public class LatelyView extends FrameLayout implements m36<String> {
             return;
         }
         this.a = skinType;
-        vm5 vm5Var = this.e;
-        if (vm5Var != null) {
-            vm5Var.onChangeSkinType();
+        zm5 zm5Var = this.e;
+        if (zm5Var != null) {
+            zm5Var.onChangeSkinType();
         }
-        wm5 wm5Var = this.f;
-        if (wm5Var != null) {
-            wm5Var.onChangeSkinType();
+        an5 an5Var = this.f;
+        if (an5Var != null) {
+            an5Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
     public void d() {
-        vm5 vm5Var;
+        zm5 zm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (vm5Var = this.e) != null) {
-            vm5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (zm5Var = this.e) != null) {
+            zm5Var.dettachView(this);
             this.e = null;
         }
     }
@@ -177,9 +177,9 @@ public class LatelyView extends FrameLayout implements m36<String> {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wm5 wm5Var = this.f;
-            if (wm5Var != null) {
-                wm5Var.dettachView(this);
+            an5 an5Var = this.f;
+            if (an5Var != null) {
+                an5Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -190,16 +190,16 @@ public class LatelyView extends FrameLayout implements m36<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            wm5 wm5Var = this.f;
-            if (wm5Var != null) {
-                return wm5Var.isViewAttached();
+            an5 an5Var = this.f;
+            if (an5Var != null) {
+                return an5Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m36
+    @Override // com.baidu.tieba.r36
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public class LatelyView extends FrameLayout implements m36<String> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m36
+    @Override // com.baidu.tieba.r36
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -220,8 +220,8 @@ public class LatelyView extends FrameLayout implements m36<String> {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d085f, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09208f);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0860, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09209a);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.r(1);
@@ -233,12 +233,12 @@ public class LatelyView extends FrameLayout implements m36<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m36
+    @Override // com.baidu.tieba.r36
     /* renamed from: h */
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = ky6.n().j();
+            RecentlyVisitedForumData j = py6.n().j();
             if (j == null) {
                 i(false, false);
                 return;
@@ -287,7 +287,7 @@ public class LatelyView extends FrameLayout implements m36<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new wm5(getContext(), new a(this));
+            this.f = new an5(getContext(), new a(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

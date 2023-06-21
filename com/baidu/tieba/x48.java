@@ -1,123 +1,76 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x48 implements w48 {
+public class x48 extends nn6<v48> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w48 a;
-    public AbsHListView b;
+    public View i;
+    public v48 j;
 
-    public x48(AbsHListView absHListView) {
+    @Override // com.baidu.tieba.nn6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01dc : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.nn6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x48(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {absHListView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = absHListView;
+        this.i = h().findViewById(R.id.obfuscated_res_0x7f090623);
     }
 
-    public void c(w48 w48Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nn6
+    /* renamed from: r */
+    public void i(v48 v48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w48Var) == null) {
-            this.a = w48Var;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, v48Var) != null) || v48Var == null) {
+            return;
         }
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public void onDestroyActionMode(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
-            this.a.onDestroyActionMode(actionMode);
-            AbsHListView absHListView = this.b;
-            absHListView.mChoiceActionMode = null;
-            absHListView.clearChoices();
-            AbsHListView absHListView2 = this.b;
-            absHListView2.mDataChanged = true;
-            absHListView2.rememberSyncState();
-            this.b.requestLayout();
-            this.b.setLongClickable(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.w48
-    @TargetApi(11)
-    public void a(ActionMode actionMode, int i, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.a.a(actionMode, i, j, z);
-            if (this.b.getCheckedItemCount() == 0) {
-                actionMode.finish();
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) {
-            return this.a.onActionItemClicked(actionMode, menuItem);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
-            if (!this.a.onCreateActionMode(actionMode, menu)) {
-                return false;
-            }
-            this.b.setLongClickable(false);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) {
-            return this.a.onPrepareActionMode(actionMode, menu);
-        }
-        return invokeLL.booleanValue;
+        this.j = v48Var;
+        SkinManager.setBackgroundColor(this.i, v48Var.b);
+        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
+        layoutParams.height = wi.g(this.c, v48Var.a);
+        this.i.setLayoutParams(layoutParams);
     }
 }

@@ -1,33 +1,26 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class l64 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 102400;
         }
-        return invokeCommon.intValue;
+        return invokeV.intValue;
     }
 
     static {
@@ -43,43 +36,45 @@ public class l64 {
                 return;
             }
         }
-        a = is1.a;
+        a = js1.a;
+        b = -1;
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == -1253235525 && str.equals("gamejs")) {
-                c = 0;
-            } else {
-                c = 65535;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b < 0) {
+                gv2.g0().getSwitch("minigame_code_cache_max_count", 20);
+                b = 20;
             }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                j64 a2 = k64.a();
-                codeCacheSetting.maxCount = a2.a;
-                codeCacheSetting.sizeLimit = a2.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
-            }
-            if (a) {
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
-            }
-            return codeCacheSetting;
+            return b;
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+        return invokeV.intValue;
+    }
+
+    public static long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b() * 6 * 1048576;
+        }
+        return invokeV.longValue;
+    }
+
+    public static k64 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            k64 k64Var = new k64();
+            k64Var.a = b();
+            k64Var.b = c();
+            k64Var.c = d();
+            if (a) {
+                Log.d("GameCodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + k64Var.a + " ,sizeLimit: " + k64Var.b);
+            }
+            return k64Var;
+        }
+        return (k64) invokeV.objValue;
     }
 }

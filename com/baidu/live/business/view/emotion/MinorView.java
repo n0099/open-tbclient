@@ -9,9 +9,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce0;
-import com.baidu.tieba.lb0;
-import com.baidu.tieba.tb0;
+import com.baidu.tieba.de0;
+import com.baidu.tieba.mb0;
+import com.baidu.tieba.ub0;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes3.dex */
 public class MinorView extends LinearLayout {
@@ -19,7 +19,7 @@ public class MinorView extends LinearLayout {
     public AppCompatTextView b;
     public AppCompatTextView c;
     public AppCompatTextView d;
-    public tb0 e;
+    public ub0 e;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -28,8 +28,8 @@ public class MinorView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (!lb0.f(MinorView.this.getContext())) {
-                Toast.makeText(MinorView.this.getContext(), (int) R.string.obfuscated_res_0x7f0f0b83, 1).show();
+            if (!mb0.f(MinorView.this.getContext())) {
+                Toast.makeText(MinorView.this.getContext(), (int) R.string.obfuscated_res_0x7f0f0b87, 1).show();
             } else if (MinorView.this.e != null) {
                 MinorView.this.e.a(view2);
             }
@@ -40,8 +40,8 @@ public class MinorView extends LinearLayout {
         this(context, null);
     }
 
-    public void setActionCallback(tb0 tb0Var) {
-        this.e = tb0Var;
+    public void setActionCallback(ub0 ub0Var) {
+        this.e = ub0Var;
     }
 
     public void setImageResource(int i) {
@@ -60,13 +60,13 @@ public class MinorView extends LinearLayout {
 
     public MinorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ba, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05b8, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09172e);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091730);
-        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f09172d);
-        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090ae7);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091734);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091736);
+        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091733);
+        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090ae5);
         b();
     }
 
@@ -76,13 +76,13 @@ public class MinorView extends LinearLayout {
 
     public void c(String str) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-        layoutParams.width = lb0.b(getContext(), EmotionStrategy.getInstance().minorWidth);
-        layoutParams.height = lb0.b(getContext(), EmotionStrategy.getInstance().minorHeight);
+        layoutParams.width = mb0.b(getContext(), EmotionStrategy.getInstance().minorWidth);
+        layoutParams.height = mb0.b(getContext(), EmotionStrategy.getInstance().minorHeight);
         this.a.setLayoutParams(layoutParams);
-        setImageResource(ce0.f().i(str));
-        this.b.setTextColor(ce0.f().a(getContext(), str, "color_8585853"));
-        this.c.setTextColor(ce0.f().a(getContext(), str, "color_B8B8B8"));
-        this.d.setTextColor(ce0.f().a(getContext(), str, "color_4367B4"));
+        setImageResource(de0.f().i(str));
+        this.b.setTextColor(de0.f().a(getContext(), str, "color_8585853"));
+        this.c.setTextColor(de0.f().a(getContext(), str, "color_B8B8B8"));
+        this.d.setTextColor(de0.f().a(getContext(), str, "color_4367B4"));
     }
 
     public void setText(CharSequence charSequence) {

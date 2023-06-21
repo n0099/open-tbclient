@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class nra {
+public final class nra {
     public static /* synthetic */ Interceptable $ic;
+    public static nra c;
+    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayData a;
-    public ora b;
+    public AtomicInteger a;
+    public SQLiteDatabase b;
 
-    public nra(AudioPlayData audioPlayData) {
+    public nra() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioPlayData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,39 +31,51 @@ public class nra {
                 return;
             }
         }
-        this.a = audioPlayData;
-        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
-            return;
+        this.a = new AtomicInteger();
+    }
+
+    public static synchronized nra a() {
+        InterceptResult invokeV;
+        nra nraVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (nra.class) {
+                if (c == null) {
+                    b(ira.h().getContext());
+                }
+                nraVar = c;
+            }
+            return nraVar;
         }
-        this.b = new ora(audioPlayData.audioPath);
+        return (nra) invokeV.objValue;
     }
 
-    public ora a() {
+    public final synchronized SQLiteDatabase c() {
         InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ora) invokeV.objValue;
-    }
-
-    public AudioPlayData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ora oraVar = this.b;
-            return oraVar != null && oraVar.i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.incrementAndGet() == 1) {
+                    jsa.a("***************新建立了 一个数据库的实例****************");
+                    this.b = d.getWritableDatabase();
+                }
+                sQLiteDatabase = this.b;
+            }
+            return sQLiteDatabase;
         }
-        return invokeV.booleanValue;
+        return (SQLiteDatabase) invokeV.objValue;
     }
 
-    public void d(ora oraVar) {
+    public static synchronized void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, oraVar) == null) {
-            this.b = oraVar;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (nra.class) {
+                if (c == null) {
+                    c = new nra();
+                    d = new lra(context);
+                }
+            }
         }
     }
 }

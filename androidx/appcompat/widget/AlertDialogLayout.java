@@ -77,11 +77,11 @@ public class AlertDialogLayout extends LinearLayoutCompat {
             View childAt = getChildAt(i7);
             if (childAt.getVisibility() != 8) {
                 int id = childAt.getId();
-                if (id == R.id.obfuscated_res_0x7f09251d) {
+                if (id == R.id.obfuscated_res_0x7f092529) {
                     view2 = childAt;
-                } else if (id == R.id.obfuscated_res_0x7f090516) {
+                } else if (id == R.id.obfuscated_res_0x7f090513) {
                     view3 = childAt;
-                } else if ((id != R.id.obfuscated_res_0x7f0907b6 && id != R.id.obfuscated_res_0x7f090826) || view4 != null) {
+                } else if ((id != R.id.obfuscated_res_0x7f0907b4 && id != R.id.obfuscated_res_0x7f090824) || view4 != null) {
                     return false;
                 } else {
                     view4 = childAt;

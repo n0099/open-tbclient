@@ -1,166 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qs5 extends rs5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int b = 100;
-    public static int c = 10;
+public class qs5 extends us5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948102422, "Lcom/baidu/tieba/qs5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948102422, "Lcom/baidu/tieba/qs5;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static int a;
-        public static int b;
-        public static int c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                bh a2 = rs5.a();
-                a2.b("action", "imbusy");
-                a2.b("totalNum", String.valueOf(a));
-                a2.b("tfailNum", String.valueOf(b));
-                a2.b("qfailNum", String.valueOf(c));
-                BdStatisticsManager.getInstance().performance("im", a2);
-                b();
-            }
-        }
-
-        public static void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-                a = 0;
-                b = 0;
-                c = 0;
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static int a;
-        public static long b;
-        public static long c;
-        public static long d;
-        public static int e;
-        public static int f;
-        public static long g;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                bh a2 = rs5.a();
-                a2.b("action", "imcost");
-                a2.b("dect", String.valueOf(b));
-                a2.b("dlsize", String.valueOf(c));
-                a2.b("dbt", String.valueOf(d));
-                a2.b("pnum", String.valueOf(e));
-                a2.b("reqcost", String.valueOf(g));
-                a2.b("cpu", String.valueOf(f));
-                a2.b("totalNum", String.valueOf(a));
-                BdStatisticsManager.getInstance().performance("im", a2);
-                b();
-            }
-        }
-
-        public static void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-                a = 0;
-                b = 0L;
-                c = 0L;
-                d = 0L;
-                e = 0;
-                f = 0;
-            }
-        }
-    }
+    public int F;
 
     public qs5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.F = 0;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qs5(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
+        super(i, z, responsedMessage, j, j2, j3, z2, 0L, 0L, j4);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (ResponsedMessage) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue(), ((Boolean) objArr2[6]).booleanValue(), ((Long) objArr2[7]).longValue(), ((Long) objArr2[8]).longValue(), ((Long) objArr2[9]).longValue());
+                newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        if (b.a > c) {
-            b.a();
-        }
-        if (a.a > c) {
-            a.a();
-        }
-    }
-
-    public static void b(boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            a.a++;
-            if (z2) {
-                a.b++;
-            } else if (z3) {
-                a.c++;
-            }
-            if (a.a > b) {
-                a.a();
-            }
-        }
-    }
-
-    public void c(ns5 ns5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ns5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        if (b.a < b) {
-            b.b += ns5Var.b;
-            b.c += ns5Var.c;
-            b.d += ns5Var.d;
-            b.e += ns5Var.e;
-            b.g += ns5Var.f;
-            b.f += ns5Var.g;
-            b.a++;
-            return;
-        }
-        b.a();
+        this.F = 0;
     }
 }

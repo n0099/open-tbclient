@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.opengl.EGLContext;
 /* loaded from: classes7.dex */
-public class nwa {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nwa {
+    void a(EGLContext eGLContext);
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return Build.MANUFACTURER;
-        }
-        return (String) invokeV.objValue;
-    }
+    void b(int i, int i2, int i3);
+
+    void release();
 }

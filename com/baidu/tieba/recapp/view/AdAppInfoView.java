@@ -20,11 +20,11 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j15;
-import com.baidu.tieba.km9;
-import com.baidu.tieba.n31;
-import com.baidu.tieba.t46;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.co9;
+import com.baidu.tieba.k15;
+import com.baidu.tieba.o31;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.y46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public j15 i;
+    public k15 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -145,7 +145,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.ad_privacy) {
-                    j15.b bVar = this.a.i.g;
+                    k15.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -155,20 +155,20 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.ad_permission) {
-                        j15.a aVar = this.a.i.h;
+                        k15.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
                             str2 = "app_permission";
                         }
                     } else if (id == R.id.ad_author_full_name) {
-                        vi.Q(this.a.getContext(), this.a.i.d);
+                        wi.Q(this.a.getContext(), this.a.i.d);
                         return;
                     }
                     str = "";
                     str2 = str;
                 }
-                km9.a(this.a.getContext(), str3, null, null, str);
+                co9.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -180,7 +180,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, t46.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, y46.SimpleAdInfoView);
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -219,7 +219,7 @@ public class AdAppInfoView extends FrameLayout {
             this.e = (TextView) findViewById(R.id.ad_privacy);
             this.f = (TextView) findViewById(R.id.ad_permission);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09010b);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09091e);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09091c);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }
@@ -303,7 +303,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.j != null && !TextUtils.isEmpty(str)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.j.position + 1)).j(str).p(this.j.g);
-            n31.b(clogBuilder);
+            o31.b(clogBuilder);
         }
     }
 
@@ -319,60 +319,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(j15 j15Var) {
+    public void setAppInfo(k15 k15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, j15Var) == null) {
-            if (j15Var != null && j15.c(j15Var)) {
-                this.i = j15Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, k15Var) == null) {
+            if (k15Var != null && k15.c(k15Var)) {
+                this.i = k15Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(j15Var.c)) {
+                    if (!TextUtils.isEmpty(k15Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(j15Var.c);
+                        this.a.setText(k15Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = j15Var.e;
+                    float f = k15Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(j15Var.e);
+                        this.b.setRating(k15Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(j15Var.f)) {
+                    if (!TextUtils.isEmpty(k15Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(j15Var.f);
+                        this.c.setText(k15Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(j15Var.d)) {
+                    if (!TextUtils.isEmpty(k15Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(j15Var.d);
+                        this.d.setText(k15Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    j15.b bVar = j15Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(j15Var.g.a)) {
+                    k15.b bVar = k15Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(k15Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(j15Var.g.a);
+                        this.e.setText(k15Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.f != null) {
-                    j15.a aVar = j15Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(j15Var.h.a)) {
+                    k15.a aVar = k15Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(k15Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(j15Var.h.a);
+                        this.f.setText(k15Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }

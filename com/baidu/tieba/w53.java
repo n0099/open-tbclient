@@ -1,22 +1,30 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.live.ubc.FlowInfoHelper;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class w53 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static boolean b;
-    public static final int c;
-    public static int d;
-    public static int e;
-    public static final boolean f;
-    public static boolean g;
+    public static final File b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,83 +40,110 @@ public class w53 {
                 return;
             }
         }
-        a = is1.a;
-        d = -1;
-        e = -1;
-        b = f("swan_get_swan_id_cache");
-        fv2.g0().getSwitch("swan_pms_use_outback_switch", 0);
-        fv2.g0().getSwitch("swan_preload_game_strategy", 0);
-        c = 0;
-        f = f("swan_670_append_request_info");
-        fv2.g0().getSwitch("swan_description_online_control", 0);
-        fo4.a = 0;
-        fv2.g0().getSwitch("swan_bdtls_use_cache", false);
-        g = false;
+        a = js1.a;
+        b = AppRuntime.getAppContext().getExternalCacheDir();
     }
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == -1) {
-                fv2.g0().getSwitch("swan_use_extra_connect_pool", 0);
-                e = 0;
-            }
-            return e;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == -1) {
-                fv2.g0().getSwitch("swan_upgrade_js_thread_priority", 0);
-                d = 0;
+            return b + File.separator + "swan_perf";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject C = gv2.g0().C();
+            String k = gv2.g0().k();
+            try {
+                jSONObject.put("switch", C);
+                JSONArray jSONArray = null;
+                if (!TextUtils.isEmpty(k)) {
+                    jSONArray = new JSONArray();
+                    for (String str : k.split("-")) {
+                        jSONArray.put(str);
+                    }
+                }
+                jSONObject.put("sid", jSONArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return d;
+            return jSONObject;
         }
-        return invokeV.intValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static JSONObject c(List<UbcFlowEvent> list, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return g;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            for (UbcFlowEvent ubcFlowEvent : list) {
+                if (!ubcFlowEvent.b()) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("id", ubcFlowEvent.a);
+                        jSONObject3.put("time", ubcFlowEvent.g());
+                        jSONObject3.put("value", ubcFlowEvent.j());
+                        jSONArray.put(jSONObject3);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            try {
+                jSONObject2.put(FlowInfoHelper.KEY_EVENTLIST, jSONArray);
+                jSONObject2.put(SavedStateHandle.VALUES, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject2;
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public static int d() {
-        InterceptResult invokeV;
+    public static void d(List<UbcFlowEvent> list, JSONObject jSONObject) {
+        zb3 b0;
+        Map<String, String> t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            fv2.g0().getSwitch(str, 0);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
             if (a) {
-                Log.d("SwanApiCostOpt", str + " value : 0");
+                yq4.b().f();
             }
-            return false;
+            if (!y73.E() || (b0 = zb3.b0()) == null || (t = rp3.t(rp3.o(b0.W().W()))) == null || !TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList(list);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("670", c(arrayList, jSONObject));
+                jSONObject2.put(DI.AB_NAME, a());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            File file = new File(b, "swan_perf");
+            if (!file.exists() && !file.mkdirs()) {
+                return;
+            }
+            ds4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            File file = new File(b, "swan_stability");
+            if (!ds4.m(file)) {
+                z82.k("StartupPerf", "创建目录失败 path" + file);
+                return;
+            }
+            ds4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+        }
     }
 }

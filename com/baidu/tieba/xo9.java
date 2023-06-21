@@ -1,16 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xo9 extends BroadcastReceiver {
+public class xo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
 
     public xo9() {
         Interceptable interceptable = $ic;
@@ -26,19 +32,24 @@ public class xo9 extends BroadcastReceiver {
         }
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public static xo9 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            if (action.equals("android.intent.action.SCREEN_ON")) {
-                wo9.j().e = 1;
-            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-                wo9.j().e = 1;
-                wo9.j().d.d();
-            } else if (action.equals("android.intent.action.USER_PRESENT")) {
-                wo9.j().e = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            xo9 xo9Var = new xo9();
+            jSONObject.optString("brand_name");
+            xo9Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            xo9Var.b = jSONObject.optString("button_scheme");
+            xo9Var.c = jSONObject.optString("cmd_scheme");
+            jSONObject.optString("icon");
+            xo9Var.d = jSONObject.optString("operate_recommend_reason");
+            xo9Var.e = jSONObject.optLong("trans_animation_delay", 0L);
+            xo9Var.f = jSONObject.optInt("layout_upgrade", 0);
+            return xo9Var;
         }
+        return (xo9) invokeL.objValue;
     }
 }

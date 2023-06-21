@@ -16,17 +16,17 @@ import com.baidu.nadcore.player.tail.AdBaseTailFrameView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.kw0;
+import com.baidu.tieba.as0;
+import com.baidu.tieba.d61;
 import com.baidu.tieba.lw0;
-import com.baidu.tieba.lz0;
-import com.baidu.tieba.n31;
-import com.baidu.tieba.zr0;
+import com.baidu.tieba.mw0;
+import com.baidu.tieba.mz0;
+import com.baidu.tieba.o31;
 import com.google.android.material.badge.BadgeDrawable;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements View.OnClickListener {
-    public zr0 m;
+    public as0 m;
     public int n;
     public int o;
     public boolean p;
@@ -38,7 +38,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public TextView v;
     public TextView w;
     public View x;
-    public lz0 y;
+    public mz0 y;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -88,17 +88,17 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         }
     }
 
-    public AdVideoTailFrameView(Context context, lz0 lz0Var, boolean z) {
+    public AdVideoTailFrameView(Context context, mz0 mz0Var, boolean z) {
         super(context);
         this.n = 5;
         this.o = 0;
-        this.y = lz0Var;
+        this.y = mz0Var;
         p();
     }
 
     public void n(boolean z) {
-        zr0 zr0Var = this.m;
-        if (zr0Var != null && TextUtils.equals(zr0Var.s, "ad_full_video")) {
+        as0 as0Var = this.m;
+        if (as0Var != null && TextUtils.equals(as0Var.s, "ad_full_video")) {
             z(z);
         }
         r(z);
@@ -113,8 +113,8 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     }
 
     public void setData(@NonNull Object obj) {
-        if (obj instanceof zr0) {
-            this.m = (zr0) obj;
+        if (obj instanceof as0) {
+            this.m = (as0) obj;
         }
     }
 
@@ -122,9 +122,9 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void d() {
         t();
         this.o = 0;
-        lz0 lz0Var = this.y;
-        if (lz0Var != null) {
-            lz0Var.P();
+        mz0 mz0Var = this.y;
+        if (mz0Var != null) {
+            mz0Var.P();
             this.y.R(8);
         }
     }
@@ -145,8 +145,8 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     }
 
     public boolean q() {
-        zr0 zr0Var = this.m;
-        if (zr0Var != null && zr0Var.i()) {
+        as0 as0Var = this.m;
+        if (as0Var != null && as0Var.i()) {
             return true;
         }
         return false;
@@ -173,15 +173,15 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        lz0 lz0Var;
-        if (view2.getId() != R.id.video_ad_suffix_timer_close || (lz0Var = this.y) == null) {
+        mz0 mz0Var;
+        if (view2.getId() != R.id.video_ad_suffix_timer_close || (mz0Var = this.y) == null) {
             return;
         }
-        lz0Var.R(8);
+        mz0Var.R(8);
         this.y.P();
-        this.y.H(kw0.w("layer_event_ad_finish"));
+        this.y.H(lw0.w("layer_event_ad_finish"));
         if (!this.y.u().a0()) {
-            this.y.H(lw0.w(PlayerEvent.ACTION_ON_COMPLETE));
+            this.y.H(mw0.w(PlayerEvent.ACTION_ON_COMPLETE));
         }
         u(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BUTTON.type, "");
     }
@@ -213,7 +213,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             layoutParams3.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_height_half);
             this.c.setTextSize(14.0f);
             this.d.setTextSize(13.0f);
-            this.e.setTextSize(c61.c.a(getContext(), 13.0f));
+            this.e.setTextSize(d61.c.a(getContext(), 13.0f));
         } else {
             layoutParams.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_full);
             layoutParams.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_full);
@@ -244,14 +244,14 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         if (!TextUtils.isEmpty(str3)) {
             clogBuilder.m(str3);
         }
-        n31.b(clogBuilder);
+        o31.b(clogBuilder);
     }
 
     public void x() {
-        zr0 zr0Var = this.m;
-        if (zr0Var != null) {
-            this.n = zr0Var.j;
-            k(zr0Var);
+        as0 as0Var = this.m;
+        if (as0Var != null) {
+            this.n = as0Var.j;
+            k(as0Var);
             if (this.m.v) {
                 y();
             } else {

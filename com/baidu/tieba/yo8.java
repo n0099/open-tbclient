@@ -1,139 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.adapter.LegoDelegateAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yo8 {
+public class yo8 implements oq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean h(Object obj) {
+    public yo8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.oq8
+    public gq8 a(kq8 kq8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kq8Var)) == null) {
+            return new iq8(kq8Var);
+        }
+        return (gq8) invokeL.objValue;
     }
 
-    public static <T> void a(List<T> list, T t) {
+    @Override // com.baidu.tieba.oq8
+    public kp8 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, list, t) != null) || h(list)) {
-            return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            return new LegoDelegateAdapter(tbPageContext, bdUniqueId, i);
         }
-        try {
-            list.add(t);
-        } catch (Exception e) {
-            BdLog.e(e);
-            j(e);
-        }
+        return (kp8) invokeLLI.objValue;
     }
 
-    public static <T> T d(List<T> list, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.oq8
+    public qq8 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (e(list) || !g(list, i)) {
-                return null;
-            }
-            try {
-                return list.get(i);
-            } catch (Exception e) {
-                BdLog.e(e);
-                j(e);
-                return null;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            return new sq8(tbPageContext, bdUniqueId);
         }
-        return (T) invokeLI.objValue;
-    }
-
-    public static boolean g(List list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
-            if (h(list) || i < 0 || i >= list.size()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static <T> void b(List<T> list, T t, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, list, t, i) == null) && !h(list) && i >= 0 && i <= list.size()) {
-            try {
-                list.add(i, t);
-            } catch (Exception e) {
-                BdLog.e(e);
-                j(e);
-            }
-        }
-    }
-
-    public static void c(List list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || e(list)) {
-            return;
-        }
-        try {
-            list.clear();
-        } catch (Exception e) {
-            BdLog.e(e);
-            j(e);
-        }
-    }
-
-    public static boolean e(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (!h(list) && !list.isEmpty()) {
-                return false;
-            }
-            BdLog.e("list is empty");
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            if (!h(map) && !map.isEmpty()) {
-                return false;
-            }
-            BdLog.e("map is empty");
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int i(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, list)) == null) {
-            if (!h(list) && !list.isEmpty()) {
-                try {
-                    return list.size();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    j(e);
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void j(Exception exc) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, exc) == null) && BdBaseApplication.getInst().isDebugMode() && (exc instanceof RuntimeException)) {
-            throw ((RuntimeException) exc);
-        }
+        return (qq8) invokeLL.objValue;
     }
 }

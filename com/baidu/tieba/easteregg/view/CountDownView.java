@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.easteregg.view.CountDownView;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.p75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -302,11 +302,11 @@ public final class CountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o75 d = o75.d(this);
+            p75 d = p75.d(this);
             d.o(R.string.J_X01);
             d.f(R.color.CAM_X0607);
-            this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b0b, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-            o75.d(this.a).w(R.color.CAM_X0101);
+            this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b0f, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            p75.d(this.a).x(R.color.CAM_X0101);
         }
     }
 
@@ -315,7 +315,7 @@ public final class CountDownView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X001);
-            o75.d(this.a).B(R.dimen.T_X12);
+            p75.d(this.a).C(R.dimen.T_X12);
             this.a.setGravity(17);
             this.a.setText(String.valueOf(this.c));
             addView(this.a, layoutParams);
@@ -365,7 +365,7 @@ public final class CountDownView extends LinearLayout {
             setGravity(16);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
             setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yw6
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dx6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

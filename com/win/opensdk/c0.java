@@ -3,6 +3,7 @@ package com.win.opensdk;
 import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,7 +96,7 @@ public class c0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.n));
+            hashMap.put(LoginConstants.DX_ONE_KEY_LOGIN, Integer.valueOf(this.n));
             hashMap.put("dy", Integer.valueOf(this.o));
             hashMap.put("dts", Long.valueOf(this.v));
             hashMap.put("ux", Integer.valueOf(this.w));

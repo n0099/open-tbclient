@@ -76,7 +76,7 @@ public class d9 {
                         arrayList.add(a);
                     }
                 }
-                x20.k(jSONObject, jSONObject2, arrayList);
+                y20.k(jSONObject, jSONObject2, arrayList);
             }
         }
     }
@@ -127,8 +127,8 @@ public class d9 {
                 return null;
             }
             CSPDataComponent cSPDataComponent = new CSPDataComponent();
-            fl1<ICSPDataService> fl1Var = cSPDataComponent.cspServiceHolder;
-            if (fl1Var != null && fl1Var.get() != null) {
+            gl1<ICSPDataService> gl1Var = cSPDataComponent.cspServiceHolder;
+            if (gl1Var != null && gl1Var.get() != null) {
                 try {
                     config = cSPDataComponent.cspServiceHolder.get().config();
                 } catch (Exception e2) {
@@ -169,7 +169,7 @@ public class d9 {
                             return null;
                         }
                         JSONObject jSONObject2 = new JSONObject(string3);
-                        String e3 = j30.f(AppRuntime.getAppContext()).e();
+                        String e3 = k30.f(AppRuntime.getAppContext()).e();
                         if (b.booleanValue()) {
                             Log.d("CSPDataProcessor", "getClientSampleData: current iid: " + e3);
                         }

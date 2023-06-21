@@ -1,45 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hl4;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
 import java.util.Map;
+import okhttp3.MediaType;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class km4 extends hm4 {
+public class km4 extends cl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public km4() {
+    public static void a(String str, Map<String, String> map, Map<String, String> map2, gl4<String> gl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, gl4Var) != null) || d(str, gl4Var)) {
+            return;
+        }
+        c(dj4.g().getRequest(), str, map, map2, gl4Var);
+    }
+
+    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, gl4<String> gl4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, gl4Var) != null) || d(str, gl4Var)) {
+            return;
+        }
+        zi4 postStringRequest = dj4.g().postStringRequest();
+        lj4.a(postStringRequest, map);
+        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
+        c(postStringRequest, str, map, map2, gl4Var);
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
+    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, gl4<String> gl4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, gl4Var) == null) {
+            httpRequestBuilder.url(hl4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(cl4.b).cookieManager(cl4.a).enableStat(true).build().executeStat(gl4Var);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean d(String str, gl4<String> gl4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, gl4Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
             }
+            if (gl4Var != null) {
+                gl4Var.onStart();
+                return false;
+            }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.hl4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hl4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            jm4.b(str, map, map2, jSONObject, new il4(aVar));
-        }
-    }
-
-    @Override // com.baidu.tieba.hl4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, hl4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            jm4.a(str, map, map2, new il4(aVar));
-        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1253,7 +1253,7 @@ public class TextInputLayout extends LinearLayout {
         if (obtainTintedStyledAttributes.hasValue(30)) {
             setErrorIconTintMode(ViewUtils.parseTintMode(obtainTintedStyledAttributes.getInt(30, -1), null));
         }
-        this.errorIconView.setContentDescription(getResources().getText(R.string.obfuscated_res_0x7f0f068a));
+        this.errorIconView.setContentDescription(getResources().getText(R.string.obfuscated_res_0x7f0f068b));
         ViewCompat.setImportantForAccessibility(this.errorIconView, 2);
         this.errorIconView.setClickable(false);
         this.errorIconView.setPressable(false);
@@ -1329,14 +1329,14 @@ public class TextInputLayout extends LinearLayout {
         }
         AppCompatTextView appCompatTextView = new AppCompatTextView(context2);
         this.prefixTextView = appCompatTextView;
-        appCompatTextView.setId(R.id.obfuscated_res_0x7f0923ec);
+        appCompatTextView.setId(R.id.obfuscated_res_0x7f0923f7);
         this.prefixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
         ViewCompat.setAccessibilityLiveRegion(this.prefixTextView, 1);
         this.startLayout.addView(this.startIconView);
         this.startLayout.addView(this.prefixTextView);
         AppCompatTextView appCompatTextView2 = new AppCompatTextView(context2);
         this.suffixTextView = appCompatTextView2;
-        appCompatTextView2.setId(R.id.obfuscated_res_0x7f0923ed);
+        appCompatTextView2.setId(R.id.obfuscated_res_0x7f0923f8);
         this.suffixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 80));
         ViewCompat.setAccessibilityLiveRegion(this.suffixTextView, 1);
         this.endLayout.addView(this.suffixTextView);
@@ -2127,9 +2127,9 @@ public class TextInputLayout extends LinearLayout {
     public static void updateCounterContentDescription(@NonNull Context context, @NonNull TextView textView, int i, int i2, boolean z) {
         int i3;
         if (z) {
-            i3 = R.string.obfuscated_res_0x7f0f03fb;
+            i3 = R.string.obfuscated_res_0x7f0f03fc;
         } else {
-            i3 = R.string.obfuscated_res_0x7f0f03fa;
+            i3 = R.string.obfuscated_res_0x7f0f03fb;
         }
         textView.setContentDescription(context.getString(i3, Integer.valueOf(i), Integer.valueOf(i2)));
     }
@@ -2228,7 +2228,7 @@ public class TextInputLayout extends LinearLayout {
             if (z2 != this.counterOverflowed) {
                 updateCounterTextAppearanceAndColor();
             }
-            this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.obfuscated_res_0x7f0f03fc, Integer.valueOf(i), Integer.valueOf(this.counterMaxLength))));
+            this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.obfuscated_res_0x7f0f03fd, Integer.valueOf(i), Integer.valueOf(this.counterMaxLength))));
         }
         if (this.editText != null && z2 != this.counterOverflowed) {
             updateLabelState(false);
@@ -2322,7 +2322,7 @@ public class TextInputLayout extends LinearLayout {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
             this.placeholderTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f0923eb);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0923f6);
             ViewCompat.setAccessibilityLiveRegion(this.placeholderTextView, 1);
             setPlaceholderTextAppearance(this.placeholderTextAppearance);
             setPlaceholderTextColor(this.placeholderTextColor);
@@ -2712,7 +2712,7 @@ public class TextInputLayout extends LinearLayout {
             if (z) {
                 AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
                 this.counterView = appCompatTextView;
-                appCompatTextView.setId(R.id.obfuscated_res_0x7f0923e8);
+                appCompatTextView.setId(R.id.obfuscated_res_0x7f0923f3);
                 Typeface typeface = this.typeface;
                 if (typeface != null) {
                     this.counterView.setTypeface(typeface);

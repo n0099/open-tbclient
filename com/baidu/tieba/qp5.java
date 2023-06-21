@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.mutiprocess.face.EmotionReloadEvent;
+import android.content.Intent;
+import com.baidu.tbadk.mutiprocess.DataType;
+import com.baidu.tbadk.mutiprocess.ParcelableEvent;
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qp5 implements cp5<EmotionReloadEvent> {
+public class qp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,19 +28,19 @@ public class qp5 implements cp5<EmotionReloadEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cp5
-    /* renamed from: a */
-    public boolean onEvent(EmotionReloadEvent emotionReloadEvent) {
-        InterceptResult invokeL;
+    public void a(Intent intent, gp5 gp5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, emotionReloadEvent)) == null) {
-            if (emotionReloadEvent == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, gp5Var) == null) {
+            if (gp5Var instanceof StickyEvent) {
+                intent.putExtra("value_type", DataType.ORM.ordinal());
+                intent.putExtra("value", (StickyEvent) gp5Var);
+            } else if (gp5Var instanceof ParcelableEvent) {
+                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
+                intent.putExtra("value", (ParcelableEvent) gp5Var);
+            } else if (gp5Var instanceof SerializableEvent) {
+                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
+                intent.putExtra("value", (SerializableEvent) gp5Var);
             }
-            MessageManager.getInstance().runTask(2004603, (Class) null);
-            return true;
         }
-        return invokeL.booleanValue;
     }
 }

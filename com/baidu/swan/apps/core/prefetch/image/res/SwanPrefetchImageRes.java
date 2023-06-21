@@ -4,11 +4,11 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.cx2;
-import com.baidu.tieba.fv2;
-import com.baidu.tieba.so3;
-import com.baidu.tieba.yb3;
-import com.baidu.tieba.z53;
+import com.baidu.tieba.a63;
+import com.baidu.tieba.dx2;
+import com.baidu.tieba.gv2;
+import com.baidu.tieba.to3;
+import com.baidu.tieba.zb3;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SwanPrefetchImageRes implements cx2 {
+public class SwanPrefetchImageRes implements dx2 {
     public static final HashMap<String, List<String>> c = new HashMap<>(10);
     public static final List<String> d = new ArrayList();
 
@@ -41,7 +41,7 @@ public class SwanPrefetchImageRes implements cx2 {
             for (String str : this.a) {
                 SwanPrefetchImageRes.this.f(str);
             }
-            if (cx2.a) {
+            if (dx2.a) {
                 Log.d("SwanPerformance", "start prefetch image appKey = " + this.b + " ; cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
             }
         }
@@ -59,7 +59,7 @@ public class SwanPrefetchImageRes implements cx2 {
     }
 
     public final void f(@NonNull String str) {
-        BdNet bdNet = new BdNet(fv2.c());
+        BdNet bdNet = new BdNet(gv2.c());
         bdNet.setEventListener(new INetListener() { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.12
             @Override // com.baidu.webkit.net.INetListener
             public void onNetDownloadComplete(BdNet bdNet2) {
@@ -100,14 +100,14 @@ public class SwanPrefetchImageRes implements cx2 {
 
             @Override // com.baidu.webkit.net.INetListener
             public void onNetResponseCode(BdNet bdNet2, BdNetTask bdNetTask, int i) {
-                if (cx2.a) {
+                if (dx2.a) {
                     Log.d("SwanPerformance", "response code = " + i);
                 }
             }
 
             @Override // com.baidu.webkit.net.INetListener
             public void onNetTaskStart(BdNet bdNet2, BdNetTask bdNetTask) {
-                if (cx2.a) {
+                if (dx2.a) {
                     Log.d("SwanPerformance", "start prefetch image = " + bdNetTask.getUrl());
                 }
             }
@@ -189,17 +189,17 @@ public class SwanPrefetchImageRes implements cx2 {
                 add("http://b.hiphotos.baidu.com/baike/whfpf%3D640%2C360%2C0/sign=f5fefd63a8cc7cd9fa7867995f3c170b/3c6d55fbb2fb431634739cf42ba4462308f7d3d4.jpg");
             }
         });
-        if (cx2.a) {
+        if (dx2.a) {
             Log.d("SwanPerformance", "prefetch image init cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
         }
     }
 
     public void d(String str) {
-        if (TextUtils.isEmpty(str) || !z53.m()) {
+        if (TextUtils.isEmpty(str) || !a63.m()) {
             return;
         }
         if (d.contains(str)) {
-            if (cx2.a) {
+            if (dx2.a) {
                 Log.d("SwanPerformance", "has prefetch this appKey = " + str);
                 return;
             }
@@ -207,14 +207,14 @@ public class SwanPrefetchImageRes implements cx2 {
         }
         List<String> list = c.get(str);
         if (list != null && !list.isEmpty()) {
-            yb3 b0 = yb3.b0();
+            zb3 b0 = zb3.b0();
             if (b0 != null && !b0.I()) {
                 d.add(str);
-                so3.k(new a(list, str), "PrefetchImageRes");
-            } else if (cx2.a) {
+                to3.k(new a(list, str), "PrefetchImageRes");
+            } else if (dx2.a) {
                 Log.d("SwanPerformance", "app is occupied");
             }
-        } else if (cx2.a) {
+        } else if (dx2.a) {
             Log.d("SwanPerformance", "can't find res, appKey = " + str);
         }
     }

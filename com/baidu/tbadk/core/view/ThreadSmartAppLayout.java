@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h15;
-import com.baidu.tieba.n86;
-import com.baidu.tieba.oy;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.i15;
+import com.baidu.tieba.py;
+import com.baidu.tieba.s86;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SmartApp;
 /* loaded from: classes4.dex */
-public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, oy<h15> {
+public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, py<i15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -129,23 +129,23 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oy
+    @Override // com.baidu.tieba.py
     /* renamed from: c */
-    public void a(h15 h15Var) {
+    public void a(i15 i15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) {
-            if (h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().getSmartApp() != null) {
-                SmartApp smartApp = h15Var.getThreadData().getSmartApp();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i15Var) == null) {
+            if (i15Var != null && i15Var.getThreadData() != null && i15Var.getThreadData().getSmartApp() != null) {
+                SmartApp smartApp = i15Var.getThreadData().getSmartApp();
                 this.d = smartApp;
-                if (!ui.isEmpty(smartApp.avatar)) {
+                if (!vi.isEmpty(smartApp.avatar)) {
                     this.a.O(this.d.avatar, 10, false, false);
                 }
-                if (!ui.isEmpty(this.d.name)) {
+                if (!vi.isEmpty(this.d.name)) {
                     this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
                 } else {
                     this.b.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
                 }
-                if (!ui.isEmpty(this.d._abstract)) {
+                if (!vi.isEmpty(this.d._abstract)) {
                     this.c.setText(this.d._abstract);
                 } else {
                     this.c.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
@@ -173,8 +173,8 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || (smartApp = this.d) == null) {
             return;
         }
-        if (!n86.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (ui.isEmpty(this.d.h5_url)) {
+        if (!s86.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (vi.isEmpty(this.d.h5_url)) {
                 return;
             }
             UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{this.d.h5_url});

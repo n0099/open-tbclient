@@ -1,135 +1,294 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.os.CountDownTimer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.adapter.PbRecomChildTitleAdapter;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pb.ejection.value.Direction;
+import com.baidu.tieba.pb.ejection.value.LifeCycleState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class g59 {
+public class g59 extends f59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public fb9 b;
-    public TbPageContext<?> c;
-    public List<in> d;
-    public bo e;
-    public h59 f;
-    public i59 g;
-    public j59 h;
-    public k59 i;
-    public l59 j;
-    public m59 k;
-    public PbRecomChildTitleAdapter l;
-    public y69 m;
+    public boolean A;
+    public final PorterDuffColorFilter B;
+    public Bitmap z;
 
-    public g59(fb9 fb9Var, BdUniqueId bdUniqueId, bo boVar) {
+    /* loaded from: classes5.dex */
+    public class a extends CountDownTimer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g59 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(g59 g59Var, long j, long j2) {
+            super(j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g59Var, Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g59Var;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g59 g59Var = this.a;
+                g59Var.v = LifeCycleState.DEAD;
+                g59Var.w.cancel();
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                if (j <= 2000) {
+                    g59 g59Var = this.a;
+                    g59Var.g = (int) (g59Var.g - g59Var.h);
+                }
+                g59 g59Var2 = this.a;
+                int i = g59Var2.t + 10;
+                g59Var2.t = i;
+                if (i > 360) {
+                    g59Var2.t = 0;
+                }
+            }
+        }
+    }
+
+    public g59(Bitmap bitmap, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fb9Var, bdUniqueId, boVar};
+            Object[] objArr = {bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.e = boVar;
-        this.a = bdUniqueId;
-        this.b = fb9Var;
-        this.c = fb9Var.getPageContext();
-        c();
-        f(boVar);
-        boVar.addAdapters(this.d);
-    }
-
-    public List<in> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        this.A = false;
+        this.z = bitmap;
+        this.b = i;
+        this.c = i2;
+        this.d = i;
+        this.e = i2;
+        int nextInt = this.x.nextInt(91) + 45;
+        this.a = nextInt;
+        if (nextInt < 90) {
+            this.o = Direction.RIGHT;
+        } else {
+            this.o = Direction.LEFT;
+            this.a = 180 - nextInt;
         }
-        return (List) invokeV.objValue;
+        int sqrt = (int) (Math.sqrt(Math.pow(bitmap.getWidth(), 2.0d) + Math.pow(bitmap.getHeight(), 2.0d)) / 2.0d);
+        this.f = sqrt;
+        this.p = sqrt;
+        this.q = i3 - sqrt;
+        this.r = sqrt;
+        this.s = i4 - sqrt;
+        this.B = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+        a aVar = new a(this, 3000L, 10L);
+        this.w = aVar;
+        aVar.start();
     }
 
-    public View b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f59
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PbRecomChildTitleAdapter pbRecomChildTitleAdapter = this.l;
-            if (pbRecomChildTitleAdapter != null && pbRecomChildTitleAdapter.u() != null) {
-                return this.l.u().itemView;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.A) {
+                this.A = true;
+                return;
             }
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void d() {
-        bo boVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (boVar = this.e) != null && boVar.getListAdapter() != null) {
-            this.e.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
+            int i = this.l + 1;
+            this.l = i;
+            this.i = (int) ((this.k * i) + ((this.m * Math.pow(i, 2.0d)) / 2.0d));
+            double radians = Math.toRadians(this.a);
+            if (this.n == Direction.TOP) {
+                if (this.o == Direction.RIGHT) {
+                    f(radians);
+                } else {
+                    d(radians);
+                }
+            } else if (this.o == Direction.RIGHT) {
+                e(radians);
+            } else {
+                c(radians);
+            }
         }
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.f59
+    public void b(Canvas canvas) {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h = new j59(this.c, wo6.E0);
-            this.g = new i59(this.c, wo6.F0);
-            this.f = new h59(this.c, wo6.G0);
-            this.i = new k59(this.c, wo6.D0);
-            this.j = new l59(this.c, wo6.J0);
-            this.k = new m59(this.c, xo6.U);
-            this.l = new PbRecomChildTitleAdapter(this.b, gp6.b);
-            this.m = new y69(this.b, v39.c, this.a);
-            this.d.add(this.h);
-            this.d.add(this.g);
-            this.d.add(this.f);
-            this.d.add(this.i);
-            this.d.add(this.j);
-            this.d.add(this.k);
-            this.d.add(this.l);
-            this.d.add(this.m);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && (bitmap = this.z) != null && !bitmap.isRecycled()) {
+            if (this.g < 0) {
+                this.g = 0;
+            }
+            this.u.setAlpha(this.g);
+            if (this.y == 4) {
+                this.u.setColorFilter(this.B);
+            }
+            canvas.save();
+            canvas.rotate(this.t, this.d, this.e);
+            Bitmap bitmap2 = this.z;
+            canvas.drawBitmap(bitmap2, this.d - (bitmap2.getWidth() / 2.0f), this.e - (this.z.getHeight() / 2.0f), this.u);
+            canvas.restore();
         }
     }
 
-    public final void f(bo boVar) {
+    public final void c(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, boVar) == null) {
-            this.h.z(boVar);
-            this.g.z(boVar);
-            this.f.z(boVar);
-            this.i.z(boVar);
-            this.j.z(boVar);
-            this.k.C(boVar);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
+            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.p;
+            if (i <= i2) {
+                int tan = this.c + ((int) ((this.b - i2) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.RIGHT;
+                int i3 = this.p;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
+            }
+            int i4 = this.e;
+            int i5 = this.s;
+            if (i4 >= i5) {
+                int tan2 = this.b - ((int) ((i5 - this.c) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.TOP;
+                int i6 = this.s;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
+            }
         }
     }
 
-    public void g(List<vn> list) {
+    public final void d(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.e.setData(list);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
+            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.p;
+            if (i <= i2) {
+                int tan = this.c - ((int) ((this.b - i2) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.RIGHT;
+                int i3 = this.p;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
+            }
+            int i4 = this.e;
+            int i5 = this.r;
+            if (i4 <= i5) {
+                int tan2 = this.b - ((int) ((this.c - i5) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.BOTTOM;
+                int i6 = this.r;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
+            }
+        }
+    }
+
+    public final void e(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
+            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.q;
+            if (i >= i2) {
+                int tan = this.c + ((int) ((i2 - this.b) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.LEFT;
+                int i3 = this.q;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
+            }
+            int i4 = this.e;
+            int i5 = this.s;
+            if (i4 >= i5) {
+                int tan2 = this.b + ((int) ((i5 - this.c) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.TOP;
+                int i6 = this.s;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
+            }
+        }
+    }
+
+    public final void f(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
+            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.q;
+            if (i >= i2) {
+                int tan = this.c - ((int) ((i2 - this.b) * Math.tan(d)));
+                this.e = tan;
+                this.j = this.i;
+                this.o = Direction.LEFT;
+                int i3 = this.q;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+            }
+            int i4 = this.e;
+            int i5 = this.r;
+            if (i4 <= i5) {
+                int tan2 = this.b + ((int) ((this.c - i5) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.BOTTOM;
+                this.b = tan2;
+                int i6 = this.r;
+                this.c = i6;
+                this.e = i6;
+                this.j = this.i;
+            }
         }
     }
 }

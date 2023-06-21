@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.browser.sailor.BdSailorWebChromeClient;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.tieba.md2;
+import com.baidu.tieba.nd2;
 /* loaded from: classes4.dex */
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
@@ -68,11 +68,11 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         V0(new SimpleWebChromeClient());
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ya2
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.za2
     public boolean n() {
-        md2 md2Var = this.U;
-        if (md2Var != null) {
-            md2Var.goBack();
+        nd2 nd2Var = this.U;
+        if (nd2Var != null) {
+            nd2Var.goBack();
         }
         return super.n();
     }

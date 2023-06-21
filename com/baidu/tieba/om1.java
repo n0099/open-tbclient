@@ -1,11 +1,13 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface om1 {
-    void d();
+    void a(pm1 pm1Var);
 
-    void g();
+    void c(nm1 nm1Var);
 
-    void h(String str);
+    View getAdView();
 
-    void onAdError(String str);
+    void load();
 }

@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.TreeSet;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 /* loaded from: classes8.dex */
 public interface xn5 {
-    void a(int i, long j, @NonNull TreeSet<ChatMsg> treeSet);
+    void a(ChatMsg chatMsg);
+
+    void b(int i, String str, SendMsgResponse sendMsgResponse);
 }

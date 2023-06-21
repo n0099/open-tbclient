@@ -140,7 +140,7 @@ public class ExceptionAnalysis {
                 jSONObject3.put(Config.HEADER_PART, jSONObject2);
                 jSONObject3.put("pr", new JSONArray());
                 jSONObject3.put(Config.EVENT_PART, new JSONArray());
-                jSONObject3.put(Config.EXCEPTION_PART, jSONArray);
+                jSONObject3.put("ex", jSONArray);
                 jSONObject3.put("trace", a());
                 if (this.mCallback != null) {
                     this.mCallback.onCallback(jSONObject3);

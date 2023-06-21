@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
+import java.util.TreeSet;
 /* loaded from: classes7.dex */
-public interface qe8<ChildItemData extends BaseMsg> {
-    void a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
+public interface qe8 {
+    void a(BdTypeRecyclerView bdTypeRecyclerView);
+
+    void b(BdTypeRecyclerView bdTypeRecyclerView, GroupChatRepo groupChatRepo, GroupChatRepo.s<TreeSet<ChatMsg>> sVar);
 }

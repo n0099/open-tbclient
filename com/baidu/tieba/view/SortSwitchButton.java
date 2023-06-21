@@ -25,10 +25,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d46;
-import com.baidu.tieba.my9;
-import com.baidu.tieba.ow9;
-import com.baidu.tieba.r0a;
+import com.baidu.tieba.e0a;
+import com.baidu.tieba.gy9;
+import com.baidu.tieba.i46;
+import com.baidu.tieba.j2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,14 +40,14 @@ import java.util.List;
 public class SortSwitchButton extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d46 A;
+    public i46 A;
     public float B;
     public float C;
     public boolean D;
     public boolean E;
     public boolean F;
     public boolean G;
-    public List<my9> H;
+    public List<e0a> H;
     public List<Float> I;
     public GestureDetector J;
     public f K;
@@ -61,8 +61,8 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public BdUniqueId S;
 
     /* renamed from: T  reason: collision with root package name */
-    public CustomMessageListener f1180T;
-    public d46.a U;
+    public CustomMessageListener f1179T;
+    public i46.a U;
     public GestureDetector.SimpleOnGestureListener V;
     public float a;
     public float b;
@@ -144,7 +144,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements d46.a {
+    public class b implements i46.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SortSwitchButton a;
@@ -167,7 +167,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.a = sortSwitchButton;
         }
 
-        @Override // com.baidu.tieba.d46.a
+        @Override // com.baidu.tieba.i46.a
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -380,7 +380,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.o.setColor(SkinManager.getColor(0, this.d));
                 Paint paint = this.p;
                 if (paint != null) {
-                    paint.setColor(ow9.a(SkinManager.getColor(0, this.e), this.g));
+                    paint.setColor(gy9.a(SkinManager.getColor(0, this.e), this.g));
                 }
             }
         }
@@ -407,18 +407,18 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean G(my9 my9Var, my9 my9Var2) {
+    public final boolean G(e0a e0aVar, e0a e0aVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, my9Var, my9Var2)) == null) {
-            if (my9Var == null && my9Var2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, e0aVar, e0aVar2)) == null) {
+            if (e0aVar == null && e0aVar2 == null) {
                 return true;
             }
-            if (my9Var != null && my9Var2 != null) {
-                if (my9Var.a() == my9Var2.a() && my9Var.b() != null && my9Var.b().equals(my9Var2.b())) {
+            if (e0aVar != null && e0aVar2 != null) {
+                if (e0aVar.a() == e0aVar2.a() && e0aVar.b() != null && e0aVar.b().equals(e0aVar2.b())) {
                     return true;
                 }
-                if (my9Var.a() == my9Var2.a() && my9Var.b() == null && my9Var2.b() == null) {
+                if (e0aVar.a() == e0aVar2.a() && e0aVar.b() == null && e0aVar2.b() == null) {
                     return true;
                 }
             }
@@ -446,7 +446,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.A = new d46();
+        this.A = new i46();
         this.D = false;
         this.E = true;
         this.F = false;
@@ -454,7 +454,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         this.P = true;
         this.Q = false;
         this.S = BdUniqueId.gen();
-        this.f1180T = new a(this, 2921458);
+        this.f1179T = new a(this, 2921458);
         this.U = new b(this);
         this.V = new c(this);
         D(context, attributeSet);
@@ -486,7 +486,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public void setData(List<my9> list) {
+    public void setData(List<e0a> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048593, this, list) != null) || !F(list)) {
             return;
@@ -503,8 +503,8 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public void setListenerTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) && this.Q) {
-            this.f1180T.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.f1180T);
+            this.f1179T.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.f1179T);
         }
     }
 
@@ -542,7 +542,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean F(List<my9> list) {
+    public final boolean F(List<e0a> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
@@ -615,7 +615,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.p = paint2;
                 paint2.setStyle(Paint.Style.STROKE);
                 this.p.setStrokeWidth(this.f);
-                this.p.setColor(ow9.a(SkinManager.getColor(this.d), this.g));
+                this.p.setColor(gy9.a(SkinManager.getColor(this.d), this.g));
             }
             this.q = new Paint(1);
             Paint paint3 = new Paint(1);
@@ -645,7 +645,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.o.setColor(SkinManager.getColor(this.d));
             Paint paint = this.p;
             if (paint != null) {
-                paint.setColor(ow9.a(SkinManager.getColor(this.d), this.g));
+                paint.setColor(gy9.a(SkinManager.getColor(this.d), this.g));
             }
             invalidate();
         }
@@ -654,7 +654,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public final void D(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r0a.SortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j2a.SortSwitchButton);
             int resourceId = obtainStyledAttributes.getResourceId(3, R.color.CAM_X0107);
             this.d = resourceId;
             this.e = obtainStyledAttributes.getResourceId(1, resourceId);
@@ -776,13 +776,13 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    my9 my9Var = (my9) ListUtils.getItem(this.H, i3);
-                    if (my9Var != null) {
+                    e0a e0aVar = (e0a) ListUtils.getItem(this.H, i3);
+                    if (e0aVar != null) {
                         Paint paint = this.r;
-                        if (my9Var.b() == null) {
+                        if (e0aVar.b() == null) {
                             b2 = "";
                         } else {
-                            b2 = my9Var.b();
+                            b2 = e0aVar.b();
                         }
                         float measureText = paint.measureText(b2) + (this.l * 2.0f);
                         if (this.G) {
@@ -901,11 +901,11 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         return invokeLL.booleanValue;
     }
 
-    public void setData(List<my9> list, int i) {
-        d46 d46Var;
+    public void setData(List<e0a> list, int i) {
+        i46 i46Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, list, i) == null) {
-            if (!F(list) && (d46Var = this.A) != null && d46Var.a() == i) {
+            if (!F(list) && (i46Var = this.A) != null && i46Var.a() == i) {
                 return;
             }
             if (ListUtils.isEmpty(list)) {

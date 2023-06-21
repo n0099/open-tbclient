@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.vw2;
+import com.baidu.tieba.ww2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public class w93 extends aj3 {
+public class w93 extends bj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void onEvent(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            vw2.a W = xb3.K().q().W();
-            bj3 bj3Var = new bj3();
-            bj3Var.b = str;
-            bj3Var.a = ri3.n(W.G());
-            bj3Var.f = W.H();
-            bj3Var.c = W.T();
-            ri3.x("1088", bj3Var);
+            ww2.a W = yb3.K().q().W();
+            cj3 cj3Var = new cj3();
+            cj3Var.b = str;
+            cj3Var.a = si3.n(W.G());
+            cj3Var.f = W.H();
+            cj3Var.c = W.T();
+            si3.x("1045", cj3Var);
         }
     }
 }

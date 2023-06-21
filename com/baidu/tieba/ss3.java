@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tieba.h02;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,10 +23,9 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ss3 extends ih3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean u;
+    public static final boolean t;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean s;
-    public String t;
+    public String s;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -31,23 +34,23 @@ public class ss3 extends ih3 {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends xg3 {
+    public class c extends yg3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ss3 c;
 
         /* loaded from: classes7.dex */
-        public class a implements rq3<Bundle> {
+        public class a implements sq3<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ c a;
 
-            public a(b bVar) {
+            public a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
+                    Object[] objArr = {cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -57,29 +60,79 @@ public class ss3 extends ih3 {
                         return;
                     }
                 }
-                this.a = bVar;
+                this.a = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rq3
+            @Override // com.baidu.tieba.sq3
             /* renamed from: b */
             public void a(Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
                     if (bundle == null) {
-                        this.a.e(new OAuthException("null stoken", 10001));
+                        xg3.k("null stoken", Boolean.TRUE);
+                        this.a.e(new OAuthException(10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (TextUtils.isEmpty(string)) {
-                        this.a.e(new OAuthException("empty stoken", 10001));
+                        xg3.k("empty stoken", Boolean.TRUE);
+                        this.a.e(new OAuthException(10001));
                         return;
                     }
-                    this.a.c.t = string;
+                    this.a.c.s = string;
                     this.a.d();
                 }
             }
         }
+
+        public c(ss3 ss3Var) {
+            h02.d dVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ss3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ss3Var;
+            if (ss3Var.o != null && (dVar = ss3Var.n) != null && dVar.a) {
+                long j = dVar.b;
+                if (ss3.t) {
+                    Log.d("LoginRequest", "send timeout " + j + "ms msg");
+                }
+                ss3Var.o.sendEmptyMessageDelayed(1, j < 0 ? 0L : j);
+            }
+        }
+
+        public /* synthetic */ c(ss3 ss3Var, a aVar) {
+            this(ss3Var);
+        }
+
+        @Override // com.baidu.tieba.yg3
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                as3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends yg3 implements ls1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ss3 c;
 
         public b(ss3 ss3Var) {
             Interceptable interceptable = $ic;
@@ -103,23 +156,46 @@ public class ss3 extends ih3 {
             this(ss3Var);
         }
 
-        @Override // com.baidu.tieba.xg3
+        @Override // com.baidu.tieba.yg3
         public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.s) {
-                    zr3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
-                    return false;
+                boolean e = gv2.h0().e(this.c.m);
+                if (ss3.t) {
+                    Log.d("LoginRequest", "LoginPreparation isLogin : " + e + " call stack:" + Log.getStackTraceString(new Exception()));
                 }
-                this.c.t = null;
-                if (ss3.u) {
-                    Log.w("MaOpenDataRequest", "user not login");
+                if (e) {
+                    ss3 ss3Var = this.c;
+                    ss3Var.h(new c(ss3Var, null));
                     return true;
                 }
-                return true;
+                this.c.M().N().f(this.c.m, this.c.p, this);
+                return false;
             }
             return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ls1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                xg3.k("onResult :: " + i, Boolean.FALSE);
+                if (i != -2) {
+                    if (i != 0) {
+                        xg3.k("login error ERR_BY_LOGIN", Boolean.TRUE);
+                        e(new OAuthException(10004));
+                        return;
+                    }
+                    xg3.k("Login Preparation ok, is already login", Boolean.FALSE);
+                    ss3 ss3Var = this.c;
+                    ss3Var.h(new c(ss3Var, null));
+                    d();
+                    return;
+                }
+                xg3.k("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
+                e(new OAuthException(10004));
+            }
         }
     }
 
@@ -136,60 +212,82 @@ public class ss3 extends ih3 {
                 return;
             }
         }
-        u = is1.a;
+        t = js1.a;
     }
 
     @Override // com.baidu.tieba.ih3
-    public JSONObject P() {
+    @NonNull
+    public yg3 Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject P = super.P();
-            if (!TextUtils.isEmpty(this.t)) {
-                try {
-                    P.put("stoken", this.t);
-                } catch (JSONException e) {
-                    if (u) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return P;
+            return new b(this, null);
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vg3
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            h(new b(this, null));
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (yg3) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ss3(Activity activity, String str, String str2, boolean z, boolean z2) {
-        super(activity, str, str2, z);
+    public ss3(Activity activity, h02.d dVar, Bundle bundle) {
+        super(activity, dVar, bundle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {activity, dVar, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Activity) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+                super((Activity) objArr2[0], (h02.d) objArr2[1], (Bundle) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.s = z2;
+        x();
         y();
+    }
+
+    @Override // com.baidu.tieba.ih3, com.baidu.tieba.wg3
+    public boolean j() {
+        InterceptResult invokeV;
+        Object obj;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                boolean isEmpty = TextUtils.isEmpty(this.q);
+                if (isEmpty) {
+                    obj = M().O();
+                } else {
+                    obj = this.q;
+                }
+                jSONObject.put("ma_id", obj);
+                JSONObject jSONObject2 = new JSONObject();
+                if (isEmpty) {
+                    str = M().O();
+                } else {
+                    str = this.q;
+                }
+                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject2.put("host_key_hash", xg3.g());
+                jSONObject2.put("stoken", this.s);
+                String l = gv2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject2.put("host_api_key", l);
+                }
+                jSONObject.put("open", jSONObject2);
+            } catch (JSONException e) {
+                if (t) {
+                    e.printStackTrace();
+                }
+            }
+            v("data", jSONObject.toString());
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.sapi2.result.AccountRealNameResult;
+import androidx.annotation.Nullable;
+import com.baidu.sapi2.result.CheckUserFaceIdResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,8 +15,8 @@ public class t05 {
     public String b;
     public int c;
     public String d;
-    public boolean e;
-    public boolean f;
+    public String e;
+    public String f;
     public String g;
 
     public t05() {
@@ -28,25 +29,18 @@ public class t05 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -202;
-        this.c = -100000;
-        this.d = "未触发任何实名操作返回或实名时放弃返回";
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.e && this.f) {
-                return 3;
-            }
-            if (this.f) {
+            if ("advanced_cert_face_match".equals(this.b)) {
                 return 2;
             }
-            if (this.e) {
+            if ("cert_face_match".equals(this.b)) {
                 return 1;
             }
             return 0;
@@ -54,21 +48,24 @@ public class t05 {
         return invokeV.intValue;
     }
 
-    public static t05 b(AccountRealNameResult accountRealNameResult) {
-        InterceptResult invokeL;
+    @Nullable
+    public static t05 b(CheckUserFaceIdResult checkUserFaceIdResult, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountRealNameResult)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, checkUserFaceIdResult, z)) == null) {
+            if (checkUserFaceIdResult == null) {
+                return null;
+            }
             t05 t05Var = new t05();
-            t05Var.a = accountRealNameResult.getResultCode();
-            t05Var.b = accountRealNameResult.getResultMsg();
-            int i = accountRealNameResult.errorStep;
-            t05Var.g = accountRealNameResult.callbackkey;
-            t05Var.e = accountRealNameResult.juniorRealNameSuc;
-            t05Var.f = accountRealNameResult.seniorRealNameSuc;
-            t05Var.c = accountRealNameResult.subResultCode;
-            t05Var.d = accountRealNameResult.subResultMsg;
+            t05Var.a = checkUserFaceIdResult.getResultCode();
+            t05Var.b = checkUserFaceIdResult.action;
+            t05Var.c = checkUserFaceIdResult.status;
+            t05Var.d = checkUserFaceIdResult.getResultMsg();
+            t05Var.e = checkUserFaceIdResult.livingUname;
+            t05Var.f = checkUserFaceIdResult.authsid;
+            t05Var.g = checkUserFaceIdResult.authWidgetURL;
             return t05Var;
         }
-        return (t05) invokeL.objValue;
+        return (t05) invokeLZ.objValue;
     }
 }

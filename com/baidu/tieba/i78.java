@@ -1,411 +1,448 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.chat.officialBar.MultiImageTextBottomView;
-import com.baidu.tieba.im.chat.officialBar.MultiImageTextTopView;
-import com.baidu.tieba.im.chat.officialBar.SingleImageTextView;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.PicManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.gif.GifInfo;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
+import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.data.VoiceMsgData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.widget.ShareFromFrsView;
+import com.baidu.tieba.im.widget.ShareFromGameCenter;
+import com.baidu.tieba.im.widget.ShareFromPBView;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i78 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public kg<MultiImageTextTopView> a;
-    public kg<MultiImageTextBottomView> b;
-    public kg<SingleImageTextView> c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947806527, "Lcom/baidu/tieba/i78;")) == null) {
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806527, "Lcom/baidu/tieba/i78;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806527, "Lcom/baidu/tieba/i78;");
+                return;
+            }
+        }
+        sw5.b();
+    }
+
+    @NonNull
+    public static String a(@Nullable String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (split = str.split(",")) != null && split.length > 1) {
+                int d = (int) ug.d(split[0], 0.0f);
+                int d2 = (int) ug.d(split[1], 0.0f);
+                if (d > 0 && d2 > 0) {
+                    return str;
+                }
+            }
+            return "240.0,240.0";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(Context context, GifView gifView, ChatMessage chatMessage, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, gifView, chatMessage, Boolean.valueOf(z)}) == null) {
+            double d = context.getResources().getDisplayMetrics().density;
+            int i2 = 240;
+            int i3 = (d > 1.5d ? 1 : (d == 1.5d ? 0 : -1));
+            if (i3 > 0) {
+                i = 240;
+            } else {
+                i = 160;
+            }
+            if (i3 <= 0) {
+                i2 = 160;
+            }
+            gifView.setVisibility(0);
+            GifInfo gifInfo = chatMessage.getGifInfo();
+            if (chatMessage.getGifInfo() != null) {
+                int i4 = gifInfo.mGifWidth;
+                if (i4 > 0) {
+                    i = i4;
+                }
+                gifInfo.mGifWidth = i;
+                int i5 = gifInfo.mGifHeight;
+                if (i5 > 0) {
+                    i2 = i5;
+                }
+                gifInfo.mGifHeight = i2;
+                gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.mGifWidth, gifInfo.mGifHeight));
+                gifView.l0(gifInfo);
+                gifView.setVisibility(0);
+                return;
+            }
+            gifView.setVisibility(8);
+        }
+    }
+
+    public static void g(Context context, ChatVoiceView chatVoiceView, ChatMessage chatMessage, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65543, null, context, chatVoiceView, chatMessage, str) == null) && chatMessage.getContent() != null && chatMessage.getContent().length() > 0) {
+            try {
+                MsgCacheData cacheData = chatMessage.getCacheData();
+                if (cacheData == null) {
+                    cacheData = new MsgCacheData();
+                    cacheData.setVoice_status(1);
+                    chatMessage.setCacheData(cacheData);
+                } else if (cacheData.getVoice_status() == 0) {
+                    cacheData.setVoice_status(1);
+                }
+                VoiceMsgData r = ac8.r(chatMessage);
+                if (r != null && r.getDuring_time() != 0.0f && cacheData.getVoice_model() == null) {
+                    cacheData.setVoice_model(new VoiceData.VoiceModel());
+                    cacheData.getVoice_model().setVoiceId(r.getVoice_md5());
+                    cacheData.getVoice_model().setDuration(Math.round(r.getDuring_time()));
+                }
+                chatVoiceView.setTag(null);
+                chatVoiceView.setData(chatMessage);
+                chatVoiceView.setVisibility(0);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static void c(Context context, View view2, ShareFromPBView shareFromPBView, ShareFromFrsView shareFromFrsView, ShareFromGameCenter shareFromGameCenter, ChatMessage chatMessage, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, view2, shareFromPBView, shareFromFrsView, shareFromGameCenter, chatMessage, str}) == null) && chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
+            fc8 fc8Var = new fc8();
+            int c = fc8Var.c(chatMessage.getContent(), str);
+            ShareFromFrsMsgData shareFromFrsMsgData = null;
+            ShareFromPBMsgData shareFromPBMsgData = null;
+            ShareFromGameCenterMsgData shareFromGameCenterMsgData = null;
+            if (1 == fc8Var.b()) {
+                if (fc8Var.a() != null) {
+                    if (c == 0) {
+                        shareFromPBView.setVisibility(0);
+                        if (fc8Var.a() instanceof ShareFromPBMsgData) {
+                            shareFromPBMsgData = (ShareFromPBMsgData) fc8Var.a();
+                        }
+                        shareFromPBView.setData(shareFromPBMsgData);
+                    } else if (c == 1) {
+                        shareFromGameCenter.setVisibility(0);
+                        if (fc8Var.a() instanceof ShareFromGameCenterMsgData) {
+                            shareFromGameCenterMsgData = (ShareFromGameCenterMsgData) fc8Var.a();
+                        }
+                        if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
+                            shareFromGameCenter.setData(shareFromGameCenterMsgData, false);
+                        } else if (!TextUtils.isEmpty(str) && str.endsWith("MsgrightView")) {
+                            shareFromGameCenter.setData(shareFromGameCenterMsgData, true);
+                        }
+                    }
+                }
+            } else if (4 == fc8Var.b()) {
+                shareFromFrsView.setVisibility(0);
+                if (fc8Var.a() instanceof ShareFromFrsMsgData) {
+                    shareFromFrsMsgData = (ShareFromFrsMsgData) fc8Var.a();
+                }
+                shareFromFrsView.setData(shareFromFrsMsgData);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0088  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00ab A[Catch: Exception -> 0x00f0, TryCatch #0 {Exception -> 0x00f0, blocks: (B:5:0x0007, B:7:0x0010, B:9:0x0019, B:11:0x001d, B:13:0x0026, B:15:0x002e, B:41:0x008a, B:43:0x00ab, B:45:0x00d3, B:44:0x00c1), top: B:58:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00c1 A[Catch: Exception -> 0x00f0, TryCatch #0 {Exception -> 0x00f0, blocks: (B:5:0x0007, B:7:0x0010, B:9:0x0019, B:11:0x001d, B:13:0x0026, B:15:0x002e, B:41:0x008a, B:43:0x00ab, B:45:0x00d3, B:44:0x00c1), top: B:58:0x0007 }] */
+    @SuppressLint({"ResourceAsColor"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String d(ChatImageWithTailView chatImageWithTailView, @NonNull String str, @NonNull String str2, int i) {
+        InterceptResult invokeLLLI;
+        int i2;
+        int i3;
+        hn z;
+        int i4;
+        hn hnVar;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, chatImageWithTailView, str, str2, i)) == null) {
+            try {
+                String[] split = str2.split(",");
+                if (split.length > 0) {
+                    i2 = (int) ug.d(split[0], 0.0f);
+                } else {
+                    i2 = 0;
+                }
+                if (split.length > 1) {
+                    i3 = (int) ug.d(split[1], 0.0f);
+                } else {
+                    i3 = 0;
+                }
+                if (str.startsWith("http")) {
+                    chatImageWithTailView.getImage().m0(str, 38);
+                } else {
+                    try {
+                        z = TbImageMemoryCache.u().z(str);
+                    } catch (Exception unused) {
+                    }
+                    if (z == null) {
+                        Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(pi.d().c(str));
+                        if (reSizeBitmap != null) {
+                            hnVar = new hn(reSizeBitmap, false);
+                            if (i2 < 1) {
+                                try {
+                                    i5 = hnVar.r();
+                                    try {
+                                        i4 = hnVar.m();
+                                    } catch (Exception unused2) {
+                                    }
+                                } catch (Exception unused3) {
+                                }
+                            } else {
+                                i5 = 0;
+                                i4 = 0;
+                            }
+                            try {
+                                TbImageMemoryCache.u().l(str, hnVar);
+                            } catch (Exception unused4) {
+                            }
+                            if (i5 >= 1) {
+                                i2 = i5;
+                                i3 = i4;
+                            }
+                            IMImageSize chatImageSize = PicManager.getInstance().getChatImageSize(i2, i3);
+                            ViewGroup.LayoutParams layoutParams = chatImageWithTailView.getImage().getLayoutParams();
+                            layoutParams.height = chatImageSize.height;
+                            layoutParams.width = chatImageSize.width;
+                            chatImageWithTailView.getImage().setLayoutParams(layoutParams);
+                            if (hnVar == null) {
+                                chatImageWithTailView.getImage().H();
+                                chatImageWithTailView.getImage().b0();
+                                hnVar.h(chatImageWithTailView.getImage());
+                            } else {
+                                chatImageWithTailView.getImage().setDefaultResource(SkinManager.getResourceId(i));
+                                chatImageWithTailView.getImage().setTag(str);
+                            }
+                            chatImageWithTailView.getImage().setAutoChangeStyle(true);
+                            chatImageWithTailView.setVisibility(0);
+                            return i2 + "," + i3;
+                        }
+                    } else {
+                        if (i2 < 1) {
+                            try {
+                                int r = z.r();
+                                try {
+                                    i4 = z.m();
+                                } catch (Exception unused5) {
+                                    i4 = 0;
+                                }
+                                hnVar = z;
+                                i5 = r;
+                            } catch (Exception unused6) {
+                            }
+                            if (i5 >= 1) {
+                            }
+                            IMImageSize chatImageSize2 = PicManager.getInstance().getChatImageSize(i2, i3);
+                            ViewGroup.LayoutParams layoutParams2 = chatImageWithTailView.getImage().getLayoutParams();
+                            layoutParams2.height = chatImageSize2.height;
+                            layoutParams2.width = chatImageSize2.width;
+                            chatImageWithTailView.getImage().setLayoutParams(layoutParams2);
+                            if (hnVar == null) {
+                            }
+                            chatImageWithTailView.getImage().setAutoChangeStyle(true);
+                            chatImageWithTailView.setVisibility(0);
+                            return i2 + "," + i3;
+                        }
+                        hnVar = z;
+                        i5 = 0;
+                        i4 = 0;
+                        if (i5 >= 1) {
+                        }
+                        IMImageSize chatImageSize22 = PicManager.getInstance().getChatImageSize(i2, i3);
+                        ViewGroup.LayoutParams layoutParams22 = chatImageWithTailView.getImage().getLayoutParams();
+                        layoutParams22.height = chatImageSize22.height;
+                        layoutParams22.width = chatImageSize22.width;
+                        chatImageWithTailView.getImage().setLayoutParams(layoutParams22);
+                        if (hnVar == null) {
+                        }
+                        chatImageWithTailView.getImage().setAutoChangeStyle(true);
+                        chatImageWithTailView.setVisibility(0);
+                        return i2 + "," + i3;
+                    }
+                }
+                hnVar = null;
+                i5 = 0;
+                i4 = 0;
+                if (i5 >= 1) {
+                }
+                IMImageSize chatImageSize222 = PicManager.getInstance().getChatImageSize(i2, i3);
+                ViewGroup.LayoutParams layoutParams222 = chatImageWithTailView.getImage().getLayoutParams();
+                layoutParams222.height = chatImageSize222.height;
+                layoutParams222.width = chatImageSize222.width;
+                chatImageWithTailView.getImage().setLayoutParams(layoutParams222);
+                if (hnVar == null) {
+                }
+                chatImageWithTailView.getImage().setAutoChangeStyle(true);
+                chatImageWithTailView.setVisibility(0);
+                return i2 + "," + i3;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeLLLI.objValue;
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public static void e(Context context, View view2, ChatImageWithTailView chatImageWithTailView, ChatMessage chatMessage, long j, String str) {
+        String optString;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, view2, chatImageWithTailView, chatMessage, Long.valueOf(j), str}) == null) && chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
+            try {
+                JSONObject jSONObject = new JSONArray(chatMessage.getContent()).getJSONObject(0);
+                String l = ac8.l(jSONObject, false);
+                String optString2 = jSONObject.optString("shareSourceIcon");
+                String optString3 = jSONObject.optString("shareSource");
+                String optString4 = jSONObject.optString("shareSourceUrl");
+                if (l == null) {
+                    return;
+                }
+                hn hnVar = null;
+                if (l.startsWith("http")) {
+                    chatImageWithTailView.getImage().m0(l, 38);
+                } else {
+                    try {
+                        hn z = TbImageMemoryCache.u().z(l);
+                        if (z == null) {
+                            Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(pi.d().c(l));
+                            if (reSizeBitmap != null) {
+                                hn hnVar2 = new hn(reSizeBitmap, false);
+                                try {
+                                    if (chatMessage.getWidth() < 1) {
+                                        chatMessage.setWidth(hnVar2.r());
+                                        chatMessage.setHeight(hnVar2.m());
+                                    }
+                                    TbImageMemoryCache.u().l(l, hnVar2);
+                                } catch (Exception unused) {
+                                }
+                                hnVar = hnVar2;
+                            }
+                        } else {
+                            try {
+                                if (chatMessage.getWidth() < 1) {
+                                    chatMessage.setWidth(z.r());
+                                    chatMessage.setHeight(z.m());
+                                }
+                            } catch (Exception unused2) {
+                            }
+                            hnVar = z;
+                        }
+                    } catch (Exception unused3) {
+                    }
+                }
+                if (chatMessage.getWidth() < 1 && (optString = jSONObject.optString("bsize")) != null) {
+                    String[] split = optString.split(",");
+                    if (split.length > 0) {
+                        chatMessage.setWidth(ug.e(split[0], 0));
+                    }
+                    if (split.length > 1) {
+                        chatMessage.setHeight(ug.e(split[1], 0));
+                    }
+                }
+                IMImageSize chatImageSize = PicManager.getInstance().getChatImageSize(chatMessage.getWidth(), chatMessage.getHeight());
+                ViewGroup.LayoutParams layoutParams = chatImageWithTailView.getImage().getLayoutParams();
+                layoutParams.height = chatImageSize.height;
+                layoutParams.width = chatImageSize.width;
+                chatImageWithTailView.getImage().setLayoutParams(layoutParams);
+                if (hnVar != null) {
+                    chatImageWithTailView.getImage().H();
+                    chatImageWithTailView.getImage().b0();
+                    hnVar.h(chatImageWithTailView.getImage());
+                } else {
+                    chatImageWithTailView.getImage().setDefaultResource(SkinManager.getResourceId(R.drawable.icon_pic_im_image_default));
+                    chatImageWithTailView.getImage().setTag(l);
+                }
+                chatImageWithTailView.getImage().setAutoChangeStyle(true);
+                if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString2)) {
+                    if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
+                        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                        layoutParams2.setMargins(wi.g(context, R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
+                        layoutParams2.height = wi.g(context, R.dimen.obfuscated_res_0x7f0703df);
+                        chatImageWithTailView.getTail().setLayoutParams(layoutParams2);
+                    }
+                    chatImageWithTailView.getIcon().setDefaultResource(R.drawable.tb_launcher_icon);
+                    chatImageWithTailView.getIcon().N(optString2, 10, false);
+                    chatImageWithTailView.getFromSource().setText(optString3);
+                    chatImageWithTailView.setVisibility(0);
+                    chatImageWithTailView.getTail().setVisibility(0);
+                    return;
+                }
+                chatImageWithTailView.setVisibility(0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void f(TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLI(65542, null, tbRichTextView, chatMessage, str, i) != null) || chatMessage == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        MsgCacheData cacheData = chatMessage.getCacheData();
+        if (cacheData == null) {
+            cacheData = ac8.m(chatMessage);
+            chatMessage.setCacheData(cacheData);
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947806527, "Lcom/baidu/tieba/i78;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements lg<MultiImageTextTopView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public MultiImageTextTopView e(MultiImageTextTopView multiImageTextTopView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiImageTextTopView)) == null) ? multiImageTextTopView : (MultiImageTextTopView) invokeL.objValue;
-        }
-
-        public a(i78 i78Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i78Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (cacheData.getRich_content() == null) {
+            String content = chatMessage.getContent();
+            if (content == null) {
+                return;
+            }
+            TbRichText tbRichText = null;
+            if (StringUtils.isJSONArray(content)) {
+                try {
+                    tbRichText = TbRichTextView.Y(new JSONArray(chatMessage.getContent()), 7);
+                } catch (Exception unused) {
                 }
             }
-            this.a = context;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
-        public /* bridge */ /* synthetic */ MultiImageTextTopView a(MultiImageTextTopView multiImageTextTopView) {
-            MultiImageTextTopView multiImageTextTopView2 = multiImageTextTopView;
-            e(multiImageTextTopView2);
-            return multiImageTextTopView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
-        public /* bridge */ /* synthetic */ MultiImageTextTopView c(MultiImageTextTopView multiImageTextTopView) {
-            MultiImageTextTopView multiImageTextTopView2 = multiImageTextTopView;
-            h(multiImageTextTopView2);
-            return multiImageTextTopView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
-        /* renamed from: f */
-        public void b(MultiImageTextTopView multiImageTextTopView) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, multiImageTextTopView) == null) && (multiImageTextTopView instanceof MultiImageTextTopView)) {
-                multiImageTextTopView.f();
+            if (tbRichText == null) {
+                tbRichText = new TbRichText(a78.c(chatMessage.getContent(), i));
             }
+            cacheData.setRich_content(tbRichText);
         }
-
-        public MultiImageTextTopView h(MultiImageTextTopView multiImageTextTopView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, multiImageTextTopView)) == null) {
-                if (multiImageTextTopView instanceof MultiImageTextTopView) {
-                    multiImageTextTopView.f();
-                }
-                return multiImageTextTopView;
-            }
-            return (MultiImageTextTopView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
-        /* renamed from: g */
-        public MultiImageTextTopView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return new MultiImageTextTopView(this.a);
-            }
-            return (MultiImageTextTopView) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends kg<MultiImageTextTopView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(i78 i78Var, lg lgVar, int i, int i2) {
-            super(lgVar, i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i78Var, lgVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((lg) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements lg<MultiImageTextBottomView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public MultiImageTextBottomView e(MultiImageTextBottomView multiImageTextBottomView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiImageTextBottomView)) == null) ? multiImageTextBottomView : (MultiImageTextBottomView) invokeL.objValue;
-        }
-
-        public c(i78 i78Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i78Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
-        public /* bridge */ /* synthetic */ MultiImageTextBottomView a(MultiImageTextBottomView multiImageTextBottomView) {
-            MultiImageTextBottomView multiImageTextBottomView2 = multiImageTextBottomView;
-            e(multiImageTextBottomView2);
-            return multiImageTextBottomView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
-        public /* bridge */ /* synthetic */ MultiImageTextBottomView c(MultiImageTextBottomView multiImageTextBottomView) {
-            MultiImageTextBottomView multiImageTextBottomView2 = multiImageTextBottomView;
-            h(multiImageTextBottomView2);
-            return multiImageTextBottomView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
-        /* renamed from: f */
-        public void b(MultiImageTextBottomView multiImageTextBottomView) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, multiImageTextBottomView) == null) && (multiImageTextBottomView instanceof MultiImageTextBottomView)) {
-                multiImageTextBottomView.h();
-            }
-        }
-
-        public MultiImageTextBottomView h(MultiImageTextBottomView multiImageTextBottomView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, multiImageTextBottomView)) == null) {
-                if (multiImageTextBottomView instanceof MultiImageTextBottomView) {
-                    multiImageTextBottomView.h();
-                }
-                return multiImageTextBottomView;
-            }
-            return (MultiImageTextBottomView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
-        /* renamed from: g */
-        public MultiImageTextBottomView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return new MultiImageTextBottomView(this.a);
-            }
-            return (MultiImageTextBottomView) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends kg<MultiImageTextBottomView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(i78 i78Var, lg lgVar, int i, int i2) {
-            super(lgVar, i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i78Var, lgVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((lg) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements lg<SingleImageTextView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public SingleImageTextView e(SingleImageTextView singleImageTextView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, singleImageTextView)) == null) ? singleImageTextView : (SingleImageTextView) invokeL.objValue;
-        }
-
-        public e(i78 i78Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i78Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
-        public /* bridge */ /* synthetic */ SingleImageTextView a(SingleImageTextView singleImageTextView) {
-            SingleImageTextView singleImageTextView2 = singleImageTextView;
-            e(singleImageTextView2);
-            return singleImageTextView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.lg
-        public /* bridge */ /* synthetic */ SingleImageTextView c(SingleImageTextView singleImageTextView) {
-            SingleImageTextView singleImageTextView2 = singleImageTextView;
-            h(singleImageTextView2);
-            return singleImageTextView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
-        /* renamed from: f */
-        public void b(SingleImageTextView singleImageTextView) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, singleImageTextView) == null) && (singleImageTextView instanceof SingleImageTextView)) {
-                singleImageTextView.l();
-            }
-        }
-
-        public SingleImageTextView h(SingleImageTextView singleImageTextView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, singleImageTextView)) == null) {
-                if (singleImageTextView instanceof SingleImageTextView) {
-                    singleImageTextView.l();
-                }
-                return singleImageTextView;
-            }
-            return (SingleImageTextView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lg
-        /* renamed from: g */
-        public SingleImageTextView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return new SingleImageTextView(this.a);
-            }
-            return (SingleImageTextView) invokeV.objValue;
-        }
-    }
-
-    public i78() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.b = new d(this, new c(this, context), 9, 0);
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = new kg<>(new e(this, context), 1, 0);
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new b(this, new a(this, context), 1, 0);
-        }
-    }
-
-    public kg<MultiImageTextBottomView> d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.b == null) {
-                a(context);
-            }
-            return this.b;
-        }
-        return (kg) invokeL.objValue;
-    }
-
-    public kg<SingleImageTextView> e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (this.c == null) {
-                b(context);
-            }
-            return this.c;
-        }
-        return (kg) invokeL.objValue;
-    }
-
-    public kg<MultiImageTextTopView> f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            if (this.a == null) {
-                c(context);
-            }
-            return this.a;
-        }
-        return (kg) invokeL.objValue;
+        tbRichTextView.setVisibility(0);
+        tbRichTextView.setText(cacheData.getRich_content());
     }
 }

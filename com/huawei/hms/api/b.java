@@ -12,8 +12,8 @@ import android.content.IntentSender;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wab;
-import com.baidu.tieba.xab;
+import com.baidu.tieba.pcb;
+import com.baidu.tieba.qcb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,14 +66,14 @@ public final class b extends HuaweiApiAvailability {
     public class a implements BusResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xab[] a;
+        public final /* synthetic */ qcb[] a;
 
-        public a(b bVar, xab[] xabVarArr) {
+        public a(b bVar, qcb[] qcbVarArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, xabVarArr};
+                Object[] objArr = {bVar, qcbVarArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,7 +83,7 @@ public final class b extends HuaweiApiAvailability {
                     return;
                 }
             }
-            this.a = xabVarArr;
+            this.a = qcbVarArr;
         }
 
         @Override // com.huawei.hms.activity.internal.BusResponseCallback
@@ -206,11 +206,11 @@ public final class b extends HuaweiApiAvailability {
     }
 
     @Override // com.huawei.hms.api.HuaweiApiAvailability
-    public wab<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr) {
+    public pcb<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, huaweiApi, huaweiApiArr)) == null) {
-            wab<Void> b = new xab().b();
+            pcb<Void> b = new qcb().b();
             if (huaweiApi != null) {
                 try {
                     a(huaweiApi);
@@ -225,7 +225,7 @@ public final class b extends HuaweiApiAvailability {
             }
             return b;
         }
-        return (wab) invokeLL.objValue;
+        return (pcb) invokeLL.objValue;
     }
 
     @Override // com.huawei.hms.api.HuaweiApiAvailability
@@ -364,11 +364,11 @@ public final class b extends HuaweiApiAvailability {
     }
 
     @Override // com.huawei.hms.api.HuaweiApiAvailability
-    public wab<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr) {
+    public pcb<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, huaweiApiCallable, huaweiApiCallableArr)) == null) {
-            wab<Void> b = new xab().b();
+            pcb<Void> b = new qcb().b();
             if (huaweiApiCallable != null) {
                 try {
                     a(huaweiApiCallable);
@@ -383,7 +383,7 @@ public final class b extends HuaweiApiAvailability {
             }
             return b;
         }
-        return (wab) invokeLL.objValue;
+        return (pcb) invokeLL.objValue;
     }
 
     public PendingIntent b(Context context, int i) {
@@ -487,18 +487,18 @@ public final class b extends HuaweiApiAvailability {
     }
 
     @Override // com.huawei.hms.api.HuaweiApiAvailability
-    public wab<Void> getHuaweiServicesReady(Activity activity) {
+    public pcb<Void> getHuaweiServicesReady(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, activity)) == null) {
             Preconditions.checkNotNull(activity);
-            xab[] xabVarArr = {new xab()};
-            wab<Void> b = xabVarArr[0].b();
+            qcb[] qcbVarArr = {new qcb()};
+            pcb<Void> b = qcbVarArr[0].b();
             int isHuaweiMobileServicesAvailable = isHuaweiMobileServicesAvailable(activity.getApplicationContext(), 30000000);
             Intent resolveErrorIntent = getResolveErrorIntent(activity, isHuaweiMobileServicesAvailable);
             Intent intentStartBridgeActivity = BridgeActivity.getIntentStartBridgeActivity(activity, ResolutionDelegate.class.getName());
             if (resolveErrorIntent != null) {
-                ForegroundIntentBuilder.registerResponseCallback(ResolutionDelegate.CALLBACK_METHOD, new a(this, xabVarArr));
+                ForegroundIntentBuilder.registerResponseCallback(ResolutionDelegate.CALLBACK_METHOD, new a(this, qcbVarArr));
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(CommonCode.MapKey.HAS_RESOLUTION, resolveErrorIntent);
                 intentStartBridgeActivity.putExtras(bundle);
@@ -511,11 +511,11 @@ public final class b extends HuaweiApiAvailability {
                 HMSLog.i("HuaweiApiAvailabilityImpl", "The HMS service is available.");
             } else {
                 HMSLog.e("HuaweiApiAvailabilityImpl", "Framework can not solve the availability problem.");
-                xabVarArr[0].c(new AvailabilityException());
+                qcbVarArr[0].c(new AvailabilityException());
             }
             return b;
         }
-        return (wab) invokeL.objValue;
+        return (pcb) invokeL.objValue;
     }
 
     @Override // com.huawei.hms.api.HuaweiApiAvailability

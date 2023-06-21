@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.bdtask.utils.UniqueId;
 /* loaded from: classes5.dex */
-public interface av {
-    void a(String str);
+public interface av extends bs {
+    bv d();
 
-    void b(String str, UniqueId uniqueId);
-
-    void c(String str, String str2);
+    jv f();
 }

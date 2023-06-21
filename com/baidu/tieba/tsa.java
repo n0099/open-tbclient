@@ -1,27 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import android.util.Pair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public interface tsa extends Runnable {
+public class tsa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(DownloadException downloadException);
-
-        void onDownloadCanceled();
-
-        void onDownloadCompleted(String str);
-
-        void onDownloadPaused();
-
-        void onDownloadProgress(long j, long j2);
+    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) && usa.c().g() != null) {
+            usa.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
+        }
     }
-
-    void cancel();
-
-    boolean isComplete();
-
-    boolean isDownloading();
-
-    void pause();
 }

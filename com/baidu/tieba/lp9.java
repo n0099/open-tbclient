@@ -1,31 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SimpleUser;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.AppPosInfo;
 /* loaded from: classes6.dex */
 public class lp9 {
     public static /* synthetic */ Interceptable $ic;
+    public static lp9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public int g;
-    public int h;
-    public SimpleUser i;
-    public int j;
-    public int k;
+    public String a;
+    public String b;
+    public long c;
+    public String d;
+    public String e;
 
     public lp9() {
         Interceptable interceptable = $ic;
@@ -37,251 +40,186 @@ public class lp9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = o95.p().w("asp_shown_info", "");
     }
 
-    public int a() {
+    public static lp9 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                synchronized (z0a.class) {
+                    if (f == null) {
+                        f = new lp9();
+                    }
+                }
+            }
+            return f;
         }
-        return invokeV.intValue;
+        return (lp9) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(this.d)) {
+                f();
+            }
             return this.d;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public SimpleUser f() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            o95.p().J("asp_shown_info", this.e);
         }
-        return (SimpleUser) invokeV.objValue;
     }
 
-    public int g() {
+    public AppPosInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            n95 m = n95.m();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            this.a = m.n(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND + currentAccount, 0);
-            this.b = m.n("like" + currentAccount, 0);
-            this.c = m.n("group" + currentAccount, 0);
-            this.d = m.n("live" + currentAccount, 0);
-            this.f = m.n("reply" + currentAccount, 1);
-            this.k = m.n("reply_show_myself" + currentAccount, 0);
-            this.g = m.n(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-            this.h = m.n("bazhu_show_outside" + currentAccount, 0);
-            this.e = TbadkCoreApplication.getInst().getLocationShared();
-            if (this.a == 0 && this.b == 0 && this.c == 0 && this.d == 0 && this.f == 1 && this.k == 0 && this.g == 0 && this.h == 0) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AppPosInfo.Builder builder = new AppPosInfo.Builder();
+            builder.ap_mac = d();
+            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
+            builder.latitude = this.b;
+            builder.longitude = this.a;
+            builder.addr_timestamp = Long.valueOf(this.c);
+            builder.coordinate_type = "bd09ll";
+            builder.asp_shown_info = this.e;
+            MercatorModel.MercatorData e = MercatorModel.d().e();
+            if (e != null) {
+                builder.mercator_lat = e.X();
+                builder.mercator_lon = e.Y();
+                builder.mercator_city = Integer.valueOf(e.U());
+                builder.mercator_radius = e.a0();
+                builder.mercator_time = Long.valueOf(e.b0());
             }
-            return true;
+            return builder.build(false);
         }
-        return invokeV.booleanValue;
+        return (AppPosInfo) invokeV.objValue;
     }
 
-    public void m() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            n95 m = n95.m();
-            m.z(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND + currentAccount, this.a);
-            m.z("like" + currentAccount, this.b);
-            m.z("group" + currentAccount, this.c);
-            m.z("live" + currentAccount, this.d);
-            m.z("reply" + currentAccount, this.f);
-            m.z("reply_show_myself" + currentAccount, this.k);
-            m.z(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.g);
-            m.z("bazhu_show_outside" + currentAccount, this.h);
-            TbadkCoreApplication.getInst().setLocationShared(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AppPosInfo c = c();
+            JSONObject jSONObject = new JSONObject();
+            if (c != null) {
+                try {
+                    jSONObject.put("ap_mac", c.ap_mac);
+                    jSONObject.put("ap_connected", c.ap_connected);
+                    jSONObject.put("latitude", c.latitude);
+                    jSONObject.put("longitude", c.longitude);
+                    jSONObject.put("addr_timestamp", c.addr_timestamp);
+                    jSONObject.put("coordinate_type", c.coordinate_type);
+                    jSONObject.put("asp_shown_info", c.asp_shown_info);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LAT, c.mercator_lat);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LON, c.mercator_lon);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_CITY, c.mercator_city);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_RADIUS, c.mercator_radius);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_TIME, c.mercator_time);
+                    jSONObject.put("mercator_province_name", c.mercator_province_name);
+                    jSONObject.put("mercator_city_name", c.mercator_city_name);
+                    jSONObject.put("mercator_district_name", c.mercator_district_name);
+                } catch (JSONException unused) {
+                }
+            }
+            return jSONObject.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void l(lp9 lp9Var) {
+    public AppPosInfo c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, lp9Var) != null) || lp9Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AppPosInfo.Builder builder = new AppPosInfo.Builder();
+            builder.ap_mac = d();
+            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
+            String str = this.b;
+            builder.latitude = str;
+            builder.longitude = this.a;
+            if (vi.isEmpty(str) || vi.isEmpty(this.a)) {
+                String w = o95.p().w("key_last_receive_location_latitude_and_longitude", "");
+                if (!vi.isEmpty(w)) {
+                    String[] split = w.split(",");
+                    if (split.length >= 2) {
+                        builder.latitude = split[0];
+                        builder.longitude = split[1];
+                    }
+                }
+            }
+            builder.addr_timestamp = Long.valueOf(this.c);
+            builder.coordinate_type = "BD09LL";
+            builder.asp_shown_info = this.e;
+            MercatorModel.MercatorData e = MercatorModel.d().e();
+            if (e != null) {
+                builder.mercator_lat = e.X();
+                builder.mercator_lon = e.Y();
+                builder.mercator_city = Integer.valueOf(e.U());
+                builder.mercator_radius = e.a0();
+                builder.mercator_time = Long.valueOf(e.b0());
+                builder.mercator_province_name = e.Z();
+                builder.mercator_city_name = e.V();
+                builder.mercator_district_name = e.W();
+            }
+            return builder.build(false);
         }
-        this.a = lp9Var.a;
-        this.b = lp9Var.b;
-        this.c = lp9Var.c;
-        this.e = lp9Var.e;
-        this.d = lp9Var.d;
-        this.j = lp9Var.j;
-        this.f = lp9Var.f;
-        this.k = lp9Var.k;
-        this.h = lp9Var.h;
-        this.g = lp9Var.g;
+        return (AppPosInfo) invokeV.objValue;
     }
 
-    public void n(String str, int i) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            n95 m = n95.m();
-            m.z(str + currentAccount, i);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && i <= 3 && i >= 1) {
-            this.b = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && i <= 3 && i >= 1) {
-            this.c = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && i <= 3 && i >= 1) {
-            this.d = i;
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            if (i != 1) {
-                this.e = false;
-            } else {
-                this.e = true;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+            if (PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadWifiState(applicationContext)) {
+                try {
+                    WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
+                    if (connectionInfo != null) {
+                        this.d = connectionInfo.getBSSID();
+                    } else {
+                        this.d = "";
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    public void v(SimpleUser simpleUser) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, simpleUser) == null) {
-            this.i = simpleUser;
-            if (simpleUser != null) {
-                x(simpleUser.show_onlyme.intValue());
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
         }
     }
 
-    public void w(int i) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            if (i == 0) {
-                this.f = 1;
-            } else {
-                this.f = i;
-            }
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void x(int i) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.k = i;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public void y(int i) {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.c = j;
         }
     }
 }

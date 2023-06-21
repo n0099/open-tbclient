@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,10 +17,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lp7 implements x65 {
+public class lp7 implements y65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,14 +36,14 @@ public class lp7 implements x65 {
         }
     }
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.y65
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
             HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsToast");
+            hashMap.put("dialogName", "frsForumManage");
             hashMap.putAll(map);
             hashMap.putAll(map2);
             return hashMap;
@@ -56,38 +51,56 @@ public class lp7 implements x65 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.y65
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            boolean z4 = false;
             if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            if (TbSingleton.getInstance().getFrsResponseData() == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "Frs Toast策略校验失败：当前Frs数据为空");
                 return false;
             }
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "Frs Toast策略校验失败：当前Activity非FrsActivity");
+                YunDialogLog.getInstance().b("YunDialogManager", "吧务管理弹窗策略校验失败：当前Activity非FrsActivity");
                 return false;
             }
-            String stringExtra = currentActivity.getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
-            if (TextUtils.isEmpty(stringExtra)) {
-                return false;
+            FrsFragment v1 = ((FrsActivity) currentActivity).v1();
+            if (v1 != null && !v1.i4() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                z = true;
+            } else {
+                z = false;
             }
-            BdToastData bdToastData = new BdToastData();
-            try {
-                bdToastData.parserJson(new JSONObject(stringExtra));
-                if (bdToastData.getIconType() == 0) {
-                    return false;
+            if (!z) {
+                tr8 yunDialogLog = YunDialogLog.getInstance();
+                StringBuilder sb = new StringBuilder();
+                sb.append("吧务管理弹窗策略校验失败：FrsFragment为空->");
+                if (v1 == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
                 }
-                return true;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return false;
+                sb.append(z2);
+                sb.append("|");
+                sb.append("Frs是否展示过弹窗->");
+                if (v1 != null && v1.i4()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                sb.append(z3);
+                sb.append("|");
+                sb.append("是否存在FRS数据->");
+                if (TbSingleton.getInstance().getFrsResponseData() != null) {
+                    z4 = true;
+                }
+                sb.append(z4);
+                yunDialogLog.b("YunDialogManager", sb.toString());
             }
+            return z;
         }
         return invokeL.booleanValue;
     }

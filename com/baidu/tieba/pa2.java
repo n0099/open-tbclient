@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.tieba.an4;
+import com.baidu.tieba.dn4;
+import com.baidu.tieba.tm4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +18,153 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public final class pa2 {
+public final class pa2 implements tl2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile pa2 d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, Long> b;
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a();
+
+        void b(int i);
+
+        void c();
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a extends te2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ Map c;
+
+        public a(b bVar, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bVar;
+            this.c = map;
+            this.a = false;
+        }
+
+        @Override // com.baidu.tieba.te2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.a();
+                b bVar = this.b;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.te2
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                i();
+                b bVar = this.b;
+                if (bVar != null && !this.a) {
+                    bVar.a();
+                }
+            }
+        }
+
+        public final void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                for (String str : this.c.keySet()) {
+                    j(str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.te2
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                super.b(i);
+                b bVar = this.b;
+                if (bVar != null) {
+                    if (i == 1010) {
+                        bVar.a();
+                    } else {
+                        bVar.b(3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.te2
+        public void c(@NonNull tm4.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+                super.c(aVar);
+                j(aVar.b);
+                pf2.c(aVar.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.te2
+        public void f(tk4 tk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, tk4Var) == null) {
+                super.f(tk4Var);
+                if (tk4Var.a != 1010) {
+                    this.a = true;
+                    b bVar = this.b;
+                    if (bVar != null) {
+                        bVar.b(3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.te2
+        public void g(@NonNull zk4 zk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, zk4Var) == null) {
+                super.g(zk4Var);
+                j(zk4Var.o);
+            }
+        }
+
+        public final void j(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.c.containsKey(str)) {
+                Set<String> set = (Set) this.c.get(str);
+                if (set != null && !set.isEmpty()) {
+                    for (String str2 : set) {
+                        pf2.d(str, str2);
+                    }
+                    return;
+                }
+                pf2.c(str);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,77 +179,203 @@ public final class pa2 {
                 return;
             }
         }
-        c = is1.a;
+        a = js1.a;
     }
 
-    public pa2() {
+    public static void a(@NonNull List<dn4.b> list, @Nullable String str, b bVar) {
+        String[] i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, bVar) == null) {
+            if (!c(nk3.a().getString("predownload_network_switch", "1"))) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download net invalid");
+                }
+                if (bVar != null) {
+                    bVar.b(6);
+                    return;
+                }
                 return;
             }
-        }
-        this.a = false;
-        this.b = new HashMap<>();
-    }
-
-    public static pa2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (pa2.class) {
-                    if (d == null) {
-                        d = new pa2();
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            for (dn4.b bVar2 : list) {
+                if (bVar2 != null) {
+                    if (bVar2.i() != null && bVar2.i().length != 0) {
+                        Set set = (Set) hashMap.get(bVar2.b());
+                        if (set == null) {
+                            set = new HashSet();
+                        }
+                        boolean z = false;
+                        for (String str2 : bVar2.i()) {
+                            if (pf2.f(bVar2.b(), str2) && !z) {
+                                arrayList.add(bVar2);
+                                z = true;
+                            }
+                            set.add(str2);
+                        }
+                        hashMap.put(bVar2.b(), set);
+                    } else if (pf2.e(bVar2.b())) {
+                        arrayList.add(bVar2);
+                        hashMap.put(bVar2.b(), null);
                     }
                 }
             }
-            return d;
+            if (arrayList.isEmpty()) {
+                if (a) {
+                    Log.i("SwanPreDownload", "preDownload list empty");
+                }
+                if (bVar != null) {
+                    bVar.a();
+                    return;
+                }
+                return;
+            }
+            dn4 dn4Var = new dn4(arrayList, xp3.b());
+            dn4Var.e(str);
+            dn4Var.d("1");
+            we2 we2Var = new we2(new a(bVar, hashMap));
+            we2Var.L(ff2.a(str));
+            jj4.f(dn4Var, we2Var);
         }
-        return (pa2) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void b(@NonNull List<an4.a> list, @NonNull String str, @NonNull te2 te2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, list, str, te2Var) == null) {
+            if (!c(nk3.a().getString("predownload_network_switch", "1"))) {
+                te2Var.b(6);
+                return;
+            }
+            List<an4.a> i = pf2.i(list);
+            if (i.isEmpty()) {
+                te2Var.d();
+                return;
+            }
+            an4 an4Var = new an4((List<? extends an4.a>) i, (cp4) xp3.b());
+            an4Var.d("1");
+            an4Var.e(str);
+            we2 we2Var = new we2(te2Var);
+            we2Var.L(ff2.a(str));
+            jj4.f(an4Var, we2Var);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean c(String str) {
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (com.baidu.swan.apps.network.SwanAppNetworkUtils.j(com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()) != false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            HashMap<String, Long> hashMap = this.b;
-            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
-                if (c) {
-                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            boolean z = true;
+            if (!TextUtils.equals(str, "0")) {
+                if (!TextUtils.equals(str, "1")) {
+                    TextUtils.equals(str, "2");
+                    z = false;
                 }
+                if (a) {
+                    Log.d("SwanPreDownload", "SwanPredownload: current net suits for net config = " + z);
+                }
+                return z;
+            }
+        } else {
+            return invokeL.booleanValue;
+        }
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!TextUtils.equals(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME, str)) {
                 return true;
             }
-            if (c) {
-                HashMap<String, Long> hashMap2 = this.b;
-                if (hashMap2 != null && hashMap2.containsKey(str)) {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
-                } else {
-                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
-                }
-            }
+            gv2.g0().getSwitch("swan_game_feed_predownload", 0);
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, bVar) == null) {
+            dn4.b bVar2 = new dn4.b(str);
+            if (!TextUtils.isEmpty(str2)) {
+                bVar2.l(new String[]{str2});
+            }
+            a(Collections.singletonList(bVar2), str3, bVar);
+        }
+    }
+
+    public static void f(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download swanAppId invalid");
+                }
+            } else if (!c(nk3.a().getString("predownload_network_switch", "1"))) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download net invalid");
+                }
+            } else {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new an4.a(str));
+                List<an4.a> i = pf2.i(arrayList);
+                if (i.isEmpty()) {
+                    if (a) {
+                        Log.e("SwanPreDownload", "pre download has record");
+                        return;
+                    }
+                    return;
+                }
+                an4 an4Var = new an4((List<? extends an4.a>) i, (cp4) xp3.b());
+                an4Var.e(str2);
+                an4Var.d("1");
+                we2 we2Var = new we2();
+                we2Var.L(ff2.a(str2));
+                jj4.f(an4Var, we2Var);
+            }
+        }
+    }
+
+    public static void g(@Nullable String str, @Nullable String str2, @Nullable String str3, boolean z, @Nullable String str4, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, bVar}) == null) {
+            if (a) {
+                Log.d("SwanPreDownload", "preDownloadSwanAppByFeed appId: " + str + " ,appType: " + str2 + " ,isClick: " + z + ", scheme=" + str4);
+            }
+            if (z) {
+                if (bVar != null) {
+                    bVar.a();
+                }
+            } else if (TextUtils.isEmpty(str)) {
+                if (bVar != null) {
+                    bVar.c();
+                }
+            } else if (!d(str2)) {
+                if (bVar != null) {
+                    bVar.b(6);
+                }
+            } else {
+                String str5 = null;
+                if (!TextUtils.isEmpty(str4)) {
+                    try {
+                        Uri parse = Uri.parse(str4);
+                        if (parse != null) {
+                            str5 = rp3.n(str, parse, false);
+                        }
+                    } catch (Exception e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                e(str, str5, str3, bVar);
+            }
+        }
     }
 }

@@ -1,174 +1,183 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.internal.ImmutableList;
-import com.squareup.wire2.internal.MutableOnWriteList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 /* loaded from: classes6.dex */
-public final class ndb {
+public class ndb implements X509TrustManager {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<X509TrustManager> a;
 
-    public static int e(Object obj, Object obj2, Object obj3) {
-        InterceptResult invokeLLL;
+    public void b(X509Certificate[] x509CertificateArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
-            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr) == null) {
         }
-        return invokeLLL.intValue;
     }
 
-    public static void a(List<?> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
-            if (list != null) {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) == null) {
-                        throw new NullPointerException("Element at index " + i + " is null");
-                    }
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000029, "Lcom/baidu/tieba/ndb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000029, "Lcom/baidu/tieba/ndb;");
                 return;
             }
-            throw new NullPointerException("list == null");
         }
+        b = ndb.class.getSimpleName();
     }
 
-    public static void b(Map<?, ?> map) {
+    public ndb(InputStream inputStream, String str) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
-            if (map != null) {
-                for (Map.Entry<?, ?> entry : map.entrySet()) {
-                    if (entry.getKey() != null) {
-                        if (entry.getValue() == null) {
-                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        a(inputStream, str);
+    }
+
+    public final void a(InputStream inputStream, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, inputStream, str) == null) {
+            if (inputStream != null && str != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                try {
+                    try {
+                        TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("X509");
+                        KeyStore keyStore = KeyStore.getInstance("bks");
+                        keyStore.load(inputStream, str.toCharArray());
+                        trustManagerFactory.init(keyStore);
+                        TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
+                        for (int i = 0; i < trustManagers.length; i++) {
+                            if (trustManagers[i] instanceof X509TrustManager) {
+                                this.a.add((X509TrustManager) trustManagers[i]);
+                            }
                         }
-                    } else {
-                        throw new NullPointerException("map.containsKey(null)");
+                        vdb.b(inputStream);
+                    } finally {
+                        vdb.b(inputStream);
                     }
+                } catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
+                    String str2 = b;
+                    wdb.d(str2, "loadInputStream: exception : " + e.getMessage());
                 }
+                String str3 = b;
+                wdb.b(str3, "loadInputStream: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
                 return;
             }
-            throw new NullPointerException("map == null");
+            throw new IllegalArgumentException("inputstream or trustPwd is null");
         }
     }
 
-    public static <T> List<T> c(String str, List<T> list) {
-        InterceptResult invokeLL;
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            if (list != null) {
-                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
-                    return new ArrayList(list);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, x509CertificateArr, str) == null) {
+            wdb.e(b, "checkClientTrusted: ");
+            for (X509TrustManager x509TrustManager : this.a) {
+                try {
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                    return;
+                } catch (CertificateException e) {
+                    String str2 = b;
+                    wdb.d(str2, "checkServerTrusted CertificateException" + e.getMessage());
                 }
-                return new MutableOnWriteList(list);
             }
-            throw new NullPointerException(str + " == null");
+            throw new CertificateException("checkServerTrusted CertificateException");
         }
-        return (List) invokeLL.objValue;
     }
 
-    public static <K, V> Map<K, V> d(String str, Map<K, V> map) {
-        InterceptResult invokeLL;
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (map != null) {
-                return new LinkedHashMap(map);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, x509CertificateArr, str) == null) {
+            b(x509CertificateArr);
+            wdb.e(b, "checkServerTrusted begin ,server ca chain size is : " + x509CertificateArr.length + " ,auth type is : " + str);
+            long currentTimeMillis = System.currentTimeMillis();
+            for (X509Certificate x509Certificate : x509CertificateArr) {
+                wdb.b(b, "server ca chain: getSubjectDN is :" + x509Certificate.getSubjectDN());
+                wdb.b(b, "IssuerDN :" + x509Certificate.getIssuerDN());
+                wdb.b(b, "SerialNumber : " + x509Certificate.getSerialNumber());
             }
-            throw new NullPointerException(str + " == null");
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static boolean f(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) {
-            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> void k(List<T> list, ProtoAdapter<T> protoAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
-            int size = list.size();
+            int size = this.a.size();
             for (int i = 0; i < size; i++) {
-                list.set(i, protoAdapter.redact(list.get(i)));
-            }
-        }
-    }
-
-    public static <T> List<T> g(String str, List<T> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
-            if (list != null) {
-                if (list instanceof MutableOnWriteList) {
-                    list = ((MutableOnWriteList) list).mutableList;
-                }
-                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
-                    ImmutableList immutableList = new ImmutableList(list);
-                    if (!immutableList.contains(null)) {
-                        return immutableList;
+                try {
+                    wdb.e(b, "check server i : " + i);
+                    X509TrustManager x509TrustManager = this.a.get(i);
+                    X509Certificate[] acceptedIssuers = x509TrustManager.getAcceptedIssuers();
+                    if (acceptedIssuers != null) {
+                        wdb.e(b, "client root ca size is : " + acceptedIssuers.length);
+                        for (int i2 = 0; i2 < acceptedIssuers.length; i2++) {
+                            wdb.b(b, "client root ca getIssuerDN :" + acceptedIssuers[i2].getIssuerDN());
+                        }
                     }
-                    throw new IllegalArgumentException(str + ".contains(null)");
-                }
-                return list;
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static <K, V> Map<K, V> h(String str, Map<K, V> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
-            if (map != null) {
-                if (map.isEmpty()) {
-                    return Collections.emptyMap();
-                }
-                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
-                if (!linkedHashMap.containsKey(null)) {
-                    if (!linkedHashMap.containsValue(null)) {
-                        return Collections.unmodifiableMap(linkedHashMap);
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                    wdb.e(b, "checkServerTrusted succeed ,root ca issuer is : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
+                    return;
+                } catch (CertificateException e) {
+                    wdb.d(b, "checkServerTrusted error :" + e.getMessage() + " , time : " + i);
+                    if (i == size - 1) {
+                        if (x509CertificateArr != null && x509CertificateArr.length > 0) {
+                            wdb.d(b, "root ca issuer : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
+                        }
+                        throw e;
                     }
-                    throw new IllegalArgumentException(str + ".containsValue(null)");
                 }
-                throw new IllegalArgumentException(str + ".containsKey(null)");
             }
-            throw new NullPointerException(str + " == null");
+            wdb.b(b, "checkServerTrusted: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
         }
-        return (Map) invokeLL.objValue;
     }
 
-    public static <T> List<T> i() {
+    @Override // javax.net.ssl.X509TrustManager
+    public X509Certificate[] getAcceptedIssuers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return new MutableOnWriteList(Collections.emptyList());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                ArrayList arrayList = new ArrayList();
+                for (X509TrustManager x509TrustManager : this.a) {
+                    arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
+                }
+                return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
+            } catch (Exception e) {
+                String str = b;
+                wdb.d(str, "getAcceptedIssuers exception : " + e.getMessage());
+                return new X509Certificate[0];
+            }
         }
-        return (List) invokeV.objValue;
-    }
-
-    public static <K, V> Map<K, V> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new LinkedHashMap();
-        }
-        return (Map) invokeV.objValue;
+        return (X509Certificate[]) invokeV.objValue;
     }
 }

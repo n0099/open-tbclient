@@ -4,9 +4,9 @@ import android.content.Context;
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.CallFactoryParams;
 import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
-import com.baidu.tieba.cl1;
 import com.baidu.tieba.dl1;
-import com.baidu.tieba.fl1;
+import com.baidu.tieba.el1;
+import com.baidu.tieba.gl1;
 /* loaded from: classes4.dex */
 public class OutbackComponent {
     public static volatile OutbackComponent sInstance;
@@ -24,24 +24,24 @@ public class OutbackComponent {
     }
 
     public IAdditionalRecord getAdditionalRecord() {
-        fl1<IOutbackContext> fl1Var = this.componentHolder.outbackContextHolder;
-        if (fl1Var != null && fl1Var.get() != null) {
+        gl1<IOutbackContext> gl1Var = this.componentHolder.outbackContextHolder;
+        if (gl1Var != null && gl1Var.get() != null) {
             return this.componentHolder.outbackContextHolder.get().getIAdditionalRecord();
         }
         throw new IllegalStateException("No Context provided!");
     }
 
     public IOutbackClientIPProvider getClientIPProvider() {
-        fl1<IOutbackContext> fl1Var = this.componentHolder.outbackContextHolder;
-        if (fl1Var != null && fl1Var.get() != null) {
+        gl1<IOutbackContext> gl1Var = this.componentHolder.outbackContextHolder;
+        if (gl1Var != null && gl1Var.get() != null) {
             return this.componentHolder.outbackContextHolder.get().getClientIPProvider();
         }
         throw new IllegalStateException("No Context provided!");
     }
 
     public Context getContext() {
-        fl1<IOutbackContext> fl1Var = this.componentHolder.outbackContextHolder;
-        if (fl1Var != null && fl1Var.get() != null) {
+        gl1<IOutbackContext> gl1Var = this.componentHolder.outbackContextHolder;
+        if (gl1Var != null && gl1Var.get() != null) {
             return this.componentHolder.outbackContextHolder.get().getContext();
         }
         throw new IllegalStateException("No Context provided!");
@@ -49,8 +49,8 @@ public class OutbackComponent {
 
     public boolean isCallFactoryProducerAvailable() {
         IOutbackContext iOutbackContext;
-        fl1<IOutbackContext> fl1Var = this.componentHolder.outbackContextHolder;
-        if (fl1Var == null || (iOutbackContext = fl1Var.get()) == null || iOutbackContext.getDefaultCallFactoryProducer() == null) {
+        gl1<IOutbackContext> gl1Var = this.componentHolder.outbackContextHolder;
+        if (gl1Var == null || (iOutbackContext = gl1Var.get()) == null || iOutbackContext.getDefaultCallFactoryProducer() == null) {
             return false;
         }
         return true;
@@ -72,8 +72,8 @@ public class OutbackComponent {
 
     public boolean isRightEngine(String str) {
         IOutbackContext iOutbackContext;
-        fl1<IOutbackContext> fl1Var = this.componentHolder.outbackContextHolder;
-        if (fl1Var != null && (iOutbackContext = fl1Var.get()) != null) {
+        gl1<IOutbackContext> gl1Var = this.componentHolder.outbackContextHolder;
+        if (gl1Var != null && (iOutbackContext = gl1Var.get()) != null) {
             return iOutbackContext.getOutbackEngines().containsKey(str);
         }
         return false;
@@ -89,12 +89,12 @@ public class OutbackComponent {
     public OutbackComponent setOutbackContext(final IOutbackContext iOutbackContext) {
         OutbackComponentHolder outbackComponentHolder = this.componentHolder;
         if (outbackComponentHolder.outbackContextHolder == null) {
-            outbackComponentHolder.outbackContextHolder = new dl1();
+            outbackComponentHolder.outbackContextHolder = new el1();
         }
-        this.componentHolder.outbackContextHolder.a(new cl1<IOutbackContext>() { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
+        this.componentHolder.outbackContextHolder.a(new dl1<IOutbackContext>() { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.cl1
+            @Override // com.baidu.tieba.dl1
             public IOutbackContext get() {
                 return iOutbackContext;
             }

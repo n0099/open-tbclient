@@ -9,10 +9,10 @@ import android.net.Uri;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.fv2;
+import com.baidu.tieba.gv2;
 /* loaded from: classes4.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
-    public static final String b = fv2.c().getPackageName() + ".swan.subscribe_msg";
+    public static final String b = gv2.c().getPackageName() + ".swan.subscribe_msg";
     public static final Uri c = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + b);
     @Nullable
     public SQLiteDatabase a;
@@ -27,7 +27,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
         if (this.a != null) {
             return false;
         }
-        SQLiteOpenHelper h = SwanAppDbControl.f(fv2.c()).h();
+        SQLiteOpenHelper h = SwanAppDbControl.f(gv2.c()).h();
         if (h == null) {
             return true;
         }

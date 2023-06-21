@@ -179,7 +179,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public void setSourceFromForPb(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b.U = i;
+            this.b.V = i;
         }
     }
 
@@ -215,7 +215,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             this.c = threadData;
             if (!StringUtils.isNull(threadData.getForum_name()) && !this.g) {
                 TextView textView = this.a;
-                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, "...") + getResources().getString(R.string.obfuscated_res_0x7f0f0766));
+                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, "...") + getResources().getString(R.string.obfuscated_res_0x7f0f0767));
                 this.a.setVisibility(0);
             } else {
                 this.a.setVisibility(8);

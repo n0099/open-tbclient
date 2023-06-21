@@ -2,23 +2,35 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class mv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nv4 a;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public String e;
+    public final Map<String, String> f;
+    public final List<rv4> g;
 
-    public mv4() {
+    public mv4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,47 +40,69 @@ public class mv4 {
                 return;
             }
         }
-        this.a = new nv4();
+        this.f = new LinkedHashMap();
+        this.g = new ArrayList();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
+            a();
+            b();
+            c();
+            return;
+        }
+        this.d = false;
     }
 
-    public lv4 a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str3 = null;
-            if (ui.isEmpty(str)) {
-                return null;
-            }
-            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
-            if (!matcher.find()) {
-                return null;
-            }
-            String group = matcher.group();
-            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
-            if (matcher2.find()) {
-                str2 = pv4.d(matcher2.group());
-            } else {
-                str2 = null;
-            }
-            if (str2 != null && str2.startsWith("Y")) {
-                ov4.a(str2);
-                str3 = b(group);
-            }
-            return new lv4(group, str3, str2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.add(new xv4());
+            this.g.add(new vv4());
+            this.g.add(new tv4());
+            this.g.add(new yv4());
+            this.g.add(new wv4());
+            this.g.add(new zv4());
+            this.g.add(new uv4());
         }
-        return (lv4) invokeL.objValue;
     }
 
-    public final String b(String str) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return this.a.a(pv4.f(str.replaceAll("\\$", "")));
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || StringUtils.isNull(this.b)) {
+            return;
         }
-        return (String) invokeL.objValue;
+        String valueOf = String.valueOf(this.b.charAt(0));
+        String[] split = this.b.split("@");
+        for (rv4 rv4Var : this.g) {
+            if (valueOf.equals(rv4Var.b())) {
+                String a = rv4Var.a(split, this.f);
+                this.e = a;
+                if (!StringUtils.isNull(a)) {
+                    this.d = true;
+                    return;
+                }
+                return;
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
+            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+            this.f.put("@rid", HttpClientWrap.f);
+            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
+            this.f.put("@c", TiebaStatic.Params.QD);
+            this.f.put("@p", "obj_source");
+            this.f.put("@eq", TiebaStatic.Params.EQID);
+            this.f.put("@1p", "obj_param1");
+            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
+            this.f.put("@m", "obj_name");
+            this.f.put("@re", "refer");
+            this.f.put("@lo", "obj_locate");
+        }
     }
 }

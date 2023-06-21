@@ -84,11 +84,11 @@ public class b {
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
             try {
                 a(str);
-                List<b.a.C0710a> list = a.b.a;
-                b.a.C0710a c0710a = new b.a.C0710a();
-                c0710a.a = str;
-                c0710a.b = j;
-                list.add(c0710a);
+                List<b.a.C0711a> list = a.b.a;
+                b.a.C0711a c0711a = new b.a.C0711a();
+                c0711a.a = str;
+                c0711a.b = j;
+                list.add(c0711a);
                 a.b.a = list;
             } catch (Throwable unused) {
             }

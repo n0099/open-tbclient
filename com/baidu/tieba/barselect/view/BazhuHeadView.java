@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.zo8;
+import com.baidu.tieba.tp8;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,8 +87,8 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.e();
-            int g = vi.g(getContext(), R.dimen.tbds92);
-            int g2 = vi.g(getContext(), R.dimen.tbds82);
+            int g = wi.g(getContext(), R.dimen.tbds92);
+            int g2 = wi.g(getContext(), R.dimen.tbds82);
             if (getPendantView() != null) {
                 getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(g, g2));
             }
@@ -100,10 +100,10 @@ public class BazhuHeadView extends HeadPendantView {
             tbImageView.setDefaultBgResource(0);
             this.n.setDefaultResource(0);
             this.n.setImageDrawable(null);
-            int g3 = vi.g(getContext(), R.dimen.tbds115);
-            int g4 = vi.g(getContext(), R.dimen.tbds34);
-            int g5 = vi.g(getContext(), R.dimen.tbds154);
-            int g6 = vi.g(getContext(), R.dimen.tbds32);
+            int g3 = wi.g(getContext(), R.dimen.tbds115);
+            int g4 = wi.g(getContext(), R.dimen.tbds34);
+            int g5 = wi.g(getContext(), R.dimen.tbds154);
+            int g6 = wi.g(getContext(), R.dimen.tbds32);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g3, g4);
             layoutParams.topMargin = g5;
             layoutParams.leftMargin = g6;
@@ -125,12 +125,12 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                int g = vi.g(getContext(), R.dimen.tbds5);
-                int g2 = vi.g(getContext(), R.dimen.tbds130);
-                int g3 = vi.g(getContext(), R.dimen.tbds26);
-                int g4 = vi.g(getContext(), R.dimen.tbds44);
+                int g = wi.g(getContext(), R.dimen.tbds5);
+                int g2 = wi.g(getContext(), R.dimen.tbds130);
+                int g3 = wi.g(getContext(), R.dimen.tbds26);
+                int g4 = wi.g(getContext(), R.dimen.tbds44);
                 getHeadView().setBorderWidth(g);
-                getHeadView().setBorderColor(zo8.b("#FCD442"));
+                getHeadView().setBorderColor(tp8.b("#FCD442"));
                 getHeadView().setDrawBorder(true);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g2, g2);
                 layoutParams.leftMargin = g3;
@@ -138,7 +138,7 @@ public class BazhuHeadView extends HeadPendantView {
                 getHeadView().setLayoutParams(layoutParams);
                 return;
             }
-            int g5 = vi.g(getContext(), R.dimen.tbds90);
+            int g5 = wi.g(getContext(), R.dimen.tbds90);
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
             getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(g5, g5));

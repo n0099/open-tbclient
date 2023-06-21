@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k65 {
+public abstract class k65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public gl1<l65> a;
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            el1 b = el1.b();
-            this.a = b;
-            b.a(new m65());
-        }
-    }
+    public abstract void a(@NonNull Context context, @NonNull c65 c65Var);
 
     public k65() {
         Interceptable interceptable = $ic;
@@ -31,9 +23,7 @@ public class k65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a();
     }
 }

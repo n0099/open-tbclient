@@ -370,7 +370,7 @@ public class DownloadNotification {
                     }
                 }
                 if (downloadInfo.mStatus != 192 && notificationItem2.mPausedText == null) {
-                    notificationItem2.mPausedText = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05c9);
+                    notificationItem2.mPausedText = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05ca);
                 }
                 if (DEBUG) {
                     Log.d("DownloadNotification", notificationItem2.toString());
@@ -498,7 +498,7 @@ public class DownloadNotification {
                 int category = FileClassifyHelper.getCategory(FileClassifyHelper.getFileSuffix(str), downloadInfo.mMimeType);
                 Uri withAppendedId = ContentUris.withAppendedId(Downloads.Impl.ALL_DOWNLOADS_CONTENT_URI, j);
                 if (Downloads.Impl.isStatusError(downloadInfo.mStatus)) {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e65);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e69);
                     intent = new Intent(Constants.ACTION_LIST);
                     smallIcon.setSmallIcon(17301642);
                 } else {

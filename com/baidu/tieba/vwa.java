@@ -1,55 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class vwa {
+public abstract class vwa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static float a(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, str, f)) == null) {
+            if (str == null) {
+                return f;
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception unused) {
+                return f;
             }
-            sb.append("&");
-            sb.append("clientfrom=native");
-            sb.append("&");
-            sb.append("client=android");
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        return invokeLF.floatValue;
     }
 
-    public static String b(String str, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
+    public static int b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, hashMap)) == null) {
-            if (TextUtils.isEmpty(str) || hashMap.isEmpty()) {
-                return str;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (str == null) {
+                return i;
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return i;
             }
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                sb.append("&");
-                sb.append(entry.getKey());
-                sb.append("=");
-                sb.append(entry.getValue());
-            }
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
+        return invokeLI.intValue;
+    }
+
+    public static long c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            if (str == null) {
+                return j;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (Exception unused) {
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
     }
 }

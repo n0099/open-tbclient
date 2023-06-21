@@ -5,16 +5,16 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dl3;
-import com.baidu.tieba.fv2;
-import com.baidu.tieba.lx2;
-import com.baidu.tieba.pp3;
+import com.baidu.tieba.aj3;
+import com.baidu.tieba.el3;
+import com.baidu.tieba.gv2;
+import com.baidu.tieba.mx2;
 import com.baidu.tieba.qp3;
-import com.baidu.tieba.ri3;
-import com.baidu.tieba.rn3;
-import com.baidu.tieba.sp3;
-import com.baidu.tieba.yb3;
-import com.baidu.tieba.zi3;
+import com.baidu.tieba.rp3;
+import com.baidu.tieba.si3;
+import com.baidu.tieba.sn3;
+import com.baidu.tieba.tp3;
+import com.baidu.tieba.zb3;
 /* loaded from: classes4.dex */
 public class DomainErrorView extends CommonEmptyView {
 
@@ -22,17 +22,17 @@ public class DomainErrorView extends CommonEmptyView {
     public class a implements View.OnClickListener {
         public final /* synthetic */ String a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ yb3 c;
+        public final /* synthetic */ zb3 c;
 
-        public a(String str, String str2, yb3 yb3Var) {
+        public a(String str, String str2, zb3 zb3Var) {
             this.a = str;
             this.b = str2;
-            this.c = yb3Var;
+            this.c = zb3Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            fv2.u().b(this.c.w(), this.c.O(), this.c.Z(), qp3.u(this.a, this.b));
+            gv2.u().b(this.c.w(), this.c.O(), this.c.Z(), rp3.u(this.a, this.b));
         }
     }
 
@@ -51,17 +51,17 @@ public class DomainErrorView extends CommonEmptyView {
     public void b(String str) {
         String str2;
         StringBuffer stringBuffer = new StringBuffer();
-        boolean d = qp3.d(str, stringBuffer);
+        boolean d = rp3.d(str, stringBuffer);
         String stringBuffer2 = stringBuffer.toString();
-        setIcon(R.drawable.obfuscated_res_0x7f081401);
+        setIcon(R.drawable.obfuscated_res_0x7f081405);
         setTitle(R.string.obfuscated_res_0x7f0f0183);
-        rn3 rn3Var = new rn3();
-        rn3Var.k(5L);
-        rn3Var.i(41L);
-        rn3Var.f("domain not in white list--" + stringBuffer2);
-        yb3 b0 = yb3.b0();
+        sn3 sn3Var = new sn3();
+        sn3Var.k(5L);
+        sn3Var.i(41L);
+        sn3Var.f("domain not in white list--" + stringBuffer2);
+        zb3 b0 = zb3.b0();
         if (b0 != null) {
-            String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01cf), sp3.D(), dl3.i(lx2.T().getCoreVersion(), b0.Y().G()), String.valueOf(rn3Var.a()));
+            String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01cf), tp3.D(), el3.i(mx2.T().getCoreVersion(), b0.Y().G()), String.valueOf(sn3Var.a()));
             StringBuilder sb = new StringBuilder();
             sb.append("(");
             if (d) {
@@ -75,18 +75,18 @@ public class DomainErrorView extends CommonEmptyView {
             this.g.setVisibility(0);
             this.g.setOnClickListener(new a(format, stringBuffer2, b0));
         }
-        this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f14d5));
-        this.c.setPadding(pp3.g(70.0f), 0, pp3.g(70.0f), 0);
-        String e = sp3.n().e();
-        String a2 = sp3.v().a();
-        zi3 zi3Var = new zi3();
-        zi3Var.p(rn3Var);
-        zi3Var.q(ri3.n(0));
-        zi3Var.m(yb3.g0());
-        zi3Var.l("errorDomain", stringBuffer2);
-        zi3Var.l("path", e);
-        zi3Var.l("prePath", a2);
-        zi3Var.l("curPath", sp3.n().a());
-        ri3.R(zi3Var);
+        this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f14d9));
+        this.c.setPadding(qp3.g(70.0f), 0, qp3.g(70.0f), 0);
+        String e = tp3.n().e();
+        String a2 = tp3.v().a();
+        aj3 aj3Var = new aj3();
+        aj3Var.p(sn3Var);
+        aj3Var.q(si3.n(0));
+        aj3Var.m(zb3.g0());
+        aj3Var.l("errorDomain", stringBuffer2);
+        aj3Var.l("path", e);
+        aj3Var.l("prePath", a2);
+        aj3Var.l("curPath", tp3.n().a());
+        si3.R(aj3Var);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.live.business.model.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
-import com.baidu.tieba.qd0;
+import com.baidu.tieba.rd0;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class LiveBannerEntity implements Parcelable {
@@ -68,7 +68,7 @@ public class LiveBannerEntity implements Parcelable {
     }
 
     public boolean isValid() {
-        return !qd0.a(this.pic);
+        return !rd0.a(this.pic);
     }
 
     public LiveBannerEntity(Parcel parcel) {

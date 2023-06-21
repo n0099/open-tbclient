@@ -1,9 +1,17 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.chromium.base.UserData;
+/* compiled from: UserData.java */
 /* loaded from: classes7.dex */
-public interface omb<T> {
-    void onCompleted();
+public final /* synthetic */ class omb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onError(Throwable th);
-
-    void onNext(T t);
+    public static void $default$destroy(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, userData) == null) {
+        }
+    }
 }

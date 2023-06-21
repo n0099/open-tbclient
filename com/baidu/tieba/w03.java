@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,8 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w03 extends a13 {
+public class w03 extends b13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +34,7 @@ public class w03 extends a13 {
                 return;
             }
         }
-        boolean z = is1.a;
+        boolean z = js1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,22 +57,43 @@ public class w03 extends a13 {
         }
     }
 
-    @Override // com.baidu.tieba.a13
-    public boolean a(q03 q03Var, s03 s03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+    @Override // com.baidu.tieba.b13
+    public boolean a(r03 r03Var, t03 t03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{q03Var, s03Var, context, unitedSchemeEntity, callbackHandler, yb3Var})) == null) {
-            y82.i("video", "pause, video id:" + s03Var.j + " slave id: " + s03Var.c);
-            d(q03Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{r03Var, t03Var, context, unitedSchemeEntity, callbackHandler, zb3Var})) == null) {
+            z82.i("video", "open, video id:" + t03Var.j + " slave id: " + t03Var.c);
+            r03Var.l();
+            d(r03Var, t03Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final void d(q03 q03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Override // com.baidu.tieba.b13
+    public r03 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q03Var, unitedSchemeEntity, callbackHandler) == null) {
-            q03Var.p();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            xy2 f = yy2.f(str, str2, str3);
+            if (f == null) {
+                return new r03(context, t03.h(jSONObject, new t03()));
+            }
+            if (!(f.i() instanceof r03)) {
+                return null;
+            }
+            return (r03) f.i();
+        }
+        return (r03) invokeLLLLL.objValue;
+    }
+
+    public final void d(r03 r03Var, t03 t03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, r03Var, t03Var, unitedSchemeEntity, callbackHandler) == null) {
+            r03Var.o(t03Var);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

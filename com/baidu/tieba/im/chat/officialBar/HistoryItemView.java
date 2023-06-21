@@ -75,7 +75,7 @@ public class HistoryItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d071c, (ViewGroup) this, true);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d071a, (ViewGroup) this, true);
             setClickable(false);
             setFocusable(false);
             this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f24);

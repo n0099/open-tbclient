@@ -2,12 +2,11 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.dh3;
+import com.baidu.tieba.eh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bn2 extends vd3 {
+public class bn2 extends wd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements rq3<bh3<dh3.e>> {
+    public class a implements sq3<ch3<eh3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -50,36 +49,44 @@ public class bn2 extends vd3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
+        @Override // com.baidu.tieba.sq3
         /* renamed from: b */
-        public void a(bh3<dh3.e> bh3Var) {
+        public void a(ch3<eh3.e> ch3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
-                if (!wg3.h(bh3Var)) {
-                    wg3.p(bh3Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ch3Var) == null) {
+                if (!xg3.h(ch3Var)) {
+                    xg3.p(ch3Var, this.a, this.b);
                     return;
                 }
-                boolean b = mm2.b(this.c.optInt("useExtension"));
-                if (b && !pm2.b().exists()) {
-                    qb3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f016d).G();
-                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f016d));
-                    return;
+                if (nm2.b(this.c.optInt("emitReplaceDynamicLib"))) {
+                    if (pm2.n().isEmpty()) {
+                        Context context = this.d;
+                        if (context == null) {
+                            context = gv2.c();
+                        }
+                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f016c);
+                        rb3.g(context, string).G();
+                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
+                        return;
+                    }
+                    pm2.p();
+                } else {
+                    pm2.f();
                 }
-                x73.V(b);
                 UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                x73.Z();
+                y73.Z();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bn2(vc3 vc3Var) {
-        super(vc3Var, "/swanAPI/debug/setExtensionConfig");
+    public bn2(wc3 wc3Var) {
+        super(wc3Var, "/swanAPI/debug/setReplaceDynamicLibConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vc3Var};
+            Object[] objArr = {wc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -93,22 +100,22 @@ public class bn2 extends vd3 {
         }
     }
 
-    @Override // com.baidu.tieba.vd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+    @Override // com.baidu.tieba.wd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
-            JSONObject a2 = vd3.a(unitedSchemeEntity, "params");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
+            JSONObject a2 = wd3.a(unitedSchemeEntity, "params");
             if (a2 == null) {
-                y82.c("ExtCore-SetConfig", "params is null");
+                z82.c("setReplaceDynamicLibConfig", "'params' is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!a2.has("useExtension")) {
-                y82.c("ExtCore-SetConfig", "useExtension is null");
+            } else if (!a2.has("emitReplaceDynamicLib")) {
+                z82.c("setReplaceDynamicLibConfig", "'emitReplaceSwanCore's is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                yb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                zb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
                 return true;
             }
         }

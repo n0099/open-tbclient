@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.kq5;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.pq5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes6.dex */
-public class FeedData implements Serializable, kq5 {
+public class FeedData implements Serializable, pq5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -45,6 +45,7 @@ public class FeedData implements Serializable, kq5 {
     public int isFloor;
     public boolean isNew;
     public BaijiahaoData mBaijiahao;
+    public int mIsBotReply;
     public boolean mIsShareThread;
     public boolean mIsStory;
     public OriginalThreadInfo mOriginalThreadInfo;
@@ -85,6 +86,7 @@ public class FeedData implements Serializable, kq5 {
         this.mPraiseNum = 0;
         this.mPraiseList = null;
         this.isBjh = false;
+        this.mIsBotReply = 0;
     }
 
     public BaijiahaoData getBaijiahaoData() {
@@ -333,10 +335,22 @@ public class FeedData implements Serializable, kq5 {
         return invokeV.booleanValue;
     }
 
-    public boolean isHideForumName() {
+    public boolean isBotReply() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (this.mIsBotReply == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isHideForumName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             if (this.hideForumName == 1) {
                 return true;
             }
@@ -348,7 +362,7 @@ public class FeedData implements Serializable, kq5 {
     public boolean isNew() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.isNew;
         }
         return invokeV.booleanValue;
@@ -357,7 +371,7 @@ public class FeedData implements Serializable, kq5 {
     public boolean isShareThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.mIsShareThread;
         }
         return invokeV.booleanValue;
@@ -366,7 +380,7 @@ public class FeedData implements Serializable, kq5 {
     public boolean isStory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             return this.mIsStory;
         }
         return invokeV.booleanValue;
@@ -381,7 +395,7 @@ public class FeedData implements Serializable, kq5 {
         JSONObject optJSONObject;
         boolean z6;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048607, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048608, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -423,7 +437,7 @@ public class FeedData implements Serializable, kq5 {
                 this.mOriginalThreadInfo = originalThreadInfo;
                 originalThreadInfo.r(jSONObject.optJSONObject("origin_thread_info"));
             }
-            if (((!ui.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+            if (((!vi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                 this.mPraiseNum = optJSONObject.optInt("num");
                 if (optJSONObject.optInt("consent_type") == 2) {
                     z6 = true;
@@ -481,6 +495,7 @@ public class FeedData implements Serializable, kq5 {
                 this.mBaijiahao = baijiahaoData;
                 baijiahaoData.parseJson(jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME));
             }
+            this.mIsBotReply = jSONObject.optInt("is_bot_reply");
         } catch (Exception e) {
             BdLog.detailException(e);
         }
@@ -494,7 +509,7 @@ public class FeedData implements Serializable, kq5 {
         Zan zan;
         boolean z5;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048608, this, replyList) != null) || replyList == null) {
+        if ((interceptable != null && interceptable.invokeL(1048609, this, replyList) != null) || replyList == null) {
             return;
         }
         this.type = replyList.type.intValue();
@@ -517,7 +532,7 @@ public class FeedData implements Serializable, kq5 {
         this.mPraiseItemType = replyList.item_type;
         this.hideForumName = replyList.hide_fname.intValue();
         this.fromForumId = replyList.v_forum_id.longValue();
-        if (((!ui.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+        if (((!vi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
             this.mPraiseNum = zan.num.intValue();
             if (zan.consent_type.intValue() == 2) {
                 z5 = true;
@@ -578,7 +593,7 @@ public class FeedData implements Serializable, kq5 {
 
     public void setIsFirstPost(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
             this.isFirstPost = i;
         }
     }
@@ -587,7 +602,7 @@ public class FeedData implements Serializable, kq5 {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             JSONArray jSONArray = new JSONArray();
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -643,6 +658,7 @@ public class FeedData implements Serializable, kq5 {
                     jSONObject.put("origin_thread_info", jSONObject5);
                 }
                 jSONArray.put(jSONObject);
+                jSONObject.put("is_bot_reply", this.mIsBotReply);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

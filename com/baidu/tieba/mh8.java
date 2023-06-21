@@ -1,39 +1,56 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mh8 {
+public class mh8 extends ki8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, tbPageContext, str, i) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("level", i);
-                jSONObject.put("success_jump_url", str);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("page", "pass/accountAuth");
-                jSONObject2.put("pageParams", jSONObject);
-                String jSONObject3 = jSONObject2.toString();
-                Uri.Builder builder = new Uri.Builder();
-                builder.scheme("tiebaapp").authority(DI.ROUTER_NAME).path("/portal").appendQueryParameter("params", jSONObject3);
-                str2 = builder.build().toString();
-            } catch (JSONException e) {
-                BdLog.e(e);
-                str2 = "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947972780, "Lcom/baidu/tieba/mh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str2});
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947972780, "Lcom/baidu/tieba/mh8;");
+                return;
+            }
         }
+        a = BdUniqueId.gen().getId();
+    }
+
+    public mh8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ki8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
+        }
+        return invokeV.intValue;
     }
 }

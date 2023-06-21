@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 /* loaded from: classes8.dex */
 public interface vz5 {
-    void a(View view2);
+    void a();
 
-    void b(View view2);
+    void b(int i, int i2, int i3, int i4);
 
-    View getView();
+    Context getContext();
+
+    boolean post(Runnable runnable);
+
+    boolean removeCallbacks(Runnable runnable);
 }

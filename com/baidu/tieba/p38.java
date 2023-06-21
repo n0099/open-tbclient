@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkModule;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TopicDetail;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.RecomTopicList;
 /* loaded from: classes7.dex */
-public class p38 {
+public class p38 extends ry7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
     public String b;
-    public String c;
-    public String d;
-    public e48 e;
-    public t38 f;
 
     public p38() {
         Interceptable interceptable = $ic;
@@ -29,40 +27,31 @@ public class p38 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11c5);
     }
 
-    public void a(TopicDetail topicDetail) {
+    public void e(HotTopic hotTopic) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, topicDetail) != null) || topicDetail == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hotTopic) != null) || hotTopic == null) {
             return;
         }
-        this.a = topicDetail.topic_id.longValue();
-        this.b = topicDetail.topic_desc;
-        topicDetail.discuss_num.longValue();
-        this.c = topicDetail.topic_image;
-        this.d = topicDetail.bg_image;
+        this.floorPosition = hotTopic.floor_position.intValue();
+        parserProtobuf(hotTopic.topic_list);
     }
 
-    public void b(PkModule pkModule) {
+    public void parserProtobuf(List<RecomTopicList> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            e48 e48Var = new e48();
-            this.e = e48Var;
-            e48Var.a = this.a;
-            e48Var.f = 2;
-            e48Var.a(pkModule);
-        }
-    }
-
-    public void c(TimeLine timeLine) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) != null) || timeLine == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        t38 t38Var = new t38();
-        this.f = t38Var;
-        t38Var.a(this.a, timeLine);
+        int min = Math.min(list.size(), 6);
+        ArrayList arrayList = new ArrayList(list.size());
+        for (int i = 0; i < min; i++) {
+            arrayList.add(new qy7(list.get(i), i));
+        }
+        d(arrayList);
     }
 }

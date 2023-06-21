@@ -1,34 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class ut6<T> extends pt6 {
+public abstract class ut6 extends vt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean b;
-    public final Set<T> c;
-    public boolean d;
 
-    public abstract T c(zs6 zs6Var);
+    public abstract boolean b(dt6 dt6Var, gv6 gv6Var, xs6 xs6Var);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ut6(int i, boolean z) {
+    public ut6(int i) {
         super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -39,46 +29,5 @@ public abstract class ut6<T> extends pt6 {
                 return;
             }
         }
-        this.b = z;
-        this.c = Collections.synchronizedSet(new LinkedHashSet());
-        this.d = true;
-    }
-
-    public /* synthetic */ ut6(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i, (i2 & 2) != 0 ? false : z);
-    }
-
-    @Override // com.baidu.tieba.pt6
-    public boolean b(ys6 item, bv6 timer, ss6 config) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (!this.d) {
-                return false;
-            }
-            boolean contains = this.c.contains(c(item.e()));
-            if (this.b) {
-                if (contains) {
-                    return false;
-                }
-                return true;
-            }
-            return contains;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final Set<T> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<T> mFilterSet = this.c;
-            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
-            return mFilterSet;
-        }
-        return (Set) invokeV.objValue;
     }
 }

@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.go6;
-import com.baidu.tieba.h15;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.oy;
-import com.baidu.tieba.zz;
+import com.baidu.tieba.a00;
+import com.baidu.tieba.i15;
+import com.baidu.tieba.lo6;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.py;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements oy<h15> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements py<i15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,10 +44,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements oy<h15> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public go6<h15> m;
-    public h15 n;
+    public lo6<i15> m;
+    public i15 n;
     public View.OnClickListener o;
-    public zz p;
+    public a00 p;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements oy<h15> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    go6 go6Var = this.a.m;
+                    lo6 lo6Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    go6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    lo6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -153,10 +153,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements oy<h15> 
         }
     }
 
-    public void setData(h15 h15Var) {
+    public void setData(i15 i15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, h15Var) == null) {
-            this.n = h15Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, i15Var) == null) {
+            this.n = i15Var;
         }
     }
 
@@ -167,18 +167,18 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements oy<h15> 
         }
     }
 
-    public void setOnCardSubClickListener(go6<h15> go6Var) {
+    public void setOnCardSubClickListener(lo6<i15> lo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, go6Var) == null) {
-            this.m = go6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, lo6Var) == null) {
+            this.m = lo6Var;
         }
     }
 
-    public void setVideoAreaClickListener(zz zzVar) {
+    public void setVideoAreaClickListener(a00 a00Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, zzVar) == null) {
-            this.p = zzVar;
-            if (zzVar != null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, a00Var) == null) {
+            this.p = a00Var;
+            if (a00Var != null) {
                 i();
             }
         }
@@ -209,12 +209,12 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements oy<h15> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oy
+    @Override // com.baidu.tieba.py
     /* renamed from: g */
-    public void a(h15 h15Var) {
+    public void a(i15 i15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) == null) && h15Var != null && h15Var.getThreadData() != null && h15Var.getThreadData().originalThreadData != null) {
-            OriginalThreadInfo originalThreadInfo = h15Var.getThreadData().originalThreadData;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i15Var) == null) && i15Var != null && i15Var.getThreadData() != null && i15Var.getThreadData().originalThreadData != null) {
+            OriginalThreadInfo originalThreadInfo = i15Var.getThreadData().originalThreadData;
             originalThreadInfo.r.is_vertical.intValue();
             String str = originalThreadInfo.f;
             originalThreadInfo.r.video_length.intValue();
@@ -249,8 +249,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements oy<h15> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             if (this.b != i) {
-                o75.d(this.d).t(R.array.Mask_X003);
-                o75.d(this.d).o(R.string.J_X05);
+                p75.d(this.d).u(R.array.Mask_X003);
+                p75.d(this.d).o(R.string.J_X05);
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);

@@ -1,12 +1,12 @@
 package com.baidu.nadcore.widget.bubble;
 
 import android.view.View;
-import com.baidu.tieba.kd1;
-import com.baidu.tieba.kl0;
 import com.baidu.tieba.ld1;
-import com.baidu.tieba.nd1;
+import com.baidu.tieba.ll0;
+import com.baidu.tieba.md1;
+import com.baidu.tieba.od1;
 /* loaded from: classes3.dex */
-public class BubbleManager extends nd1 implements View.OnClickListener {
+public class BubbleManager extends od1 implements View.OnClickListener {
 
     /* loaded from: classes3.dex */
     public enum BubbleStyle {
@@ -29,13 +29,13 @@ public class BubbleManager extends nd1 implements View.OnClickListener {
     }
 
     public static <T> T t(Class<T> cls) {
-        if (cls != ld1.class && cls != kd1.class) {
+        if (cls != md1.class && cls != ld1.class) {
             return null;
         }
         try {
             return cls.newInstance();
         } catch (Exception e) {
-            kl0.b(com.baidu.searchbox.ui.bubble.BubbleManager.TAG, "", e);
+            ll0.b(com.baidu.searchbox.ui.bubble.BubbleManager.TAG, "", e);
             return null;
         }
     }

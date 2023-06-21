@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,213 +10,138 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes6.dex */
 public class hf {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String d = "_crashtime";
-    public static String e = "_crashtype";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public gf c;
+    public String[] b;
+    public int c;
+    public String d;
+    public a e;
+    public int f;
+    public String[] g;
+    public boolean h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448306287, "Lcom/baidu/tieba/hf;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448306287, "Lcom/baidu/tieba/hf;");
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, int i, boolean z);
     }
 
-    public hf(gf gfVar) {
+    public hf(String str, int i, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gfVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {str, Integer.valueOf(i), aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 0;
-        this.b = 0;
-        this.c = null;
-        if (gfVar != null) {
-            this.c = gfVar;
-            if (gfVar.d() > 0 && this.c.c() != null) {
-                int e2 = e();
-                this.a = e2;
-                if (e2 == -1) {
-                    g();
-                }
-            }
-            if (!gfVar.h()) {
-                this.b = f();
-            }
-            this.c.a(this.b, true);
+        this.b = null;
+        this.c = 0;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = null;
+        this.h = false;
+        if (str != null) {
+            this.d = str;
+            this.e = aVar;
+            this.f = i;
             return;
         }
-        throw new InvalidParameterException("SwitchHolder data is null");
+        throw new InvalidParameterException("SwitchData name is null");
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        String[] g;
-        String[] c;
+    public void a(int i, boolean z) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null && this.c.d() > 0) {
-                if (this.c.c() != null) {
-                    for (String str2 : this.c.c()) {
-                        if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                            int i = this.a + 1;
-                            this.a = i;
-                            j(i);
-                            if (this.a >= this.c.d()) {
-                                k(this.c.f());
-                                this.b = this.c.f();
-                                gf gfVar = this.c;
-                                gfVar.a(gfVar.f(), false);
-                            }
-                            return true;
-                        }
-                    }
-                }
-                if (this.c.g() != null) {
-                    for (String str3 : this.c.g()) {
-                        if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                            int i2 = this.a + 1;
-                            this.a = i2;
-                            j(i2);
-                            if (this.a >= this.c.d()) {
-                                k(this.c.f());
-                                this.b = this.c.f();
-                                gf gfVar2 = this.c;
-                                gfVar2.a(gfVar2.f(), false);
-                            }
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (aVar = this.e) != null) {
+            aVar.a(this.d, i, z);
         }
-        return invokeL.booleanValue;
     }
 
-    public gf b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (gf) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.b();
+            return this.f;
         }
         return invokeV.intValue;
     }
 
-    public String d() {
+    public String[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.e();
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = 0;
-        }
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-            return sharedPreferences.getInt(this.c.e() + d, -1);
-        }
-        return invokeV.intValue;
-    }
-
-    public final int f() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-            return sharedPreferences.getInt(this.c.e() + e, this.c.b());
+            return this.c;
         }
         return invokeV.intValue;
     }
 
-    public void h(int i) {
+    public String[] g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(int i, String[] strArr, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), strArr, Integer.valueOf(i2)}) == null) {
             this.a = i;
+            this.b = strArr;
+            this.c = i2;
         }
     }
 
-    public boolean i(int i) {
-        InterceptResult invokeI;
+    public void j(String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (this.c.d() >= 0 && this.a >= this.c.d() + 2) {
-                i = this.c.f();
-            }
-            if (i == this.b) {
-                return false;
-            }
-            this.b = i;
-            this.c.a(i, false);
-            k(i);
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            edit.putInt(this.c.e() + d, i);
-            edit.commit();
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            edit.putInt(this.c.e() + e, i);
-            edit.commit();
+        if (interceptable == null || interceptable.invokeL(1048585, this, strArr) == null) {
+            this.g = strArr;
         }
     }
 }

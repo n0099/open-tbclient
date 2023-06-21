@@ -93,39 +93,39 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int crius = 0x7f080553;
+        public static final int crius = 0x7f080555;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
         public static final int absolute = 0x7f09002c;
-        public static final int auto = 0x7f09030a;
-        public static final int baseline = 0x7f090367;
-        public static final int benchmarkSelect = 0x7f0903d3;
-        public static final int btn = 0x7f090490;
-        public static final int center = 0x7f090677;
-        public static final int column = 0x7f090744;
-        public static final int column_reverse = 0x7f090745;
-        public static final int flex = 0x7f090b26;
-        public static final int flex_end = 0x7f090b27;
-        public static final int flex_start = 0x7f090b28;
+        public static final int auto = 0x7f090306;
+        public static final int baseline = 0x7f090363;
+        public static final int benchmarkSelect = 0x7f0903cf;
+        public static final int btn = 0x7f09048d;
+        public static final int center = 0x7f090674;
+        public static final int column = 0x7f090741;
+        public static final int column_reverse = 0x7f090742;
+        public static final int flex = 0x7f090b24;
+        public static final int flex_end = 0x7f090b25;
+        public static final int flex_start = 0x7f090b26;
         public static final int hidden = 0x7f090f13;
-        public static final int inherit = 0x7f0910ef;
-        public static final int ltr = 0x7f09164b;
-        public static final int no_wrap = 0x7f0918f2;
-        public static final int none = 0x7f0918f5;
-        public static final int relative = 0x7f091df9;
-        public static final int root = 0x7f091eba;
-        public static final int row = 0x7f091edf;
-        public static final int row_reverse = 0x7f091ee1;
-        public static final int rtl = 0x7f091ee2;
-        public static final int scroll = 0x7f092018;
-        public static final int space_around = 0x7f092186;
-        public static final int space_between = 0x7f092187;
-        public static final int stretch = 0x7f092206;
-        public static final int text = 0x7f09239e;
-        public static final int visible = 0x7f0928d3;
-        public static final int wrap = 0x7f09297f;
+        public static final int inherit = 0x7f0910f4;
+        public static final int ltr = 0x7f091651;
+        public static final int no_wrap = 0x7f0918f8;
+        public static final int none = 0x7f0918fb;
+        public static final int relative = 0x7f091e04;
+        public static final int root = 0x7f091ec5;
+        public static final int row = 0x7f091eea;
+        public static final int row_reverse = 0x7f091eec;
+        public static final int rtl = 0x7f091eed;
+        public static final int scroll = 0x7f092023;
+        public static final int space_around = 0x7f092191;
+        public static final int space_between = 0x7f092192;
+        public static final int stretch = 0x7f092211;
+        public static final int text = 0x7f0923a9;
+        public static final int visible = 0x7f0928e0;
+        public static final int wrap = 0x7f09298c;
     }
 
     /* loaded from: classes3.dex */
@@ -140,13 +140,13 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class string {
         public static final int app_name = 0x7f0f029e;
-        public static final int bm_child_6_text = 0x7f0f0369;
-        public static final int child_1_text = 0x7f0f042e;
-        public static final int child_2_text = 0x7f0f042f;
-        public static final int child_3_text = 0x7f0f0430;
-        public static final int child_4_text = 0x7f0f0431;
-        public static final int child_5_text = 0x7f0f0432;
-        public static final int run_benchmark = 0x7f0f122a;
+        public static final int bm_child_6_text = 0x7f0f036a;
+        public static final int child_1_text = 0x7f0f042f;
+        public static final int child_2_text = 0x7f0f0430;
+        public static final int child_3_text = 0x7f0f0431;
+        public static final int child_4_text = 0x7f0f0432;
+        public static final int child_5_text = 0x7f0f0433;
+        public static final int run_benchmark = 0x7f0f122e;
     }
 
     /* loaded from: classes3.dex */

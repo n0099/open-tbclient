@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.app.ActivityManager;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Process;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.Choreographer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vn3;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,32 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class v92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
-    public static final String j;
-    public static final String k;
-    public static final String l;
-    public static final String m;
-    public static final String n;
-    public static final String o;
-    public static final String p;
-    public static final String q;
-    public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
-    public f b;
-    public c c;
+    public final String a;
+    public int b;
+    public Map<String, Object> c;
     public b d;
-    public ConcurrentMap<String, Object> e;
-    public boolean f;
-    public int g;
-    public int h;
+    public BufferedWriter e;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -50,12 +35,12 @@ public class v92 {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes8.dex */
-    public class b implements Runnable {
+    public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ v92 b;
+        public final /* synthetic */ v92 a;
 
         public b(v92 v92Var) {
             Interceptable interceptable = $ic;
@@ -72,177 +57,30 @@ public class v92 {
                     return;
                 }
             }
-            this.b = v92Var;
+            this.a = v92Var;
         }
 
         public /* synthetic */ b(v92 v92Var, a aVar) {
             this(v92Var);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a = true;
-                String a = x92.a();
-                if (!TextUtils.isEmpty(a)) {
-                    this.b.e.put("cpu", a);
-                }
-                this.a = false;
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Choreographer.FrameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public int b;
-        public final /* synthetic */ v92 c;
-
-        public c(v92 v92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = v92Var;
-            this.a = -1L;
-            this.b = -1;
-        }
-
-        public /* synthetic */ c(v92 v92Var, a aVar) {
-            this(v92Var);
-        }
-
-        @Override // android.view.Choreographer.FrameCallback
-        public void doFrame(long j) {
-            int i;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !this.c.f) {
-                return;
-            }
-            long j2 = this.a;
-            if (j2 > 0 && this.b != (i = (int) ((1.0d / (j - j2)) * 1.0E9d))) {
-                this.b = i;
-                this.c.e.put("frame", Integer.valueOf(i));
-            }
-            this.a = j;
-            Choreographer.getInstance().postFrameCallback(this);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final v92 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-389840294, "Lcom/baidu/tieba/v92$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-389840294, "Lcom/baidu/tieba/v92$d;");
-                    return;
-                }
-            }
-            a = new v92(null);
-        }
-    }
-
-    @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes8.dex */
-    public class e extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v92 a;
-
-        public e(v92 v92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v92Var;
-        }
-
-        public /* synthetic */ e(v92 v92Var, a aVar) {
-            this(v92Var);
-        }
-
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.e != null) {
-                this.a.f();
-                this.a.e.put("mem", Long.valueOf(((ActivityManager) fv2.c().getSystemService("activity")).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
-                if (this.a.a != null) {
-                    this.a.a.sendEmptyMessageDelayed(0, this.a.g);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.c != null) {
+                this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry entry : this.a.c.entrySet()) {
+                    try {
+                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class f implements vn3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v92 a;
-
-        public f(v92 v92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v92Var;
-        }
-
-        public /* synthetic */ f(v92 v92Var, a aVar) {
-            this(v92Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
-        /* renamed from: b */
-        public void a(Set<tn3<?>> set) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) && set != null && set.size() > 0) {
-                for (tn3<?> tn3Var : set) {
-                    this.a.e.put(tn3Var.a, tn3Var.a());
+                this.a.e(jSONObject.toString());
+                z82.i("PropertyLogcat", jSONObject.toString());
+                if (this.a.d != null) {
+                    this.a.d.sendEmptyMessageDelayed(100, this.a.b);
                 }
             }
         }
@@ -261,45 +99,16 @@ public class v92 {
                 return;
             }
         }
-        i = is1.a;
-        j = un3.d.a;
-        k = un3.b.a;
-        l = un3.c.a;
-        String str = un3.g.a;
-        m = un3.i.a;
-        n = un3.e.a;
-        o = un3.f.a;
-        p = un3.h.a;
-        q = un3.j.a;
-        r = un3.k.a;
+        boolean z = js1.a;
     }
 
-    public final void k() {
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!this.f) {
-                if (i) {
-                    Log.d("PropertyMonitor", "System monitor not started yet");
-                    return;
-                }
-                return;
-            }
-            this.f = false;
-            e eVar = this.a;
-            if (eVar != null) {
-                eVar.removeMessages(0);
-                this.a = null;
-            }
-            if (this.b != null) {
-                vn3.a().j(this.b, new tn3[0]);
-                this.b = null;
-            }
-            this.c = null;
-            this.d = null;
-            if (i) {
-                Log.d("PropertyMonitor", "Stop system monitor");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return hj3.n(zb3.g0(), this.a, LocalFilesFilterKt.FILTER_NAME_LOG);
         }
+        return (String) invokeV.objValue;
     }
 
     public v92() {
@@ -307,82 +116,78 @@ public class v92 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new ConcurrentHashMap();
-        this.g = 1000;
+        this.a = "performance_" + System.currentTimeMillis();
+        this.b = 3000;
     }
 
-    public static v92 g() {
+    public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return d.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c != null) {
+                w92.g().i();
+                this.c = null;
+                z82.i("PropertyLogcat", "Stop monitor logcat");
+            }
+            ds4.d(this.e);
+            this.e = null;
+            return hj3.I(f(), zb3.g0());
         }
-        return (v92) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void f() {
+    public final void e(String str) {
+        BufferedWriter bufferedWriter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.d.a) {
-            so3.k(this.d, "swanAppCpuMonitor");
-        }
-    }
-
-    public Map<String, Object> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.h++;
-            j();
-            return this.e;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.h - 1;
-            this.h = i2;
-            if (i2 <= 0) {
-                k();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bufferedWriter = this.e) != null) {
+            try {
+                bufferedWriter.write(str);
+                this.e.write(10);
+                z82.i("PropertyLogcat", "Export logcat success");
+            } catch (IOException e) {
+                z82.d("PropertyLogcat", "Logcat write fail", e);
             }
         }
     }
 
-    public /* synthetic */ v92(a aVar) {
-        this();
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 1000) {
+            this.b = i;
+        }
     }
 
-    public final void j() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f) {
-                if (i) {
-                    Log.d("PropertyMonitor", "System monitor already started");
-                    return;
+            if (this.c == null) {
+                this.c = w92.g().h();
+                z82.i("PropertyLogcat", "Start monitor logcat");
+            }
+            if (this.d == null) {
+                this.d = new b(this, null);
+            }
+            if (this.e == null) {
+                File file = new File(f());
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    this.e = new BufferedWriter(new FileWriter(file, true));
+                } catch (IOException e) {
+                    z82.d("PropertyLogcat", "Create log file fail", e);
                 }
-                return;
             }
-            this.f = true;
-            this.c = new c(this, null);
-            Choreographer.getInstance().postFrameCallback(this.c);
-            this.d = new b(this, null);
-            this.b = new f(this, null);
-            vn3.a().g(this.b, un3.d, un3.b, un3.c, un3.i, un3.e, un3.f, un3.g, un3.h, un3.j, un3.k);
-            e eVar = new e(this, null);
-            this.a = eVar;
-            eVar.sendEmptyMessage(0);
-            if (i) {
-                Log.d("PropertyMonitor", "Start system monitor");
-            }
+            this.d.removeMessages(100);
+            this.d.sendEmptyMessage(100);
         }
     }
 }

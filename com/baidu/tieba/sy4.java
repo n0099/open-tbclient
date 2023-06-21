@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.SparseArray;
+import android.util.Base64;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
@@ -12,89 +12,142 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.util.InsertGalleryAsyncTask;
-import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.atomData.ReportThemeActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
+import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
+import com.baidu.tieba.nq9;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.video.UserItemData;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sy4 implements ul6 {
+public class sy4 implements zl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ShareItem a;
-    public PermissionJudgePolicy b;
 
-    @Override // com.baidu.tieba.ul6
+    @Override // com.baidu.tieba.zl6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        tl6.a(this, webView, str, jSONObject);
+        yl6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.ul6
+    @Override // com.baidu.tieba.zl6
     public /* synthetic */ void onDestroy() {
-        tl6.b(this);
+        yl6.b(this);
     }
 
     /* loaded from: classes7.dex */
-    public class a extends InsertGalleryAsyncTask.a {
+    public class a extends nx5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ sy4 c;
+        public final /* synthetic */ String a;
 
-        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            }
-        }
-
-        public a(sy4 sy4Var, int i, Context context) {
+        public a(sy4 sy4Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sy4Var, Integer.valueOf(i), context};
+                Object[] objArr = {sy4Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = sy4Var;
-            this.a = i;
-            this.b = context;
+            this.a = str;
         }
 
-        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
-        public void b(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.nx5
+        /* renamed from: a */
+        public ImMessageCenterPojo doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists()) {
-                if (this.c.a != null) {
-                    this.c.a.k0 = 1;
-                    this.c.a.B = str;
-                }
-                int i = this.a;
-                if (i != 0) {
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.b, i, this.c.a, true));
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b98.f().i(this.a);
+            }
+            return (ImMessageCenterPojo) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements rw5<ImMessageCenterPojo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ArrayList b;
+
+        public b(sy4 sy4Var, String str, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sy4Var, str, arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
+            this.b = arrayList;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rw5
+        /* renamed from: a */
+        public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterPojo) != null) || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
+                return;
+            }
+            if (imMessageCenterPojo != null) {
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), ug.g(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
+                personalChatActivityConfig.setRequestCode(12019);
+                personalChatActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+                personalChatActivityConfig.setIsReportSelect(true);
+                personalChatActivityConfig.setSelectList(this.b);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalChatActivityConfig));
+                return;
+            }
+            PersonalChatActivityConfig personalChatActivityConfig2 = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), 0L, "", "", this.a, 0);
+            personalChatActivityConfig2.setRequestCode(12019);
+            personalChatActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
+            personalChatActivityConfig2.setIsReportSelect(true);
+            personalChatActivityConfig2.setSelectList(this.b);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalChatActivityConfig2));
         }
     }
 
@@ -112,33 +165,101 @@ public class sy4 implements ul6 {
         }
     }
 
-    public final void e(ShareItem shareItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, shareItem) == null) {
-            this.a = shareItem;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x002d, code lost:
+        if (r4.optInt("isClose", 0) == 1) goto L14;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0045 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0046  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static /* synthetic */ void m(String str, String str2, String str3, WebView webView, HashMap hashMap) {
+        Class<?> cls;
+        int i;
+        JSONObject jSONObject;
+        boolean z;
+        if (hashMap == null) {
+            return;
+        }
+        cls = null;
+        try {
+            if (TextUtils.isEmpty(str)) {
+                jSONObject = new JSONObject();
+            } else {
+                jSONObject = new JSONObject(str);
+            }
+            try {
+                jSONObject.put("page", str2);
+                jSONObject.put("refre", str3);
+                jSONObject.put("from", 0);
+                z = true;
+            } catch (Exception unused) {
+            }
+        } catch (Exception unused2) {
+            jSONObject = null;
+        }
+        z = false;
+        if (jSONObject != null) {
+            try {
+                cls = Class.forName((String) hashMap.get(str2));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (cls != null) {
+                return;
+            }
+            Context a2 = ol6.a(webView.getContext());
+            if (a2 == null && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
+                a2 = TbadkCoreApplication.getInst().getCurrentActivity();
+            }
+            if (a2 == null && webView.getContext() != null) {
+                a2 = webView.getContext();
+            }
+            if (a2 == null) {
+                HybridLog.getInstance().c("handlePortal", "通用路由端能力执行失败，activity为空");
+                return;
+            }
+            for (Class<?> cls2 : cls.getInterfaces()) {
+                if (cls2.isAssignableFrom(lq9.class)) {
+                    try {
+                        ((lq9) cls.newInstance()).dispatch(jSONObject, a2);
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    if (!z && (a2 instanceof Activity)) {
+                        ((Activity) a2).finish();
+                        return;
+                    }
+                }
+            }
+            return;
+        }
+        return;
+        if (cls != null) {
+        }
+        if (!z) {
         }
     }
 
-    @Override // com.baidu.tieba.ul6
+    @Override // com.baidu.tieba.zl6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if ("share".equals(str2)) {
+            if (CommonTbJsBridge.FINISH_THIS_PAGE.equals(str2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(f(webView, jSONObject.optInt("channel"), jSONObject.optInt("shareimg"), jSONObject.optString("img"), jSONObject.optString("isShowMoreForum"), jSONObject.optString("url"), jSONObject.optString("title"), jSONObject.optString("desc"), jSONObject.optString("topic"), jSONObject.optString("wbtitle"), jSONObject.optString("wbcontent"), jSONObject.optInt("weixin_disable"), jSONObject.optString("extdata"), jSONObject.optInt("source"), jSONObject.optString("topicid"), jSONObject.optString("disableSafari"), jSONObject.optLong("roomId"), jSONObject.optInt("filterRooms"), jSONObject.optInt("roomMemberCount"), jSONObject.optLong("fid"), jSONObject.optString("forumName"), jSONObject.optString("onlyThirdShare"), jSONObject.optString("addObserverNotify"), jSONObject.optString("panelTitle"), jSONObject.optJSONObject("shareIMCard")).a());
+                    jsPromptResult.confirm(c(webView, jSONObject.optString("nextPage"), jSONObject.optString("source")).a());
                     return true;
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
-                    BdLog.e(e);
                     return false;
                 }
-            } else if (CommonTbJsBridge.SET_SHARE_INFO.equals(str2)) {
+            } else if (CommonTbJsBridge.JUMP_TO_HTML_PAGE.equals(str2)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(str3);
-                    jsPromptResult.confirm(d(webView, jSONObject2.optString("title"), jSONObject2.optString("desc"), jSONObject2.optString("img"), jSONObject2.optString("url"), jSONObject2.optString("topic"), jSONObject2.optString("wbtitle"), jSONObject2.optString("wbcontent"), jSONObject2.optString("isShowMoreForum"), jSONObject2.optInt("shareimg"), jSONObject2.optString("extdata")).a());
-                    return true;
+                    jsPromptResult.confirm(k(webView, jSONObject2.optString("url"), jSONObject2.optInt("finish_this_page", 1)).toString());
+                    return false;
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                     return false;
@@ -150,250 +271,411 @@ public class sy4 implements ul6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public bz9 d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
-        InterceptResult invokeCommon;
-        int i2;
+    public t0a c(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
-            bz9 bz9Var = new bz9();
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
+            t0a t0aVar = new t0a();
+            Activity a2 = ol6.a(webView.getContext());
+            if (a2 != null) {
+                a2.finish();
+                if (vi.isEquals(str, "FictionalCharacterDetailsPage")) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+                    hashMap.put("source", str2);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(a2, "FictionalCharacterDetailsPage", hashMap)));
+                }
+            }
+            return t0aVar;
+        }
+        return (t0a) invokeLLL.objValue;
+    }
+
+    public t0a h(WebView webView, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, webView, str, i)) == null) {
+            t0a t0aVar = new t0a();
+            if (!TextUtils.isEmpty(str)) {
+                ForumDetailActivityConfig forumDetailActivityConfig = new ForumDetailActivityConfig(webView.getContext(), str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE);
+                if (i == 1 || i == 2 || i == 3) {
+                    forumDetailActivityConfig.setSelectHostTab(i);
+                }
+                forumDetailActivityConfig.setRequestCode(25070);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
+            }
+            return t0aVar;
+        }
+        return (t0a) invokeLLI.objValue;
+    }
+
+    public t0a j(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, webView, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                ForumRuleEditActivityConfig forumRuleEditActivityConfig = new ForumRuleEditActivityConfig(webView.getContext(), str, str2, null, 0, null);
+                forumRuleEditActivityConfig.setRequestCode(25070);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumRuleEditActivityConfig));
+            }
+            return new t0a();
+        }
+        return (t0a) invokeLLL.objValue;
+    }
+
+    public t0a t(WebView webView, String str, ArrayList<String> arrayList) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, webView, str, arrayList)) == null) {
+            t0a t0aVar = new t0a();
+            ReportThemeActivityConfig reportThemeActivityConfig = new ReportThemeActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), str, arrayList);
+            reportThemeActivityConfig.setRequestCode(12018);
+            reportThemeActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, reportThemeActivityConfig));
             try {
-                jSONObject.put("title", str);
-                jSONObject.put("desc", str2);
-                jSONObject.put("img", str3);
-                jSONObject.put("url", str4);
-                jSONObject.put("topic", str5);
-                jSONObject.put("wbtitle", str6);
-                jSONObject.put("wbcontent", str7);
-                jSONObject.put("isShowMoreForum", str8);
-                jSONObject.put("shareimg", i);
-                jSONObject.put("extdata", str9);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 0);
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (!ui.isEmpty(jSONObject2)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016566, jSONObject2));
-                i2 = 1;
-            } else {
-                i2 = 0;
-            }
-            try {
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("resultCode", i2);
-                bz9Var.o(jSONObject3.toString());
-                return bz9Var;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-                return bz9Var;
+                return t0aVar;
             }
         }
-        return (bz9) invokeCommon.objValue;
+        return (t0a) invokeLLL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v10, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public bz9 f(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
-        InterceptResult invokeCommon;
-        int i7;
-        CustomResponsedMessage runTask;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject})) == null) {
-            bz9 bz9Var = new bz9();
-            Activity a2 = jl6.a(webView.getContext());
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("channel", i);
-                jSONObject2.put("shareimg", i2);
-                jSONObject2.put("img", str);
-                jSONObject2.put("isShowMoreForum", str2);
-                jSONObject2.put("url", str3);
-                jSONObject2.put("title", str4);
-                jSONObject2.put("desc", str5);
-                jSONObject2.put("topic", str6);
-                jSONObject2.put("wbtitle", str7);
-                jSONObject2.put("wbcontent", str8);
-                jSONObject2.put("weixin_disable", i3);
-                jSONObject2.put("extdata", str9);
-                jSONObject2.put("topicId", str10);
-                jSONObject2.put("roomId", j);
-                jSONObject2.put("filterRooms", i5);
-                jSONObject2.put("roomMemberCount", i6);
-                jSONObject2.put("fid", j2);
-                jSONObject2.put("forumName", str12);
-                jSONObject2.put("panelTitle", str15);
-                jSONObject2.put("shareIMCard", jSONObject);
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            String jSONObject3 = jSONObject2.toString();
-            if (!ui.isEmpty(jSONObject3) && (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject3)) != null) {
-                ShareItem shareItem = (ShareItem) runTask.getData();
-                if (shareItem != null) {
-                    shareItem.I = 17;
-                    shareItem.g = true;
-                    if (i4 == 1) {
-                        shareItem.B0 = str10;
-                    }
-                    if (!TextUtils.isEmpty(str15)) {
-                        shareItem.p(str15);
-                    }
-                }
-                if (shareItem != null && shareItem.j()) {
-                    i(a2, shareItem, i5);
-                    bz9Var.o("");
-                    return bz9Var;
-                } else if (shareItem != null && shareItem.i()) {
-                    i(a2, shareItem, i5);
-                    bz9Var.o("");
-                    return bz9Var;
-                } else if (shareItem != null && shareItem.k()) {
-                    i(a2, shareItem, i5);
-                    bz9Var.o("");
-                    return bz9Var;
-                } else if ("1".equals(str2) && shareItem != null) {
-                    shareItem.A = str;
-                    shareItem.x = str3;
-                    shareItem.v = str4 + " " + str5;
-                    shareItem.q = true;
-                    if (i4 == 1) {
-                        shareItem.B0 = str10;
-                    }
-                    ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) a2, shareItem, true, (SparseArray<String>) null);
-                    shareDialogConfig.mShowMoreForumShare = true;
-                    pr6.c().l(shareDialogConfig);
-                    bz9Var.o("");
-                    return bz9Var;
-                } else if (i == 0) {
-                    if (shareItem != null && !ui.isEmpty(str) && i2 == 1) {
-                        e(shareItem);
-                        g(a2, str, i);
-                    }
-                    j(a2, shareItem, "1".equals(str13));
-                    i7 = 1;
-                } else {
-                    if (shareItem != null && !ui.isEmpty(str)) {
-                        z = 1;
-                        i7 = 1;
-                        if (i2 == 1) {
-                            e(shareItem);
-                            g(a2, str, i);
-                        }
-                    } else {
-                        z = 1;
-                    }
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(a2, i, shareItem, z));
-                    i7 = z;
-                }
-            } else {
-                i7 = 0;
-            }
-            try {
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("resultCode", i7);
-                bz9Var.o(jSONObject4.toString());
-                return bz9Var;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-                return bz9Var;
-            }
-        }
-        return (bz9) invokeCommon.objValue;
-    }
-
-    public final void g(Context context, String str, int i) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048581, this, context, str, i) != null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
-            return;
-        }
-        if (this.b == null) {
-            this.b = new PermissionJudgePolicy();
-        }
-        this.b.clearRequestPermissionList();
-        this.b.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (this.b.startRequestPermission(currentActivity)) {
-            return;
-        }
-        InsertGalleryAsyncTask insertGalleryAsyncTask = new InsertGalleryAsyncTask(currentActivity, str, new a(this, i, context));
-        insertGalleryAsyncTask.setFrom(1);
-        insertGalleryAsyncTask.execute(new String[0]);
-    }
-
-    public void j(Context context, ShareItem shareItem, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, shareItem, z) != null) || shareItem == null) {
-            return;
-        }
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, shareItem, true);
-        shareDialogConfig.setIsSupportNightMode(true);
-        if (!z) {
-            if (shareItem.k0 != 0) {
-                shareDialogConfig.hideMode |= 32;
-            }
-            shareDialogConfig.setIsCopyLink(true);
-        }
-        StatisticItem statisticItem = new StatisticItem("c10898");
-        statisticItem.param(TiebaStatic.Params.OBJ_URL, shareItem.x);
-        statisticItem.param("obj_type", 1);
-        TiebaStatic.log(statisticItem);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-    }
-
-    public bz9 h(WebView webView, HashMap hashMap) {
+    public t0a d(WebView webView, HashMap<String, List<ReportPrivateMsgData>> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
-            bz9 bz9Var = new bz9();
-            int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
-            int intValue2 = ((Integer) hashMap.get("shareStatus")).intValue();
-            if (intValue2 != 3 && intValue2 != 2) {
-                ShareItem shareItem = (ShareItem) hashMap.get("shareItem");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
+            t0a t0aVar = new t0a();
+            List<ReportPrivateMsgData> list = hashMap.get("private_msg");
+            try {
+                JSONArray jSONArray = new JSONArray();
                 JSONObject jSONObject = new JSONObject();
-                try {
+                for (int i = 0; i < list.size(); i++) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("title", shareItem.v);
-                    jSONObject2.put("desc", shareItem.w);
-                    jSONObject2.put("img", shareItem.z);
-                    jSONObject2.put("url", shareItem.x);
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("type", intValue);
-                    jSONObject3.put("shareData", jSONObject2);
-                    jSONObject.put("resultCode", 1);
-                    jSONObject.put("data", jSONObject3);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    jSONObject2.put("msgId", list.get(i).getMsgId());
+                    String content = list.get(i).getContent();
+                    if (!TextUtils.isEmpty(content)) {
+                        jSONObject2.put("reportContent", new String(Base64.encode(content.getBytes(StandardCharsets.UTF_8), 2), StandardCharsets.UTF_8));
+                    } else {
+                        jSONObject2.put("reportContent", "");
+                    }
+                    jSONObject2.put(FileMetaUtil.CREATE_TIME, list.get(i).getTime());
+                    jSONArray.put(jSONObject2);
                 }
-                a(webView, CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-                bz9Var.o(jSONObject.toString());
-            } else {
-                bz9Var.p();
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("msgArray", jSONArray);
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return t0aVar;
             }
-            return bz9Var;
         }
-        return (bz9) invokeLL.objValue;
+        return (t0a) invokeLL.objValue;
     }
 
-    public void i(Context context, ShareItem shareItem, int i) {
+    public t0a e(WebView webView, HashMap<String, ArrayList<String>> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
+            if (hashMap == null) {
+                return null;
+            }
+            t0a t0aVar = new t0a();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                ArrayList<String> arrayList = hashMap.get("tid");
+                JSONArray jSONArray = new JSONArray();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    jSONArray.put(arrayList.get(i));
+                }
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("threadArray", jSONArray);
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return t0aVar;
+            }
+        }
+        return (t0a) invokeLL.objValue;
+    }
+
+    public t0a q(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, hashMap)) == null) {
+            t0a t0aVar = new t0a();
+            if (hashMap == null) {
+                return t0aVar;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(TailEditActivityConfig.TAIL_ID, hashMap.get("tailId"));
+                jSONObject.put(TailEditActivityConfig.TAIL_COLOR, hashMap.get("tailColor"));
+                jSONObject.put(TailEditActivityConfig.TAIL_CONTENT, hashMap.get("tailContent"));
+                jSONObject.put("font_key_name", webView.getContext().getString(R.string.tail_default_font));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.REFRESH_TAIL, jSONObject);
+            t0aVar.o(jSONObject.toString());
+            return t0aVar;
+        }
+        return (t0a) invokeLL.objValue;
+    }
+
+    public t0a f(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7})) == null) {
+            t0a t0aVar = new t0a();
+            Context a2 = ol6.a(webView.getContext());
+            if (a2 == null) {
+                a2 = webView.getContext();
+            }
+            if ("1".equals(str)) {
+                WriteActivityConfig.newInstance(a2).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
+            } else if ("2".equals(str)) {
+                PbActivityConfig createNormalCfg = new PbActivityConfig(a2).createNormalCfg(str2, null, null);
+                createNormalCfg.setJumpToCommentArea(true);
+                createNormalCfg.showOpenEditorTips(str5);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+            } else if ("3".equals(str)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(a2).createSubPbActivityConfig(str2, str4, "mention", false, "", false, str4, 0);
+                createSubPbActivityConfig.showOpenEditorTips(str5);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+            }
+            return t0aVar;
+        }
+        return (t0a) invokeCommon.objValue;
+    }
+
+    public t0a g(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
+        InterceptResult invokeCommon;
+        String str18;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048583, this, context, shareItem, i) != null) || shareItem == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
+            t0a t0aVar = new t0a();
+            ArrayList arrayList = new ArrayList();
+            VideoItemData videoItemData = new VideoItemData();
+            videoItemData.thread_id = str;
+            videoItemData.post_id = str2;
+            videoItemData.title = str3;
+            UserItemData userItemData = new UserItemData();
+            userItemData.user_name = str4;
+            userItemData.name_show = str5;
+            userItemData.portrait = str6;
+            videoItemData.author_info = userItemData;
+            videoItemData.thumbnail_url = str7;
+            videoItemData.video_url = str8;
+            videoItemData.video_width = str9;
+            videoItemData.video_height = str10;
+            videoItemData.video_duration = ug.e(str11, 0);
+            if (ug.g(str10, 0L) > ug.g(str9, 0L)) {
+                z = true;
+                str18 = str12;
+            } else {
+                str18 = str12;
+                z = false;
+            }
+            videoItemData.comment_num = str18;
+            videoItemData.agree_num = str13;
+            videoItemData.share_num = str14;
+            videoItemData.forum_id = str15;
+            videoItemData.forum_name = str16;
+            arrayList.add(videoItemData);
+            xw5.d(ol6.a(webView.getContext()), arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false, ug.g(str15, 0L));
+            return t0aVar;
         }
-        if (i == 1) {
-            z = true;
-        } else {
-            z = false;
+        return (t0a) invokeCommon.objValue;
+    }
+
+    public t0a i(final WebView webView, final String str, final String str2, final String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, str2, str3)) == null) {
+            t0a t0aVar = new t0a();
+            nq9.c().b(new nq9.c() { // from class: com.baidu.tieba.gy4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.nq9.c
+                public final void a(HashMap hashMap) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap) == null) {
+                        sy4.m(str3, str, str2, webView, hashMap);
+                    }
+                }
+            });
+            return t0aVar;
         }
-        shareItem.M0 = z;
-        shareItem.o0 = true;
-        pr6.c().l(new ShareDialogConfig(context, shareItem, true, (SparseArray<String>) null));
-        if (shareItem.j()) {
-            shareItem.R = 11;
-            cb8.b(shareItem.L0);
+        return (t0a) invokeLLLL.objValue;
+    }
+
+    public t0a k(WebView webView, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, webView, str, i)) == null) {
+            t0a t0aVar = new t0a();
+            if (!TextUtils.isEmpty(str)) {
+                Context a2 = ol6.a(webView.getContext());
+                if (a2 == null) {
+                    a2 = webView.getContext();
+                }
+                rx4.s(a2, str);
+                if (i == 1 && (a2 instanceof Activity)) {
+                    ((Activity) a2).finish();
+                }
+            }
+            return t0aVar;
         }
+        return (t0a) invokeLLI.objValue;
+    }
+
+    public t0a n(WebView webView, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048588, this, webView, i, str)) == null) {
+            t0a t0aVar = new t0a();
+            if (i == 1) {
+                Context a2 = ol6.a(webView.getContext());
+                if (a2 == null) {
+                    a2 = webView.getContext();
+                }
+                if (fz9.b(a2, "com.tencent.mobileqq")) {
+                    mf5.e(8, a2);
+                } else {
+                    BdToast.b(a2, a2.getText(R.string.share_qq_not_install)).q();
+                }
+            }
+            return t0aVar;
+        }
+        return (t0a) invokeLIL.objValue;
+    }
+
+    public t0a l(WebView webView, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, webView, str, str2, str3)) == null) {
+            t0a t0aVar = new t0a();
+            if (WriteActivityConfig.isAsyncWriting()) {
+                return t0aVar;
+            }
+            int a2 = dga.a();
+            if (dga.c(a2)) {
+                Context a3 = ol6.a(webView.getContext());
+                if (a3 == null) {
+                    a3 = webView.getContext();
+                }
+                dga.e(a3, a2, 0);
+            }
+            if (dga.b()) {
+                dga.h(null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+            } else {
+                dga.k(false, false, null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+            }
+            return t0aVar;
+        }
+        return (t0a) invokeLLLL.objValue;
+    }
+
+    public t0a o(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, hashMap)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.RE_HIDE, jSONObject);
+            t0a t0aVar = new t0a();
+            t0aVar.o(jSONObject.toString());
+            return t0aVar;
+        }
+        return (t0a) invokeLL.objValue;
+    }
+
+    public t0a p(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, hashMap)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.RE_SHOW, jSONObject);
+            t0a t0aVar = new t0a();
+            t0aVar.o(jSONObject.toString());
+            return t0aVar;
+        }
+        return (t0a) invokeLL.objValue;
+    }
+
+    public t0a s(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, webView, hashMap)) == null) {
+            t0a t0aVar = new t0a();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", hashMap.get("resultCode"));
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return t0aVar;
+            }
+        }
+        return (t0a) invokeLL.objValue;
+    }
+
+    public t0a r(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, str)) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921804, null));
+            return new t0a();
+        }
+        return (t0a) invokeLL.objValue;
+    }
+
+    public t0a u(WebView webView, String str, ArrayList<JSONObject> arrayList) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, webView, str, arrayList)) == null) {
+            t0a t0aVar = new t0a();
+            ArrayList arrayList2 = new ArrayList();
+            if (!ListUtils.isEmpty(arrayList)) {
+                for (int i = 0; i < arrayList.size(); i++) {
+                    JSONObject jSONObject = arrayList.get(i);
+                    String optString = jSONObject.optString("reportContent");
+                    if (!TextUtils.isEmpty(optString)) {
+                        optString = new String(Base64.decode(optString, 2), StandardCharsets.UTF_8);
+                    }
+                    arrayList2.add(new ReportPrivateMsgData(jSONObject.optString("msgId"), optString, jSONObject.optString(FileMetaUtil.CREATE_TIME)));
+                }
+            }
+            rx5.c(new a(this, str), new b(this, str, arrayList2));
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("resultCode", 0);
+                t0aVar.o(jSONObject2.toString());
+                return t0aVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return t0aVar;
+            }
+        }
+        return (t0a) invokeLLL.objValue;
     }
 }

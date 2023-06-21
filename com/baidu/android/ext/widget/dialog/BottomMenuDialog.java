@@ -324,10 +324,10 @@ public class BottomMenuDialog extends DialogFragment {
             this.mListView.setAdapter((ListAdapter) this.mAdapter);
             this.mListView.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f0604f7));
             this.mListView.setDividerHeight(1);
-            this.mListView.setSelector(R.drawable.obfuscated_res_0x7f08039a);
+            this.mListView.setSelector(R.drawable.obfuscated_res_0x7f08039c);
             this.mRootView.findViewById(R.id.header_devider).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0604f7));
             this.mRootView.findViewById(R.id.bottom_devider).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0604f6));
-            this.mBottomView.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08039a));
+            this.mBottomView.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08039c));
             setup();
             return this.mRootView;
         }

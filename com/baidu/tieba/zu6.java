@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.WorkerThread;
+import android.graphics.Canvas;
 /* loaded from: classes8.dex */
 public interface zu6 {
-    @WorkerThread
-    void a(ys6 ys6Var);
+    lv6 a(dt6 dt6Var, dv6 dv6Var, xs6 xs6Var);
+
+    void b(dt6 dt6Var, Canvas canvas, dv6 dv6Var, xs6 xs6Var);
 }

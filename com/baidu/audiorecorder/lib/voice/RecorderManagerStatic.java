@@ -6,12 +6,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.b0a;
-import com.baidu.tieba.gi5;
-import com.baidu.tieba.op;
-import com.baidu.tieba.qp;
+import com.baidu.tieba.ki5;
+import com.baidu.tieba.pp;
 import com.baidu.tieba.rp;
 import com.baidu.tieba.sp;
+import com.baidu.tieba.t1a;
+import com.baidu.tieba.tp;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,11 +44,11 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<b0a> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<t1a> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2001271, op.n());
+                return new CustomResponsedMessage<>(2001271, pp.n());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -74,12 +74,12 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<gi5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ki5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001272, new sp(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001272, new tp(customMessage.getData()));
                 }
                 return null;
             }
@@ -167,12 +167,12 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<gi5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ki5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001301, new qp(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001301, new rp(customMessage.getData()));
                 }
                 return null;
             }
@@ -200,12 +200,12 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<gi5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ki5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001448, new rp(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001448, new sp(customMessage.getData()));
                 }
                 return null;
             }

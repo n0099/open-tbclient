@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.CustomRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bf8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.le8;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.p75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class DirectChatSlice extends Slice {
     @Nullable
     public ChatRoomDetail m;
     @Nullable
-    public le8 n;
+    public bf8 n;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -62,19 +62,19 @@ public class DirectChatSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0908bc);
+                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0908ba);
                 return aVar;
             }
             return (a) invokeL.objValue;
         }
     }
 
-    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull le8 le8Var) {
+    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull bf8 bf8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, le8Var};
+            Object[] objArr = {tbPageContext, bf8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,7 +85,7 @@ public class DirectChatSlice extends Slice {
             }
         }
         this.j = tbPageContext;
-        this.n = le8Var;
+        this.n = bf8Var;
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
@@ -108,7 +108,7 @@ public class DirectChatSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0889, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d088a, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -141,8 +141,8 @@ public class DirectChatSlice extends Slice {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
             this.l.notifyDataSetChanged();
-            o75.d(this.k.b).f(R.color.transparent);
-            o75.d(this.k.a).f(R.color.transparent);
+            p75.d(this.k.b).f(R.color.transparent);
+            p75.d(this.k.a).f(R.color.transparent);
         }
     }
 }

@@ -11,16 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
-import com.baidu.tieba.ew3;
-import com.baidu.tieba.ey3;
-import com.baidu.tieba.is1;
-import com.baidu.tieba.ky3;
+import com.baidu.tieba.fw3;
+import com.baidu.tieba.fy3;
+import com.baidu.tieba.js1;
+import com.baidu.tieba.ly3;
 import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class SwanContentProvider extends ContentProvider {
-    public static final boolean a = is1.a;
+    public static final boolean a = js1.a;
     public static final String b = AppRuntime.getAppContext().getPackageName() + ".provider";
     public static UriMatcher c = new UriMatcher(-1);
     public static HashSet<String> d = new HashSet<>();
@@ -63,7 +63,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        ey3 d2;
+        fy3 d2;
         if (!c() || (d2 = d(c.match(uri))) == null) {
             return null;
         }
@@ -79,8 +79,8 @@ public class SwanContentProvider extends ContentProvider {
         if (d.contains(callingPackage)) {
             return true;
         }
-        String a2 = ky3.a(callingPackage);
-        Set<String> a3 = ew3.e().a();
+        String a2 = ly3.a(callingPackage);
+        Set<String> a3 = fw3.e().a();
         z = (a3 == null || !a3.contains(a2)) ? false : false;
         if (z) {
             d.add(callingPackage);
@@ -88,8 +88,8 @@ public class SwanContentProvider extends ContentProvider {
         return z;
     }
 
-    public final ey3 d(int i) {
-        Class<? extends ey3> processorClass = ProcessorInfo.getProcessorClass(i);
+    public final fy3 d(int i) {
+        Class<? extends fy3> processorClass = ProcessorInfo.getProcessorClass(i);
         if (processorClass != null) {
             try {
                 return processorClass.newInstance();
@@ -106,7 +106,7 @@ public class SwanContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        ey3 d2;
+        fy3 d2;
         if (!c() || (d2 = d(c.match(uri))) == null) {
             return 0;
         }
@@ -116,7 +116,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        ey3 d2;
+        fy3 d2;
         if (!b() || (d2 = d(c.match(uri))) == null) {
             return null;
         }
@@ -125,7 +125,7 @@ public class SwanContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        ey3 d2;
+        fy3 d2;
         if (!c() || (d2 = d(c.match(uri))) == null) {
             return 0;
         }

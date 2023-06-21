@@ -1,33 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.connect.NetWorkUtils;
-import com.baidu.nadcore.download.basic.AdAppStateManager;
 import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nl0 implements vm0 {
+public class nl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zl0 a;
-    public int b;
+    public final HashMap<String, List<sm0>> a;
+    public final ReentrantReadWriteLock b;
+    public final IAdDownloader c;
 
-    public nl0(@NonNull zl0 zl0Var) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-571833606, "Lcom/baidu/tieba/nl0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-571833606, "Lcom/baidu/tieba/nl0$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AdDownloadAction.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadAction.START.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadAction.PAUSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AdDownloadAction.RESUME.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadAction.COMPLETE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[AdDownloadAction.INSTALL_START.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[AdDownloadAction.INSTALL_FINISH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[AdDownloadAction.OPEN.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[AdDownloadAction.FAIL.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[AdDownloadAction.FAIL_RETRY.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[AdDownloadAction.FAIL_PERMISSION_DENY.ordinal()] = 10;
+            } catch (NoSuchFieldError unused10) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final nl0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-571833575, "Lcom/baidu/tieba/nl0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-571833575, "Lcom/baidu/tieba/nl0$b;");
+                    return;
+                }
+            }
+            a = new nl0(null);
+        }
+    }
+
+    public nl0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zl0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,147 +130,223 @@ public class nl0 implements vm0 {
                 return;
             }
         }
-        this.b = 0;
-        this.a = zl0Var;
+        this.a = new HashMap<>(32);
+        this.b = new ReentrantReadWriteLock();
+        this.c = um0.b();
     }
 
-    @Override // com.baidu.tieba.vm0
-    public void a(int i, long j, long j2) {
+    public /* synthetic */ nl0(a aVar) {
+        this();
+    }
+
+    public void a(@NonNull am0 am0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || j < 0 || j2 <= 0 || j > j2) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, am0Var) != null) || am0Var.f()) {
             return;
         }
-        this.a.i = (float) a31.a(j, j2);
-        this.a.c = AdDownloadStatus.DOWNLOADING;
-        ml0.b().f(AdDownloadAction.PROGRESS_UPDATE, this.a);
+        this.c.b(am0Var);
+        am0Var.c = AdDownloadStatus.NONE;
+        im0 im0Var = new im0();
+        im0Var.b = "install_failed";
+        g(AdDownloadAction.FAIL, am0Var, im0Var);
     }
 
-    @Override // com.baidu.tieba.vm0
-    public void b(long j, File file) {
-        AdDownloadAction adDownloadAction;
+    public void h(@NonNull am0 am0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
-            if (this.a.c == AdDownloadStatus.PAUSE) {
-                adDownloadAction = AdDownloadAction.RESUME;
-            } else {
-                adDownloadAction = AdDownloadAction.START;
-            }
-            this.a.l = System.currentTimeMillis();
-            zl0 zl0Var = this.a;
-            zl0Var.c = AdDownloadStatus.DOWNLOADING;
-            zl0Var.h = file;
-            zl0Var.q.e = j;
-            ml0.b().f(adDownloadAction, this.a);
-            ql0.b().update(this.a);
-            ql0.b().e(this.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, am0Var) == null) {
+            this.c.c(am0Var);
         }
     }
 
-    @Override // com.baidu.tieba.vm0
-    public void c(int i, int i2) {
+    public void j(@NonNull am0 am0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.c = AdDownloadStatus.PAUSE;
-            ml0.b().f(AdDownloadAction.PAUSE, this.a);
-            im0.f().i(this.a, "notify_type_pause");
-            ql0.b().e(this.a);
+        if (interceptable == null || interceptable.invokeL(1048581, this, am0Var) == null) {
+            f(AdDownloadAction.PROGRESS_UPDATE, am0Var);
+            this.c.d(am0Var, new ol0(am0Var));
         }
     }
 
-    @Override // com.baidu.tieba.vm0
-    public void d(@Nullable hm0 hm0Var) {
+    public void k(@NonNull am0 am0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hm0Var) == null) {
-            if (e(hm0Var)) {
-                zl0 zl0Var = this.a;
-                if (zl0Var.c == AdDownloadStatus.PAUSE) {
-                    ml0.b().j(this.a);
-                } else {
-                    zl0Var.i = 0.0f;
-                    zl0Var.j = 0.0f;
-                    ml0.b().k(this.a);
+        if (interceptable == null || interceptable.invokeL(1048582, this, am0Var) == null) {
+            f(AdDownloadAction.PROGRESS_UPDATE, am0Var);
+            am0Var.b = this.c.a(am0Var, new ol0(am0Var));
+            am0Var.c = AdDownloadStatus.DOWNLOADING;
+        }
+    }
+
+    public static nl0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (nl0) invokeV.objValue;
+    }
+
+    public static void c(@NonNull am0 am0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, am0Var) == null) {
+            if (!TextUtils.isEmpty(am0Var.p.c) && uj0.b(am0Var.p.c)) {
+                if (fo0.b().a().a("nad_als_open_to_click_switch", 0) == 1) {
+                    d(AdDownloadAction.OPEN, am0Var);
+                    return;
                 }
-                this.b++;
-            } else {
-                zl0 zl0Var2 = this.a;
-                zl0Var2.c = AdDownloadStatus.FAILED;
-                zl0Var2.i = 0.0f;
-                zl0Var2.j = 0.0f;
-                ml0.b().g(AdDownloadAction.FAIL, this.a, hm0Var);
-                im0.f().i(this.a, "notify_type_stop");
-            }
-            ql0.b().e(this.a);
-        }
-    }
-
-    public final boolean e(@Nullable hm0 hm0Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hm0Var)) == null) {
-            if (hm0Var == null || !hm0Var.c) {
-                return false;
-            }
-            if (eo0.b().a().a("nad_failed_retry_switch", 0) == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return false;
-            }
-            if (this.b >= eo0.b().a().a("nad_failed_retry_count", 0)) {
-                return false;
-            }
-            if (eo0.b().a().a("nad_failed_retry_without_wifi", 0) == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!z2 && !NetWorkUtils.c(kk0.b())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vm0
-    public void onSuccess(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.m = System.currentTimeMillis();
-            if (TextUtils.isEmpty(this.a.d)) {
-                zl0 zl0Var = this.a;
-                zl0Var.d = dn0.b(zl0Var.h);
-            }
-            if (dn0.f(this.a.h)) {
-                PackageInfo packageArchiveInfo = kk0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128);
-                if (packageArchiveInfo != null) {
-                    zl0 zl0Var2 = this.a;
-                    zl0Var2.o = packageArchiveInfo.versionName;
-                    zl0Var2.n = packageArchiveInfo.versionCode;
-                }
-                AdAppStateManager.instance().register(this.a);
-                zl0 zl0Var3 = this.a;
-                zl0Var3.c = AdDownloadStatus.COMPLETED;
-                zl0Var3.i = 1.0f;
-                zl0Var3.j = 1.0f;
-                ml0.b().f(AdDownloadAction.COMPLETE, this.a);
-                bn0.f().k(this.a);
-                im0.f().k(this.a);
-                ql0.b().e(this.a);
-                zl0 zl0Var4 = this.a;
-                dn0.e(zl0Var4.h, zl0Var4.a());
                 return;
             }
-            zl0 zl0Var5 = this.a;
-            zl0Var5.c = AdDownloadStatus.FAILED;
-            zl0Var5.i = 0.0f;
-            zl0Var5.j = 0.0f;
-            ml0.b().f(AdDownloadAction.FAIL, this.a);
-            ql0.b().e(this.a);
+            en0.g(am0Var.d);
+            d(AdDownloadAction.OPEN, am0Var);
+        }
+    }
+
+    public static void d(@NonNull AdDownloadAction adDownloadAction, @NonNull am0 am0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, adDownloadAction, am0Var) == null) {
+            e(adDownloadAction, am0Var, null);
+        }
+    }
+
+    public void f(@NonNull AdDownloadAction adDownloadAction, @NonNull am0 am0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadAction, am0Var) == null) {
+            g(adDownloadAction, am0Var, null);
+        }
+    }
+
+    public static void e(@NonNull AdDownloadAction adDownloadAction, @NonNull am0 am0Var, @Nullable im0 im0Var) {
+        ClogBuilder.LogType logType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65541, null, adDownloadAction, am0Var, im0Var) != null) || TextUtils.isEmpty(am0Var.p.a)) {
+            return;
+        }
+        String str = am0Var.q.j;
+        switch (a.a[adDownloadAction.ordinal()]) {
+            case 1:
+                logType = ClogBuilder.LogType.DOWNLOAD_START;
+                break;
+            case 2:
+                logType = ClogBuilder.LogType.DOWNLOAD_PAUSE;
+                break;
+            case 3:
+                logType = ClogBuilder.LogType.DOWNLOAD_CONTINUE;
+                break;
+            case 4:
+                logType = ClogBuilder.LogType.DOWNLOAD_COMPLETE;
+                break;
+            case 5:
+                logType = ClogBuilder.LogType.DOWNLOAD_INSTALL;
+                break;
+            case 6:
+                logType = ClogBuilder.LogType.INSTALL_COMPLETE;
+                break;
+            case 7:
+                if (fo0.b().a().a("nad_als_open_to_click_switch", 0) == 1) {
+                    logType = ClogBuilder.LogType.CLICK;
+                    str = ClogBuilder.Area.OPEN_BUTTON.type;
+                    break;
+                } else {
+                    logType = ClogBuilder.LogType.DEEP_LINK;
+                    break;
+                }
+            case 8:
+                logType = ClogBuilder.LogType.DOWNLOAD_FAILED;
+                break;
+            case 9:
+                logType = ClogBuilder.LogType.DOWNLOAD_RETRY;
+                break;
+            default:
+                return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            str = ClogBuilder.Area.DOWNLOAD_BUTTON.type;
+        }
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.y(logType).p(am0Var.p.a).v(am0Var.q.a).j(str).k(am0Var.d).l(am0Var.q.a).m(am0Var.q.b).n(am0Var.g);
+        JSONObject jSONObject = new JSONObject();
+        z21.d(jSONObject, "is_swallow", 1);
+        if (!TextUtils.isEmpty(am0Var.q.d)) {
+            z21.f(jSONObject, "ad_download_content_type", am0Var.q.d);
+        }
+        long j = am0Var.q.e;
+        if (j > 0) {
+            z21.e(jSONObject, "ad_download_content_length", j);
+        }
+        int i = am0Var.n;
+        if (i > 0) {
+            z21.d(jSONObject, "version_code", i);
+        }
+        if (!TextUtils.isEmpty(am0Var.o)) {
+            z21.f(jSONObject, NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, am0Var.o);
+        }
+        if (im0Var != null) {
+            Exception exc = im0Var.a;
+            if (exc != null) {
+                z21.f(jSONObject, "failed_reason", exc.getClass().toString());
+            }
+            String str2 = im0Var.b;
+            if (str2 != null) {
+                z21.f(jSONObject, "failed_reason", str2);
+            }
+        }
+        if (jSONObject.length() > 0) {
+            clogBuilder.o(jSONObject.toString());
+        }
+        o31.b(clogBuilder);
+    }
+
+    public void g(@NonNull AdDownloadAction adDownloadAction, @NonNull am0 am0Var, @Nullable im0 im0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, adDownloadAction, am0Var, im0Var) == null) {
+            e(adDownloadAction, am0Var, im0Var);
+            this.b.readLock().lock();
+            try {
+                List list = (List) a31.b(this.a, am0Var.e());
+                if (list == null) {
+                    return;
+                }
+                for (int i = 0; i != y21.l(list); i++) {
+                    sm0 sm0Var = (sm0) y21.d(list, i);
+                    if (sm0Var != null && sm0Var.getData() != null) {
+                        sm0Var.getData().i(am0Var);
+                        sm0Var.a(adDownloadAction, sm0Var.getData());
+                    }
+                }
+            } finally {
+                this.b.readLock().unlock();
+            }
+        }
+    }
+
+    public void i(String str, sm0 sm0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, sm0Var) == null) && !TextUtils.isEmpty(str) && sm0Var != null) {
+            this.b.writeLock().lock();
+            try {
+                List list = (List) a31.b(this.a, str);
+                if (list == null) {
+                    list = new ArrayList();
+                    a31.e(this.a, str, list);
+                }
+                y21.b(list, sm0Var);
+            } finally {
+                this.b.writeLock().unlock();
+            }
+        }
+    }
+
+    public void l(String str, sm0 sm0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, sm0Var) == null) && !TextUtils.isEmpty(str) && sm0Var != null) {
+            this.b.writeLock().lock();
+            try {
+                List list = (List) a31.b(this.a, str);
+                if (list == null) {
+                    return;
+                }
+                y21.j(list, sm0Var);
+            } finally {
+                this.b.writeLock().unlock();
+            }
         }
     }
 }

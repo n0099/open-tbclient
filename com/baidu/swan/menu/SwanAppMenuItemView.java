@@ -13,14 +13,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi4;
+import com.baidu.tieba.hi4;
 /* loaded from: classes4.dex */
 public class SwanAppMenuItemView extends RelativeLayout {
     public ImageView a;
     public TextView b;
     public TextView c;
     public ImageView d;
-    public gi4 e;
+    public hi4 e;
     public int f;
     public int g;
     public boolean h;
@@ -33,8 +33,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            gi4 gi4Var = SwanAppMenuItemView.this.e;
-            if (gi4Var != null && gi4Var.d() != null) {
+            hi4 hi4Var = SwanAppMenuItemView.this.e;
+            if (hi4Var != null && hi4Var.d() != null) {
                 SwanAppMenuItemView swanAppMenuItemView = SwanAppMenuItemView.this;
                 swanAppMenuItemView.h = swanAppMenuItemView.e.d().a(SwanAppMenuItemView.this.e);
             }
@@ -61,8 +61,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
         return "99+";
     }
 
-    public final Drawable b(gi4 gi4Var) {
-        return gi4Var.a(getContext());
+    public final Drawable b(hi4 hi4Var) {
+        return hi4Var.a(getContext());
     }
 
     public final int c(int i) {
@@ -70,16 +70,16 @@ public class SwanAppMenuItemView extends RelativeLayout {
         return (int) (((i * 0.5d) + (resources.getDimension(R.dimen.obfuscated_res_0x7f0700e9) * 0.5d)) - resources.getDimension(R.dimen.obfuscated_res_0x7f0700ea));
     }
 
-    public final void g(gi4 gi4Var) {
-        if (gi4Var == null) {
+    public final void g(hi4 hi4Var) {
+        if (hi4Var == null) {
             return;
         }
         setAlpha(1.0f);
-        this.b.setText(gi4Var.h(getContext()));
-        Drawable b = b(gi4Var);
+        this.b.setText(hi4Var.h(getContext()));
+        Drawable b = b(hi4Var);
         if (b != null) {
             this.a.setImageDrawable(b);
-            this.a.setImageLevel(gi4Var.b());
+            this.a.setImageLevel(hi4Var.b());
         }
     }
 
@@ -90,12 +90,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
         d();
     }
 
-    public void h(gi4 gi4Var, int i) {
-        if (gi4Var == null) {
+    public void h(hi4 hi4Var, int i) {
+        if (hi4Var == null) {
             return;
         }
-        e(gi4Var, i);
-        this.e = gi4Var;
+        e(hi4Var, i);
+        this.e = hi4Var;
     }
 
     public SwanAppMenuItemView(Context context, AttributeSet attributeSet, int i) {
@@ -115,27 +115,27 @@ public class SwanAppMenuItemView extends RelativeLayout {
         setBackgroundResource(0);
     }
 
-    public final void e(gi4 gi4Var, int i) {
+    public final void e(hi4 hi4Var, int i) {
         float f;
         this.b.setEllipsize(TextUtils.TruncateAt.END);
-        if (gi4Var.i()) {
+        if (hi4Var.i()) {
             f = 1.0f;
         } else {
             f = 0.3f;
         }
         this.b.setAlpha(f);
-        this.a.setEnabled(gi4Var.i());
+        this.a.setEnabled(hi4Var.i());
         this.a.setScaleType(ImageView.ScaleType.CENTER);
         this.a.setVisibility(0);
-        g(gi4Var);
-        f(gi4Var, i);
+        g(hi4Var);
+        f(hi4Var, i);
     }
 
-    public final void f(gi4 gi4Var, int i) {
-        if (gi4Var == null) {
+    public final void f(hi4 hi4Var, int i) {
+        if (hi4Var == null) {
             return;
         }
-        int f = gi4Var.f();
+        int f = hi4Var.f();
         if (f != 0) {
             if (f != 1) {
                 if (f != 2) {
@@ -144,16 +144,16 @@ public class SwanAppMenuItemView extends RelativeLayout {
                     return;
                 }
                 this.c.setVisibility(8);
-                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813bc));
+                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813c0));
                 this.d.setVisibility(0);
                 return;
             } else if (i <= 0) {
                 return;
             } else {
                 this.d.setVisibility(8);
-                this.c.setText(a(gi4Var.e()));
+                this.c.setText(a(hi4Var.e()));
                 this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060abd));
-                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813bb));
+                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813bf));
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
                 marginLayoutParams.leftMargin = c(i);
                 this.c.setLayoutParams(marginLayoutParams);
@@ -194,8 +194,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
                 return super.onTouchEvent(motionEvent);
             }
         } else {
-            gi4 gi4Var = this.e;
-            if (gi4Var != null && gi4Var.d() != null) {
+            hi4 hi4Var = this.e;
+            if (hi4Var != null && hi4Var.d() != null) {
                 removeCallbacks(this.i);
                 this.h = false;
                 this.f = x;

@@ -2,15 +2,20 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.switchs.FunnySpriteSwitch;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,256 +23,250 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jn5 implements in5 {
+public final class jn5 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public ConcurrentHashMap<String, gn5> c;
-    public int d;
-    public boolean e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947889080, "Lcom/baidu/tieba/jn5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947889080, "Lcom/baidu/tieba/jn5;");
+        }
+    }
+
+    @JvmOverloads
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f(false, 1, null) : invokeV.booleanValue;
+    }
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static final class a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
-        public static final jn5 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-684354213, "Lcom/baidu/tieba/jn5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-684354213, "Lcom/baidu/tieba/jn5$a;");
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new jn5();
+            this.a = str;
         }
-    }
 
-    public jn5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public void c(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                super.onPostExecute(Boolean.valueOf(z));
             }
         }
-        this.c = new ConcurrentHashMap<>();
-    }
 
-    public static final jn5 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public /* bridge */ /* synthetic */ void onPostExecute(Boolean bool) {
+            c(bool.booleanValue());
         }
-        return (jn5) invokeV.objValue;
-    }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.e && currentTimeMillis > h() && currentTimeMillis < g()) {
-                return true;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... params) {
+            InterceptResult invokeL;
+            boolean z;
+            boolean z2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
+                Intrinsics.checkNotNullParameter(params, "params");
+                boolean z3 = true;
+                if (params.length == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return Boolean.FALSE;
+                }
+                String str = params[0];
+                if (StringUtils.isNull(str)) {
+                    return Boolean.FALSE;
+                }
+                NetWork netWork = new NetWork();
+                netWork.setUrl(TbConfig.SERVER_ADDRESS + "c/f/sprite/sendSpriteMsg");
+                netWork.addPostData("content", str);
+                String str2 = this.a;
+                if (str2 != null && str2.length() != 0) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    netWork.addPostData("msg_key", this.a);
+                }
+                String result = netWork.postNetData();
+                Intrinsics.checkNotNullExpressionValue(result, "result");
+                jn5.g(result);
+                return Boolean.valueOf((netWork.getNetContext().getResponse().isRequestSuccess() && StringUtils.isNotNull(result)) ? false : false);
             }
-            return false;
+            return (Boolean) invokeL.objValue;
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean c() {
+    public static final js6 a(String resPath, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{resPath, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            Intrinsics.checkNotNullParameter(resPath, "resPath");
+            js6 js6Var = new js6();
+            js6Var.d(resPath);
+            js6Var.c(z);
+            js6Var.e(i);
+            return js6Var;
+        }
+        return (js6) invokeCommon.objValue;
+    }
+
+    public static final String b(String spriteTalk, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, spriteTalk, i)) == null) {
+            Intrinsics.checkNotNullParameter(spriteTalk, "spriteTalk");
+            return "tiebaapp://router/portal?params={\"page\":\"im/funnySprite\",\"pageParams\":{\"spriteType\": \"" + i + "\",spriteTalk: \"" + spriteTalk + "\"}}";
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (z21.c(this.c) || this.d != this.c.hashCode()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public static final boolean e(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (currentActivity == null || currentActivity.isFinishing()) {
+                return false;
+            }
+            if (currentActivity instanceof r3a) {
+                return n5a.g.a().g();
+            }
+            if ((!z && !FunnySpriteSwitch.Companion.isOn()) || !FunnySpriteResDownloadUtil.k().invoke().booleanValue() || !new wr8("key_sprite_dialog_disappear").f()) {
                 return false;
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeZ.booleanValue;
     }
 
-    public Map<String, gn5> e() {
-        InterceptResult invokeV;
+    public static final void g(String result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.c.clear();
-            this.d = 0;
-            this.a = 0L;
-            this.b = 0L;
-            this.e = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.in5
-    public void a() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<Map.Entry<String, gn5>> it = this.c.entrySet().iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Map.Entry<String, gn5> next = it.next();
-                    if (next.getValue() != null && !next.getValue().v()) {
-                        z = false;
-                        break;
-                    }
-                } else {
-                    z = true;
-                    break;
-                }
-            }
-            this.e = z;
-            if (z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
+        if (interceptable == null || interceptable.invokeL(65543, null, result) == null) {
+            Intrinsics.checkNotNullParameter(result, "result");
+            try {
+                a = new JSONObject(result).optJSONObject("data").optString("msg_key");
+                tr8 defaultLog = DefaultLog.getInstance();
+                defaultLog.c("sendSpriteMsg", "发送接口success：" + a + WebvttCueParser.CHAR_SPACE + result);
+            } catch (Exception e) {
+                DefaultLog.getInstance().b("sendSpriteMsg", "发送接口数据解析失败");
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    public gn5 d(String str) {
-        InterceptResult invokeL;
+    public static final void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c.get(str);
-        }
-        return (gn5) invokeL.objValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public hn5 i() {
-        InterceptResult invokeV;
-        hn5 r;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            gn5 d = f().d("style");
-            if (d != null && (r = d.r()) != null && StringUtils.isNotNull(r.b()) && StringUtils.isNotNull(r.c()) && StringUtils.isNotNull(r.a())) {
-                return r;
-            }
-            return null;
-        }
-        return (hn5) invokeV.objValue;
-    }
-
-    public void j() {
-        BdUniqueId bdUniqueId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity instanceof BaseActivity) {
-                bdUniqueId = ((BaseActivity) currentActivity).getUniqueId();
-            } else if (currentActivity instanceof BaseFragmentActivity) {
-                bdUniqueId = ((BaseFragmentActivity) currentActivity).getUniqueId();
+        if (interceptable == null || interceptable.invokeI(65544, null, i) == null) {
+            if (i != 2 && 2 == n5a.g.a().b().a().c && 1 == n5a.g.a().b().b().c && 6 == n5a.g.a().b().c().c) {
+                DefaultLog.getInstance().c("SpriteTip", "requestSpriteTip：直播tab不请求轻互动");
             } else {
-                bdUniqueId = null;
-            }
-            for (Map.Entry<String, gn5> entry : this.c.entrySet()) {
-                if (entry.getValue() != null) {
-                    entry.getValue().A(bdUniqueId);
-                    entry.getValue().z(this);
-                    entry.getValue().x();
-                }
+                k(i);
             }
         }
     }
 
-    public void k(JSONObject jSONObject) {
+    public static final void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            this.c.clear();
-            this.a = jSONObject.optLong("start_time");
-            this.b = jSONObject.optLong("end_time");
-            JSONObject optJSONObject = jSONObject.optJSONObject("feed");
-            if (optJSONObject != null) {
-                gn5 gn5Var = new gn5();
-                gn5Var.y(optJSONObject);
-                this.c.put("homePage", gn5Var);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
-            if (optJSONObject2 != null) {
-                gn5 gn5Var2 = new gn5();
-                gn5Var2.y(optJSONObject2);
-                this.c.put("enterForum", gn5Var2);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
-            if (optJSONObject3 != null) {
-                gn5 gn5Var3 = new gn5();
-                gn5Var3.y(optJSONObject3);
-                this.c.put("channel", gn5Var3);
-            }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject(CommonToolbarStatisticConstants.TOOLBAR_MENU_NEW_DETAIL_BROWSER);
-            if (optJSONObject4 != null) {
-                gn5 gn5Var4 = new gn5();
-                gn5Var4.y(optJSONObject4);
-                this.c.put("message", gn5Var4);
-            }
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
-            if (optJSONObject5 != null) {
-                gn5 gn5Var5 = new gn5();
-                gn5Var5.y(optJSONObject5);
-                this.c.put("person", gn5Var5);
-            }
-            JSONObject optJSONObject6 = jSONObject.optJSONObject("write");
-            if (optJSONObject6 != null) {
-                gn5 gn5Var6 = new gn5();
-                gn5Var6.y(optJSONObject6);
-                this.c.put("write", gn5Var6);
-            }
-            JSONObject optJSONObject7 = jSONObject.optJSONObject("style");
-            if (optJSONObject7 != null) {
-                gn5 gn5Var7 = new gn5();
-                gn5Var7.y(optJSONObject7);
-                this.c.put("style", gn5Var7);
-            }
+        if (interceptable == null || interceptable.invokeI(65547, null, i) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REQUEST_SPRITE_LOOP);
+            httpMessage.addParam("scene", i);
+            httpMessage.addParam("sprite_uk", o95.p().w("key_funny_sprite_uk", ""));
+            httpMessage.addParam("version", o95.p().w("key_sprite_speech_version", ""));
+            httpMessage.addParam("is_sprite_new_user", o95.p().q("key_sprite_is_new_user", 0));
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
+    }
+
+    public static /* synthetic */ boolean f(boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
+            z = false;
+        }
+        return e(z);
+    }
+
+    public static final void i(String content) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, content) == null) {
+            Intrinsics.checkNotNullParameter(content, "content");
+            j(content, "");
+        }
+    }
+
+    public static final void j(String content, String mMsgKey) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, content, mMsgKey) == null) {
+            Intrinsics.checkNotNullParameter(content, "content");
+            Intrinsics.checkNotNullParameter(mMsgKey, "mMsgKey");
+            if (StringUtils.isNull(content)) {
+                return;
+            }
+            new a(mMsgKey).execute(content);
+        }
+    }
+
+    public static final boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            tr8 defaultLog = DefaultLog.getInstance();
+            defaultLog.c("SpriteTip", "tryRequestFirstTip isShowSpriteDialog:" + TbSingleton.getInstance().isShowSpriteDialog);
+            if (!TbSingleton.getInstance().isShowSpriteDialog) {
+                return false;
+            }
+            h(3);
+            TbSingleton.getInstance().isShowSpriteDialog = false;
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

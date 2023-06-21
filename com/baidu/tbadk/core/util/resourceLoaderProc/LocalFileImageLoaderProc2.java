@@ -7,17 +7,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.qg;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.og;
+import com.baidu.tieba.rg;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class LocalFileImageLoaderProc2 implements qg<gn> {
+public class LocalFileImageLoaderProc2 implements rg<hn> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int height;
@@ -25,16 +25,16 @@ public class LocalFileImageLoaderProc2 implements qg<gn> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public gn m126decodeToResource(byte[] bArr, Object... objArr) {
+    public hn m126decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
             return null;
         }
-        return (gn) invokeLL.objValue;
+        return (hn) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qg
+    @Override // com.baidu.tieba.rg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class LocalFileImageLoaderProc2 implements qg<gn> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qg
+    @Override // com.baidu.tieba.rg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,17 +56,17 @@ public class LocalFileImageLoaderProc2 implements qg<gn> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.qg
-    public gn getFromRemote(String str, String str2, int i, int i2, ng ngVar, Object... objArr) {
+    @Override // com.baidu.tieba.rg
+    public hn getFromRemote(String str, String str2, int i, int i2, og ogVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ngVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ogVar, objArr})) == null) {
             return null;
         }
-        return (gn) invokeCommon.objValue;
+        return (hn) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.qg
+    @Override // com.baidu.tieba.rg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,8 +103,8 @@ public class LocalFileImageLoaderProc2 implements qg<gn> {
     private void initDefalutMaxSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.width = vi.l(TbadkCoreApplication.getInst());
-            this.height = vi.j(TbadkCoreApplication.getInst());
+            this.width = wi.l(TbadkCoreApplication.getInst());
+            this.height = wi.j(TbadkCoreApplication.getInst());
         }
     }
 
@@ -133,57 +133,57 @@ public class LocalFileImageLoaderProc2 implements qg<gn> {
         initDefalutMaxSize();
     }
 
-    public gn getBitmapFromFile(String str, int i, int i2) {
+    public hn getBitmapFromFile(String str, int i, int i2) {
         Bitmap loadResizedBitmap;
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i, i2)) == null) {
             try {
                 if (str.toLowerCase().endsWith(".gif")) {
-                    return new gn(BitmapHelper.loadBitmap(str), true, str);
+                    return new hn(BitmapHelper.loadBitmap(str), true, str);
                 }
                 if (i > 0 && i2 > 0 && i < this.width && i2 < this.height) {
                     loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, i, i2);
                 } else {
                     loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, this.width, this.height);
                 }
-                return new gn(loadResizedBitmap, false, str);
+                return new hn(loadResizedBitmap, false, str);
             } catch (Throwable unused) {
                 return null;
             }
         }
-        return (gn) invokeLII.objValue;
+        return (hn) invokeLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.qg
-    public gn getFromLocal(String str, String str2, int i, int i2, ng ngVar, Object... objArr) {
+    @Override // com.baidu.tieba.rg
+    public hn getFromLocal(String str, String str2, int i, int i2, og ogVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ngVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ogVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             return getBitmapFromFile(str, i, i2);
         }
-        return (gn) invokeCommon.objValue;
+        return (hn) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.qg
-    public gn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tieba.rg
+    public hn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            gn checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), TbImageMemoryCache.u().z(toCacheKey(str, i, i2)), i, i2);
+            hn checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), TbImageMemoryCache.u().z(toCacheKey(str, i, i2)), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
             return null;
         }
-        return (gn) invokeCommon.objValue;
+        return (hn) invokeCommon.objValue;
     }
 
     public String toCacheKey(String str, int i, int i2) {
@@ -195,15 +195,15 @@ public class LocalFileImageLoaderProc2 implements qg<gn> {
         return (String) invokeLII.objValue;
     }
 
-    @Override // com.baidu.tieba.qg
+    @Override // com.baidu.tieba.rg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof gn)) {
-            gn gnVar = (gn) obj;
-            if (gnVar.u()) {
-                gnVar.A(i);
-                gnVar.z(i2);
-                TbImageMemoryCache.u().l(toCacheKey(str, i, i2), gnVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof hn)) {
+            hn hnVar = (hn) obj;
+            if (hnVar.u()) {
+                hnVar.A(i);
+                hnVar.z(i2);
+                TbImageMemoryCache.u().l(toCacheKey(str, i, i2), hnVar);
             }
         }
     }

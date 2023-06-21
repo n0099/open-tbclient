@@ -1,98 +1,96 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.Settings;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.qi9;
-import com.baidu.tieba.ui9;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterDynamicTabFragment;
+import com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment;
+import com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class ti9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
-    public SensorManager b;
-    public qi9 c;
-    public Sensor d;
-    public boolean e;
-    public boolean f;
-    public ui9 g;
-    public boolean h;
-    public boolean i;
-    public qi9.a j;
-    public ui9.a k;
+    public TbPageContext a;
+    public BdTypeRecyclerView b;
+    public View c;
+    public PbListView d;
+    public ug9 e;
+    public PersonCenterTabBaseFragment f;
+    public NoDataView g;
+    public os5 h;
+    public int i;
 
     /* loaded from: classes7.dex */
-    public class a implements qi9.a {
+    public class a extends LinearLayoutManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ti9 a;
 
-        public a(ti9 ti9Var) {
+        @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
+        public boolean requestChildRectangleOnScreen(RecyclerView recyclerView, View view2, Rect rect, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{recyclerView, view2, rect, Boolean.valueOf(z)})) == null) {
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
+        public boolean requestChildRectangleOnScreen(RecyclerView recyclerView, View view2, Rect rect, boolean z, boolean z2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{recyclerView, view2, rect, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ti9 ti9Var, Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ti9Var};
+                Object[] objArr = {ti9Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ti9Var;
-        }
-
-        @Override // com.baidu.tieba.qi9.a
-        public void a(int i) {
-            Activity activity;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
-                return;
-            }
-            int requestedOrientation = activity.getRequestedOrientation();
-            if (!this.a.h) {
-                if (i > 225 && i < 315) {
-                    if (requestedOrientation == 8) {
-                        activity.setRequestedOrientation(0);
-                    }
-                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
-                    activity.setRequestedOrientation(8);
-                }
-            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                if (!this.a.f) {
-                    if (i > 55 && i < 125) {
-                        if (requestedOrientation != 8) {
-                            activity.setRequestedOrientation(8);
-                        }
-                    } else if (requestedOrientation != 0) {
-                        activity.setRequestedOrientation(0);
-                    }
-                }
-                this.a.e = false;
-            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                if (!this.a.e && requestedOrientation != 1) {
-                    activity.setRequestedOrientation(1);
-                }
-                this.a.f = false;
-            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements ui9.a {
+    public class b extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ti9 a;
@@ -115,22 +113,29 @@ public class ti9 {
             this.a = ti9Var;
         }
 
-        @Override // com.baidu.tieba.ui9.a
-        public void onChange(boolean z) {
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                if (this.a.h == null) {
+                    this.a.h = new os5();
+                    this.a.h.a(this.a.i);
+                }
+                if (i == 0) {
+                    this.a.h.e();
+                } else {
+                    this.a.h.d();
+                }
             }
-            this.a.h = z;
         }
     }
 
-    public ti9(Activity activity) {
+    public ti9(TbPageContext tbPageContext, View view2, PersonCenterTabBaseFragment personCenterTabBaseFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {tbPageContext, view2, personCenterTabBaseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -140,78 +145,200 @@ public class ti9 {
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.h = false;
-        this.i = false;
-        this.j = new a(this);
-        this.k = new b(this);
-        if (activity == null) {
-            return;
-        }
-        this.a = new WeakReference<>(activity);
-        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
-        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
-        this.c = new qi9(this.j);
-        if (activity.getClass().getName().contains("SwanAppActivity")) {
-            activity.setRequestedOrientation(1);
+        this.h = null;
+        this.i = 1010;
+        this.a = tbPageContext;
+        this.c = view2;
+        this.f = personCenterTabBaseFragment;
+        h();
+    }
+
+    public void d(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.b.addHeaderView(view2);
         }
     }
 
-    public void i(boolean z) {
+    public void l(BdListView.p pVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.i = z;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pVar) == null) {
+            this.b.setOnSrollToBottomListener(pVar);
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.b.setNextPage(this.d);
+            this.d.P(0);
+            this.d.g();
+            this.d.H(this.a.getString(i));
+        }
+    }
+
+    public ug9 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (ug9) invokeV.objValue;
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.setNextPage(null);
         }
     }
 
     public void j() {
-        Activity activity;
-        Sensor sensor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null && (sensor = this.d) != null) {
-                sensorManager.registerListener(this.c, sensor, 2);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            os5 os5Var = this.h;
+            if (os5Var != null) {
+                os5Var.c();
             }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference != null && (activity = weakReference.get()) != null) {
-                ui9 ui9Var = new ui9(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
-                this.g = ui9Var;
-                ui9Var.b(this.k);
-                activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
-            }
+            this.b.setOnSrollToBottomListener(null);
         }
     }
 
     public void k() {
-        Activity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null) {
-                sensorManager.unregisterListener(this.c);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.smoothScrollToPosition(0);
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.b.setNextPage(this.d);
+            this.d.P(0);
+            this.d.U();
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.b.setNextPage(this.d);
+            this.d.P(0);
+            this.d.g();
+            this.d.H(this.a.getString(R.string.list_no_more));
+        }
+    }
+
+    public final void h() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0918a4);
+            this.b = bdTypeRecyclerView;
+            bdTypeRecyclerView.setLayoutManager(new a(this, bdTypeRecyclerView.getContext()));
+            this.b.addOnScrollListener(new b(this));
+            PbListView pbListView = new PbListView(this.a.getPageActivity());
+            this.d = pbListView;
+            pbListView.a();
+            this.d.s(R.color.CAM_X0205);
+            this.d.w(wi.g(this.a.getPageActivity(), R.dimen.tbds182));
+            this.d.B();
+            this.d.L(R.dimen.tbfontsize33);
+            this.d.J(SkinManager.getColor(R.color.CAM_X0107));
+            this.d.F(R.color.CAM_X0110);
+            ug9 ug9Var = new ug9(this.a, this.b, this.f.getUniqueId());
+            this.e = ug9Var;
+            ug9Var.d(this.f.J1());
+            this.e.h(32);
+            if (this.f.J1()) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f;
+                if (personCenterTabBaseFragment instanceof PersonCenterDynamicTabFragment) {
+                    i = 4;
+                } else if (personCenterTabBaseFragment instanceof PersonCenterThreadTabFragment) {
+                    i = 6;
+                }
+                this.e.f(i);
+                this.e.g(this.f.I1());
             }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference != null && this.g != null && (activity = weakReference.get()) != null) {
-                activity.getContentResolver().unregisterContentObserver(this.g);
+            i = 0;
+            this.e.f(i);
+            this.e.g(this.f.I1());
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            SkinManager.setBackgroundResource(this.c, R.color.CAM_X0201);
+            ug9 ug9Var = this.e;
+            if (ug9Var != null) {
+                ug9Var.b();
+            }
+            NoDataView noDataView = this.g;
+            if (noDataView != null) {
+                noDataView.f(this.a, i);
+            }
+            PbListView pbListView = this.d;
+            if (pbListView != null) {
+                pbListView.J(SkinManager.getColor(R.color.CAM_X0107));
+                this.d.e(i);
             }
         }
     }
 
-    public void l() {
-        WeakReference<Activity> weakReference;
-        Activity activity;
+    public void n(List<wn> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
+            if (ListUtils.isEmpty(list)) {
+                g();
+                if (this.b.getHeaderViewsCount() == 0) {
+                    p(R.string.obfuscated_res_0x7f0f101d);
+                }
+            } else {
+                NoDataView noDataView = this.g;
+                if (noDataView != null && noDataView.getParent() != null) {
+                    this.b.removeHeaderView(this.g);
+                }
+            }
+            this.b.setData(list);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.f.I1())));
         }
-        if (activity.getRequestedOrientation() == 1) {
-            activity.setRequestedOrientation(0);
-            this.e = true;
-            return;
+    }
+
+    public final void p(int i) {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            if (this.f.I1() == 1) {
+                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f101b);
+            } else {
+                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f101c);
+            }
+            if (this.g == null) {
+                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070380)), NoDataViewFactory.e.d(null, string), null);
+            }
+            this.g.f(this.a, TbadkApplication.getInst().getSkinType());
+            this.g.setVisibility(0);
+            this.b.removeHeaderView(this.g);
+            this.g.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.b.addHeaderView(this.g);
         }
-        activity.setRequestedOrientation(1);
-        this.f = true;
     }
 }

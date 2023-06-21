@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.nb5;
+import com.baidu.tieba.ma5;
+import com.baidu.tieba.ob5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class DynamicUserLikeButton extends TBSpecificationBtn implements nb5 {
+public class DynamicUserLikeButton extends TBSpecificationBtn implements ob5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -30,7 +30,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements nb5 {
         void a(View view2);
     }
 
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -98,13 +98,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements nb5 {
                 return;
             }
         }
-        la5 la5Var = new la5();
-        la5Var.t(R.color.CAM_X0302);
-        setConfig(la5Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5));
+        ma5 ma5Var = new ma5();
+        ma5Var.t(R.color.CAM_X0302);
+        setConfig(ma5Var);
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6));
     }
 
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements nb5 {
         }
     }
 
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -149,7 +149,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements nb5 {
         }
     }
 
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -173,37 +173,37 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements nb5 {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (this.q) {
                 if (z) {
-                    la5 la5Var = new la5();
-                    la5Var.s();
-                    setConfig(la5Var);
+                    ma5 ma5Var = new ma5();
+                    ma5Var.s();
+                    setConfig(ma5Var);
                     setClickable(true);
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
                 } else {
-                    la5 la5Var2 = new la5();
-                    la5Var2.w(R.color.CAM_X0105);
-                    la5Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
-                    la5Var2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-                    la5Var2.h(R.color.CAM_X0105);
-                    setConfig(la5Var2);
+                    ma5 ma5Var2 = new ma5();
+                    ma5Var2.w(R.color.CAM_X0105);
+                    ma5Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+                    ma5Var2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                    ma5Var2.h(R.color.CAM_X0105);
+                    setConfig(ma5Var2);
                     setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6));
                 }
             } else if (z) {
-                la5 la5Var3 = new la5();
-                la5Var3.v(R.color.CAM_X0109);
-                setConfig(la5Var3);
+                ma5 ma5Var3 = new ma5();
+                ma5Var3.v(R.color.CAM_X0109);
+                setConfig(ma5Var3);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                la5 la5Var4 = new la5();
-                la5Var4.t(R.color.CAM_X0302);
+                ma5 ma5Var4 = new ma5();
+                ma5Var4.t(R.color.CAM_X0302);
                 if (this.p) {
-                    la5Var4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
-                    la5Var4.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                    ma5Var4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+                    ma5Var4.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
                 }
-                setConfig(la5Var4);
+                setConfig(ma5Var4);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6));
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

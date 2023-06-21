@@ -5,6 +5,7 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.widget.TbLabelWidget;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
@@ -103,18 +105,25 @@ public final class PbContentCollectionController {
     }
 
     public static final void f(ThreadData threadData, View view2, int i, TbLabelWidget.c cVar) {
+        ThreadRecommendInfoData threadRecommendInfoData;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65538, null, threadData, view2, i, cVar) == null) {
             Intrinsics.checkNotNullParameter(threadData, "$threadData");
-            int i2 = 1;
+            int i3 = 1;
             if (i != 0) {
                 if (1 == i) {
-                    i2 = 2;
+                    i3 = 2;
                 } else {
-                    i2 = -1;
+                    i3 = -1;
                 }
             }
-            new StatisticItem(CommonStatisticKey.KEY_PB_CONTENT_COLLECTION_VIEW_CLICK).addParam("tid", threadData.getTid()).addParam("obj_locate", i2).addParam("obj_param1", cVar.j).eventStat();
+            StatisticItem addParam = new StatisticItem(CommonStatisticKey.KEY_PB_CONTENT_COLLECTION_VIEW_CLICK).addParam("tid", threadData.getTid()).addParam("obj_locate", i3).addParam("obj_param1", cVar.j);
+            List<ThreadRecommendInfoData> threadRecommendInfoDataList = threadData.getThreadRecommendInfoDataList();
+            if (threadRecommendInfoDataList != null && (threadRecommendInfoData = threadRecommendInfoDataList.get(0)) != null && (i2 = threadRecommendInfoData.albumType) != -1) {
+                addParam.addParam("obj_type", i2);
+            }
+            addParam.eventStat();
         }
     }
 
@@ -173,7 +182,7 @@ public final class PbContentCollectionController {
             b().setVisibility(0);
             b().setStyleForPb();
             b().setData(threadData);
-            b().setEventCallback(new TbLabelWidget.b() { // from class: com.baidu.tieba.n89
+            b().setEventCallback(new TbLabelWidget.b() { // from class: com.baidu.tieba.i99
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -192,7 +201,15 @@ public final class PbContentCollectionController {
         ThreadData threadData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (threadData = this.c) != null && threadData.getThreadRecommendInfoDataList() != null && threadData.getThreadRecommendInfoDataList().get(0) != null) {
-            new StatisticItem(CommonStatisticKey.KEY_PB_CONTENT_COLLECTION_VIEW_SHOW).addParam("tid", threadData.getTid()).addParam("obj_param1", threadData.getThreadRecommendInfoDataList().get(0).businessId).eventStat();
+            ThreadRecommendInfoData threadRecommendInfoData = threadData.getThreadRecommendInfoDataList().get(0);
+            Intrinsics.checkNotNullExpressionValue(threadRecommendInfoData, "it.threadRecommendInfoDataList[0]");
+            ThreadRecommendInfoData threadRecommendInfoData2 = threadRecommendInfoData;
+            StatisticItem addParam = new StatisticItem(CommonStatisticKey.KEY_PB_CONTENT_COLLECTION_VIEW_SHOW).addParam("tid", threadData.getTid()).addParam("obj_param1", threadRecommendInfoData2.businessId);
+            int i = threadRecommendInfoData2.albumType;
+            if (i != -1) {
+                addParam.addParam("obj_type", i);
+            }
+            addParam.eventStat();
         }
     }
 }

@@ -1,10 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.WholeDisplayGridView;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
+import com.baidu.tieba.w5a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,64 +20,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x5a {
-    public static /* synthetic */ Interceptable $ic;
-    public static x5a a;
+public class x5a extends BaseAdapter {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int e = 16;
     public transient /* synthetic */ FieldHolder $fh;
+    public AvatarPendantActivity a;
+    public List<u5a> b;
+    public v5a c;
+    public w5a.a d;
 
     /* loaded from: classes8.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x5a a;
+    }
 
-        public a(x5a x5aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x5aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x5aVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948252741, "Lcom/baidu/tieba/x5a;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List a = x5a.a();
-                int size = a.size();
-                for (int i = 0; i < size; i++) {
-                    w5a w5aVar = (w5a) a.get(i);
-                    this.a.j(w5aVar.a, w5aVar.b);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948252741, "Lcom/baidu/tieba/x5a;");
         }
     }
 
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
     /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<w5a, Void, Void> {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x5a a;
+        public TextView a;
+        public WholeDisplayGridView b;
+        public View c;
 
         public b(x5a x5aVar) {
             Interceptable interceptable = $ic;
@@ -83,234 +82,116 @@ public class x5a {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = x5aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(w5a... w5aVarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w5aVarArr)) == null) {
-                if (w5aVarArr != null && w5aVarArr.length == 1 && w5aVarArr[0] != null) {
-                    this.a.c(w5aVarArr[0]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
+        public /* synthetic */ b(x5a x5aVar, a aVar) {
+            this(x5aVar);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252741, "Lcom/baidu/tieba/x5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948252741, "Lcom/baidu/tieba/x5a;");
-                return;
-            }
-        }
-        a = new x5a();
-    }
-
-    public x5a() {
+    public x5a(AvatarPendantActivity avatarPendantActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {avatarPendantActivity};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = avatarPendantActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public u5a getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<u5a> list = this.b;
+            if (list != null && list.size() > 0 && i >= 0 && i < getCount()) {
+                return this.b.get(i);
+            }
+            return null;
+        }
+        return (u5a) invokeI.objValue;
+    }
+
+    public void b(w5a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
         }
     }
 
-    public static /* synthetic */ List a() {
-        return h();
+    public void c(List<u5a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
+        }
     }
 
-    public static x5a d() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<u5a> list = this.b;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
         }
-        return (x5a) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static File[] g() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            File file = new File(rx8.e);
-            if (!file.exists()) {
-                return null;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0132, viewGroup, false);
+                bVar = new b(this, null);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090641);
+                bVar.b = (WholeDisplayGridView) view2.findViewById(R.id.obfuscated_res_0x7f09031b);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0914e4);
+                view2.setTag(bVar);
             }
-            return file.listFiles();
+            u5a item = getItem(i);
+            if (StringUtils.isNull(item.a())) {
+                bVar.a.setVisibility(8);
+            } else {
+                bVar.a.setVisibility(0);
+                bVar.a.setText(vi.cutString(item.a(), e));
+            }
+            if (item != null && !ListUtils.isEmpty(item.b())) {
+                v5a v5aVar = new v5a(this.a);
+                this.c = v5aVar;
+                v5aVar.d(item.b());
+                bVar.b.setAdapter((ListAdapter) this.c);
+                this.c.c(this.d);
+            }
+            if (i == getCount() - 1) {
+                bVar.c.setVisibility(8);
+            } else {
+                bVar.c.setVisibility(0);
+            }
+            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0109);
+            return view2;
         }
-        return (File[]) invokeV.objValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !qi.c()) {
-            return;
-        }
-        new a(this).execute(new Void[0]);
-    }
-
-    public void j(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            new b(this).execute(new w5a(str, jSONObject));
-        }
-    }
-
-    public static JSONObject e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (StringUtils.isNull(str) || !new File(str).exists()) {
-                return null;
-            }
-            try {
-                return new JSONObject().put("running", l(px8.d(str)));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject f(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            File file = new File(str);
-            if (!file.exists()) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(px8.e(file));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (!m(jSONObject)) {
-                return null;
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static boolean m(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            int optInt = jSONObject.optInt("errorTimes", -1);
-            int optInt2 = jSONObject.optInt("postSuccess", -1);
-            int optInt3 = jSONObject.optInt("posted", -1);
-            if (optInt != -1 && optInt2 != -1 && optInt3 != -1 && (optInt3 == 1 || optInt > 0)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void c(w5a w5aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, w5aVar) == null) {
-            try {
-                byte[] b2 = y5a.b(w5aVar.b);
-                y5a.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-                px8.b(w5aVar.a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static List<w5a> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            File[] g = g();
-            if (g == null) {
-                return arrayList;
-            }
-            for (File file : g) {
-                String name = file.getName();
-                JSONObject f = f(file.getAbsolutePath() + rx8.a + "kpi");
-                if (f == null) {
-                    px8.b(name);
-                } else {
-                    JSONObject e = e(file.getAbsolutePath() + rx8.a + "debug");
-                    if (e == null) {
-                        px8.b(name);
-                    } else {
-                        arrayList.add(new w5a(name, i(VideoPlatformStatic.c(), f, e)));
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, jSONObject3)) == null) {
-            try {
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("kpiInfo", jSONObject2);
-                jSONObject4.put("baseInfo", jSONObject);
-                jSONObject4.put("debugInfo", jSONObject3);
-                return jSONObject4;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONArray l(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        int optInt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            int length = jSONArray.length();
-            boolean z = false;
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
-                    z = true;
-                    break;
-                }
-            }
-            if (!z) {
-                jSONArray.put(new qj9(502, "unknown", -4399, "").a());
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
+        return (View) invokeILL.objValue;
     }
 }

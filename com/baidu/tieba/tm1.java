@@ -1,7 +1,9 @@
 package com.baidu.tieba;
+
+import android.view.SurfaceHolder;
 /* loaded from: classes7.dex */
 public interface tm1 {
-    void onVideoSizeChanged(int i, int i2);
+    void b();
 
-    void setDisplayMode(int i);
+    void surfaceCreated(SurfaceHolder surfaceHolder);
 }

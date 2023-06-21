@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hgb;
+import android.media.MediaCodecList;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,135 +9,88 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
 import com.yy.transvod.player.log.TLog;
-import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public abstract class zhb extends thb implements hgb.a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String n = "zhb";
+public class zhb {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public hgb l;
-    public ConcurrentLinkedQueueX<ByteBuffer> m;
+
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    int codecCount = MediaCodecList.getCodecCount();
+                    for (int i = 0; i < codecCount; i++) {
+                        String name = MediaCodecList.getCodecInfoAt(i).getName();
+                        if (name.contains("decoder") && (name.contains("avc") || name.contains("h264"))) {
+                            boolean unused = zhb.a = true;
+                        }
+                        if (name.contains("decoder") && (name.contains("hevc") || name.contains("h265"))) {
+                            boolean unused2 = zhb.b = true;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948361365, "Lcom/baidu/tieba/zhb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948361365, "Lcom/baidu/tieba/zhb;");
-        }
-    }
-
-    @Override // com.baidu.tieba.hgb.a
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public abstract void y();
-
-    public zhb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361365, "Lcom/baidu/tieba/zhb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948361365, "Lcom/baidu/tieba/zhb;");
                 return;
             }
         }
-        this.m = new ConcurrentLinkedQueueX<>();
-        this.l = new qgb(n);
+        new Thread(new a()).start();
     }
 
-    public zhb(boolean z) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            TLog.h("CodecCheckHelper", "CodecCheck isSupportH264HwDecode " + a);
+            return a;
         }
-        this.m = new ConcurrentLinkedQueueX<>();
-        if (z) {
-            this.l = new pgb(n);
-        } else {
-            this.l = new qgb(n);
-        }
+        return invokeV.booleanValue;
     }
 
-    public void a() {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TLog.g(this, "ThreadFilter.setup enter.");
-            this.l.b(this);
-            this.l.start();
-            TLog.g(this, "ThreadFilter.setup leave.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            TLog.h("CodecCheckHelper", "CodecCheck isSupportH265HwDecode " + b);
+            return b;
         }
-    }
-
-    @Override // com.baidu.tieba.hgb.a
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TLog.g(this, "ThreadFilter.onResume enter.");
-            if (!this.f.isEmpty()) {
-                this.l.f(2102);
-            }
-            TLog.g(this, "ThreadFilter.onResume leave.");
-        }
-    }
-
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TLog.l(this, "ThreadFilter.onStop mFreeQueue.size() = " + this.m.getElementCount());
-        }
-    }
-
-    @Override // com.baidu.tieba.thb
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TLog.g(this, "ThreadFilter.release enter.");
-            this.l.c();
-            TLog.g(this, "ThreadFilter.release leave.");
-        }
-    }
-
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 2102) {
-            if (this.e.g() == 6) {
-                y();
-                return;
-            }
-            this.l.g(2102);
-            TLog.l(this, String.format("player is not running. mCurrentState:%s", ogb.a[this.e.g()]));
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -4,10 +4,10 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ai6;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.mh6;
-import com.baidu.tieba.oh6;
-import com.baidu.tieba.vh6;
+import com.baidu.tieba.rh6;
+import com.baidu.tieba.th6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +19,8 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public oh6 b;
-    public List<mh6> c;
+    public th6 b;
+    public List<rh6> c;
     public int d;
 
     public VoteAdapter(TbPageContext tbPageContext) {
@@ -47,9 +47,9 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<mh6> list = this.c;
+            List<rh6> list = this.c;
             if (list != null && list.size() > i && this.c.get(i).i() == 1 && i == 0) {
-                return vh6.c;
+                return ai6.c;
             }
             return 0;
         }
@@ -63,12 +63,12 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    public void n(oh6 oh6Var) {
+    public void n(th6 th6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, oh6Var) == null) {
-            this.b = oh6Var;
-            if (oh6Var != null) {
-                this.c = oh6Var.b();
+        if (interceptable == null || interceptable.invokeL(1048581, this, th6Var) == null) {
+            this.b = th6Var;
+            if (th6Var != null) {
+                this.c = th6Var.b();
             }
             this.d = -1;
             notifyDataSetChanged();
@@ -80,7 +80,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<mh6> list = this.c;
+            List<rh6> list = this.c;
             if (list != null) {
                 return list.size();
             }

@@ -7,12 +7,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
-import com.baidu.tieba.fv2;
-import com.baidu.tieba.p93;
-import com.baidu.tieba.sw1;
-import com.baidu.tieba.tz2;
-import com.baidu.tieba.v93;
-import com.baidu.tieba.z93;
+import com.baidu.tieba.aa3;
+import com.baidu.tieba.gv2;
+import com.baidu.tieba.q93;
+import com.baidu.tieba.tw1;
+import com.baidu.tieba.uz2;
+import com.baidu.tieba.w93;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class PhotoChooseView extends GridView implements AdapterView.OnItemClickListener {
@@ -20,8 +20,8 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     public int b;
     public int c;
     public int d;
-    public tz2 e;
-    public p93 f;
+    public uz2 e;
+    public q93 f;
     public Activity g;
 
     /* loaded from: classes4.dex */
@@ -47,7 +47,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     }
 
     public final void c(int i) {
-        sw1 C = fv2.C();
+        tw1 C = gv2.C();
         if (C != null) {
             C.d(getContext(), (String[]) this.f.c().toArray(new String[0]), i);
         }
@@ -55,13 +55,13 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
 
     public void d(Activity activity) {
         this.g = activity;
-        this.f = new p93(activity.getApplicationContext(), this.b, this.d);
+        this.f = new q93(activity.getApplicationContext(), this.b, this.d);
         setOnItemClickListener(this);
         postDelayed(new a(), 10L);
     }
 
-    public void setCallback(tz2 tz2Var) {
-        this.e = tz2Var;
+    public void setCallback(uz2 uz2Var) {
+        this.e = uz2Var;
     }
 
     public void setDeleteListener(b bVar) {
@@ -108,7 +108,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
 
     public final void b() {
         if (getLeftCount() > 0) {
-            z93.i(getLeftCount(), this.e);
+            aa3.i(getLeftCount(), this.e);
         }
     }
 
@@ -130,7 +130,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.p93' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.q93' to match base method */
     @Override // android.widget.GridView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
@@ -141,7 +141,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
         if (this.f.e(i)) {
             if (i == this.f.getCount() - 1) {
-                v93.onEvent("pic_clk_content");
+                w93.onEvent("pic_clk_content");
                 b();
                 return;
             }

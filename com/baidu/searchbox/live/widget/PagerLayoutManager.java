@@ -230,9 +230,15 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
             return;
         }
         if (i != 0) {
-            if (i == 2 && findFirstVisibleItemPosition() == 0 && this.mPosition > 0) {
-                this.mPosition = 0;
-                this.hasForceSetPosition = true;
+            if (i == 2) {
+                try {
+                    if (findFirstVisibleItemPosition() == 0 && this.mPosition > 0) {
+                        this.mPosition = 0;
+                        this.hasForceSetPosition = true;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         } else {
             dispatchScrollEvent();

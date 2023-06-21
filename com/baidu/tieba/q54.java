@@ -1,7 +1,17 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface q54 {
-    void p(String str, JSONObject jSONObject);
+    void destroy();
+
+    int getDuration();
+
+    void pause();
+
+    void play();
+
+    void seek(float f);
+
+    void stop();
+
+    int v();
 }

@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class rg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<qg6> c;
+    public TbPageContext a;
 
-    public rg6() {
+    public rg6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,45 +28,24 @@ public class rg6 {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.a = tbPageContext;
     }
 
-    public List<qg6> a() {
-        InterceptResult invokeV;
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new ArrayList();
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = j - TbadkCoreApplication.getInst().currentAccountTdouNum;
+            if (j2 <= 0) {
+                return;
             }
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.a = jSONObject.optString("mark_type_name");
-            this.b = jSONObject.optInt("mark_type_wear");
-            JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    qg6 qg6Var = new qg6();
-                    qg6Var.n(optJSONArray.optJSONObject(i));
-                    qg6Var.o(this.a);
-                    qg6Var.p(this.b);
-                    this.c.add(qg6Var);
-                }
+            if (j2 > 200000000) {
+                wi.Q(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f027b, 20L));
+                return;
             }
+            if (j2 % 1000 != 0) {
+                j2 = ((j2 / 1000) + 1) * 1000;
+            }
+            CurrencyJumpHelper.gotoBuyTBeanPage(this.a.getPageActivity(), j2);
         }
     }
 }

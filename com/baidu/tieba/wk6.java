@@ -1,59 +1,29 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.ByteArrayInputStream;
 /* loaded from: classes8.dex */
 public class wk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, el6> a;
-    public final Map<String, el6> b;
+    public final WebResourceResponse a;
+    public final ByteArrayInputStream b;
+    public final int c;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final wk6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-314915991, "Lcom/baidu/tieba/wk6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-314915991, "Lcom/baidu/tieba/wk6$b;");
-                    return;
-                }
-            }
-            a = new wk6(null);
-        }
-    }
-
-    public wk6() {
+    public wk6(WebResourceResponse webResourceResponse, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webResourceResponse, bArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,112 +33,71 @@ public class wk6 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
-        this.b = new ConcurrentHashMap();
+        this.a = webResourceResponse;
+        if (bArr != null) {
+            this.c = bArr.length;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            this.b = byteArrayInputStream;
+            byteArrayInputStream.mark(0);
+            return;
+        }
+        this.c = 0;
+        this.b = null;
     }
 
-    public static wk6 d() {
+    public WebResourceResponse a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (wk6) invokeV.objValue;
-    }
-
-    public /* synthetic */ wk6(a aVar) {
-        this();
-    }
-
-    public el6 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.b.get(str);
-        }
-        return (el6) invokeL.objValue;
-    }
-
-    public el6 f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
-            if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
-                return this.a.get(uri.getPath());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != null && c()) {
+                this.b.reset();
+                this.a.setData(this.b);
             }
-            return null;
+            return this.a;
         }
-        return (el6) invokeL.objValue;
+        return (WebResourceResponse) invokeV.objValue;
     }
 
-    public void g(String str) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b.remove(str);
-        }
-    }
-
-    public void i(Map<String, el6> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            this.a.clear();
-            if (!jm6.b(map)) {
-                this.a.putAll(map);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a != null && this.b != null && d() > 0) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void a(String str, el6 el6Var) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, el6Var) == null) {
-            this.b.put(str, el6Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    public void j(String str, Map<String, el6> map) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
-            h(str);
-            this.a.putAll(map);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !jm6.b(this.a)) {
-            for (String str : this.a.keySet()) {
-                el6 el6Var = this.a.get(str);
-                if (el6Var != null) {
-                    el6Var.g = true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WebResourceResponse webResourceResponse = this.a;
+            if (webResourceResponse != null && !om6.b(webResourceResponse.getResponseHeaders())) {
+                return TextUtils.equals(this.a.getResponseHeaders().get("tieba-response-via"), PrefetchEvent.MODULE);
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void c(String str) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "WebResourceResponseWrap{size='" + this.c + "', isSuccessful='" + c() + "', isPrefetchData='" + b() + "'}";
         }
-        for (String str2 : this.a.keySet()) {
-            el6 el6Var = this.a.get(str2);
-            if (el6Var != null && str.equals(el6Var.c)) {
-                el6Var.g = true;
-            }
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Iterator<String> it = this.a.keySet().iterator();
-        while (it.hasNext()) {
-            el6 el6Var = this.a.get(it.next());
-            if (el6Var != null && str.equals(el6Var.c)) {
-                it.remove();
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

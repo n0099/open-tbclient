@@ -102,7 +102,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareCommonCard chatShareCommonCard = new ChatShareCommonCard(context, null, 2, null);
-            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090e83);
+            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090e81);
             chatShareCommonCard.setScene(1);
             chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(l, -2));
             return new BaseViewHolder(chatShareCommonCard) { // from class: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.ShareCommonCardAdapter$createViewHolder$1

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be8;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.re8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,13 +63,13 @@ public class TopBubbleView extends FrameLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a7);
-                aVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090511);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090510);
-                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
-                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09050f);
-                aVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a8);
-                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920d2);
+                aVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a4);
+                aVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050d);
+                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050b);
+                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09050c);
+                aVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a5);
+                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920dd);
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -144,7 +144,7 @@ public class TopBubbleView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d095e, this));
+            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d095f, this));
             b();
         }
     }
@@ -163,19 +163,19 @@ public class TopBubbleView extends FrameLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            o75 d = o75.d(this.a.d);
-            d.w(R.color.CAM_X0101);
-            d.C(R.string.F_X01);
-            d.B(R.dimen.T_X10);
-            o75 d2 = o75.d(this.a.e);
-            d2.C(R.string.F_X01);
-            d2.w(R.color.CAM_X0107);
-            d2.B(R.dimen.T_X08);
-            o75 d3 = o75.d(this.a.f);
+            p75 d = p75.d(this.a.d);
+            d.x(R.color.CAM_X0101);
+            d.D(R.string.F_X01);
+            d.C(R.dimen.T_X10);
+            p75 d2 = p75.d(this.a.e);
+            d2.D(R.string.F_X01);
+            d2.x(R.color.CAM_X0107);
+            d2.C(R.dimen.T_X08);
+            p75 d3 = p75.d(this.a.f);
             d3.m(R.dimen.L_X02);
             d3.o(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            o75 d4 = o75.d(this.a.c);
+            p75 d4 = p75.d(this.a.c);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0303);
             SkinManager.setViewTextColor(this.a.d, (int) R.color.CAM_X0101);
@@ -193,21 +193,21 @@ public class TopBubbleView extends FrameLayout {
             setIconVisibility(true);
             TextView textView = this.a.d;
             if (z) {
-                i = R.string.obfuscated_res_0x7f0f0406;
+                i = R.string.obfuscated_res_0x7f0f0407;
             } else {
-                i = R.string.obfuscated_res_0x7f0f0405;
+                i = R.string.obfuscated_res_0x7f0f0406;
             }
             textView.setText(i);
             if (z) {
                 if (z2) {
                     this.a.g.setVisibility(0);
-                    this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804d7);
+                    this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804d9);
                 } else {
                     this.a.g.setVisibility(8);
                 }
-            } else if (!be8.a(topBubbleData.getVersionKey())) {
+            } else if (!re8.a(topBubbleData.getVersionKey())) {
                 this.a.g.setVisibility(0);
-                this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080610);
+                this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080612);
             } else {
                 this.a.g.setVisibility(8);
             }

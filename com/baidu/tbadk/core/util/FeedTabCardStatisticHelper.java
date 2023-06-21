@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.h35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -196,15 +196,15 @@ public class FeedTabCardStatisticHelper {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadNEGFeedbackStatisticLog(g35 g35Var, String str) {
+    public static StatisticItem clickThreadNEGFeedbackStatisticLog(h35 h35Var, String str) {
         InterceptResult invokeLL;
         StatisticItem statisticItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, g35Var, str)) == null) {
-            if (g35Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, h35Var, str)) == null) {
+            if (h35Var == null) {
                 return null;
             }
-            int i = g35Var.o;
+            int i = h35Var.o;
             if (i != 2 && i != 6 && i != 8) {
                 statisticItem = new StatisticItem(KEY_TAB_FEED_PICTURE_TEXT_THREAD_NEG_FEEDBACK_CLICK);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
@@ -213,8 +213,8 @@ public class FeedTabCardStatisticHelper {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 2);
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", g35Var.f());
-            statisticItem.param("fid", g35Var.c());
+            statisticItem.param("tid", h35Var.f());
+            statisticItem.param("fid", h35Var.c());
             statisticItem.param("resource_id", str);
             return statisticItem;
         }
@@ -289,7 +289,7 @@ public class FeedTabCardStatisticHelper {
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(threadData));
             baseThreadStatisticLog.param("obj_type", threadData.picCount());
             if (threadData.getTopAgreePost() != null) {
-                baseThreadStatisticLog.param("obj_name", threadData.getTopAgreePost().c0 ? 1 : 0);
+                baseThreadStatisticLog.param("obj_name", threadData.getTopAgreePost().d0 ? 1 : 0);
             }
             if (threadData.getBaijiahaoData() != null) {
                 baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);

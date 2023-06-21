@@ -10,7 +10,7 @@ public class db4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public Object header;
+    public Object data;
 
     public db4(Object obj) {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class db4 {
                 return;
             }
         }
-        this.header = obj;
+        this.data = obj;
     }
 }

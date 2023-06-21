@@ -1,88 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
-public final class pvb {
+public class pvb {
     public static /* synthetic */ Interceptable $ic;
-    public static final pvb a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076909, "Lcom/baidu/tieba/pvb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948076909, "Lcom/baidu/tieba/pvb;");
-                return;
-            }
-        }
-        a = new pvb();
-    }
-
-    public pvb() {
+    public static void a(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                lwb.b(i, i2, PayUIEventType.purchaseclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                lwb.b(i, i2, PayUIEventType.purchaseclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
             }
         }
     }
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
+    public static void b(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
-                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-                if (themeResId == null) {
-                    Intrinsics.throwNpe();
-                }
-                return themeResId.intValue();
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                lwb.b(i, i2, PayUIEventType.paypageclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                lwb.b(i, i2, PayUIEventType.paypageclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
             }
-            return R.style.obfuscated_res_0x7f100161;
         }
-        return invokeL.intValue;
-    }
-
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
-            }
-            if (themeColorConfig != null) {
-                num = themeColorConfig.getThemeResId();
-            } else {
-                num = null;
-            }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f100161) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

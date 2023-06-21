@@ -7,10 +7,10 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.util.AttributeSet;
-import com.baidu.tieba.ara;
-import com.baidu.tieba.dva;
-import com.baidu.tieba.mh0;
-import com.baidu.tieba.rva;
+import com.baidu.tieba.kxa;
+import com.baidu.tieba.nh0;
+import com.baidu.tieba.tsa;
+import com.baidu.tieba.wwa;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycle;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.ugc.editvideo.record.processor.IEffectProcessor;
@@ -68,16 +68,16 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         this.mRenderer.setOnMediaGLRendererStatusListener(new MediaGLRenderer.OnMediaGLRendererStatusListener() { // from class: com.baidu.ugc.editvideo.record.preview.MediaPreviewView.1
             @Override // com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer.OnMediaGLRendererStatusListener
             public void onError(int i, String str) {
-                ara.a("v_log_preview_render_error", str, null);
+                tsa.a("v_log_preview_render_error", str, null);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyOnDestroy(boolean z) {
-        int b = dva.b(this.mIEffectProcessorList);
+        int b = wwa.b(this.mIEffectProcessorList);
         for (int i = 0; i < b; i++) {
-            IEffectProcessor iEffectProcessor = (IEffectProcessor) dva.c(this.mIEffectProcessorList, i);
+            IEffectProcessor iEffectProcessor = (IEffectProcessor) wwa.c(this.mIEffectProcessorList, i);
             if (z) {
                 iEffectProcessor.onDestroyInGlThread();
             } else {
@@ -98,9 +98,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyOnPause(boolean z) {
-        int b = dva.b(this.mIEffectProcessorList);
+        int b = wwa.b(this.mIEffectProcessorList);
         for (int i = 0; i < b; i++) {
-            IEffectProcessor iEffectProcessor = (IEffectProcessor) dva.c(this.mIEffectProcessorList, i);
+            IEffectProcessor iEffectProcessor = (IEffectProcessor) wwa.c(this.mIEffectProcessorList, i);
             if (z) {
                 iEffectProcessor.onPauseInGlThread();
             } else {
@@ -120,12 +120,12 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     }
 
     private void scissor(GLViewPortLocation gLViewPortLocation) {
-        if (!(this.mScaleX == 1.0f && this.mScaleY == 1.0f) && gLViewPortLocation.width > rva.c()) {
+        if (!(this.mScaleX == 1.0f && this.mScaleY == 1.0f) && gLViewPortLocation.width > kxa.c()) {
             GLES20.glEnable(3089);
             int i = gLViewPortLocation.width;
-            int ceil = (int) Math.ceil((((1.0f - this.mScaleX) * i) / 2.0f) - (((i - rva.c()) * this.mScaleX) / 2.0f));
+            int ceil = (int) Math.ceil((((1.0f - this.mScaleX) * i) / 2.0f) - (((i - kxa.c()) * this.mScaleX) / 2.0f));
             int ceil2 = (int) Math.ceil((1.0f - this.mScaleY) * gLViewPortLocation.height);
-            int ceil3 = (int) Math.ceil((gLViewPortLocation.width - rva.c()) * this.mScaleX);
+            int ceil3 = (int) Math.ceil((gLViewPortLocation.width - kxa.c()) * this.mScaleX);
             int ceil4 = (int) Math.ceil(gLViewPortLocation.height * this.mScaleY);
             GLES20.glScissor(ceil, ceil2, ceil3, ceil4);
             GLES20.glClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
@@ -201,9 +201,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     public void onResume() {
         super.onResume();
         this.mRenderer.onResume();
-        int b = dva.b(this.mIEffectProcessorList);
+        int b = wwa.b(this.mIEffectProcessorList);
         for (int i = 0; i < b; i++) {
-            ((IEffectProcessor) dva.c(this.mIEffectProcessorList, i)).onResume();
+            ((IEffectProcessor) wwa.c(this.mIEffectProcessorList, i)).onResume();
         }
         List<IMediaRenderer> list = this.mIMediaRendererList;
         if (list != null) {
@@ -290,8 +290,8 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         requestRender();
     }
 
-    public void setVlogCore(mh0 mh0Var) {
-        this.mRenderer.setCore(mh0Var);
+    public void setVlogCore(nh0 nh0Var) {
+        this.mRenderer.setCore(nh0Var);
     }
 
     public void setWaitingDrawFrame(final boolean z) {

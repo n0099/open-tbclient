@@ -18,7 +18,7 @@ import java.util.List;
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<a.InterfaceC0681a> atd;
+    public final ArrayList<a.InterfaceC0682a> atd;
 
     /* loaded from: classes10.dex */
     public static final class a {
@@ -69,13 +69,13 @@ public final class h {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.ate : (h) invokeV.objValue;
     }
 
-    public final void D(List<a.InterfaceC0681a> list) {
+    public final void D(List<a.InterfaceC0682a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             synchronized (this.atd) {
-                Iterator<a.InterfaceC0681a> it = this.atd.iterator();
+                Iterator<a.InterfaceC0682a> it = this.atd.iterator();
                 while (it.hasNext()) {
-                    a.InterfaceC0681a next = it.next();
+                    a.InterfaceC0682a next = it.next();
                     if (!list.contains(next)) {
                         list.add(next);
                     }
@@ -85,26 +85,26 @@ public final class h {
         }
     }
 
-    public final boolean a(a.InterfaceC0681a interfaceC0681a) {
+    public final boolean a(a.InterfaceC0682a interfaceC0682a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0681a)) == null) ? this.atd.isEmpty() || !this.atd.contains(interfaceC0681a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0682a)) == null) ? this.atd.isEmpty() || !this.atd.contains(interfaceC0682a) : invokeL.booleanValue;
     }
 
-    public final boolean a(a.InterfaceC0681a interfaceC0681a, MessageSnapshot messageSnapshot) {
+    public final boolean a(a.InterfaceC0682a interfaceC0682a, MessageSnapshot messageSnapshot) {
         InterceptResult invokeLL;
         boolean remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0681a, messageSnapshot)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0682a, messageSnapshot)) == null) {
             byte Ca = messageSnapshot.Ca();
             synchronized (this.atd) {
-                remove = this.atd.remove(interfaceC0681a);
+                remove = this.atd.remove(interfaceC0682a);
             }
             if (com.kwai.filedownloader.e.d.awL && this.atd.size() == 0) {
-                com.kwai.filedownloader.e.d.g(this, "remove %s left %d %d", interfaceC0681a, Byte.valueOf(Ca), Integer.valueOf(this.atd.size()));
+                com.kwai.filedownloader.e.d.g(this, "remove %s left %d %d", interfaceC0682a, Byte.valueOf(Ca), Integer.valueOf(this.atd.size()));
             }
             if (remove) {
-                t Cy = interfaceC0681a.Cj().Cy();
+                t Cy = interfaceC0682a.Cj().Cy();
                 if (Ca == -4) {
                     Cy.l(messageSnapshot);
                 } else if (Ca == -3) {
@@ -115,21 +115,21 @@ public final class h {
                     Cy.m(messageSnapshot);
                 }
             } else {
-                com.kwai.filedownloader.e.d.c(this, "remove error, not exist: %s %d", interfaceC0681a, Byte.valueOf(Ca));
+                com.kwai.filedownloader.e.d.c(this, "remove error, not exist: %s %d", interfaceC0682a, Byte.valueOf(Ca));
             }
             return remove;
         }
         return invokeLL.booleanValue;
     }
 
-    public final void b(a.InterfaceC0681a interfaceC0681a) {
+    public final void b(a.InterfaceC0682a interfaceC0682a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0681a) == null) {
-            if (!interfaceC0681a.Ci().BT()) {
-                interfaceC0681a.Cl();
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0682a) == null) {
+            if (!interfaceC0682a.Ci().BT()) {
+                interfaceC0682a.Cl();
             }
-            if (interfaceC0681a.Cj().Cy().CL()) {
-                c(interfaceC0681a);
+            if (interfaceC0682a.Cj().Cy().CL()) {
+                c(interfaceC0682a);
             }
         }
     }
@@ -140,7 +140,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             synchronized (this.atd) {
-                Iterator<a.InterfaceC0681a> it = this.atd.iterator();
+                Iterator<a.InterfaceC0682a> it = this.atd.iterator();
                 i2 = 0;
                 while (it.hasNext()) {
                     if (it.next().bR(i)) {
@@ -153,16 +153,16 @@ public final class h {
         return invokeI.intValue;
     }
 
-    public final List<a.InterfaceC0681a> bT(int i) {
+    public final List<a.InterfaceC0682a> bT(int i) {
         InterceptResult invokeI;
         byte Ca;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             synchronized (this.atd) {
-                Iterator<a.InterfaceC0681a> it = this.atd.iterator();
+                Iterator<a.InterfaceC0682a> it = this.atd.iterator();
                 while (it.hasNext()) {
-                    a.InterfaceC0681a next = it.next();
+                    a.InterfaceC0682a next = it.next();
                     if (next.bR(i) && !next.isOver() && (Ca = next.Ci().Ca()) != 0 && Ca != 10) {
                         arrayList.add(next);
                     }
@@ -173,15 +173,15 @@ public final class h {
         return (List) invokeI.objValue;
     }
 
-    public final List<a.InterfaceC0681a> bU(int i) {
+    public final List<a.InterfaceC0682a> bU(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             synchronized (this.atd) {
-                Iterator<a.InterfaceC0681a> it = this.atd.iterator();
+                Iterator<a.InterfaceC0682a> it = this.atd.iterator();
                 while (it.hasNext()) {
-                    a.InterfaceC0681a next = it.next();
+                    a.InterfaceC0682a next = it.next();
                     if (next.bR(i) && !next.isOver()) {
                         arrayList.add(next);
                     }
@@ -192,19 +192,19 @@ public final class h {
         return (List) invokeI.objValue;
     }
 
-    public final void c(a.InterfaceC0681a interfaceC0681a) {
+    public final void c(a.InterfaceC0682a interfaceC0682a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, interfaceC0681a) == null) || interfaceC0681a.Cm()) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, interfaceC0682a) == null) || interfaceC0682a.Cm()) {
             return;
         }
         synchronized (this.atd) {
-            if (this.atd.contains(interfaceC0681a)) {
-                com.kwai.filedownloader.e.d.f(this, "already has %s", interfaceC0681a);
+            if (this.atd.contains(interfaceC0682a)) {
+                com.kwai.filedownloader.e.d.f(this, "already has %s", interfaceC0682a);
             } else {
-                interfaceC0681a.Cn();
-                this.atd.add(interfaceC0681a);
+                interfaceC0682a.Cn();
+                this.atd.add(interfaceC0682a);
                 if (com.kwai.filedownloader.e.d.awL) {
-                    com.kwai.filedownloader.e.d.g(this, "add list in all %s %d %d", interfaceC0681a, Byte.valueOf(interfaceC0681a.Ci().Ca()), Integer.valueOf(this.atd.size()));
+                    com.kwai.filedownloader.e.d.g(this, "add list in all %s %d %d", interfaceC0682a, Byte.valueOf(interfaceC0682a.Ci().Ca()), Integer.valueOf(this.atd.size()));
                 }
             }
         }

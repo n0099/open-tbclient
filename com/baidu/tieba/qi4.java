@@ -1,41 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import android.content.Context;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import java.util.List;
+import okhttp3.Interceptor;
 /* loaded from: classes7.dex */
-public class qi4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qi4 {
+    CookieManager f();
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b().h();
-        }
-        return invokeV.booleanValue;
-    }
+    int g();
 
-    @Inject
-    public static pi4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return tv2.a();
-        }
-        return (pi4) invokeV.objValue;
-    }
+    Context getAppContext();
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b().isDebug();
-        }
-        return invokeV.booleanValue;
-    }
+    int getReadTimeout();
+
+    String getUserAgent();
+
+    boolean h();
+
+    boolean i();
+
+    boolean isDebug();
+
+    void j(String str, HttpRequestBuilder httpRequestBuilder);
+
+    int k();
+
+    List<Interceptor> l();
+
+    int m();
 }

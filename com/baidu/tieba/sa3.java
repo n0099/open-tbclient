@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TimerTask;
 /* loaded from: classes7.dex */
-public final class sa3 extends Handler {
+public final class sa3 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView3d a;
+    public float a;
+    public final float b;
+    public final WheelView3d c;
 
-    public sa3(WheelView3d wheelView3d) {
+    public sa3(WheelView3d wheelView3d, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d};
+            Object[] objArr = {wheelView3d, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,26 +29,59 @@ public final class sa3 extends Handler {
                 return;
             }
         }
-        this.a = wheelView3d;
+        this.c = wheelView3d;
+        this.b = f;
+        this.a = 2.1474836E9f;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i = message.what;
-            if (i != 1000) {
-                if (i != 2000) {
-                    if (i == 3000) {
-                        this.a.n();
-                        return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == 2.1474836E9f) {
+                float f = 2000.0f;
+                if (Math.abs(this.b) > 2000.0f) {
+                    if (this.b <= 0.0f) {
+                        f = -2000.0f;
                     }
-                    return;
+                    this.a = f;
+                } else {
+                    this.a = this.b;
                 }
-                this.a.r(WheelView3d.ACTION.FLING);
+            }
+            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
+                this.c.b();
+                this.c.getHandler().sendEmptyMessage(2000);
                 return;
             }
-            this.a.invalidate();
+            WheelView3d wheelView3d = this.c;
+            float f2 = (int) (this.a / 100.0f);
+            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() - f2);
+            if (!this.c.i()) {
+                float itemHeight = this.c.getItemHeight();
+                float f3 = (-this.c.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
+                double d = itemHeight * 0.25d;
+                if (this.c.getTotalScrollY() - d < f3) {
+                    f3 = this.c.getTotalScrollY() + f2;
+                } else if (this.c.getTotalScrollY() + d > itemsCount) {
+                    itemsCount = this.c.getTotalScrollY() + f2;
+                }
+                if (this.c.getTotalScrollY() <= f3) {
+                    this.a = 40.0f;
+                    this.c.setTotalScrollY((int) f3);
+                } else if (this.c.getTotalScrollY() >= itemsCount) {
+                    this.c.setTotalScrollY((int) itemsCount);
+                    this.a = -40.0f;
+                }
+            }
+            float f4 = this.a;
+            if (f4 < 0.0f) {
+                this.a = f4 + 20.0f;
+            } else {
+                this.a = f4 - 20.0f;
+            }
+            this.c.getHandler().sendEmptyMessage(1000);
         }
     }
 }

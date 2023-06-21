@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes8.dex */
-public class yo7 implements l65 {
+public class yo7 implements m65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.l65
+    @Override // com.baidu.tieba.m65
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGuide" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsExam" : (String) invokeV.objValue;
     }
 
     public yo7() {
@@ -34,8 +34,8 @@ public class yo7 implements l65 {
         }
     }
 
-    @Override // com.baidu.tieba.l65
-    public Class<? extends j65> a() {
+    @Override // com.baidu.tieba.m65
+    public Class<? extends k65> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

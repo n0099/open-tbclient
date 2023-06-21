@@ -20,12 +20,13 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah;
-import com.baidu.tieba.bm8;
-import com.baidu.tieba.cm8;
+import com.baidu.tieba.as6;
+import com.baidu.tieba.bh;
+import com.baidu.tieba.bs6;
+import com.baidu.tieba.ds6;
+import com.baidu.tieba.es6;
 import com.baidu.tieba.feed.list.TemplateAdapter;
-import com.baidu.tieba.ho;
-import com.baidu.tieba.ik8;
+import com.baidu.tieba.fl8;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.immessagecenter.slice.SliceFragment;
 import com.baidu.tieba.impersonal.components.FadingEdgeRecyclerView;
@@ -34,18 +35,17 @@ import com.baidu.tieba.impersonal.help.CustomSpeedLinearLayoutManager;
 import com.baidu.tieba.impersonal.help.MsgDiffCallback;
 import com.baidu.tieba.impersonal.slices.ChatListSlice;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.j87;
-import com.baidu.tieba.jf8;
-import com.baidu.tieba.ok8;
-import com.baidu.tieba.tk8;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.vk8;
-import com.baidu.tieba.vr6;
-import com.baidu.tieba.wk8;
-import com.baidu.tieba.wr6;
-import com.baidu.tieba.yk8;
-import com.baidu.tieba.yr6;
-import com.baidu.tieba.zr6;
+import com.baidu.tieba.io;
+import com.baidu.tieba.ll8;
+import com.baidu.tieba.o87;
+import com.baidu.tieba.ql8;
+import com.baidu.tieba.sl8;
+import com.baidu.tieba.tl8;
+import com.baidu.tieba.vl8;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.ym8;
+import com.baidu.tieba.zf8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,10 +67,10 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class ChatListSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
-    public static final DiffUtil.ItemCallback<j87<?>> A;
+    public static final DiffUtil.ItemCallback<o87<?>> A;
     public static final a z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bm8 j;
+    public final ym8 j;
     public final String k;
     public final String l;
     public boolean m;
@@ -81,7 +81,7 @@ public final class ChatListSlice extends Slice {
     public final Lazy r;
     public final Lazy s;
     public int t;
-    public final List<j87<?>> u;
+    public final List<o87<?>> u;
     public final int v;
     public final d w;
     public final b x;
@@ -110,7 +110,7 @@ public final class ChatListSlice extends Slice {
             }
         }
 
-        public final DiffUtil.ItemCallback<j87<?>> a() {
+        public final DiffUtil.ItemCallback<o87<?>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -158,7 +158,7 @@ public final class ChatListSlice extends Slice {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
                 Intrinsics.checkNotNullParameter(msgs, "$msgs");
                 Intrinsics.checkNotNullParameter(loadType, "$loadType");
-                List<j87<?>> b = yk8.a.b(this$0.j, msgs, loadType);
+                List<o87<?>> b = vl8.a.b(this$0.j, msgs, loadType);
                 DiffUtil.DiffResult calculateDiff = DiffUtil.calculateDiff(new MsgDiffCallback(this$0.u, b, ChatListSlice.z.a()));
                 Intrinsics.checkNotNullExpressionValue(calculateDiff, "calculateDiff(\n         …      )\n                )");
                 this$0.u.clear();
@@ -168,7 +168,7 @@ public final class ChatListSlice extends Slice {
                     if (loadType.getType() == 4 && z2) {
                         ChatListSlice.C0(this$0, 0.0f, 1, null);
                     } else if (loadType.getType() == 0) {
-                        ah.c(new Runnable() { // from class: com.baidu.tieba.bl8
+                        bh.c(new Runnable() { // from class: com.baidu.tieba.yl8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -194,7 +194,7 @@ public final class ChatListSlice extends Slice {
         }
 
         @Override // com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor.d
-        public void a(long j, final List<? extends ok8> msgs, SpriteMsgProcessor.f source, final SpriteMsgProcessor.e loadType) {
+        public void a(long j, final List<? extends ll8> msgs, SpriteMsgProcessor.f source, final SpriteMsgProcessor.e loadType) {
             final boolean z;
             final boolean z2;
             Interceptable interceptable = $ic;
@@ -217,9 +217,9 @@ public final class ChatListSlice extends Slice {
                 } else {
                     z2 = true;
                 }
-                ho t0 = this.a.t0();
+                io t0 = this.a.t0();
                 final ChatListSlice chatListSlice = this.a;
-                t0.e(new Runnable() { // from class: com.baidu.tieba.dl8
+                t0.e(new Runnable() { // from class: com.baidu.tieba.am8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,13 +236,13 @@ public final class ChatListSlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class c extends zr6<wk8> {
+    public static final class c extends es6<tl8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatListSlice b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ChatListSlice chatListSlice, Class<wk8> cls) {
+        public c(ChatListSlice chatListSlice, Class<tl8> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -263,10 +263,10 @@ public final class ChatListSlice extends Slice {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zr6
-        public void onEvent(wk8 event) {
+        @Override // com.baidu.tieba.es6
+        public void onEvent(tl8 event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 if (this.b.t == 1) {
                     return;
@@ -277,21 +277,21 @@ public final class ChatListSlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class d implements bm8.b {
+    public static final class d implements ym8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatListSlice a;
 
-        @Override // com.baidu.tieba.bm8.b
-        public void a(List<? extends ok8> list) {
+        @Override // com.baidu.tieba.ym8.b
+        public void a(List<? extends ll8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 Intrinsics.checkNotNullParameter(list, "list");
             }
         }
 
-        @Override // com.baidu.tieba.bm8.b
-        public void b(int i, String errorMsg, tk8<?> msg) {
+        @Override // com.baidu.tieba.ym8.b
+        public void b(int i, String errorMsg, ql8<?> msg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, errorMsg, msg) == null) {
                 Intrinsics.checkNotNullParameter(errorMsg, "errorMsg");
@@ -325,13 +325,13 @@ public final class ChatListSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.bm8.b
+        @Override // com.baidu.tieba.ym8.b
         public void d(String msgKey) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, msgKey) == null) {
                 Intrinsics.checkNotNullParameter(msgKey, "msgKey");
                 final ChatListSlice chatListSlice = this.a;
-                ah.f(new Runnable() { // from class: com.baidu.tieba.gl8
+                bh.f(new Runnable() { // from class: com.baidu.tieba.dm8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -346,19 +346,19 @@ public final class ChatListSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.bm8.b
+        @Override // com.baidu.tieba.ym8.b
         public void onError(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
                 if (i == 0) {
-                    wr6.b().b(new vk8(2));
+                    bs6.b().b(new sl8(2));
                 } else {
-                    vi.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0def);
+                    wi.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0df3);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.bm8.b
+        @Override // com.baidu.tieba.ym8.b
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -373,11 +373,11 @@ public final class ChatListSlice extends Slice {
                     this.a.q0().g();
                     return;
                 }
-                wr6.b().b(new vk8(1));
+                bs6.b().b(new sl8(1));
             }
         }
 
-        @Override // com.baidu.tieba.bm8.b
+        @Override // com.baidu.tieba.ym8.b
         public void e(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -392,7 +392,7 @@ public final class ChatListSlice extends Slice {
                     this.a.q0().j();
                     return;
                 }
-                wr6.b().b(new vk8(0));
+                bs6.b().b(new sl8(0));
             }
         }
     }
@@ -411,7 +411,7 @@ public final class ChatListSlice extends Slice {
             }
         }
         z = new a(null);
-        A = new DiffUtil.ItemCallback<j87<?>>() { // from class: com.baidu.tieba.impersonal.slices.ChatListSlice$Companion$DIFF_ITEM_CALLBACK$1
+        A = new DiffUtil.ItemCallback<o87<?>>() { // from class: com.baidu.tieba.impersonal.slices.ChatListSlice$Companion$DIFF_ITEM_CALLBACK$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -432,13 +432,13 @@ public final class ChatListSlice extends Slice {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
             /* renamed from: a */
-            public boolean areContentsTheSame(j87<?> oldItem, j87<?> newItem) {
+            public boolean areContentsTheSame(o87<?> oldItem, o87<?> newItem) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, oldItem, newItem)) == null) {
                     Intrinsics.checkNotNullParameter(oldItem, "oldItem");
                     Intrinsics.checkNotNullParameter(newItem, "newItem");
-                    if (!(oldItem instanceof ik8) || !(newItem instanceof ik8) || ((ik8) oldItem).f((ik8) newItem)) {
+                    if (!(oldItem instanceof fl8) || !(newItem instanceof fl8) || ((fl8) oldItem).f((fl8) newItem)) {
                         return false;
                     }
                     return true;
@@ -449,7 +449,7 @@ public final class ChatListSlice extends Slice {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
             /* renamed from: b */
-            public boolean areItemsTheSame(j87<?> oldItem, j87<?> newItem) {
+            public boolean areItemsTheSame(o87<?> oldItem, o87<?> newItem) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048579, this, oldItem, newItem)) == null) {
@@ -482,22 +482,22 @@ public final class ChatListSlice extends Slice {
             } else {
                 view2 = null;
             }
-            vi.z(context, view2);
+            wi.z(context, view2);
         }
     }
 
     public final void n0() {
-        ik8 ik8Var;
+        fl8 fl8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             Object first = CollectionsKt___CollectionsKt.first((List<? extends Object>) this.u);
-            if (first instanceof ik8) {
-                ik8Var = (ik8) first;
+            if (first instanceof fl8) {
+                fl8Var = (fl8) first;
             } else {
-                ik8Var = null;
+                fl8Var = null;
             }
-            if (ik8Var != null) {
-                this.j.b(ik8Var.c().a());
+            if (fl8Var != null) {
+                this.j.b(fl8Var.c().a());
             }
         }
     }
@@ -528,22 +528,22 @@ public final class ChatListSlice extends Slice {
         return (CustomSpeedLinearLayoutManager) invokeV.objValue;
     }
 
-    public final jf8 q0() {
+    public final zf8 q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return (jf8) this.r.getValue();
+            return (zf8) this.r.getValue();
         }
-        return (jf8) invokeV.objValue;
+        return (zf8) invokeV.objValue;
     }
 
-    public final cm8 r0() {
+    public final zm8 r0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return (cm8) this.y.getValue();
+            return (zm8) this.y.getValue();
         }
-        return (cm8) invokeV.objValue;
+        return (zm8) invokeV.objValue;
     }
 
     public final boolean s0() {
@@ -555,13 +555,13 @@ public final class ChatListSlice extends Slice {
         return invokeV.booleanValue;
     }
 
-    public final ho t0() {
+    public final io t0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return (ho) this.q.getValue();
+            return (io) this.q.getValue();
         }
-        return (ho) invokeV.objValue;
+        return (io) invokeV.objValue;
     }
 
     public final TemplateAdapter u0() {
@@ -582,7 +582,7 @@ public final class ChatListSlice extends Slice {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 slicePersonalChatBinding = null;
             }
-            slicePersonalChatBinding.b.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.cl8
+            slicePersonalChatBinding.b.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.zl8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -596,7 +596,7 @@ public final class ChatListSlice extends Slice {
         }
     }
 
-    public ChatListSlice(bm8 repo, String talkType, String talkPrologue) {
+    public ChatListSlice(ym8 repo, String talkType, String talkPrologue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -660,7 +660,7 @@ public final class ChatListSlice extends Slice {
                 return new CustomSpeedLinearLayoutManager(requireContext);
             }
         });
-        this.q = LazyKt__LazyJVMKt.lazy(new Function0<ho>(this) { // from class: com.baidu.tieba.impersonal.slices.ChatListSlice$notifier$2
+        this.q = LazyKt__LazyJVMKt.lazy(new Function0<io>(this) { // from class: com.baidu.tieba.impersonal.slices.ChatListSlice$notifier$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ChatListSlice this$0;
@@ -689,21 +689,21 @@ public final class ChatListSlice extends Slice {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final ho invoke() {
+            public final io invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (ho) invokeV.objValue;
+                    return (io) invokeV.objValue;
                 }
                 SlicePersonalChatBinding slicePersonalChatBinding = this.this$0.o;
                 if (slicePersonalChatBinding == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     slicePersonalChatBinding = null;
                 }
-                return new ho(slicePersonalChatBinding.b);
+                return new io(slicePersonalChatBinding.b);
             }
         });
-        this.r = LazyKt__LazyJVMKt.lazy(new Function0<jf8>(this) { // from class: com.baidu.tieba.impersonal.slices.ChatListSlice$loadingView$2
+        this.r = LazyKt__LazyJVMKt.lazy(new Function0<zf8>(this) { // from class: com.baidu.tieba.impersonal.slices.ChatListSlice$loadingView$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ChatListSlice this$0;
@@ -732,26 +732,26 @@ public final class ChatListSlice extends Slice {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final jf8 invoke() {
+            public final zf8 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (jf8) invokeV.objValue;
+                    return (zf8) invokeV.objValue;
                 }
                 SlicePersonalChatBinding slicePersonalChatBinding = this.this$0.o;
                 if (slicePersonalChatBinding == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     slicePersonalChatBinding = null;
                 }
-                return new jf8(slicePersonalChatBinding.b);
+                return new zf8(slicePersonalChatBinding.b);
             }
         });
         this.s = LazyKt__LazyJVMKt.lazy(ChatListSlice$templateAdapter$2.INSTANCE);
         this.u = new ArrayList();
-        this.v = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X006);
+        this.v = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X006);
         this.w = new d(this);
         this.x = new b(this);
-        this.y = LazyKt__LazyJVMKt.lazy(new Function0<cm8>(this) { // from class: com.baidu.tieba.impersonal.slices.ChatListSlice$mEntrancePageRepo$2
+        this.y = LazyKt__LazyJVMKt.lazy(new Function0<zm8>(this) { // from class: com.baidu.tieba.impersonal.slices.ChatListSlice$mEntrancePageRepo$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ChatListSlice this$0;
@@ -780,15 +780,15 @@ public final class ChatListSlice extends Slice {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final cm8 invoke() {
+            public final zm8 invoke() {
                 InterceptResult invokeV;
                 SliceFragment D;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (cm8) invokeV.objValue;
+                    return (zm8) invokeV.objValue;
                 }
                 D = this.this$0.D();
-                return new cm8(D.getContext(), this.this$0.j);
+                return new zm8(D.getContext(), this.this$0.j);
             }
         });
     }
@@ -868,7 +868,7 @@ public final class ChatListSlice extends Slice {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 slicePersonalChatBinding = null;
             }
-            return slicePersonalChatBinding.b.post(new Runnable() { // from class: com.baidu.tieba.fl8
+            return slicePersonalChatBinding.b.post(new Runnable() { // from class: com.baidu.tieba.cm8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -974,10 +974,10 @@ public final class ChatListSlice extends Slice {
             }
             FadingEdgeRecyclerView fadingEdgeRecyclerView = slicePersonalChatBinding.b;
             fadingEdgeRecyclerView.setVerticalFadingEdgeEnabled(true);
-            fadingEdgeRecyclerView.setFadingEdgeLength(vi.g(fadingEdgeRecyclerView.getContext(), R.dimen.tbds80));
+            fadingEdgeRecyclerView.setFadingEdgeLength(wi.g(fadingEdgeRecyclerView.getContext(), R.dimen.tbds80));
             fadingEdgeRecyclerView.setLayoutManager(p0());
             fadingEdgeRecyclerView.setAdapter(u0());
-            fadingEdgeRecyclerView.setOnScrollToTopListener(new BdListView.s() { // from class: com.baidu.tieba.il8
+            fadingEdgeRecyclerView.setOnScrollToTopListener(new BdListView.s() { // from class: com.baidu.tieba.fm8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -989,7 +989,7 @@ public final class ChatListSlice extends Slice {
                     }
                 }
             });
-            fadingEdgeRecyclerView.setOnSrollToBottomListener(new BdListView.p() { // from class: com.baidu.tieba.el8
+            fadingEdgeRecyclerView.setOnSrollToBottomListener(new BdListView.p() { // from class: com.baidu.tieba.bm8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1042,10 +1042,10 @@ public final class ChatListSlice extends Slice {
             v0();
             A0();
             o0();
-            yr6 b2 = wr6.b();
+            ds6 b2 = bs6.b();
             TbPageContext<BaseFragmentActivity> pageContext = D().getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "host.pageContext");
-            b2.a(new vr6(pageContext, this), new c(this, wk8.class));
+            b2.a(new as6(pageContext, this), new c(this, tl8.class));
         }
     }
 
@@ -1054,40 +1054,40 @@ public final class ChatListSlice extends Slice {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void m0() {
-        ok8 ok8Var;
-        j87<?> j87Var;
-        tk8 tk8Var;
+        ll8 ll8Var;
+        o87<?> o87Var;
+        ql8 ql8Var;
         boolean z2;
-        tk8 tk8Var2;
+        ql8 ql8Var2;
         boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            List<j87<?>> list = this.u;
-            ListIterator<j87<?>> listIterator = list.listIterator(list.size());
+            List<o87<?>> list = this.u;
+            ListIterator<o87<?>> listIterator = list.listIterator(list.size());
             while (true) {
-                ok8Var = null;
+                ll8Var = null;
                 if (listIterator.hasPrevious()) {
-                    j87Var = listIterator.previous();
-                    j87<?> j87Var2 = j87Var;
-                    boolean z4 = j87Var2 instanceof tk8;
+                    o87Var = listIterator.previous();
+                    o87<?> o87Var2 = o87Var;
+                    boolean z4 = o87Var2 instanceof ql8;
                     if (z4) {
-                        tk8Var = (tk8) j87Var2;
+                        ql8Var = (ql8) o87Var2;
                     } else {
-                        tk8Var = null;
+                        ql8Var = null;
                     }
                     boolean z5 = true;
-                    if (tk8Var != null && tk8Var.a() == 0) {
+                    if (ql8Var != null && ql8Var.a() == 0) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
                     if (!z2) {
                         if (z4) {
-                            tk8Var2 = (tk8) j87Var2;
+                            ql8Var2 = (ql8) o87Var2;
                         } else {
-                            tk8Var2 = null;
+                            ql8Var2 = null;
                         }
-                        if (tk8Var2 != null && tk8Var2.a() == Long.MAX_VALUE) {
+                        if (ql8Var2 != null && ql8Var2.a() == Long.MAX_VALUE) {
                             z3 = true;
                         } else {
                             z3 = false;
@@ -1104,17 +1104,17 @@ public final class ChatListSlice extends Slice {
                     if (z5) {
                     }
                 } else {
-                    j87Var = null;
+                    o87Var = null;
                     break;
                 }
             }
-            j87<?> j87Var3 = j87Var;
-            if (j87Var3 != null) {
-                if (j87Var3 instanceof ok8) {
-                    ok8Var = (ok8) j87Var3;
+            o87<?> o87Var3 = o87Var;
+            if (o87Var3 != null) {
+                if (o87Var3 instanceof ll8) {
+                    ll8Var = (ll8) o87Var3;
                 }
-                if (ok8Var != null) {
-                    this.j.g(ok8Var.a());
+                if (ll8Var != null) {
+                    this.j.g(ll8Var.a());
                 }
             }
         }

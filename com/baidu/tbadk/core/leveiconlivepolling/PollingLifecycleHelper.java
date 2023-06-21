@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.k;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +91,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
                         pollingModel.C0(this.a.b);
                     }
                 }
-                wg.a().postDelayed(this, this.a.c);
+                xg.a().postDelayed(this, this.a.c);
             }
         }
     }
@@ -139,7 +139,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            wg.a().removeCallbacks(this.f);
+            xg.a().removeCallbacks(this.f);
             k.$default$onDestroy(this, owner);
         }
     }
@@ -154,10 +154,10 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
                 TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) owner;
                 this.e = new PollingModel(tbPageContextSupport.getPageContext(), tbPageContextSupport.getPageContext().getUniqueId());
                 if (this.a > 0) {
-                    wg.a().postDelayed(this.f, this.a);
+                    xg.a().postDelayed(this.f, this.a);
                     return;
                 } else {
-                    wg.a().post(this.f);
+                    xg.a().post(this.f);
                     return;
                 }
             }

@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 /* loaded from: classes6.dex */
 public interface i94 {
-    View a(Context context, GameCloseGuidePopView.e eVar);
+    boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull a04 a04Var);
 
-    void b(int i);
+    boolean b(Context context, String str, String str2, String str3);
 
-    void c();
+    boolean c();
 
-    void release();
+    String getPackageName();
+
+    void init();
 }

@@ -3,551 +3,309 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
-import com.baidu.tbadk.browser.proxy.OfflineWebViewHttpResMsg;
+import com.baidu.tbadk.TbDebugSingleton;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tbadk.switchs.QuickWebViewSwitch;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Iterator;
+import com.facebook.common.util.TriState;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ny4 implements ul6 {
+public class ny4 implements zl6 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dz4 a;
 
-    @Override // com.baidu.tieba.ul6
+    @Override // com.baidu.tieba.zl6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        tl6.a(this, webView, str, jSONObject);
+        yl6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.ul6
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zl6
     public /* synthetic */ void onDestroy() {
-        tl6.b(this);
+        yl6.b(this);
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends ix5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(ny4 ny4Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018784, "Lcom/baidu/tieba/ny4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ix5
-        public String doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                iz9.h(this.a);
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements mw5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(ny4 ny4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948018784, "Lcom/baidu/tieba/ny4;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mw5
-        /* renamed from: a */
-        public void onReturnDataInUI(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921557, str));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends ix5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(ny4 ny4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ix5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                iz9.b();
-                return null;
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements mw5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(ny4 ny4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mw5
-        public void onReturnDataInUI(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921558));
-                kz4.c().a();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e extends BdAsyncTask<Object, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final String b;
-        public final HashMap<String, String> c;
-        public final WeakReference<WebView> d;
-
-        public e(String str, String str2, HashMap<String, String> hashMap, WebView webView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, hashMap, webView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = hashMap;
-            this.d = new WeakReference<>(webView);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public String doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                if (BdNetTypeUtil.isNetWorkAvailable() && !TextUtils.isEmpty(this.a)) {
-                    try {
-                        NetWork netWork = new NetWork(this.a);
-                        if (this.c != null && !this.c.isEmpty()) {
-                            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                                netWork.addPostData(entry.getKey(), entry.getValue());
-                            }
-                        }
-                        if (CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE.equals(this.b)) {
-                            return netWork.getNetString();
-                        }
-                        return netWork.postNetData();
-                    } catch (Exception e) {
-                        zq8 hybridLog = HybridLog.getInstance();
-                        hybridLog.b("nativeNetworkProxy", "request Exception:" + e);
-                        BdLog.e(e.getMessage());
-                        return "";
-                    }
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((e) str);
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("result", str);
-                linkedHashMap.put("NotificationKey", this.a);
-                if (this.d.get() != null) {
-                    vl6.a().d(this.d.get(), "nativeNetworkProxyResult", linkedHashMap);
-                }
-            }
-        }
+        a = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
     }
 
     public ny4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new dz4();
     }
 
-    @Override // com.baidu.tieba.ul6
+    @Override // com.baidu.tieba.zl6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!"CommonJSBridge".equals(str)) {
-                return false;
-            }
-            if (SearchJsBridge.METHOD_GET_SEARCH_HISTORY.equals(str2)) {
-                jsPromptResult.confirm(g(webView).a());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-                return true;
-            } else if (SearchJsBridge.METHOD_DELETE_SEARCH_HISTORY.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("query")).a());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                return true;
-            } else if (SearchJsBridge.METHOD_DELETE_ALL_SEARCH_HISTORY.equals(str2)) {
+            if (CommonTbJsBridge.FETCH_OFFLINE_USER_INFO.equals(str2)) {
                 jsPromptResult.confirm(d(webView).a());
                 return true;
-            } else if (SearchJsBridge.METHOD_OPEN_SEACH_PAGE.equals(str2)) {
+            } else if (CommonTbJsBridge.DELETE_OFFLINE_BUNDLE.equals(str2)) {
+                jsPromptResult.confirm(c(webView).a());
+                return true;
+            } else if (CommonTbJsBridge.UPDATE_OFFLINE_BUNDLE.equals(str2)) {
+                jsPromptResult.confirm(i(webView).a());
+                return true;
+            } else if (CommonTbJsBridge.SWITCH_OFFLINE_INTERFACE.equals(str2)) {
                 try {
-                    JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(l(webView, jSONObject.optString("query"), jSONObject.optInt("sub_type")).a());
+                    jsPromptResult.confirm(g(webView, new JSONObject(str3).optString("host")).a());
+                    return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            } else if (CommonTbJsBridge.SWITCH_OFFLINE_BUNDLE_STATUS.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(f(webView, new JSONObject(str3).optInt("isOn")).a());
+                    return true;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    return false;
+                }
+            } else if (CommonTbJsBridge.SWITCH_URL_HOST.equals(str2)) {
+                try {
+                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray("hostArr");
+                    ArrayList<JSONObject> arrayList = new ArrayList<>();
+                    ListUtils.convertJSONArrayToList(arrayList, optJSONArray);
+                    jsPromptResult.confirm(h(webView, arrayList).a());
+                    return true;
                 } catch (JSONException e3) {
                     e3.printStackTrace();
+                    return false;
                 }
-                return true;
-            } else if (SearchJsBridge.GET_SEARCH_AD_COOKIE.equals(str2)) {
-                jsPromptResult.confirm(f(webView).a());
-                return true;
             } else {
-                if (TextUtils.equals("requestByNative", str2)) {
-                    try {
-                        OfflineBridgeData offlineBridgeData = (OfflineBridgeData) OrmObject.objectWithJsonStr(str3, OfflineBridgeData.class);
-                        offlineBridgeData.begin = System.currentTimeMillis();
-                        this.a.j(webView, offlineBridgeData, offlineBridgeData.callBack);
-                        jsPromptResult.confirm();
-                        return true;
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                    }
-                }
                 return false;
             }
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final void c(JSONObject jSONObject, String str, String str2) throws JSONException {
+    public t0a c(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, str2) == null) {
-            jSONObject.put(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            t0a t0aVar = new t0a();
+            if (!e()) {
+                return t0aVar;
+            }
+            try {
+                ml6.a();
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
+        return (t0a) invokeL.objValue;
     }
 
-    public bz9 d(WebView webView) {
+    public t0a i(WebView webView) {
         InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
+            t0a t0aVar = new t0a();
+            if (!e()) {
+                return t0aVar;
+            }
+            try {
+                ml6.c();
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (t0a) invokeL.objValue;
+    }
+
+    public t0a d(WebView webView) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            bz9 bz9Var = new bz9();
-            mx5.b(new c(this), new d(this));
-            return bz9Var;
-        }
-        return (bz9) invokeL.objValue;
-    }
-
-    public bz9 f(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
-            bz9 bz9Var = new bz9();
-            bz9Var.o(h());
-            return bz9Var;
-        }
-        return (bz9) invokeL.objValue;
-    }
-
-    public bz9 e(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            bz9 bz9Var = new bz9();
-            mx5.b(new a(this, str), new b(this));
-            return bz9Var;
-        }
-        return (bz9) invokeLL.objValue;
-    }
-
-    public /* synthetic */ void i(WebView webView, OfflineBridgeData offlineBridgeData) {
-        this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
-    }
-
-    public bz9 g(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            bz9 bz9Var = new bz9();
-            List<String> b2 = kz4.c().b();
-            int count = ListUtils.getCount(b2);
-            if (count == 0) {
-                bz9Var.o("");
+            t0a t0aVar = new t0a();
+            if (!e()) {
+                return t0aVar;
             }
-            JSONArray jSONArray = new JSONArray();
-            for (int i = 0; i < count; i++) {
-                jSONArray.put(b2.get(i));
-            }
-            bz9Var.o(jSONArray.toString());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return bz9Var;
-        }
-        return (bz9) invokeL.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                MercatorModel.MercatorData e2 = MercatorModel.d().e();
-                if (e2 != null) {
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LAT, e2.X());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LON, e2.Y());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_CITY, String.valueOf(e2.U()));
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_RADIUS, e2.a0());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_TIME, String.valueOf(e2.b0()));
-                }
-                c(jSONObject, SearchJsBridge.COOKIE_MOD, xi.g());
-                c(jSONObject, "ov", xi.k());
-                c(jSONObject, "os_type", String.valueOf(2));
-                c(jSONObject, "net_type", String.valueOf(BdNetTypeUtil.netType()));
-                c(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
-                c(jSONObject, "from", TbConfig.getFrom());
-                c(jSONObject, "cfrom", TbConfig.getCurrentFrom());
-                c(jSONObject, "_client_version", TbConfig.getVersion());
-                c(jSONObject, "CUID", TbadkCoreApplication.getInst().getCuid());
-                String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                c(jSONObject, "shoubai_cuid", cuidGalaxy2);
-                c(jSONObject, "cuid_galaxy2", cuidGalaxy2);
-                if (!TextUtils.isEmpty(cuidGalaxy2)) {
-                    c(jSONObject, "baiduid", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));
-                }
-            } catch (JSONException e3) {
-                BdLog.e(e3);
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public bz9 j(WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048585, this, webView, str, str2, str3, jSONObject)) == null) {
-            bz9 bz9Var = new bz9();
-            HashMap hashMap = new HashMap();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
-                }
-            }
-            new e(str + str2, str3, hashMap, webView).execute(new Object[0]);
-            bz9Var.x(str + str2);
-            return bz9Var;
-        }
-        return (bz9) invokeLLLLL.objValue;
-    }
-
-    public bz9 m(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048588, this, webView, str, str2, str3, jSONObject)) == null) {
-            bz9 bz9Var = new bz9();
-            final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
-            offlineBridgeData.url = str;
-            offlineBridgeData.type = str2;
-            offlineBridgeData.module = str3;
-            if (jSONObject != null) {
-                HashMap hashMap = new HashMap();
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
-                }
-                offlineBridgeData.data = hashMap;
-            }
-            offlineBridgeData.begin = System.currentTimeMillis();
-            wg.a().post(new Runnable() { // from class: com.baidu.tieba.ey4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ny4.this.i(webView, offlineBridgeData);
-                    }
-                }
-            });
-            bz9Var.x(str);
-            return bz9Var;
-        }
-        return (bz9) invokeLLLLL.objValue;
-    }
-
-    public bz9 k(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
-            bz9 bz9Var = new bz9();
-            if (hashMap != null && hashMap.get("result") != null) {
-                bz9Var.o(OfflineWebViewHttpResMsg.quote(hashMap.get("result")));
-                bz9Var.x(hashMap.get("NotificationKey"));
-            }
-            bz9Var.A(true);
-            return bz9Var;
-        }
-        return (bz9) invokeLL.objValue;
-    }
-
-    public bz9 n(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, hashMap)) == null) {
-            bz9 bz9Var = new bz9();
-            if (hashMap != null && hashMap.get("result") != null) {
-                bz9Var.o(hashMap.get("result"));
-                bz9Var.x(hashMap.get("NotificationKey"));
-            }
-            bz9Var.A(true);
-            return bz9Var;
-        }
-        return (bz9) invokeLL.objValue;
-    }
-
-    public bz9 o(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, webView, hashMap)) == null) {
-            bz9 bz9Var = new bz9();
-            try {
-                bz9Var.o(new JSONArray(hashMap.get("data").toString()).toString());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return bz9Var;
-        }
-        return (bz9) invokeLL.objValue;
-    }
-
-    public bz9 l(WebView webView, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048587, this, webView, str, i)) == null) {
-            bz9 bz9Var = new bz9();
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("query", str);
-                jSONObject.put(AdvisoryMsgBusinessExtra.SUBTYPE_KEY, i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921559, jSONObject.toString()));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                jSONObject.put("version", TbConfig.getVersion());
+                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccountId());
+                jSONObject.put("hybridVersion", ml6.d());
+                if (QuickWebViewSwitch.getInOn()) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("hybridOffline", i);
+                jSONObject.put("offlineApiHost", a);
+                if (TbDebugSingleton.getInstance().getUrlSwitchMap() != null && !TextUtils.isEmpty(TbDebugSingleton.getInstance().getUrlSwitchMap().b)) {
+                    jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().b);
+                }
+                jSONObject.put("resultCode", 1);
+                t0aVar.o(jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return bz9Var;
+            return t0aVar;
         }
-        return (bz9) invokeLLI.objValue;
+        return (t0a) invokeL.objValue;
+    }
+
+    public t0a f(WebView webView, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        TriState triState;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, webView, i)) == null) {
+            t0a t0aVar = new t0a();
+            if (!e()) {
+                return t0aVar;
+            }
+            if (i == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            try {
+                if (z) {
+                    triState = TriState.YES;
+                } else {
+                    triState = TriState.NO;
+                }
+                QuickWebViewSwitch.setState(triState);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (t0a) invokeLI.objValue;
+    }
+
+    public t0a g(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
+            t0a t0aVar = new t0a();
+            if (!e()) {
+                return t0aVar;
+            }
+            try {
+                if (StringUtils.isNull(str)) {
+                    str = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
+                }
+                a = str;
+                jg5.a().i(true);
+                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, a + "?cmd=309485");
+                tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
+                MessageManager.getInstance().registerTask(tbHttpMessageTask);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                t0aVar.o(jSONObject.toString());
+                return t0aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (t0a) invokeLL.objValue;
+    }
+
+    public t0a h(WebView webView, ArrayList<JSONObject> arrayList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, arrayList)) == null) {
+            t0a t0aVar = new t0a();
+            if (!e()) {
+                return t0aVar;
+            }
+            try {
+                yx4 yx4Var = new yx4();
+                yx4Var.a = new LinkedHashMap();
+                if (arrayList != null) {
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        JSONObject jSONObject = arrayList.get(i);
+                        if (jSONObject != null) {
+                            yx4Var.a.put(jSONObject.optString("path"), jSONObject.optString("host"));
+                        }
+                    }
+                    if (yx4Var.a.size() > 0) {
+                        yx4Var.b = new JSONObject().put("hostArr", new JSONArray((Collection) arrayList)).toString();
+                        TbDebugSingleton.getInstance().setUrlSwitchMap(yx4Var);
+                    }
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("resultCode", 1);
+                t0aVar.o(jSONObject2.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return t0aVar;
+        }
+        return (t0a) invokeLL.objValue;
     }
 }

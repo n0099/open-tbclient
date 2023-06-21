@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d48;
-import com.baidu.tieba.f48;
-import com.baidu.tieba.vn;
+import com.baidu.tieba.t48;
+import com.baidu.tieba.v48;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vn> mTopicDataList;
+    public List<wn> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicListMessage() {
@@ -44,7 +44,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<vn> getTopicDataList() {
+    public List<wn> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -69,19 +69,19 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
             int i2 = 1;
             for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                 if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                    d48 d48Var = new d48();
-                    d48Var.R = i2;
-                    d48Var.K(newTopicList);
-                    this.mTopicDataList.add(d48Var);
-                    f48 f48Var = new f48();
-                    f48Var.a = R.dimen.tbds1;
-                    f48Var.b = R.color.CAM_X0203;
-                    this.mTopicDataList.add(f48Var);
+                    t48 t48Var = new t48();
+                    t48Var.R = i2;
+                    t48Var.K(newTopicList);
+                    this.mTopicDataList.add(t48Var);
+                    v48 v48Var = new v48();
+                    v48Var.a = R.dimen.tbds1;
+                    v48Var.b = R.color.CAM_X0203;
+                    this.mTopicDataList.add(v48Var);
                     i2++;
                 }
             }
-            List<vn> list = this.mTopicDataList;
-            ((f48) ListUtils.getItem(list, list.size() - 1)).a = 0;
+            List<wn> list = this.mTopicDataList;
+            ((v48) ListUtils.getItem(list, list.size() - 1)).a = 0;
         }
     }
 }

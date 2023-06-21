@@ -6,32 +6,32 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kh4;
 import com.baidu.tieba.lh4;
+import com.baidu.tieba.mh4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public Context a;
     public RecyclerView b;
-    public List<lh4> c;
-    public kh4 d;
+    public List<mh4> c;
+    public lh4 d;
     public boolean e;
     public String f;
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, kh4 kh4Var) {
-        this(context, recyclerView, kh4Var, true);
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, lh4 lh4Var) {
+        this(context, recyclerView, lh4Var, true);
     }
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, kh4 kh4Var, boolean z) {
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, lh4 lh4Var, boolean z) {
         this.b = recyclerView;
         this.a = context;
-        this.d = kh4Var;
+        this.d = lh4Var;
         this.e = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<lh4> list = this.c;
+        List<mh4> list = this.c;
         if (list == null) {
             return 0;
         }
@@ -51,8 +51,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public void m() {
-        for (lh4 lh4Var : this.c) {
-            lh4Var.b = false;
+        for (mh4 mh4Var : this.c) {
+            mh4Var.b = false;
         }
     }
 
@@ -64,11 +64,11 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return 101;
     }
 
-    public void setData(List<lh4> list) {
+    public void setData(List<mh4> list) {
         n(list, null);
     }
 
-    public void n(List<lh4> list, String str) {
+    public void n(List<mh4> list, String str) {
         if (list != null) {
             this.c = list;
             this.f = str;

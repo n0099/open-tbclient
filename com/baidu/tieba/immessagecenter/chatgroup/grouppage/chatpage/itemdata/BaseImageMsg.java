@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.iw5;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.nw5;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,24 +23,24 @@ import com.google.gson.annotations.SerializedName;
 public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatmessage.messages.ImageMsg> extends BaseChatMsg<SdkMsg> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @iw5(serialize = false)
+    @nw5(serialize = false)
     public final String IMG_THUMBNAIL_TEXT;
     @SerializedName("big_size")
     public String bigSize;
-    @iw5(serialize = false)
     @SerializedName("big_src")
+    @nw5(serialize = false)
     public String bigSrc;
     @SerializedName("bsize")
     public String thumbSize;
-    @iw5(serialize = false)
     @SerializedName("src")
+    @nw5(serialize = false)
     public String thumbUrl;
 
     public abstract SdkMsg createSdkMsgByChildClass();
 
     public abstract void fromSdkMsgToChildClass(@NonNull SdkMsg sdkmsg);
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.vn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.wn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public BaseImageMsg() {
@@ -167,7 +167,7 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
             createSdkMsgByChildClass.setContent(this.bigSrc);
             String[] parseImageSize = parseImageSize(this.thumbSize);
             if (parseImageSize != null && parseImageSize.length > 1) {
-                createSdkMsgByChildClass.setImgWH(tg.e(parseImageSize[0], 0), tg.e(parseImageSize[1], 0));
+                createSdkMsgByChildClass.setImgWH(ug.e(parseImageSize[0], 0), ug.e(parseImageSize[1], 0));
             }
             return createSdkMsgByChildClass;
         }

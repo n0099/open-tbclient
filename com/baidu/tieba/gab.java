@@ -2,26 +2,23 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKey;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class gab implements hab {
+public final class gab<TResult> implements dbb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SecretKey a;
+    public fbb a;
+    public Executor b;
+    public final Object c;
 
-    public gab(String str, String str2, String str3, String str4) throws InvalidKeySpecException, NoSuchAlgorithmException, IllegalArgumentException {
+    public gab(Executor executor, fbb fbbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
+            Object[] objArr = {executor, fbbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,26 +28,17 @@ public class gab implements hab {
                 return;
             }
         }
-        if (str == null || str2 == null || str3 == null || str4 == null) {
-            return;
-        }
-        this.a = jab.a(z9b.b(str), z9b.b(str2), z9b.b(str3), z9b.b(str4), 5000);
+        this.c = new Object();
+        this.a = fbbVar;
+        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.hab
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.dbb
+    public final void a(pab<TResult> pabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.a == null) {
-                return str;
-            }
-            try {
-                return new String(jab.b(this.a, z9b.b(str)), "UTF-8");
-            } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                return str2;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pabVar) == null) && !pabVar.f()) {
+            pabVar.e();
+            this.b.execute(new eab(this, pabVar));
         }
-        return (String) invokeLL.objValue;
     }
 }

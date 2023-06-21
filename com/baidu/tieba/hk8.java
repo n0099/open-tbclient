@@ -1,135 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.app.Activity;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.impersonal.components.inputview.ImPersonInputView;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.immessagecenter.mention.ChatAggregationFragment;
+import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext a;
-    @NonNull
-    public ImPersonInputView b;
-    @NonNull
-    public bm8 c;
-    public boolean d;
+    public final ChatAggregationFragment a;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hk8 a;
 
-        public a(hk8 hk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hk8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !this.a.d) {
-                return;
-            }
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                vi.R(this.a.a.getString(R.string.obfuscated_res_0x7f0f13eb), 2000, true);
-                return;
-            }
-            String obj = this.a.b.getEditText().getText().toString();
-            if (!TextUtils.isEmpty(obj)) {
-                TiebaStatic.log(new StatisticItem("c15273").param("uid", TbadkCoreApplication.getCurrentAccount()));
-                this.a.j(obj);
-                this.a.g();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hk8 a;
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public b(hk8 hk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hk8Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, editable) != null) {
-                return;
-            }
-            this.a.k(!TextUtils.isEmpty(editable.toString().trim()));
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements InputFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ hk8 b;
-
-        public c(hk8 hk8Var, int i) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hk8 hk8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,43 +38,302 @@ public class hk8 {
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = hk8Var;
-            this.a = i;
+            this.a = hk8Var;
         }
 
-        @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            InterceptResult invokeCommon;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int[] iArr;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                int length = this.a - (spanned.length() - (i4 - i3));
-                int i5 = i2 - i;
-                if (length < i5) {
-                    vi.R(this.b.a.getString(R.string.obfuscated_res_0x7f0f0a7c), 2000, true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof int[]) && (iArr = (int[]) customResponsedMessage.getData()) != null && iArr.length == 2) {
+                int i = iArr[0];
+                int i2 = iArr[1];
+                TbPageContext<BaseFragmentActivity> pageContext = this.a.a.getPageContext();
+                if (pageContext != null && pageContext.getUniqueId() != null && pageContext.getUniqueId().getId() == i) {
+                    this.a.d(i2);
                 }
-                if (length <= 0) {
-                    return "";
-                }
-                if (length >= i5) {
-                    return null;
-                }
-                return charSequence.subSequence(i, length + i);
             }
-            return (CharSequence) invokeCommon.objValue;
         }
     }
 
-    public hk8(@NonNull TbPageContext tbPageContext, @NonNull ImPersonInputView imPersonInputView, @NonNull bm8 bm8Var) {
+    /* loaded from: classes6.dex */
+    public class b implements sz4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ Activity d;
+
+        @Override // com.baidu.tieba.sz4
+        public void onCancelClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public b(hk8 hk8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hk8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = tbPageContext;
+            this.c = z2;
+            this.d = activity;
+        }
+
+        @Override // com.baidu.tieba.sz4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.a) {
+                    new MsgRemindModel(this.b).Z(1, true, null);
+                }
+                if (this.c) {
+                    zf5.m(this.d);
+                } else {
+                    uf5.e(this.b);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements sz4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ Activity d;
+
+        @Override // com.baidu.tieba.sz4
+        public void onCancelClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public c(hk8 hk8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hk8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = tbPageContext;
+            this.c = z2;
+            this.d = activity;
+        }
+
+        @Override // com.baidu.tieba.sz4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.a) {
+                    new MsgRemindModel(this.b).Z(2, true, null);
+                }
+                if (this.c) {
+                    zf5.m(this.d);
+                } else {
+                    uf5.e(this.b);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements sz4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ Activity d;
+
+        @Override // com.baidu.tieba.sz4
+        public void onCancelClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public d(hk8 hk8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hk8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = tbPageContext;
+            this.c = z2;
+            this.d = activity;
+        }
+
+        @Override // com.baidu.tieba.sz4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.a) {
+                    new MsgRemindModel(this.b).Z(20, true, null);
+                }
+                if (this.c) {
+                    zf5.m(this.d);
+                } else {
+                    uf5.e(this.b);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements sz4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ Activity d;
+
+        @Override // com.baidu.tieba.sz4
+        public void onCancelClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public e(hk8 hk8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hk8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = tbPageContext;
+            this.c = z2;
+            this.d = activity;
+        }
+
+        @Override // com.baidu.tieba.sz4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.a) {
+                    new MsgRemindModel(this.b).Z(3, true, null);
+                }
+                if (this.c) {
+                    zf5.m(this.d);
+                } else {
+                    uf5.e(this.b);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements sz4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ Activity d;
+
+        @Override // com.baidu.tieba.sz4
+        public void onCancelClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public f(hk8 hk8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hk8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = tbPageContext;
+            this.c = z2;
+            this.d = activity;
+        }
+
+        @Override // com.baidu.tieba.sz4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.a) {
+                    new MsgRemindModel(this.b).Z(10, true, null);
+                }
+                if (this.c) {
+                    zf5.m(this.d);
+                } else {
+                    uf5.e(this.b);
+                }
+            }
+        }
+    }
+
+    public hk8(ChatAggregationFragment chatAggregationFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, imPersonInputView, bm8Var};
+            Object[] objArr = {chatAggregationFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -185,53 +343,82 @@ public class hk8 {
                 return;
             }
         }
-        this.d = false;
-        this.a = tbPageContext;
-        this.b = imPersonInputView;
-        this.c = bm8Var;
-        h();
-        i();
+        this.a = chatAggregationFragment;
     }
 
-    public final void j(@NonNull String str) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c.t(xk8.a(str));
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+            return;
         }
+        this.a.registerListener(new a(this, 2921700));
     }
 
-    public final void k(boolean z) {
+    public final void d(int i) {
+        ChatAggregationFragment chatAggregationFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (z) {
-                this.b.getSendViewContainer().setAlpha(1.0f);
-                this.d = true;
-                return;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || (chatAggregationFragment = this.a) == null) {
+            return;
+        }
+        FragmentActivity fragmentActivity = chatAggregationFragment.getFragmentActivity();
+        TbPageContext<BaseFragmentActivity> pageContext = this.a.getPageContext();
+        if (fragmentActivity != null && pageContext != null) {
+            boolean areNotificationsEnabled = NotificationManagerCompat.from(fragmentActivity).areNotificationsEnabled();
+            if (i == 3) {
+                boolean A = oe5.d().A();
+                if (areNotificationsEnabled && A) {
+                    return;
+                }
+                b bVar = new b(this, A, pageContext, areNotificationsEnabled, fragmentActivity);
+                if (mk8.e()) {
+                    zf5.k(pageContext, 3, bVar);
+                    im9.e().h("reply_message_bar");
+                }
             }
-            this.b.getSendViewContainer().setAlpha(0.5f);
-            this.d = false;
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.getEditText().setText("");
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getEditText().setFilters(new InputFilter[]{new c(this, 400)});
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getSendViewContainer().setOnClickListener(new a(this));
-            this.b.getEditText().addTextChangedListener(new b(this));
+            if (i == 6) {
+                boolean v = oe5.d().v();
+                if (areNotificationsEnabled && v) {
+                    return;
+                }
+                c cVar = new c(this, v, pageContext, areNotificationsEnabled, fragmentActivity);
+                if (mk8.b()) {
+                    zf5.k(pageContext, 6, cVar);
+                    im9.e().h("at_message_bar");
+                }
+            }
+            if (i == 7) {
+                boolean D = oe5.d().D();
+                if (areNotificationsEnabled && D) {
+                    return;
+                }
+                d dVar = new d(this, D, pageContext, areNotificationsEnabled, fragmentActivity);
+                if (mk8.a()) {
+                    zf5.k(pageContext, 7, dVar);
+                    im9.e().h("agree_message_bar");
+                }
+            }
+            if (i == 8) {
+                boolean y = oe5.d().y();
+                if (areNotificationsEnabled && y) {
+                    return;
+                }
+                e eVar = new e(this, y, pageContext, areNotificationsEnabled, fragmentActivity);
+                if (mk8.c()) {
+                    zf5.k(pageContext, 8, eVar);
+                    im9.e().h("fan_message_bar");
+                }
+            }
+            if (i == 2) {
+                boolean r = oe5.d().r();
+                if (areNotificationsEnabled && r) {
+                    return;
+                }
+                f fVar = new f(this, r, pageContext, areNotificationsEnabled, fragmentActivity);
+                if (mk8.d()) {
+                    zf5.k(pageContext, 2, fVar);
+                    im9.e().h("im");
+                }
+            }
         }
     }
 }

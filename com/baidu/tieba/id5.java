@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class id5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jd5> a;
+    public int a;
+    public List<bg> b;
 
     public id5() {
         Interceptable interceptable = $ic;
@@ -28,39 +32,43 @@ public class id5 {
         }
     }
 
-    public void a(JSONArray jSONArray) {
-        boolean z;
+    public List<bg> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.a = new ArrayList();
-            try {
-                if (jSONArray == null) {
-                    n95.m().B("key_index_tab_info_list", "[]");
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("https_switch");
+        JSONObject optJSONObject = jSONObject.optJSONObject("https_whitelist_url");
+        if (optJSONObject != null) {
+            this.b = new ArrayList();
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next)) {
+                    optJSONObject.optInt(next, 1);
+                    this.b.add(new bg());
                 }
-                JSONArray jSONArray2 = new JSONArray(n95.m().s("key_index_tab_info_list", "[]"));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    jd5 jd5Var = new jd5();
-                    jd5 jd5Var2 = new jd5();
-                    jd5Var.i(jSONArray.getJSONObject(i));
-                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        jd5Var2.i(jSONArray2.getJSONObject(i2));
-                        if (jd5Var.c != null && jd5Var.c.equals(jd5Var2.c)) {
-                            if (!TextUtils.isEmpty(jd5Var2.e) && jd5Var2.e.equals(jd5Var.e)) {
-                                z = false;
-                                jd5Var.f = z;
-                            }
-                            z = true;
-                            jd5Var.f = z;
-                        }
-                    }
-                    if (!jd5Var.f()) {
-                        this.a.add(jd5Var);
-                    }
-                }
-                n95.m().B("key_index_tab_info_list", jSONArray.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }

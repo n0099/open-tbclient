@@ -13,29 +13,29 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc3;
-import com.baidu.tieba.nl2;
+import com.baidu.tieba.dc3;
 import com.baidu.tieba.ol2;
 import com.baidu.tieba.pl2;
-import com.baidu.tieba.pp3;
-import com.baidu.tieba.rq3;
-import com.baidu.tieba.sp3;
-import com.baidu.tieba.ty3;
-import com.baidu.tieba.xb3;
+import com.baidu.tieba.ql2;
+import com.baidu.tieba.qp3;
+import com.baidu.tieba.sq3;
+import com.baidu.tieba.tp3;
+import com.baidu.tieba.uy3;
+import com.baidu.tieba.yb3;
 /* loaded from: classes4.dex */
-public class LoadingActivity extends Activity implements rq3<cc3.a> {
+public class LoadingActivity extends Activity implements sq3<dc3.a> {
     public SwanAppActionBar a;
     public LottieAnimationView b;
     public LottieAnimationView c;
     public ImageView d;
     public TextView e;
-    public pl2 f = null;
+    public ql2 f = null;
     public boolean g = false;
-    public final rq3<pl2> h = new a();
-    public final rq3<pl2> i = new b();
+    public final sq3<ql2> h = new a();
+    public final sq3<ql2> i = new b();
 
     /* loaded from: classes4.dex */
-    public class a implements rq3<pl2> {
+    public class a implements sq3<ql2> {
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
@@ -53,22 +53,22 @@ public class LoadingActivity extends Activity implements rq3<cc3.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
+        @Override // com.baidu.tieba.sq3
         /* renamed from: b */
-        public void a(pl2 pl2Var) {
-            sp3.e0(new RunnableC0217a());
+        public void a(ql2 ql2Var) {
+            tp3.e0(new RunnableC0217a());
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements rq3<pl2> {
+    public class b implements sq3<ql2> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
+        @Override // com.baidu.tieba.sq3
         /* renamed from: b */
-        public void a(pl2 pl2Var) {
+        public void a(ql2 ql2Var) {
             LoadingActivity.this.finish();
         }
     }
@@ -104,7 +104,7 @@ public class LoadingActivity extends Activity implements rq3<cc3.a> {
     }
 
     public final void g() {
-        xb3.K().u(this);
+        yb3.K().u(this);
     }
 
     public final void h() {
@@ -119,7 +119,7 @@ public class LoadingActivity extends Activity implements rq3<cc3.a> {
     }
 
     public final void i() {
-        xb3.K().o(this);
+        yb3.K().o(this);
     }
 
     @Override // android.app.Activity
@@ -127,19 +127,19 @@ public class LoadingActivity extends Activity implements rq3<cc3.a> {
         this.b.removeAllAnimatorListeners();
         this.b.cancelAnimation();
         this.c.cancelAnimation();
-        pl2 pl2Var = this.f;
-        if (pl2Var != null) {
-            pl2Var.g(this.i);
-            pl2Var.h(this.h);
+        ql2 ql2Var = this.f;
+        if (ql2Var != null) {
+            ql2Var.g(this.i);
+            ql2Var.h(this.h);
         }
         i();
         super.onDestroy();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rq3
+    @Override // com.baidu.tieba.sq3
     /* renamed from: f */
-    public void a(cc3.a aVar) {
+    public void a(dc3.a aVar) {
         if (TextUtils.equals(aVar.b, "loading_hide")) {
             finish();
         }
@@ -147,13 +147,13 @@ public class LoadingActivity extends Activity implements rq3<cc3.a> {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        int c0 = sp3.c0(this);
+        int c0 = tp3.c0(this);
         super.onCreate(bundle);
-        sp3.g(this, c0);
+        tp3.g(this, c0);
         setContentView(R.layout.obfuscated_res_0x7f0d0045);
         e();
         d();
-        pp3.a(this);
+        qp3.a(this);
         g();
         c();
     }
@@ -162,7 +162,7 @@ public class LoadingActivity extends Activity implements rq3<cc3.a> {
         String stringExtra;
         this.e.setText(getString(R.string.obfuscated_res_0x7f0f01c7, new Object[]{0}));
         Intent intent = getIntent();
-        Bitmap d2 = ty3.b().d();
+        Bitmap d2 = uy3.b().d();
         if (d2 == null) {
             this.d.setImageResource(R.drawable.obfuscated_res_0x7f0801da);
         } else {
@@ -174,11 +174,11 @@ public class LoadingActivity extends Activity implements rq3<cc3.a> {
         } else {
             stringExtra = intent.getStringExtra("so_lib_name");
         }
-        nl2 nl2Var = nl2.d;
+        ol2 ol2Var = ol2.d;
         if (!TextUtils.isEmpty(stringExtra)) {
             str = stringExtra;
         }
-        pl2 j = nl2Var.j(str);
+        ql2 j = ol2Var.j(str);
         this.f = j;
         if (j != null && !j.n()) {
             this.f.v(this.h);
@@ -207,12 +207,12 @@ public class LoadingActivity extends Activity implements rq3<cc3.a> {
     }
 
     public void j() {
-        ol2.b m;
-        pl2 pl2Var = this.f;
-        if (pl2Var == null) {
+        pl2.b m;
+        ql2 ql2Var = this.f;
+        if (ql2Var == null) {
             m = null;
         } else {
-            m = pl2Var.m();
+            m = ql2Var.m();
         }
         if (m != null && m.a()) {
             int min = (int) ((Math.min(Math.max(m.a, 0L), m.b) / m.b) * 100.0d);

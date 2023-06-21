@@ -1,43 +1,109 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import android.text.TextUtils;
-import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.tieba.j54;
+import com.baidu.tieba.n54;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
 public class m54 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile m54 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public e b;
+    public k54 c;
+    public long d;
+    public int e;
+    public long f;
+    public l54 g;
+    public n54.d h;
 
     /* loaded from: classes6.dex */
-    public interface d {
-        void onFail(String str);
-
-        void onSuccess(Object obj);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends StringResponseCallback {
+    public class b implements j54.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ j54.d b;
+        public final /* synthetic */ m54 c;
 
-        public a(d dVar) {
+        /* loaded from: classes6.dex */
+        public class a implements n54.d {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.n54.d
+            public void onFail(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                    this.a.b.onFail(str);
+                }
+            }
+
+            @Override // com.baidu.tieba.n54.d
+            public void onSuccess(Object obj) {
+                Activity activity;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                    o54 o54Var = (o54) obj;
+                    if (js1.a) {
+                        Log.d("AntiAddictionManager", o54Var.toString());
+                    }
+                    int i = o54Var.a;
+                    if (i == 0) {
+                        this.a.b.onSuccess();
+                    } else if (1 == i) {
+                        this.a.b.onFail(o54Var.b);
+                    } else {
+                        this.a.b.onFail(o54Var.b);
+                        if (TextUtils.isEmpty(o54Var.b) || (activity = this.a.c.getActivity()) == null) {
+                            return;
+                        }
+                        this.a.c.g.f(activity, o54Var.b, activity.getString(R.string.obfuscated_res_0x7f0f0133), true, null);
+                    }
+                }
+            }
+        }
+
+        public b(m54 m54Var, String str, j54.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
+                Object[] objArr = {m54Var, str, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,47 +113,40 @@ public class m54 {
                     return;
                 }
             }
-            this.a = dVar;
+            this.c = m54Var;
+            this.a = str;
+            this.b = dVar;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.baidu.tieba.j54.d
+        public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.onFail(exc.getMessage());
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.b.onFail(str);
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
+        @Override // com.baidu.tieba.j54.d
+        public void onSuccess() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    JSONObject e = m54.e(str, this.a);
-                    if (e == null) {
-                        return;
-                    }
-                    this.a.onSuccess(o54.a(e));
-                    return;
-                }
-                this.a.onFail(ADConfigError.REASON_NULL_RESPONSE);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                n54.h(this.a, new a(this));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends StringResponseCallback {
+    public class a implements j54.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
+        public final /* synthetic */ m54 a;
 
-        public b(d dVar) {
+        public a(m54 m54Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
+                Object[] objArr = {m54Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -97,54 +156,40 @@ public class m54 {
                     return;
                 }
             }
-            this.a = dVar;
+            this.a = m54Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.baidu.tieba.j54.d
+        public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.onFail(exc.getMessage());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && js1.a) {
+                Log.e("AntiAddictionManager", "handleLoginAndRealName: " + str);
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
+        @Override // com.baidu.tieba.j54.d
+        public void onSuccess() {
+            Activity activity;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    JSONObject e = m54.e(str, this.a);
-                    if (e == null) {
-                        return;
-                    }
-                    this.a.onSuccess(n54.a(e));
-                    return;
-                }
-                this.a.onFail(ADConfigError.REASON_NULL_RESPONSE);
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (activity = this.a.getActivity()) == null) {
+                return;
             }
+            rb3.f(activity, R.string.obfuscated_res_0x7f0f0134).G();
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c extends StringResponseCallback {
+    public class c implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yb3 a;
+        public final /* synthetic */ m54 a;
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            }
-        }
-
-        public c(yb3 yb3Var) {
+        public c(m54 m54Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yb3Var};
+                Object[] objArr = {m54Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -154,60 +199,310 @@ public class m54 {
                     return;
                 }
             }
-            this.a = yb3Var;
+            this.a = m54Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-                try {
-                    if (new JSONObject(str).getInt("errno") != 0) {
-                        gk3 a = mk3.a();
-                        a.putInt("swangame_valid__" + this.a.O(), 0);
-                        return;
-                    }
-                    gk3 a2 = mk3.a();
-                    a2.putInt("swangame_valid__" + this.a.O(), 1);
-                    m54.g("1");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.q();
             }
         }
     }
 
-    public static void b() {
-        yb3 b0;
+    /* loaded from: classes6.dex */
+    public class d implements n54.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m54 a;
+
+        public d(m54 m54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m54Var;
+        }
+
+        @Override // com.baidu.tieba.n54.d
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && js1.a) {
+                Log.e("AntiAddictionManager", str);
+            }
+        }
+
+        @Override // com.baidu.tieba.n54.d
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                p54 p54Var = (p54) obj;
+                if (js1.a) {
+                    Log.d("AntiAddictionManager", p54Var.toString());
+                }
+                this.a.d = System.currentTimeMillis();
+                if (!this.a.s(p54Var.c)) {
+                    return;
+                }
+                this.a.r(p54Var.d * 1000);
+                this.a.p(p54Var.a, p54Var.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m54 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(m54 m54Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m54Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m54Var;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                removeCallbacksAndMessages(null);
+            }
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return hasMessages(1);
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || 1 == this.a.e) {
+                return;
+            }
+            sendEmptyMessageDelayed(1, this.a.f);
+        }
+
+        @Override // android.os.Handler
+        public void dispatchMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && message.what == 1) {
+                this.a.y(false);
+                c();
+            }
+        }
+    }
+
+    public m54() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (b0 = yb3.b0()) != null && !c() && fv2.h0().e(fv2.c())) {
-            if (d()) {
-                g("1");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = 0;
+        this.f = 300000L;
+        this.h = new d(this);
+        k();
+    }
+
+    public final void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (300000 < j) {
+                this.f = j;
             } else {
-                fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().a()).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new c(b0));
+                this.f = 300000L;
             }
         }
     }
 
-    public static void f() {
-        yb3 b0;
+    public final boolean s(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (b0 = yb3.b0()) != null && d() && fv2.h0().e(fv2.c())) {
-            fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().i()).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
-        }
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            yb3 b0 = yb3.b0();
-            if (b0 == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            this.e = i2;
+            if (1 != i2) {
                 return true;
             }
-            gk3 a2 = mk3.a();
-            if (a2.getInt("swangame_valid__" + b0.O(), -1) == 0) {
+            n();
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void w(k54 k54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, k54Var) == null) {
+            this.c = k54Var;
+        }
+    }
+
+    public void j(String str, j54.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, dVar) == null) {
+            if (TextUtils.isEmpty(str)) {
+                dVar.onFail("orderInfo is null");
+            } else if (!t()) {
+                dVar.onSuccess();
+            } else {
+                j54.b(new b(this, str, dVar));
+            }
+        }
+    }
+
+    public final void u(int i2, String str) {
+        k54 k54Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048586, this, i2, str) == null) && (k54Var = this.c) != null) {
+            try {
+                k54Var.x(i2, str);
+            } catch (JSONException e2) {
+                if (js1.a) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            zb3 b0 = zb3.b0();
+            if (b0 != null && b0.w() != null) {
+                return b0.w();
+            }
+            return null;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public static m54 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (i == null) {
+                synchronized (m54.class) {
+                    if (i == null) {
+                        i = new m54();
+                    }
+                }
+            }
+            return i;
+        }
+        return (m54) invokeV.objValue;
+    }
+
+    public static synchronized void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            synchronized (m54.class) {
+                if (i != null) {
+                    i.m();
+                    i = null;
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            l();
+            y(true);
+            x();
+            this.g = new l54();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
+            HandlerThread handlerThread = new HandlerThread("anti_addiction_monitor");
+            this.a = handlerThread;
+            handlerThread.start();
+            this.b = new e(this, this.a.getLooper());
+        }
+    }
+
+    public final synchronized void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.b.a();
+                if (this.a != null) {
+                    this.a.quitSafely();
+                    this.a = null;
+                }
+                if (this.g != null) {
+                    this.g.e();
+                    this.g = null;
+                }
+            }
+        }
+    }
+
+    public synchronized void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (t()) {
+                    y(false);
+                }
+                this.b.a();
+            }
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            j54.c(new a(this));
+        }
+    }
+
+    public final boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.e == 0) {
                 return true;
             }
             return false;
@@ -215,82 +510,55 @@ public class m54 {
         return invokeV.booleanValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public synchronized void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            yb3 b0 = yb3.b0();
-            if (b0 == null) {
-                return false;
-            }
-            gk3 a2 = mk3.a();
-            if (1 != a2.getInt("swangame_valid__" + b0.O(), -1)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static JSONObject e(String str, d dVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, dVar)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.optInt("errno", -1) != 0) {
-                    dVar.onFail(jSONObject.optString("errmsg"));
-                    return null;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                if (t() && !this.b.b()) {
+                    this.d = System.currentTimeMillis();
+                    this.b.c();
                 }
-                return jSONObject.optJSONObject("data");
-            } catch (Exception e) {
-                dVar.onFail(e.getMessage());
-                return null;
             }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static void g(String str) {
-        yb3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && (b0 = yb3.b0()) != null && d() && fv2.h0().e(fv2.c())) {
-            String h = fv2.h0().h(fv2.c());
-            if (TextUtils.isEmpty(h)) {
-                return;
-            }
-            String d2 = es4.d(Base64.encode(h.getBytes(), 0), false);
-            String i = fv2.h0().i(fv2.c());
-            if (!TextUtils.isEmpty(i) && i.length() > 32) {
-                i = i.substring(0, 32);
-            }
-            fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().q()).addUrlParam("sessionId", d2).addUrlParam("deviceId", i).addUrlParam("behaviorType", str).addUrlParam("behaviorTime", String.valueOf(System.currentTimeMillis() / 1000)).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
         }
     }
 
-    public static void h(String str, d dVar) {
+    public final void p(int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65543, null, str, dVar) != null) || dVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
+            if (i2 < 0) {
+                if (js1.a) {
+                    Log.e("AntiAddictionManager", "server AntiAddiction state error = " + i2 + " msg = " + str);
+                }
+            } else if (i2 != 0) {
+                if (i2 != 1) {
+                    u(i2, str);
+                    return;
+                }
+                Activity activity = getActivity();
+                if (activity == null) {
+                    return;
+                }
+                this.g.f(activity, activity.getString(R.string.obfuscated_res_0x7f0f0132), activity.getString(R.string.obfuscated_res_0x7f0f0131), true, new c(this));
+            }
         }
-        yb3 b0 = yb3.b0();
-        if (b0 == null) {
-            dVar.onFail("swan app is null");
-            return;
-        }
-        fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().j()).addUrlParam("appkey", b0.O()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new b(dVar));
     }
 
-    public static void i(long j, d dVar) {
+    public final void y(boolean z) {
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJL(65544, null, j, dVar) != null) || dVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            if (!z) {
+                j = System.currentTimeMillis() - this.d;
+                if (LiveFeedPageSdk.REFRESH_TIME > j) {
+                    return;
+                }
+            } else {
+                j = 0;
+            }
+            if (js1.a) {
+                Log.d("AntiAddictionManager", "Request upUseTime");
+            }
+            n54.i(j, this.h);
         }
-        yb3 b0 = yb3.b0();
-        if (b0 == null) {
-            dVar.onFail("swan app is null");
-            return;
-        }
-        fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().h()).addUrlParam("appkey", b0.O()).addUrlParam("duration", String.valueOf(j)).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new a(dVar));
     }
 }

@@ -1,45 +1,64 @@
 package com.baidu.tieba;
 
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class ckb {
+public class ckb extends dkb {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final int[] b;
-    public static final int[] c;
-    public static final int[] d;
-    public static final int[] e;
-    public static final int[] f;
-    public static final int[] g;
-    public static final int[] h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int l;
+    public bib m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947679055, "Lcom/baidu/tieba/ckb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947679055, "Lcom/baidu/tieba/ckb;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ckb(jkb jkbVar) {
+        super(jkbVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jkbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((jkb) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new int[]{1, 5, 9, 13, 17, 25, 33, 41, 49, 65, 81, 97, 113, 145, 177, 209, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, 305, 369, 497, 753, 1265, 2289, 4337, 8433, 16625};
-        b = new int[]{2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 24};
-        c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, 10, 14, 18, 26, 34, 50, 66, 98, 130, 194, 322, 578, 1090, 2114, 6210, 22594};
-        d = new int[]{0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 12, 14, 24};
-        e = new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 18, 22, 30, 38, 54, 70, 102, 134, Constants.METHOD_IM_FETCH_BUSINESS_SESSION_MSG, 326, 582, 1094, 2118};
-        f = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 24};
-        g = new int[]{0, 0, 8, 8, 0, 16, 8, 16, 16};
-        h = new int[]{0, 8, 0, 8, 16, 0, 16, 8, 16};
+        this.l = -1;
+        this.m = new bib(0.7f, 0.9f, 0.95f, 0.75f);
+    }
+
+    @Override // com.baidu.tieba.dkb
+    public void a(String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, str, str2, i, i2) == null) {
+            super.a(str, str2, i, i2);
+            GLES20.glUseProgram(this.a);
+            this.l = GLES20.glGetUniformLocation(this.a, "u_frontArea");
+            kkb.c("PipUniform", this.j);
+            int i3 = this.l;
+            bib bibVar = this.m;
+            GLES20.glUniform4f(i3, bibVar.b, bibVar.c, bibVar.d, bibVar.e);
+            GLES20.glUseProgram(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.dkb
+    public void i(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && obj != null && this.l != -1) {
+            bib bibVar = (bib) obj;
+            if (!bibVar.equals(this.m)) {
+                GLES20.glUniform4f(this.l, bibVar.b, bibVar.d, bibVar.c, bibVar.e);
+                this.m = bibVar;
+            }
+        }
     }
 }

@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f25;
-import com.baidu.tieba.fb5;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.g25;
+import com.baidu.tieba.gb5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends gb5<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public f25 i;
+    public g25 i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -156,13 +156,13 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
         }
     }
 
-    public f25 v() {
+    public g25 v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.i;
         }
-        return (f25) invokeV.objValue;
+        return (g25) invokeV.objValue;
     }
 
     public LINK_TYPE w() {
@@ -179,8 +179,8 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            f25 f25Var = this.i;
-            if (f25Var != null && f25Var.o == 5) {
+            g25 g25Var = this.i;
+            if (g25Var != null && g25Var.o == 5) {
                 return R.drawable.icon_group_chat_icon;
             }
             return R.drawable.icon_pure_post_link16;
@@ -226,7 +226,7 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fb5
+    @Override // com.baidu.tieba.gb5
     /* renamed from: u */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -255,10 +255,10 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
         return (TbLinkSpanGroup) invokeLL.objValue;
     }
 
-    public void B(f25 f25Var) {
+    public void B(g25 g25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f25Var) == null) {
-            this.i = f25Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, g25Var) == null) {
+            this.i = g25Var;
         }
     }
 
@@ -303,7 +303,7 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
 
     public void G() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.k == 2 || ui.isEmpty(this.o)) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.k == 2 || vi.isEmpty(this.o)) {
             return;
         }
         this.k = 2;
@@ -317,7 +317,7 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
         n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.baidu.tieba.fb5
+    @Override // com.baidu.tieba.gb5
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048582, this, editable, i, i2, i3) == null) {
@@ -332,13 +332,13 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.fb5
+    @Override // com.baidu.tieba.gb5
     public void r(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable) == null) {
-            f25 f25Var = this.i;
-            if (f25Var != null && f25Var.b == 2) {
-                if (f25Var.h != null) {
+            g25 g25Var = this.i;
+            if (g25Var != null && g25Var.b == 2) {
+                if (g25Var.h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
                     sb.append(this.i.h);
@@ -355,19 +355,19 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.fb5
+    @Override // com.baidu.tieba.gb5
     public void s(Editable editable, int i) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, editable, i) == null) {
             if (this.i == null) {
-                if (ui.isEmpty(this.n)) {
+                if (vi.isEmpty(this.n)) {
                     str = "0";
                 } else {
                     str = this.n;
                 }
-                if (this.j == LINK_TYPE.INTERNAL_LINK && ui.isEmpty(this.o)) {
+                if (this.j == LINK_TYPE.INTERNAL_LINK && vi.isEmpty(this.o)) {
                     str2 = "";
                 } else {
                     str2 = this.p;
@@ -376,9 +376,9 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
                 sb.append("#(url,");
                 sb.append(str);
                 sb.append(",");
-                sb.append(ui.getUrlEncode(this.l.toString()));
+                sb.append(vi.getUrlEncode(this.l.toString()));
                 sb.append(",");
-                sb.append(ui.getUrlEncode(str2));
+                sb.append(vi.getUrlEncode(str2));
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 sb.append(this.m);
                 k(sb);
@@ -397,7 +397,7 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
                         StringBuilder sb2 = new StringBuilder();
                         jSONObject.put("goods", jSONObject2);
                         sb2.append("#(goods,");
-                        sb2.append(ui.getUrlEncode(jSONObject.toString()));
+                        sb2.append(vi.getUrlEncode(jSONObject.toString()));
                         sb2.append(SmallTailInfo.EMOTION_SUFFIX);
                         sb2.append(this.m);
                         k(sb2);
@@ -412,15 +412,15 @@ public class TbLinkSpanGroup extends fb5<TbLinkSpanGroup> {
             String str3 = this.p;
             StringBuilder sb3 = new StringBuilder();
             sb3.append("#(url,0,");
-            sb3.append(ui.getUrlEncode(this.l.toString()));
+            sb3.append(vi.getUrlEncode(this.l.toString()));
             sb3.append(",");
-            sb3.append(ui.getUrlEncode(str3));
+            sb3.append(vi.getUrlEncode(str3));
             sb3.append(",");
-            sb3.append(ui.getUrlEncode(this.i.l));
+            sb3.append(vi.getUrlEncode(this.i.l));
             sb3.append(",");
             sb3.append(this.i.e);
             sb3.append(",");
-            sb3.append(ui.getUrlEncode(this.i.f));
+            sb3.append(vi.getUrlEncode(this.i.f));
             sb3.append(",");
             sb3.append(i);
             sb3.append(",");

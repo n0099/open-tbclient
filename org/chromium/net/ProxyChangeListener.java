@@ -67,7 +67,7 @@ public class ProxyChangeListener {
         @UsedByReflection("WebView embedders call this to override proxy settings")
         public void onReceive(Context context, final Intent intent) {
             if (intent.getAction().equals("android.intent.action.PROXY_CHANGE")) {
-                ProxyChangeListener.this.runOnThread(new Runnable() { // from class: com.baidu.tieba.elb
+                ProxyChangeListener.this.runOnThread(new Runnable() { // from class: com.baidu.tieba.xmb
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +183,7 @@ public class ProxyChangeListener {
     }
 
     public void updateProxyConfigFromConnectivityManager(final Intent intent) {
-        runOnThread(new Runnable() { // from class: com.baidu.tieba.dlb
+        runOnThread(new Runnable() { // from class: com.baidu.tieba.wmb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

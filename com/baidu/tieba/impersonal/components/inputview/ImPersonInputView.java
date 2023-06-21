@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.p75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,20 +91,20 @@ public class ImPersonInputView extends RelativeLayout {
             }
         }
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0417, (ViewGroup) this, true);
-        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f09101b);
-        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f09095a);
+        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091020);
+        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f090958);
         this.b = editText;
-        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f13ea));
+        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f13ee));
         this.b.setMaxLines(3);
         this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0108));
         this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0926ab);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0926b8);
         this.c = findViewById;
         findViewById.setAlpha(0.5f);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926ac);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926b9);
         this.d = textView;
-        textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f039c));
-        o75 d = o75.d(this.c);
+        textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f039d));
+        p75 d = p75.d(this.c);
         d.o(R.string.J_X01);
         d.f(R.color.CAM_X0920);
         a();
@@ -113,7 +113,7 @@ public class ImPersonInputView extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o75.d(this.d).w(R.color.CAM_X0100);
+            p75.d(this.d).x(R.color.CAM_X0100);
         }
     }
 

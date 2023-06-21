@@ -126,23 +126,23 @@ public class p extends v implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091387);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091384);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091389);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138a);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091382);
-        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091383);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091386);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09137f);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f091388);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138c);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091389);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138e);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138f);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091387);
+        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091388);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138b);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091384);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09138d);
     }
 
     public int jb() {
-        return R.id.obfuscated_res_0x7f091381;
+        return R.id.obfuscated_res_0x7f091386;
     }
 
     public int jc() {
-        return R.id.obfuscated_res_0x7f091380;
+        return R.id.obfuscated_res_0x7f091385;
     }
 
     @Override // android.view.View.OnClickListener

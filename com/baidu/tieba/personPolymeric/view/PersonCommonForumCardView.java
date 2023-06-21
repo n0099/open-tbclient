@@ -6,9 +6,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.layout.FlowLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.sg9;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.wh9;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,9 +20,9 @@ public class PersonCommonForumCardView extends FlowLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context e;
-    public List<sg9> f;
+    public List<wh9> f;
     public List<PersonCommonForumItemView> g;
-    public kg<PersonCommonForumItemView> h;
+    public lg<PersonCommonForumItemView> h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCommonForumCardView(Context context) {
@@ -51,11 +51,11 @@ public class PersonCommonForumCardView extends FlowLayout {
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || ListUtils.isEmpty(this.f)) {
             return;
         }
-        for (sg9 sg9Var : this.f) {
-            if (sg9Var != null) {
+        for (wh9 wh9Var : this.f) {
+            if (wh9Var != null) {
                 PersonCommonForumItemView b = this.h.b();
-                b.setData(sg9Var);
-                addView(b, new ViewGroup.LayoutParams(((vi.l(this.e) - vi.g(this.e, R.dimen.tbds88)) - vi.g(this.e, R.dimen.tbds96)) / 2, -2));
+                b.setData(wh9Var);
+                addView(b, new ViewGroup.LayoutParams(((wi.l(this.e) - wi.g(this.e, R.dimen.tbds88)) - wi.g(this.e, R.dimen.tbds96)) / 2, -2));
                 this.g.add(b);
             }
         }
@@ -82,7 +82,7 @@ public class PersonCommonForumCardView extends FlowLayout {
         }
     }
 
-    public void setData(List<sg9> list) {
+    public void setData(List<wh9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.f = list;
@@ -90,10 +90,10 @@ public class PersonCommonForumCardView extends FlowLayout {
         }
     }
 
-    public void setForumItemViewBdObjectPool(kg<PersonCommonForumItemView> kgVar) {
+    public void setForumItemViewBdObjectPool(lg<PersonCommonForumItemView> lgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kgVar) == null) {
-            this.h = kgVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, lgVar) == null) {
+            this.h = lgVar;
         }
     }
 }

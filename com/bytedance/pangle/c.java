@@ -21,11 +21,11 @@ public interface c extends IInterface {
 
         /* renamed from: com.bytedance.pangle.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public static class C0550a implements c {
+        public static class C0551a implements c {
             public static c a;
             public IBinder b;
 
-            public C0550a(IBinder iBinder) {
+            public C0551a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -103,7 +103,7 @@ public interface c extends IInterface {
         }
 
         public static c a() {
-            return C0550a.a;
+            return C0551a.a;
         }
 
         public static c a(IBinder iBinder) {
@@ -114,7 +114,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0550a(iBinder);
+            return new C0551a(iBinder);
         }
 
         @Override // android.os.Binder

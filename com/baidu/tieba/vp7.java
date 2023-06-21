@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.message.UpgradePopWindowMessage;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TabPic;
 /* loaded from: classes8.dex */
-public class vp7 {
+public class vp7 extends k65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public hf7 c;
-    public String d;
-    public int e;
-    public TabPic f;
-    public boolean g;
 
     public vp7() {
         Interceptable interceptable = $ic;
@@ -32,20 +29,18 @@ public class vp7 {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        String str;
+    @Override // com.baidu.tieba.k65
+    public void a(@NonNull Context context, @NonNull c65 c65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj != null && (obj instanceof vp7)) {
-                vp7 vp7Var = (vp7) obj;
-                if (this.b == vp7Var.b && (str = this.a) != null && str.equals(vp7Var.a)) {
-                    return true;
-                }
-                return super.equals(obj);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c65Var) == null) {
+            if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "FRS升级弹窗失败：当前Activity非FrsActivity");
+                a65.s("frsUpgrade");
+                return;
             }
-            return false;
+            UpgradePopWindowMessage upgradePopWindowMessage = new UpgradePopWindowMessage(2001016, ((FrsActivity) context).getPageContext());
+            upgradePopWindowMessage.setFromPage("frs");
+            MessageManager.getInstance().sendMessage(upgradePopWindowMessage);
         }
-        return invokeL.booleanValue;
     }
 }

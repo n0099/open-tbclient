@@ -40,9 +40,12 @@ public final class MiniPluginInfoHelper {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v0 int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002c: ARITH  (r4v0 int A[REMOVE]) = (r0v3 int) / (1000000 int)), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002f: ARITH  (r4v0 int A[REMOVE]) = (r0v4 int) / (1000000 int)), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
     public final String getSdkName() {
         int versionCode = getVersionCode("com.baidu.searchbox.livenps") - 600000000;
+        if (versionCode < 0) {
+            versionCode = 0;
+        }
         StringBuilder sb = new StringBuilder();
         int i = versionCode / ExceptionCode.CRASH_EXCEPTION;
         int i2 = versionCode % ExceptionCode.CRASH_EXCEPTION;
@@ -70,9 +73,12 @@ public final class MiniPluginInfoHelper {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v0 int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0051: ARITH  (r1v9 int A[REMOVE]) = (r5v5 int) / (1000 int)), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0054: ARITH  (r1v9 int A[REMOVE]) = (r5v6 int) / (1000 int)), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
     public final String getVersionName(String str) {
         int versionCode = getVersionCode(str) - 600000000;
+        if (versionCode < 0) {
+            versionCode = 0;
+        }
         StringBuilder sb = new StringBuilder();
         int i = versionCode / ExceptionCode.CRASH_EXCEPTION;
         int i2 = versionCode % ExceptionCode.CRASH_EXCEPTION;

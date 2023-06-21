@@ -1,148 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kn8 implements View.OnClickListener {
+public abstract class kn8<SdkMsg extends ChatMsg, T> implements nn8<SdkMsg, ql8<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public TextView b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public ImageView f;
-    public TextView g;
-    public int h;
-    public int i;
-    public int j;
 
-    public kn8(Context context) {
+    public abstract int c();
+
+    public abstract SdkMsg e(T t);
+
+    public abstract T g(SdkMsg sdkmsg);
+
+    public kn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ef, (ViewGroup) null);
-        this.a = viewGroup;
-        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0906e2);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091dc9);
-        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091679);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09167a);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ae9);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090aea);
-        this.d.setOnClickListener(this);
-        this.f.setOnClickListener(this);
-        c();
-    }
-
-    public ViewGroup a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.d, R.drawable.img_lable_boy_n);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f, R.drawable.img_lable_girl_n);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
         }
     }
 
-    public void d(List<hn8> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nn8
+    /* renamed from: d */
+    public SdkMsg b(ql8<T> msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
-            this.h = list.get(0).a;
-            this.i = list.get(1).a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
         }
+        return (SdkMsg) invokeL.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nn8
+    /* renamed from: f */
+    public ql8<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            boolean z = false;
-            if (view2 == this.d) {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            ql8<T> ql8Var = new ql8<>();
+            ql8Var.i(g(msg));
+            ql8Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            ql8Var.d(msgKey);
+            ql8Var.e().l(msg.getContacterUk());
+            ql8Var.e().k(vwa.c(msg.getSenderUid(), 0L));
+            ql8Var.e().i(msg.getStatus());
+            ql8Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            ql8Var.e().h(isSelf);
+            if (!isSelf) {
+                ql8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
+                ql8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
             } else {
-                ImageView imageView = this.f;
+                ql8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
+                ql8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
             }
-            if (z) {
-                i = this.h;
+            if (!StringUtils.isNull(msg.getContentExtra())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
+                    ql8Var.e().j(jSONObject.optInt("type"));
+                    ql8Var.e().e(jSONObject.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                    } else {
+                        throw e;
+                    }
+                }
+            }
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
             } else {
-                i = this.i;
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
             }
-            this.j = i;
-            ImageView imageView2 = this.d;
-            if (z) {
-                i2 = R.drawable.img_lable_boy_s;
-            } else {
-                i2 = R.drawable.img_lable_boy_n;
+            if (!vi.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(msgContent);
+                    pl8 g = ql8Var.g();
+                    String optString = jSONObject2.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.b(optString);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
             }
-            SkinManager.setImageResource(imageView2, i2);
-            TextView textView = this.e;
-            int i5 = R.color.CAM_X0109;
-            if (z) {
-                i3 = R.color.CAM_X0302;
-            } else {
-                i3 = R.color.CAM_X0109;
-            }
-            SkinManager.setViewTextColor(textView, i3);
-            ImageView imageView3 = this.f;
-            if (z) {
-                i4 = R.drawable.img_lable_girl_n;
-            } else {
-                i4 = R.drawable.img_lable_girl_s;
-            }
-            SkinManager.setImageResource(imageView3, i4);
-            TextView textView2 = this.g;
-            if (!z) {
-                i5 = R.color.CAM_X0301;
-            }
-            SkinManager.setViewTextColor(textView2, i5);
+            return ql8Var;
         }
+        return (ql8) invokeL.objValue;
     }
 }

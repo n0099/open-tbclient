@@ -16,7 +16,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dl;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.el;
 import com.baidu.tieba.f9;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.jb;
@@ -25,9 +26,8 @@ import com.baidu.tieba.l9;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.o9;
 import com.baidu.tieba.p9;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.zn;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,13 +77,13 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         }
     }
 
-    public zn onGetPreLoadListView() {
+    public ao onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (zn) invokeV.objValue;
+        return (ao) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -114,9 +114,9 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     }
 
     @Override // com.baidu.tieba.p9
-    public void onPreLoad(zn znVar) {
+    public void onPreLoad(ao aoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, znVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, aoVar) == null) {
         }
     }
 
@@ -197,8 +197,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof dl) {
-            ((dl) view2).refresh();
+        if (view2 instanceof el) {
+            ((el) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -273,7 +273,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            pg.h().e(this.mId);
+            qg.h().e(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
@@ -292,7 +292,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            zn onGetPreLoadListView = onGetPreLoadListView();
+            ao onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -353,7 +353,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            vi.Q(getApplicationContext(), str);
+            wi.Q(getApplicationContext(), str);
         }
     }
 
@@ -368,7 +368,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
-            pg.h().b(this.mId);
+            qg.h().b(this.mId);
             g9.f().l(getPageContext().getPageActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }

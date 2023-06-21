@@ -1,37 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qmb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.exceptions.OnErrorNotImplementedException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.java_websocket.WebSocket;
 /* loaded from: classes8.dex */
-public class ymb extends qmb {
+public abstract class ymb extends zmb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
+    public int connectionLostTimeout;
+    public Timer connectionLostTimer;
+    public TimerTask connectionLostTimerTask;
+    public boolean reuseAddr;
+    public boolean tcpNoDelay;
+    public boolean websocketRunning;
+
+    public abstract Collection<WebSocket> getConnections();
 
     /* loaded from: classes8.dex */
-    public static class a extends qmb.a {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Handler a;
-        public final wmb b;
-        public volatile boolean c;
+        public ArrayList<WebSocket> a;
+        public final /* synthetic */ ymb b;
 
-        public a(Handler handler) {
+        public a(ymb ymbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
+                Object[] objArr = {ymbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,135 +49,52 @@ public class ymb extends qmb {
                     return;
                 }
             }
-            this.a = handler;
-            this.b = vmb.a().b();
+            this.b = ymbVar;
+            this.a = new ArrayList<>();
         }
 
-        @Override // com.baidu.tieba.qmb.a
-        public umb b(anb anbVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, anbVar)) == null) {
-                return c(anbVar, 0L, TimeUnit.MILLISECONDS);
-            }
-            return (umb) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.qmb.a
-        public umb c(anb anbVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{anbVar, Long.valueOf(j), timeUnit})) == null) {
-                if (this.c) {
-                    return nrb.c();
-                }
-                this.b.c(anbVar);
-                b bVar = new b(anbVar, this.a);
-                Message obtain = Message.obtain(this.a, bVar);
-                obtain.obj = this;
-                this.a.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-                if (this.c) {
-                    this.a.removeCallbacks(bVar);
-                    return nrb.c();
-                }
-                return bVar;
-            }
-            return (umb) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.umb
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.umb
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.c = true;
-                this.a.removeCallbacksAndMessages(this);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b implements Runnable, umb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final anb a;
-        public final Handler b;
-        public volatile boolean c;
-
-        public b(anb anbVar, Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {anbVar, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = anbVar;
-            this.b = handler;
-        }
-
-        @Override // com.baidu.tieba.umb
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.umb
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.c = true;
-                this.b.removeCallbacks(this);
-            }
-        }
-
-        @Override // java.lang.Runnable
+        @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            IllegalStateException illegalStateException;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.clear();
                 try {
-                    this.a.call();
-                } catch (Throwable th) {
-                    if (th instanceof OnErrorNotImplementedException) {
-                        illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
-                    } else {
-                        illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
+                    this.a.addAll(this.b.getConnections());
+                    long currentTimeMillis = System.currentTimeMillis() - (this.b.connectionLostTimeout * 1500);
+                    Iterator<WebSocket> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        WebSocket next = it.next();
+                        if (next instanceof anb) {
+                            anb anbVar = (anb) next;
+                            if (anbVar.r() < currentTimeMillis) {
+                                if (anb.u) {
+                                    PrintStream printStream = System.out;
+                                    printStream.println("Closing connection due to no pong received: " + next.toString());
+                                }
+                                anbVar.f(1006, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
+                            } else if (anbVar.B()) {
+                                anbVar.J();
+                            } else if (anb.u) {
+                                PrintStream printStream2 = System.out;
+                                printStream2.println("Trying to ping a non open connection: " + next.toString());
+                            }
+                        }
                     }
-                    arb.c().b().a(illegalStateException);
-                    Thread currentThread = Thread.currentThread();
-                    currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
+                } catch (Exception e) {
+                    if (anb.u) {
+                        PrintStream printStream3 = System.out;
+                        printStream3.println("Exception during connection lost ping: " + e.getMessage());
+                    }
                 }
+                this.a.clear();
             }
         }
     }
 
-    public ymb(Looper looper) {
+    public ymb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -179,16 +104,140 @@ public class ymb extends qmb {
                 return;
             }
         }
-        this.a = new Handler(looper);
+        this.connectionLostTimeout = 60;
+        this.websocketRunning = false;
     }
 
-    @Override // com.baidu.tieba.qmb
-    public qmb.a createWorker() {
+    private void cancelConnectionLostTimer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            Timer timer = this.connectionLostTimer;
+            if (timer != null) {
+                timer.cancel();
+                this.connectionLostTimer = null;
+            }
+            TimerTask timerTask = this.connectionLostTimerTask;
+            if (timerTask != null) {
+                timerTask.cancel();
+                this.connectionLostTimerTask = null;
+            }
+        }
+    }
+
+    private void restartConnectionLostTimer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            cancelConnectionLostTimer();
+            this.connectionLostTimer = new Timer("WebSocketTimer");
+            a aVar = new a(this);
+            this.connectionLostTimerTask = aVar;
+            Timer timer = this.connectionLostTimer;
+            int i = this.connectionLostTimeout;
+            timer.scheduleAtFixedRate(aVar, i * 1000, i * 1000);
+        }
+    }
+
+    public int getConnectionLostTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this.a);
+            return this.connectionLostTimeout;
         }
-        return (qmb.a) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public boolean isReuseAddr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.reuseAddr;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isTcpNoDelay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.tcpNoDelay;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void startConnectionLostTimer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.connectionLostTimeout <= 0) {
+                if (anb.u) {
+                    System.out.println("Connection lost timer deactivated");
+                    return;
+                }
+                return;
+            }
+            if (anb.u) {
+                System.out.println("Connection lost timer started");
+            }
+            this.websocketRunning = true;
+            restartConnectionLostTimer();
+        }
+    }
+
+    public void stopConnectionLostTimer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.connectionLostTimer != null || this.connectionLostTimerTask != null) {
+                this.websocketRunning = false;
+                if (anb.u) {
+                    System.out.println("Connection lost timer stopped");
+                }
+                cancelConnectionLostTimer();
+            }
+        }
+    }
+
+    public void setReuseAddr(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.reuseAddr = z;
+        }
+    }
+
+    public void setTcpNoDelay(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.tcpNoDelay = z;
+        }
+    }
+
+    public void setConnectionLostTimeout(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.connectionLostTimeout = i;
+            if (i <= 0) {
+                if (anb.u) {
+                    System.out.println("Connection lost timer stopped");
+                }
+                cancelConnectionLostTimer();
+            } else if (this.websocketRunning) {
+                if (anb.u) {
+                    System.out.println("Connection lost timer restarted");
+                }
+                try {
+                    Iterator it = new ArrayList(getConnections()).iterator();
+                    while (it.hasNext()) {
+                        WebSocket webSocket = (WebSocket) it.next();
+                        if (webSocket instanceof anb) {
+                            ((anb) webSocket).N();
+                        }
+                    }
+                } catch (Exception e) {
+                    if (anb.u) {
+                        PrintStream printStream = System.out;
+                        printStream.println("Exception during connection lost restart: " + e.getMessage());
+                    }
+                }
+                restartConnectionLostTimer();
+            }
+        }
     }
 }

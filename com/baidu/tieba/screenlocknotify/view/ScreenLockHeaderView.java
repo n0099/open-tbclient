@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ui;
-import com.baidu.tieba.zo9;
+import com.baidu.tieba.rq9;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public zo9 h;
+    public rq9 h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -55,20 +55,20 @@ public class ScreenLockHeaderView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d083d, (ViewGroup) this, true);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090c1f);
-        this.b = findViewById(R.id.obfuscated_res_0x7f090c1e);
-        this.c = findViewById(R.id.obfuscated_res_0x7f091772);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091426);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091947);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092721);
-        this.g = findViewById(R.id.obfuscated_res_0x7f0914d8);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d083e, (ViewGroup) this, true);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090c1d);
+        this.b = findViewById(R.id.obfuscated_res_0x7f090c1c);
+        this.c = findViewById(R.id.obfuscated_res_0x7f091778);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09142b);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09194d);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09272e);
+        this.g = findViewById(R.id.obfuscated_res_0x7f0914de);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f0);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f4);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092016);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092017);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f092015);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092021);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092022);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f092020);
         this.k.setVisibility(8);
     }
 
@@ -148,24 +148,24 @@ public class ScreenLockHeaderView extends LinearLayout {
         }
     }
 
-    public void d(zo9 zo9Var) {
+    public void d(rq9 rq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zo9Var) == null) {
-            this.h = zo9Var;
-            this.a.setText(zo9Var.a);
-            this.d.setText(a(zo9Var.l));
-            this.e.setText(zo9Var.e);
-            this.f.setText(b(zo9Var.i));
+        if (interceptable == null || interceptable.invokeL(1048579, this, rq9Var) == null) {
+            this.h = rq9Var;
+            this.a.setText(rq9Var.a);
+            this.d.setText(a(rq9Var.l));
+            this.e.setText(rq9Var.e);
+            this.f.setText(b(rq9Var.i));
         }
     }
 
-    public zo9 getData() {
+    public rq9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.h;
         }
-        return (zo9) invokeV.objValue;
+        return (rq9) invokeV.objValue;
     }
 
     public View getEditText() {
@@ -185,7 +185,7 @@ public class ScreenLockHeaderView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return ui.charSequence2String(editText.getText(), null);
+            return vi.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }

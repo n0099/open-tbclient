@@ -1,174 +1,505 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.os.Environment;
+import android.os.Process;
 import android.text.TextUtils;
+import android.widget.RemoteViews;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.IntentConstants;
-import com.baidu.searchbox.common.security.CacheDeviceInfo;
-import com.baidu.searchbox.download.util.ApkUtil;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.c61;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.notification.NotificationReceiver;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class dn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<am0> a;
+    public HashMap<String, am0> b;
+    public boolean c;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (TextUtils.equals(y21.c(str).optString("direct_download_switch"), "1")) {
-                return true;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            Uri parse = Uri.parse(str2);
-            HashMap hashMap = new HashMap();
-            if (parse != null) {
-                try {
-                    Set<String> queryParameterNames = parse.getQueryParameterNames();
-                    if (queryParameterNames != null) {
-                        for (String str3 : queryParameterNames) {
-                            hashMap.put(str3, parse.getQueryParameter(str3));
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+    /* loaded from: classes5.dex */
+    public class a implements Comparator<am0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(dn0 dn0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dn0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            String str4 = (String) z21.b(hashMap, CacheDeviceInfo.JSON_KEY_ANDROID_ID);
-            if (!TextUtils.isEmpty(str4) && (split = str4.split("_")) != null && split.length >= 4 && TextUtils.equals(split[3], "1")) {
-                return true;
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(am0 am0Var, am0 am0Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, am0Var, am0Var2)) == null) {
+                long j = am0Var.m;
+                long j2 = am0Var2.m;
+                if (j > j2) {
+                    return -1;
+                }
+                if (j < j2) {
+                    return 1;
+                }
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
     }
 
-    public static boolean e(File file, boolean z) {
-        InterceptResult invokeLZ;
+    /* loaded from: classes5.dex */
+    public class b implements fp0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ am0 a;
+        public final /* synthetic */ dn0 b;
+
+        @Override // com.baidu.tieba.fp0
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public b(dn0 dn0Var, am0 am0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dn0Var, am0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dn0Var;
+            this.a = am0Var;
+        }
+
+        @Override // com.baidu.tieba.fp0
+        public void b(Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) != null) || bitmap == null) {
+                return;
+            }
+            PendingIntent e = jm0.f().e(NotificationReceiver.RECEIVER_ACTION_CLICK_ITEM, this.a);
+            PendingIntent e2 = jm0.f().e(NotificationReceiver.RECEIVER_ACTION_REMOVE_ITEM, this.a);
+            RemoteViews i = this.b.i(bitmap, jm0.f().e(NotificationReceiver.RECEIVER_ACTION_CLICK_BUTTON, this.a), this.a);
+            if (i == null) {
+                return;
+            }
+            jm0.f().j(bitmap, i, e, e2, this.a);
+            this.b.s(this.a);
+            HashMap hashMap = this.b.b;
+            am0 am0Var = this.a;
+            hashMap.put(am0Var.d, am0Var);
+            jm0 f = jm0.f();
+            String str = ClogBuilder.LogType.FREE_SHOW.type;
+            String str2 = ClogBuilder.Area.AD_NOTIFICATION_SHOW.type;
+            am0 am0Var2 = this.a;
+            f.h(str, str2, am0Var2.p.a, am0Var2.q.m);
+            if (!this.b.c) {
+                jm0.f().h(ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, "", String.valueOf(this.b.j() + 1));
+                this.b.u();
+                this.b.c = true;
+            }
+            this.b.t(this.a, false);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements sm0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ am0 a;
+        public final /* synthetic */ dn0 b;
+
+        public c(dn0 dn0Var, am0 am0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dn0Var, am0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dn0Var;
+            this.a = am0Var;
+        }
+
+        @Override // com.baidu.tieba.sm0
+        public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull am0 am0Var) {
+            am0 am0Var2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, am0Var) == null) && adDownloadAction == AdDownloadAction.INSTALL_FINISH && !y21.h(this.b.b)) {
+                String str = am0Var.d;
+                if (!TextUtils.isEmpty(str) && (am0Var2 = (am0) a31.b(this.b.b, str)) != null && am0Var2.e() != null) {
+                    this.b.t(am0Var2, true);
+                    jm0.f().a(am0Var2.e().hashCode());
+                    jm0.f().h(ClogBuilder.LogType.INSTALL_COMPLETE.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, am0Var2.p.a, am0Var2.q.m);
+                    a31.g(this.b.b, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.sm0
+        public am0 getData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (am0) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final dn0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-856277981, "Lcom/baidu/tieba/dn0$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-856277981, "Lcom/baidu/tieba/dn0$d;");
+                    return;
+                }
+            }
+            a = new dn0(null);
+        }
+    }
+
+    public dn0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, file, z)) == null) {
-            if (!f(file)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new HashMap<>();
+        this.c = false;
+    }
+
+    public static dn0 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return d.a;
+        }
+        return (dn0) invokeV.objValue;
+    }
+
+    public /* synthetic */ dn0(a aVar) {
+        this();
+    }
+
+    public final void k(@NonNull am0 am0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, am0Var) == null) {
+            ep0.a().c(am0Var.p.g, new b(this, am0Var));
+        }
+    }
+
+    public final void s(am0 am0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, am0Var) != null) || am0Var == null) {
+            return;
+        }
+        c cVar = new c(this, am0Var);
+        AdAppStateManager.instance().register(am0Var);
+        nl0.b().i(am0Var.e(), cVar);
+    }
+
+    public final void h(@NonNull am0 am0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, am0Var) == null) {
+            Context b2 = lk0.b();
+            String n = n(am0Var.d);
+            am0Var.q.m = n;
+            if (TextUtils.equals(n, "notify_type_unactivated")) {
+                am0Var.q.n = b2.getString(R.string.nad_notification_active_text);
+                return;
+            }
+            am0Var.q.n = b2.getString(R.string.nad_notification_text);
+        }
+    }
+
+    public final RemoteViews i(Bitmap bitmap, PendingIntent pendingIntent, am0 am0Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, pendingIntent, am0Var)) == null) {
+            bn0 c2 = zl0.b().c();
+            if (c2 == null || c2.a <= 0) {
+                return null;
+            }
+            Context b2 = lk0.b();
+            RemoteViews remoteViews = new RemoteViews(b2.getPackageName(), c2.a);
+            int i = c2.c;
+            if (i > 0) {
+                remoteViews.setOnClickPendingIntent(i, pendingIntent);
+                if (TextUtils.equals("notify_type_unactivated", n(am0Var.d))) {
+                    remoteViews.setTextViewText(c2.c, b2.getString(R.string.nad_notification_btn_active_text));
+                } else {
+                    remoteViews.setTextViewText(c2.c, b2.getString(R.string.nad_notification_btn_text));
+                }
+            }
+            int i2 = c2.b;
+            if (i2 > 0) {
+                remoteViews.setImageViewBitmap(i2, r(bitmap, 24.0f));
+            }
+            int i3 = c2.d;
+            if (i3 > 0) {
+                remoteViews.setTextViewText(i3, am0Var.p.h);
+            }
+            int i4 = c2.e;
+            if (i4 > 0) {
+                remoteViews.setTextViewText(i4, am0Var.q.n);
+            }
+            return remoteViews;
+        }
+        return (RemoteViews) invokeLLL.objValue;
+    }
+
+    public final int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String string = l31.a().b("nad_app_quick_config").getString("key_bar_notify_date", "");
+            String format = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            if (!format.equals(string)) {
+                l31.a().b("nad_app_quick_config").f("key_bar_notify_time_per_day", 0);
+                l31.a().b("nad_app_quick_config").h("key_bar_notify_date", format);
+            }
+            return l31.a().b("nad_app_quick_config").getInt("key_bar_notify_time_per_day", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (j() >= 3) {
                 return false;
             }
-            Context b = kk0.b();
-            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
-            try {
-                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                intent.setFlags(1342177280);
-                intent.putExtra(ApkUtil.KEY_INSTALLER_PACKAGE_NAME, b.getPackageName());
-                if (z) {
-                    intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+            List<am0> q = q();
+            this.a = q;
+            if (y21.g(q)) {
+                return false;
+            }
+            if (!jm0.f().g()) {
+                for (am0 am0Var : this.a) {
+                    if (am0Var != null) {
+                        jm0.f().h(ClogBuilder.LogType.AD_NOTIFICATION_NOTIFY_FAILED.type, "", am0Var.p.a, null);
+                    }
                 }
-                if (!c61.b.e()) {
-                    intent.setComponent(new ComponentName(ApkUtil.PACKAGE_INSTALLER, ApkUtil.PACKAGE_INSTALLER_ACTIVITY));
-                }
-                u51.a(b, file, intent);
-                u51.d(b, intent);
-            } catch (Exception unused) {
-                intent.setComponent(null);
-                u51.a(b, file, intent);
-                try {
-                    b.startActivity(intent);
-                } catch (Exception unused2) {
-                    return false;
-                }
+                return false;
             }
             return true;
         }
-        return invokeLZ.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static String b(File file) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
-        PackageInfo packageArchiveInfo;
-        ApplicationInfo applicationInfo;
+    public final List<am0> q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file == null || TextUtils.isEmpty(file.getPath()) || (packageManager = kk0.b().getPackageManager()) == null || (packageArchiveInfo = packageManager.getPackageArchiveInfo(file.getPath(), 1)) == null || (applicationInfo = packageArchiveInfo.applicationInfo) == null) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap<String, am0> a2 = rl0.b().a();
+            if (y21.h(a2)) {
+                return null;
             }
-            return applicationInfo.packageName;
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry<String, am0> entry : a2.entrySet()) {
+                if (entry != null) {
+                    am0 value = entry.getValue();
+                    if (m(value)) {
+                        h(value);
+                        y21.b(arrayList, value);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            int i = l31.a().b("nad_app_quick_config").getInt("key_bar_notify_time_per_day", 0);
+            if (new SimpleDateFormat("yyyy-MM-dd").format(new Date()).equals(l31.a().b("nad_app_quick_config").getString("key_bar_notify_date", ""))) {
+                l31.a().b("nad_app_quick_config").f("key_bar_notify_time_per_day", i + 1);
+            }
+        }
+    }
+
+    public final boolean m(am0 am0Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, am0Var)) == null) {
+            if (am0Var == null) {
+                return false;
+            }
+            String n = n(am0Var.d);
+            if (TextUtils.equals("notify_type_activated", n) || TextUtils.equals("notify_type_no_permission", n)) {
+                return false;
+            }
+            if (TextUtils.equals("notify_type_uninstall", n) && !en0.f(am0Var.h)) {
+                return false;
+            }
+            em0 em0Var = am0Var.p;
+            String str = em0Var.h;
+            String str2 = em0Var.g;
+            int i = am0Var.q.k;
+            long j = am0Var.m;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (j <= currentTimeMillis && j >= currentTimeMillis - 604800000) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (i >= 3 || !z || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final String n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (!en0.c(str)) {
+                return "notify_type_uninstall";
+            }
+            if (lk0.b().checkPermission(com.kuaishou.weapon.p0.h.i, Process.myPid(), Process.myUid()) != 0) {
+                return "notify_type_no_permission";
+            }
+            try {
+                if (!new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + str).exists()) {
+                    return "notify_type_unactivated";
+                }
+                return "notify_type_activated";
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "notify_type_no_permission";
+            }
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean f(File file) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
-            if (file == null || TextUtils.isEmpty(file.getAbsolutePath()) || !file.exists() || (packageManager = kk0.b().getPackageManager()) == null || packageManager.getPackageArchiveInfo(file.getAbsolutePath(), 1) == null) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !o()) {
+            return;
         }
-        return invokeL.booleanValue;
+        y21.m(this.a, new a(this));
+        int min = Math.min(y21.l(this.a), 5);
+        for (int i = 0; i < min; i++) {
+            am0 am0Var = (am0) y21.d(this.a, i);
+            if (am0Var != null) {
+                k(am0Var);
+            }
+        }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public Bitmap r(Bitmap bitmap, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                kk0.b().getPackageManager().getApplicationInfo(str, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException | Exception unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, bitmap, f)) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
+            Canvas canvas = new Canvas(createBitmap);
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            RectF rectF = new RectF(rect);
+            canvas.drawARGB(0, 0, 0, 0);
+            canvas.drawRoundRect(rectF, f, f, paint);
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, rect, rect, paint);
+            return createBitmap;
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeLF.objValue;
     }
 
-    public static boolean d(File file) {
-        InterceptResult invokeL;
+    public void t(am0 am0Var, boolean z) {
+        bm0 bm0Var;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            return e(file, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        ResolveInfo next;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if ((interceptable == null || interceptable.invokeLZ(1048587, this, am0Var, z) == null) && am0Var != null && (bm0Var = am0Var.q) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = bm0Var.k + 1;
             }
-            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = kk0.b().getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0 || (next = queryIntentActivities.iterator().next()) == null) {
-                return false;
-            }
-            String str2 = next.activityInfo.name;
-            Intent intent2 = new Intent("android.intent.action.MAIN");
-            intent2.addCategory("android.intent.category.LAUNCHER");
-            intent2.setComponent(new ComponentName(str, str2));
-            intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return u51.e(kk0.b(), intent2, true);
+            bm0Var.k = i;
+            m31 m31Var = new m31();
+            m31Var.o(am0Var.e());
+            m31Var.k(bm0.b(am0Var.q));
+            rl0.b().f(m31Var);
         }
-        return invokeL.booleanValue;
     }
 }

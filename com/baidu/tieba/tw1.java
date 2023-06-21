@@ -1,15 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import android.content.Context;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface tw1 {
-    js2 a(ZeusPluginFactory.Invoker invoker, String str);
+    void a(Context context, JSONObject jSONObject);
 
-    ju2 b(ZeusPluginFactory.Invoker invoker, String str);
+    void b(Context context, JSONObject jSONObject);
 
-    ju2 c(ZeusPluginFactory.Invoker invoker, String str);
+    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
 
-    is2 d(ZeusPluginFactory.Invoker invoker, String str);
+    void d(Context context, String[] strArr, int i);
 
-    gq2 e(ZeusPluginFactory.Invoker invoker, String str);
+    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
+
+    void f(Context context, JSONObject jSONObject);
 }

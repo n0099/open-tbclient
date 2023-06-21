@@ -1,84 +1,76 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.view.animation.Interpolator;
-import com.baidu.android.imsdk.internal.Constants;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ci4 implements Interpolator {
+public class ci4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final PointF b;
-    public final PointF c;
 
-    public final double a(double d, double d2, double d3, double d4, double d5) {
-        InterceptResult invokeCommon;
+    public static long a(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
-            double d6 = 1.0d - d;
-            double d7 = d * d;
-            double d8 = d6 * d6;
-            return (d8 * d6 * d2) + (d8 * 3.0d * d * d3) + (d6 * 3.0d * d7 * d4) + (d7 * d * d5);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) {
+            if (baseMenuView.a()) {
+                return 240L;
+            }
+            return 200L;
         }
-        return invokeCommon.doubleValue;
+        return invokeL.longValue;
     }
 
-    public ci4(float f, float f2, float f3, float f4) {
+    public static ObjectAnimator c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
         }
-        this.a = 0;
-        this.b = new PointF();
-        PointF pointF = new PointF();
-        this.c = pointF;
-        PointF pointF2 = this.b;
-        pointF2.x = f;
-        pointF2.y = f2;
-        pointF.x = f3;
-        pointF.y = f4;
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        InterceptResult invokeF;
+    public static ObjectAnimator b(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-            int i = this.a;
-            float f2 = f;
-            while (true) {
-                if (i >= 4096) {
-                    break;
-                }
-                f2 = (i * 1.0f) / 4096.0f;
-                if (a(f2, 0.0d, this.b.x, this.c.x, 1.0d) >= f) {
-                    this.a = i;
-                    break;
-                }
-                i++;
-            }
-            double a = a(f2, 0.0d, this.b.y, this.c.y, 1.0d);
-            if (a > 0.999d) {
-                a = 1.0d;
-                this.a = 0;
-            }
-            return (float) a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, 0.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new di4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
         }
-        return invokeF.floatValue;
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator e(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, baseMenuView.getHeight());
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new di4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeLL.objValue;
     }
 }

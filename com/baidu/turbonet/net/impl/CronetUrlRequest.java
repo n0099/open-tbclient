@@ -5,12 +5,12 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.tieba.lma;
-import com.baidu.tieba.mma;
-import com.baidu.tieba.pma;
-import com.baidu.tieba.rma;
-import com.baidu.tieba.vla;
-import com.baidu.tieba.yla;
+import com.baidu.tieba.eoa;
+import com.baidu.tieba.foa;
+import com.baidu.tieba.ioa;
+import com.baidu.tieba.koa;
+import com.baidu.tieba.ona;
+import com.baidu.tieba.rna;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ import org.chromium.base.annotations.NativeClassQualifiedName;
 @JNINamespace("cronet")
 @VisibleForTesting
 /* loaded from: classes8.dex */
-public final class CronetUrlRequest extends pma {
+public final class CronetUrlRequest extends ioa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -55,10 +55,10 @@ public final class CronetUrlRequest extends pma {
     public String E;
     public String F;
     public CronetUploadDataStream G;
-    public rma H;
+    public koa H;
     public int I;
     public CronetException J;
-    public vla K;
+    public ona K;
     public j L;
     @GuardedBy("mUrlRequestAdapterLock")
     public Runnable M;
@@ -275,16 +275,16 @@ public final class CronetUrlRequest extends pma {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rma a;
+        public final /* synthetic */ koa a;
         public final /* synthetic */ String b;
         public final /* synthetic */ CronetUrlRequest c;
 
-        public b(CronetUrlRequest cronetUrlRequest, rma rmaVar, String str) {
+        public b(CronetUrlRequest cronetUrlRequest, koa koaVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cronetUrlRequest, rmaVar, str};
+                Object[] objArr = {cronetUrlRequest, koaVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -295,7 +295,7 @@ public final class CronetUrlRequest extends pma {
                 }
             }
             this.c = cronetUrlRequest;
-            this.a = rmaVar;
+            this.a = koaVar;
             this.b = str;
         }
 
@@ -476,7 +476,7 @@ public final class CronetUrlRequest extends pma {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(pma.o(this.b));
+                this.a.a(ioa.o(this.b));
             }
         }
     }
@@ -655,7 +655,7 @@ public final class CronetUrlRequest extends pma {
                     this.D = null;
                     this.E = null;
                     this.F = null;
-                    this.H = new rma(new ArrayList(this.i), 0, "", new HeadersList(null), false, "", "");
+                    this.H = new koa(new ArrayList(this.i), 0, "", new HeadersList(null), false, "", "");
                     return;
                 }
                 throw new NullPointerException("Executor is required");
@@ -780,7 +780,7 @@ public final class CronetUrlRequest extends pma {
         }
     }
 
-    @Override // com.baidu.tieba.pma
+    @Override // com.baidu.tieba.ioa
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
@@ -801,7 +801,7 @@ public final class CronetUrlRequest extends pma {
         }
     }
 
-    @Override // com.baidu.tieba.pma
+    @Override // com.baidu.tieba.ioa
     public void n(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
@@ -817,7 +817,7 @@ public final class CronetUrlRequest extends pma {
         }
     }
 
-    @Override // com.baidu.tieba.pma
+    @Override // com.baidu.tieba.ioa
     public void q(UploadDataProvider uploadDataProvider, Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, uploadDataProvider, executor) == null) {
@@ -846,9 +846,9 @@ public final class CronetUrlRequest extends pma {
     private void onError(int i2, int i3, int i4, String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Long.valueOf(j2)}) == null) {
-            rma rmaVar = this.H;
-            if (rmaVar != null) {
-                rmaVar.j(j2);
+            koa koaVar = this.H;
+            if (koaVar != null) {
+                koaVar.j(j2);
             }
             int M = M(i2);
             K(new NetworkExceptionImpl("Exception in CronetUrlRequest: " + str, M, i3));
@@ -898,7 +898,7 @@ public final class CronetUrlRequest extends pma {
     public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            yla.v().o(this.b, this);
+            rna.v().o(this.b, this);
         }
     }
 
@@ -927,7 +927,7 @@ public final class CronetUrlRequest extends pma {
         if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Long.valueOf(j14), Boolean.valueOf(z), Long.valueOf(j15), Long.valueOf(j16)}) == null) {
             synchronized (this.f) {
                 if (this.K == null) {
-                    this.K = new vla(j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, z, j15, j16);
+                    this.K = new ona(j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, z, j15, j16);
                 } else {
                     throw new IllegalStateException("Metrics collection should only happen once.");
                 }
@@ -978,7 +978,7 @@ public final class CronetUrlRequest extends pma {
                     if (L()) {
                         return;
                     }
-                    yla.v().k(this.b, this);
+                    rna.v().k(this.b, this);
                     return;
                 }
                 throw new IllegalStateException("No redirect to follow.");
@@ -1009,7 +1009,7 @@ public final class CronetUrlRequest extends pma {
     private void onRedirectReceived(String str, int i2, String str2, String[] strArr, boolean z, String str3, String str4, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{str, Integer.valueOf(i2), str2, strArr, Boolean.valueOf(z), str3, str4, Long.valueOf(j2)}) == null) {
-            rma R = R(i2, str2, strArr, z, str3, str4, j2);
+            koa R = R(i2, str2, strArr, z, str3, str4, j2);
             this.i.add(str);
             Q(new b(this, R, str));
         }
@@ -1032,19 +1032,19 @@ public final class CronetUrlRequest extends pma {
             if (this.b == 0) {
                 return;
             }
-            yla.v().s(this.b, this).isEmpty();
-            yla.v().j(this.b, this).isEmpty();
-            yla.v().r(this.b, this).isEmpty();
+            rna.v().s(this.b, this).isEmpty();
+            rna.v().j(this.b, this).isEmpty();
+            rna.v().r(this.b, this).isEmpty();
             boolean z = false;
-            yla.v().e(this.b, this, false).isEmpty();
-            yla.v().e(this.b, this, true).isEmpty();
-            yla.v().t(this.b, this).isEmpty();
-            int i3 = (yla.v().g(this.b, this, 1) > 0L ? 1 : (yla.v().g(this.b, this, 1) == 0L ? 0 : -1));
-            int i4 = (yla.v().g(this.b, this, 2) > 0L ? 1 : (yla.v().g(this.b, this, 2) == 0L ? 0 : -1));
-            int i5 = (yla.v().g(this.b, this, 3) > 0L ? 1 : (yla.v().g(this.b, this, 3) == 0L ? 0 : -1));
-            int i6 = (yla.v().g(this.b, this, 4) > 0L ? 1 : (yla.v().g(this.b, this, 4) == 0L ? 0 : -1));
-            int i7 = (yla.v().g(this.b, this, 5) > 0L ? 1 : (yla.v().g(this.b, this, 5) == 0L ? 0 : -1));
-            RequestTimeInfo i8 = yla.v().i(this.b, this);
+            rna.v().e(this.b, this, false).isEmpty();
+            rna.v().e(this.b, this, true).isEmpty();
+            rna.v().t(this.b, this).isEmpty();
+            int i3 = (rna.v().g(this.b, this, 1) > 0L ? 1 : (rna.v().g(this.b, this, 1) == 0L ? 0 : -1));
+            int i4 = (rna.v().g(this.b, this, 2) > 0L ? 1 : (rna.v().g(this.b, this, 2) == 0L ? 0 : -1));
+            int i5 = (rna.v().g(this.b, this, 3) > 0L ? 1 : (rna.v().g(this.b, this, 3) == 0L ? 0 : -1));
+            int i6 = (rna.v().g(this.b, this, 4) > 0L ? 1 : (rna.v().g(this.b, this, 4) == 0L ? 0 : -1));
+            int i7 = (rna.v().g(this.b, this, 5) > 0L ? 1 : (rna.v().g(this.b, this, 5) == 0L ? 0 : -1));
+            RequestTimeInfo i8 = rna.v().i(this.b, this);
             this.x = i8;
             if (i8 == null) {
                 this.x = new RequestTimeInfo();
@@ -1053,7 +1053,7 @@ public final class CronetUrlRequest extends pma {
                 this.g.y(this);
             }
             this.g.t();
-            i v = yla.v();
+            i v = rna.v();
             long j2 = this.b;
             if (i2 == 2) {
                 z = true;
@@ -1103,15 +1103,15 @@ public final class CronetUrlRequest extends pma {
     public void e(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, byteBuffer) == null) {
-            lma.b(byteBuffer);
-            lma.a(byteBuffer);
+            eoa.b(byteBuffer);
+            eoa.a(byteBuffer);
             synchronized (this.f) {
                 if (this.e) {
                     this.e = false;
                     if (L()) {
                         return;
                     }
-                    if (yla.v().d(this.b, this, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
+                    if (rna.v().d(this.b, this, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
                         return;
                     }
                     this.e = true;
@@ -1123,15 +1123,15 @@ public final class CronetUrlRequest extends pma {
     }
 
     public final void N() {
-        vla vlaVar;
+        ona onaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (vlaVar = this.K) != null) {
-            mma mmaVar = new mma(this.k, this.p, vlaVar, this.I, this.H, this.J);
-            this.g.z(mmaVar);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (onaVar = this.K) != null) {
+            foa foaVar = new foa(this.k, this.p, onaVar, this.I, this.H, this.J);
+            this.g.z(foaVar);
             VersionSafeCallbacks.e eVar = this.w;
             if (eVar != null) {
                 try {
-                    eVar.a().execute(new h(this, mmaVar));
+                    eVar.a().execute(new h(this, foaVar));
                 } catch (RejectedExecutionException e2) {
                     Log.e(CronetUrlRequestContext.s, "Exception posting task to executor", e2);
                 }
@@ -1139,7 +1139,7 @@ public final class CronetUrlRequest extends pma {
         }
     }
 
-    public final rma R(int i2, String str, String[] strArr, boolean z, String str2, String str3, long j2) {
+    public final koa R(int i2, String str, String[] strArr, boolean z, String str2, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), str, strArr, Boolean.valueOf(z), str2, str3, Long.valueOf(j2)})) == null) {
@@ -1147,14 +1147,14 @@ public final class CronetUrlRequest extends pma {
             for (int i3 = 0; i3 < strArr.length; i3 += 2) {
                 headersList.add(new AbstractMap.SimpleImmutableEntry(strArr[i3], strArr[i3 + 1]));
             }
-            return new rma(new ArrayList(this.i), i2, str, headersList, z, str2, str3, j2);
+            return new koa(new ArrayList(this.i), i2, str, headersList, z, str2, str3, j2);
         }
-        return (rma) invokeCommon.objValue;
+        return (koa) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:107:0x0230 */
     /* JADX WARN: Code restructure failed: missing block: B:79:0x01f1, code lost:
-        if (com.baidu.tieba.yla.v().l(r19.b, r19, "X-From-H3-TRNet", com.baidu.searchbox.player.model.YYOption.IsLive.VALUE_TRUE) == false) goto L84;
+        if (com.baidu.tieba.rna.v().l(r19.b, r19, "X-From-H3-TRNet", com.baidu.searchbox.player.model.YYOption.IsLive.VALUE_TRUE) == false) goto L84;
      */
     /* JADX WARN: Code restructure failed: missing block: B:82:0x01fb, code lost:
         throw new java.lang.IllegalArgumentException("Invalid value for header X-From-H3-TRNet.");
@@ -1199,7 +1199,7 @@ public final class CronetUrlRequest extends pma {
                     Log.i(CronetUrlRequestContext.s, "****** Request start, url is: %s", this.k);
                     G();
                     try {
-                        i v = yla.v();
+                        i v = rna.v();
                         long p = this.g.p();
                         String str = this.k;
                         int i3 = this.l;
@@ -1210,7 +1210,7 @@ public final class CronetUrlRequest extends pma {
                                 z = false;
                                 this.b = v.q(this, p, str, i3, z4, z5, z, this.s, this.t, this.u, this.v, this.m);
                                 this.g.u();
-                                if (this.n != null && !yla.v().f(this.b, this, this.n)) {
+                                if (this.n != null && !rna.v().f(this.b, this, this.n)) {
                                     throw new IllegalArgumentException("Invalid http method " + this.n);
                                 }
                                 if (this.D != null) {
@@ -1219,7 +1219,7 @@ public final class CronetUrlRequest extends pma {
                                 i2 = 1;
                                 if (this.y) {
                                     try {
-                                        yla.v().c(this.b, this);
+                                        rna.v().c(this.b, this);
                                     } catch (RuntimeException e2) {
                                         e = e2;
                                         J(i2);
@@ -1227,22 +1227,22 @@ public final class CronetUrlRequest extends pma {
                                     }
                                 }
                                 if (this.z > 0) {
-                                    yla.v().m(this.b, this, this.z);
+                                    rna.v().m(this.b, this, this.z);
                                 }
                                 if (this.A > 0) {
-                                    yla.v().b(this.b, this, this.A);
+                                    rna.v().b(this.b, this, this.A);
                                 }
                                 if (this.B > 0) {
-                                    yla.v().p(this.b, this, this.B);
+                                    rna.v().p(this.b, this, this.B);
                                 }
                                 if (this.C > 0) {
-                                    yla.v().h(this.b, this, this.C);
+                                    rna.v().h(this.b, this, this.C);
                                 }
                                 if (!TextUtils.isEmpty(this.E)) {
-                                    yla.v().u(this.b, this, this.E);
+                                    rna.v().u(this.b, this, this.E);
                                 }
                                 if (!TextUtils.isEmpty(this.F)) {
-                                    yla.v().a(this.b, this, this.F);
+                                    rna.v().a(this.b, this, this.F);
                                 }
                                 it = this.o.iterator();
                                 boolean z6 = false;
@@ -1258,11 +1258,11 @@ public final class CronetUrlRequest extends pma {
                                     if (next.getKey().equalsIgnoreCase("X-From-H3-TRNet") && !next.getValue().isEmpty()) {
                                         z6 = true;
                                     }
-                                    if (!yla.v().l(this.b, this, next.getKey(), next.getValue())) {
+                                    if (!rna.v().l(this.b, this, next.getKey(), next.getValue())) {
                                         throw new IllegalArgumentException("Invalid header " + next.getKey() + "=" + next.getValue());
                                     }
                                 }
-                                if (!z2 && !yla.v().l(this.b, this, HttpRequest.EXT_HEADER_TRACE_ID, UUID.randomUUID().toString().replace("-", "").toLowerCase())) {
+                                if (!z2 && !rna.v().l(this.b, this, HttpRequest.EXT_HEADER_TRACE_ID, UUID.randomUUID().toString().replace("-", "").toLowerCase())) {
                                     throw new IllegalArgumentException("Invalid value for header X-Bd-Traceid .");
                                 }
                                 if (this.G == null) {

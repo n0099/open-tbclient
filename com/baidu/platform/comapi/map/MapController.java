@@ -3085,7 +3085,7 @@ public class MapController {
                                         } else {
                                             mapObj2.strUid = "";
                                         }
-                                        mapObj2.strText = jSONObject3.optString(MapBundleKey.MapObjKey.OBJ_TEXT);
+                                        mapObj2.strText = jSONObject3.optString("tx");
                                         if (jSONObject3.has(str3)) {
                                             mapObj2.nIndex = jSONObject3.getInt(str3);
                                         } else if (jSONObject3.has("index")) {
@@ -3955,7 +3955,7 @@ public class MapController {
                                     arrayList = arrayList3;
                                     mapObj.strUid = "";
                                 }
-                                mapObj.strText = jSONObject.optString(MapBundleKey.MapObjKey.OBJ_TEXT);
+                                mapObj.strText = jSONObject.optString("tx");
                                 if (jSONObject.has(str19)) {
                                     mapObj.nIndex = jSONObject.getInt(str19);
                                 } else if (jSONObject.has(str18)) {

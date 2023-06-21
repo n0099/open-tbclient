@@ -1,27 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 /* loaded from: classes8.dex */
-public interface vsa extends Runnable {
+public interface vsa {
+    IMediaPlayer a();
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void b(DownloadException downloadException);
+    String b();
 
-        void onConnectCanceled();
+    cua c();
 
-        void onConnectPaused();
-
-        void onConnected(long j, long j2, boolean z);
-
-        void onConnecting();
-    }
-
-    void cancel();
-
-    boolean isCanceled();
-
-    boolean isPaused();
-
-    void pause();
+    String e();
 }

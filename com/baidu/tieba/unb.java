@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public final class unb<T, R> extends tmb<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface unb {
+    String d(String str);
 
-    public abstract void g();
+    boolean e(String str);
+
+    Iterator<String> g();
+
+    byte[] getContent();
 }

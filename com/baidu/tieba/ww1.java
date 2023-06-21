@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes8.dex */
 public interface ww1 {
-    void a(Context context);
+    void a(String str);
+
+    void b();
+
+    void c(String str);
+
+    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable ww2 ww2Var);
+
+    void e(String str);
+
+    void f(String str);
 }

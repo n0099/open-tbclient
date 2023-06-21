@@ -1,263 +1,130 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nmb;
-import com.baidu.tieba.qmb;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeoutException;
+import com.google.zxing.common.StringUtils;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CodingErrorAction;
+import org.apache.http.protocol.HTTP;
+import org.java_websocket.exceptions.InvalidDataException;
 /* loaded from: classes5.dex */
-public class cob<T> implements nmb.b<T, T> {
+public class cob {
     public static /* synthetic */ Interceptable $ic;
+    public static CodingErrorAction a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a<T> a;
-    public final b<T> b;
-    public final nmb<? extends T> c;
-    public final qmb d;
 
-    /* loaded from: classes5.dex */
-    public interface a<T> {
-        /* synthetic */ R call(T1 t1, T2 t2, T3 t3);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b<T> {
-        /* synthetic */ R call(T1 t1, T2 t2, T3 t3, T4 t4);
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c<T> extends tmb<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final mrb e;
-        public final tqb<T> f;
-        public final b<T> g;
-        public final nmb<? extends T> h;
-        public final qmb.a i;
-        public final job j;
-        public boolean k;
-        public long l;
-
-        /* loaded from: classes5.dex */
-        public class a extends tmb<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c e;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = cVar;
-            }
-
-            @Override // com.baidu.tieba.tmb
-            public void f(pmb pmbVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, pmbVar) == null) {
-                    this.e.j.c(pmbVar);
-                }
-            }
-
-            @Override // com.baidu.tieba.omb
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.e.f.onError(th);
-                }
-            }
-
-            @Override // com.baidu.tieba.omb
-            public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.e.f.onNext(t);
-                }
-            }
-
-            @Override // com.baidu.tieba.omb
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.e.f.onCompleted();
-                }
-            }
-        }
-
-        public c(tqb<T> tqbVar, b<T> bVar, mrb mrbVar, nmb<? extends T> nmbVar, qmb.a aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682899, "Lcom/baidu/tieba/cob;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tqbVar, bVar, mrbVar, nmbVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f = tqbVar;
-            this.g = bVar;
-            this.e = mrbVar;
-            this.h = nmbVar;
-            this.i = aVar;
-            this.j = new job();
-        }
-
-        @Override // com.baidu.tieba.tmb
-        public void f(pmb pmbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pmbVar) == null) {
-                this.j.c(pmbVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.omb
-        public void onError(Throwable th) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (!this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.e.unsubscribe();
-                    this.f.onError(th);
-                }
-            }
-        }
-
-        public void g(long j) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (j == this.l && !this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    if (this.h == null) {
-                        this.f.onError(new TimeoutException());
-                        return;
-                    }
-                    a aVar = new a(this);
-                    this.h.F(aVar);
-                    this.e.a(aVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.omb
-        public void onNext(T t) {
-            long j;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                synchronized (this) {
-                    if (!this.k) {
-                        j = this.l + 1;
-                        this.l = j;
-                        z = true;
-                    } else {
-                        j = this.l;
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.f.onNext(t);
-                    this.e.a((umb) this.g.call(this, Long.valueOf(j), t, this.i));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.omb
-        public void onCompleted() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (!this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.e.unsubscribe();
-                    this.f.onCompleted();
-                }
-            }
-        }
-    }
-
-    public cob(a<T> aVar, b<T> bVar, nmb<? extends T> nmbVar, qmb qmbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar, nmbVar, qmbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682899, "Lcom/baidu/tieba/cob;");
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
-        this.c = nmbVar;
-        this.d = qmbVar;
+        a = CodingErrorAction.REPORT;
+        b = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
     }
 
-    public tmb<? super T> call(tmb<? super T> tmbVar) {
+    public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tmbVar)) == null) {
-            qmb.a createWorker = this.d.createWorker();
-            tmbVar.b(createWorker);
-            tqb tqbVar = new tqb(tmbVar);
-            mrb mrbVar = new mrb();
-            tqbVar.b(mrbVar);
-            c cVar = new c(tqbVar, this.b, mrbVar, this.c, createWorker);
-            tqbVar.b(cVar);
-            tqbVar.f(cVar.j);
-            mrbVar.a((umb) this.a.call(cVar, 0L, createWorker));
-            return cVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                return str.getBytes(HTTP.ASCII);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
         }
-        return (tmb) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nmb.b, com.baidu.tieba.fnb
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((tmb) ((tmb) obj));
+    public static boolean b(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteBuffer)) == null) {
+            return c(byteBuffer, 0);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static byte[] f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            try {
+                return str.getBytes(StringUtils.UTF8);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean c(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, byteBuffer, i)) == null) {
+            int remaining = byteBuffer.remaining();
+            if (remaining < i) {
+                return false;
+            }
+            int i2 = 0;
+            while (i < remaining) {
+                int[] iArr = b;
+                i2 = iArr[(i2 << 4) + 256 + iArr[byteBuffer.get(i) & 255]];
+                if (i2 == 1) {
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static String d(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
+            try {
+                return new String(bArr, i, i2, HTTP.ASCII);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (String) invokeLII.objValue;
+    }
+
+    public static String e(ByteBuffer byteBuffer) throws InvalidDataException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
+            CharsetDecoder newDecoder = Charset.forName(StringUtils.UTF8).newDecoder();
+            newDecoder.onMalformedInput(a);
+            newDecoder.onUnmappableCharacter(a);
+            try {
+                byteBuffer.mark();
+                String charBuffer = newDecoder.decode(byteBuffer).toString();
+                byteBuffer.reset();
+                return charBuffer;
+            } catch (CharacterCodingException e) {
+                throw new InvalidDataException(1007, e);
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,425 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.ChatGroupSource;
-import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class rc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Long, ChatRoomInfo> a;
-    public Map<Long, ChatRoomInfo> b;
-    public long c;
-    public Context d;
-    public jh8 e;
-    public ChatGroupSource f;
-    public Runnable g;
-    public CustomMessageListener h;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rc8 a;
-
-        public a(rc8 rc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rc8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c = System.currentTimeMillis();
-                this.a.o();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rc8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(rc8 rc8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rc8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rc8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            fh8 fh8Var;
-            BaseMsg baseMsg;
-            ChatRoomInfo s;
-            String showContent;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921773 && (customResponsedMessage.getData() instanceof fh8) && (fh8Var = (fh8) customResponsedMessage.getData()) != null && (baseMsg = fh8Var.a) != null && (s = this.a.s(baseMsg, fh8Var.b, 0)) != null) {
-                this.a.q(s);
-                ChatRoomInfo chatRoomInfo = (ChatRoomInfo) this.a.b.get(Long.valueOf(s.getRoomId()));
-                if (chatRoomInfo != null && chatRoomInfo.getNewMessage() != null) {
-                    chatRoomInfo.setAtInfo(null);
-                    BaseMsg baseMsg2 = fh8Var.a;
-                    if (baseMsg2 instanceof BaseSysMsg) {
-                        BaseSysMsg baseSysMsg = (BaseSysMsg) baseMsg2;
-                        chatRoomInfo.getNewMessage().setFromName(null);
-                        ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
-                        if (baseSysMsg.getMsgConf() == null) {
-                            showContent = "";
-                        } else {
-                            showContent = baseSysMsg.getMsgConf().getShowContent();
-                        }
-                        newMessage.setContent(showContent);
-                    }
-                    HashMap hashMap = new HashMap();
-                    hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921766, hashMap));
-                }
-            }
-        }
-    }
-
-    public rc8(Context context, @NonNull ChatGroupSource chatGroupSource) {
+    public static void a(StatisticItem statisticItem, yc8 yc8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, chatGroupSource};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap();
-        this.b = new ConcurrentHashMap();
-        this.e = new jh8();
-        this.g = new a(this);
-        this.h = new b(this, 2921773);
-        this.d = context;
-        this.f = chatGroupSource;
-    }
-
-    public final List<ChatMsg> f(@NonNull TreeSet<ChatMsg> treeSet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, treeSet)) == null) {
-            ArrayList arrayList = new ArrayList();
-            while (true) {
-                ChatMsg pollLast = treeSet.pollLast();
-                if (pollLast != null) {
-                    if (pollLast.getMsgType() == 10000) {
-                        if (this.e.c(pollLast)) {
-                            arrayList.add(pollLast);
-                        }
+        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, yc8Var) == null) {
+            int i = 5;
+            String str = "";
+            if (yc8Var != null) {
+                YyExtData g = yc8Var.g();
+                if (g != null) {
+                    if (g.isYyGame) {
+                        i = 3;
                     } else {
-                        arrayList.add(pollLast);
+                        i = 2;
                     }
-                } else {
-                    return arrayList;
+                    str = TiebaStatic.YYValues.YY_LIVE;
+                }
+                if (!TextUtils.isEmpty(yc8Var.e())) {
+                    statisticItem.param("obj_param1", yc8Var.e());
                 }
             }
-        } else {
-            return (List) invokeL.objValue;
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, i);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
         }
     }
 
-    @NonNull
-    public List<Long> g() {
-        InterceptResult invokeV;
+    public static void b(StatisticItem statisticItem, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new ArrayList(this.b.keySet());
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f == ChatGroupSource.GROUP_CHAT_TAB) {
-                return 1000L;
+        if ((interceptable == null || interceptable.invokeLLLLL(65537, null, statisticItem, str, str2, str3, str4) == null) && statisticItem != null) {
+            if (!TextUtils.isEmpty(str)) {
+                statisticItem.param("fid", str);
             }
-            return TbSingleton.getInstance().getChatGroupThreadHold();
-        }
-        return invokeV.longValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.h);
-        }
-    }
-
-    public void i(List<ChatRoomInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.b.clear();
-            for (ChatRoomInfo chatRoomInfo : list) {
-                this.b.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
+            if (!TextUtils.isEmpty(str2)) {
+                statisticItem.param("fname", str2);
             }
-            if (MessageManager.getInstance().hasListener(2921766)) {
-                MessageManager.getInstance().unRegisterListener(this.h);
+            if (!TextUtils.isEmpty(str3)) {
+                statisticItem.param("uid", str3);
             }
-            MessageManager.getInstance().registerListener(this.h);
-        }
-    }
-
-    public void j(long j, @NonNull TreeSet<ChatMsg> treeSet) {
-        ChatRoomInfo chatRoomInfo;
-        ChatMsg next;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJL(1048580, this, j, treeSet) == null) && !treeSet.isEmpty() && (chatRoomInfo = this.b.get(Long.valueOf(j))) != null) {
-            List<ChatMsg> f = f(treeSet);
-            if (ListUtils.isEmpty(f)) {
-                return;
-            }
-            int i = 0;
-            ChatMsg chatMsg = f.get(0);
-            if (chatMsg == null) {
-                return;
-            }
-            chatMsg.setMsgTime(jh8.f(chatMsg));
-            if (chatMsg.getMsgTime() <= chatRoomInfo.getTimestamp()) {
-                return;
-            }
-            Iterator<ChatMsg> it = treeSet.iterator();
-            while (it.hasNext() && ((next = it.next()) == null || next.getMsgTime() <= chatRoomInfo.getTimestamp())) {
-                i++;
-            }
-            ChatRoomInfo r = r(chatMsg, j, f.size() - i);
-            if (r == null) {
-                return;
-            }
-            k(r);
-            l();
-        }
-    }
-
-    public final void k(@NonNull ChatRoomInfo chatRoomInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, chatRoomInfo) == null) {
-            if (this.a.get(Long.valueOf(chatRoomInfo.getRoomId())) != null) {
-                q(chatRoomInfo);
-                this.a.put(Long.valueOf(chatRoomInfo.getRoomId()), this.b.get(Long.valueOf(chatRoomInfo.getRoomId())));
-            } else if (this.b.containsKey(Long.valueOf(chatRoomInfo.getRoomId()))) {
-                q(chatRoomInfo);
-                this.a.put(Long.valueOf(chatRoomInfo.getRoomId()), this.b.get(Long.valueOf(chatRoomInfo.getRoomId())));
+            if (!TextUtils.isEmpty(str4)) {
+                statisticItem.param("tid", str4);
             }
         }
     }
 
-    @Nullable
-    public AtInfo n(@NonNull BaseMsg baseMsg) {
-        InterceptResult invokeL;
+    public static void c(int i, String str, String str2, String str3, String str4, yc8 yc8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, baseMsg)) == null) {
-            List<AtUserInfo> atUserInfoList = baseMsg.getAtUserInfoList();
-            if (atUserInfoList == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4, yc8Var}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15008");
+            statisticItem.param("obj_locate", i);
+            b(statisticItem, str, str2, str3, str4);
+            if (yc8Var != null) {
+                a(statisticItem, yc8Var);
+                TiebaStaticHelper.addYYParam(statisticItem, yc8Var.g());
             }
-            AtInfo atInfo = new AtInfo();
-            for (AtUserInfo atUserInfo : atUserInfoList) {
-                if (atUserInfo.getAtType() == AtUserInfo.AtType.ALL) {
-                    atInfo.setAtAllMsgCount(atInfo.getAllMsgCount() + 1);
-                    atInfo.setAtCountAll(atInfo.getCountAll() + 1);
-                } else if (atUserInfo.getAtType() == AtUserInfo.AtType.USER && TbadkCoreApplication.getCurrentAccountId() == atUserInfo.getUid()) {
-                    atInfo.setAtSingleMsgCount(atInfo.getSingleMsgCount() + 1);
-                    atInfo.setAtCountAll(atInfo.getCountAll() + 1);
-                }
-            }
-            return atInfo;
-        }
-        return (AtInfo) invokeL.objValue;
-    }
-
-    public final void q(@NonNull ChatRoomInfo chatRoomInfo) {
-        ChatRoomInfo chatRoomInfo2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, chatRoomInfo) == null) && (chatRoomInfo2 = this.b.get(Long.valueOf(chatRoomInfo.getRoomId()))) != null) {
-            chatRoomInfo2.setUnreadNum(chatRoomInfo2.getUnreadNum() + chatRoomInfo.getUnreadNum());
-            chatRoomInfo2.setNewMessage(chatRoomInfo.getNewMessage());
-            if (chatRoomInfo2.getAtInfo() != null) {
-                if (chatRoomInfo.getAtInfo() != null) {
-                    AtInfo atInfo = chatRoomInfo2.getAtInfo();
-                    AtInfo atInfo2 = chatRoomInfo.getAtInfo();
-                    if (atInfo2 != null) {
-                        atInfo.setAtAllMsgCount(atInfo.getAllMsgCount() + atInfo2.getAllMsgCount());
-                        atInfo.setAtCountAll(atInfo.getCountAll() + atInfo2.getCountAll());
-                        atInfo.setAtSingleMsgCount(atInfo.getSingleMsgCount() + atInfo2.getSingleMsgCount());
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            chatRoomInfo2.setAtInfo(chatRoomInfo.getAtInfo());
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void l() {
+    public static void d(String str, String str2, String str3, @NonNull AlaInfoData alaInfoData) {
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long h = h();
-            long j = this.c;
-            if (j == 0) {
-                this.c = currentTimeMillis;
-            } else if (currentTimeMillis - j >= h) {
-                this.c = currentTimeMillis;
-                h = 0;
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, alaInfoData) == null) {
+            StatisticItem param = new StatisticItem("c13711").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", str3);
+            String str5 = "";
+            if (alaInfoData.user_info == null) {
+                str4 = "";
             } else {
-                h -= currentTimeMillis - j;
+                str4 = "" + alaInfoData.user_info.user_id;
             }
-            wg.a().removeCallbacks(this.g);
-            wg.a().postDelayed(this.g, h);
+            StatisticItem param2 = param.param("obj_param1", str4);
+            int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData);
+            if (alaInfoData.isLegalYYLiveData()) {
+                TiebaStaticHelper.addYYParam(param2, alaInfoData.mYyExtData);
+                str5 = TiebaStatic.YYValues.YY_LIVE;
+            }
+            param2.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
+            param2.param(TiebaStatic.Params.OBJ_PARAM3, str5);
+            TiebaStatic.log(param2);
         }
     }
 
-    public final void o() {
+    public static void e(String str, String str2, String str3, String str4, yc8 yc8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (!this.a.isEmpty()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921766, new HashMap(this.a)));
+        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4, yc8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15007");
+            b(statisticItem, str, str2, str3, str4);
+            if (yc8Var != null) {
+                a(statisticItem, yc8Var);
+                TiebaStaticHelper.addYYParam(statisticItem, yc8Var.g());
             }
-            this.a.clear();
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void p(long j, int i) {
-        ChatRoomInfo chatRoomInfo;
+    public static void f(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (chatRoomInfo = this.b.get(Long.valueOf(j))) != null) {
-            chatRoomInfo.setUnreadNum(i);
+        if (interceptable == null || interceptable.invokeILL(65541, null, i, str, str2) == null) {
+            TiebaStatic.log(new StatisticItem("c13857").param("obj_type", i).param("post_id", str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", str2));
         }
-    }
-
-    @Nullable
-    public final ChatRoomInfo r(@NonNull ChatMsg chatMsg, long j, int i) {
-        InterceptResult invokeCommon;
-        BaseMsg d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{chatMsg, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (chatMsg.getMsgType() == 10000) {
-                d = this.e.e(chatMsg);
-            } else {
-                d = this.e.d(j, chatMsg);
-            }
-            return s(d, j, i);
-        }
-        return (ChatRoomInfo) invokeCommon.objValue;
-    }
-
-    public final ChatRoomInfo s(BaseMsg baseMsg, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{baseMsg, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (baseMsg == null) {
-                return null;
-            }
-            long msgId = baseMsg.getSdkMsg().getMsgId();
-            long msgTime = baseMsg.getSdkMsg().getMsgTime();
-            ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
-            chatRoomInfo.setRoomId(j);
-            ChatNewMessage chatNewMessage = new ChatNewMessage();
-            chatNewMessage.setMsgId(String.valueOf(msgId));
-            chatNewMessage.setMsgTime(String.valueOf(msgTime));
-            if (baseMsg instanceof TextMsg) {
-                chatNewMessage.setContent(((TextMsg) baseMsg).getText());
-                chatNewMessage.setFromName(baseMsg.getSdkMsg().getNickName());
-            } else if (baseMsg instanceof BaseSysMsg) {
-                BaseSysMsg baseSysMsg = (BaseSysMsg) baseMsg;
-                if (baseSysMsg.getMsgConf() != null) {
-                    if (baseSysMsg.getMsgConf().isVisible()) {
-                        chatNewMessage.setContent(baseSysMsg.getMsgConf().getShowContent());
-                    }
-                    if (!baseSysMsg.getMsgConf().isCountable() && i > 0) {
-                        i--;
-                    }
-                } else {
-                    chatNewMessage.setFromName(baseMsg.getSdkMsg().getNickName());
-                    if (baseMsg.getThumbnailText() != null) {
-                        chatNewMessage.setContent(baseMsg.getThumbnailText().toString());
-                    }
-                }
-            } else {
-                if (baseMsg.getThumbnailText() != null) {
-                    chatNewMessage.setContent(baseMsg.getThumbnailText().toString());
-                }
-                if (baseMsg.getSdkMsg() != null) {
-                    chatNewMessage.setFromName(baseMsg.getSdkMsg().getNickName());
-                }
-            }
-            chatRoomInfo.setUnreadNum(i);
-            chatRoomInfo.setNewMessage(chatNewMessage);
-            chatRoomInfo.setAtInfo(n(baseMsg));
-            return chatRoomInfo;
-        }
-        return (ChatRoomInfo) invokeCommon.objValue;
     }
 }

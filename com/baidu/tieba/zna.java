@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface zna {
-    public static final ServiceReference a = new ServiceReference("ubc", "yalog");
-
-    void a(String str, String str2);
-
-    void b(String str, String str2);
+public /* synthetic */ class zna {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

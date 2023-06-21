@@ -10,14 +10,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nb5;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.ob5;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class CommonUserLikeButton extends TextView implements nb5 {
+public class CommonUserLikeButton extends TextView implements ob5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -51,7 +51,7 @@ public class CommonUserLikeButton extends TextView implements nb5 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6);
         this.c = false;
         this.f = false;
         f();
@@ -94,7 +94,7 @@ public class CommonUserLikeButton extends TextView implements nb5 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6);
         this.c = false;
         this.f = false;
         f();
@@ -120,13 +120,13 @@ public class CommonUserLikeButton extends TextView implements nb5 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6);
         this.c = false;
         this.f = false;
         f();
     }
 
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class CommonUserLikeButton extends TextView implements nb5 {
         }
     }
 
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     public void c(int i) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public class CommonUserLikeButton extends TextView implements nb5 {
         }
     }
 
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -174,7 +174,7 @@ public class CommonUserLikeButton extends TextView implements nb5 {
         }
     }
 
-    @Override // com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.ob5
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -194,7 +194,7 @@ public class CommonUserLikeButton extends TextView implements nb5 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setSingleLine();
             setIncludeFontPadding(false);
-            setTextSize(0, vi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f9));
+            setTextSize(0, wi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f9));
             setGravity(17);
         }
     }

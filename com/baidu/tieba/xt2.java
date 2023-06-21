@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
-public class xt2 extends sp2<ju2> {
+public class xt2 extends tp2<ku2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sp2
+    @Override // com.baidu.tieba.tp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUseFreeFlow" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
     }
 
     public xt2() {
@@ -36,17 +37,16 @@ public class xt2 extends sp2<ju2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sp2
+    @Override // com.baidu.tieba.tp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ju2 ju2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ku2 ku2Var) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ju2Var) == null) {
-            boolean z = true;
-            if (command.arg1 != 1) {
-                z = false;
-            }
-            ju2Var.B(z);
-            d(ju2Var, command.what, null, false);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ku2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
+        ku2Var.setSurface((Surface) obj);
+        String str = command.what;
+        d(ku2Var, str, "Surface:" + command.obj.hashCode(), false);
     }
 }

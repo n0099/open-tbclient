@@ -1,225 +1,136 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lw6 {
+public class lw6 extends gw6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public b e;
-    public Handler.Callback f;
-    public Handler g;
+    public DownloadManagerNetModel b;
+    public mw6 c;
+    public nw6 d;
+    public jw6 e;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, int i2);
-
-        void b(int i, int i2);
-
-        void c(int i, int i2);
-
-        void d(int i, int i2);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lw6 a;
-
-        public a(lw6 lw6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lw6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lw6Var;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.arg1;
-                int i2 = message.arg2;
-                int i3 = message.what;
-                if (i3 != 0) {
-                    if (i3 != 1) {
-                        if (i3 != 2) {
-                            if (i3 != 3) {
-                                return false;
-                            }
-                            this.a.e.c(i, i2);
-                            return true;
-                        }
-                        this.a.e.d(i, i2);
-                        return true;
-                    }
-                    this.a.e.b(i, i2);
-                    return true;
-                }
-                this.a.e.a(i, i2);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    public lw6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lw6(BaseFragment baseFragment, int i) {
+        super(baseFragment, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new Handler(this.f);
+        this.c = new mw6(1, i);
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.w0(this);
+        this.b.setUniqueId(baseFragment.getUniqueId());
     }
 
-    public void d(b bVar) {
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void L(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        nw6 nw6Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            nw6Var = (nw6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (nw6Var != null && f(nw6Var)) {
+            return;
+        }
+        e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void z(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        nw6 nw6Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            nw6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (nw6Var != null && f(nw6Var)) {
+            return;
+        }
+        e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
+    }
+
+    @Override // com.baidu.tieba.gw6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.c();
+            this.b.loadData();
         }
     }
 
-    public final void b(int i, int i2) {
+    @Override // com.baidu.tieba.gw6
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            this.g.removeMessages(2);
-            if (!this.g.hasMessages(2)) {
-                Message message = new Message();
-                message.what = 2;
-                message.arg1 = i;
-                message.arg2 = i2;
-                this.g.sendMessageDelayed(message, 60L);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.b();
+            this.b.loadData();
         }
     }
 
-    public final void e(int i, int i2) {
+    @Override // com.baidu.tieba.gw6
+    public void d(jw6 jw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            this.g.removeMessages(0);
-            if (!this.g.hasMessages(1)) {
-                Message message = new Message();
-                message.what = 1;
-                message.arg1 = i;
-                message.arg2 = i2;
-                this.g.sendMessageDelayed(message, 60L);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, jw6Var) == null) {
+            this.e = jw6Var;
         }
     }
 
-    public final void f(int i, int i2) {
+    public final void e(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.g.removeMessages(3);
-            if (!this.g.hasMessages(3)) {
-                Message message = new Message();
-                message.what = 3;
-                message.arg1 = i;
-                message.arg2 = i2;
-                this.g.sendMessageDelayed(message, 60L);
-            }
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i != 0) {
+            this.e.b(i, str);
         }
     }
 
-    public final void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.g.removeMessages(1);
-            if (!this.g.hasMessages(0)) {
-                Message message = new Message();
-                message.what = 0;
-                message.arg1 = i;
-                message.arg2 = i2;
-                this.g.sendMessageDelayed(message, 60L);
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0012, code lost:
-        if (r0 != 3) goto L11;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean c(MotionEvent motionEvent) {
+    public final boolean f(nw6 nw6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        float rawX = motionEvent.getRawX();
-                        float rawY = motionEvent.getRawY();
-                        if (this.c == 0.0f || this.d == 0.0f) {
-                            this.c = motionEvent.getRawX();
-                            float rawY2 = motionEvent.getRawY();
-                            this.d = rawY2;
-                            this.a = this.c;
-                            this.b = rawY2;
-                        }
-                        int i = (int) (rawY - this.b);
-                        int i2 = (int) (rawY - this.d);
-                        if (this.e != null) {
-                            if (i > 0) {
-                                e(i2, i);
-                            } else {
-                                g(i2, i);
-                            }
-                        }
-                        this.a = rawX;
-                        this.b = rawY;
-                    }
-                }
-                if (this.e != null) {
-                    int i3 = (int) (this.a - this.c);
-                    int i4 = (int) (this.b - this.d);
-                    if (Math.abs(i3) >= Math.abs(i4)) {
-                        f(i3, (int) this.c);
-                    } else {
-                        b(i3, i4);
-                    }
-                }
-                this.c = 0.0f;
-                this.d = 0.0f;
-            } else {
-                this.c = motionEvent.getRawX();
-                float rawY3 = motionEvent.getRawY();
-                this.d = rawY3;
-                this.a = this.c;
-                this.b = rawY3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, nw6Var)) == null) {
+            if (nw6Var == null) {
+                return false;
             }
+            if (this.c.a() != 1) {
+                this.d.a(nw6Var);
+            } else {
+                this.d = nw6Var;
+            }
+            jw6 jw6Var = this.e;
+            nw6 nw6Var2 = this.d;
+            jw6Var.a(nw6Var2.a, nw6Var2.b, nw6Var2.c.intValue());
             return true;
         }
         return invokeL.booleanValue;

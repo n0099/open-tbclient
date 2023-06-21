@@ -1,27 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.common.ExceptionCode;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qw3 implements jw3 {
+public class qw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rw3 a;
+    public int a;
     public int b;
-    public boolean c;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public boolean h;
+    public pw3 i;
+    public pw3 j;
+    public pw3 k;
+    public pw3 l;
 
-    public qw3(@NonNull Context context) {
+    public qw3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,112 +39,108 @@ public class qw3 implements jw3 {
                 return;
             }
         }
+        this.a = -1;
         this.b = -1;
-        c(context);
+        this.c = -1;
+        this.d = -1;
+        this.e = -1;
+        this.f = -1;
+        this.g = -1;
     }
 
-    public final void e(int i) {
-        int a;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            pw3 f = ww3.f();
-            int i2 = f.a;
-            if (i2 < 1) {
-                i2 = 10;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.h) {
+                return b(this.l);
             }
-            if (f.a() <= 0) {
-                a = ExceptionCode.CRASH_EXCEPTION;
-            } else {
-                a = f.a();
+            pw3 pw3Var = this.k;
+            if (pw3Var != null) {
+                return pw3Var.c;
             }
-            int f2 = this.a.f(i2, a, i2, a);
-            this.b = f2;
-            if (f2 != -1) {
-                this.a.e(f2, i);
+            pw3 pw3Var2 = this.i;
+            if (pw3Var2 != null) {
+                return pw3Var2.c;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.jw3
-    public void a() {
-        rw3 rw3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (rw3Var = this.a) != null && rw3Var.c()) {
-            this.c = false;
-            if (this.a.b()) {
-                g();
-            } else {
-                f();
+            pw3 pw3Var3 = this.j;
+            if (pw3Var3 != null) {
+                return pw3Var3.c;
             }
+            return -1;
         }
+        return invokeV.intValue;
     }
 
-    public final void f() {
-        int i;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.j(this.b);
-        }
-    }
-
-    public final void g() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.i(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.jw3
-    public void b(int i) {
-        rw3 rw3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (rw3Var = this.a) != null && rw3Var.c()) {
-            this.c = true;
-            if (this.a.b()) {
-                e(i);
-            } else {
-                d(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.g != -1) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c(Context context) {
+    public final int b(pw3 pw3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = rw3.a(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pw3Var)) == null) {
+            if (pw3Var != null) {
+                return pw3Var.c;
+            }
+            return -1;
         }
+        return invokeL.intValue;
     }
 
-    public final void d(int i) {
-        int a;
+    public final int c(pw3 pw3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            int g = this.a.g();
-            this.b = g;
-            if (g != -1) {
-                pw3 f = ww3.f();
-                int i2 = f.a;
-                if (i2 < 1) {
-                    i2 = 10;
-                }
-                if (f.a() <= 0) {
-                    a = ExceptionCode.CRASH_EXCEPTION;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pw3Var)) == null) {
+            if (pw3Var != null) {
+                return pw3Var.b;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cores", this.a);
+                jSONObject.put("is_biglittle", this.h);
+                if (this.h) {
+                    jSONObject.put("little_freq_min", c(this.j));
+                    jSONObject.put("little_freq_max", b(this.j));
+                    jSONObject.put("big_freq_min", c(this.i));
+                    jSONObject.put("big_freq_max", b(this.i));
+                    jSONObject.put("little_cores", this.b);
+                    jSONObject.put("big_cores", this.d);
+                    jSONObject.put("little_index", this.c);
+                    jSONObject.put("big_index", this.e);
+                    if (this.g != -1) {
+                        jSONObject.put("super_freq_min", c(this.k));
+                        jSONObject.put("super_freq_max", b(this.k));
+                        jSONObject.put("super_cores", this.f);
+                        jSONObject.put("super_index", this.g);
+                    }
                 } else {
-                    a = f.a();
+                    jSONObject.put("freq_min", c(this.l));
+                    jSONObject.put("freq_max", b(this.l));
                 }
-                int i3 = i2;
-                this.a.h(this.b, 0, i3, -1, -1, -1);
-                this.a.h(this.b, 2, i3, i2, -1, -1);
-                int i4 = a;
-                this.a.h(this.b, 4, i4, -1, -1, -1);
-                this.a.h(this.b, 6, i4, a, -1, -1);
-                this.a.h(this.b, 15, i2, i2, i2, i2);
-                this.a.h(this.b, 17, a, a, a, a);
-                this.a.e(this.b, i);
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return "";
             }
         }
+        return (String) invokeV.objValue;
     }
 }

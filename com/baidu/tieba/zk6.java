@@ -1,69 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class zk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
-    public final Map<String, el6> b;
-    public final String c;
 
-    public zk6(File file, String str, Map<String, el6> map) {
+    public static an9 a(jl6 jl6Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file, str, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jl6Var)) == null) {
+            an9 an9Var = new an9();
+            if (jl6Var != null) {
+                an9Var.b = jl6Var.c;
+                an9Var.e = jl6Var.g;
+                an9Var.f = jl6Var.i;
+                an9Var.c = jl6Var.d;
+                if (!om6.a(jl6Var.b)) {
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    an9Var.a = arrayList;
+                    arrayList.addAll(jl6Var.b);
+                }
+                if (!om6.a(jl6Var.f)) {
+                    ArrayList<String> arrayList2 = new ArrayList<>();
+                    an9Var.d = arrayList2;
+                    arrayList2.addAll(jl6Var.f);
+                }
+            }
+            return an9Var;
+        }
+        return (an9) invokeL.objValue;
+    }
+
+    public static void b(el6 el6Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, el6Var, str) == null) {
+            try {
+                if (el6Var != null) {
+                    ym9.n().z(str, el6Var.b());
+                    ym9.n().x();
+                    if (!om6.b(el6Var.a())) {
+                        HashMap<String, an9> hashMap = new HashMap<>();
+                        for (Map.Entry<String, jl6> entry : el6Var.a().entrySet()) {
+                            hashMap.put(entry.getKey(), a(entry.getValue()));
+                        }
+                        zm9.a().l(str, hashMap);
+                    }
+                    zm9.a().h(true, str);
+                    return;
+                }
+                ym9.n().h(str);
+                ym9.n().x();
+                zm9.a().f(str);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
-        this.a = file;
-        this.b = map;
-        this.c = str;
-    }
-
-    public Map<String, el6> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = this.a;
-            if (file != null && file.exists() && this.a.isDirectory() && !jm6.b(this.b)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

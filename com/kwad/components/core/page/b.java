@@ -92,9 +92,9 @@ public final class b extends com.kwad.components.core.page.recycle.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t(View view2) {
-        this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091410);
-        this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091411);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091412);
+        this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091415);
+        this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091416);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091417);
         this.mWebTipBarCloseBtn = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.b.1
             @Override // android.view.View.OnClickListener
@@ -184,7 +184,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
                 }
                 if (detailWebRecycleView.getChildCount() > 1) {
                     View view4 = detailWebRecycleView.findViewHolderForAdapterPosition(1).itemView;
-                    b.this.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f091406);
+                    b.this.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f09140b);
                     b.this.t(view4);
                 }
                 com.kwad.sdk.core.e.b.d("AdRecycleWebFragment", "onGlobalLayout");

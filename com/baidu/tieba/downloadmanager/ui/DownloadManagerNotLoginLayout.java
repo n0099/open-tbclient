@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ka5;
+import com.baidu.tieba.la5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -130,14 +130,14 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0271, (ViewGroup) this, true);
             this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090924);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090925);
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090923);
-            ka5 ka5Var = new ka5();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0462));
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090922);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090923);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090921);
+            la5 la5Var = new la5();
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0463));
             this.d.setTextSize(R.dimen.T_X06);
             this.d.setTextHorizontalCenter(true);
-            this.d.setConfig(ka5Var);
+            this.d.setConfig(la5Var);
             this.d.setOnClickListener(new a(this));
         }
     }

@@ -1,44 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh3;
+import com.baidu.tieba.c02;
+import com.baidu.tieba.yl3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j22 extends e22 {
+public class j22 extends f22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.b02
+    @Override // com.baidu.tieba.c02
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CompassApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements rq3<bh3<dh3.e>> {
+    public class a implements c02.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ j22 c;
+        public final /* synthetic */ j22 a;
 
-        public a(j22 j22Var, Context context, String str) {
+        /* renamed from: com.baidu.tieba.j22$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0349a implements yl3.c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ r22 a;
+            public final /* synthetic */ a b;
+
+            public C0349a(a aVar, r22 r22Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, r22Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = r22Var;
+            }
+
+            @Override // com.baidu.tieba.yl3.c
+            public void a(float f, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
+                        jSONObject.put("accuracy", yl3.h(i));
+                        this.a.d(this.b.a, jSONObject);
+                    } catch (JSONException e) {
+                        z82.c("CompassApi", "handle compass,json error，" + e.toString());
+                        this.a.f(this.b.a, "Json error");
+                    }
+                }
+            }
+        }
+
+        public a(j22 j22Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j22Var, context, str};
+                Object[] objArr = {j22Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,41 +90,40 @@ public class j22 extends e22 {
                     return;
                 }
             }
-            this.c = j22Var;
-            this.a = context;
-            this.b = str;
+            this.a = j22Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
-        /* renamed from: b */
-        public void a(bh3<dh3.e> bh3Var) {
+        @Override // com.baidu.tieba.c02.a
+        public z32 a(zb3 zb3Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
-                if (wg3.h(bh3Var)) {
-                    this.c.d(this.b, new y32(0, this.c.z(this.a)));
-                    return;
-                }
-                int b = bh3Var.b();
-                wg3.f(b);
-                this.c.d(this.b, new y32(b, wg3.f(b)));
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, zb3Var, jSONObject, str)) == null) {
+                r22 r22Var = new r22("compassChange", jSONObject, str);
+                yl3 i = yl3.i();
+                i.l(this.a.getContext());
+                i.o(new C0349a(this, r22Var));
+                z82.i("CompassApi", "start listen compass");
+                i.p();
+                r22Var.b(this.a);
+                return z32.f();
             }
+            return (z32) invokeLLL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j22(@NonNull zz1 zz1Var) {
-        super(zz1Var);
+    public j22(@NonNull a02 a02Var) {
+        super(a02Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zz1Var};
+            Object[] objArr = {a02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zz1) newInitContext.callArgs[0]);
+                super((a02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -90,44 +131,24 @@ public class j22 extends e22 {
         }
     }
 
-    public final JSONObject z(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("oaid", dx3.b.b(context));
-                jSONObject.put("androidId", dx3.b.a(context));
-            } catch (JSONException e) {
-                p("#getDeviceInfo json put data fail", e, false);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public y32 y(String str) {
+    public z32 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getDeviceInfo", false);
-            yb3 b0 = yb3.b0();
-            if (b0 == null) {
-                return new y32(1001, "swan app is null");
-            }
-            Pair<y32, JSONObject> s = s(str);
-            y32 y32Var = (y32) s.first;
-            if (!y32Var.isSuccess()) {
-                return y32Var;
-            }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new y32(202, "cb is empty");
-            }
-            Context context = getContext();
-            b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
-            return y32.f();
+            q("#startCompass", true);
+            return l(str, true, new a(this));
         }
-        return (y32) invokeL.objValue;
+        return (z32) invokeL.objValue;
+    }
+
+    public z32 z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#stopCompass", true);
+            yl3.i().q();
+            return z32.f();
+        }
+        return (z32) invokeV.objValue;
     }
 }

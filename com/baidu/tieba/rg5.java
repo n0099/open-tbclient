@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ItemData;
+import android.app.Activity;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class rg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ItemData b;
-    public String c;
-    public int d;
-    public int e;
+    public Activity a;
+    public String b;
+    public Map<String, String> c;
+    public BdUniqueId d;
 
     public rg5() {
         Interceptable interceptable = $ic;

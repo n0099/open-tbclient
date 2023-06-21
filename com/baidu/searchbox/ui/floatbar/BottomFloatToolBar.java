@@ -59,7 +59,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView2 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarBackImageView);
         if (imageView2 != null) {
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cp1
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dp1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,7 +78,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView4 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarFunctionImageView);
         if (imageView4 != null) {
-            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ap1
+            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bp1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -106,7 +106,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView2 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarBackImageView);
         if (imageView2 != null) {
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cp1
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dp1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -125,7 +125,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView4 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarFunctionImageView);
         if (imageView4 != null) {
-            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ap1
+            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bp1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,7 +153,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView2 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarBackImageView);
         if (imageView2 != null) {
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cp1
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dp1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -172,7 +172,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView4 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarFunctionImageView);
         if (imageView4 != null) {
-            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ap1
+            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bp1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -225,7 +225,7 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     private final void onFontSizeChange() {
-        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.bp1
+        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.cp1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -240,7 +240,7 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     private final void onNightModeChange() {
-        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.yo1
+        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.zo1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -259,7 +259,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         super.onAttachedToWindow();
         onNightModeChange();
         onFontSizeChange();
-        NightModeHelper.subscribeNightModeChangeEvent(this, new NightModeChangeListener() { // from class: com.baidu.tieba.xo1
+        NightModeHelper.subscribeNightModeChangeEvent(this, new NightModeChangeListener() { // from class: com.baidu.tieba.yo1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -271,7 +271,7 @@ public final class BottomFloatToolBar extends FrameLayout {
                 }
             }
         });
-        BdEventBus.Companion.getDefault().register(this, FontSizeChangeMessage.class, 1, new Action() { // from class: com.baidu.tieba.wo1
+        BdEventBus.Companion.getDefault().register(this, FontSizeChangeMessage.class, 1, new Action() { // from class: com.baidu.tieba.xo1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -327,7 +327,7 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     public final void setClickListener(final IBottomFloatToolBarClickListener iBottomFloatToolBarClickListener) {
-        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.zo1
+        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.ap1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

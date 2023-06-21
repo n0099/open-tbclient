@@ -1,5 +1,106 @@
 package com.baidu.tieba;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
 /* loaded from: classes6.dex */
-public interface jsb {
-    void a(boolean z, int i);
+public final class jsb implements fob, nob {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final fob a;
+    public nob b;
+    public boolean c;
+
+    public jsb(fob fobVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fobVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = fobVar;
+    }
+
+    @Override // com.baidu.tieba.fob
+    public void onSubscribe(nob nobVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nobVar) == null) {
+            this.b = nobVar;
+            try {
+                this.a.onSubscribe(this);
+            } catch (Throwable th) {
+                sob.e(th);
+                nobVar.unsubscribe();
+                onError(th);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nob
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.c && !this.b.isUnsubscribed()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.fob
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
+        }
+        this.c = true;
+        try {
+            this.a.onCompleted();
+        } catch (Throwable th) {
+            sob.e(th);
+            throw new OnCompletedFailedException(th);
+        }
+    }
+
+    @Override // com.baidu.tieba.nob
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.unsubscribe();
+        }
+    }
+
+    @Override // com.baidu.tieba.fob
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            qsb.j(th);
+            if (this.c) {
+                return;
+            }
+            this.c = true;
+            try {
+                this.a.onError(th);
+            } catch (Throwable th2) {
+                sob.e(th2);
+                throw new OnErrorFailedException(new CompositeException(th, th2));
+            }
+        }
+    }
 }

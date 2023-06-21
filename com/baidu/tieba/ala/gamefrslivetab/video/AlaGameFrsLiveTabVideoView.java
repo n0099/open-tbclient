@@ -34,15 +34,15 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by5;
-import com.baidu.tieba.j6a;
-import com.baidu.tieba.li;
-import com.baidu.tieba.qx4;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.a8a;
+import com.baidu.tieba.an5;
+import com.baidu.tieba.dx5;
+import com.baidu.tieba.gy5;
+import com.baidu.tieba.mi;
+import com.baidu.tieba.rx4;
 import com.baidu.tieba.vi;
-import com.baidu.tieba.vm5;
-import com.baidu.tieba.wm5;
-import com.baidu.tieba.yw5;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,8 +61,8 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     public View b;
     public NavigationBar c;
     public ScrollBridgeWebview d;
-    public vm5 e;
-    public wm5 f;
+    public zm5 e;
+    public an5 f;
     public boolean g;
     public String h;
     public int i;
@@ -114,8 +114,8 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                li.a(this.a.x);
-                vi.Q(this.b.a.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+                mi.a(this.a.x);
+                wi.Q(this.b.a.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -490,7 +490,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                 z = false;
             }
             if (!z) {
-                vi.P(this.a.getActivity(), R.string.plugin_install_fail);
+                wi.P(this.a.getActivity(), R.string.plugin_install_fail);
             } else {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
             }
@@ -507,7 +507,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                 return false;
             }
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MembercenterActivityConfig.class)) {
-                vi.P(this.a.getActivity(), R.string.plugin_install_fail);
+                wi.P(this.a.getActivity(), R.string.plugin_install_fail);
             } else {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
             }
@@ -524,7 +524,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                 return false;
             }
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                vi.P(this.a.getActivity(), R.string.plugin_install_fail);
+                wi.P(this.a.getActivity(), R.string.plugin_install_fail);
             } else {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
             }
@@ -541,7 +541,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                 return false;
             }
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
-                vi.P(this.a.getActivity(), R.string.plugin_install_fail);
+                wi.P(this.a.getActivity(), R.string.plugin_install_fail);
             } else {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
             }
@@ -562,7 +562,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                 z = true;
             }
             if (z) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.a.getActivity(), by5.c(str, "menuname="), by5.c(str, "menutype="), by5.c(str, "menuid="))));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.a.getActivity(), gy5.c(str, "menuname="), gy5.c(str, "menutype="), gy5.c(str, "menuid="))));
             }
             return true;
         }
@@ -612,7 +612,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (this.a.isAdded() && str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE)) {
-                String urlDecode = ui.getUrlDecode(str);
+                String urlDecode = vi.getUrlDecode(str);
                 if (!urlDecode.contains("data=")) {
                     return false;
                 }
@@ -715,9 +715,9 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.j = false;
-            vm5 vm5Var = this.e;
-            if (vm5Var != null) {
-                vm5Var.dettachView(this.b);
+            zm5 zm5Var = this.e;
+            if (zm5Var != null) {
+                zm5Var.dettachView(this.b);
                 this.e = null;
             }
         }
@@ -746,10 +746,10 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     public void q() {
-        wm5 wm5Var;
+        an5 an5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (wm5Var = this.f) != null) {
-            wm5Var.dettachView(this.b);
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (an5Var = this.f) != null) {
+            an5Var.dettachView(this.b);
             this.f = null;
         }
     }
@@ -778,9 +778,9 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (baseFragment = this.a) != null && this.b != null && baseFragment.isAdded()) {
             this.j = true;
-            vm5 vm5Var = new vm5(this.a.getActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a6));
-            this.e = vm5Var;
-            vm5Var.attachView(this.b, false);
+            zm5 zm5Var = new zm5(this.a.getActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a6));
+            this.e = zm5Var;
+            zm5Var.attachView(this.b, false);
             this.e.onChangeSkinType();
         }
     }
@@ -789,11 +789,11 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         BaseFragment baseFragment;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (baseFragment = this.a) != null && baseFragment.isAdded()) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0def);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0df3);
             if (this.f == null) {
-                wm5 wm5Var = new wm5(this.a.getActivity(), new e(this));
-                this.f = wm5Var;
-                wm5Var.onChangeSkinType();
+                an5 an5Var = new an5(this.a.getActivity(), new e(this));
+                this.f = an5Var;
+                an5Var.onChangeSkinType();
             }
             this.d.setVisibility(8);
             this.f.m(string);
@@ -867,7 +867,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                 this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
                 this.c.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
             }
-            ScrollBridgeWebview scrollBridgeWebview = (ScrollBridgeWebview) this.b.findViewById(R.id.obfuscated_res_0x7f092924);
+            ScrollBridgeWebview scrollBridgeWebview = (ScrollBridgeWebview) this.b.findViewById(R.id.obfuscated_res_0x7f092931);
             this.d = scrollBridgeWebview;
             scrollBridgeWebview.setOnScrollChangeListener(new d(this));
             r();
@@ -880,24 +880,24 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
             if (!str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) && !str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW)) {
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW)) {
-                    j6a.b();
+                    a8a.b();
                     return true;
                 }
                 return false;
             }
-            String c2 = by5.c(str, "topic_id=");
-            String c3 = by5.c(str, "topic_name=");
-            String c4 = by5.c(str, "is_video_topic=");
+            String c2 = gy5.c(str, "topic_id=");
+            String c3 = gy5.c(str, "topic_name=");
+            String c4 = gy5.c(str, "is_video_topic=");
             boolean appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
             if (!StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
                 if (appResponseToIntentClass) {
                     if (!StringHelper.equals(c4, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                        yw5.e(this.a.getPageContext(), c2, c3);
+                        dx5.f(this.a.getPageContext(), c2, c3);
                     } else {
                         new HotTopicActivityConfig(this.a.getActivity()).createNormalConfig(c2, c3, c4, null).start();
                     }
                 } else {
-                    qx4.t(this.a.getActivity(), c3, str);
+                    rx4.t(this.a.getActivity(), c3, str);
                 }
             }
             return true;

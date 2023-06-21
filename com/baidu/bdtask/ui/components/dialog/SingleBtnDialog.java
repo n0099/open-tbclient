@@ -7,9 +7,9 @@ import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.av;
-import com.baidu.tieba.ft;
-import com.baidu.tieba.vr;
-import com.baidu.tieba.zu;
+import com.baidu.tieba.bv;
+import com.baidu.tieba.gt;
+import com.baidu.tieba.wr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,20 +95,20 @@ public final class SingleBtnDialog extends a {
                     /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2() {
-                        ft b;
-                        av d;
-                        av d2;
+                        gt b;
+                        bv d;
+                        bv d2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            zu v = BDPTask.m.v();
+                            av v = BDPTask.m.v();
                             if (v != null && (d2 = v.d()) != null) {
-                                d2.b(this.$data.getTaskInfoSingleKey(), vr.c.a());
+                                d2.b(this.$data.getTaskInfoSingleKey(), wr.c.a());
                             }
-                            zu v2 = BDPTask.m.v();
+                            av v2 = BDPTask.m.v();
                             if (v2 != null && (d = v2.d()) != null) {
                                 d.a(this.$data.getTaskInfoSingleKey());
                             }
-                            zu v3 = BDPTask.m.v();
+                            av v3 = BDPTask.m.v();
                             if (v3 != null && (b = v3.b()) != null) {
                                 b.a(this.$data.getBackBtnSchema(), 1);
                             }

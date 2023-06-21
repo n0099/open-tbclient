@@ -1,116 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.log.DefaultLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r79;
-import com.baidu.tieba.s55;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class s79 extends s55 {
+public class s79 extends g79<t79, PbImageAlaRecommendVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r79 c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948104468, "Lcom/baidu/tieba/s79;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948104468, "Lcom/baidu/tieba/s79;");
-        }
-    }
+    public BdUniqueId g;
+    public j49 h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s79(Activity activity, r79 pbTopicRecommendTipController) {
-        super(activity);
+    public s79(jc9 jc9Var, BdUniqueId bdUniqueId) {
+        super(jc9Var, t79.q);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, pbTopicRecommendTipController};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {jc9Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((jc9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(pbTopicRecommendTipController, "pbTopicRecommendTipController");
-        this.c = pbTopicRecommendTipController;
+        this.g = bdUniqueId;
     }
 
-    public static final void g(s79 this$0) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: u */
+    public PbImageAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0764, viewGroup, false), this.a.getPageContext(), this.g);
+        }
+        return (PbImageAlaRecommendVH) invokeL.objValue;
+    }
+
+    public void y(j49 j49Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, j49Var) == null) {
+            this.h = j49Var;
         }
     }
 
-    @Override // com.baidu.tieba.s55
-    public void d(s55.a shouldShowCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            shouldShowCallback.callback(this.c.f());
-        }
+    @Override // com.baidu.tieba.g79, com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x(i, view2, viewGroup, (t79) obj, (PbImageAlaRecommendVH) viewHolder);
+        return view2;
     }
 
-    @Override // com.baidu.tieba.s55
-    public void b() {
+    public View x(int i, View view2, ViewGroup viewGroup, t79 t79Var, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.j();
-        }
-    }
-
-    @Override // com.baidu.tieba.s55
-    public void e() {
-        boolean s;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.p(new r79.f() { // from class: com.baidu.tieba.u59
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.r79.f
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        s79.g(s79.this);
-                    }
-                }
-            });
-            if (fn5.f(false, 1, null)) {
-                DefaultLog.getInstance().c("PbTopicTip", "开始展示精灵动画提示控件");
-                s = this.c.t();
-            } else {
-                DefaultLog.getInstance().c("PbTopicTip", "开始展示线上动画提示控件");
-                s = this.c.s();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t79Var, pbImageAlaRecommendVH})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) t79Var, (t79) pbImageAlaRecommendVH);
+            if (pbImageAlaRecommendVH != null) {
+                pbImageAlaRecommendVH.c(t79Var);
+                pbImageAlaRecommendVH.h(this.h);
             }
-            zq8 defaultLog = DefaultLog.getInstance();
-            defaultLog.c("PbTopicTip", "pb相关话题引导tip触发展示：" + s);
-            if (!s) {
-                c();
-            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -75,8 +75,8 @@ public final class FrsGroupCardLayoutBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090e97;
-            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e97);
+            int i = R.id.obfuscated_res_0x7f090e95;
+            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e95);
             if (recyclerView != null) {
                 i = R.id.obfuscated_res_0x7f090ee5;
                 BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee5);
@@ -90,14 +90,14 @@ public final class FrsGroupCardLayoutBinding implements ViewBinding {
                             i = R.id.obfuscated_res_0x7f090ef7;
                             TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ef7);
                             if (textView != null) {
-                                i = R.id.obfuscated_res_0x7f091747;
-                                ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091747);
+                                i = R.id.obfuscated_res_0x7f09174d;
+                                ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09174d);
                                 if (imageView2 != null) {
-                                    i = R.id.obfuscated_res_0x7f091748;
-                                    LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091748);
+                                    i = R.id.obfuscated_res_0x7f09174e;
+                                    LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09174e);
                                     if (linearLayout != null) {
-                                        i = R.id.obfuscated_res_0x7f09175b;
-                                        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09175b);
+                                        i = R.id.obfuscated_res_0x7f091761;
+                                        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091761);
                                         if (textView2 != null) {
                                             RelativeLayout relativeLayout2 = (RelativeLayout) view2;
                                             return new FrsGroupCardLayoutBinding(relativeLayout2, recyclerView, bdRoundedImageView, imageView, relativeLayout, textView, imageView2, linearLayout, textView2, relativeLayout2);

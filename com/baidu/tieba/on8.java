@@ -1,114 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.bdeventbus.BdEventBus;
-import com.baidu.tieba.yr6;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class on8 extends sl1<yr6.a> {
+public final class on8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final Map<BdUniqueId, ConcurrentLinkedQueue<vr6>> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038128, "Lcom/baidu/tieba/on8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948038128, "Lcom/baidu/tieba/on8;");
-                return;
-            }
-        }
-        a = new Object();
-        b = new HashMap();
-    }
+    public final SparseArray<nn8<ChatMsg, ql8<?>>> a;
+    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
     public on8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new SparseArray<>();
+        this.b = new HashMap<>();
+    }
+
+    public final void a(int i, nn8<ChatMsg, ql8<?>> converter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
+            Intrinsics.checkNotNullParameter(converter, "converter");
+            this.a.put(i, converter);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sl1
-    /* renamed from: c */
-    public yr6.a createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new yr6.a() { // from class: com.baidu.tieba.mn8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.yr6.a
-                public final void a(BdUniqueId bdUniqueId) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, bdUniqueId) == null) {
-                        on8.b(bdUniqueId);
-                    }
-                }
-            };
-        }
-        return (yr6.a) invokeV.objValue;
-    }
-
-    public static void a(@NonNull vr6 vr6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, vr6Var) == null) {
-            BdUniqueId b2 = vr6Var.b();
-            ConcurrentLinkedQueue<vr6> concurrentLinkedQueue = b.get(b2);
-            if (concurrentLinkedQueue == null) {
-                synchronized (a) {
-                    concurrentLinkedQueue = b.get(b2);
-                    if (concurrentLinkedQueue == null) {
-                        concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-                        b.put(b2, concurrentLinkedQueue);
-                    }
-                }
-            }
-            synchronized (a) {
-                concurrentLinkedQueue.add(vr6Var);
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            this.b.put(sdkMsg, Integer.valueOf(i));
         }
     }
 
-    public static void b(BdUniqueId bdUniqueId) {
-        ConcurrentLinkedQueue<vr6> concurrentLinkedQueue;
+    public final ChatMsg c(ql8<?> tbMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, bdUniqueId) == null) && (concurrentLinkedQueue = b.get(bdUniqueId)) != null) {
-            synchronized (a) {
-                Iterator<vr6> it = concurrentLinkedQueue.iterator();
-                while (it.hasNext()) {
-                    BdEventBus.Companion.getDefault().unregister(it.next());
-                }
-                concurrentLinkedQueue.clear();
-                b.remove(bdUniqueId);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            nn8<ChatMsg, ql8<?>> nn8Var = this.a.get(tbMsg.e().getType());
+            if (nn8Var == null) {
+                return null;
             }
+            return nn8Var.b(tbMsg);
         }
+        return (ChatMsg) invokeL.objValue;
+    }
+
+    public final ql8<?> d(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Integer num = this.b.get(sdkMsg.getClass());
+            if (num == null) {
+                return null;
+            }
+            nn8<ChatMsg, ql8<?>> nn8Var = this.a.get(num.intValue());
+            if (nn8Var == null) {
+                return null;
+            }
+            return nn8Var.a(sdkMsg);
+        }
+        return (ql8) invokeL.objValue;
     }
 }

@@ -4,14 +4,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.RecommendCardView;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.feed.component.CardPlayVoiceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k97 extends t77<RecommendCardView, q47> {
+public class k97 extends y77<CardPlayVoiceView, VoiceData.VoiceModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +36,26 @@ public class k97 extends t77<RecommendCardView, q47> {
         }
     }
 
-    @Override // com.baidu.tieba.t77, com.baidu.tieba.i87
+    @Override // com.baidu.tieba.y77, com.baidu.tieba.n87
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            q97.h(a);
+            v97.n(a, null, null, null, -2);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i87
+    @Override // com.baidu.tieba.n87
     /* renamed from: e */
-    public void b(@NonNull RecommendCardView recommendCardView, @NonNull q47 q47Var) {
+    public void b(@NonNull CardPlayVoiceView cardPlayVoiceView, @NonNull VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendCardView, q47Var) == null) {
-            recommendCardView.update(q47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPlayVoiceView, voiceModel) == null) {
+            cardPlayVoiceView.update(voiceModel);
         }
     }
 }

@@ -1,5 +1,33 @@
 package com.baidu.tieba;
+
+import android.media.MediaMetadataRetriever;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes7.dex */
-public interface qwa {
-    void a(String str, Object obj);
+public class qwa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) && mediaMetadataRetriever != null) {
+            try {
+                mediaMetadataRetriever.release();
+            } catch (Exception e) {
+                rwa.g(e);
+            }
+        }
+    }
+
+    public static void b(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                rwa.d(th.getMessage());
+            }
+        }
+    }
 }

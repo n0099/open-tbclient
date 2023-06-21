@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.n95;
+import com.baidu.tieba.o95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ThreadOptSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String THREAD_OPT_ENABLE = "thread_opt_1239";
+    public static final String THREAD_OPT_ENABLE = "thread_opt_1243";
     public static final int TYPE_FORCE_ON = 2;
     public static final int TYPE_OFF = 0;
     public static final int TYPE_ON = 1;
@@ -68,11 +68,11 @@ public class ThreadOptSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int n = n95.m().n("key_thread_opt_switch", 0);
-                type = n;
-                if (n == 2) {
+                int q = o95.p().q("key_thread_opt_switch", 0);
+                type = q;
+                if (q == 2) {
                     switchOn = true;
-                } else if (n == 1) {
+                } else if (q == 1) {
                     switchOn = UbsABTestHelper.isShoubaiThreadTest();
                 } else {
                     switchOn = false;

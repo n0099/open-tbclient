@@ -19,8 +19,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be7;
-import com.baidu.tieba.bf7;
+import com.baidu.tieba.ge7;
+import com.baidu.tieba.gf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import tbclient.FrsTabInfo;
 public class FrsTabSortSwitchButton extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<be7> A;
+    public List<ge7> A;
     public List<Float> B;
     public GestureDetector C;
     public GestureDetector.SimpleOnGestureListener D;
@@ -371,7 +371,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     public final void A(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bf7.FrsTabSortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gf7.FrsTabSortSwitchButton);
             this.d = obtainStyledAttributes.getResourceId(0, R.color.CAM_X0107);
             this.e = obtainStyledAttributes.getResourceId(4, R.color.CAM_X0101);
             this.f = obtainStyledAttributes.getResourceId(8, R.color.CAM_X0105);
@@ -431,11 +431,11 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            be7 be7Var = (be7) ListUtils.getItem(this.A, i);
-            if (be7Var == null) {
+            ge7 ge7Var = (ge7) ListUtils.getItem(this.A, i);
+            if (ge7Var == null) {
                 return -1;
             }
-            return be7Var.b;
+            return ge7Var.b;
         }
         return invokeI.intValue;
     }
@@ -473,24 +473,24 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
                 return true;
             }
             for (int i = 0; i < size; i++) {
-                be7 be7Var = this.A.get(i);
+                ge7 ge7Var = this.A.get(i);
                 FrsTabInfo frsTabInfo = list.get(i);
-                if (frsTabInfo.tab_id.intValue() != be7Var.b) {
+                if (frsTabInfo.tab_id.intValue() != ge7Var.b) {
                     return true;
                 }
-                if (frsTabInfo.tab_id.intValue() == 2 && !be7Var.a.equals(this.l)) {
+                if (frsTabInfo.tab_id.intValue() == 2 && !ge7Var.a.equals(this.l)) {
                     return true;
                 }
-                if (frsTabInfo.tab_id.intValue() == 3 && !be7Var.a.equals(this.m)) {
+                if (frsTabInfo.tab_id.intValue() == 3 && !ge7Var.a.equals(this.m)) {
                     return true;
                 }
                 if (frsTabInfo.tab_id.intValue() != 2 && frsTabInfo.tab_id.intValue() != 3) {
                     String str = frsTabInfo.tab_name;
                     if (str != null && str.length() > 5) {
-                        if (!be7Var.a.equals(frsTabInfo.tab_name.substring(0, 5))) {
+                        if (!ge7Var.a.equals(frsTabInfo.tab_name.substring(0, 5))) {
                             return true;
                         }
-                    } else if (!be7Var.a.equals(frsTabInfo.tab_name)) {
+                    } else if (!ge7Var.a.equals(frsTabInfo.tab_name)) {
                         return true;
                     }
                 }
@@ -512,30 +512,30 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         }
         setVisibility(0);
         for (int i = 0; i < list.size(); i++) {
-            be7 be7Var = new be7();
-            be7Var.b = list.get(i).tab_id.intValue();
+            ge7 ge7Var = new ge7();
+            ge7Var.b = list.get(i).tab_id.intValue();
             if (list.get(i).tab_id.intValue() == 2) {
                 if (list.get(i).tab_type.intValue() == 16) {
-                    be7Var.a = "最热";
+                    ge7Var.a = "最热";
                 } else {
-                    be7Var.a = this.l;
+                    ge7Var.a = this.l;
                 }
             } else if (list.get(i).tab_id.intValue() == 3) {
                 if (list.get(i).tab_type.intValue() == 16) {
-                    be7Var.a = "最新";
+                    ge7Var.a = "最新";
                 } else {
-                    be7Var.a = this.m;
+                    ge7Var.a = this.m;
                 }
             } else {
                 String str = list.get(i).tab_name;
-                be7Var.a = str;
+                ge7Var.a = str;
                 if (str == null) {
-                    be7Var.a = "";
+                    ge7Var.a = "";
                 } else if (str.length() > 5) {
-                    be7Var.a = be7Var.a.substring(0, 5);
+                    ge7Var.a = ge7Var.a.substring(0, 5);
                 }
             }
-            this.A.add(be7Var);
+            this.A.add(ge7Var);
         }
         requestLayout();
     }
@@ -606,10 +606,10 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    be7 be7Var = (be7) ListUtils.getItem(this.A, i3);
-                    if (be7Var != null) {
+                    ge7 ge7Var = (ge7) ListUtils.getItem(this.A, i3);
+                    if (ge7Var != null) {
                         Paint paint = this.p;
-                        String str = be7Var.a;
+                        String str = ge7Var.a;
                         if (str == null) {
                             str = "";
                         }

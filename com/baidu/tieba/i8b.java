@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +9,57 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
-import java.security.GeneralSecurityException;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.GCMParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes6.dex */
 public class i8b {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i9b a;
-    public static final i8b b;
+    public static final Object a;
+    public static final SimpleDateFormat b;
+    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File[] f = f8b.f();
+                if (f != null && f.length > 0) {
+                    synchronized (i8b.a) {
+                        for (File file : f) {
+                            if (currentTimeMillis - file.lastModified() > 172800000) {
+                                file.delete();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,149 +74,74 @@ public class i8b {
                 return;
             }
         }
-        b = new i8b();
+        a = new Object();
+        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
-    public i8b() {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            h8b.b().post(new a());
         }
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && a == null) {
-            a = new i9b(context, "push");
-        }
-    }
-
-    public synchronized void b(Context context, String str) {
-        byte[] bArr;
-        byte[] bArr2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            synchronized (this) {
-                a(context);
-                if (TextUtils.isEmpty(str)) {
-                    a.a("key_push_token");
-                } else {
-                    String e = d8b.e(context, context.getPackageName());
-                    byte[] h = d8b.h("EA23F5B8C7577CDC744ABD1C6D7E143D5123F8F282BF4E7853C1EC86BD2EDD22");
-                    byte[] h2 = d8b.h(e);
-                    try {
-                        bArr = new byte[32];
-                        new SecureRandom().nextBytes(bArr);
-                    } catch (Exception unused) {
-                        bArr = new byte[0];
-                    }
-                    d8b.i(h, -4);
-                    byte[] j = d8b.j(h, h2);
-                    d8b.i(j, 6);
-                    String encodeToString = Base64.encodeToString(d8b.j(j, bArr), 0);
-                    boolean b2 = a.b("key_aes_gcm", encodeToString);
-                    byte[] decode = Base64.decode(encodeToString, 0);
-                    String str2 = "";
-                    if (!TextUtils.isEmpty(str) && decode != null && decode.length >= 16) {
-                        try {
-                            try {
-                                bArr2 = new byte[12];
-                                new SecureRandom().nextBytes(bArr2);
-                            } catch (GeneralSecurityException e2) {
-                                String str3 = "GCM encrypt data error" + e2.getMessage();
-                            }
-                        } catch (Exception unused2) {
-                            bArr2 = new byte[0];
-                        }
-                        byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                        cipher.init(1, secretKeySpec, new GCMParameterSpec(128, bArr2));
-                        byte[] doFinal = cipher.doFinal(bytes);
-                        if (doFinal != null && doFinal.length != 0) {
-                            str2 = d8b.f(bArr2) + d8b.f(doFinal);
-                        }
-                    }
-                    if (b2 && !TextUtils.isEmpty(str2)) {
-                        a.b("key_push_token", str2);
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized String c(Context context) {
+    public static String c(String str) {
         InterceptResult invokeL;
-        String str;
-        boolean z;
-        String str2;
-        String str3;
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            synchronized (this) {
-                a(context);
-                str = "";
-                SharedPreferences sharedPreferences = a.a;
-                boolean z2 = true;
-                if (sharedPreferences != null && sharedPreferences.contains("key_push_token")) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    SharedPreferences sharedPreferences2 = a.a;
-                    if (sharedPreferences2 == null || !sharedPreferences2.contains("key_aes_gcm")) {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        SharedPreferences sharedPreferences3 = a.a;
-                        if (sharedPreferences3 != null) {
-                            str2 = sharedPreferences3.getString("key_push_token", "");
-                        } else {
-                            str2 = "";
-                        }
-                        SharedPreferences sharedPreferences4 = a.a;
-                        if (sharedPreferences4 != null) {
-                            str3 = sharedPreferences4.getString("key_aes_gcm", "");
-                        } else {
-                            str3 = "";
-                        }
-                        byte[] decode = Base64.decode(str3, 0);
-                        String str4 = "";
-                        if (!TextUtils.isEmpty(str2) && decode != null && decode.length >= 16) {
-                            try {
-                                SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                                Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                                String substring = str2.substring(0, 24);
-                                String substring2 = str2.substring(24);
-                                if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2)) {
-                                    cipher.init(2, secretKeySpec, new GCMParameterSpec(128, d8b.h(substring)));
-                                    str4 = new String(cipher.doFinal(d8b.h(substring2)), StandardCharsets.UTF_8);
-                                }
-                            } catch (Exception e) {
-                                String str5 = "GCM decrypt data exception: " + e.getMessage();
-                            }
-                        }
-                        if (!TextUtils.isEmpty(str4)) {
-                            str = str4;
-                        } else {
-                            a.a("key_aes_gcm");
-                            a.a("key_push_token");
-                        }
-                    } else {
-                        a.a("key_push_token");
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (a) {
+                d = d("looper", str);
             }
-            return str;
+            return d;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String str3 = "";
+            BufferedWriter bufferedWriter = null;
+            try {
+                File c2 = f8b.c();
+                long currentTimeMillis = System.currentTimeMillis();
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
+                try {
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("**********************");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(str2);
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = bufferedWriter2;
+                    try {
+                        Log.e("LogWriter", "save: ", th);
+                        return str3;
+                    } finally {
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (Exception e) {
+                                Log.e("LogWriter", "save: ", e);
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,28 +1,24 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ks4 {
+public class ks4<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ks4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final js4<String> a;
-    public String b;
+    public List<ns4<T>> a;
 
-    @SuppressLint({"BDThrowableCheck"})
-    public ks4(Context context) {
+    public ks4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,50 +28,77 @@ public class ks4 {
                 return;
             }
         }
-        js4<String> js4Var = new js4<>();
-        this.a = js4Var;
-        if (context == null) {
-            return;
-        }
-        js4Var.a(new ns4(context));
-        this.a.a(new ps4(context));
-        this.a.a(new os4(context));
-        this.a.a(new rs4(context));
-        this.a.a(new ls4(context));
-        this.a.a(new qs4(context));
+        this.a = new ArrayList(6);
     }
 
-    public static ks4 b(Context context) {
-        InterceptResult invokeL;
+    public void a(ns4<T> ns4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (c == null) {
-                synchronized (ks4.class) {
-                    if (c == null) {
-                        c = new ks4(context);
-                    }
-                }
-            }
-            return c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ns4Var) == null) && ns4Var != null && !this.a.contains(ns4Var)) {
+            this.a.add(ns4Var);
         }
-        return (ks4) invokeL.objValue;
     }
 
-    public String a() {
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                synchronized (this) {
-                    if (TextUtils.isEmpty(this.b)) {
-                        String b = this.a.b();
-                        this.b = b;
-                        this.a.d(b);
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<ns4> arrayList = new ArrayList();
+            Iterator<ns4<T>> it = this.a.iterator();
+            T t = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                ns4<T> next = it.next();
+                T t2 = next.get();
+                if (c(t2)) {
+                    t = t2;
+                    break;
+                }
+                arrayList.add(next);
+                t = t2;
+            }
+            if (arrayList.size() > 0) {
+                for (ns4 ns4Var : arrayList) {
+                    ns4Var.put(t);
                 }
             }
-            return this.b;
+            return t;
         }
-        return (String) invokeV.objValue;
+        return (T) invokeV.objValue;
+    }
+
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        char[] charArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t == null || !(t instanceof String)) {
+                return false;
+            }
+            String str = (String) t;
+            if (str.length() != 32) {
+                return false;
+            }
+            for (char c : str.toCharArray()) {
+                if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || c(t)) {
+            return;
+        }
+        for (ns4<T> ns4Var : this.a) {
+            if (ns4Var.a()) {
+                ns4Var.put(t);
+            }
+        }
     }
 }

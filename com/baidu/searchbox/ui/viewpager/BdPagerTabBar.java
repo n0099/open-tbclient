@@ -103,7 +103,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
             PagerTabBarItem pagerTabBarItem = new PagerTabBarItem(context);
             this.mPagerTabBarItem = pagerTabBarItem;
             pagerTabBarItem.setUIStandard(this.mUseStandardStyle, this.mLayoutInActionBar);
-            this.mPagerTabBarItem.setId(R.id.obfuscated_res_0x7f091770);
+            this.mPagerTabBarItem.setId(R.id.obfuscated_res_0x7f091776);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             addView(this.mPagerTabBarItem, layoutParams);

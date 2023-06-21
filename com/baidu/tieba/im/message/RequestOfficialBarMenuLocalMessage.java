@@ -2,20 +2,16 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ForumMenu.DataReq;
-import tbclient.ForumMenu.ForumMenuReqIdl;
 /* loaded from: classes6.dex */
 public class RequestOfficialBarMenuLocalMessage extends CustomMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String forum_id;
-    public long timestamp;
+    public String forumId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestOfficialBarMenuLocalMessage() {
@@ -35,49 +31,19 @@ public class RequestOfficialBarMenuLocalMessage extends CustomMessage<Object> {
         }
     }
 
-    public String getForum_id() {
+    public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.forum_id;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.forumId;
         }
         return (String) invokeV.objValue;
     }
 
-    public long getTimestamp() {
-        InterceptResult invokeV;
+    public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.timestamp;
-        }
-        return invokeV.longValue;
-    }
-
-    public Object encode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.forum_id = Integer.valueOf(tg.e(getForum_id(), 0));
-            builder.update_time = Integer.valueOf((int) getTimestamp());
-            ForumMenuReqIdl.Builder builder2 = new ForumMenuReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        }
-        return invokeV.objValue;
-    }
-
-    public void setForum_id(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.forum_id = str;
-        }
-    }
-
-    public void setTimestamp(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.timestamp = j;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.forumId = str;
         }
     }
 }

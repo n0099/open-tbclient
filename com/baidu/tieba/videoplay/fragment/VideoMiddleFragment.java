@@ -11,7 +11,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tieba.videoplay.VideoPlayActivity;
@@ -215,19 +214,17 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                VideoChannelHeaderLayout videoChannelHeaderLayout = this.c;
-                if (videoChannelHeaderLayout != null) {
-                    videoChannelHeaderLayout.setVisibility(8);
-                }
-                ImageView imageView = this.e;
-                if (imageView != null) {
-                    imageView.setVisibility(8);
-                }
-                AlaLiveTipView alaLiveTipView = this.d;
-                if (alaLiveTipView != null) {
-                    alaLiveTipView.setVisibility(8);
-                }
+            VideoChannelHeaderLayout videoChannelHeaderLayout = this.c;
+            if (videoChannelHeaderLayout != null) {
+                videoChannelHeaderLayout.setVisibility(8);
+            }
+            ImageView imageView = this.e;
+            if (imageView != null) {
+                imageView.setVisibility(8);
+            }
+            AlaLiveTipView alaLiveTipView = this.d;
+            if (alaLiveTipView != null) {
+                alaLiveTipView.setVisibility(8);
             }
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }

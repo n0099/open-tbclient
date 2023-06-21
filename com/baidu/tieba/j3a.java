@@ -1,102 +1,123 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.downloadball.DownloadFloatBallManager;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class j3a extends CustomMessageListener {
+public class j3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final l1a b;
-    public final a1a c;
+    public MainTabActivity a;
+    public PollingModel b;
+    public List<Map<String, Long>> c;
+    public final Runnable d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j3a(MainTabActivity mainTabActivity, a1a a1aVar) {
-        super(2001371);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j3a a;
+
+        public a(j3a j3aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j3aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j3aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.D0(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST, String.valueOf(System.currentTimeMillis()), this.a.c());
+                xg.a().postDelayed(this.a.d, a95.a().c());
+            }
+        }
+    }
+
+    public j3a(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, a1aVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = null;
+        this.d = new a(this);
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
-        this.c = a1aVar;
+        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
     }
 
-    public static void a() {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
-            cn0.l().p();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.X) {
-            a();
-            yx5.a(1);
-            qf5.u(HotEventData.getInstance());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        l1a l1aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-            b();
-            TbadkCoreApplication.getInst().syncHasFinish = true;
-            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                if (!TbSingleton.getInstance().mIsSplashClick && (l1aVar = this.b) != null && l1aVar.b() != null) {
-                    if (UbsABTestHelper.isNewInterestShowTestA()) {
-                        this.b.b().d();
-                    } else {
-                        this.b.b().a();
-                    }
-                }
-                l1a l1aVar2 = this.b;
-                if (l1aVar2 != null && l1aVar2.h() != null) {
-                    this.b.h().a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                this.c = new ArrayList();
+            }
+            this.c.clear();
+            List<GroupChatRoomPojo> h = u88.f().h(TbadkCoreApplication.getCurrentAccount());
+            if (ListUtils.isEmpty(h)) {
+                return "";
+            }
+            for (GroupChatRoomPojo groupChatRoomPojo : h) {
+                if (groupChatRoomPojo.V() == 0) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                    hashMap.put("msg_id", Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                    this.c.add(hashMap);
                 }
             }
-            if (!MainTabActivity.X) {
-                new tv5(this.a).o();
+            if (ListUtils.isEmpty(this.c)) {
+                return "";
             }
-            o3a g0 = this.a.g0();
-            if (g0 != null) {
-                g0.c();
+            String json = DataExt.toJson(this.c);
+            if (TextUtils.isEmpty(json)) {
+                return "";
             }
-            if (n95.m().i(n95.q("key_new_god_pop_is_show"), false)) {
-                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
-            }
-            MainTabActivity.X = true;
-            this.c.O();
-            DownloadFloatBallManager.k().r(false, true);
+            return json;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            xg.a().removeCallbacks(this.d);
+            this.a = null;
         }
     }
 }

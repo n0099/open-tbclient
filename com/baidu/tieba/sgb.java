@@ -1,136 +1,71 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.nio.charset.Charset;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes7.dex */
 public class sgb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<String, String> a;
-    public TreeMap<String, String> b;
 
-    public sgb(TreeMap<String, String> treeMap, TreeMap<String, String> treeMap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {treeMap, treeMap2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = treeMap;
-        this.b = treeMap2;
-    }
-
-    public static sgb a(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
-        TreeMap<String, String> treeMap;
-        TreeMap<String, String> treeMap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            TreeMap<String, String> treeMap3 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("mText");
-                if (optString != null && !optString.isEmpty()) {
-                    treeMap2 = c(optString);
-                } else {
-                    treeMap2 = null;
+                return b(str, "1234567890abcdef");
+            } catch (Exception unused) {
+                Log.e("AesUtils", "AesUtils.aesEncrypt fail@encryptStr:{} error:" + str);
+                if (str.isEmpty()) {
+                    return "";
                 }
-                try {
-                    String optString2 = jSONObject.optString("mImages");
-                    if (optString2 != null && !optString2.isEmpty()) {
-                        treeMap3 = c(optString2);
-                    }
-                } catch (JSONException e) {
-                    treeMap = treeMap2;
-                    e = e;
-                    e.printStackTrace();
-                    treeMap2 = treeMap;
-                    return new sgb(treeMap2, treeMap3);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-                treeMap = null;
+                return str;
             }
-            return new sgb(treeMap2, treeMap3);
-        }
-        return (sgb) invokeL.objValue;
-    }
-
-    public static String b(TreeMap<String, String> treeMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, treeMap)) == null) {
-            if (treeMap != null && !treeMap.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, String> entry : treeMap.entrySet()) {
-                    try {
-                        jSONObject.put(entry.getKey(), entry.getValue());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                return jSONObject.toString();
-            }
-            return "";
         }
         return (String) invokeL.objValue;
     }
 
-    public static TreeMap<String, String> c(String str) {
-        InterceptResult invokeL;
+    public static String b(String str, String str2) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str != null && !str.isEmpty()) {
-                TreeMap<String, String> treeMap = new TreeMap<>();
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        treeMap.put(next, (String) jSONObject.get(next));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return treeMap;
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return d(c(str, str2));
         }
-        return (TreeMap) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static String d(sgb sgbVar) {
+    public static byte[] c(String str, String str2) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(1, new SecretKeySpec(str2.getBytes(), "AES"));
+            return cipher.doFinal(str.getBytes(Charset.forName("UTF-8")));
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static String d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sgbVar)) == null) {
-            if (sgbVar == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            int length = bArr.length;
+            char[] cArr2 = new char[length << 1];
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = i + 1;
+                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
+                i = i3 + 1;
+                cArr2[i3] = cArr[bArr[i2] & 15];
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("mText", b(sgbVar.a));
-                jSONObject.put("mImages", b(sgbVar.b));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+            return new String(cArr2);
         }
         return (String) invokeL.objValue;
     }

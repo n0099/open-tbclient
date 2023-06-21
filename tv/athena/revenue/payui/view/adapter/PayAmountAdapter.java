@@ -13,12 +13,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jub;
-import com.baidu.tieba.nvb;
-import com.baidu.tieba.ovb;
-import com.baidu.tieba.psb;
-import com.baidu.tieba.pvb;
-import com.baidu.tieba.xub;
+import com.baidu.tieba.cwb;
+import com.baidu.tieba.gxb;
+import com.baidu.tieba.hxb;
+import com.baidu.tieba.iub;
+import com.baidu.tieba.ixb;
+import com.baidu.tieba.qwb;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -30,8 +30,8 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public final Activity a;
     public int b;
     public int d;
-    public psb e;
-    public List<jub> f;
+    public iub e;
+    public List<cwb> f;
     public PayUIKitConfig h;
     public int c = -1;
     public String g = "Y币";
@@ -72,8 +72,8 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             this.d = (TextView) view2.findViewById(R.id.amount_new);
             this.e = view2.findViewById(R.id.ll_dest_amount_container);
             this.f = (TextView) view2.findViewById(R.id.tv_other_amount);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925f7);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926bd);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092604);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926ca);
         }
     }
 
@@ -95,7 +95,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             this.d = (ImageView) view2.findViewById(R.id.img_center_left_log);
             this.e = (TextView) view2.findViewById(R.id.tv_center_top_title);
             this.f = (ImageView) view2.findViewById(R.id.img_center_right_log);
-            this.g = (Button) view2.findViewById(R.id.obfuscated_res_0x7f0904ab);
+            this.g = (Button) view2.findViewById(R.id.obfuscated_res_0x7f0904a8);
         }
     }
 
@@ -131,32 +131,32 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public PayAmountAdapter(Activity activity, psb psbVar, List<jub> list, PayUIKitConfig payUIKitConfig) {
+    public PayAmountAdapter(Activity activity, iub iubVar, List<cwb> list, PayUIKitConfig payUIKitConfig) {
         this.a = activity;
         this.f = list;
         this.h = payUIKitConfig;
-        this.e = psbVar;
+        this.e = iubVar;
     }
 
-    public final void A(CampaignViewHolder campaignViewHolder, jub jubVar, int i) {
+    public final void A(CampaignViewHolder campaignViewHolder, cwb cwbVar, int i) {
         int i2;
         int i3;
         int i4 = -1;
         campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         campaignViewHolder.itemView.setVisibility(0);
-        int b2 = (nvb.b(this.a) - xub.a(((this.d - 1) * 10) + 30)) / this.d;
-        int a2 = xub.a(11.0f);
+        int b2 = (gxb.b(this.a) - qwb.a(((this.d - 1) * 10) + 30)) / this.d;
+        int a2 = qwb.a(11.0f);
         if (this.d == 2) {
             i2 = 4;
         } else {
             i2 = 6;
         }
-        int i5 = jubVar.e;
+        int i5 = cwbVar.e;
         if (i5 <= this.c) {
             campaignViewHolder.c.setVisibility(8);
             campaignViewHolder.b.setVisibility(0);
-            i4 = jubVar.e;
-            int a3 = ((b2 / 2) - a2) + ((xub.a(10.0f) + b2) * i4);
+            i4 = cwbVar.e;
+            int a3 = ((b2 / 2) - a2) + ((qwb.a(10.0f) + b2) * i4);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) campaignViewHolder.b.getLayoutParams();
             layoutParams.leftMargin = a3;
             campaignViewHolder.b.setLayoutParams(layoutParams);
@@ -166,19 +166,19 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             campaignViewHolder.b.setVisibility(8);
             int i6 = this.c;
             if (i6 == 2) {
-                i3 = jubVar.e - 3;
+                i3 = cwbVar.e - 3;
             } else {
                 if (i6 == 3) {
-                    i3 = jubVar.e - 4;
+                    i3 = cwbVar.e - 4;
                 }
-                int a4 = ((b2 / 2) - a2) + ((xub.a(10.0f) + b2) * i4);
+                int a4 = ((b2 / 2) - a2) + ((qwb.a(10.0f) + b2) * i4);
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) campaignViewHolder.c.getLayoutParams();
                 layoutParams2.leftMargin = a4;
                 campaignViewHolder.c.setLayoutParams(layoutParams2);
                 this.e.c(campaignViewHolder.a, this.a);
             }
             i4 = i3;
-            int a42 = ((b2 / 2) - a2) + ((xub.a(10.0f) + b2) * i4);
+            int a42 = ((b2 / 2) - a2) + ((qwb.a(10.0f) + b2) * i4);
             LinearLayout.LayoutParams layoutParams22 = (LinearLayout.LayoutParams) campaignViewHolder.c.getLayoutParams();
             layoutParams22.leftMargin = a42;
             campaignViewHolder.c.setLayoutParams(layoutParams22);
@@ -187,30 +187,30 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             RLog.error("PayAmountAdapter", "updateCampaignItemIndexView error config", new Object[0]);
             n(campaignViewHolder);
         }
-        RLog.info("PayAmountAdapter", "updateCampaignItemIndexView position:" + i + " selectCampaignIndex:" + jubVar.e + " itemWidth:" + b2 + " mCampaignItemPosition:" + this.c + " startIndexOfLine:" + i4 + " maxValidSelectCampaignIndex:" + i2);
+        RLog.info("PayAmountAdapter", "updateCampaignItemIndexView position:" + i + " selectCampaignIndex:" + cwbVar.e + " itemWidth:" + b2 + " mCampaignItemPosition:" + this.c + " startIndexOfLine:" + i4 + " maxValidSelectCampaignIndex:" + i2);
     }
 
-    public final void B(CampaignViewHolder campaignViewHolder, jub jubVar, int i) {
+    public final void B(CampaignViewHolder campaignViewHolder, cwb cwbVar, int i) {
         int i2;
         int i3;
         int i4;
         int i5;
-        if (pvb.a.b(this.h)) {
+        if (ixb.a.b(this.h)) {
             i2 = R.drawable.pay_ui_item_pay_amount_campaign_item_center_top_red_icon;
         } else {
             i2 = R.drawable.pay_ui_item_pay_amount_campaign_item_center_top_yellow_icon;
         }
-        if (pvb.a.b(this.h)) {
+        if (ixb.a.b(this.h)) {
             i3 = R.drawable.pay_ui_item_pay_amount_campaign_item_center_right_red_icon;
         } else {
             i3 = R.drawable.pay_ui_item_pay_amount_campaign_item_center_right_yellow_icon;
         }
-        if (pvb.a.b(this.h)) {
+        if (ixb.a.b(this.h)) {
             i4 = R.drawable.pay_ui_item_pay_amount_campaign_item_top_index_red_icon;
         } else {
             i4 = R.drawable.pay_ui_item_pay_amount_campaign_item_top_index_yellow_icon;
         }
-        if (pvb.a.b(this.h)) {
+        if (ixb.a.b(this.h)) {
             i5 = R.drawable.pay_ui_item_pay_amount_campaign_item_bottom_index_red_icon;
         } else {
             i5 = R.drawable.pay_ui_item_pay_amount_campaign_item_bottom_index_yellow_icon;
@@ -236,7 +236,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public final void C(CampaignViewHolder campaignViewHolder, int i) {
         boolean z;
-        jub k = k(i);
+        cwb k = k(i);
         if (k == null) {
             return;
         }
@@ -261,8 +261,8 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public final void D(AmountViewHolder amountViewHolder, jub jubVar, int i) {
-        if (jubVar.c) {
+    public final void D(AmountViewHolder amountViewHolder, cwb cwbVar, int i) {
+        if (cwbVar.c) {
             amountViewHolder.f.setVisibility(0);
             amountViewHolder.e.setVisibility(8);
             amountViewHolder.d.setVisibility(8);
@@ -271,14 +271,14 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         amountViewHolder.f.setVisibility(8);
         amountViewHolder.e.setVisibility(0);
         amountViewHolder.d.setVisibility(0);
-        amountViewHolder.a.setText(ovb.b(jubVar.a()));
+        amountViewHolder.a.setText(hxb.b(cwbVar.a()));
         amountViewHolder.b.setText(this.g);
         amountViewHolder.d.setVisibility(0);
-        Double valueOf = Double.valueOf(jubVar.c());
+        Double valueOf = Double.valueOf(cwbVar.c());
         if (valueOf == null) {
             amountViewHolder.d.setText("");
         } else {
-            amountViewHolder.d.setText(String.format(this.a.getResources().getString(R.string.pay_ui_str_pay_amount_text_yuan), ovb.a(valueOf.doubleValue())));
+            amountViewHolder.d.setText(String.format(this.a.getResources().getString(R.string.pay_ui_str_pay_amount_text_yuan), hxb.a(valueOf.doubleValue())));
         }
         if (this.b == i) {
             amountViewHolder.c.setSelected(true);
@@ -291,11 +291,11 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         amountViewHolder.b.setSelected(false);
     }
 
-    public final void E(AmountViewHolder amountViewHolder, jub jubVar) {
+    public final void E(AmountViewHolder amountViewHolder, cwb cwbVar) {
         List<GiftBagsInfo> list;
-        ProductInfo productInfo = jubVar.a;
+        ProductInfo productInfo = cwbVar.a;
         if (productInfo != null && (list = productInfo.giftbags) != null && !list.isEmpty()) {
-            String str = jubVar.a.giftbags.get(0).offersTips;
+            String str = cwbVar.a.giftbags.get(0).offersTips;
             if (TextUtils.isEmpty(str)) {
                 amountViewHolder.g.setVisibility(8);
                 return;
@@ -307,11 +307,11 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         amountViewHolder.g.setVisibility(8);
     }
 
-    public final void F(AmountViewHolder amountViewHolder, jub jubVar) {
+    public final void F(AmountViewHolder amountViewHolder, cwb cwbVar) {
         List<GiftBagTagInfo> list;
-        ProductInfo productInfo = jubVar.a;
+        ProductInfo productInfo = cwbVar.a;
         if (productInfo != null && (list = productInfo.giftBagTagInfos) != null && !list.isEmpty()) {
-            String str = jubVar.a.giftBagTagInfos.get(0).tag;
+            String str = cwbVar.a.giftBagTagInfos.get(0).tag;
             if (TextUtils.isEmpty(str)) {
                 amountViewHolder.h.setVisibility(8);
                 return;
@@ -326,7 +326,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, pvb.a.a(this.h));
+        ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, ixb.a.a(this.h));
         if (i == 2) {
             return new CampaignViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.pay_ui_item_pay_amount_campaign_item_layout, viewGroup, false));
         }
@@ -334,7 +334,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     public final void z(AmountViewHolder amountViewHolder, int i) {
-        jub k = k(i);
+        cwb k = k(i);
         if (k == null) {
             return;
         }
@@ -355,7 +355,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return this.f.size();
     }
 
-    public List<jub> getData() {
+    public List<cwb> getData() {
         return this.f;
     }
 
@@ -364,7 +364,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return this.f.size();
     }
 
-    public jub l() {
+    public cwb l() {
         int i;
         if (this.b < getCount() && (i = this.b) >= 0) {
             return k(i);
@@ -378,15 +378,15 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        jub k = k(i);
+        cwb k = k(i);
         if (k != null && k.d) {
             return 2;
         }
         return 1;
     }
 
-    public jub k(int i) {
-        List<jub> list = this.f;
+    public cwb k(int i) {
+        List<cwb> list = this.f;
         if (list != null && !list.isEmpty() && i >= 0 && i < this.f.size()) {
             return this.f.get(i);
         }
@@ -424,9 +424,9 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         this.d = i;
     }
 
-    public final void u(CampaignViewHolder campaignViewHolder, jub jubVar, int i) {
-        A(campaignViewHolder, jubVar, i);
-        B(campaignViewHolder, jubVar, i);
+    public final void u(CampaignViewHolder campaignViewHolder, cwb cwbVar, int i) {
+        A(campaignViewHolder, cwbVar, i);
+        B(campaignViewHolder, cwbVar, i);
     }
 
     public void x(boolean z) {

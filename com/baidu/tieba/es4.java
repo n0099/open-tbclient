@@ -1,112 +1,109 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class es4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744899, "Lcom/baidu/tieba/es4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return sb.toString();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947744899, "Lcom/baidu/tieba/es4;");
+                return;
+            }
         }
-        return (String) invokeLLZ.objValue;
+        a = Arrays.asList("TAH-AN00", "TET-AN00");
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        ReadableByteChannel readableByteChannel;
+    public static int a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            ReadableByteChannel readableByteChannel2 = null;
-            try {
-                readableByteChannel = Channels.newChannel(new FileInputStream(file));
-            } catch (IOException unused) {
-                readableByteChannel = null;
-            } catch (Throwable th) {
-                th = th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            double b = b(activity) * 0.5199999809265137d;
+            if (b < 1148.0d) {
+                return 1148;
             }
-            try {
-                String c = c(z, readableByteChannel);
-                if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                    cs4.d(readableByteChannel);
-                }
-                return c;
-            } catch (IOException unused2) {
-                if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                    cs4.d(readableByteChannel);
-                }
-                return null;
-            } catch (Throwable th2) {
-                th = th2;
-                readableByteChannel2 = readableByteChannel;
-                if (readableByteChannel2 != null && readableByteChannel2.isOpen()) {
-                    cs4.d(readableByteChannel2);
-                }
-                throw th;
-            }
+            return (int) b;
         }
-        return (String) invokeLZ.objValue;
+        return invokeL.intValue;
     }
 
-    public static String c(boolean z, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeZL;
+    public static double b(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, readableByteChannel)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                ByteBuffer allocate = ByteBuffer.allocate(8192);
-                while (readableByteChannel.read(allocate) != -1) {
-                    allocate.flip();
-                    messageDigest.update(allocate);
-                    allocate.clear();
-                }
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (!c(activity)) {
+                return 0.0d;
             }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.widthPixels;
         }
-        return (String) invokeZL.objValue;
+        return invokeL.doubleValue;
     }
 
-    public static String d(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
+                return true;
             }
+            return false;
         }
-        return (String) invokeLZ.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String str = Build.MANUFACTURER;
+            String str2 = Build.MODEL;
+            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
+                for (String str3 : a) {
+                    if (str2.contains(str3)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            double d = displayMetrics.widthPixels;
+            double d2 = displayMetrics.heightPixels;
+            if (d == 0.0d || d2 == 0.0d || d2 / d >= 1.5d) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

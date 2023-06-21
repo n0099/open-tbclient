@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel;
-import com.baidu.tieba.ng6;
-import com.baidu.tieba.qg6;
-import com.baidu.tieba.tg6;
-import com.baidu.tieba.vm5;
+import com.baidu.tieba.sg6;
+import com.baidu.tieba.vg6;
+import com.baidu.tieba.yg6;
+import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,16 +31,16 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public tg6 a;
+    public yg6 a;
     public AlaPersonCenterPrivilegeMarkModel b;
-    public vm5 c;
-    public ng6 d;
+    public zm5 c;
+    public sg6 d;
     public AlaPersonCenterPrivilegeMarkModel.b e;
     public View.OnClickListener f;
-    public tg6.c g;
+    public yg6.c g;
 
     /* loaded from: classes5.dex */
-    public class a implements ng6.h {
+    public class a implements sg6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
@@ -63,10 +63,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             this.a = alaAchievementMarkFragment;
         }
 
-        @Override // com.baidu.tieba.ng6.h
-        public void a(boolean z, qg6 qg6Var) {
+        @Override // com.baidu.tieba.sg6.h
+        public void a(boolean z, vg6 vg6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, qg6Var) != null) || !z) {
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, vg6Var) != null) || !z) {
                 return;
             }
             this.a.L1();
@@ -164,15 +164,15 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements tg6.c {
+    public class d implements yg6.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
 
-        @Override // com.baidu.tieba.tg6.c
-        public void a(qg6 qg6Var) {
+        @Override // com.baidu.tieba.yg6.c
+        public void a(vg6 vg6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, qg6Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, vg6Var) == null) {
             }
         }
 
@@ -232,9 +232,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     public final void hideLoadingView() {
-        tg6 tg6Var;
+        yg6 yg6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.c != null && (tg6Var = this.a) != null && tg6Var.c() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.c != null && (yg6Var = this.a) != null && yg6Var.c() != null) {
             this.c.dettachView(this.a.c());
         }
     }
@@ -248,9 +248,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             if (alaPersonCenterPrivilegeMarkModel != null) {
                 alaPersonCenterPrivilegeMarkModel.destory();
             }
-            ng6 ng6Var = this.d;
-            if (ng6Var != null) {
-                ng6Var.p();
+            sg6 sg6Var = this.d;
+            if (sg6Var != null) {
+                sg6Var.p();
             }
             hideLoadingView();
         }
@@ -290,9 +290,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            vm5 vm5Var = this.c;
-            if (vm5Var != null) {
-                vm5Var.onChangeSkinType();
+            zm5 zm5Var = this.c;
+            if (zm5Var != null) {
+                zm5Var.onChangeSkinType();
             }
         }
     }
@@ -301,10 +301,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.c == null) {
-                this.c = new vm5(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ca));
+                this.c = new zm5(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ca));
             }
-            tg6 tg6Var = this.a;
-            if (tg6Var != null && tg6Var.c() != null) {
+            yg6 yg6Var = this.a;
+            if (yg6Var != null && yg6Var.c() != null) {
                 this.c.attachView(this.a.c(), false);
             }
         }
@@ -316,10 +316,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new tg6(getPageContext(), this.g);
+            this.a = new yg6(getPageContext(), this.g);
             M1();
             L1();
-            this.d = new ng6(getPageContext(), new a(this));
+            this.d = new sg6(getPageContext(), new a(this));
             return this.a.c();
         }
         return (View) invokeLLL.objValue;

@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Environment;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,21 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
-import java.util.Objects;
 /* loaded from: classes7.dex */
 public class ng0 {
     public static /* synthetic */ Interceptable $ic;
-    public static ng0 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public File c;
-    public File d;
-    public File e;
-    public File f;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
     public File g;
+    public File h;
 
     public ng0() {
         Interceptable interceptable = $ic;
@@ -36,133 +32,195 @@ public class ng0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "5.1_v2";
+        this.g = null;
     }
 
-    public static synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (ng0.class) {
-                if (h == null) {
-                    h = new ng0();
-                }
-            }
-        }
-    }
-
-    public static ng0 d() {
+    public File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (h == null) {
-                a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return k();
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a + "-" + this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public File k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.g == null && !TextUtils.isEmpty(this.a)) {
+                this.g = new File(b(), e());
             }
-            return h;
+            return this.g;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static ng0 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ng0 ng0Var = new ng0();
+            ng0Var.d = "source";
+            ng0Var.a = "5.1_v2";
+            ng0Var.f = "resource_capture";
+            String a = ng0Var.a("resource_capture");
+            ng0Var.b = a;
+            ng0Var.c = qg0.b(a);
+            ng0Var.g = ng0Var.k();
+            ng0Var.h = ng0Var.d();
+            return ng0Var;
         }
         return (ng0) invokeV.objValue;
     }
 
-    public static File f() {
+    public static ng0 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d().g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ng0 ng0Var = new ng0();
+            ng0Var.d = "source";
+            ng0Var.a = "5.1_v2";
+            ng0Var.f = "resource_live";
+            String a = ng0Var.a("resource_live");
+            ng0Var.b = a;
+            ng0Var.c = qg0.b(a);
+            ng0Var.g = ng0Var.k();
+            ng0Var.h = ng0Var.d();
+            return ng0Var;
         }
-        return (File) invokeV.objValue;
+        return (ng0) invokeV.objValue;
     }
 
-    public File g() {
+    public static ng0 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ng0 ng0Var = new ng0();
+            ng0Var.d = "so";
+            ng0Var.e = "so1";
+            ng0Var.a = "5.1_v2";
+            String j = ng0Var.j("so1");
+            ng0Var.b = j;
+            ng0Var.c = qg0.b(j);
+            ng0Var.g = ng0Var.k();
+            if (dg0.m()) {
+                gh0.a("DuAr_", "so1 local file path = " + ng0Var.g.getAbsolutePath());
+            }
+            ng0Var.h = ng0Var.d();
+            return ng0Var;
+        }
+        return (ng0) invokeV.objValue;
+    }
+
+    public static ng0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ng0 ng0Var = new ng0();
+            ng0Var.d = "so";
+            ng0Var.e = "so2";
+            ng0Var.a = "5.1_v2";
+            String j = ng0Var.j("so2");
+            ng0Var.b = j;
+            ng0Var.c = qg0.b(j);
+            ng0Var.g = ng0Var.k();
+            if (dg0.m()) {
+                gh0.a("DuAr_", "So2 local file path = " + ng0Var.g.getAbsolutePath());
+            }
+            ng0Var.h = ng0Var.d();
+            return ng0Var;
+        }
+        return (ng0) invokeV.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            boolean a = hh0.a(dg0.getContext());
+            if (TextUtils.equals(this.d, "so")) {
+                if (TextUtils.equals(this.e, "so2")) {
+                    return og0.f().getAbsolutePath();
+                }
+                return og0.b(a).getAbsolutePath();
+            }
+            return og0.d().g().getAbsolutePath();
         }
-        return (File) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public File h() {
+    public File d() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.h == null) {
+                File c = c();
+                if (c != null) {
+                    str = c.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                if (str == null) {
+                    return null;
+                }
+                if (!str.endsWith(".zip")) {
+                    str = str + ".zip";
+                }
+                if (!str.endsWith(".loading")) {
+                    str = str + ".loading";
+                }
+                this.h = new File(str);
+            }
+            return this.h;
         }
         return (File) invokeV.objValue;
     }
 
-    public static File b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return d().f;
-            }
-            return d().e;
-        }
-        return (File) invokeZ.objValue;
-    }
-
-    public static File e(Context context) {
+    public final String a(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            File file = new File(context.getFilesDir(), FileUtils.DIR_DUAR);
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.equals("resource_live", str)) {
+                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-source-live-";
+            } else {
+                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-source-";
             }
-            return file;
+            return str2 + "5.1_v2.zip";
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public File c(Context context) {
+    public final String j(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                return ((Context) Objects.requireNonNull(context)).getExternalFilesDir(FileUtils.DIR_DUAR);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.equals("so2", str)) {
+                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
+            } else {
+                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-";
+                if (hh0.a(dg0.getContext())) {
+                    str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-64bit-";
+                }
             }
-            return null;
+            return str2 + "5.1_v2.zip";
         }
-        return (File) invokeL.objValue;
-    }
-
-    public void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = e(context);
-            File c = c(context);
-            this.b = c;
-            if (c == null) {
-                this.b = this.a;
-            }
-            if (this.b != null) {
-                this.c = new File(this.b, "sdk");
-                File file = new File(this.c, "arsource");
-                this.d = file;
-                if (!file.exists()) {
-                    this.d.mkdirs();
-                }
-            }
-            if (this.a != null) {
-                new File(this.a, "sdk");
-                File file2 = new File(this.a, "sdklibs/armeabi-v7a");
-                this.e = file2;
-                if (!file2.exists()) {
-                    this.e.mkdirs();
-                }
-                File file3 = new File(this.a, "sdklibs/arm64-v8a");
-                this.f = file3;
-                if (!file3.exists()) {
-                    this.f.mkdirs();
-                }
-                File file4 = new File(this.a, "sdklibs/armeabi-v7a-2");
-                this.g = file4;
-                if (!file4.exists()) {
-                    this.g.mkdirs();
-                }
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

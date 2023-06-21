@@ -5,8 +5,8 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.c85;
-import com.baidu.tieba.g85;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.h85;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,9 +54,9 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c85.o();
-            c85.r(null, true);
-            g85.a().j(true);
+            d85.o();
+            d85.r(null, true);
+            h85.a().j(true);
         }
     }
 
@@ -64,10 +64,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c85.r(null, true);
+            d85.r(null, true);
             b = System.currentTimeMillis();
-            c85.b = false;
-            g85.a().j(false);
+            d85.b = false;
+            h85.a().j(false);
         }
     }
 
@@ -77,18 +77,18 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (a) {
                 a = false;
-                c85.k("lifecycle-1st-create", false);
-                c85.v();
+                d85.k("lifecycle-1st-create", false);
+                d85.v();
                 return;
             }
-            c85.b = true;
+            d85.b = true;
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            c85.j(currentTimeMillis);
-            c85.k("lifecycle", true);
-            c85.v();
+            d85.j(currentTimeMillis);
+            d85.k("lifecycle", true);
+            d85.v();
         }
     }
 }

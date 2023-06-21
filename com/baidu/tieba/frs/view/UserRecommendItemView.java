@@ -127,7 +127,7 @@ public class UserRecommendItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0398, (ViewGroup) this, true);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f092780);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f09278d);
             this.a = clickableHeaderImageView;
             clickableHeaderImageView.setAutoChangeStyle(true);
             this.a.setDefaultResource(17170445);
@@ -136,8 +136,8 @@ public class UserRecommendItemView extends LinearLayout {
             CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
             this.b = cardUserLikeButton;
             cardUserLikeButton.setGravity(17);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092784);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09277f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092791);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09278c);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);

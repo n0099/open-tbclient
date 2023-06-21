@@ -219,14 +219,14 @@ public final class c {
         final com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(adTemplate);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04da, (ViewGroup) null);
         this.uL = viewGroup;
-        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913c4);
-        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f0913ce);
-        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f0913c2);
+        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913c9);
+        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f0913d3);
+        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f0913c7);
         this.xx.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.c.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 if (c.this.xE) {
-                    com.kwad.components.core.c.a.a.a(new a.C0630a(view2.getContext()).L(adTemplate).b(cVar).aj(false).ae(2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.c.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0631a(view2.getContext()).L(adTemplate).b(cVar).aj(false).ae(2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.c.1.1
                         @Override // com.kwad.components.core.c.a.a.b
                         public final void onAdClicked() {
                             if (c.this.xw != null) {

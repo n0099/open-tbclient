@@ -33,16 +33,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g6a;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.hz5;
-import com.baidu.tieba.iz5;
-import com.baidu.tieba.jz5;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.og;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.mz5;
+import com.baidu.tieba.nz5;
+import com.baidu.tieba.oz5;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.x7a;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public abstract class FallingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public o a;
-    public final List<hz5> b;
+    public final List<mz5> b;
     public final Context c;
     public int d;
     public int e;
@@ -80,9 +80,9 @@ public abstract class FallingView extends FrameLayout {
     public r o;
     public View.OnClickListener p;
     @NonNull
-    public iz5 q;
+    public nz5 q;
     @Nullable
-    public jz5 r;
+    public oz5 r;
     public final Runnable s;
     public final Runnable t;
     public final Runnable u;
@@ -94,14 +94,14 @@ public abstract class FallingView extends FrameLayout {
         void onAnimationStart();
     }
 
-    public abstract iz5 p();
+    public abstract nz5 p();
 
-    public abstract hz5 q(Bitmap bitmap);
+    public abstract mz5 q(Bitmap bitmap);
 
     public abstract void u(@NonNull View view2, @NonNull FallingData fallingData);
 
     /* loaded from: classes4.dex */
-    public class g extends og<gn> {
+    public class g extends pg<hn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -143,7 +143,7 @@ public abstract class FallingView extends FrameLayout {
             public void onNewResultImpl(Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                    wg.a().removeCallbacks(this.a.c.u);
+                    xg.a().removeCallbacks(this.a.c.u);
                     g gVar = this.a;
                     gVar.c.y(gVar.a, gVar.b, bitmap);
                 }
@@ -170,7 +170,7 @@ public abstract class FallingView extends FrameLayout {
             this.b = fallingData;
         }
 
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.pg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -178,7 +178,7 @@ public abstract class FallingView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.pg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -187,14 +187,14 @@ public abstract class FallingView extends FrameLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
-        public void onLoaded(gn gnVar, String str, int i) {
+        @Override // com.baidu.tieba.pg
+        public void onLoaded(hn hnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnVar, str, i) == null) {
-                super.onLoaded((g) gnVar, str, i);
-                if (gnVar != null) {
-                    wg.a().removeCallbacks(this.c.u);
-                    this.c.y(this.a, this.b, gnVar.p());
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hnVar, str, i) == null) {
+                super.onLoaded((g) hnVar, str, i);
+                if (hnVar != null) {
+                    xg.a().removeCallbacks(this.c.u);
+                    this.c.y(this.a, this.b, hnVar.p());
                     return;
                 }
                 Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.b.getEggPic())).setProgressiveRenderingEnabled(true).build(), this.c.c).subscribe(new a(this), CallerThreadExecutor.getInstance());
@@ -312,7 +312,7 @@ public abstract class FallingView extends FrameLayout {
                 if (this.b.q.f()) {
                     this.b.k.start();
                 } else {
-                    g6a.b(this.b.a.b, 600);
+                    x7a.b(this.b.a.b, 600);
                 }
             }
         }
@@ -760,7 +760,7 @@ public abstract class FallingView extends FrameLayout {
                     return;
                 }
                 for (int i = 0; i < this.b.b.size(); i++) {
-                    ((hz5) this.b.b.get(i)).c();
+                    ((mz5) this.b.b.get(i)).c();
                 }
                 this.b.invalidate();
                 sendEmptyMessageDelayed(0, 5L);
@@ -837,20 +837,20 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    public final void m(hz5 hz5Var, int i2) {
+    public final void m(mz5 mz5Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, hz5Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mz5Var, i2) == null) {
             if (this.d == 0) {
-                this.d = vi.l(this.c);
+                this.d = wi.l(this.c);
             }
             if (this.e == 0) {
-                this.e = vi.j(this.c);
+                this.e = wi.j(this.c);
             }
             this.b.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                hz5 hz5Var2 = new hz5(hz5Var.i, this.d, this.e);
-                hz5Var2.e = (-i3) * 180;
-                this.b.add(hz5Var2);
+                mz5 mz5Var2 = new mz5(mz5Var.i, this.d, this.e);
+                mz5Var2.e = (-i3) * 180;
+                this.b.add(mz5Var2);
             }
         }
     }
@@ -904,10 +904,10 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    public void setEventCallback(@NonNull jz5 jz5Var) {
+    public void setEventCallback(@NonNull oz5 oz5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jz5Var) == null) {
-            this.r = jz5Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, oz5Var) == null) {
+            this.r = oz5Var;
         }
     }
 
@@ -1034,18 +1034,18 @@ public abstract class FallingView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
             this.a = o.d(LayoutInflater.from(context).inflate(R.layout.rain_falling_click_view, (ViewGroup) null, false));
             this.n = new p(this, this);
-            o75 d2 = o75.d(this.a.c);
+            p75 d2 = p75.d(this.a.c);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0608);
-            o75 d3 = o75.d(this.a.e);
-            d3.C(R.string.F_X01);
-            d3.w(R.color.CAM_X0101);
-            o75 d4 = o75.d(this.a.d);
+            p75 d3 = p75.d(this.a.e);
+            d3.D(R.string.F_X01);
+            d3.x(R.color.CAM_X0101);
+            p75 d4 = p75.d(this.a.d);
             d4.o(R.string.J_X01);
             d4.f(R.color.CAM_X0317);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             this.a.f.setConrers(15);
-            this.a.f.setPadding(vi.g(context, R.dimen.tbds10), vi.g(context, R.dimen.tbds5), vi.g(context, R.dimen.tbds10), vi.g(context, R.dimen.tbds5));
+            this.a.f.setPadding(wi.g(context, R.dimen.tbds10), wi.g(context, R.dimen.tbds5), wi.g(context, R.dimen.tbds10), wi.g(context, R.dimen.tbds5));
             this.a.f.setPlaceHolder(2);
             this.a.f.setLayerType(1, null);
             addView(this.a.b, layoutParams);
@@ -1089,18 +1089,18 @@ public abstract class FallingView extends FrameLayout {
         ofFloat.setRepeatCount(-1);
         ofFloat.setInterpolator(new AccelerateInterpolator());
         ofFloat.addUpdateListener(new i(this));
-        int j2 = vi.j(this.c);
-        int l2 = vi.l(this.c);
+        int j2 = wi.j(this.c);
+        int l2 = wi.l(this.c);
         float f2 = l2;
         PointF pointF = new PointF(((3.0f * f2) / 4.0f) - (this.a.f.getWidth() / 2), (-j2) / 4.0f);
-        PointF pointF2 = new PointF(vi.g(this.c, R.dimen.tbds50), vi.g(this.c, R.dimen.tbds400));
+        PointF pointF2 = new PointF(wi.g(this.c, R.dimen.tbds50), wi.g(this.c, R.dimen.tbds400));
         float f3 = j2;
-        PointF pointF3 = new PointF((f2 / 2.0f) - vi.g(this.c, R.dimen.tbds50), f3 - vi.g(this.c, R.dimen.tbds655));
-        int g2 = vi.g(this.c, R.dimen.tbds0);
+        PointF pointF3 = new PointF((f2 / 2.0f) - wi.g(this.c, R.dimen.tbds50), f3 - wi.g(this.c, R.dimen.tbds655));
+        int g2 = wi.g(this.c, R.dimen.tbds0);
         if (!this.q.f()) {
             g2 = -(l2 / 4);
         }
-        ValueAnimator ofObject = ValueAnimator.ofObject(new n(pointF2, pointF3), pointF, new PointF(g2, f3 - vi.g(this.c, R.dimen.tbds552)));
+        ValueAnimator ofObject = ValueAnimator.ofObject(new n(pointF2, pointF3), pointF, new PointF(g2, f3 - wi.g(this.c, R.dimen.tbds552)));
         ofObject.setDuration(this.q.b());
         ofObject.addUpdateListener(new j(this));
         ValueAnimator ofInt = ValueAnimator.ofInt(0, o(this.a.c));
@@ -1158,13 +1158,13 @@ public abstract class FallingView extends FrameLayout {
             } else {
                 this.a.e.setText(this.c.getString(R.string.check_immediately));
             }
-            wg.a().postDelayed(this.u, fallingData.getDelayTime());
+            xg.a().postDelayed(this.u, fallingData.getDelayTime());
             if (!StringUtils.isNull(fallingData.getBuoyPic())) {
                 this.a.f.N(fallingData.getBuoyPic(), 10, false);
             } else {
                 this.a.f.setVisibility(8);
             }
-            pg.h().m(fallingData.getEggPic(), 10, new g(this, tbPageContext, fallingData), tbPageContext.getUniqueId());
+            qg.h().m(fallingData.getEggPic(), 10, new g(this, tbPageContext, fallingData), tbPageContext.getUniqueId());
             this.n.sendEmptyMessage(0);
             return true;
         }

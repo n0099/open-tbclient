@@ -93,13 +93,13 @@ public class c {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public interface InterfaceC0749a {
+        public interface InterfaceC0750a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC0749a interfaceC0749a);
+        t a(InterfaceC0750a interfaceC0750a);
 
         m b();
     }

@@ -1,48 +1,45 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.clientupdate.download.DownloadManager;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tieba.xwa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class ywa {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
-    public static volatile ywa o;
+    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public boolean c;
-    public boolean d;
-    public long e;
-    public int f;
-    public int g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public int l;
-    public HashMap<String, xwa> m;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(String str);
+
+        void b();
+
+        void c(String str);
+
+        void d();
+
+        void e(boolean z);
+
+        void f(boolean z);
+
+        void g(int i);
+
+        void h();
+
+        void i();
+
+        void j(String str);
+
+        void k(int i);
+
+        void onRecordEnd();
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -57,557 +54,355 @@ public class ywa {
                 return;
             }
         }
-        n = AppConfig.isDebug();
+        a = new HashMap<>();
     }
 
-    public ywa() {
+    public static HashMap a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_clear");
+            return hashMap;
         }
-        n();
+        return (HashMap) invokeV.objValue;
     }
 
-    public static ywa f() {
+    public static HashMap b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (o == null) {
-                synchronized (ywa.class) {
-                    if (o == null) {
-                        o = new ywa();
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_start");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("sex_type", Integer.valueOf(i));
+            hashMap.put("event_name", "sex_event");
+            hashMap.put("event_data", hashMap2);
+            return hashMap;
+        }
+        return (HashMap) invokeI.objValue;
+    }
+
+    public static HashMap e(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "audio_volume");
+            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
+            return hashMap;
+        }
+        return (HashMap) invokeCommon.objValue;
+    }
+
+    public static HashMap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (a.get(str) != null) {
+                return a.get(str);
+            }
+            HashMap hashMap = null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1909077165:
+                    if (str.equals("startRecord")) {
+                        c = 0;
+                        break;
                     }
-                }
-            }
-            return o;
-        }
-        return (ywa) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.j;
-        }
-        return invokeV.longValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i > 0 && i <= zwa.k) {
-                this.f = i;
-            } else {
-                this.f = zwa.k;
-            }
-        }
-    }
-
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        xwa xwaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.c;
-            }
-            HashMap<String, xwa> hashMap = this.m;
-            if (hashMap != null && (xwaVar = hashMap.get(str)) != null) {
-                return xwaVar.e();
-            }
-            return this.c;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long b(String str) {
-        InterceptResult invokeL;
-        xwa xwaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.i;
-            }
-            HashMap<String, xwa> hashMap = this.m;
-            if (hashMap != null && (xwaVar = hashMap.get(str)) != null) {
-                return xwaVar.a();
-            }
-            return this.i;
-        }
-        return invokeL.longValue;
-    }
-
-    public int c(String str) {
-        InterceptResult invokeL;
-        xwa xwaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.l;
-            }
-            HashMap<String, xwa> hashMap = this.m;
-            if (hashMap != null && (xwaVar = hashMap.get(str)) != null) {
-                return xwaVar.b();
-            }
-            return this.l;
-        }
-        return invokeL.intValue;
-    }
-
-    public long d(String str) {
-        InterceptResult invokeL;
-        xwa xwaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.h;
-            }
-            HashMap<String, xwa> hashMap = this.m;
-            if (hashMap != null && (xwaVar = hashMap.get(str)) != null) {
-                return xwaVar.d();
-            }
-            return this.h;
-        }
-        return invokeL.longValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        xwa xwaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.g;
-            }
-            HashMap<String, xwa> hashMap = this.m;
-            if (hashMap != null && (xwaVar = hashMap.get(str)) != null) {
-                return xwaVar.c();
-            }
-            return this.g;
-        }
-        return invokeL.intValue;
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void u(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            if (j <= 0) {
-                this.i = zwa.g;
-            } else {
-                this.i = j;
-            }
-        }
-    }
-
-    public void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            if (i > 0 && i <= zwa.i) {
-                this.k = i;
-            } else {
-                this.k = zwa.i;
-            }
-        }
-    }
-
-    public void w(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
-            if (j > 0 && j <= zwa.h) {
-                this.j = j;
-            } else {
-                this.j = zwa.h;
-            }
-        }
-    }
-
-    public void x(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
-            if (j > 0 && j <= DownloadManager.MIN_LEFT_SIZE) {
-                this.h = j;
-            } else {
-                this.h = DownloadManager.MIN_LEFT_SIZE;
-            }
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            if (i > 0 && i <= zwa.j) {
-                this.g = i;
-            } else {
-                this.g = zwa.j;
-            }
-        }
-    }
-
-    public void z(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
-            if (j <= 0) {
-                this.e = zwa.e;
-            } else {
-                this.e = j;
-            }
-        }
-    }
-
-    public final boolean B(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null || jSONObject.length() == 0) {
-                return false;
-            }
-            if (jSONObject.optInt("switch") != zwa.p) {
-                t(zwa.a);
-            } else {
-                t(zwa.b);
-            }
-            if (jSONObject.optInt(DownloadStatisticConstants.UBC_VALUE_CLEAR) != zwa.q) {
-                r(zwa.c);
-            } else {
-                r(zwa.d);
-            }
-            long j2 = 1000;
-            z(jSONObject.optInt("upload_interval") * 60 * 1000);
-            A(jSONObject.optInt("max_count_per_round"));
-            u(jSONObject.optInt("expired_time") * 24 * 60 * 60 * 1000);
-            v(jSONObject.optInt("total_max_count"));
-            w(jSONObject.optInt("total_max_size") * 1024 * 1024);
-            y(jSONObject.optInt("single_max_count"));
-            x(jSONObject.optInt("single_max_size") * 1024 * 1024);
-            JSONObject optJSONObject = jSONObject.optJSONObject("set");
-            if (optJSONObject != null && optJSONObject.length() > 0) {
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                    if (optJSONObject2 != null && optJSONObject2.length() != 0) {
-                        xwa g = new xwa.b(next).g();
-                        if (optJSONObject2.optInt("switch") != zwa.p) {
-                            g.f(zwa.a);
-                        } else {
-                            g.f(zwa.b);
-                        }
-                        int optInt = optJSONObject2.optInt("expired_time", 0);
-                        if (optInt > 0) {
-                            g.g(optInt * 24 * 60 * 60 * j2);
-                        }
-                        int optInt2 = optJSONObject2.optInt("single_max_count", 0);
-                        if (optInt2 > 0) {
-                            g.i(optInt2);
-                        }
-                        int optInt3 = optJSONObject2.optInt("single_max_size", 0);
-                        if (optInt3 > 0) {
-                            j = 1024;
-                            g.j(optInt3 * 1024 * 1024);
-                        } else {
-                            j = 1024;
-                        }
-                        if (optJSONObject2.has("only_wifi")) {
-                            g.h(optJSONObject2.optInt("only_wifi"));
-                        }
-                        if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
-                            if (this.m == null) {
-                                this.m = new HashMap<>();
-                            }
-                            this.m.put(next, g);
-                        }
-                        j2 = 1000;
+                    break;
+                case -1848594969:
+                    if (str.equals("pauseRecord")) {
+                        c = 1;
+                        break;
                     }
-                }
-                return true;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean C(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject != null && jSONObject.length() != 0) {
-                if (n) {
-                    Log.d("VoyagerConfig", "update Config: " + jSONObject.toString());
-                }
-                if (B(jSONObject)) {
-                    boolean D = D();
-                    if (D && !this.c && this.d) {
-                        ((nxa) ServiceManager.getService(nxa.a)).f();
+                    break;
+                case -815530368:
+                    if (str.equals("resetRecord")) {
+                        c = 2;
+                        break;
                     }
-                    return D;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean D() {
-        InterceptResult invokeV;
-        xwa xwaVar;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("en", this.c);
-                jSONObject.put("c", this.d);
-                jSONObject.put(TaskUIData.key, this.e);
-                jSONObject.put("utc", this.f);
-                jSONObject.put("et", this.i);
-                jSONObject.put("mfc", this.k);
-                jSONObject.put("mfs", this.j);
-                jSONObject.put("an", this.l);
-                jSONObject.put("stmc", this.g);
-                jSONObject.put("stms", this.h);
-                if (this.m != null && this.m.size() > 0) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    for (String str : this.m.keySet()) {
-                        if (!TextUtils.isEmpty(str) && (xwaVar = this.m.get(str)) != null) {
-                            JSONObject jSONObject3 = new JSONObject();
-                            if (xwaVar.e()) {
-                                i = zwa.o;
-                            } else {
-                                i = zwa.p;
-                            }
-                            jSONObject3.put("en", i);
-                            jSONObject3.put("et", xwaVar.a());
-                            jSONObject3.put("stmc", xwaVar.c());
-                            jSONObject3.put("stms", xwaVar.d());
-                            jSONObject3.put("an", xwaVar.b());
-                            jSONObject2.put(str, jSONObject3);
-                        }
+                    break;
+                case -793791417:
+                    if (str.equals("startOverRecord")) {
+                        c = 5;
+                        break;
                     }
-                    if (jSONObject2.length() > 0) {
-                        jSONObject.put("set", jSONObject2);
+                    break;
+                case 473974106:
+                    if (str.equals("capture_timer_clear")) {
+                        c = 3;
+                        break;
                     }
-                }
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
-            }
-            if (!this.a.exists()) {
-                try {
-                    this.a.createNewFile();
-                } catch (IOException e2) {
-                    if (n) {
-                        e2.printStackTrace();
+                    break;
+                case 488985455:
+                    if (str.equals("capture_timer_start")) {
+                        c = 4;
+                        break;
                     }
-                }
+                    break;
             }
-            return qxa.g(jSONObject.toString(), this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/config/");
-            this.b = file;
-            if (!file.exists()) {
-                this.b.mkdirs();
-            }
-            File file2 = new File(this.b, "voyager_config.txt");
-            this.a = file2;
-            if (file2.exists()) {
-                q();
-            } else {
-                s();
-            }
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.c = zwa.a;
-            this.d = zwa.c;
-            this.e = zwa.e;
-            this.f = zwa.f;
-            this.i = zwa.g;
-            this.k = zwa.i;
-            this.j = zwa.h;
-            this.g = zwa.j;
-            this.h = zwa.l;
-            this.l = zwa.m;
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            String f = qxa.f(this.a);
-            if (n) {
-                Log.d("VoyagerConfig", "read from local: " + f);
-            }
-            if (TextUtils.isEmpty(f)) {
-                s();
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(f);
-                this.c = jSONObject.optBoolean("en", zwa.a);
-                this.d = jSONObject.optBoolean("c", zwa.c);
-                this.e = jSONObject.optLong(TaskUIData.key, zwa.e);
-                this.f = jSONObject.optInt("utc", zwa.f);
-                this.i = jSONObject.optLong("et", zwa.g);
-                this.k = jSONObject.optInt("mfc", zwa.i);
-                this.j = jSONObject.optLong("mfs", zwa.h);
-                this.l = jSONObject.optInt("an", zwa.m);
-                this.g = jSONObject.optInt("stmc", zwa.j);
-                this.h = jSONObject.optLong("stms", zwa.l);
-                JSONObject optJSONObject = jSONObject.optJSONObject("set");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                        if (optJSONObject2 != null && optJSONObject2.length() != 0) {
-                            xwa g = new xwa.b(next).g();
-                            if (optJSONObject2.optInt("en") != zwa.p) {
-                                g.f(zwa.a);
-                            } else {
-                                g.f(zwa.b);
-                            }
-                            long optInt = optJSONObject2.optInt("et", 0);
-                            if (optInt > 0) {
-                                g.g(optInt);
-                            } else {
-                                g.g(this.i);
-                            }
-                            int optInt2 = optJSONObject2.optInt("stmc", 0);
-                            if (optInt2 > 0) {
-                                g.i(optInt2);
-                            } else {
-                                g.i(this.g);
-                            }
-                            long optLong = optJSONObject2.optLong("stms", 0L);
-                            if (optLong > 0) {
-                                g.j(optLong);
-                            } else {
-                                g.j(this.h);
-                            }
-                            if (optJSONObject2.optInt("an") != zwa.n) {
-                                g.h(zwa.m);
-                            } else {
-                                g.h(zwa.n);
-                            }
-                            if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
-                                if (this.m == null) {
-                                    this.m = new HashMap<>();
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c == 5) {
+                                    hashMap = i();
                                 }
-                                this.m.put(next, g);
+                            } else {
+                                hashMap = b();
                             }
+                        } else {
+                            hashMap = a();
                         }
+                    } else {
+                        hashMap = g();
                     }
+                } else {
+                    hashMap = f();
                 }
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
+            } else {
+                hashMap = h();
+            }
+            if (hashMap != null) {
+                a.put(str, hashMap);
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static HashMap f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_pause");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_reset");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start_over");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static void j(HashMap<String, Object> hashMap, a aVar) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !wwa.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
+            String str = (String) obj;
+            char c = 65535;
+            boolean z = true;
+            int i = 0;
+            switch (str.hashCode()) {
+                case -1903331025:
+                    if (str.equals("show_text")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1768834290:
+                    if (str.equals("game_end")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -1584838740:
+                    if (str.equals("filter_adjust_enable")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case -1272940549:
+                    if (str.equals("game_is_ready")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case -708270859:
+                    if (str.equals("phone_shake")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -672934016:
+                    if (str.equals("case_reset")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -548493597:
+                    if (str.equals("need_volume")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case 902635637:
+                    if (str.equals("child_status")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 967087977:
+                    if (str.equals("game_pause")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 969912325:
+                    if (str.equals("game_score")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1000807605:
+                    if (str.equals("game_http")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 1001154298:
+                    if (str.equals("game_time")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 1076032614:
+                    if (str.equals("need_face")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (hashMap.get("text_content") instanceof String) {
+                        aVar.c((String) hashMap.get("text_content"));
+                        return;
+                    }
+                    return;
+                case 1:
+                    aVar.d();
+                    return;
+                case 2:
+                case 3:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                        return;
+                    }
+                    return;
+                case 4:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                    }
+                    aVar.onRecordEnd();
+                    return;
+                case 5:
+                    aVar.h();
+                    return;
+                case 6:
+                    aVar.b();
+                    return;
+                case 7:
+                    if (hashMap.get("text_content") instanceof Float) {
+                        try {
+                            i = ((Float) hashMap.get("text_content")).intValue();
+                        } catch (Exception e) {
+                            rwa.g(e);
+                        }
+                        aVar.g(i);
+                        return;
+                    }
+                    return;
+                case '\b':
+                    if (hashMap.get("isDefaultChild") != null) {
+                        String obj2 = hashMap.get("isDefaultChild").toString();
+                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
+                            z = false;
+                        }
+                        aVar.f(z);
+                        return;
+                    }
+                    return;
+                case '\t':
+                    if (hashMap.get("volume_ability") != null) {
+                        if (vwa.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
+                            z = false;
+                        }
+                        aVar.e(z);
+                        return;
+                    }
+                    return;
+                case '\n':
+                    aVar.i();
+                    return;
+                case 11:
+                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
+                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
+                        return;
+                    }
+                    return;
+                case '\f':
+                    if (hashMap.get("set_content") != null) {
+                        aVar.j(hashMap.get("set_content").toString());
+                        return;
+                    }
+                    return;
+                default:
+                    return;
             }
         }
     }

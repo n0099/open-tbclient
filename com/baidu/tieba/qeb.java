@@ -1,79 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.opensource.svgaplayer.proto.ShapeEntity;
 /* loaded from: classes7.dex */
-public class qeb {
+public final /* synthetic */ class qeb {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public volatile int b;
-    public volatile int c;
 
-    public qeb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                if (this.a != 2) {
-                    this.b++;
-                    if (this.b >= this.c) {
-                        this.a = 2;
-                        notify();
-                    }
-                }
-            }
-        }
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = 0;
-            this.b = 0;
-            this.c = i;
-        }
-    }
-
-    public synchronized boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            synchronized (this) {
-                if (this.a != 0) {
-                    return true;
-                }
-                try {
-                    this.a = 1;
-                    wait(i);
-                    return true;
-                } catch (Exception unused) {
-                    this.a = 2;
-                    return false;
-                }
-            }
-        }
-        return invokeI.booleanValue;
+    static {
+        int[] iArr = new int[ShapeEntity.ShapeType.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
+        int[] iArr2 = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
+        $EnumSwitchMapping$1 = iArr2;
+        iArr2[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
+        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
+        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
+        int[] iArr3 = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
+        $EnumSwitchMapping$2 = iArr3;
+        iArr3[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
+        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
+        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
     }
 }

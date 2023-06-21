@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qmb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,78 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class oob extends qmb {
+public final class oob {
     public static /* synthetic */ Interceptable $ic;
-    public static final oob a;
+    public static final oob b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public final class a extends qmb.a implements umb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final jrb a;
-        public final /* synthetic */ oob b;
-
-        public a(oob oobVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oobVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = oobVar;
-            this.a = new jrb();
-        }
-
-        @Override // com.baidu.tieba.qmb.a
-        public umb b(anb anbVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, anbVar)) == null) {
-                anbVar.call();
-                return nrb.c();
-            }
-            return (umb) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.qmb.a
-        public umb c(anb anbVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{anbVar, Long.valueOf(j), timeUnit})) == null) {
-                return b(new sob(anbVar, this, this.b.now() + timeUnit.toMillis(j)));
-            }
-            return (umb) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.umb
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.isUnsubscribed();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.umb
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.a.unsubscribe();
-            }
-        }
-    }
+    public final AtomicReference<pob> a;
 
     static {
         InterceptResult invokeClinit;
@@ -95,7 +28,7 @@ public final class oob extends qmb {
                 return;
             }
         }
-        a = new oob();
+        b = new oob();
     }
 
     public oob() {
@@ -108,17 +41,30 @@ public final class oob extends qmb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicReference<>();
     }
 
-    @Override // com.baidu.tieba.qmb
-    public qmb.a createWorker() {
+    public static oob a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (oob) invokeV.objValue;
+    }
+
+    public pob b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            if (this.a.get() == null) {
+                this.a.compareAndSet(null, pob.a());
+            }
+            return this.a.get();
         }
-        return (qmb.a) invokeV.objValue;
+        return (pob) invokeV.objValue;
     }
 }

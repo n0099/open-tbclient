@@ -13,8 +13,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.vc8;
+import com.baidu.tieba.ld8;
+import com.baidu.tieba.p75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RobotItemViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout d;
     public LinearLayout e;
-    public HeadImageView f;
-    public TextView g;
-    public RecyclerView h;
-    public RobotItem i;
+    public LinearLayout f;
+    public HeadImageView g;
+    public TextView h;
+    public RecyclerView i;
+    public RobotItem j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RobotItemViewHolder(@NonNull View view2) {
@@ -48,14 +48,14 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eac);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eaa);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ea9);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eab);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091eb6);
-        this.h = recyclerView;
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb7);
+        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb5);
+        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eb4);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb6);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091ec1);
+        this.i = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
-        this.h.setFocusable(false);
+        this.i.setFocusable(false);
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
@@ -75,30 +75,30 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull vc8 vc8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull ld8 ld8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc8Var, tbPageContext, i) == null) && (vc8Var instanceof RobotItem)) {
-            RobotItem robotItem = (RobotItem) vc8Var;
-            this.i = robotItem;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ld8Var, tbPageContext, i) == null) && (ld8Var instanceof RobotItem)) {
+            RobotItem robotItem = (RobotItem) ld8Var;
+            this.j = robotItem;
             if (!TextUtils.isEmpty(robotItem.getRoboatName())) {
-                this.g.setText(this.i.getRoboatName());
+                this.h.setText(this.j.getRoboatName());
             }
-            if (!TextUtils.isEmpty(this.i.getRobortAvatar())) {
-                this.f.N(this.i.getRobortAvatar(), 12, false);
+            if (!TextUtils.isEmpty(this.j.getRobortAvatar())) {
+                this.g.N(this.j.getRobortAvatar(), 12, false);
             } else {
-                this.f.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f081141), 24, false);
+                this.g.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f081145), 24, false);
             }
-            if (this.h.getAdapter() != this.i.getAdapter()) {
-                if (this.h.getAdapter() != null) {
-                    this.h.swapAdapter(this.i.getAdapter(), true);
+            if (this.i.getAdapter() != this.j.getAdapter()) {
+                if (this.i.getAdapter() != null) {
+                    this.i.swapAdapter(this.j.getAdapter(), true);
                 } else {
-                    this.h.setAdapter(this.i.getAdapter());
+                    this.i.setAdapter(this.j.getAdapter());
                 }
             }
-            if (this.i.isShowHeadView()) {
-                this.e.setVisibility(0);
+            if (this.j.isShowHeadView()) {
+                this.f.setVisibility(0);
             } else {
-                this.e.setVisibility(8);
+                this.f.setVisibility(8);
             }
             j();
         }
@@ -115,14 +115,14 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            o75 d = o75.d(this.g);
-            d.B(R.dimen.T_X08);
-            d.w(R.color.CAM_X0107);
-            this.f.setIsRound(true);
-            this.f.setIsBigV(false);
-            RecyclerView recyclerView = this.h;
+            p75 d = p75.d(this.h);
+            d.C(R.dimen.T_X08);
+            d.x(R.color.CAM_X0107);
+            this.g.setIsRound(true);
+            this.g.setIsBigV(false);
+            RecyclerView recyclerView = this.i;
             if (recyclerView != null && recyclerView.getAdapter() != null) {
-                this.h.getAdapter().notifyDataSetChanged();
+                this.i.getAdapter().notifyDataSetChanged();
             }
         }
     }

@@ -104,10 +104,10 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int black_shimmer_loading = 0x7f080384;
-        public static final int novel_loading_bg = 0x7f08109e;
-        public static final int novel_loading_progress = 0x7f08109f;
-        public static final int white_shimmer_loading = 0x7f08152a;
+        public static final int black_shimmer_loading = 0x7f080386;
+        public static final int novel_loading_bg = 0x7f0810a2;
+        public static final int novel_loading_progress = 0x7f0810a3;
+        public static final int white_shimmer_loading = 0x7f08152e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -130,17 +130,17 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILL = 0x7f09000a;
         public static final int STROKE = 0x7f09001c;
-        public static final int cw_0 = 0x7f090838;
-        public static final int cw_180 = 0x7f090839;
-        public static final int cw_270 = 0x7f09083a;
-        public static final int cw_90 = 0x7f09083b;
-        public static final int linear = 0x7f0914e8;
-        public static final int loading_bar = 0x7f0915f4;
-        public static final int message = 0x7f091705;
-        public static final int radial = 0x7f091d67;
-        public static final int restart = 0x7f091e38;
-        public static final int reverse = 0x7f091e3d;
-        public static final int root_container = 0x7f091ec2;
+        public static final int cw_0 = 0x7f090836;
+        public static final int cw_180 = 0x7f090837;
+        public static final int cw_270 = 0x7f090838;
+        public static final int cw_90 = 0x7f090839;
+        public static final int linear = 0x7f0914ee;
+        public static final int loading_bar = 0x7f0915fa;
+        public static final int message = 0x7f09170b;
+        public static final int radial = 0x7f091d71;
+        public static final int restart = 0x7f091e43;
+        public static final int reverse = 0x7f091e48;
+        public static final int root_container = 0x7f091ecd;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -161,7 +161,7 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int novel_loading_layout = 0x7f0d070b;
+        public static final int novel_loading_layout = 0x7f0d0709;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -183,7 +183,7 @@ public final class R {
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int picture_image_loading = 0x7f0f1079;
+        public static final int picture_image_loading = 0x7f0f107d;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

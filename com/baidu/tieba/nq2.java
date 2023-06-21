@@ -1,54 +1,113 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ks2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes7.dex */
-public class nq2 implements ZeusPluginFactory {
+public class nq2 extends up2<ks2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public ks2.a h;
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_rtc_item" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public class a implements ks2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(nq2 nq2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nq2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    public nq2(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nq2(@NonNull ks2 ks2Var) {
+        super(ks2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {ks2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((wp2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
+        a aVar = new a(this);
+        this.h = aVar;
+        ks2Var.Y(aVar);
+        this.a.a(new ar2());
+        this.a.a(new br2());
+        this.a.a(new cr2());
+        this.a.a(new er2());
+        this.a.a(new gr2());
+        this.a.a(new hr2());
+        this.a.a(new ir2());
+        this.a.a(new jr2());
+        this.a.a(new kr2());
+        this.a.a(new lr2());
+        this.a.a(new dr2());
+        this.a.a(new fr2());
+        this.a.a(new nr2());
+        this.a.a(new or2());
+        this.a.a(new pr2());
+        this.a.a(new rr2());
+        this.a.a(new qr2());
+        this.a.a(new sr2());
+        this.a.a(new tr2());
+        this.a.a(new ur2());
+        this.a.a(new vr2());
+        this.a.a(new wr2());
+        this.a.a(new xr2());
+        this.a.a(new yr2());
+        this.a.a(new zr2());
+        this.a.a(new as2());
+        this.a.a(new bs2());
+        this.a.a(new cs2());
+        this.a.a(new ds2());
+        this.a.a(new es2());
+        this.a.a(new fs2());
+        this.a.a(new hs2());
+        this.a.a(new gs2());
+        this.a.a(new mr2());
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.up2, com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void sendCommand(ZeusPlugin.Command command) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            is2 d = fv2.D().d(invoker, this.a);
-            y82.i("【RtcItemPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcItem「Hash:" + d.hashCode() + "」");
-            return new lq2(d);
+        if (interceptable == null || interceptable.invokeL(1048576, this, command) == null) {
+            if (command == null) {
+                str = "";
+            } else {
+                str = command.what;
+            }
+            if (((ks2) this.c).q()) {
+                z82.i("InlineRtcRoomController", "isReleased command：" + str);
+                return;
+            }
+            z82.i("InlineRtcRoomController", "authorize type：" + ((ks2) this.c).a() + " command：" + str);
+            super.sendCommand(command);
         }
-        return (ZeusPlugin) invokeL.objValue;
     }
 }

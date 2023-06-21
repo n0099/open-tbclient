@@ -1,225 +1,35 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cb3;
+import com.baidu.swan.apps.res.ui.BdMultiPicker;
+import com.baidu.tieba.eb3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class ab3 extends cb3 {
+public class ab3 extends eb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdMultiPicker c;
+    public JSONArray d;
+    public JSONArray e;
+    public BdMultiPicker.b f;
+    public boolean g;
 
     /* loaded from: classes4.dex */
-    public static class a extends cb3.a {
+    public static class a extends eb3.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView f;
-        public TextView g;
-        public TextView h;
-        public TextView i;
-        public LinearLayout j;
-        public LinearLayout k;
-        public CheckBox l;
-
-        /* renamed from: com.baidu.tieba.ab3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class DialogInterface$OnKeyListenerC0235a implements DialogInterface.OnKeyListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnClickListener a;
-            public final /* synthetic */ a b;
-
-            public DialogInterface$OnKeyListenerC0235a(a aVar, DialogInterface.OnClickListener onClickListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onClickListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = onClickListener;
-            }
-
-            @Override // android.content.DialogInterface.OnKeyListener
-            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-                InterceptResult invokeLIL;
-                DialogInterface.OnClickListener onClickListener;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
-                    if (keyEvent.getAction() == 1 && i == 4 && keyEvent.getRepeatCount() == 0 && (onClickListener = this.a) != null) {
-                        onClickListener.onClick(dialogInterface, this.b.c0());
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeLIL.booleanValue;
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnClickListener a;
-            public final /* synthetic */ a b;
-
-            public b(a aVar, DialogInterface.OnClickListener onClickListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onClickListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = onClickListener;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                DialogInterface.OnClickListener onClickListener;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.a) != null) {
-                    a aVar = this.b;
-                    onClickListener.onClick(aVar.b, aVar.c0());
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class c implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnClickListener a;
-            public final /* synthetic */ a b;
-
-            public c(a aVar, DialogInterface.OnClickListener onClickListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onClickListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = onClickListener;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                DialogInterface.OnClickListener onClickListener;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.a) != null) {
-                    a aVar = this.b;
-                    onClickListener.onClick(aVar.b, aVar.c0());
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class d implements DialogInterface.OnShowListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnShowListener a;
-
-            public d(a aVar, DialogInterface.OnShowListener onShowListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onShowListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = onShowListener;
-            }
-
-            @Override // android.content.DialogInterface.OnShowListener
-            public void onShow(DialogInterface dialogInterface) {
-                DialogInterface.OnShowListener onShowListener;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && (onShowListener = this.a) != null) {
-                    onShowListener.onShow(dialogInterface);
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class e implements DialogInterface.OnDismissListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnDismissListener a;
-
-            public e(a aVar, DialogInterface.OnDismissListener onDismissListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onDismissListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = onDismissListener;
-            }
-
-            @Override // android.content.DialogInterface.OnDismissListener
-            public void onDismiss(DialogInterface dialogInterface) {
-                DialogInterface.OnDismissListener onDismissListener;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && (onDismissListener = this.a) != null) {
-                    onDismissListener.onDismiss(dialogInterface);
-                }
-            }
-        }
+        public JSONArray e;
+        public JSONArray f;
+        public boolean g;
+        public BdMultiPicker.b h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -239,130 +49,71 @@ public class ab3 extends cb3 {
                     return;
                 }
             }
-            n(new gr3());
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08cd, e(), false);
-            W(viewGroup);
-            this.j = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ff);
-            this.h = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090300);
-            this.i = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090301);
-            this.k = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091211);
-            this.l = (CheckBox) viewGroup.findViewById(R.id.obfuscated_res_0x7f090faa);
-            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fac);
-            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fab);
-            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081405), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.k.setVisibility(8);
-            this.j.setVisibility(0);
-            this.l.setVisibility(0);
-            this.b.setCancelable(false);
         }
 
-        @Override // com.baidu.tieba.cb3.a
-        public /* bridge */ /* synthetic */ cb3.a N(DialogInterface.OnShowListener onShowListener) {
-            j0(onShowListener);
-            return this;
+        @Override // com.baidu.tieba.eb3.a
+        public eb3 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ab3 ab3Var = (ab3) super.a();
+                ab3Var.g(this.e);
+                ab3Var.h(this.f);
+                ab3Var.j(this.g);
+                ab3Var.i(this.h);
+                return ab3Var;
+            }
+            return (eb3) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cb3.a
-        /* renamed from: d0 */
-        public ab3 h(Context context) {
+        @Override // com.baidu.tieba.eb3.a
+        public eb3 b(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
                 return new ab3(context);
             }
-            return (ab3) invokeL.objValue;
+            return (eb3) invokeL.objValue;
         }
 
-        public a e0(String str) {
+        public a l(JSONArray jSONArray) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.g.setText(str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+                this.e = jSONArray;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public a f0(String str) {
+        public a m(JSONArray jSONArray) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f.setText(str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+                this.f = jSONArray;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public a g0(DialogInterface.OnClickListener onClickListener) {
+        public a n(BdMultiPicker.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, onClickListener)) == null) {
-                this.h.setOnClickListener(new b(this, onClickListener));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
+                this.h = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public a h0(DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeL;
+        public a o(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC0235a(this, onClickListener));
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.g = z;
                 return this;
             }
-            return (a) invokeL.objValue;
-        }
-
-        public a i0(DialogInterface.OnDismissListener onDismissListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, onDismissListener)) == null) {
-                super.L(new e(this, onDismissListener));
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a j0(DialogInterface.OnShowListener onShowListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, onShowListener)) == null) {
-                super.N(new d(this, onShowListener));
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a k0(DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, onClickListener)) == null) {
-                this.i.setOnClickListener(new c(this, onClickListener));
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cb3.a
-        /* renamed from: b0 */
-        public ab3 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return (ab3) super.c();
-            }
-            return (ab3) invokeV.objValue;
-        }
-
-        public final int c0() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.l.isChecked() ? 1 : 0;
-            }
-            return invokeV.intValue;
+            return (a) invokeZ.objValue;
         }
     }
 
@@ -385,26 +136,72 @@ public class ab3 extends cb3 {
                 return;
             }
         }
-        a(false);
-        Window window = getWindow();
-        if (window != null) {
-            window.setGravity(80);
-            window.setLayout(-1, -2);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003b1);
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new BdMultiPicker(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 1;
+            this.c.setLayoutParams(layoutParams);
+            this.c.setMultiWheelData(this.d, this.e);
+            if (!this.g) {
+                this.c.setMultiSelectedListener(this.f);
+            }
+        }
+    }
+
+    public JSONArray f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.getCurrentIndex();
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public void g(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+            this.d = jSONArray;
+        }
+    }
+
+    public void h(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONArray) == null) {
+            this.e = jSONArray;
+        }
+    }
+
+    public void i(BdMultiPicker.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f = bVar;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g = z;
         }
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.onCreate(bundle);
-            cb3.a c = c();
-            c.p(R.drawable.obfuscated_res_0x7f08013f);
-            c.f(true);
-            c.k(false);
-            c.j();
-            c.t(false);
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            e();
+            b().j(this.c);
+        }
+    }
+
+    public void k(int i, JSONArray jSONArray, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), jSONArray, Integer.valueOf(i2)}) == null) {
+            this.c.j(i, jSONArray, i2);
         }
     }
 }

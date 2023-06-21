@@ -1,70 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.ServiceConnection;
+import android.app.Activity;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
+import android.os.Handler;
+import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class h9b implements ServiceConnection {
+public final class h9b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Messenger a;
-    public Bundle b;
-    public Context c;
+    public final /* synthetic */ Activity a;
+    public final /* synthetic */ d9b b;
+    public final /* synthetic */ c9b c;
 
-    public h9b() {
+    public h9b(c9b c9bVar, Activity activity, d9b d9bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c9bVar, activity, d9bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = c9bVar;
+        this.a = activity;
+        this.b = d9bVar;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            Log.i("MessengerSrvConnection", "onServiceConnected");
-            this.a = new Messenger(iBinder);
-            Message obtain = Message.obtain();
-            obtain.setData(this.b);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.a.send(obtain);
-            } catch (Exception e) {
-                String str = "message sending failed. " + e.getMessage();
+                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                aVar = this.c.d;
+                String str = this.a.getApplicationInfo().packageName;
+                c9b c9bVar = this.c;
+                l = c9b.l();
+                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
+                new Handler().postDelayed(new i9b(this, atomicBoolean), 3000L);
+            } catch (RemoteException e) {
+                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
+                c9b c9bVar2 = this.c;
+                c9b.n(this.a, this.b);
             }
-            Log.i("MessengerSrvConnection", "start unbind service.");
-            try {
-                this.c.unbindService(this);
-                Log.i("MessengerSrvConnection", "unbind service end.");
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            Log.i("MessengerSrvConnection", "onServiceDisconnected");
-            this.a = null;
-            this.b = null;
-            this.c = null;
         }
     }
 }

@@ -7,12 +7,12 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.vo8;
-import com.baidu.tieba.wo8;
-import com.baidu.tieba.zo8;
+import com.baidu.tieba.op8;
+import com.baidu.tieba.pp8;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.qp8;
+import com.baidu.tieba.tp8;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements uo8<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements op8<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -41,8 +41,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements uo8<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public wo8 c;
-        public vo8 d;
+        public qp8 c;
+        public pp8 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements uo8<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                wo8 wo8Var = new wo8();
-                this.c = wo8Var;
-                wo8Var.d = jSONObject.optString("rText");
+                qp8 qp8Var = new qp8();
+                this.c = qp8Var;
+                qp8Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    vo8 vo8Var = new vo8(optJSONObject);
-                    this.d = vo8Var;
-                    if (!vo8Var.j()) {
+                    pp8 pp8Var = new pp8(optJSONObject);
+                    this.d = pp8Var;
+                    if (!pp8Var.j()) {
                         this.d = null;
                     }
                 }
@@ -226,8 +226,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements uo8<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = zo8.b(optJSONObject.optString("descColor", ""));
-                bVar.f = zo8.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = tp8.b(optJSONObject.optString("descColor", ""));
+                bVar.f = tp8.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -248,14 +248,14 @@ public class PlayPicInfoCard extends BaseCardInfo implements uo8<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uo8
+    @Override // com.baidu.tieba.op8
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {
-            int l = vi.l(TbadkCoreApplication.getInst());
+            int l = wi.l(TbadkCoreApplication.getInst());
             int i = (int) (l * playPicInfoCard.ratio);
             for (b bVar : this.imageResList) {
-                pg.h().k(bVar.b, 17, null, l, i, tbPageContext.getUniqueId(), new Object[0]);
+                qg.h().k(bVar.b, 17, null, l, i, tbPageContext.getUniqueId(), new Object[0]);
             }
         }
     }

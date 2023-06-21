@@ -1,62 +1,244 @@
 package com.baidu.tieba;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vt3 extends ActivityDelegation implements ks1 {
+public class vt3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
+
+    /* loaded from: classes8.dex */
+    public class a implements fu3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ ls1 b;
+        public final /* synthetic */ vt3 c;
+
+        /* renamed from: com.baidu.tieba.vt3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class RunnableC0482a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0482a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    hb3.d(this.a.a);
+                }
+            }
+        }
+
+        public a(vt3 vt3Var, ViewGroup viewGroup, ls1 ls1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vt3Var, viewGroup, ls1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = vt3Var;
+            this.a = viewGroup;
+            this.b = ls1Var;
+        }
+
+        @Override // com.baidu.tieba.fu3
+        public void a(QuickLoginInfo quickLoginInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
+                ViewGroup viewGroup = this.a;
+                if (viewGroup != null) {
+                    viewGroup.post(new RunnableC0482a(this));
+                }
+                if (this.c.i(quickLoginInfo)) {
+                    this.c.a.putParcelable("quick_login_info", quickLoginInfo);
+                }
+                String T2 = yb3.K().q().W().T();
+                String appId = yb3.K().getAppId();
+                this.c.a.putString("app_name", yb3.K().q().Z());
+                this.c.a.putString("appid", appId);
+                this.c.a.putString("launch_from", T2);
+                if (vt3.b) {
+                    Log.d("LoginAndGetMobile", "onQueryResult: mParams: " + this.c.a.toString());
+                }
+                yt3.a("show", "login", null, T2, appId);
+                this.c.f(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ls1 a;
+
+        public b(vt3 vt3Var, ls1 ls1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vt3Var, ls1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ls1Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
+                if (delegateResult.isOk()) {
+                    this.a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
+                    return;
+                }
+                this.a.onResult(-2);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252276, "Lcom/baidu/tieba/vt3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948252276, "Lcom/baidu/tieba/vt3;");
+                return;
+            }
+        }
+        b = js1.a;
+    }
 
     public vt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new Bundle();
+    }
+
+    public final void f(ls1 ls1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ls1Var) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                e(ls1Var);
+            } else {
+                g(ls1Var);
             }
         }
     }
 
-    public final void c() {
+    public final void g(ls1 ls1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wt3.b();
-            finish();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ls1Var) == null) {
+            DelegateUtils.callOnMainWithActivity(mx2.T().getActivity(), PluginDelegateActivity.class, wt3.class, this.a, new b(this, ls1Var));
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
+    public final boolean i(QuickLoginInfo quickLoginInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Intent intent = new Intent(getAgent(), LoginAndGetMobileActivity.class);
-            intent.putExtras(this.mParams);
-            getAgent().startActivity(intent);
-            getAgent().overridePendingTransition(R.anim.obfuscated_res_0x7f0100b3, 0);
-            wt3.c(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, quickLoginInfo)) == null) {
+            if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
+                return true;
+            }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ks1
-    public void onResult(int i) {
+    public final void e(ls1 ls1Var) {
+        SwanAppActivity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mResult.putInt("loginStatusCode", i);
-            c();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ls1Var) != null) || (activity = mx2.T().getActivity()) == null) {
+            return;
+        }
+        Intent intent = new Intent(activity, LoginAndGetMobileActivity.class);
+        intent.putExtras(this.a);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.obfuscated_res_0x7f0100b3, 0);
+        xt3.c(ls1Var);
+    }
+
+    public void h(ls1 ls1Var) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ls1Var) == null) {
+            SwanAppActivity w = yb3.K().w();
+            if (w != null && !w.isFinishing()) {
+                viewGroup = (ViewGroup) w.findViewById(16908290);
+                hb3.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f14f8));
+            } else {
+                viewGroup = null;
+            }
+            iu3.b(new a(this, viewGroup, ls1Var));
         }
     }
 }

@@ -1,27 +1,65 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.VisitedForumData;
+import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class k79 extends i69<o35, PbRecommendNovelHolder> {
+public class k79 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public m39 g;
-    public PbRecommendNovelHolder.b h;
+    public final b a;
+    public boolean b;
+    public boolean c;
+    public String d;
+    public int e;
+    public int f;
+    public boolean g;
+    public int h;
+    public boolean i;
+    public int j;
+    public int k;
+    public final Handler l;
+    public boolean m;
+    public final Runnable n;
+    public long o;
+    public long p;
+    public long q;
+    public boolean r;
+    public int s;
+    public final int t;
+    public final BdTypeListView u;
+    public int v;
+    public int w;
+    public boolean x;
 
     /* loaded from: classes6.dex */
-    public class a implements PbRecommendNovelHolder.b {
+    public interface b {
+        void a(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k79 a;
@@ -44,75 +82,289 @@ public class k79 extends i69<o35, PbRecommendNovelHolder> {
             this.a = k79Var;
         }
 
-        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
-        public void a(o35 o35Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, o35Var) == null) && o35Var != null) {
-                bb9.a(this.a.g, o35Var, o35Var.d0, 6);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.r = true;
+            if (k79.y) {
+                Log.d("PbEnterFrsTipShowRule-C", "completeStayPageTime = true");
+            }
+            this.a.n();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k79(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866140, "Lcom/baidu/tieba/k79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947866140, "Lcom/baidu/tieba/k79;");
+                return;
+            }
+        }
+        y = g05.e();
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.r || !this.x) {
+                return true;
+            }
+            if (this.c) {
+                return f();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.m = false;
+            this.l.removeCallbacks(this.n);
+            this.p += System.currentTimeMillis() - this.q;
+        }
+    }
+
+    public k79(BdTypeListView bdTypeListView, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {bdTypeListView, bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((fb9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
+        this.s = 0;
+        this.t = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.v = -1;
+        this.w = -1;
+        this.u = bdTypeListView;
+        this.a = bVar;
+        this.l = new Handler(Looper.getMainLooper());
+        this.n = new a(this);
     }
 
-    public void r(m39 m39Var) {
+    public final int c(List<wn> list, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m39Var) == null) {
-            this.g = m39Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
-    /* renamed from: x */
-    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d077b, viewGroup, false), this.h);
-        }
-        return (PbRecommendNovelHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.i69, com.baidu.tieba.in
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        y(i, view2, viewGroup, (o35) obj, (PbRecommendNovelHolder) viewHolder);
-        return view2;
-    }
-
-    public View y(int i, View view2, ViewGroup viewGroup, o35 o35Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o35Var, pbRecommendNovelHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) o35Var, (o35) pbRecommendNovelHolder);
-            if (o35Var == null) {
-                return view2;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return -1;
             }
-            o35Var.d0 = i + 1;
-            bb9.d(this.b.getUniqueId(), this.g, o35Var, o35Var.d0, 6);
-            pbRecommendNovelHolder.d(o35Var);
-            return view2;
+            int i = 0;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                if ((list.get(i2) instanceof b0a) && list.get(i2).getType() == b0a.X0 && (i = i + 1) == this.s) {
+                    return i2;
+                }
+            }
+            if (z) {
+                return -1;
+            }
+            return list.size() - 1;
         }
-        return (View) invokeCommon.objValue;
+        return invokeLZ.intValue;
+    }
+
+    public void h(boolean z, int i) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || !this.i || i == 3 || (bdTypeListView = this.u) == null) {
+            return;
+        }
+        this.w = c(bdTypeListView.getData(), z);
+        if (y) {
+            Log.d("PbEnterFrsTipShowRule-C", "onDataSet mTargetIndex = " + this.w);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.g = true;
+            this.h = 0;
+            this.f = this.e;
+            RecentlyVisitedForumData j = py6.n().j();
+            if (j != null && !TextUtils.isEmpty(this.d)) {
+                Iterator<VisitedForumData> it = j.getForumData().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    VisitedForumData next = it.next();
+                    if (this.d.equals(next.getForumId())) {
+                        if (y) {
+                            Log.d("PbEnterFrsTipShowRule-C", "lastVisitedTime = " + next.getVisitedTime());
+                            Log.d("PbEnterFrsTipShowRule-C", "lastPostNum = " + next.getPostNum());
+                        }
+                        int postNum = this.e - next.getPostNum();
+                        this.f = postNum;
+                        if (postNum <= 0) {
+                            this.f = 0;
+                        }
+                        if (this.f < this.k) {
+                            this.g = false;
+                        }
+                        this.h = ug.e(next.getVisitedTime(), 0);
+                    }
+                }
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "满足新贴数条件 = " + this.g);
+                }
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.o = va9.h(this.c) * 1000;
+            this.s = va9.e(this.c);
+            this.j = va9.d();
+            this.k = va9.b();
+            this.i = true;
+            m();
+        }
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.g) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "新贴数 拦截");
+                }
+                return true;
+            } else if (((int) (System.currentTimeMillis() / 1000)) - this.h < this.j * 86400) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "距离上次浏览时间 拦截");
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.m = true;
+            d();
+            this.l.removeCallbacks(this.n);
+            this.q = System.currentTimeMillis();
+            if (!this.r) {
+                if (this.o > 0) {
+                    m();
+                    return;
+                }
+                return;
+            }
+            n();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.b && this.i) {
+            if (g()) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule", "tryToShowTip = false");
+                    return;
+                }
+                return;
+            }
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "tryToShowTip = hasShown");
+            }
+            this.b = true;
+            b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(this.f);
+            }
+        }
+    }
+
+    public void k(int i, int i2) {
+        BdTypeListView bdTypeListView;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) != null) || (bdTypeListView = this.u) == null || this.b || !this.i || this.w < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
+            return;
+        }
+        if (this.v <= 0) {
+            this.v = this.u.getHeight() - this.t;
+        }
+        if (this.v <= 0) {
+            return;
+        }
+        if (this.x) {
+            n();
+            return;
+        }
+        int headerViewsCount = this.w + this.u.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.v) {
+                return;
+            }
+            this.x = true;
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "completeGuideFloor = true");
+            }
+            n();
+        }
+    }
+
+    public void l(@Nullable ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, forumData) == null) && forumData != null && !TextUtils.isEmpty(forumData.getId())) {
+            boolean z = true;
+            if (forumData.isLike() != 1) {
+                z = false;
+            }
+            this.c = z;
+            this.d = forumData.getId();
+            this.e = forumData.getPost_num();
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "newForumPostNum" + this.e);
+            }
+            e();
+            d();
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.b && this.i && this.m) {
+            this.l.removeCallbacks(this.n);
+            long j = this.o - this.p;
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule", "remainTime = " + j);
+            }
+            if (j <= 0) {
+                this.l.post(this.n);
+            } else {
+                this.l.postDelayed(this.n, j);
+            }
+        }
     }
 }

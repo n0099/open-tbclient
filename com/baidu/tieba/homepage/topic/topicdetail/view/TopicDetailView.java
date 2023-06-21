@@ -47,29 +47,29 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a48;
+import com.baidu.tieba.ae5;
+import com.baidu.tieba.an5;
+import com.baidu.tieba.c48;
 import com.baidu.tieba.e48;
-import com.baidu.tieba.gea;
-import com.baidu.tieba.gn;
+import com.baidu.tieba.g48;
+import com.baidu.tieba.hn;
 import com.baidu.tieba.homepage.topic.topicdetail.TopicDetailActivity;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
-import com.baidu.tieba.k38;
-import com.baidu.tieba.li;
-import com.baidu.tieba.m38;
-import com.baidu.tieba.o38;
-import com.baidu.tieba.q38;
+import com.baidu.tieba.k48;
+import com.baidu.tieba.l48;
+import com.baidu.tieba.m48;
+import com.baidu.tieba.mi;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.u38;
-import com.baidu.tieba.uj5;
-import com.baidu.tieba.v38;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.vm5;
-import com.baidu.tieba.vn;
-import com.baidu.tieba.w38;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.wm5;
-import com.baidu.tieba.zd5;
+import com.baidu.tieba.u48;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.wn;
+import com.baidu.tieba.xfa;
+import com.baidu.tieba.xg;
+import com.baidu.tieba.zj5;
+import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,40 +81,40 @@ import java.util.List;
 public class TopicDetailView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u38.b A;
+    public k48.b A;
     public int B;
     public int C;
     public NoNetworkView.b D;
-    public uj5 E;
+    public zj5 E;
     public NewWriteModel.d F;
     public final RecyclerView.OnScrollListener G;
     public BdListView.p H;
     public int a;
     public TbPageContext<?> b;
-    public k38 c;
+    public a48 c;
     public NavigationBar d;
     public View e;
     public ImageView f;
     public ImageView g;
     public TopicDetailHeadView h;
     public BdTypeRecyclerView i;
-    public m38 j;
+    public c48 j;
     public PbListView k;
     public NoNetworkView l;
-    public vm5 m;
-    public wm5 n;
+    public zm5 m;
+    public an5 n;
     public View o;
     public View p;
     public TextView q;
     public TextView r;
-    public v38 s;
+    public l48 s;
     public View t;
-    public gea u;
+    public xfa u;
     public EditText v;
-    public o38 w;
+    public e48 w;
     public boolean x;
     public int y;
-    public u38 z;
+    public k48 z;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -301,7 +301,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     /* loaded from: classes6.dex */
-    public class f implements uj5 {
+    public class f implements zj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailView a;
@@ -324,7 +324,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.a = topicDetailView;
         }
 
-        @Override // com.baidu.tieba.uj5
+        @Override // com.baidu.tieba.zj5
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -365,9 +365,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, zd5 zd5Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ae5 ae5Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, zd5Var, writeData, antiData}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ae5Var, writeData, antiData}) == null) {
                 if (z && this.a.s != null && this.a.s.b() != null) {
                     this.a.s.b().q();
                 }
@@ -376,11 +376,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                     this.a.u.i(null);
                     this.a.u.k(false);
                     if (postWriteCallBackData != null) {
-                        long g = tg.g(postWriteCallBackData.getPostId(), 0L);
-                        long g2 = tg.g(postWriteCallBackData.getThreadId(), 0L);
+                        long g = ug.g(postWriteCallBackData.getPostId(), 0L);
+                        long g2 = ug.g(postWriteCallBackData.getThreadId(), 0L);
                         if (g != 0 && g2 != 0) {
                             this.a.A = this.a.z.c(g, g2);
-                            wg.a().postDelayed(this.a.A, 500L);
+                            xg.a().postDelayed(this.a.A, 500L);
                         }
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
@@ -472,13 +472,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.x) {
                 return;
             }
-            if (!vi.F()) {
+            if (!wi.F()) {
                 this.a.q();
                 return;
             }
             int size = this.a.w.f.size() - 1;
-            if (this.a.w.f.get(size) instanceof q38) {
-                ((TopicDetailActivity) this.a.b.getPageActivity()).z1(((q38) this.a.w.f.get(size)).a);
+            if (this.a.w.f.get(size) instanceof g48) {
+                ((TopicDetailActivity) this.a.b.getPageActivity()).z1(((g48) this.a.w.f.get(size)).a);
             }
         }
     }
@@ -513,20 +513,20 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                li.a(this.a.x);
-                vi.Q(this.b.getContext(), view2.getResources().getString(R.string.copy_pb_url_success));
+                mi.a(this.a.x);
+                wi.Q(this.b.getContext(), view2.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TopicDetailView(TbPageContext<?> tbPageContext, k38 k38Var, Bundle bundle) {
+    public TopicDetailView(TbPageContext<?> tbPageContext, a48 a48Var, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, k38Var, bundle};
+            Object[] objArr = {tbPageContext, a48Var, bundle};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -550,12 +550,12 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.G = new h(this);
         this.H = new i(this);
         this.b = tbPageContext;
-        this.c = k38Var;
+        this.c = a48Var;
         t(bundle);
         z();
     }
 
-    public void setNextData(int i2, boolean z, List<vn> list) {
+    public void setNextData(int i2, boolean z, List<wn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {
             this.x = z;
@@ -565,9 +565,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 B();
             }
             if (i2 == 0 && list != null && !ListUtils.isEmpty(list)) {
-                for (vn vnVar : list) {
-                    if (vnVar instanceof q38) {
-                        ((q38) vnVar).f = this.w.a();
+                for (wn wnVar : list) {
+                    if (wnVar instanceof g48) {
+                        ((g48) wnVar).f = this.w.a();
                     }
                 }
                 this.w.f.addAll(list);
@@ -582,42 +582,42 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             return;
         }
         if (this.m == null) {
-            vm5 vm5Var = new vm5(getContext());
-            this.m = vm5Var;
-            vm5Var.onChangeSkinType();
+            zm5 zm5Var = new zm5(getContext());
+            this.m = zm5Var;
+            zm5Var.onChangeSkinType();
         }
         this.m.attachView(this, z);
     }
 
     public void A(ThreadData threadData) {
-        q38 q38Var;
+        g48 g48Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            Iterator<vn> it = this.w.f.iterator();
+            Iterator<wn> it = this.w.f.iterator();
             int i2 = 0;
             while (true) {
                 if (it.hasNext()) {
-                    vn next = it.next();
-                    if (next instanceof q38) {
-                        q38Var = (q38) next;
+                    wn next = it.next();
+                    if (next instanceof g48) {
+                        g48Var = (g48) next;
                         break;
                     }
                     i2++;
                 } else {
-                    q38Var = null;
+                    g48Var = null;
                     break;
                 }
             }
-            if (q38Var != null) {
-                q38 q38Var2 = new q38();
-                q38Var2.a = q38Var.a;
-                q38Var2.b = threadData;
-                q38Var2.e = 2;
-                q38Var2.d = this.y;
-                o38 o38Var = this.w;
-                q38Var2.c = o38Var.a;
-                q38Var2.f = o38Var.a();
-                this.w.f.add(i2, q38Var2);
+            if (g48Var != null) {
+                g48 g48Var2 = new g48();
+                g48Var2.a = g48Var.a;
+                g48Var2.b = threadData;
+                g48Var2.e = 2;
+                g48Var2.d = this.y;
+                e48 e48Var = this.w;
+                g48Var2.c = e48Var.a;
+                g48Var2.f = e48Var.a();
+                this.w.f.add(i2, g48Var2);
                 this.j.c(this.w.f);
             }
         }
@@ -629,7 +629,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             return;
         }
         if (this.n == null) {
-            this.n = new wm5(getContext(), new a(this));
+            this.n = new an5(getContext(), new a(this));
         }
         this.n.k(this.b.getResources().getDimensionPixelSize(R.dimen.tbds506));
         this.n.attachView(this, z);
@@ -640,12 +640,12 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        o38 o38Var;
+        e48 e48Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             if (view2 == this.e) {
                 this.b.getPageActivity().finish();
-            } else if (view2 == this.g && (o38Var = this.w) != null && o38Var.a > 0) {
+            } else if (view2 == this.g && (e48Var = this.w) != null && e48Var.a > 0) {
                 F();
                 TiebaStatic.log(new StatisticItem("c13364").param("topic_id", String.valueOf(this.w.a)));
             }
@@ -669,13 +669,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public v38 getEditor() {
+    public l48 getEditor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.s;
         }
-        return (v38) invokeV.objValue;
+        return (l48) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -695,10 +695,10 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     public void r() {
-        vm5 vm5Var;
+        zm5 zm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (vm5Var = this.m) != null) {
-            vm5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (zm5Var = this.m) != null) {
+            zm5Var.dettachView(this);
             this.m = null;
         }
     }
@@ -706,9 +706,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            wm5 wm5Var = this.n;
-            if (wm5Var != null) {
-                wm5Var.dettachView(this);
+            an5 an5Var = this.n;
+            if (an5Var != null) {
+                an5Var.dettachView(this);
                 this.n = null;
             }
             this.i.setVisibility(0);
@@ -720,9 +720,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            vm5 vm5Var = this.m;
-            if (vm5Var != null) {
-                return vm5Var.isViewAttached();
+            zm5 zm5Var = this.m;
+            if (zm5Var != null) {
+                return zm5Var.isViewAttached();
             }
             return false;
         }
@@ -733,9 +733,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            wm5 wm5Var = this.n;
-            if (wm5Var != null) {
-                return wm5Var.isViewAttached();
+            an5 an5Var = this.n;
+            if (an5Var != null) {
+                return an5Var.isViewAttached();
             }
             return false;
         }
@@ -747,9 +747,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.w != null && getContext() != null) {
             String valueOf = String.valueOf(this.w.a);
-            o38 o38Var = this.w;
-            String str = o38Var.b;
-            String str2 = o38Var.c;
+            e48 e48Var = this.w;
+            String str = e48Var.b;
+            String str2 = e48Var.c;
             if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(str)) {
                 String str3 = TbConfig.TIEBA_ADDRESS + "mo/q/newtopic/detail?topic_id=" + valueOf + "/";
                 if (StringUtils.isNull(this.w.d)) {
@@ -779,7 +779,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         Bitmap drawingCache;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            gn bdImage = this.h.getmBgImg().getBdImage();
+            hn bdImage = this.h.getmBgImg().getBdImage();
             if (bdImage != null) {
                 drawingCache = bdImage.p();
             } else {
@@ -831,13 +831,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.y = i2;
             this.r.setVisibility(0);
             if (i2 == 1) {
-                this.r.setText(R.string.obfuscated_res_0x7f0f167f);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1683);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_support_bg);
             } else if (i2 == 2) {
-                this.r.setText(R.string.obfuscated_res_0x7f0f167e);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1682);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_oppose_bg);
             } else {
-                this.r.setText(R.string.obfuscated_res_0x7f0f167d);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1681);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_opinion_bg);
             }
             if (this.a == 4) {
@@ -864,11 +864,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 } else {
                     this.v.setSelection(selectionEnd);
                 }
-                gea geaVar = this.u;
-                if (geaVar.b() < 0) {
+                xfa xfaVar = this.u;
+                if (xfaVar.b() < 0) {
                     z2 = false;
                 }
-                geaVar.k(z2);
+                xfaVar.k(z2);
             }
         }
     }
@@ -876,19 +876,19 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     public final void u(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
-            v38 v38Var = (v38) new w38().a(getContext());
-            this.s = v38Var;
-            if (v38Var == null) {
+            l48 l48Var = (l48) new m48().a(getContext());
+            this.s = l48Var;
+            if (l48Var == null) {
                 return;
             }
-            v38Var.F(this.b);
+            l48Var.F(this.b);
             this.s.G(this.F);
             this.s.E(this.E);
             this.s.b().E(true);
             this.s.b().setBarBackgroundColorId(R.color.CAM_X0207);
             this.s.v((BaseActivity) getContext(), bundle);
             this.s.u();
-            this.s.b().setId(R.id.obfuscated_res_0x7f09256c);
+            this.s.b().setId(R.id.obfuscated_res_0x7f092579);
             EditText g2 = this.s.o().g();
             this.v = g2;
             g2.addTextChangedListener(new e(this));
@@ -916,28 +916,28 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             if (noNetworkView != null) {
                 noNetworkView.e(this.D);
             }
-            v38 v38Var = this.s;
-            if (v38Var != null) {
-                v38Var.x();
+            l48 l48Var = this.s;
+            if (l48Var != null) {
+                l48Var.x();
             }
             if (this.A != null) {
-                wg.a().removeCallbacks(this.A);
+                xg.a().removeCallbacks(this.A);
             }
             r();
             s();
         }
     }
 
-    public void setData(o38 o38Var) {
+    public void setData(e48 e48Var) {
         int g2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048594, this, o38Var) != null) || o38Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048594, this, e48Var) != null) || e48Var == null) {
             return;
         }
-        this.w = o38Var;
-        boolean z = o38Var.g;
+        this.w = e48Var;
+        boolean z = e48Var.g;
         this.x = z;
-        if (z && o38Var.f.size() <= 4) {
+        if (z && e48Var.f.size() <= 4) {
             this.x = false;
             E();
         } else if (!this.x) {
@@ -945,24 +945,24 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         } else {
             B();
         }
-        if (!StringUtils.isNull(o38Var.b)) {
-            this.d.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0516), StringHelper.cutChineseAndEnglishWithSuffix(o38Var.b, 14, "...")));
+        if (!StringUtils.isNull(e48Var.b)) {
+            this.d.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0517), StringHelper.cutChineseAndEnglishWithSuffix(e48Var.b, 14, "...")));
         }
-        this.h.setData(o38Var.e);
+        this.h.setData(e48Var.e);
         this.i.addHeaderView(this.h);
-        this.j.c(o38Var.f);
-        e48 e48Var = this.w.e.e;
-        if (e48Var != null) {
-            if (e48Var.d.e) {
+        this.j.c(e48Var.f);
+        u48 u48Var = this.w.e.e;
+        if (u48Var != null) {
+            if (u48Var.d.e) {
                 I(1);
-            } else if (e48Var.e.e) {
+            } else if (u48Var.e.e) {
                 I(2);
             } else {
                 I(0);
             }
-            g2 = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds140);
+            g2 = wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds140);
         } else {
-            g2 = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
+            g2 = wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
             this.r.setVisibility(8);
         }
         this.q.setPadding(g2, 0, 0, 0);
@@ -981,7 +981,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 addSystemImageButton.setOnClickListener(this);
                 this.f = (ImageView) this.e.findViewById(R.id.widget_navi_back_button);
             }
-            this.g = (ImageView) this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0961, this);
+            this.g = (ImageView) this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0962, this);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.d.mCenterText, (int) R.color.CAM_X0101);
             this.d.mCenterText.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbds52));
@@ -989,17 +989,17 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f090093);
             this.l = noNetworkView;
             noNetworkView.a(this.D);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091a04);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09256d);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091a0a);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09257a);
             this.q = textView;
             textView.setOnClickListener(new c(this));
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09097c);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09097a);
             this.o = findViewById(R.id.obfuscated_res_0x7f09008f);
             u(bundle);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             addView(this.s.b(), layoutParams);
-            this.u = new gea();
+            this.u = new xfa();
             this.t = findViewById(R.id.obfuscated_res_0x7f090090);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090091);
             this.i = bdTypeRecyclerView;
@@ -1009,7 +1009,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.i.setOnSrollToBottomListener(this.H);
             this.i.addOnScrollListener(this.G);
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
-            this.j = new m38(this.b, this.i);
+            this.j = new c48(this.b, this.i);
             TopicDetailHeadView topicDetailHeadView = new TopicDetailHeadView(getContext());
             this.h = topicDetailHeadView;
             topicDetailHeadView.g.setPkClickListener(new d(this));
@@ -1019,7 +1019,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 pbListView.c();
             }
             this.k.s(R.color.CAM_X0205);
-            this.k.w(vi.g(this.b.getPageActivity(), R.dimen.tbds182));
+            this.k.w(wi.g(this.b.getPageActivity(), R.dimen.tbds182));
             this.k.L(R.dimen.tbfontsize33);
             this.k.F(R.color.CAM_X0110);
             this.k.J(SkinManager.getColor(R.color.CAM_X0110));
@@ -1028,9 +1028,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.k.H(getResources().getString(R.string.list_has_no_more));
             this.k.c().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             if (this.z == null) {
-                u38 u38Var = new u38(this);
-                this.z = u38Var;
-                u38Var.f(this.b.getUniqueId());
+                k48 k48Var = new k48(this);
+                this.z = k48Var;
+                k48Var.f(this.b.getUniqueId());
             }
         }
     }
@@ -1047,7 +1047,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         SkinManager.setViewTextColor(this.d.mCenterText, (int) R.color.CAM_X0101);
         SkinManager.setBackgroundResource(this.p, R.color.CAM_X0207);
         SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0109);
-        this.q.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(vi.g(this.b.getPageActivity(), R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
+        this.q.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(wi.g(this.b.getPageActivity(), R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
         I(this.y);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         if (this.g != null) {
@@ -1057,16 +1057,16 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         if (tbPageContext != null && (noNetworkView = this.l) != null) {
             noNetworkView.d(tbPageContext, this.a);
         }
-        vm5 vm5Var = this.m;
-        if (vm5Var != null) {
-            vm5Var.onChangeSkinType();
+        zm5 zm5Var = this.m;
+        if (zm5Var != null) {
+            zm5Var.onChangeSkinType();
         }
-        wm5 wm5Var = this.n;
-        if (wm5Var != null) {
-            wm5Var.onChangeSkinType();
+        an5 an5Var = this.n;
+        if (an5Var != null) {
+            an5Var.onChangeSkinType();
         }
-        v38 v38Var = this.s;
-        if (v38Var != null && v38Var.b() != null) {
+        l48 l48Var = this.s;
+        if (l48Var != null && l48Var.b() != null) {
             this.s.b().y(this.a);
         }
         PbListView pbListView = this.k;
@@ -1080,9 +1080,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         if (topicDetailHeadView != null) {
             topicDetailHeadView.b();
         }
-        m38 m38Var = this.j;
-        if (m38Var != null) {
-            m38Var.b();
+        c48 c48Var = this.j;
+        if (c48Var != null) {
+            c48Var.b();
         }
         SkinManager.setBackgroundColor(this.i, R.color.CAM_X0205);
     }

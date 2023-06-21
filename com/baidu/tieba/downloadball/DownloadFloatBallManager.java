@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.co9;
+import com.baidu.tieba.cw6;
 import com.baidu.tieba.downloadball.DownloadFloatBall;
 import com.baidu.tieba.downloadball.DownloadFloatBallManager;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.ha7;
-import com.baidu.tieba.ka7;
-import com.baidu.tieba.km9;
-import com.baidu.tieba.xv6;
+import com.baidu.tieba.ma7;
+import com.baidu.tieba.pa7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,12 +98,12 @@ public final class DownloadFloatBallManager {
     }
 
     /* loaded from: classes5.dex */
-    public final class b implements ka7 {
+    public final class b implements pa7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadFloatBallManager a;
 
-        @Override // com.baidu.tieba.ka7
+        @Override // com.baidu.tieba.pa7
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -111,7 +111,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.ka7
+        @Override // com.baidu.tieba.pa7
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -138,7 +138,7 @@ public final class DownloadFloatBallManager {
             this.a = downloadFloatBallManager;
         }
 
-        @Override // com.baidu.tieba.ka7
+        @Override // com.baidu.tieba.pa7
         public void c(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
@@ -148,7 +148,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.ka7
+        @Override // com.baidu.tieba.pa7
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -157,7 +157,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.ka7
+        @Override // com.baidu.tieba.pa7
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -166,7 +166,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.ka7
+        @Override // com.baidu.tieba.pa7
         public void f(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
@@ -207,7 +207,7 @@ public final class DownloadFloatBallManager {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && km9.i(DownloadFloatBallConfig.o.a().k())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && co9.i(DownloadFloatBallConfig.o.a().k())) {
             n();
             e();
         }
@@ -231,13 +231,13 @@ public final class DownloadFloatBallManager {
         return (SharedPreferences) invokeV.objValue;
     }
 
-    public final ha7 m() {
+    public final ma7 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return (ha7) this.b.getValue();
+            return (ma7) this.b.getValue();
         }
-        return (ha7) invokeV.objValue;
+        return (ma7) invokeV.objValue;
     }
 
     public final void n() {
@@ -316,7 +316,7 @@ public final class DownloadFloatBallManager {
                 synchronized (this) {
                     if (this.a == null) {
                         final DownloadFloatBall downloadFloatBall = new DownloadFloatBall(b2);
-                        downloadFloatBall.o(new View.OnClickListener() { // from class: com.baidu.tieba.wv6
+                        downloadFloatBall.o(new View.OnClickListener() { // from class: com.baidu.tieba.bw6
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -328,7 +328,7 @@ public final class DownloadFloatBallManager {
                                 }
                             }
                         });
-                        downloadFloatBall.n(new View.OnClickListener() { // from class: com.baidu.tieba.vv6
+                        downloadFloatBall.n(new View.OnClickListener() { // from class: com.baidu.tieba.aw6
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -375,7 +375,7 @@ public final class DownloadFloatBallManager {
         }
     }
 
-    public final void q(xv6 data) {
+    public final void q(cw6 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -392,7 +392,7 @@ public final class DownloadFloatBallManager {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (h = h()) != null) {
             DownloadData downloadData = new DownloadData(DownloadFloatBallConfig.o.a().c() + ".v" + DownloadFloatBallConfig.o.a().d());
             downloadData.setName(DownloadFloatBallConfig.o.a().c());
-            xv6 b2 = h.b();
+            cw6 b2 = h.b();
             b2.h(m().e(downloadData));
             b2.j(DownloadFloatBallConfig.o.a().b());
             b2.m(m().d(downloadData));
@@ -405,14 +405,14 @@ public final class DownloadFloatBallManager {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0051: INVOKE  (r5v4 int A[REMOVE]) = 
-      (wrap: com.baidu.tieba.ha7 : 0x004d: INVOKE  (r1v3 com.baidu.tieba.ha7 A[REMOVE]) = (r4v0 'this' com.baidu.tieba.downloadball.DownloadFloatBallManager A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: com.baidu.tieba.downloadball.DownloadFloatBallManager.m():com.baidu.tieba.ha7)
+      (wrap: com.baidu.tieba.ma7 : 0x004d: INVOKE  (r1v3 com.baidu.tieba.ma7 A[REMOVE]) = (r4v0 'this' com.baidu.tieba.downloadball.DownloadFloatBallManager A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: com.baidu.tieba.downloadball.DownloadFloatBallManager.m():com.baidu.tieba.ma7)
       (r5v0 com.baidu.tbadk.download.DownloadData)
-     type: VIRTUAL call: com.baidu.tieba.ha7.d(com.baidu.tbadk.download.DownloadData):int), ('%' char)] */
+     type: VIRTUAL call: com.baidu.tieba.ma7.d(com.baidu.tbadk.download.DownloadData):int), ('%' char)] */
     public final String j(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, downloadData)) == null) {
-            if (km9.i(DownloadFloatBallConfig.o.a().k())) {
+            if (co9.i(DownloadFloatBallConfig.o.a().k())) {
                 return DownloadFloatBallConfig.o.a().f();
             }
             int e2 = m().e(downloadData);

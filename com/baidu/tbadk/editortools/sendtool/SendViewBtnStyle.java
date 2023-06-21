@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi5;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.qi5;
-import com.baidu.tieba.uh5;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.ma5;
+import com.baidu.tieba.ui5;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
+public class SendViewBtnStyle extends TBSpecificationBtn implements li5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int t = 1;
     public static int u;
@@ -65,7 +65,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.H(new uh5(8, -1, null));
+                this.a.H(new yh5(8, -1, null));
             }
         }
     }
@@ -83,8 +83,8 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
                 return;
             }
         }
-        v = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds39);
-        w = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        v = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds39);
+        w = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,7 +108,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         this.q = new boolean[]{false, false, false, false, false};
         this.r = new int[]{0, 0};
         this.s = u;
-        setLayoutParams(new FrameLayout.LayoutParams(vi.g(getContext(), R.dimen.tbds151) + v, vi.g(getContext(), R.dimen.tbds75) + (w * 2)));
+        setLayoutParams(new FrameLayout.LayoutParams(wi.g(getContext(), R.dimen.tbds151) + v, wi.g(getContext(), R.dimen.tbds75) + (w * 2)));
         int i3 = v;
         int i4 = w;
         setPadding(i3, i4, 0, i4);
@@ -118,13 +118,13 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.vh5
-    public void C(uh5 uh5Var) {
+    @Override // com.baidu.tieba.zh5
+    public void C(yh5 yh5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, uh5Var) != null) || uh5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, yh5Var) != null) || yh5Var == null) {
             return;
         }
-        int i = uh5Var.a;
+        int i = yh5Var.a;
         if (i != 4) {
             if (i != 39 && i != 28) {
                 if (i != 29) {
@@ -147,15 +147,15 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
                             this.q[2] = false;
                             break;
                         case 12:
-                            Object obj = uh5Var.c;
-                            if (!(obj instanceof qi5)) {
+                            Object obj = yh5Var.c;
+                            if (!(obj instanceof ui5)) {
                                 return;
                             }
-                            qi5 qi5Var = (qi5) obj;
-                            WriteImagesInfo writeImagesInfo = qi5Var.a;
+                            ui5 ui5Var = (ui5) obj;
+                            WriteImagesInfo writeImagesInfo = ui5Var.a;
                             if (writeImagesInfo != null) {
                                 if (writeImagesInfo.getChosedFiles() != null) {
-                                    this.r[0] = qi5Var.a.getChosedFiles().size();
+                                    this.r[0] = ui5Var.a.getChosedFiles().size();
                                 } else {
                                     this.r[0] = 0;
                                 }
@@ -185,7 +185,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
                 this.q[3] = true;
             }
         } else {
-            Object obj2 = uh5Var.c;
+            Object obj2 = yh5Var.c;
             if (obj2 != null && (!(obj2 instanceof String) || !StringUtils.isNull((String) obj2))) {
                 this.q[0] = true;
             } else {
@@ -195,26 +195,26 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         q(this.s);
     }
 
-    @Override // com.baidu.tieba.hi5
-    public void H(uh5 uh5Var) {
+    @Override // com.baidu.tieba.li5
+    public void H(yh5 yh5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uh5Var) == null) && (editorTools = this.o) != null) {
-            editorTools.C(uh5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yh5Var) == null) && (editorTools = this.o) != null) {
+            editorTools.C(yh5Var);
         }
     }
 
-    @Override // com.baidu.tieba.hi5
+    @Override // com.baidu.tieba.li5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            la5 la5Var = new la5();
-            la5Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-            setConfig(la5Var);
+            ma5 ma5Var = new ma5();
+            ma5Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            setConfig(ma5Var);
         }
     }
 
-    @Override // com.baidu.tieba.hi5
+    @Override // com.baidu.tieba.li5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -222,7 +222,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         }
     }
 
-    @Override // com.baidu.tieba.hi5
+    @Override // com.baidu.tieba.li5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -237,7 +237,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         }
     }
 
-    @Override // com.baidu.tieba.hi5
+    @Override // com.baidu.tieba.li5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -245,7 +245,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         }
     }
 
-    @Override // com.baidu.tieba.hi5
+    @Override // com.baidu.tieba.li5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.hi5
+    @Override // com.baidu.tieba.li5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -263,7 +263,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements hi5 {
         }
     }
 
-    @Override // com.baidu.tieba.hi5
+    @Override // com.baidu.tieba.li5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

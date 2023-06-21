@@ -1,9 +1,15 @@
 package com.baidu.tieba;
+
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes8.dex */
 public interface uw1 {
-    void a();
+    ks2 a(ZeusPluginFactory.Invoker invoker, String str);
 
-    void b();
+    ku2 b(ZeusPluginFactory.Invoker invoker, String str);
 
-    void c();
+    ku2 c(ZeusPluginFactory.Invoker invoker, String str);
+
+    js2 d(ZeusPluginFactory.Invoker invoker, String str);
+
+    hq2 e(ZeusPluginFactory.Invoker invoker, String str);
 }

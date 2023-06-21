@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.bz9;
-import com.baidu.tieba.ip;
-import com.baidu.tieba.ir5;
-import com.baidu.tieba.li;
-import com.baidu.tieba.r5a;
-import com.baidu.tieba.rc5;
-import com.baidu.tieba.xy9;
+import com.baidu.tieba.i7a;
+import com.baidu.tieba.jp;
+import com.baidu.tieba.mi;
+import com.baidu.tieba.nr5;
+import com.baidu.tieba.p0a;
+import com.baidu.tieba.sc5;
+import com.baidu.tieba.t0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@ip
+@jp
 /* loaded from: classes4.dex */
-public class UegTbJsBridge implements xy9 {
+public class UegTbJsBridge implements p0a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -63,24 +63,24 @@ public class UegTbJsBridge implements xy9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
             try {
-                li.a(new JSONObject(str).optString("content"));
+                mi.a(new JSONObject(str).optString("content"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public bz9 novelPayResultToClient(boolean z) {
+    public t0a novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            bz9 bz9Var = new bz9();
+            t0a t0aVar = new t0a();
             if (z) {
-                ir5.d();
+                nr5.d();
             }
-            return bz9Var;
+            return t0aVar;
         }
-        return (bz9) invokeZ.objValue;
+        return (t0a) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements xy9 {
         this.mTbPageContext = tbPageContext;
     }
 
-    public bz9 bindingMobileNumber() {
+    public t0a bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bz9 bz9Var = new bz9();
+            t0a t0aVar = new t0a();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, rc5.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, sc5.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return bz9Var;
+            return t0aVar;
         }
-        return (bz9) invokeV.objValue;
+        return (t0a) invokeV.objValue;
     }
 
-    public bz9 callNativeSMS(String str, String str2) {
+    public t0a callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            bz9 bz9Var = new bz9();
+            t0a t0aVar = new t0a();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return bz9Var;
+            return t0aVar;
         }
-        return (bz9) invokeLL.objValue;
+        return (t0a) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.xy9
+    @Override // com.baidu.tieba.p0a
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements xy9 {
         return invokeLLLL.booleanValue;
     }
 
-    public bz9 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public t0a recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            bz9 bz9Var = new bz9();
+            t0a t0aVar = new t0a();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.W(true);
-            ir5.e(str2, readRecordsData);
-            return bz9Var;
+            nr5.e(str2, readRecordsData);
+            return t0aVar;
         }
-        return (bz9) invokeLLLLL.objValue;
+        return (t0a) invokeLLLLL.objValue;
     }
 
-    public bz9 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public t0a setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            bz9 bz9Var = new bz9();
+            t0a t0aVar = new t0a();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements xy9 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                r5a.h(build);
-                r5a.g(build);
+                i7a.h(build);
+                i7a.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return bz9Var;
+            return t0aVar;
         }
-        return (bz9) invokeCommon.objValue;
+        return (t0a) invokeCommon.objValue;
     }
 }

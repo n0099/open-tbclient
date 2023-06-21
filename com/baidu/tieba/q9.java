@@ -24,8 +24,8 @@ public class q9 {
             if (context instanceof l9) {
                 return ((l9) context).getPageContext();
             }
-            Field b = mi.b(context.getClass(), p9.class);
-            if (b == null || (a = mi.a(context, b)) == null || !(a instanceof p9) || !(a instanceof l9)) {
+            Field b = ni.b(context.getClass(), p9.class);
+            if (b == null || (a = ni.a(context, b)) == null || !(a instanceof p9) || !(a instanceof l9)) {
                 return null;
             }
             return ((l9) a).getPageContext();
@@ -50,8 +50,8 @@ public class q9 {
                     return (p9) orignalPage;
                 }
             }
-            Field b = mi.b(context.getClass(), p9.class);
-            if (b == null || (a = mi.a(context, b)) == null || !(a instanceof p9)) {
+            Field b = ni.b(context.getClass(), p9.class);
+            if (b == null || (a = ni.a(context, b)) == null || !(a instanceof p9)) {
                 return null;
             }
             return (p9) a;
@@ -70,8 +70,8 @@ public class q9 {
             if (context instanceof l9) {
                 return (l9) context;
             }
-            Field b = mi.b(context.getClass(), p9.class);
-            if (b == null || (a = mi.a(context, b)) == null || !(a instanceof p9) || !(a instanceof l9)) {
+            Field b = ni.b(context.getClass(), p9.class);
+            if (b == null || (a = ni.a(context, b)) == null || !(a instanceof p9) || !(a instanceof l9)) {
                 return null;
             }
             return (l9) a;

@@ -1,18 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
+import android.text.TextPaint;
 import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class f77 implements z67 {
+public class f77 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View widget) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, widget) == null) {
+            Intrinsics.checkNotNullParameter(widget, "widget");
+        }
+    }
 
     public f77() {
         Interceptable interceptable = $ic;
@@ -28,18 +37,25 @@ public final class f77 implements z67 {
         }
     }
 
-    @Override // com.baidu.tieba.z67
-    public SpannableString b(Context context, a67 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString j = q16.j(richTextData.b());
-            Intrinsics.checkNotNullExpressionValue(j, "getFaceSpannableString(richTextData.emoji)");
-            return j;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
-        return (SpannableString) invokeLLL.objValue;
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint ds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ds) == null) {
+            Intrinsics.checkNotNullParameter(ds, "ds");
+            int i = this.a;
+            if (i == 0) {
+                ds.setColor(ds.linkColor);
+            } else {
+                ds.setColor(i);
+            }
+            ds.setUnderlineText(false);
+        }
     }
 }

@@ -1,241 +1,326 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fx5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile fx5 e = null;
+    public static String f = "ad_download_center";
+    public static int g = 3;
+    public static int h = 4;
+    public static String i = "MYPAGE_TAB";
+    public static String j = "POINT_VISIBLE";
+    public static String k = "POINT_GONE";
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Handler a;
-    public final int b;
-    public final long c;
-    public int d;
-    @Nullable
-    public Runnable e;
+    public SharedPreferences a;
+    public SharedPreferences.Editor b;
+    public String c;
+    public boolean d;
 
-    /* loaded from: classes5.dex */
-    public interface c<T> {
-        void call(boolean z, T t);
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements c<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ fx5 b;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    bVar.b.k(bVar.a);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947779526, "Lcom/baidu/tieba/fx5;")) == null) {
+            return;
         }
-
-        public b(fx5 fx5Var, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fx5Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fx5Var;
-            this.a = cVar;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fx5.c
-        public void call(boolean z, Void r6) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, r6) == null) && !z) {
-                this.b.e = new a(this);
-                this.b.a.postDelayed(this.b.e, this.b.c);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947779526, "Lcom/baidu/tieba/fx5;");
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Callable a;
-        public final /* synthetic */ fx5 b;
-
-        public a(fx5 fx5Var, Callable callable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fx5Var, callable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fx5Var;
-            this.a = callable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.l(this.a);
-            }
-        }
-    }
-
-    public fx5(int i, int i2, @NonNull TimeUnit timeUnit) {
+    public fx5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), timeUnit};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.b = i;
-        this.c = timeUnit.toMillis(i2);
+        this.d = false;
+        this.c = TbadkCoreApplication.getCurrentAccount();
+        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("person_download_apks", 0);
+        this.a = sharedPreferences;
+        this.b = sharedPreferences.edit();
     }
 
-    public void i(@NonNull c<c<Void>> cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            h();
-            k(cVar);
-        }
-    }
-
-    public void j(@NonNull Callable<Boolean> callable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable) == null) {
-            h();
-            l(callable);
-        }
-    }
-
-    @NonNull
-    public static fx5 g() {
+    public static fx5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new fx5(10, 1000, TimeUnit.MILLISECONDS);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (fx5.class) {
+                    if (e == null) {
+                        e = new fx5();
+                    }
+                }
+            }
+            return e;
         }
         return (fx5) invokeV.objValue;
     }
 
-    public void h() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Runnable runnable = this.e;
-            if (runnable != null) {
-                this.a.removeCallbacks(runnable);
-                this.e = null;
-            }
-            this.d = 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.FALSE));
         }
     }
 
-    public final void k(@NonNull c<c<Void>> cVar) {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            try {
-                if (this.d < this.b) {
-                    boolean z = true;
-                    int i = this.d + 1;
-                    this.d = i;
-                    if (i < this.b) {
-                        z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && f()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921744));
+            r(i, false);
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.TRUE));
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921741));
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921742));
+        }
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(str);
+        try {
+            if (file.exists()) {
+                file.delete();
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (str != null && !str.equals("")) {
+                try {
+                    if (new File(str).exists()) {
+                        return true;
                     }
-                    cVar.call(z, new b(this, cVar));
+                } catch (Exception unused) {
                 }
-            } catch (Exception e) {
-                BdLog.e(e);
-                Runnable runnable = this.e;
-                if (runnable != null) {
-                    this.a.removeCallbacks(runnable);
-                    this.e = null;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (str != null && !"".equals(str)) {
+                try {
+                    if (TbadkCoreApplication.getInst().getPackageManager().getApplicationInfo(str, 0) != null) {
+                        return true;
+                    }
+                } catch (PackageManager.NameNotFoundException unused) {
                 }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            if (z) {
+                n(true);
+                b();
+                g();
+                return;
+            }
+            n(false);
+            p();
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            HashMap<String, String> e2 = e();
+            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0 && e2.containsKey(str)) {
+                e2.remove(str);
+                m(e2);
             }
         }
     }
 
-    public final void l(@NonNull Callable<Boolean> callable) {
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public HashMap<String, String> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                this.c = TbadkCoreApplication.getCurrentAccount();
+            }
+            HashMap<String, String> hashMap = new HashMap<>();
             try {
-                if (this.d < this.b) {
-                    this.d++;
-                    if (!callable.call().booleanValue()) {
-                        a aVar = new a(this, callable);
-                        this.e = aVar;
-                        this.a.postDelayed(aVar, this.c);
+                JSONArray jSONArray = new JSONArray(this.a.getString(this.c, ""));
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    JSONArray names = jSONObject.names();
+                    if (names != null) {
+                        for (int i3 = 0; i3 < names.length(); i3++) {
+                            String string = names.getString(i3);
+                            hashMap.put(string, jSONObject.getString(string));
+                        }
                     }
                 }
-            } catch (Exception e) {
-                BdLog.e(e);
-                Runnable runnable = this.e;
-                if (runnable != null) {
-                    this.a.removeCallbacks(runnable);
-                    this.e = null;
+                return hashMap;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HashMap<String, String> e2 = e();
+            if (e2 != null && e2.size() > 0) {
+                for (Map.Entry<String, String> entry : e2.entrySet()) {
+                    if (TextUtils.isEmpty(entry.getKey()) || TextUtils.isEmpty(entry.getValue())) {
+                        break;
+                    } else if (entry.getKey().equals(i) && entry.getValue().equals(j)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && str != null && str.length() > 0 && i(str)) {
+            File file = new File(str);
+            try {
+                Intent intent = new Intent();
+                intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
+                intent.setDataAndType(UtilHelper.getUriFromFile(file, intent, TbadkCoreApplication.getInst()), "application/vnd.android.package-archive");
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                TbadkCoreApplication.getInst().startActivity(intent);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void m(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return;
+                }
+                this.c = TbadkCoreApplication.getCurrentAccount();
+            }
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                try {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                } catch (JSONException unused) {
+                }
+            }
+            jSONArray.put(jSONObject);
+            this.b.putString(this.c, jSONArray.toString());
+            this.b.commit();
+        }
+    }
+
+    public void r(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
+            HashMap<String, String> e2 = e();
+            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0) {
+                for (Map.Entry<String, String> entry : e2.entrySet()) {
+                    if (entry != null && e2.containsKey(str)) {
+                        if (z) {
+                            e2.put(str, j);
+                        } else {
+                            e2.put(str, k);
+                        }
+                        m(e2);
+                    }
                 }
             }
         }

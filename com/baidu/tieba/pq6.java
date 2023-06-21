@@ -1,25 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class pq6 implements m87 {
+public class pq6 extends l67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.m87
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
 
     public pq6() {
         Interceptable interceptable = $ic;
@@ -35,16 +25,18 @@ public final class pq6 implements m87 {
         }
     }
 
-    @Override // com.baidu.tieba.m87
-    public Map<String, String> a(y47 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l67
+    @NonNull
+    public o87<?> e(@NonNull e57<?> e57Var, @NonNull q57 q57Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.put("obj_locate", "2");
-            return hashMap;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, e57Var, q57Var)) == null) {
+            l57 l57Var = new l57();
+            l57Var.c = e57Var;
+            l57Var.b = q57Var.a();
+            l57Var.a = q57Var.b();
+            return l57Var;
         }
-        return (Map) invokeL.objValue;
+        return (o87) invokeLL.objValue;
     }
 }

@@ -12,27 +12,27 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.webviewx.container.base.AbsContainer;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo0;
-import com.baidu.tieba.gb1;
-import com.baidu.tieba.lb1;
+import com.baidu.tieba.fo0;
+import com.baidu.tieba.hb1;
 import com.baidu.tieba.mb1;
-import com.baidu.tieba.pb1;
+import com.baidu.tieba.nb1;
 import com.baidu.tieba.qb1;
+import com.baidu.tieba.rb1;
 /* loaded from: classes3.dex */
-public class AdWebActivity extends BaseActivity implements SlideInterceptor, lb1, mb1 {
-    public final AbsContainer u = gb1.a.b(this, this, eo0.b().a().a("key_webview_core_type", 0));
+public class AdWebActivity extends BaseActivity implements SlideInterceptor, mb1, nb1 {
+    public final AbsContainer u = hb1.a.b(this, this, fo0.b().a().a("key_webview_core_type", 0));
 
-    @Override // com.baidu.tieba.lb1
+    @Override // com.baidu.tieba.mb1
     public boolean f() {
         return false;
     }
 
-    @Override // com.baidu.tieba.mb1
+    @Override // com.baidu.tieba.nb1
     public boolean g() {
         return false;
     }
 
-    @Override // com.baidu.tieba.lb1
+    @Override // com.baidu.tieba.mb1
     @NonNull
     public Activity getActivity() {
         return this;
@@ -68,7 +68,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, lb1
         this.u.u();
     }
 
-    @Override // com.baidu.tieba.lb1
+    @Override // com.baidu.tieba.mb1
     public void d() {
         finish();
     }
@@ -85,7 +85,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, lb1
         }
         this.u.x("1");
         this.u.o();
-        pb1.f().a(getActivity());
+        qb1.f().a(getActivity());
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -108,7 +108,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, lb1
             return false;
         }
         requestWindowFeature(1);
-        if (qb1.b.a().a(getIntent())) {
+        if (rb1.b.a().a(getIntent())) {
             setPendingTransition(0, 0, 0, 0);
             forceActivityTransparent(true);
         } else {

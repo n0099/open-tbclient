@@ -101,11 +101,11 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
         @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
         /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class C07801<T> implements FlowCollector, SuspendFunction {
+        public static final class C07811<T> implements FlowCollector, SuspendFunction {
             public final /* synthetic */ int $i;
             public final /* synthetic */ Channel<IndexedValue<Object>> $resultChannel;
 
-            public C07801(Channel<IndexedValue<Object>> channel, int i) {
+            public C07811(Channel<IndexedValue<Object>> channel, int i) {
                 this.$resultChannel = channel;
                 this.$i = i;
             }
@@ -182,9 +182,9 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
                 } else {
                     ResultKt.throwOnFailure(obj);
                     Flow flow = this.$flows[this.$i];
-                    C07801 c07801 = new C07801(this.$resultChannel, this.$i);
+                    C07811 c07811 = new C07811(this.$resultChannel, this.$i);
                     this.label = 1;
-                    if (flow.collect(c07801, this) == coroutine_suspended) {
+                    if (flow.collect(c07811, this) == coroutine_suspended) {
                         return coroutine_suspended;
                     }
                 }

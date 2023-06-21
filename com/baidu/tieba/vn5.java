@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
 /* loaded from: classes8.dex */
 public interface vn5 {
-    void a(long j, int i, @NonNull String str);
+    void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse);
 }

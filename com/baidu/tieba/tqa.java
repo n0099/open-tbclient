@@ -1,69 +1,142 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class tqa {
+public class tqa {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile oqa a;
+    public static lqa b;
+    public static nqa c;
+    public static mqa d;
+    public static npa e;
+    public static rpa f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public tqa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            d().edit().putBoolean(str, true).apply();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public static oqa d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return d().getBoolean(str, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (tqa.class) {
+                if (a == null) {
+                    a = sqa.a();
+                }
+            }
+            return a;
         }
-        return invokeL.booleanValue;
+        return (oqa) invokeV.objValue;
     }
 
-    public static long c(String str) {
-        InterceptResult invokeL;
+    public static lqa a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return d().getLong(str, 0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            lqa lqaVar = b;
+            if (lqaVar != null) {
+                return lqaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                b = a.a();
+            }
+            return b;
         }
-        return invokeL.longValue;
+        return (lqa) invokeV.objValue;
     }
 
-    public static SharedPreferences d() {
+    public static mqa b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            mqa mqaVar = d;
+            if (mqaVar != null) {
+                return mqaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                d = a.e();
+            }
+            return d;
+        }
+        return (mqa) invokeV.objValue;
+    }
+
+    public static nqa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return ppa.h().getContext().getSharedPreferences("baidu_ab_general_config", 0);
+            nqa nqaVar = c;
+            if (nqaVar != null) {
+                return nqaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                c = a.b();
+            }
+            return c;
         }
-        return (SharedPreferences) invokeV.objValue;
+        return (nqa) invokeV.objValue;
     }
 
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
+    public static npa e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            return d().getString(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            npa npaVar = e;
+            if (npaVar != null) {
+                return npaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                e = a.c();
+            }
+            return e;
         }
-        return (String) invokeLL.objValue;
+        return (npa) invokeV.objValue;
     }
 
-    public static void f(String str, String str2) {
+    public static rpa f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            d().edit().putString(str, str2).apply();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            rpa rpaVar = f;
+            if (rpaVar != null) {
+                return rpaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                f = a.d();
+            }
+            return f;
         }
-    }
-
-    public static void g(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
-            d().edit().putLong(str, j).apply();
-        }
+        return (rpa) invokeV.objValue;
     }
 }

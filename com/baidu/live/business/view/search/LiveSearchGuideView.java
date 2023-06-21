@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yd0;
+import com.baidu.tieba.zd0;
 /* loaded from: classes3.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public ImageView a;
@@ -29,32 +29,32 @@ public class LiveSearchGuideView extends FrameLayout {
     }
 
     public final void a() {
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c1, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09153b);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09153c);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05bf, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091541);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091542);
         c();
     }
 
     public void c() {
         TextView textView = this.b;
         if (textView != null) {
-            yd0.h(textView, 1, 12.0f);
+            zd0.h(textView, 1, 12.0f);
         }
     }
 
     public void b(String str, boolean z) {
         if (this.b != null) {
             if (z) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ef2);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ef0);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ef6);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ef4);
                 this.b.setTextColor(-1);
             } else if ("day".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ef1);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080eef);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ef5);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ef3);
                 this.b.setTextColor(-1);
             } else if ("night".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ef2);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ef0);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ef6);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ef4);
                 this.b.setTextColor(-1);
             }
         }

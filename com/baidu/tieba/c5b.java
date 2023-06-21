@@ -1,70 +1,239 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.view.View;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.flavor.Flavors;
+import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsNativeAd;
+import com.qq.e.ads.rewardvideo.RewardVideoAD;
+import com.qq.e.ads.rewardvideo.RewardVideoADListener;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
+import com.qq.e.comm.util.AdError;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class c5b extends k5b {
+public class c5b extends o4b<o5b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ o4b c;
-    public final /* synthetic */ z4b d;
+    public ModuleConfigGdt e;
 
-    public c5b(z4b z4bVar, o4b o4bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c5b(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z4bVar, o4bVar};
+            Object[] objArr = {pid, moduleConfigGdt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = z4bVar;
-        this.c = o4bVar;
+        this.e = moduleConfigGdt;
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new p4b(pid) : (AdRipper) invokeL.objValue;
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked((z4b) this.c, this.b, new String[0]);
-            this.b = true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            o5b o5bVar = (o5b) obj;
         }
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onAdShow(KsNativeAd ksNativeAd) {
+    @Override // com.baidu.tieba.o4b
+    public void e(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdShow((z4b) this.c, this.a, new String[0]);
-            this.a = true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
+            onLoadStart(funAdSlot, tid);
+            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
+            Ssp.Pid pid = this.mPid;
+            int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
+            if (checkForbidStatus != 0) {
+                onError(checkForbidStatus != 5004 ? checkForbidStatus != 109502 ? "" : "toomuch" : "cheat", tid);
+                return;
+            }
+            RewardVideoAD rewardVideoAD = new RewardVideoAD(context.getApplicationContext(), this.mPid.pid, new a(this, r2, tid), true ^ this.e.autoPlayMuted);
+            RewardVideoAD[] rewardVideoADArr = {rewardVideoAD};
+            rewardVideoAD.setServerSideVerificationOptions(new ServerSideVerificationOptions.Builder().setUserId(FunAdSdk.getFunAdConfig().userId).setCustomData(buildExtra).build());
+            rewardVideoAD.loadAD();
         }
+    }
+
+    @Override // com.baidu.tieba.o4b, com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            e(context, funAdSlot);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements RewardVideoADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public o5b c;
+        public final /* synthetic */ RewardVideoAD[] d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ c5b f;
+
+        public a(c5b c5bVar, RewardVideoAD[] rewardVideoADArr, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c5bVar, rewardVideoADArr, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = c5bVar;
+            this.d = rewardVideoADArr;
+            this.e = str;
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                this.f.onAdClicked((c5b) this.c, this.b, (Map<String, String>) hashMap);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.f.onAdClose((c5b) this.c, this.e);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADExpose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                this.f.onAdShow((c5b) this.c, this.a, (Map<String, String>) hashMap);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADLoad() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                o5b o5bVar = new o5b(this.d[0]);
+                this.c = o5bVar;
+                this.f.onAdLoaded(o5bVar, this.e);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onError(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
+                LogPrinter.e("GDTRewardVideoAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.f.onError(adError.getErrorCode(), adError.getErrorMsg(), this.e);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onReward(Map<String, Object> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
+                LogPrinter.d();
+                String str = (String) map.get("transId");
+                this.c.b = str;
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                hashMap.put("p_trs_id", str);
+                this.f.onRewardedVideo((c5b) this.c, (Map<String, String>) hashMap);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            o5b o5bVar = (o5b) obj;
+            onShowStart(o5bVar);
+            ((RewardVideoAD) o5bVar.a).showAD(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

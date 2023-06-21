@@ -8,12 +8,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.CoverFlowLocalView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd7;
-import com.baidu.tieba.t75;
+import com.baidu.tieba.kd7;
 import com.baidu.tieba.u75;
 import com.baidu.tieba.v75;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.x75;
+import com.baidu.tieba.w75;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.y75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,13 +24,13 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowLocalView<fd7> a;
-    public v75<fd7> b;
-    public List<fd7> c;
-    public v75<fd7> d;
+    public CoverFlowLocalView<kd7> a;
+    public w75<kd7> b;
+    public List<kd7> c;
+    public w75<kd7> d;
 
     /* loaded from: classes5.dex */
-    public class a extends t75 {
+    public class a extends u75 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -53,7 +53,7 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
+        @Override // com.baidu.tieba.u75, com.baidu.tieba.s75
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -68,37 +68,37 @@ public class LocalBannerLayout extends RelativeLayout {
             return (TbImageView) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
-        public u75 a() {
+        @Override // com.baidu.tieba.u75, com.baidu.tieba.s75
+        public v75 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                u75 u75Var = new u75();
-                u75Var.c(R.drawable.icon_mask_goods_select8);
-                u75Var.g(R.drawable.icon_mask_goods_unselect8);
-                u75Var.d(81);
-                u75Var.e(R.dimen.tbds36);
-                u75Var.h(R.dimen.tbds20);
-                return u75Var;
+                v75 v75Var = new v75();
+                v75Var.c(R.drawable.icon_mask_goods_select8);
+                v75Var.g(R.drawable.icon_mask_goods_unselect8);
+                v75Var.d(81);
+                v75Var.e(R.dimen.tbds36);
+                v75Var.h(R.dimen.tbds20);
+                return v75Var;
             }
-            return (u75) invokeV.objValue;
+            return (v75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.t75, com.baidu.tieba.r75
-        public x75 c() {
+        @Override // com.baidu.tieba.u75, com.baidu.tieba.s75
+        public y75 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                x75 x75Var = new x75();
-                x75Var.a(vi.g(this.a.getContext(), R.dimen.tbds690));
-                return x75Var;
+                y75 y75Var = new y75();
+                y75Var.a(wi.g(this.a.getContext(), R.dimen.tbds690));
+                return y75Var;
             }
-            return (x75) invokeV.objValue;
+            return (y75) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements v75<fd7> {
+    public class b implements w75<kd7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -121,7 +121,7 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.baidu.tieba.v75
+        @Override // com.baidu.tieba.w75
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
@@ -130,12 +130,12 @@ public class LocalBannerLayout extends RelativeLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v75
+        @Override // com.baidu.tieba.w75
         /* renamed from: c */
-        public void a(int i, fd7 fd7Var) {
+        public void a(int i, kd7 kd7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, fd7Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
-                this.a.b.a(i, fd7Var);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, kd7Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
+                this.a.b.a(i, kd7Var);
             }
         }
     }
@@ -205,7 +205,7 @@ public class LocalBannerLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(List<fd7> list) {
+    public void setData(List<kd7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.c = list;
@@ -213,10 +213,10 @@ public class LocalBannerLayout extends RelativeLayout {
         }
     }
 
-    public void setOnCoverViewCallback(v75<fd7> v75Var) {
+    public void setOnCoverViewCallback(w75<kd7> w75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v75Var) == null) {
-            this.b = v75Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w75Var) == null) {
+            this.b = w75Var;
         }
     }
 

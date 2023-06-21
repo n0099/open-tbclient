@@ -1,51 +1,318 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ufosdk.FeedbackConfigurations;
-import com.baidu.ufosdk.FeedbackManager;
-import com.baidu.ufosdk.IConfigurations;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class s5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Intent a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            b();
-            return FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).getFeedbackIntentWithCategory(0, "https://ufosdk.baidu.com/ufosdk/helpCenter/qtbMBmwrIBtM25TGeonQxQ%3D%3D");
+    /* loaded from: classes7.dex */
+    public static class a implements d55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d55 a;
+
+        public a(d55 d55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d55Var;
         }
-        return (Intent) invokeV.objValue;
+
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
+                this.a.dismiss();
+            }
+        }
     }
 
-    public static void b() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            FeedbackConfigurations.Builder builder = new FeedbackConfigurations.Builder();
-            if (TbadkCoreApplication.getInst().getVersionName() != null) {
-                str = TbadkCoreApplication.getInst().getVersionName();
-            } else {
-                str = "";
+    /* loaded from: classes7.dex */
+    public static class b implements d55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d55 a;
+
+        public b(d55 d55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            builder.setAppIdentifier(TbadkCoreApplication.getInst().getPackageName(), str);
-            builder.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                builder.setAccount(TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentAccount());
-            }
-            int i = 0;
-            builder.setFeedbackBackbar(0);
-            IConfigurations build = builder.build();
-            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
-                i = 1;
-            }
-            build.setThemeMode(i);
-            FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).initFeedbackSDK(build);
+            this.a = d55Var;
         }
+
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements d55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d55 a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ TbPageContext c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+
+        public c(d55 d55Var, int i, TbPageContext tbPageContext, int i2, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d55Var, Integer.valueOf(i), tbPageContext, Integer.valueOf(i2), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d55Var;
+            this.b = i;
+            this.c = tbPageContext;
+            this.d = i2;
+            this.e = str;
+            this.f = str2;
+        }
+
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
+                this.a.dismiss();
+                int i2 = this.b;
+                String str = null;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 != 5) {
+                                    if (i2 != 7) {
+                                        i = 0;
+                                    } else {
+                                        i = 22;
+                                    }
+                                } else {
+                                    i = 18;
+                                    TiebaStatic.log("c10767");
+                                }
+                            } else {
+                                i = 14;
+                                TiebaStatic.log("c10285");
+                                str = "4012001002";
+                            }
+                        } else {
+                            i = 11;
+                            TiebaStatic.log("c10276");
+                            str = "4011001002";
+                        }
+                    } else {
+                        i = 13;
+                        TiebaStatic.log("c10282");
+                        str = "4012001001";
+                    }
+                } else {
+                    i = 10;
+                    TiebaStatic.log("c10271");
+                    str = "4011001001";
+                }
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.c.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
+                if (!StringUtils.isNULL(str)) {
+                    memberPayActivityConfig.setSceneId(str);
+                }
+                memberPayActivityConfig.setFromScence(this.d);
+                memberPayActivityConfig.setReferPageClickZone(this.e, this.f);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d implements d55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d55 a;
+
+        public d(d55 d55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d55Var;
+        }
+
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class e implements d55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d55 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ TbPageContext c;
+
+        public e(d55 d55Var, String str, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d55Var, str, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d55Var;
+            this.b = str;
+            this.c = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.d55.e
+        public void onClick(d55 d55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
+                this.a.dismiss();
+                if (this.b == null) {
+                    return;
+                }
+                TbadkCoreApplication.getInst().setThemeWebviewOpen(true);
+                rx4.q(this.c.getPageActivity(), this.b);
+            }
+        }
+    }
+
+    public static boolean a(DressItemData dressItemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dressItemData)) == null) {
+            int freeUserLevel = dressItemData.getFreeUserLevel();
+            if (dressItemData.isDefault() || freeUserLevel == 0) {
+                return true;
+            }
+            if (freeUserLevel == 100) {
+                if (dressItemData.getActivityFinish() != 0) {
+                    return true;
+                }
+                return false;
+            } else if (freeUserLevel == 101) {
+                if (TbadkCoreApplication.getCurrentMemberType() == 3) {
+                    return true;
+                }
+                return false;
+            } else if (TbadkCoreApplication.getCurrentMemberType() >= 2 && TbadkCoreApplication.getCurrentVipLevel() >= freeUserLevel) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(TbPageContext<?> tbPageContext, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(65537, null, tbPageContext, i, str) != null) || tbPageContext == null) {
+            return;
+        }
+        d55 d55Var = new d55(tbPageContext.getPageActivity());
+        d55Var.setMessageId(R.string.obfuscated_res_0x7f0f164b);
+        d55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ca, new d(d55Var));
+        d55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f164a, new e(d55Var, str, tbPageContext));
+        d55Var.create(tbPageContext);
+        d55Var.show();
+    }
+
+    public static void c(TbPageContext<?> tbPageContext, int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || tbPageContext == null) {
+            return;
+        }
+        d55 d55Var = new d55(tbPageContext.getPageActivity());
+        d55Var.setButtonTextColor(R.color.CAM_X0305);
+        d55Var.setTitle(str);
+        a aVar = new a(d55Var);
+        d55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ca, aVar);
+        d55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b2d, aVar);
+        d55Var.create(tbPageContext);
+        d55Var.show();
+    }
+
+    public static void d(TbPageContext<?> tbPageContext, int i, String str, int i2, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3}) != null) || tbPageContext == null) {
+            return;
+        }
+        d55 d55Var = new d55(tbPageContext.getPageActivity());
+        d55Var.setButtonTextColor(R.color.CAM_X0305);
+        d55Var.setMessage(str);
+        d55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ca, new b(d55Var));
+        d55Var.setPositiveButton(R.string.open_now, new c(d55Var, i, tbPageContext, i2, str2, str3));
+        d55Var.create(tbPageContext);
+        d55Var.show();
     }
 }

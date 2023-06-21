@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface wb {
-    gn a(byte[] bArr, int i, int i2);
+    hn a(byte[] bArr, int i, int i2);
 
-    gn get(String str);
+    hn get(String str);
 
     /* loaded from: classes8.dex */
     public static class a implements wb {
@@ -60,7 +60,7 @@ public interface wb {
         }
 
         @Override // com.baidu.tieba.wb
-        public gn a(byte[] bArr, int i, int i2) {
+        public hn a(byte[] bArr, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -72,11 +72,11 @@ public interface wb {
                 }
                 return null;
             }
-            return (gn) invokeLII.objValue;
+            return (hn) invokeLII.objValue;
         }
 
         @Override // com.baidu.tieba.wb
-        public gn get(String str) {
+        public hn get(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -88,7 +88,7 @@ public interface wb {
                 }
                 return null;
             }
-            return (gn) invokeL.objValue;
+            return (hn) invokeL.objValue;
         }
     }
 }

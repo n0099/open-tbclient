@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.HorseRace;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.le7;
+import com.baidu.tieba.qe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
 public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public le7 mData;
+    public qe7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetLiveHorseRaceHttpResponseMessage() {
@@ -34,7 +34,7 @@ public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage 
                 return;
             }
         }
-        this.mData = new le7();
+        this.mData = new qe7();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,12 +57,12 @@ public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage 
         }
     }
 
-    public le7 getData() {
+    public qe7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (le7) invokeV.objValue;
+        return (qe7) invokeV.objValue;
     }
 }

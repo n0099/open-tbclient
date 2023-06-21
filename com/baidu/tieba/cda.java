@@ -1,30 +1,30 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes5.dex */
-public class cda {
+public class cda implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Handler b;
-    public final HandlerThread c;
+    public final Spannable a;
+    public w16 b;
 
-    public cda(String str) {
+    public cda(Spannable spannable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {spannable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,55 +34,62 @@ public class cda {
                 return;
             }
         }
-        this.a = str;
-        HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
-        this.c = handlerThread;
-        handlerThread.start();
+        this.b = null;
+        this.a = spannable;
     }
 
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        w16 w16Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (!(view2 instanceof TextView)) {
+                return false;
             }
-            String c = bda.c(this.a, str);
-            if (!FileUtils.isExists(c)) {
-                return null;
+            TextView textView = (TextView) view2;
+            if (action == 3 && (w16Var = this.b) != null) {
+                w16Var.h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                view2.invalidate();
+                this.b = null;
+                return false;
             }
-            Bitmap f = zua.f(c);
-            if (f != null) {
-                jda.f().g().b(str, f);
+            if (action == 1 || action == 0) {
+                int x = (int) motionEvent.getX();
+                int y = (int) motionEvent.getY();
+                Layout layout = textView.getLayout();
+                if (layout == null) {
+                    return false;
+                }
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
+                Spannable spannable = this.a;
+                if (spannable == null) {
+                    return false;
+                }
+                w16[] w16VarArr = (w16[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, w16.class);
+                if (w16VarArr != null && w16VarArr.length != 0 && w16VarArr[0] != null) {
+                    if (action == 1) {
+                        w16VarArr[0].h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                        w16VarArr[0].onClick(textView);
+                        view2.invalidate();
+                    } else {
+                        this.b = w16VarArr[0];
+                        Spannable spannable2 = this.a;
+                        Selection.setSelection(spannable2, spannable2.getSpanStart(w16VarArr[0]), this.a.getSpanEnd(w16VarArr[0]));
+                        view2.invalidate();
+                    }
+                    return true;
+                }
+                w16 w16Var2 = this.b;
+                if (w16Var2 != null) {
+                    w16Var2.h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    view2.invalidate();
+                }
+                Selection.removeSelection(this.a);
             }
-            return f;
+            return false;
         }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
-            if (this.b == null) {
-                this.b = new Handler(this.c.getLooper());
-            }
-            this.b.post(new kda(this.a, str, bitmap));
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
+        return invokeLL.booleanValue;
     }
 }

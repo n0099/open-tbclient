@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm7;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.km7;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +75,7 @@ public class GameCodeListDialog extends FrameLayout {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921640 && this.a.a != null) {
-                this.a.a.c((fm7) customResponsedMessage.getData());
+                this.a.a.c((km7) customResponsedMessage.getData());
             }
         }
     }
@@ -245,7 +245,7 @@ public class GameCodeListDialog extends FrameLayout {
                 return;
             }
         }
-        i = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds161);
+        i = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds161);
     }
 
     public void b() {
@@ -312,7 +312,7 @@ public class GameCodeListDialog extends FrameLayout {
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.b.setOnClickListener(new c(this));
         addView(this.b);
-        GameCodeListView gameCodeListView = new GameCodeListView(context, vi.j(context) - i);
+        GameCodeListView gameCodeListView = new GameCodeListView(context, wi.j(context) - i);
         this.a = gameCodeListView;
         gameCodeListView.setCancelClickListener(new d(this));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);

@@ -1,85 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class fsa implements bsa {
+public final class fsa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lta a;
-    public ExecutorService b;
-    public tta c;
-    public boolean d;
-    public int e;
-    public int f;
-    public String g;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a extends lsa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ byte[] a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ fsa d;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
 
-        public a(fsa fsaVar, byte[] bArr, int i, int i2) {
+        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fsaVar, bArr, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = fsaVar;
-            this.a = bArr;
-            this.b = i;
-            this.c = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.d.a.c(this.a, this.b, this.c);
-                } catch (Exception e) {
-                    if (this.d.c == null || this.d.d) {
-                        return;
-                    }
-                    this.d.c.onExceptionThrown(iva.g(e));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fsa a;
-
-        public b(fsa fsaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fsaVar};
+                Object[] objArr = {map, aVar, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,154 +34,58 @@ public class fsa implements bsa {
                     return;
                 }
             }
-            this.a = fsaVar;
+            this.a = map;
+            this.b = aVar;
+            this.c = str;
+            this.d = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.lsa
+        public final void a() {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.a.a();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (this.a.c == null || this.a.d) {
-                        return;
+                if (this.a != null) {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append("{");
+                    for (Map.Entry entry : this.a.entrySet()) {
+                        stringBuffer.append("\"");
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("\":\"");
+                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
+                        stringBuffer.append("\",");
                     }
-                    this.a.c.onFinishedWriting(false);
+                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
+                    stringBuffer2.append("}");
+                    this.b.w(stringBuffer2.toString());
+                }
+                try {
+                    this.b.x(isa.e().I());
+                    this.b.u(String.valueOf(System.currentTimeMillis()));
+                    this.b.t(this.c);
+                    com.baidu.ubs.analytics.a.a aVar = this.b;
+                    if (this.d == null) {
+                        str = "";
+                    } else {
+                        str = this.d;
+                    }
+                    aVar.s(str);
+                    new jra().c(this.b);
+                } catch (Exception e) {
+                    if (e.getMessage() != null) {
+                        jsa.b(e.getMessage());
+                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends tta {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fsa a;
-
-        public c(fsa fsaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fsaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fsaVar;
-        }
-
-        @Override // com.baidu.tieba.tta
-        public void onFinishedWriting(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.c == null || this.a.d) {
-                return;
-            }
-            this.a.c.onFinishedWriting(z);
-        }
-    }
-
-    public fsa(String str, int i, int i2) throws IOException {
+    public static void a(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
+            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+            aVar.v(str);
+            ksa.c(new a(map, aVar, str2, str3));
         }
-        this.e = i;
-        this.f = i2;
-        this.b = Executors.newSingleThreadExecutor();
-        this.d = false;
-    }
-
-    public void b() throws Exception {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isShutdown()) {
-            return;
-        }
-        this.b.submit(new b(this));
-        this.b.shutdown();
-    }
-
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.e = i;
-            this.f = i2;
-            try {
-                rta rtaVar = new rta(i, i2);
-                this.a = rtaVar;
-                rtaVar.b(this.g);
-                this.a.d(new c(this));
-            } catch (Exception e) {
-                e.printStackTrace();
-                tta ttaVar = this.c;
-                if (ttaVar != null) {
-                    ttaVar.onExceptionThrown(iva.g(e));
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bsa
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d(tta ttaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ttaVar) == null) {
-            this.c = ttaVar;
-        }
-    }
-
-    public void e(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = true;
-            try {
-                this.b.shutdownNow();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bsa
-    public int write(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
-            byte[] copyOf = Arrays.copyOf(bArr, bArr.length);
-            if (!this.b.isShutdown()) {
-                this.b.submit(new a(this, copyOf, i, i2));
-            }
-            return i2 - i;
-        }
-        return invokeLII.intValue;
     }
 }

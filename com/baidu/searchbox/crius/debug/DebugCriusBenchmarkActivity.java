@@ -25,7 +25,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startBenchmark() {
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09239e);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a9);
         int i = this.mBenchmarkWhich;
         if (i == 1) {
             benchmarkInflate(textView);
@@ -37,7 +37,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     }
 
     private void updatePreview() {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091eba);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ec5);
         View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) linearLayout, false);
         inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         linearLayout.removeAllViews();
@@ -106,13 +106,13 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         super.onCreate(bundle);
         setContentView(R.layout.obfuscated_res_0x7f0d002e);
         updatePreview();
-        ((Button) findViewById(R.id.obfuscated_res_0x7f090490)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
+        ((Button) findViewById(R.id.obfuscated_res_0x7f09048d)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 DebugCriusBenchmarkActivity.this.startBenchmark();
             }
         });
-        Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f0903d3);
+        Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f0903cf);
         spinner.setAdapter((SpinnerAdapter) new ArrayAdapter(this, 17367048, new String[]{"inflate", "measure", TtmlNode.TAG_LAYOUT}));
         spinner.setOnItemSelectedListener(this);
     }

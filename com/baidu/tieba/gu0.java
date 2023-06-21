@@ -1,17 +1,29 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface gu0 {
-    void mute(boolean z);
+    void a(int i);
 
-    void pause();
+    void onBufferEnd();
 
-    void resume();
+    void onBufferStart();
 
-    void setLooping(boolean z);
+    void onEnd(int i);
 
-    void setVideoScalingMode(int i);
+    void onError(int i, int i2, String str);
 
-    void start();
+    void onInfo(int i, int i2);
 
-    void stop();
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onUpdateProgress(int i, int i2, int i3);
+
+    void onVideoSizeChanged(int i, int i2);
 }

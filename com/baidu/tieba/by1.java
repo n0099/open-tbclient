@@ -1,58 +1,147 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface by1 {
+public final class by1 extends cx2<by1> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public interface a {
+        public static final String a = cx2.r("SwanApkFetcher.Params", "title");
+        public static final String b = cx2.r("SwanApkFetcher.Params", "pkg_name");
+        public static final String c = cx2.r("SwanApkFetcher.Params", "description");
+        public static final String d = cx2.r("SwanApkFetcher.Params", "should_auto_install");
+        public static final String e = cx2.r("SwanApkFetcher.Params", "current_swan_app");
+        public static final String f = cx2.r("SwanApkFetcher.Params", "content_disposition");
+        public static final String g = cx2.r("SwanApkFetcher.Params", "mime_type");
+        public static final String h = cx2.r("SwanApkFetcher.Params", HttpRequest.USER_AGENT);
+        public static final String i = cx2.r("SwanApkFetcher.Params", BreakpointSQLiteKey.CONTENT_LENGTH);
+        public static final String j = cx2.r("SwanApkFetcher.Params", MigrateStatisticUtils.EXT_INFO);
     }
 
-    void C(@NonNull Context context, @NonNull cy1 cy1Var, @NonNull a aVar);
+    public by1 M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (by1) invokeV.objValue;
+    }
 
-    boolean i();
-
-    /* loaded from: classes5.dex */
-    public static class b extends gc3 implements by1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.by1
-        public void C(Context context, cy1 cy1Var, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, cy1Var, aVar) == null) {
+    public by1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        @Override // com.baidu.tieba.by1
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
+    @Override // com.baidu.tieba.vq3
+    public /* bridge */ /* synthetic */ vq3 e() {
+        M();
+        return this;
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public by1 E(Boolean bool) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) {
+            return t(a.d, bool.booleanValue());
         }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 F(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return z(a.f, str);
+        }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 G(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return z(a.i, str);
+        }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return z(a.e, str);
+        }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return z(a.c, str);
+        }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return z(a.j, str);
+        }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return z(a.g, str);
+        }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 L(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return z(a.b, str);
+        }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 N(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return z(a.a, str);
+        }
+        return (by1) invokeL.objValue;
+    }
+
+    public by1 O(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return z(a.h, str);
+        }
+        return (by1) invokeL.objValue;
     }
 }

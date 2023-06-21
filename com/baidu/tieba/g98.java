@@ -1,23 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f98;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import protobuf.Item;
 /* loaded from: classes5.dex */
-public class g98 implements kq5 {
+public class g98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public f98.a b;
-    public r88 c;
-    public long d;
-    public int e;
+    public Long a;
+    public String b;
+    public Double c;
+    public String d;
+    public List<String> e;
+    public Double f;
+    public Integer g;
+    public String h;
+    public String i;
+    public String j;
+    public Integer k;
+    public Integer l;
+    public String m;
+    public String n;
+    public ApkDetailPojo o;
 
     public g98() {
         Interceptable interceptable = $ic;
@@ -33,103 +42,59 @@ public class g98 implements kq5 {
         }
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public static g98 a(Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public r88 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (r88) invokeV.objValue;
-    }
-
-    public f98.a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (f98.a) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static g98 a(ChatMessage chatMessage, f98.a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, chatMessage, aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
             g98 g98Var = new g98();
-            if (chatMessage == null) {
-                return g98Var;
-            }
-            aVar.h /= 100;
-            g98Var.k(chatMessage.getReadCountPv());
-            g98Var.j(aVar);
-            g98Var.g(chatMessage.getTime());
-            if (chatMessage.getObjContent() instanceof r88) {
-                g98Var.i((r88) chatMessage.getObjContent());
-            }
+            g98Var.a = item.itemId;
+            g98Var.b = item.itemName;
+            g98Var.c = item.iconSize;
+            g98Var.d = item.iconUrl;
+            g98Var.e = item.tags;
+            g98Var.f = item.score;
+            g98Var.g = item.star;
+            g98Var.h = item.buttonName;
+            g98Var.i = item.buttonLink;
+            g98Var.j = item.itemAppid;
+            g98Var.k = item.categoryId;
+            g98Var.l = item.buttonLinkType;
+            g98Var.m = item.apkName;
+            g98Var.n = item.forumName;
+            g98Var.o = ApkDetailPojo.U(item.apkDetail);
             return g98Var;
         }
-        return (g98) invokeLL.objValue;
+        return (g98) invokeL.objValue;
     }
 
-    public void g(long j) {
+    public static g98 b(tbclient.Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            g98 g98Var = new g98();
+            g98Var.a = item.item_id;
+            g98Var.b = item.item_name;
+            g98Var.c = item.icon_size;
+            g98Var.d = item.icon_url;
+            g98Var.e = item.tags;
+            g98Var.f = item.score;
+            g98Var.g = item.star;
+            g98Var.h = item.button_name;
+            g98Var.i = item.button_link;
+            g98Var.j = item.item_appid;
+            g98Var.k = item.category_id;
+            g98Var.l = item.button_link_type;
+            g98Var.m = item.apk_name;
+            g98Var.n = item.forum_name;
+            g98Var.o = ApkDetailPojo.V(item.apk_detail);
+            return g98Var;
         }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void i(r88 r88Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, r88Var) == null) {
-            this.c = r88Var;
-        }
-    }
-
-    public void j(f98.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
+        return (g98) invokeL.objValue;
     }
 }

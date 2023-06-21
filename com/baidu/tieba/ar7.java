@@ -1,105 +1,57 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.util.LongSparseArray;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.frs.view.FrsPrivateShareDialogView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.Collections;
 /* loaded from: classes5.dex */
 public class ar7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public tk7 a;
+    public zq7 b;
+    public br7 c;
+    public LongSparseArray<Integer> d;
+    public FrsFragment e;
+    public boolean f;
+    public boolean g;
+    public qy9 h;
+    public FrsSpriteGuideTipController i;
+    public CustomMessageListener j;
 
     /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ FrsViewData c;
-        public final /* synthetic */ ShareDialogConfig d;
-
-        public a(ShareItem shareItem, TbPageContext tbPageContext, FrsViewData frsViewData, ShareDialogConfig shareDialogConfig) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {shareItem, tbPageContext, frsViewData, shareDialogConfig};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = shareItem;
-            this.b = tbPageContext;
-            this.c = frsViewData;
-            this.d = shareDialogConfig;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.a.u).param("obj_type", 18).param("obj_source", 10));
-                FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(this.b.getPageActivity());
-                c55 c55Var = new c55(this.b.getPageActivity());
-                if (frsPrivateShareDialogView.d(this.c, this.b, c55Var)) {
-                    c55Var.setContentViewSize(2);
-                    c55Var.setContentView(frsPrivateShareDialogView);
-                    c55Var.create(this.b).show();
-                }
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
-                statisticItem.param("obj_param1", this.d.experimentId);
-                statisticItem.param("obj_type", 7);
-                statisticItem.param("obj_source", 6);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("fid", this.a.u);
-                statisticItem.param("fname", this.a.t);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
+    public class a implements FrsSpriteGuideTipController.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ vr7 c;
+        public final /* synthetic */ ar7 d;
 
-        public b(String str, TbPageContext tbPageContext) {
+        public a(ar7 ar7Var, String str, String str2, vr7 vr7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, tbPageContext};
+                Object[] objArr = {ar7Var, str, str2, vr7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -109,191 +61,362 @@ public class ar7 {
                     return;
                 }
             }
+            this.d = ar7Var;
             this.a = str;
-            this.b = tbPageContext;
+            this.b = str2;
+            this.c = vr7Var;
+        }
+
+        @Override // com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController.a
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.d.d(this.a, this.b, this.c);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ vr7 c;
+        public final /* synthetic */ ar7 d;
+
+        public b(ar7 ar7Var, String str, String str2, vr7 vr7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ar7Var, str, str2, vr7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ar7Var;
+            this.a = str;
+            this.b = str2;
+            this.c = vr7Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                li.a(this.a);
-                vi.Q(this.b.getPageActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.d.d(this.a, this.b, this.c);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ar7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ar7 ar7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ar7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ar7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Long)) {
+                long longValue = ((Long) customResponsedMessage.getData()).longValue();
+                if (this.a.l(longValue) && this.a.c(longValue) >= 1) {
+                    this.a.e(longValue);
+                    this.a.f = true;
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624867, "Lcom/baidu/tieba/ar7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947624867, "Lcom/baidu/tieba/ar7;");
+    public ar7(FrsFragment frsFragment, qy9 qy9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, qy9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbConfig.HTTPS_FRS_PREFIX;
+        this.c = null;
+        this.f = false;
+        this.g = false;
+        this.j = new c(this, 2921498);
+        this.c = new br7();
+        this.d = new LongSparseArray<>();
+        this.e = frsFragment;
+        this.h = qy9Var;
     }
 
-    public static ShareItem a(TbPageContext tbPageContext, FrsViewData frsViewData, String str, String str2, Uri uri, String str3) {
-        InterceptResult invokeCommon;
-        String str4;
-        String str5;
-        Uri parse;
+    public boolean o(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, frsViewData, str, str2, uri, str3})) == null) {
-            if (frsViewData != null && frsViewData.getForum() != null) {
-                str4 = frsViewData.getForum().getName();
-                str5 = frsViewData.getForum().getfShareImage();
-            } else {
-                str4 = "";
-                str5 = null;
-            }
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = str4 + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0766);
-            shareItem.w = str3;
-            shareItem.x = str2;
-            shareItem.b = true;
-            shareItem.I = 10;
-            shareItem.u = str;
-            shareItem.t = str4;
-            if (StringUtils.isNull(str5)) {
-                shareItem.C = 4;
-                shareItem.N = frsViewData.getForum().getId();
-                parse = uri;
-            } else {
-                parse = Uri.parse(str5);
-                shareItem.C = 2;
-            }
-            if (parse != null) {
-                shareItem.z = parse;
-            }
-            b(shareItem, tbPageContext, frsViewData, uri);
-            return shareItem;
-        }
-        return (ShareItem) invokeCommon.objValue;
-    }
-
-    public static void b(ShareItem shareItem, TbPageContext tbPageContext, FrsViewData frsViewData, Uri uri) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65538, null, shareItem, tbPageContext, frsViewData, uri) == null) && shareItem != null && tbPageContext != null && frsViewData != null) {
-            StringBuilder sb = new StringBuilder();
-            String str2 = "";
-            if (frsViewData.getForum() == null) {
-                str = "";
-            } else {
-                str2 = frsViewData.getForum().getName();
-                str = frsViewData.getForum().getSlogan();
-            }
-            sb.append(tbPageContext.getString(R.string.frsgroup_recommend));
-            sb.append(str2);
-            sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0766));
-            shareItem.I0 = sb.toString();
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append(str);
-            if (sb2.length() > 0) {
-                if (sb2.length() > 20) {
-                    sb2.append(sb2.substring(0, 20));
-                    sb2.append("...");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
+            if (k(str) && k(str2)) {
+                if (TimeHelper.getDayDifference(System.currentTimeMillis(), this.c.b(str, str2)) < 1) {
+                    DefaultLog.getInstance().b("FrsGuide", "显示frs吧关注引导失败: 一天内只出现一次");
+                    return false;
                 }
-                sb2.append(StringUtils.lineSeparator);
+                return true;
             }
-            if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 0) {
-                sb2.append(tbPageContext.getString(R.string.forum_friend_for_short));
-                sb2.append(" ");
-                sb2.append(StringHelper.numFormatOver10000(frsViewData.getForum().getMember_num()));
-                sb2.append(" ");
-                sb2.append(tbPageContext.getString(R.string.post_name));
-                sb2.append(" ");
-                sb2.append(StringHelper.numFormatOver10000(frsViewData.getForum().getPost_num()));
+            tr8 defaultLog = DefaultLog.getInstance();
+            defaultLog.b("FrsGuide", "显示frs吧关注引导失败: 不是有效id " + str + " " + str2);
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public ar7(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            shareItem.J0 = sb2.toString();
-            if (uri == null) {
-                uri = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
+        }
+        this.c = null;
+        this.f = false;
+        this.g = false;
+        this.j = new c(this, 2921498);
+        this.b = new zq7(str, str2);
+    }
+
+    public int c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j == 0) {
+                return 0;
             }
-            shareItem.K0 = uri;
+            Integer num = this.d.get(j);
+            if (num == null) {
+                this.d.put(j, 1);
+                return 1;
+            }
+            this.d.put(j, Integer.valueOf(num.intValue() + 1));
+            return num.intValue() + 1;
+        }
+        return invokeJ.intValue;
+    }
+
+    public final void d(String str, String str2, vr7 vr7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, vr7Var) == null) {
+            tr8 defaultLog = DefaultLog.getInstance();
+            defaultLog.c("FrsGuide", "吧关注弹窗按钮点击:吧Id：" + str + " 吧名：" + str2);
+            if (vr7Var != null) {
+                vr7Var.o(str2, str);
+            }
+            TiebaStatic.log(new StatisticItem("c13982").param("fid", str).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    public static String c(ForumData forumData) {
+    public void e(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j != 0) {
+            this.d.remove(j);
+        }
+    }
+
+    public final boolean k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, forumData)) == null) {
-            String str = null;
-            if (forumData == null || TextUtils.isEmpty(forumData.getName())) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (!StringUtils.isNull(str) && !"0".equals(str)) {
+                return true;
             }
-            try {
-                str = URLEncoder.encode(forumData.getName(), "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-            if (!TextUtils.isEmpty(forumData.forum_share_link)) {
-                return forumData.forum_share_link + "?kw=" + str + "&fr=sharewise";
-            }
-            return a + str + "&fr=sharewise";
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void d(TbPageContext tbPageContext, FrsViewData frsViewData, String str, int i, boolean z, View.OnClickListener onClickListener) {
-        Uri parse;
+    public boolean l(long j) {
+        InterceptResult invokeJ;
+        ForumData forum;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{tbPageContext, frsViewData, str, Integer.valueOf(i), Boolean.valueOf(z), onClickListener}) == null) && tbPageContext != null && frsViewData != null && frsViewData.getForum() != null) {
-            if (frsViewData.getForum().getName() != null && frsViewData.getForum().getId() != null) {
-                TiebaStatic.eventStat(tbPageContext.getPageActivity(), "frs_share", "frsclick", 1, new Object[0]);
-                String name = frsViewData.getForum().getName();
-                ForumData forum = frsViewData.getForum();
-                String c = c(forum);
-                if (frsViewData.getForum().getImage_url() == null) {
-                    parse = null;
-                } else {
-                    parse = Uri.parse(frsViewData.getForum().getImage_url());
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            qy9 qy9Var = this.h;
+            if (qy9Var == null || j == 0 || (forum = qy9Var.getForum()) == null || ug.g(forum.getId(), 0L) != j) {
+                return false;
+            }
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            tk7 tk7Var = this.a;
+            if (tk7Var != null) {
+                tk7Var.o();
+            }
+            FrsSpriteGuideTipController frsSpriteGuideTipController = this.i;
+            if (frsSpriteGuideTipController != null) {
+                frsSpriteGuideTipController.g();
+            }
+        }
+    }
+
+    public br7 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (br7) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        FrsSpriteGuideTipController frsSpriteGuideTipController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            tk7 tk7Var = this.a;
+            if ((tk7Var != null && tk7Var.p()) || ((frsSpriteGuideTipController = this.i) != null && frsSpriteGuideTipController.h())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(ForumData forumData) {
+        qy9 qy9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, forumData) == null) {
+            FrsFragment frsFragment = this.e;
+            if (frsFragment != null && frsFragment.x0() != null) {
+                if (forumData == null && (qy9Var = this.h) != null) {
+                    forumData = qy9Var.getForum();
                 }
-                Uri uri = parse;
-                String slogan = frsViewData.getForum().getSlogan();
-                ShareItem shareItem = new ShareItem();
-                shareItem.v = name + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0766);
-                shareItem.w = slogan;
-                shareItem.x = c;
-                shareItem.b = true;
-                shareItem.I = 10;
-                shareItem.u = str;
-                shareItem.t = name;
-                if (uri != null) {
-                    shareItem.z = uri;
+                if (forumData != null && forumData.isLike() != 1) {
+                    if (!this.g) {
+                        DefaultLog.getInstance().c("FrsGuide", "显示frs吧关注引导失败: 当前页面不可见");
+                        this.f = true;
+                        return;
+                    }
+                    p(forumData.getName(), forumData.getId(), forumData.getImage_url(), false);
+                    return;
                 }
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), shareItem, true);
-                shareDialogConfig.setHasSpecialItem(true);
-                shareDialogConfig.shareItem.j0 = forum;
-                shareDialogConfig.setSpecialShareItems(3, a(tbPageContext, frsViewData, str, c, uri, slogan));
-                shareDialogConfig.setIsCopyLink(true);
-                shareDialogConfig.setCustomCopyTitle(R.string.copy_link);
-                shareDialogConfig.addOutsideTextView(R.string.poster_share, R.drawable.icon_pure_share_poster40, new a(shareItem, tbPageContext, frsViewData, shareDialogConfig));
-                shareDialogConfig.setCopyLinkListener(new b(c, tbPageContext));
-                shareDialogConfig.experimentId = sn7.c();
-                tbPageContext.sendMessage(new CustomMessage(2001276, shareDialogConfig));
                 return;
             }
-            tbPageContext.showToast(tbPageContext.getString(R.string.no_forum_data));
+            DefaultLog.getInstance().c("FrsGuide", "显示frs吧关注引导失败: headerView为空");
         }
     }
 
-    public static void e(TbPageContext tbPageContext, FrsViewData frsViewData) {
+    public void n(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, frsViewData) == null) {
-            FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
-            c55 c55Var = new c55(tbPageContext.getPageActivity());
-            if (frsPrivateShareDialogView.d(frsViewData, tbPageContext, c55Var)) {
-                c55Var.setContentViewSize(2);
-                c55Var.setContentView(frsPrivateShareDialogView);
-                c55Var.create(tbPageContext).show();
+        if ((interceptable == null || interceptable.invokeLLL(1048587, this, activity, str, str2) == null) && activity != null && this.b.c()) {
+            if (this.a == null) {
+                this.a = new tk7(activity, R.id.obfuscated_res_0x7f090c90);
             }
+            this.a.s(str);
+            this.a.u(str2);
+            this.a.v();
         }
+    }
+
+    public final boolean p(String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        FrsFragment frsFragment;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
+            if (!o(TbadkCoreApplication.getCurrentAccount(), str2) || (frsFragment = this.e) == null || frsFragment.x0() == null) {
+                return false;
+            }
+            this.f = false;
+            q(this.e.getActivity(), str, str2, str3, this.e.x0().S());
+            h().c(TbadkCoreApplication.getCurrentAccount(), str2, System.currentTimeMillis(), z);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void q(Activity activity, String str, String str2, String str3, vr7 vr7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(1048590, this, activity, str, str2, str3, vr7Var) != null) || activity == null) {
+            return;
+        }
+        if (jn5.d()) {
+            tr8 defaultLog = DefaultLog.getInstance();
+            defaultLog.c("FrsGuide", "使用精灵动画吧关注提示控件吧Id：" + str2 + " 吧名：" + str);
+            FrsSpriteGuideTipController frsSpriteGuideTipController = new FrsSpriteGuideTipController(activity);
+            this.i = frsSpriteGuideTipController;
+            frsSpriteGuideTipController.i(new a(this, str2, str, vr7Var));
+            u55.g(Collections.singletonList(new uk7(activity, null, this.i)));
+        } else {
+            tr8 defaultLog2 = DefaultLog.getInstance();
+            defaultLog2.c("FrsGuide", "使用线上吧关注提示控件吧Id：" + str2 + " 吧名：" + str);
+            if (this.a == null) {
+                this.a = new tk7(activity, R.id.obfuscated_res_0x7f090c94);
+            }
+            if (!StringUtils.isNull(str3)) {
+                this.a.q(str3);
+            }
+            this.a.r(new b(this, str2, str, vr7Var));
+            u55.g(Collections.singletonList(new uk7(activity, this.a, null)));
+        }
+        tr8 defaultLog3 = DefaultLog.getInstance();
+        defaultLog3.c("FrsGuide", "吧关注弹窗曝光:吧Id：" + str2 + " 吧名：" + str);
+        TiebaStatic.log(new StatisticItem("c13894").param("fid", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 }

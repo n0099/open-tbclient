@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
 public interface yy9 {
-    boolean onJsPrompt(String str, JsPromptResult jsPromptResult);
+    boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i);
 }

@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o84;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import okhttp3.HttpUrl;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ma4 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
-    public static volatile ma4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ea4> a;
+    public List<g42> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,13 +35,15 @@ public class ma4 {
                 return;
             }
         }
-        b = is1.a;
+        b = js1.a;
     }
 
-    public ma4() {
+    public ma4(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,86 +53,85 @@ public class ma4 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-    }
-
-    public static ma4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (ma4.class) {
-                    if (c == null) {
-                        c = new ma4();
+        this.a = new ArrayList();
+        if (jSONArray == null) {
+            return;
+        }
+        if (b) {
+            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
+        }
+        int length = jSONArray.length();
+        int i3 = 0;
+        int i4 = 0;
+        for (int i5 = 0; i5 < length; i5++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("type");
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != 1095692943) {
+                    if (hashCode == 1427818632 && optString.equals("download")) {
+                        c = 1;
                     }
+                } else if (optString.equals("request")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c == 1 && i4 < 10) {
+                        this.a.add(a(optJSONObject));
+                        i4++;
+                    }
+                } else if (i3 < 3) {
+                    this.a.add(b(optJSONObject));
+                    i3++;
                 }
             }
-            return c;
-        }
-        return (ma4) invokeV.objValue;
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-            }
         }
     }
 
-    public static void a(ij2 ij2Var, String str) {
+    public final g42 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, ij2Var, str) == null) && ij2Var != null && ij2Var.w() != null && !TextUtils.isEmpty(str)) {
-            ij2Var.w().b(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            g42 g42Var = new g42();
+            g42Var.G("type", jSONObject.optString("type"));
+            g42Var.G("url", jSONObject.optString("url"));
+            g42Var.G("filePath", jSONObject.optString("filePath"));
+            g42Var.G("header", c(jSONObject.optJSONObject("header")));
+            return g42Var;
         }
+        return (g42) invokeL.objValue;
     }
 
-    public void f(ij2 ij2Var, o84.c cVar) {
-        sb4 sb4Var;
+    public final g42 b(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, ij2Var, cVar) == null) && ij2Var != null && cVar != null && (sb4Var = cVar.c) != null && sb4Var.g != null) {
-            e();
-            fv2.g0().getSwitch("swan_game_resource_preload", 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            g42 g42Var = new g42();
+            g42Var.G("type", jSONObject.optString("type"));
+            g42Var.G("url", jSONObject.optString("url"));
+            g42Var.G("responseType", jSONObject.optString("responseType"));
+            g42Var.G("header", c(jSONObject.optJSONObject("header")));
+            return g42Var;
         }
+        return (g42) invokeL.objValue;
     }
 
-    public final String c(String str, int i) {
-        InterceptResult invokeLI;
-        HttpUrl parse;
+    public final g42 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            return parse.url().toString() + i;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public synchronized ea4 d(ij2 ij2Var, f42 f42Var, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ij2Var, f42Var, i)) == null) {
-            synchronized (this) {
-                if (f42Var == null) {
-                    return null;
-                }
-                String B = f42Var.B("url");
-                String c2 = c(B, i);
-                if (TextUtils.isEmpty(c2)) {
-                    return null;
-                }
-                ea4 remove = this.a.remove(c2);
-                if (remove != null) {
-                    a(ij2Var, "preload used, url = " + B);
-                }
-                if (b) {
-                    Log.d("SwanGamePreloadManager", "obtainRequestTask requestType:" + i + ";url:" + B + ";task:" + remove);
-                }
-                return remove;
+            g42 g42Var = new g42();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                g42Var.G(next, jSONObject.optString(next));
             }
+            return g42Var;
         }
-        return (ea4) invokeLLI.objValue;
+        return (g42) invokeL.objValue;
     }
 }

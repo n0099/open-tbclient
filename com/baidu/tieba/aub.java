@@ -1,59 +1,51 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Dialog;
+import android.graphics.Rect;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.awb;
-import com.baidu.tieba.yvb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class aub implements tsb {
+public class aub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ssb b;
-    public PayUIKitConfig c;
-    public PayFlowType d;
-    public rsb e;
-    public int f;
+    public Activity a;
+    public Window b;
+    public View c;
+    public View d;
+    public View e;
+    public xtb f;
     public int g;
-    public long h;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public boolean o;
+    public ViewTreeObserver.OnGlobalLayoutListener p;
 
     /* loaded from: classes5.dex */
-    public class a implements IPayCallback<CurrencyChargeMessage> {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPayCallback a;
-        public final /* synthetic */ nub b;
-        public final /* synthetic */ Activity c;
-        public final /* synthetic */ jub d;
-        public final /* synthetic */ Dialog e;
-        public final /* synthetic */ tvb f;
-        public final /* synthetic */ AppCustomExpand g;
-        public final /* synthetic */ awb.b h;
-        public final /* synthetic */ aub i;
+        public final /* synthetic */ aub a;
 
-        public a(aub aubVar, IPayCallback iPayCallback, nub nubVar, Activity activity, jub jubVar, Dialog dialog, tvb tvbVar, AppCustomExpand appCustomExpand, awb.b bVar) {
+        public a(aub aubVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aubVar, iPayCallback, nubVar, activity, jubVar, dialog, tvbVar, appCustomExpand, bVar};
+                Object[] objArr = {aubVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,136 +55,179 @@ public class aub implements tsb {
                     return;
                 }
             }
-            this.i = aubVar;
-            this.a = iPayCallback;
-            this.b = nubVar;
-            this.c = activity;
-            this.d = jubVar;
-            this.e = dialog;
-            this.f = tvbVar;
-            this.g = appCustomExpand;
-            this.h = bVar;
+            this.a = aubVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            int i;
+            int i2;
+            int i3;
+            int height;
+            int i4;
+            int i5;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onSuccess(currencyChargeMessage, payCallBackBean);
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.o) {
+                return;
             }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onFail(i, str, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onPayStart();
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
-                if (purchaseStatus == PurchaseStatus.ORDER_FAIL && this.b.a == PayType.ALI_PAY_SIGN) {
-                    RLog.info(this.i.a, "prepareShowPaySignDialog onPayStatus ORDER_FAIL, payWay.payType=PayType.ALI_PAY_SIGN");
-                    nub nubVar = this.b;
-                    nubVar.a = PayType.ALI_PAY;
-                    this.i.e(this.c, this.d, nubVar, this.e, this.f, this.g, this.h, this.a);
-                    return;
+            Rect rect = new Rect();
+            this.a.c.getWindowVisibleDisplayFrame(rect);
+            boolean z = true;
+            if (this.a.f.x) {
+                int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
+                if (this.a.f.z != null) {
+                    if (height2 <= this.a.n) {
+                        z = false;
+                    }
+                    this.a.f.z.a(z, height2);
                 }
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
+            } else if (this.a.e != null) {
+                if (this.a.f.s) {
+                    height = this.a.d.getHeight() + this.a.l + this.a.m;
+                    i4 = rect.bottom;
+                } else if (this.a.f.n) {
+                    height = this.a.d.getHeight() + this.a.l;
+                    i4 = rect.bottom;
+                } else {
+                    height = this.a.d.getHeight();
+                    i4 = rect.bottom;
+                }
+                int i6 = height - i4;
+                if (this.a.f.e) {
+                    i5 = i6 - this.a.n;
+                } else {
+                    i5 = i6;
+                }
+                if (this.a.f.e && i6 == this.a.n) {
+                    i6 -= this.a.n;
+                }
+                if (i5 != this.a.k) {
+                    this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i6 + this.a.j);
+                    this.a.k = i5;
+                    if (this.a.f.z != null) {
+                        if (i5 <= this.a.n) {
+                            z = false;
+                        }
+                        this.a.f.z.a(z, i5);
+                    }
+                }
+            } else {
+                int height3 = this.a.d.getHeight() - rect.bottom;
+                if (this.a.f.v && this.a.f.w) {
+                    if (Build.VERSION.SDK_INT == 19 || bub.i()) {
+                        i2 = this.a.n;
+                    } else if (this.a.f.e) {
+                        i2 = this.a.n;
+                    } else {
+                        i3 = height3;
+                        if (this.a.f.e && height3 == this.a.n) {
+                            height3 -= this.a.n;
+                        }
+                        int i7 = height3;
+                        height3 = i3;
+                        i = i7;
+                    }
+                    i3 = height3 - i2;
+                    if (this.a.f.e) {
+                        height3 -= this.a.n;
+                    }
+                    int i72 = height3;
+                    height3 = i3;
+                    i = i72;
+                } else {
+                    i = height3;
+                }
+                if (height3 != this.a.k) {
+                    if (this.a.f.s) {
+                        this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
+                    } else if (this.a.f.n) {
+                        this.a.d.setPadding(0, this.a.l, 0, i);
+                    } else {
+                        this.a.d.setPadding(0, 0, 0, i);
+                    }
+                    this.a.k = height3;
+                    if (this.a.f.z != null) {
+                        if (height3 <= this.a.n) {
+                            z = false;
+                        }
+                        this.a.f.z.a(z, height3);
+                    }
                 }
             }
         }
     }
 
-    public aub(int i, int i2, ssb ssbVar, PayUIKitConfig payUIKitConfig, PayFlowType payFlowType, rsb rsbVar) {
-        MiddleRevenueConfig middleRevenueConfig;
+    public aub(Activity activity, Window window) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), ssbVar, payUIKitConfig, payFlowType, rsbVar};
+            Object[] objArr = {activity, window};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "PaySignManager";
-        this.h = 0L;
-        RLog.info("PaySignManager", "create PaySignManager:" + this);
-        this.f = i;
-        this.g = i2;
-        this.b = ssbVar;
-        this.c = payUIKitConfig;
-        this.d = payFlowType;
-        this.e = rsbVar;
-        if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null) {
-            this.h = middleRevenueConfig.getUid();
+        this.p = new a(this);
+        this.a = activity;
+        this.b = window;
+        View decorView = window.getDecorView();
+        this.c = decorView;
+        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
+        if (frameLayout == null) {
+            return;
         }
+        View childAt = frameLayout.getChildAt(0);
+        this.e = childAt;
+        frameLayout = childAt != null ? childAt : frameLayout;
+        this.d = frameLayout;
+        this.g = frameLayout.getPaddingLeft();
+        this.h = this.d.getPaddingTop();
+        this.i = this.d.getPaddingRight();
+        this.j = this.d.getPaddingBottom();
+        wtb wtbVar = new wtb(this.a);
+        this.l = wtbVar.i();
+        this.n = wtbVar.d();
+        this.m = wtbVar.a();
+        this.o = wtbVar.l();
     }
 
-    @Override // com.baidu.tieba.tsb
-    public void a(Activity activity, jub jubVar, nub nubVar, Dialog dialog, tvb tvbVar, AppCustomExpand appCustomExpand, awb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, jubVar, nubVar, dialog, tvbVar, appCustomExpand, bVar, iPayCallback}) == null) {
-            String str = this.a;
-            RLog.info(str, "prepareShowPaySignDialog:" + this);
-            a aVar = new a(this, iPayCallback, nubVar, activity, jubVar, dialog, tvbVar, appCustomExpand, bVar);
-            boolean z = false;
-            if (!nubVar.g) {
-                z = ivb.b(activity, this.h + "").a("pay_sp_key_sign_pay_skip_remind", false);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                this.b.setSoftInputMode(i);
+                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
             }
-            String str2 = this.a;
-            RLog.info(str2, "prepareShowPaySignDialog, isSkipShowSignDialog=" + z);
-            if (z) {
-                e(activity, jubVar, nubVar, dialog, tvbVar, appCustomExpand, bVar, aVar);
-                return;
-            }
-            yvb.b bVar2 = new yvb.b();
-            bVar2.a = nubVar.g;
-            bVar2.b = jubVar;
-            bVar2.c = bVar.f;
-            yvb f = this.b.f(activity, bVar2, this.c);
-            f.setCallback(new ptb(activity, d(activity, f, bVar2), this.e, jubVar, nubVar, dialog, tvbVar, appCustomExpand, bVar, aVar));
+            this.a = null;
         }
     }
 
-    public final Dialog d(Activity activity, yvb yvbVar, yvb.b bVar) {
-        InterceptResult invokeLLL;
+    public void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, yvbVar, bVar)) == null) {
-            return jwb.b.e(activity, "title", yvbVar.getContentView(), new otb(this.f, this.g), bVar.c, PayDialogType.PAY_SIGN_DIALOG, this.d);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
+            this.b.setSoftInputMode(i);
+            this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
         }
-        return (Dialog) invokeLLL.objValue;
     }
 
-    public final void e(Activity activity, jub jubVar, nub nubVar, Dialog dialog, tvb tvbVar, AppCustomExpand appCustomExpand, awb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public void r(xtb xtbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, jubVar, nubVar, dialog, tvbVar, appCustomExpand, bVar, iPayCallback}) == null) {
-            String str = this.a;
-            RLog.info(str, "prepareShowPaySignDialog startPay payType=" + nubVar.a);
-            this.e.k(activity, nubVar, jubVar, dialog, tvbVar, appCustomExpand, bVar, iPayCallback);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xtbVar) == null) {
+            this.f = xtbVar;
         }
+    }
+
+    public static aub q(Activity activity, Window window) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) {
+            return new aub(activity, window);
+        }
+        return (aub) invokeLL.objValue;
     }
 }

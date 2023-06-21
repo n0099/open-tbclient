@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import com.baidu.tieba.ik7;
-import com.baidu.tieba.re7;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.vn;
-import com.baidu.tieba.w95;
+import com.baidu.tieba.nk7;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.we7;
+import com.baidu.tieba.wn;
+import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,16 +27,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements re7 {
+public class FrsGameRecommendFragment extends BaseFragment implements we7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ik7 a;
+    public nk7 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public w95.g g;
+    public x95.g g;
     public BdListView.p h;
 
     /* loaded from: classes5.dex */
@@ -72,7 +72,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements re7 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split("_");
-                if (split.length == 2 && "FrsGameRecommend".equals(split[0]) && 11 == tg.e(split[1], 0)) {
+                if (split.length == 2 && "FrsGameRecommend".equals(split[0]) && 11 == ug.e(split[1], 0)) {
                     this.a.h();
                 }
             }
@@ -104,7 +104,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements re7 {
         }
 
         @Override // com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.b
-        public void a(boolean z, List<vn> list) {
+        public void a(boolean z, List<wn> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
                 this.a.a.b();
@@ -133,7 +133,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements re7 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements w95.g {
+    public class c implements x95.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -156,12 +156,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements re7 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.w95.g
+        @Override // com.baidu.tieba.x95.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0def);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0df3);
                     this.a.a.b();
                 } else if (this.a.b != null) {
                     this.a.b.loadData();
@@ -241,10 +241,10 @@ public class FrsGameRecommendFragment extends BaseFragment implements re7 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        ik7 ik7Var;
+        nk7 nk7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (ik7Var = this.a) != null) {
-            ik7Var.i(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (nk7Var = this.a) != null) {
+            nk7Var.i(i);
         }
     }
 
@@ -269,7 +269,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements re7 {
         }
     }
 
-    @Override // com.baidu.tieba.re7
+    @Override // com.baidu.tieba.we7
     public NavigationBar n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,9 +284,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements re7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            ik7 ik7Var = this.a;
-            if (ik7Var != null) {
-                ik7Var.j();
+            nk7 nk7Var = this.a;
+            if (nk7Var != null) {
+                nk7Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {
@@ -318,9 +318,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements re7 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            ik7 ik7Var = new ik7(getPageContext(), this.c, this.d);
-            this.a = ik7Var;
-            ik7Var.l(this.g);
+            nk7 nk7Var = new nk7(getPageContext(), this.c, this.d);
+            this.a = nk7Var;
+            nk7Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);

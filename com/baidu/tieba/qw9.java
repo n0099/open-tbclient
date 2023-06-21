@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qw9 {
+public class qw9 extends gw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public String d;
-    public long e;
+    public ArrayList<sw9> c;
 
     public qw9() {
         Interceptable interceptable = $ic;
@@ -30,31 +28,40 @@ public class qw9 {
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = 0;
-        this.d = "";
-        this.e = 0L;
+        this.c = new ArrayList<>();
     }
 
-    public static qw9 a(ResponsedMessage responsedMessage) {
-        InterceptResult invokeL;
-        boolean z;
+    public ArrayList<sw9> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responsedMessage)) == null) {
-            qw9 qw9Var = new qw9();
-            if (BdNetTypeUtil.isNetWorkAvailable() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            qw9Var.a = z;
-            qw9Var.b = !responsedMessage.hasError();
-            qw9Var.c = responsedMessage.getError();
-            qw9Var.d = responsedMessage.getErrorString();
-            qw9Var.e = responsedMessage.getDownSize();
-            return qw9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (qw9) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gw9
+    public void d(JSONObject jSONObject) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            ArrayList<sw9> arrayList = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    sw9 sw9Var = new sw9();
+                    sw9Var.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(sw9Var);
+                }
+            }
+            i(arrayList);
+        }
+    }
+
+    public void i(ArrayList<sw9> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.c = arrayList;
+            g(null);
+        }
     }
 }

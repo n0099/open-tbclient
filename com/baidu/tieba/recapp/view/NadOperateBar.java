@@ -22,8 +22,8 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.n31;
+import com.baidu.tieba.d61;
+import com.baidu.tieba.o31;
 import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.XfremodeRoundLayout;
 import com.baidu.tieba.recapp.view.NadOperateBar;
@@ -229,7 +229,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (RelativeLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f091956);
+                    return (RelativeLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f09195c);
                 }
                 return (RelativeLayout) invokeV.objValue;
             }
@@ -267,7 +267,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (RelativeLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f091954);
+                    return (RelativeLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f09195a);
                 }
                 return (RelativeLayout) invokeV.objValue;
             }
@@ -305,13 +305,13 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (TextView) this.this$0.findViewById(R.id.obfuscated_res_0x7f091955);
+                    return (TextView) this.this$0.findViewById(R.id.obfuscated_res_0x7f09195b);
                 }
                 return (TextView) invokeV.objValue;
             }
         });
         this.m = new Handler(Looper.getMainLooper());
-        this.n = new Runnable() { // from class: com.baidu.tieba.go9
+        this.n = new Runnable() { // from class: com.baidu.tieba.yp9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -323,7 +323,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 }
             }
         };
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0685, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0683, this);
         getRecommendReason().setTextColor(SkinManager.getColor(R.color.CAM_X0304));
         this.i = false;
         this.h = false;
@@ -392,11 +392,11 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                     str = advertAppInfo2.g;
                 }
                 q.p(str);
-                n31.b(clogBuilder);
+                o31.b(clogBuilder);
                 AnimatorSet animatorSet = new AnimatorSet();
-                final ValueAnimator ofInt = ValueAnimator.ofInt(0, c61.c.a(this$0.getContext(), 34.6f));
+                final ValueAnimator ofInt = ValueAnimator.ofInt(0, d61.c.a(this$0.getContext(), 34.6f));
                 ofInt.setDuration(300L);
-                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.fo9
+                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.xp9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

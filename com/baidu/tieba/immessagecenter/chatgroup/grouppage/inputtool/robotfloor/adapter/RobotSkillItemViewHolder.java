@@ -14,10 +14,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag8;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.vc8;
+import com.baidu.tieba.ld8;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.qg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RobotSkillItemViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout d;
     public RelativeLayout e;
-    public TextView f;
+    public RelativeLayout f;
     public TextView g;
-    public ImageView h;
-    public RobotSkillItem i;
-    public ag8 j;
+    public TextView h;
+    public ImageView i;
+    public RobotSkillItem j;
+    public qg8 k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -61,20 +61,20 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null && this.a.i != null) {
-                this.a.j.a(this.a.i.getUk(), this.a.i.getSkillType());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k != null && this.a.j != null) {
+                this.a.k.a(this.a.j.getUk(), this.a.j.getSkillType());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RobotSkillItemViewHolder(@NonNull View view2, ag8 ag8Var) {
+    public RobotSkillItemViewHolder(@NonNull View view2, qg8 qg8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, ag8Var};
+            Object[] objArr = {view2, qg8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,13 +85,13 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.j = ag8Var;
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb4);
-        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb2);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb5);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb3);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eb1);
-        this.d.setOnClickListener(new a(this));
+        this.k = qg8Var;
+        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ebf);
+        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ebd);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec0);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ebe);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ebc);
+        this.e.setOnClickListener(new a(this));
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
@@ -112,29 +112,29 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
     @SuppressLint({"ResourceAsColor"})
-    public void d(@NonNull vc8 vc8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull ld8 ld8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc8Var, tbPageContext, i) == null) && (vc8Var instanceof RobotSkillItem)) {
-            RobotSkillItem robotSkillItem = (RobotSkillItem) vc8Var;
-            this.i = robotSkillItem;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ld8Var, tbPageContext, i) == null) && (ld8Var instanceof RobotSkillItem)) {
+            RobotSkillItem robotSkillItem = (RobotSkillItem) ld8Var;
+            this.j = robotSkillItem;
             if (!TextUtils.isEmpty(robotSkillItem.getSkillName())) {
-                TextView textView = this.f;
-                textView.setText("/" + this.i.getSkillName());
+                TextView textView = this.g;
+                textView.setText("/" + this.j.getSkillName());
             }
-            if (!TextUtils.isEmpty(this.i.getSkillDesc())) {
-                this.g.setText(this.i.getSkillDesc());
+            if (!TextUtils.isEmpty(this.j.getSkillDesc())) {
+                this.h.setText(this.j.getSkillDesc());
             }
-            if (this.g.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                if (this.i.isFuncJump()) {
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.g.getLayoutParams();
+            if (this.h.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                if (this.j.isFuncJump()) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X015);
-                    this.g.setLayoutParams(layoutParams);
-                    this.h.setVisibility(0);
+                    this.h.setLayoutParams(layoutParams);
+                    this.i.setVisibility(0);
                 } else {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.g.getLayoutParams();
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
                     layoutParams2.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-                    this.g.setLayoutParams(layoutParams2);
-                    this.h.setVisibility(8);
+                    this.h.setLayoutParams(layoutParams2);
+                    this.i.setVisibility(8);
                 }
             }
             l();
@@ -152,13 +152,13 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            o75 d = o75.d(this.f);
-            d.B(R.dimen.T_X06);
-            d.w(R.color.CAM_X0105);
-            o75 d2 = o75.d(this.g);
-            d2.B(R.dimen.T_X08);
-            d2.w(R.color.CAM_X0109);
-            WebPManager.setPureDrawable(this.h, R.drawable.icon_pure_mount_card_link_right_arrow, R.color.CAM_X0109, null);
+            p75 d = p75.d(this.g);
+            d.C(R.dimen.T_X06);
+            d.x(R.color.CAM_X0105);
+            p75 d2 = p75.d(this.h);
+            d2.C(R.dimen.T_X08);
+            d2.x(R.color.CAM_X0109);
+            WebPManager.setPureDrawable(this.i, R.drawable.icon_pure_mount_card_link_right_arrow, R.color.CAM_X0109, null);
         }
     }
 }

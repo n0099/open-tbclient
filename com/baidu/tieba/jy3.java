@@ -1,195 +1,121 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import android.database.Cursor;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class jy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x004e */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.ByteArrayOutputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static byte[] a(byte[] bArr, Key key, int i) {
-        InterceptResult invokeLLI;
-        ByteArrayOutputStream byteArrayOutputStream;
-        byte[] doFinal;
+    public static HashMap<String, PMSAppInfo> a() {
+        InterceptResult invokeV;
+        HashMap<String, PMSAppInfo> hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, bArr, key, i)) == null) {
-            ?? r0 = 0;
-            if (bArr != null && bArr.length != 0 && key != null) {
-                try {
-                    if (i > 0) {
-                        try {
-                            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                            cipher.init(1, key);
-                            byteArrayOutputStream = new ByteArrayOutputStream();
-                            try {
-                                int length = bArr.length;
-                                int i2 = 0;
-                                while (true) {
-                                    int i3 = length - i2;
-                                    if (i3 <= 0) {
-                                        break;
-                                    }
-                                    if (i3 > i) {
-                                        doFinal = cipher.doFinal(bArr, i2, i);
-                                    } else {
-                                        doFinal = cipher.doFinal(bArr, i2, i3);
-                                    }
-                                    byteArrayOutputStream.write(doFinal, 0, doFinal.length);
-                                    i2 += i;
-                                }
-                                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                try {
-                                    byteArrayOutputStream.close();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                return byteArray;
-                            } catch (InvalidKeyException e2) {
-                                e = e2;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                    try {
-                                        byteArrayOutputStream.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                    }
-                                }
-                                return null;
-                            } catch (NoSuchAlgorithmException e4) {
-                                e = e4;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (BadPaddingException e5) {
-                                e = e5;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (IllegalBlockSizeException e6) {
-                                e = e6;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (NoSuchPaddingException e7) {
-                                e = e7;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            }
-                        } catch (InvalidKeyException e8) {
-                            e = e8;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (NoSuchAlgorithmException e9) {
-                            e = e9;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (BadPaddingException e10) {
-                            e = e10;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (IllegalBlockSizeException e11) {
-                            e = e11;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (NoSuchPaddingException e12) {
-                            e = e12;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (r0 != 0) {
-                                try {
-                                    r0.close();
-                                } catch (IOException e13) {
-                                    e13.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Cursor query = pk4.a().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+            HashMap<String, PMSAppInfo> hashMap2 = new HashMap<>();
+            if (query != null && query.moveToFirst()) {
+                int columnIndex = query.getColumnIndex("app_id");
+                int columnIndex2 = query.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
+                int columnIndex3 = query.getColumnIndex("app_sign");
+                int columnIndex4 = query.getColumnIndex("version_code");
+                int columnIndex5 = query.getColumnIndex(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+                int columnIndex6 = query.getColumnIndex("description");
+                int columnIndex7 = query.getColumnIndex("app_status");
+                int columnIndex8 = query.getColumnIndex("status_detail");
+                int columnIndex9 = query.getColumnIndex("status_desc");
+                int columnIndex10 = query.getColumnIndex("resume_date");
+                int columnIndex11 = query.getColumnIndex("icon_url");
+                int columnIndex12 = query.getColumnIndex("app_name");
+                int columnIndex13 = query.getColumnIndex("service_category");
+                int columnIndex14 = query.getColumnIndex("subject_info");
+                HashMap<String, PMSAppInfo> hashMap3 = hashMap2;
+                int columnIndex15 = query.getColumnIndex("type");
+                int columnIndex16 = query.getColumnIndex("pkg_size");
+                int columnIndex17 = query.getColumnIndex("pending_err_code");
+                int columnIndex18 = query.getColumnIndex("app_category");
+                int columnIndex19 = query.getColumnIndex("orientation");
+                int columnIndex20 = query.getColumnIndex("max_age");
+                int columnIndex21 = query.getColumnIndex("create_time");
+                int columnIndex22 = query.getColumnIndex("webview_domains");
+                int columnIndex23 = query.getColumnIndex("web_action");
+                int columnIndex24 = query.getColumnIndex("domains");
+                int columnIndex25 = query.getColumnIndex(SwanAppBearInfo.BEAR_INFO);
+                int columnIndex26 = query.getColumnIndex("server_ext");
+                int columnIndex27 = query.getColumnIndex("pay_protected");
+                while (true) {
+                    PMSAppInfo pMSAppInfo = new PMSAppInfo();
+                    int i = columnIndex14;
+                    pMSAppInfo.appId = query.getString(columnIndex);
+                    pMSAppInfo.appKey = query.getString(columnIndex2);
+                    int i2 = columnIndex;
+                    int i3 = columnIndex2;
+                    pMSAppInfo.appSign = query.getLong(columnIndex3);
+                    pMSAppInfo.versionCode = query.getInt(columnIndex4);
+                    pMSAppInfo.versionName = query.getString(columnIndex5);
+                    pMSAppInfo.description = query.getString(columnIndex6);
+                    pMSAppInfo.appStatus = query.getInt(columnIndex7);
+                    pMSAppInfo.statusDetail = query.getString(columnIndex8);
+                    pMSAppInfo.statusDesc = query.getString(columnIndex9);
+                    pMSAppInfo.resumeDate = query.getString(columnIndex10);
+                    pMSAppInfo.iconUrl = query.getString(columnIndex11);
+                    pMSAppInfo.appName = query.getString(columnIndex12);
+                    pMSAppInfo.serviceCategory = query.getString(columnIndex13);
+                    pMSAppInfo.subjectInfo = query.getString(i);
+                    int i4 = columnIndex15;
+                    pMSAppInfo.type = query.getInt(i4);
+                    int i5 = columnIndex3;
+                    int i6 = columnIndex16;
+                    pMSAppInfo.pkgSize = query.getLong(i6);
+                    int i7 = columnIndex17;
+                    pMSAppInfo.pendingErrCode = query.getInt(i7);
+                    int i8 = columnIndex18;
+                    pMSAppInfo.appCategory = query.getInt(i8);
+                    int i9 = columnIndex19;
+                    pMSAppInfo.setOrientation(query.getInt(i9));
+                    int i10 = columnIndex4;
+                    int i11 = columnIndex20;
+                    pMSAppInfo.maxAge = query.getLong(i11);
+                    int i12 = columnIndex21;
+                    pMSAppInfo.createTime = query.getLong(i12);
+                    pMSAppInfo.webViewDomains = query.getString(columnIndex22);
+                    pMSAppInfo.webAction = query.getString(columnIndex23);
+                    pMSAppInfo.domains = query.getString(columnIndex24);
+                    pMSAppInfo.bearInfo = query.getString(columnIndex25);
+                    pMSAppInfo.serverExt = query.getString(columnIndex26);
+                    pMSAppInfo.payProtected = query.getInt(columnIndex27);
+                    hashMap = hashMap3;
+                    hashMap.put(pMSAppInfo.appId, pMSAppInfo);
+                    if (!query.moveToNext()) {
+                        break;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    r0 = key;
+                    hashMap3 = hashMap;
+                    columnIndex = i2;
+                    columnIndex14 = i;
+                    columnIndex2 = i3;
+                    columnIndex21 = i12;
+                    columnIndex3 = i5;
+                    columnIndex15 = i4;
+                    columnIndex16 = i6;
+                    columnIndex17 = i7;
+                    columnIndex18 = i8;
+                    columnIndex20 = i11;
+                    columnIndex19 = i9;
+                    columnIndex4 = i10;
                 }
+            } else {
+                hashMap = hashMap2;
             }
-            return null;
+            ds4.d(query);
+            return hashMap;
         }
-        return (byte[]) invokeLLI.objValue;
-    }
-
-    public static byte[] b(byte[] bArr, String str, int i) {
-        InterceptResult invokeLLI;
-        PublicKey c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bArr, str, i)) == null) {
-            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (c = c(str)) == null) {
-                return null;
-            }
-            return a(bArr, c, i);
-        }
-        return (byte[]) invokeLLI.objValue;
-    }
-
-    public static PublicKey c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (PublicKey) invokeL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 }

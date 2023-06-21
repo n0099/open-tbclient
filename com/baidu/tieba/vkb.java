@@ -1,17 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.UserData;
-/* compiled from: UserData.java */
 /* loaded from: classes8.dex */
-public final /* synthetic */ class vkb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vkb {
+    void a(String str, String str2);
 
-    public static void $default$destroy(UserData userData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, userData) == null) {
-        }
-    }
+    void b(String str, String str2);
+
+    void c(String str, String str2);
+
+    void d(String str, String str2);
 }

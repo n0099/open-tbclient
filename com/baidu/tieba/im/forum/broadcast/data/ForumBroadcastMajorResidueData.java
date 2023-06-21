@@ -14,12 +14,6 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
     public int a;
     public int b;
 
-    public void X(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-        }
-    }
-
     public ForumBroadcastMajorResidueData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,9 +53,9 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         }
     }
 
-    public void Y(int i) {
+    public void X(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a = i;
         }
     }

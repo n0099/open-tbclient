@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.account.certification;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.u05;
 @Keep
 /* loaded from: classes4.dex */
 public interface ICertificationCallback {
-    void onResult(t05 t05Var);
+    void onResult(u05 u05Var);
 }

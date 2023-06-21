@@ -1,41 +1,36 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.content.Context;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hgb {
+public abstract class hgb extends ggb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void handleMessage(Message message);
-
-        void onPause();
-
-        void onResume();
-
-        void onStart();
-
-        void onStop();
+    public void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        }
     }
 
-    boolean a(int i, long j);
+    public void e(Context context, Surface surface, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, surface, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        }
+    }
 
-    void b(a aVar);
+    public void f(Context context, Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, surface) == null) {
+        }
+    }
 
-    void c();
-
-    void d(int i);
-
-    boolean e(Runnable runnable);
-
-    boolean f(int i);
-
-    void g(int i);
-
-    int getStatus();
-
-    boolean sendMessage(Message message);
-
-    void setName(String str);
-
-    void start();
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 }

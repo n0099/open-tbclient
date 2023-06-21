@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class InterestGuideActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -17,11 +16,9 @@ public class InterestGuideActivityConfig extends IntentConfig {
     public static final int INTEREST_GUID_SHOW_SCENE_NOT_FIRST = 9;
     public static final int INTEREST_GUID_SHOW_SCENE_OTHER = 2;
     public static final int INTEREST_GUID_SHOW_SCENE_Y_DAY = 10;
-    public static final String KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM = "KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM";
     public static final String KEY_CUSTOM_TITLE = "key_custom_title";
     public static final String KEY_INTEREST_BACK_TO_MAINTAB = "interest_back_to_maintab";
     public static final String KEY_INTEREST_GUID_SHOW_SCENE = "interest_guid_show_scene";
-    public static final String KEY_ONLY_SHOW_INTERESTED_FORUM = "key_only_show_interested_forum";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,16 +78,8 @@ public class InterestGuideActivityConfig extends IntentConfig {
 
     public void setScene(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i);
-        }
-    }
-
-    public void setOnlyShowInterestedForum(boolean z, ArrayList<Integer> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, arrayList) == null) {
-            getIntent().putExtra(KEY_ONLY_SHOW_INTERESTED_FORUM, z);
-            getIntent().putExtra(KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM, arrayList);
         }
     }
 }

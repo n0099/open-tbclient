@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.f9b;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes5.dex */
-public class b9b implements f9b.a {
+public final class b9b extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ c9b a;
+    public final /* synthetic */ InstallActivity a;
 
-    public b9b(c9b c9bVar) {
+    public b9b(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c9bVar};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,6 +28,15 @@ public class b9b implements f9b.a {
                 return;
             }
         }
-        this.a = c9bVar;
+        this.a = installActivity;
+    }
+
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public final void onAnimationEnd(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+            return;
+        }
+        this.a.m();
     }
 }

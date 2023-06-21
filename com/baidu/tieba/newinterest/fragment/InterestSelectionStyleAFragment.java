@@ -14,20 +14,20 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d19;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.r19;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.view.NoScrollGridView;
-import com.baidu.tieba.w09;
-import com.baidu.tieba.x09;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.y19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements w09.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements r19.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -36,7 +36,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public d19 m;
+    public y19 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -88,25 +88,25 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public final void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = this.d.findViewById(R.id.obfuscated_res_0x7f09111a);
-            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f09111c);
-            this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09111b);
-            this.l = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f09111e);
-            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f091119);
-            this.j = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091120);
-            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09111d);
+            this.g = this.d.findViewById(R.id.obfuscated_res_0x7f09111f);
+            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f091121);
+            this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091120);
+            this.l = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f091123);
+            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f09111e);
+            this.j = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091125);
+            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091122);
             String[] strArr = this.f;
             if (strArr != null && strArr.length == 3) {
                 this.j.setText(strArr[0]);
                 this.k.setText(this.f[1]);
             }
-            ka5 ka5Var = new ka5();
+            la5 la5Var = new la5();
             this.b.setTextSize(R.dimen.T_X06);
-            this.b.setConfig(ka5Var);
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1304));
+            this.b.setConfig(la5Var);
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1308));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);
-            this.l.setColumnWidth(vi.l(getContext()) / 5);
+            this.l.setColumnWidth(wi.l(getContext()) / 5);
             this.l.setAdapter((ListAdapter) this.c);
         }
     }
@@ -116,18 +116,18 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            o75.d(this.d).f(R.color.CAM_X0201);
-            o75 d = o75.d(this.j);
-            d.w(R.color.CAM_X0105);
-            d.B(R.dimen.T_X03);
-            d.C(R.string.F_X02);
-            o75 d2 = o75.d(this.k);
-            d2.w(R.color.CAM_X0108);
-            d2.B(R.dimen.T_X07);
-            d2.C(R.string.F_X01);
-            o75.d(this.i).f(R.color.CAM_X0201);
-            o75.d(this.g).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            o75.d(this.h).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            p75.d(this.d).f(R.color.CAM_X0201);
+            p75 d = p75.d(this.j);
+            d.x(R.color.CAM_X0105);
+            d.C(R.dimen.T_X03);
+            d.D(R.string.F_X02);
+            p75 d2 = p75.d(this.k);
+            d2.x(R.color.CAM_X0108);
+            d2.C(R.dimen.T_X07);
+            d2.D(R.string.F_X01);
+            p75.d(this.i).f(R.color.CAM_X0201);
+            p75.d(this.g).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            p75.d(this.h).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.c.notifyDataSetChanged();
         }
     }
@@ -153,9 +153,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            x09 x09Var = new x09(null, getContext());
-            this.c = x09Var;
-            this.m = new d19(this, x09Var);
+            s19 s19Var = new s19(null, getContext());
+            this.c = s19Var;
+            this.m = new y19(this, s19Var);
         }
     }
 

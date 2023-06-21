@@ -1,43 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.ClipboardManager;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.BufferedReader;
+import java.io.FileReader;
+@TargetApi(21)
 /* loaded from: classes6.dex */
 public class li {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static boolean a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return Process.is64Bit();
             }
-            try {
-                ((ClipboardManager) BdBaseApplication.getInst().getApp().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(str);
-            } catch (Throwable th) {
-                BdLog.e(th);
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr == null || strArr.length <= 0 || (str = Build.CPU_ABI) == null) {
+                return false;
             }
+            return str.equals(strArr[0]);
         }
+        return invokeV.booleanValue;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        int identifier;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null || (identifier = context.getResources().getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android")) <= 0) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (Build.VERSION.SDK_INT >= 21) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr == null) {
+                    return false;
+                }
+                for (String str : strArr) {
+                    if ("arm64-v8a".equals(str)) {
+                        return true;
+                    }
+                }
+                return false;
             }
-            return context.getResources().getDimensionPixelSize(identifier);
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(com.kuaishou.weapon.p0.k1.a));
+                z = bufferedReader.readLine().contains("aarch64");
+                bufferedReader.close();
+                return z;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return z;
+            }
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
     }
 }

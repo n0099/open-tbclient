@@ -1,35 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zvb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes7.dex */
-public class rtb implements zvb.a {
+public class rtb implements htb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public IPayCallback<CurrencyChargeMessage> c;
-    public rsb d;
-    public zvb.b e;
+    public MiddleRevenueConfig a;
 
-    public rtb(Activity activity, Dialog dialog, zvb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, rsb rsbVar) {
+    public rtb(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, bVar, iPayCallback, rsbVar};
+            Object[] objArr = {middleRevenueConfig};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,55 +37,169 @@ public class rtb implements zvb.a {
                 return;
             }
         }
-        this.a = activity;
-        this.b = dialog;
-        this.c = iPayCallback;
-        this.d = rsbVar;
-        this.e = bVar;
+        this.a = middleRevenueConfig;
     }
 
-    @Override // com.baidu.tieba.zvb.a
-    public void a(jub jubVar) {
+    @Override // com.baidu.tieba.htb
+    public GetBannerConfigReqParams a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jubVar) == null) {
-            RLog.info("PaySplitOrderViewCallback", "toPayWayDialog amount:" + jubVar);
-            cvb.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            zvb.b bVar = this.e;
-            IYYPayAmountView.ViewParams viewParams = bVar.f;
-            viewParams.splitOrderPayScene = "1";
-            this.d.t(this.a, jubVar, bVar.d, bVar.e, viewParams, this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
+            getBannerConfigReqParams.setAppId(this.a.getAppId());
+            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getBannerConfigReqParams.setUid(this.a.getUid());
+            getBannerConfigReqParams.setToken(this.a.getToken());
+            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            return getBannerConfigReqParams;
         }
+        return (GetBannerConfigReqParams) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zvb.a
-    public void b() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PaySplitOrderViewCallback", "toInputNumberDialog");
-            cvb.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            rsb rsbVar = this.d;
-            Activity activity = this.a;
-            zvb.b bVar = this.e;
-            rsbVar.n(activity, bVar.d, bVar.e, bVar.f, this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "QueryParamsProviderImpl" + hashCode() + " revenueConfig:" + this.a.hashCode();
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zvb.a
-    public void onRefreshViewFail(int i, String str) {
+    @Override // com.baidu.tieba.htb
+    public QueryCurrencyReqParams b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            PaySplitOrderViewSource paySplitOrderViewSource = this.e.h;
-            if (paySplitOrderViewSource == PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG) {
-                RLog.info("PaySplitOrderViewCallback", "onRefreshViewFail code:" + i + " failReason:" + str + " source:" + paySplitOrderViewSource + " prepareShowPayWayDialog");
-                cvb.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-                rsb rsbVar = this.d;
-                Activity activity = this.a;
-                zvb.b bVar = this.e;
-                rsbVar.t(activity, bVar.a, bVar.d, bVar.e, bVar.f, this.c);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            queryCurrencyReqParams.setReturnYb(true);
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.htb
+    public ktb c(PayFlowType payFlowType, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, payFlowType, map)) == null) {
+            ktb ktbVar = new ktb();
+            ktbVar.D(this.a.getUid());
+            ktbVar.A(this.a.getToken());
+            ktbVar.E(this.a.getUseChannel());
+            ktbVar.t(this.a.getCurrencyType());
+            ktbVar.B(this.a.getTokenCallback());
+            String deviceId = this.a.getDeviceId();
+            RLog.info("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
+            HashMap hashMap = new HashMap();
+            if (deviceId != null) {
+                hashMap.put("deviceId", deviceId);
+            } else {
+                RLog.error("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
             }
-            RLog.info("PaySplitOrderViewCallback", "onRefreshViewFail code:" + i + " failReason:" + str + " source:" + paySplitOrderViewSource + " interruptePayFlow");
-            cvb.b(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
+            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("chargeScene", str);
+            JSONObject f = f(map);
+            if (f != null) {
+                hashMap.put("clientInfo", f);
+            }
+            ktbVar.u(hashMap);
+            return ktbVar;
+        }
+        return (ktb) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.htb
+    public QueryCurrencyReqParams d(PayFlowType payFlowType, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, payFlowType, map)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            HashMap hashMap = new HashMap();
+            JSONObject f = f(map);
+            if (f != null) {
+                hashMap.put("clientInfo", f);
+            }
+            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("chargeScene", str);
+            queryCurrencyReqParams.setExpandMap(hashMap);
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.htb
+    public GetSplitOrderConfigReqParams e(int i, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
+            GetSplitOrderConfigReqParams getSplitOrderConfigReqParams = new GetSplitOrderConfigReqParams();
+            getSplitOrderConfigReqParams.setAppId(this.a.getAppId());
+            getSplitOrderConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getSplitOrderConfigReqParams.setUid(this.a.getUid());
+            getSplitOrderConfigReqParams.setToken(this.a.getToken());
+            getSplitOrderConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            getSplitOrderConfigReqParams.setCurrencyType(this.a.getCurrencyType());
+            getSplitOrderConfigReqParams.setOrderId(str);
+            getSplitOrderConfigReqParams.setType(i);
+            getSplitOrderConfigReqParams.setAmount(j);
+            return getSplitOrderConfigReqParams;
+        }
+        return (GetSplitOrderConfigReqParams) invokeCommon.objValue;
+    }
+
+    public final JSONObject f(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
+            JSONObject jSONObject = null;
+            if (map == null) {
+                return null;
+            }
+            try {
+                if (map.size() <= 0) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        if (entry.getKey() != null && entry.getValue() != null) {
+                            jSONObject2.put(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    return jSONObject2;
+                } catch (JSONException e) {
+                    e = e;
+                    jSONObject = jSONObject2;
+                    RLog.error("QueryParamsProviderImpl", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
+                    return jSONObject;
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+        } else {
+            return (JSONObject) invokeL.objValue;
         }
     }
 }

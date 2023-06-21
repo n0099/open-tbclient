@@ -27,8 +27,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eh1;
-import com.baidu.tieba.mj1;
+import com.baidu.tieba.fh1;
+import com.baidu.tieba.nj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -830,8 +830,8 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             this.k = i;
-            this.d = mj1.b(i);
-            this.c = mj1.a(this.k);
+            this.d = nj1.b(i);
+            this.c = nj1.a(this.k);
             this.D = false;
             this.C = false;
             refreshDrawableState();
@@ -911,7 +911,7 @@ public class SwitchButton extends CompoundButton {
             if (attributeSet == null) {
                 obtainStyledAttributes = null;
             } else {
-                obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, eh1.SwitchButton);
+                obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, fh1.SwitchButton);
             }
             if (obtainStyledAttributes != null) {
                 drawable = obtainStyledAttributes.getDrawable(11);
@@ -1020,7 +1020,7 @@ public class SwitchButton extends CompoundButton {
                 this.k = 3309506;
             }
             if (!this.C && this.d == null) {
-                ColorStateList b = mj1.b(this.k);
+                ColorStateList b = nj1.b(this.k);
                 this.d = b;
                 this.p = b.getDefaultColor();
             }
@@ -1035,7 +1035,7 @@ public class SwitchButton extends CompoundButton {
             }
             this.D = z3;
             if (!z3 && this.c == null) {
-                ColorStateList a2 = mj1.a(this.k);
+                ColorStateList a2 = nj1.a(this.k);
                 this.c = a2;
                 int defaultColor = a2.getDefaultColor();
                 this.q = defaultColor;

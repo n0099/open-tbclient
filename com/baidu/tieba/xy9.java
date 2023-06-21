@@ -1,8 +1,11 @@
 package com.baidu.tieba;
-
-import android.webkit.JsPromptResult;
 /* loaded from: classes8.dex */
 public interface xy9 {
-    @Deprecated
-    boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult);
+    void a(int i);
+
+    void b();
+
+    void c(qy9 qy9Var);
+
+    void d(int i, boolean z, iy9 iy9Var);
 }

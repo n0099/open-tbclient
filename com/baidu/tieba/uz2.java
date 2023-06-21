@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes8.dex */
-public interface uz2 {
-    void a(boolean z, String str, Object obj);
+public interface uz2<T> {
+    void e(String str);
+
+    void f(List<T> list);
 }

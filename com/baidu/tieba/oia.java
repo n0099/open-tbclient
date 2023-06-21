@@ -1,44 +1,91 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.mobstat.Config;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oia {
+public class oia extends dja<pja> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View g;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var, String str) {
+    @Override // com.baidu.tieba.ija
+    public void a(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, vh5Var, str) == null) {
-            if ("e1".equals(str)) {
-                wia.h(tbPageContext, editorTools, vh5Var);
-            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
-                wia.j(tbPageContext, editorTools, vh5Var);
-            } else if ("e3".equals(str)) {
-                wia.k(tbPageContext, editorTools, vh5Var);
-            } else if ("e4".equals(str)) {
-                wia.g(tbPageContext, editorTools, vh5Var);
-            } else if ("e5".equals(str)) {
-                wia.d(editorTools, vh5Var);
-            } else if ("e6".equals(str)) {
-                wia.a(tbPageContext, editorTools, vh5Var);
-            } else if ("e7".equals(str)) {
-                wia.l(tbPageContext, editorTools, vh5Var);
-            } else if ("e8".equals(str)) {
-                wia.b(tbPageContext, editorTools, vh5Var);
-            } else if ("e9".equals(str)) {
-                wia.i(tbPageContext, editorTools);
-            } else if ("e10".equals(str)) {
-                wia.c(tbPageContext, editorTools, vh5Var);
-            } else if ("e11".equals(str)) {
-                wia.f(tbPageContext, editorTools, vh5Var);
-            } else if ("e12".equals(str)) {
-                wia.e(tbPageContext, editorTools, vh5Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ija
+    public void c(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ija
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oia(@NonNull TbPageContext<?> tbPageContext) {
+        super(tbPageContext, pja.class);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ija
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            p75.d(this.g).f(R.color.CAM_X0210);
+        }
+    }
+
+    public void z(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (view2 = this.g) != null) {
+            view2.setVisibility(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ija
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            this.g = new View(this.a.getPageActivity());
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, wi.g(this.a.getPageActivity(), R.dimen.L_X01));
+            marginLayoutParams.setMargins(wi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0, wi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0);
+            this.g.setLayoutParams(marginLayoutParams);
+            return this.g;
+        }
+        return (View) invokeL.objValue;
     }
 }

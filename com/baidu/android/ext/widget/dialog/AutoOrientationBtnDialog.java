@@ -203,8 +203,8 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
             }
             this.this$0 = autoOrientationBtnDialog;
             if (view2 != null) {
-                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb4);
-                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb3);
+                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb9);
+                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb8);
                 this.button = (LinearLayout) view2;
                 this.mDialog = autoOrientationBtnDialog2;
             }
@@ -379,11 +379,11 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             Context context = getContext();
             this.mContext = context;
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09b5, getBuilder().getCustomContentParent(), false);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09b6, getBuilder().getCustomContentParent(), false);
             this.mView = viewGroup;
-            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fb5);
-            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090fb6);
-            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090fb2);
+            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fba);
+            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090fbb);
+            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090fb7);
             View createContentView = createContentView(this.mContent);
             if (createContentView != null) {
                 this.mContent.addView(createContentView);

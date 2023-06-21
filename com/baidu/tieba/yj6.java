@@ -1,72 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public class yj6 extends df {
+public abstract class yj6 implements wj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.df
-    public void changeSettingByType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.df
-    /* renamed from: getCrashKeys */
-    public String[] mo129getCrashKeys() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+            return true;
         }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.df
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.df
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.df
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "tb_check_web_res_proxy" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.df
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
     public yj6() {
@@ -83,15 +37,31 @@ public class yj6 extends df {
         }
     }
 
-    public static boolean isOn() {
-        InterceptResult invokeV;
+    public boolean c(Class<?> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (SwitchManager.getInstance().findType("tb_check_web_res_proxy") == 1) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            boolean z = false;
+            for (Method method : cls.getMethods()) {
+                Annotation[] annotations = method.getAnnotations();
+                int length = annotations.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
+                    } else if (annotations[i] instanceof JavascriptInterface) {
+                        z = true;
+                        break;
+                    } else {
+                        i++;
+                    }
+                }
+                if (z) {
+                    break;
+                }
             }
-            return false;
+            return z;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

@@ -12,17 +12,17 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.qx4;
-import com.baidu.tieba.re7;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.rx4;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re7 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements we7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -38,7 +38,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re7 
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.sr5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.xr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,11 +84,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re7 
                 if (split.length != 2) {
                     return;
                 }
-                if ("FrsGameLive".equals(split[0]) && 8 == tg.e(split[1], 0)) {
+                if ("FrsGameLive".equals(split[0]) && 8 == ug.e(split[1], 0)) {
                     if (this.a.d != null) {
                         this.a.d.h();
                     }
-                } else if ("FrsGameLiveLive".equals(split[0]) && 3 == tg.e(split[1], 0) && this.a.d != null) {
+                } else if ("FrsGameLiveLive".equals(split[0]) && 3 == ug.e(split[1], 0) && this.a.d != null) {
                     this.a.d.h();
                 }
             }
@@ -204,10 +204,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re7 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String s = n95.m().s("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
-            if (s != null) {
-                StringBuilder sb = new StringBuilder(s);
-                if (s.endsWith("?")) {
+            String w = o95.p().w("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            if (w != null) {
+                StringBuilder sb = new StringBuilder(w);
+                if (w.endsWith("?")) {
                     sb.append("fid=");
                     sb.append(this.b);
                 } else {
@@ -221,7 +221,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re7 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.re7
+    @Override // com.baidu.tieba.we7
     public NavigationBar n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,7 +284,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re7 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (qx4.b(I1())) {
+            if (rx4.b(I1())) {
                 this.d = new NewAlaGameFrsLiveTabVideoView(this.a);
             } else {
                 this.d = new AlaGameFrsLiveTabVideoView(this.a);

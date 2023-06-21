@@ -1,100 +1,123 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Rect;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.view.TouchDelegate;
+import android.view.View;
+import android.view.ViewParent;
+import com.baidu.tieba.d61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes8.dex */
-public abstract class x61 {
+public class x61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void b(CharSequence charSequence);
-
-    @TargetApi(11)
     /* loaded from: classes8.dex */
-    public static class a extends x61 {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static ClipboardManager a;
-        public static ClipData b;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ View d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-335382439, "Lcom/baidu/tieba/x61$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-335382439, "Lcom/baidu/tieba/x61$a;");
-            }
-        }
-
-        @SuppressLint({"ServiceCast"})
-        public a() {
+        public a(Context context, float f, View view2, View view3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, Float.valueOf(f), view2, view3};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = (ClipboardManager) kk0.b().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            this.a = context;
+            this.b = f;
+            this.c = view2;
+            this.d = view3;
         }
 
-        @Override // com.baidu.tieba.x61
-        public void b(CharSequence charSequence) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
-                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
-                b = newPlainText;
-                try {
-                    a.setPrimaryClip(newPlainText);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                int a = d61.c.a(this.a, this.b);
+                this.c.getHitRect(rect);
+                rect.left -= a;
+                rect.right += a;
+                rect.top -= a;
+                rect.bottom += a;
+                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
             }
         }
     }
 
-    public x61() {
+    public static void a(Context context, View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) != null) || view2 == null) {
+            return;
         }
+        ViewParent parent = view2.getParent();
+        if (!View.class.isInstance(parent)) {
+            return;
+        }
+        View view3 = (View) parent;
+        view3.post(new a(context, f, view2, view3));
     }
 
-    public static x61 a(Context context) {
+    public static String b(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (!TextUtils.isEmpty(ellipsize)) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static boolean c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            return new a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null || !view2.isShown()) {
+                return false;
+            }
+            Rect rect = new Rect();
+            if (!view2.getGlobalVisibleRect(rect)) {
+                return false;
+            }
+            long height = rect.height() * rect.width();
+            long height2 = view2.getHeight() * view2.getWidth();
+            if (height2 <= 0 || height * 100 < height2 * 50) {
+                return false;
+            }
+            return true;
         }
-        return (x61) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

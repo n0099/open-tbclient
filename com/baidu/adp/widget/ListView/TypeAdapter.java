@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ao;
-import com.baidu.tieba.in;
-import com.baidu.tieba.vn;
+import com.baidu.tieba.bo;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class TypeAdapter extends BaseAdapter implements ao<vn> {
+public class TypeAdapter extends BaseAdapter implements bo<wn> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<in<vn, ViewHolder>> a;
+    public SparseArray<jn<wn, ViewHolder>> a;
     @SuppressLint({"UseSparseArrays"})
     public SparseArray<Integer> b;
-    public List<vn> c;
+    public List<wn> c;
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
@@ -95,7 +95,7 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SparseArray<in<vn, ViewHolder>> sparseArray = this.a;
+            SparseArray<jn<wn, ViewHolder>> sparseArray = this.a;
             if (sparseArray != null) {
                 sparseArray.clear();
             }
@@ -106,7 +106,7 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
         }
     }
 
-    public List<vn> c() {
+    public List<wn> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -115,12 +115,12 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
         return (List) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter, com.baidu.tieba.wn
+    @Override // android.widget.Adapter, com.baidu.tieba.xn
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<vn> list = this.c;
+            List<wn> list = this.c;
             if (list != null) {
                 return list.size();
             }
@@ -134,7 +134,7 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            SparseArray<in<vn, ViewHolder>> sparseArray = this.a;
+            SparseArray<jn<wn, ViewHolder>> sparseArray = this.a;
             if (sparseArray != null) {
                 return sparseArray.size();
             }
@@ -143,33 +143,33 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
         return invokeV.intValue;
     }
 
-    public void a(in<vn, ViewHolder> inVar) {
+    public void a(jn<wn, ViewHolder> jnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, inVar) == null) && inVar != null && inVar.getType() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jnVar) == null) && jnVar != null && jnVar.getType() != null) {
             if (this.a == null) {
                 this.a = new SparseArray<>();
             }
-            if (inVar.getType() != null) {
-                inVar.setAdapter(this);
-                int id = inVar.getType().getId();
+            if (jnVar.getType() != null) {
+                jnVar.setAdapter(this);
+                int id = jnVar.getType().getId();
                 int size = this.a.size();
-                this.a.put(size, inVar);
+                this.a.put(size, jnVar);
                 this.b.put(id, Integer.valueOf(size));
             }
         }
     }
 
-    @Override // com.baidu.tieba.ao
-    public in<vn, ViewHolder> h(vn vnVar) {
+    @Override // com.baidu.tieba.bo
+    public jn<wn, ViewHolder> h(wn wnVar) {
         InterceptResult invokeL;
-        SparseArray<in<vn, ViewHolder>> sparseArray;
+        SparseArray<jn<wn, ViewHolder>> sparseArray;
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, vnVar)) == null) {
-            if (vnVar != null && (sparseArray = this.a) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, wnVar)) == null) {
+            if (wnVar != null && (sparseArray = this.a) != null) {
                 int i = -1;
-                if (sparseArray.size() != 0 && (type = vnVar.getType()) != null && (num = this.b.get(type.getId())) != null) {
+                if (sparseArray.size() != 0 && (type = wnVar.getType()) != null && (num = this.b.get(type.getId())) != null) {
                     i = num.intValue();
                 }
                 if (i >= 0 && i < this.a.size()) {
@@ -178,17 +178,17 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
             }
             return null;
         }
-        return (in) invokeL.objValue;
+        return (jn) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter, com.baidu.tieba.wn
+    @Override // android.widget.Adapter, com.baidu.tieba.xn
     /* renamed from: d */
-    public vn getItem(int i) {
+    public wn getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<vn> list = this.c;
+            List<wn> list = this.c;
             if (list != null) {
                 int size = list.size();
                 if (i >= 0 && i < size) {
@@ -198,13 +198,13 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
             }
             return null;
         }
-        return (vn) invokeI.objValue;
+        return (wn) invokeI.objValue;
     }
 
-    public void i(List<? extends vn> list) {
+    public void i(List<? extends wn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
-            List<vn> list2 = this.c;
+            List<wn> list2 = this.c;
             if (list2 == null) {
                 this.c = new ArrayList();
             } else {
@@ -215,7 +215,7 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
         }
     }
 
-    @Override // com.baidu.tieba.ao
+    @Override // com.baidu.tieba.bo
     public void notifyItemChanged(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -228,14 +228,14 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
         if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || this.a == null) {
             return;
         }
-        vn item = getItem(i);
-        in<vn, ViewHolder> inVar = null;
+        wn item = getItem(i);
+        jn<wn, ViewHolder> jnVar = null;
         int itemViewType = getItemViewType(i);
         if (itemViewType >= 0) {
-            inVar = this.a.valueAt(itemViewType);
+            jnVar = this.a.valueAt(itemViewType);
         }
-        if (inVar != null && inVar.getOnAdapterItemClickListener() != null) {
-            inVar.getOnAdapterItemClickListener().b(view2, item, inVar.getType(), viewGroup, i, j);
+        if (jnVar != null && jnVar.getOnAdapterItemClickListener() != null) {
+            jnVar.getOnAdapterItemClickListener().b(view2, item, jnVar.getType(), viewGroup, i, j);
         }
     }
 
@@ -246,26 +246,26 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
             if (this.a == null) {
                 return false;
             }
-            vn item = getItem(i);
-            in<vn, ViewHolder> inVar = null;
+            wn item = getItem(i);
+            jn<wn, ViewHolder> jnVar = null;
             int itemViewType = getItemViewType(i);
             if (itemViewType >= 0) {
-                inVar = this.a.valueAt(itemViewType);
+                jnVar = this.a.valueAt(itemViewType);
             }
-            if (inVar == null || inVar.getOnAdapterItemLongClickListener() == null) {
+            if (jnVar == null || jnVar.getOnAdapterItemLongClickListener() == null) {
                 return false;
             }
-            return inVar.getOnAdapterItemLongClickListener().a(view2, item, inVar.getType(), viewGroup, i, j);
+            return jnVar.getOnAdapterItemLongClickListener().a(view2, item, jnVar.getType(), viewGroup, i, j);
         }
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ao
+    @Override // com.baidu.tieba.bo
     public int g(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
-            List<vn> list = this.c;
+            List<wn> list = this.c;
             if (list != null && list.size() != 0) {
                 int size = this.c.size();
                 int i3 = -1;
@@ -288,12 +288,12 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         InterceptResult invokeI;
-        vn item;
+        wn item;
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            SparseArray<in<vn, ViewHolder>> sparseArray = this.a;
+            SparseArray<jn<wn, ViewHolder>> sparseArray = this.a;
             if (sparseArray != null && sparseArray.size() != 0 && (item = getItem(i)) != null && (type = item.getType()) != null && (num = this.b.get(type.getId())) != null) {
                 return num.intValue();
             }
@@ -305,19 +305,19 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        in<vn, ViewHolder> inVar;
+        jn<wn, ViewHolder> jnVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
             View view3 = null;
             if (this.a != null && this.c != null) {
                 int count = getCount();
-                if (i >= 0 && i < count && (inVar = this.a.get(getItemViewType(i))) != null) {
-                    vn item = getItem(i);
-                    if (item != null && (item instanceof vn)) {
-                        view3 = inVar.getView(i, view2, viewGroup, item);
+                if (i >= 0 && i < count && (jnVar = this.a.get(getItemViewType(i))) != null) {
+                    wn item = getItem(i);
+                    if (item != null && (item instanceof wn)) {
+                        view3 = jnVar.getView(i, view2, viewGroup, item);
                     }
                     if (view3 == null) {
-                        Log.e("BdTypeListView", inVar.getClass().getName());
+                        Log.e("BdTypeListView", jnVar.getClass().getName());
                     }
                 }
             }
@@ -326,7 +326,7 @@ public class TypeAdapter extends BaseAdapter implements ao<vn> {
         return (View) invokeILL.objValue;
     }
 
-    @Override // com.baidu.tieba.ao
+    @Override // com.baidu.tieba.bo
     public void notifyItemChanged(int i, @Nullable Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048592, this, i, obj) == null) {

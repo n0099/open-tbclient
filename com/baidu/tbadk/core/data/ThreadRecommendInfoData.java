@@ -1,9 +1,12 @@
 package com.baidu.tbadk.core.data;
 
+import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +20,9 @@ import tbclient.ThreadRecommendInfo;
 public class ThreadRecommendInfoData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUSINESS_TYPE_CONTENT_COLLECTION = 1;
+    public static final String QUERY_ALBUM_TYPE = "album_type";
     public transient /* synthetic */ FieldHolder $fh;
+    public int albumType;
     public ThemeColorInfo backgroundColor;
     public String businessId;
     public int businessType;
@@ -48,8 +53,10 @@ public class ThreadRecommendInfoData implements Serializable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.albumType = -1;
     }
 
     public boolean isValidData() {
@@ -62,6 +69,14 @@ public class ThreadRecommendInfoData implements Serializable {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    private void parseJumpLinkAlbumType(@Nullable String str) {
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !TextUtils.isEmpty(str) && (parse = Uri.parse(str)) != null) {
+            this.albumType = ug.e(parse.getQueryParameter(QUERY_ALBUM_TYPE), -1);
+        }
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -79,6 +94,7 @@ public class ThreadRecommendInfoData implements Serializable {
                 this.businessId = jSONObject.optString("business_id");
                 this.jumpIcon = jSONObject.optString("jump_icon");
                 this.jumpText = jSONObject.optString("jump_text");
+                parseJumpLinkAlbumType(this.jumpLink);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -109,5 +125,6 @@ public class ThreadRecommendInfoData implements Serializable {
         this.businessId = threadRecommendInfo.business_id;
         this.jumpIcon = threadRecommendInfo.jump_icon;
         this.jumpText = threadRecommendInfo.jump_text;
+        parseJumpLinkAlbumType(this.jumpLink);
     }
 }

@@ -1,33 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.lang.ref.WeakReference;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class xu extends bs implements zu {
+public final class xu implements at {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zs d;
-    public final bt e;
-    public final ft f;
-    public final it g;
-    public final dt h;
-    public final ys i;
-    public final et j;
-    public final av k;
-    public final iv l;
+    public WeakReference<Activity> a;
+    public final bq b;
 
-    public xu(zs zsVar, bt btVar, ft ftVar, it itVar, dt dtVar, ys ysVar, et etVar, av avVar, iv ivVar) {
+    public xu(bq bqVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zsVar, btVar, ftVar, itVar, dtVar, ysVar, etVar, avVar, ivVar};
+            Object[] objArr = {bqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,124 +32,95 @@ public final class xu extends bs implements zu {
                 return;
             }
         }
-        this.d = zsVar;
-        this.e = btVar;
-        this.f = ftVar;
-        this.g = itVar;
-        this.h = dtVar;
-        this.i = ysVar;
-        this.j = etVar;
-        this.k = avVar;
-        this.l = ivVar;
+        this.b = bqVar;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ xu(zs zsVar, bt btVar, ft ftVar, it itVar, dt dtVar, ys ysVar, et etVar, av avVar, iv ivVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(zsVar, btVar, ftVar, itVar, dtVar, ysVar, etVar, r10, r11);
-        bv bvVar;
-        kv kvVar;
-        if ((i & 128) != 0) {
-            bvVar = new bv();
-        } else {
-            bvVar = avVar;
-        }
-        if ((i & 256) != 0) {
-            kvVar = new kv();
-        } else {
-            kvVar = ivVar;
+    @Override // com.baidu.tieba.at
+    public void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && !zt.a(activity)) {
+            this.a = new WeakReference<>(activity);
         }
     }
 
-    @Override // com.baidu.tieba.as
-    public et a() {
+    @Override // com.baidu.tieba.at
+    public Activity a() {
         InterceptResult invokeV;
+        Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference == null) {
+                return null;
+            }
+            if (weakReference != null) {
+                activity = weakReference.get();
+            } else {
+                activity = null;
+            }
+            if (zt.a(activity)) {
+                return null;
+            }
+            return activity;
         }
-        return (et) invokeV.objValue;
+        return (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.as
-    public ft b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (ft) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.as
-    public ys c() {
+    @Override // com.baidu.tieba.at
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
+            return this.b.t();
         }
-        return (ys) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zu
-    public av d() {
+    @Override // com.baidu.tieba.at
+    public Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.k;
+            Context context = this.b.getContext();
+            Intrinsics.checkExpressionValueIsNotNull(context, "bdTaskConfig.context");
+            return context;
         }
-        return (av) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.as
-    public it e() {
+    @Override // com.baidu.tieba.at
+    public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
+            String k = this.b.k();
+            Intrinsics.checkExpressionValueIsNotNull(k, "bdTaskConfig.appVersion");
+            return k;
         }
-        return (it) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zu
-    public iv f() {
+    @Override // com.baidu.tieba.at
+    public bt getEnv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.l;
-        }
-        return (iv) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.as
-    public bt g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
+            bt r = this.b.r();
+            Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
+            return r;
         }
         return (bt) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.as
-    public zs h() {
+    @Override // com.baidu.tieba.at
+    public String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String q = this.b.q();
+            Intrinsics.checkExpressionValueIsNotNull(q, "bdTaskConfig.sdkVersion");
+            return q;
         }
-        return (zs) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.as
-    public dt i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (dt) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

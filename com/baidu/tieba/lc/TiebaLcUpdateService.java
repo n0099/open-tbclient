@@ -7,7 +7,7 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tieba.rn8;
+import com.baidu.tieba.lo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.io.Serializable;
 public class TiebaLcUpdateService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rn8 mLcUpdateAsyncTask;
+    public lo8 mLcUpdateAsyncTask;
 
     @Override // android.app.Service
     @Nullable
@@ -57,9 +57,9 @@ public class TiebaLcUpdateService extends BdBaseService {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rn8 rn8Var = this.mLcUpdateAsyncTask;
-            if (rn8Var != null) {
-                rn8Var.cancel();
+            lo8 lo8Var = this.mLcUpdateAsyncTask;
+            if (lo8Var != null) {
+                lo8Var.cancel();
                 this.mLcUpdateAsyncTask = null;
             }
             super.onDestroy();
@@ -71,14 +71,14 @@ public class TiebaLcUpdateService extends BdBaseService {
         if ((interceptable != null && interceptable.invokeL(65537, this, clientUpdateInfo) != null) || clientUpdateInfo == null) {
             return;
         }
-        rn8 rn8Var = this.mLcUpdateAsyncTask;
-        if (rn8Var != null) {
-            rn8Var.cancel();
+        lo8 lo8Var = this.mLcUpdateAsyncTask;
+        if (lo8Var != null) {
+            lo8Var.cancel();
             this.mLcUpdateAsyncTask = null;
         }
-        rn8 rn8Var2 = new rn8(clientUpdateInfo);
-        this.mLcUpdateAsyncTask = rn8Var2;
-        rn8Var2.execute(new String[0]);
+        lo8 lo8Var2 = new lo8(clientUpdateInfo);
+        this.mLcUpdateAsyncTask = lo8Var2;
+        lo8Var2.execute(new String[0]);
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service

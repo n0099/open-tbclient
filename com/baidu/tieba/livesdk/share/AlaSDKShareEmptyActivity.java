@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.li;
-import com.baidu.tieba.mq8;
+import com.baidu.tieba.gr8;
+import com.baidu.tieba.mi;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public mq8 m;
+    public gr8 m;
 
     /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -192,8 +192,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (shareItem = this.l) == null) {
             return;
         }
-        li.a(shareItem.x);
-        vi.Q(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
+        mi.a(shareItem.x);
+        wi.Q(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -201,9 +201,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            mq8 mq8Var = this.m;
-            if (mq8Var != null) {
-                mq8Var.d();
+            gr8 gr8Var = this.m;
+            if (gr8Var != null) {
+                gr8Var.d();
             }
         }
     }
@@ -234,13 +234,13 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     }
 
     public final void E1() {
-        mq8 mq8Var;
+        gr8 gr8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (mq8Var = this.m) != null) {
-            if (ListUtils.isEmpty(mq8Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (gr8Var = this.m) != null) {
+            if (ListUtils.isEmpty(gr8Var.b())) {
                 this.m.c();
             }
-            this.m.e(tg.g(this.g, 0L), this.i, this.l);
+            this.m.e(ug.g(this.g, 0L), this.i, this.l);
         }
     }
 
@@ -265,12 +265,12 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0278, R.drawable.obfuscated_res_0x7f080ae8, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0278, R.drawable.obfuscated_res_0x7f080aec, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        mq8 mq8Var = this.m;
-        if (mq8Var != null) {
-            mq8Var.c();
+        gr8 gr8Var = this.m;
+        if (gr8Var != null) {
+            gr8Var.c();
         }
     }
 
@@ -298,7 +298,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new mq8(getPageContext());
+            this.m = new gr8(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");

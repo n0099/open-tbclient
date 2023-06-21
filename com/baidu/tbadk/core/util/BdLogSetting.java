@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tieba.ch;
+import com.baidu.tieba.dh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class BdLogSetting implements ch {
+public class BdLogSetting implements dh {
     public static /* synthetic */ Interceptable $ic;
     public static BdLogSetting mInstance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class BdLogSetting implements ch {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ch
+    @Override // com.baidu.tieba.dh
     public long getLogUploadTime(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public class BdLogSetting implements ch {
         }
     }
 
-    @Override // com.baidu.tieba.ch
+    @Override // com.baidu.tieba.dh
     public void setLogUploadTime(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j) == null) {

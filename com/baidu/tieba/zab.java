@@ -1,61 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fbb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
 /* loaded from: classes8.dex */
-public class zab {
+public abstract class zab<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static fbb a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final IMessageEntity b;
+    public final jab c;
+    public RequestHeader d;
+    public hbb<TResult> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948354638, "Lcom/baidu/tieba/zab;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948354638, "Lcom/baidu/tieba/zab;");
+    public abstract void a(ApiException apiException, Object obj);
+
+    public zab(String str, IMessageEntity iMessageEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iMessageEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new fbb();
+        getClass().getSimpleName();
+        this.a = str;
+        this.b = iMessageEntity;
+        this.c = jab.b(str);
     }
 
-    public static <TResult> TResult a(wab<TResult> wabVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
+    public final void b(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wabVar)) == null) {
-            fbb.c("await must not be called on the UI thread");
-            if (wabVar.g()) {
-                return (TResult) fbb.b(wabVar);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
+            if (this.e != null) {
+                a(apiException, obj);
+                return;
             }
-            fbb.b bVar = new fbb.b();
-            wabVar.c(bVar);
-            wabVar.b(bVar);
-            bVar.a.await();
-            return (TResult) fbb.b(wabVar);
+            String str = "This Task has been canceled, uri:" + this.a;
         }
-        return (TResult) invokeL.objValue;
-    }
-
-    public static <TResult> wab<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(yab.a(), callable) : (wab) invokeL.objValue;
-    }
-
-    public static <TResult> wab<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(yab.b(), callable) : (wab) invokeL.objValue;
     }
 }

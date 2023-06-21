@@ -13,8 +13,8 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
 
     public CommonFootViewHolder(@NonNull View view2, boolean z) {
         super(view2);
-        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091fa2);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa3);
+        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091fae);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091faf);
         this.mFootTv = textView;
         this.isDarkMode = z;
         if (z) {

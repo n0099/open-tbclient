@@ -1,126 +1,156 @@
 package com.baidu.tieba;
 
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.egb;
+import com.baidu.tieba.lgb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.yalog.LoggerManager;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.Unit;
 /* loaded from: classes5.dex */
-public class dgb {
-    public static /* synthetic */ Interceptable $ic;
+public final class dgb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "CrashSdkUtil";
+    public static final long b = 600;
+    public static final dgb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public transient hib j;
-    public transient gib k;
-    public int l;
-    public boolean m;
-    public int n;
-    public int o;
+
+    /* loaded from: classes5.dex */
+    public static final class a implements lgb.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.lgb.e
+        public void a(String str, boolean z, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), str2, str3, str4}) == null) {
+                egb.b.g(dgb.b(dgb.c), "afterCrashCallback");
+            }
+        }
+
+        @Override // com.baidu.tieba.lgb.e
+        public void b(String str, boolean z, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), str2, str3, str4}) == null) {
+                egb.b.g(dgb.b(dgb.c), "crashCallback");
+            }
+        }
+
+        @Override // com.baidu.tieba.lgb.e
+        public void c(boolean z, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, str2, str3}) == null) {
+                try {
+                    egb.b.g(dgb.b(dgb.c), "preCrashCallback");
+                    lgb.s(dgb.c.e(dgb.a(dgb.c)));
+                } catch (Throwable th) {
+                    egb.b.d(dgb.b(dgb.c), th.toString());
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947705002, "Lcom/baidu/tieba/dgb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947705002, "Lcom/baidu/tieba/dgb;");
+                return;
+            }
+        }
+        c = new dgb();
+    }
 
     public dgb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = null;
-        this.b = 1;
-        this.c = 1;
-        this.d = 0;
-        this.e = 1;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.k = null;
-        this.l = 0;
-        this.m = false;
-        this.n = 1;
-        this.o = 4000;
     }
 
-    public static dgb a(String str) {
-        InterceptResult invokeL;
+    public static final /* synthetic */ long a(dgb dgbVar) {
+        return b;
+    }
+
+    public static final /* synthetic */ String b(dgb dgbVar) {
+        return a;
+    }
+
+    public final void d(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            dgb dgbVar = new dgb();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, str2) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("processName", str);
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                dgbVar.a = jSONObject.optString("cacheDirectory");
-                dgbVar.b = jSONObject.optInt("avcCodec");
-                dgbVar.c = jSONObject.optInt("hevcCodec");
-                dgbVar.d = jSONObject.optInt("audioCodec");
-                dgbVar.e = jSONObject.optInt("videoSeekMode");
-                dgbVar.f = jSONObject.optBoolean("clearRender");
-                dgbVar.g = jSONObject.optBoolean("usingSurfaceView");
-                dgbVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
-                dgbVar.i = jSONObject.optBoolean("forceNotCrop");
-                dgbVar.l = jSONObject.optInt("samplerFilter");
-                dgbVar.m = jSONObject.optBoolean("isSubProcess");
-                dgbVar.n = jSONObject.optInt("pcdnCatonTime");
-                dgbVar.o = jSONObject.optInt("pcdnCatonCount");
-            } catch (JSONException e) {
-                e.printStackTrace();
+                lgb.f fVar = new lgb.f();
+                fVar.g(context);
+                fVar.f("baidu-yyremoteview");
+                fVar.h(str2);
+                lgb.n(fVar);
+                lgb.r(hashMap);
+                lgb.q(new a());
+            } catch (Throwable th) {
+                egb.a aVar = egb.b;
+                String str3 = a;
+                th.printStackTrace();
+                aVar.d(str3, Unit.INSTANCE.toString());
             }
-            return dgbVar;
         }
-        return (dgb) invokeL.objValue;
     }
 
-    public static String b(dgb dgbVar) {
-        InterceptResult invokeL;
+    public final List<String> e(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dgbVar)) == null) {
-            if (dgbVar == null) {
-                return null;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            long j2 = currentTimeMillis - j;
+            egb.b.e(true);
+            String baseDir = LoggerManager.getBaseDir();
+            List<String> queryLogFiles = LoggerManager.queryLogFiles(j2, currentTimeMillis, "yylivesdk", "*");
+            ArrayList arrayList = new ArrayList();
+            Iterator<String> it = queryLogFiles.iterator();
+            while (it.hasNext()) {
+                arrayList.add(baseDir + WebvttCueParser.CHAR_SLASH + it.next());
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cacheDirectory", dgbVar.a);
-                jSONObject.put("avcCodec", dgbVar.b);
-                jSONObject.put("hevcCodec", dgbVar.c);
-                jSONObject.put("audioCodec", dgbVar.d);
-                jSONObject.put("videoSeekMode", dgbVar.e);
-                jSONObject.put("clearRender", dgbVar.f);
-                jSONObject.put("usingSurfaceView", dgbVar.g);
-                jSONObject.put("hardDecodeOutputToBuffer", dgbVar.h);
-                jSONObject.put("forceNotCrop", dgbVar.i);
-                jSONObject.put("samplerFilter", dgbVar.l);
-                jSONObject.put("isSubProcess", dgbVar.m);
-                jSONObject.put("pcdnCatonTime", dgbVar.n);
-                jSONObject.put("pcdnCatonCount", dgbVar.o);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+            return arrayList;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
+        return (List) invokeJ.objValue;
     }
 }

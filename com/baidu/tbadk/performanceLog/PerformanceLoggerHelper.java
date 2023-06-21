@@ -6,13 +6,13 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ms5;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.qs5;
+import com.baidu.tieba.o95;
 import com.baidu.tieba.rs5;
-import com.baidu.tieba.ss5;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.ts5;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.vs5;
+import com.baidu.tieba.ws5;
+import com.baidu.tieba.xs5;
+import com.baidu.tieba.ys5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +75,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = n95.m().o(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = o95.p().r(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -195,7 +195,7 @@ public class PerformanceLoggerHelper {
                                         str2 = str;
                                         if (str2 != null) {
                                         }
-                                        return tg.e(str2, -1);
+                                        return ug.e(str2, -1);
                                     }
                                 }
                                 if (bufferedReader != null) {
@@ -204,7 +204,7 @@ public class PerformanceLoggerHelper {
                                 str2 = str;
                                 if (str2 != null) {
                                 }
-                                return tg.e(str2, -1);
+                                return ug.e(str2, -1);
                             } catch (Throwable th) {
                                 th = th;
                                 if (process != null) {
@@ -261,7 +261,7 @@ public class PerformanceLoggerHelper {
                     str2 = split2[0];
                 }
             }
-            return tg.e(str2, -1);
+            return ug.e(str2, -1);
         }
         return invokeV.intValue;
     }
@@ -360,7 +360,7 @@ public class PerformanceLoggerHelper {
         return (String) invokeV.objValue;
     }
 
-    public rs5 getLoggerWithType(int i) {
+    public ws5 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -369,57 +369,57 @@ public class PerformanceLoggerHelper {
             }
             switch (i) {
                 case 1000:
-                    ts5 ts5Var = new ts5();
-                    ts5Var.a = "frs";
-                    return ts5Var;
+                    ys5 ys5Var = new ys5();
+                    ys5Var.a = "frs";
+                    return ys5Var;
                 case 1001:
-                    ts5 ts5Var2 = new ts5();
-                    ts5Var2.a = "pb";
-                    return ts5Var2;
+                    ys5 ys5Var2 = new ys5();
+                    ys5Var2.a = "pb";
+                    return ys5Var2;
                 case 1002:
-                    qs5 qs5Var = new qs5();
-                    qs5Var.a = "im";
-                    return qs5Var;
+                    vs5 vs5Var = new vs5();
+                    vs5Var.a = "im";
+                    return vs5Var;
                 case 1003:
                 case 1006:
                 case 1007:
                 default:
                     return null;
                 case 1004:
-                    ts5 ts5Var3 = new ts5();
-                    ts5Var3.a = "photo_live";
-                    return ts5Var3;
+                    ys5 ys5Var3 = new ys5();
+                    ys5Var3.a = "photo_live";
+                    return ys5Var3;
                 case 1005:
-                    ms5 ms5Var = new ms5();
-                    ms5Var.a = "home_page";
-                    return ms5Var;
+                    rs5 rs5Var = new rs5();
+                    rs5Var.a = "home_page";
+                    return rs5Var;
                 case 1008:
-                    ts5 ts5Var4 = new ts5();
-                    ts5Var4.a = "user_center";
-                    return ts5Var4;
+                    ys5 ys5Var4 = new ys5();
+                    ys5Var4.a = "user_center";
+                    return ys5Var4;
                 case 1009:
-                    ts5 ts5Var5 = new ts5();
-                    ts5Var5.a = "sign_all";
-                    return ts5Var5;
+                    ys5 ys5Var5 = new ys5();
+                    ys5Var5.a = "sign_all";
+                    return ys5Var5;
                 case 1010:
-                    ts5 ts5Var6 = new ts5();
-                    ts5Var6.a = "person_center";
-                    return ts5Var6;
+                    ys5 ys5Var6 = new ys5();
+                    ys5Var6.a = "person_center";
+                    return ys5Var6;
                 case 1011:
-                    ts5 ts5Var7 = new ts5();
-                    ts5Var7.a = "person_center_home";
-                    return ts5Var7;
+                    ys5 ys5Var7 = new ys5();
+                    ys5Var7.a = "person_center_home";
+                    return ys5Var7;
                 case 1012:
-                    ts5 ts5Var8 = new ts5();
-                    ts5Var8.a = "person_center_post";
-                    return ts5Var8;
+                    ys5 ys5Var8 = new ys5();
+                    ys5Var8.a = "person_center_post";
+                    return ys5Var8;
                 case 1013:
-                    ts5 ts5Var9 = new ts5();
-                    ts5Var9.a = "person_center_dynamic";
-                    return ts5Var9;
+                    ys5 ys5Var9 = new ys5();
+                    ys5Var9.a = "person_center_dynamic";
+                    return ys5Var9;
             }
         }
-        return (rs5) invokeI.objValue;
+        return (ws5) invokeI.objValue;
     }
 
     public String getNetType() {
@@ -455,17 +455,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    n95.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    o95.p().H(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                n95.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                o95.p().H(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                ss5.b().f();
+                xs5.b().f();
             }
         }
     }

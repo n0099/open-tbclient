@@ -1,80 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.hi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Map;
+@Service
 /* loaded from: classes6.dex */
-public final class ii0 extends xo0 {
+public class ii0 extends vj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ String d;
-
-        public a(long j, long j2, long j3, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = str;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a < ki0.c()) {
-                    ki0.z();
-                } else if (ki0.f()) {
-                    return;
-                } else {
-                    ki0.h(this.b, this.c, this.d);
-                }
-                ki0.g(this.b, "boot_from_cold", this.c, this.d);
-            }
-        }
+    @Override // com.baidu.tieba.vj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "dlink" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements Runnable {
+    public class a implements hi0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ dk0 a;
+        public final /* synthetic */ zj0 b;
+        public final /* synthetic */ ii0 c;
 
-        public b(long j, long j2, String str) {
+        public a(ii0 ii0Var, dk0 dk0Var, zj0 zj0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
+                Object[] objArr = {ii0Var, dk0Var, zj0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,16 +48,25 @@ public final class ii0 extends xo0 {
                     return;
                 }
             }
-            this.a = j;
-            this.b = j2;
-            this.c = str;
+            this.c = ii0Var;
+            this.a = dk0Var;
+            this.b = zj0Var;
         }
 
-        @Override // java.lang.Runnable
-        public final void run() {
+        @Override // com.baidu.tieba.hi0.c
+        public void onResult(boolean z) {
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ki0.g(this.a, "boot_from_background", this.b, this.c);
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                ii0 ii0Var = this.c;
+                dk0 dk0Var = this.a;
+                zj0 zj0Var = this.b;
+                if (z) {
+                    i = 0;
+                } else {
+                    i = 1001;
+                }
+                ii0Var.c(dk0Var, zj0Var, i, z);
             }
         }
     }
@@ -112,59 +85,15 @@ public final class ii0 extends xo0 {
         }
     }
 
-    @Override // com.baidu.tieba.xo0, com.baidu.tieba.ap0
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        long j;
+    @Override // com.baidu.tieba.vj0
+    public boolean b(@NonNull Context context, @NonNull zj0 zj0Var, @Nullable Map<String, Object> map, @Nullable dk0 dk0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!TextUtils.equals(activity.getLocalClassName(), "MainActivity")) {
-                return;
-            }
-            if (!ki0.d()) {
-                ki0.l();
-                return;
-            }
-            String i = ki0.i();
-            long j2 = ki0.j();
-            a aVar = new a(System.currentTimeMillis() - j2, j2, System.currentTimeMillis(), i);
-            Handler handler = new Handler();
-            j = ji0.a;
-            handler.postDelayed(aVar, j);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zj0Var, map, dk0Var)) == null) {
+            super.b(context, zj0Var, map, dk0Var);
+            new hi0().g(context, zj0Var.d(), new a(this, dk0Var, zj0Var));
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.xo0, com.baidu.tieba.ap0
-    public void onBackgroundToForeground(Activity activity) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!ki0.d()) {
-                ki0.l();
-            } else if (!TextUtils.equals(activity.getLocalClassName(), ki0.k())) {
-            } else {
-                String i = ki0.i();
-                long j2 = ki0.j();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (System.currentTimeMillis() - j2 < ki0.c()) {
-                    ki0.z();
-                    ki0.y();
-                }
-                b bVar = new b(j2, currentTimeMillis, i);
-                Handler handler = new Handler();
-                j = ji0.a;
-                handler.postDelayed(bVar, j);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xo0, com.baidu.tieba.ap0
-    public void onForegroundToBackground(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            ki0.w(activity);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

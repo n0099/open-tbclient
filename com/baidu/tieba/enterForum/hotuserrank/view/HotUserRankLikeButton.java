@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.ma5;
 import com.baidu.tieba.view.DynamicUserLikeButton;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -80,14 +80,14 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.nb5
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.ob5
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                la5 la5Var = new la5();
-                la5Var.v(R.color.CAM_X0109);
-                setConfig(la5Var);
+                ma5 ma5Var = new ma5();
+                ma5Var.v(R.color.CAM_X0109);
+                setConfig(ma5Var);
                 setClickable(true);
                 if (i == 1) {
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -95,22 +95,22 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                     setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
                 }
             } else {
-                la5 la5Var2 = new la5();
-                la5Var2.t(R.color.CAM_X0302);
-                setConfig(la5Var2);
+                ma5 ma5Var2 = new ma5();
+                ma5Var2.t(R.color.CAM_X0302);
+                setConfig(ma5Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e6));
             }
             if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.width = vi.g(getContext(), R.dimen.tbds196);
+                    layoutParams.width = wi.g(getContext(), R.dimen.tbds196);
                     setLayoutParams(layoutParams);
                 }
             } else {
                 ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
                 if (layoutParams2 != null) {
-                    layoutParams2.width = vi.g(getContext(), R.dimen.tbds156);
+                    layoutParams2.width = wi.g(getContext(), R.dimen.tbds156);
                     setLayoutParams(layoutParams2);
                 }
             }

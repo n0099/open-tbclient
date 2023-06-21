@@ -1,11 +1,13 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes8.dex */
 public interface zaa {
-    VideoItemModel O0();
+    void C0(String str);
 
-    void w0(int i);
+    void F0(String str);
 
-    int y();
+    void finishActivity();
+
+    void q0(String str, String str2);
+
+    void showErrorView();
 }

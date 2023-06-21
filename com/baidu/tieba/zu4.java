@@ -1,60 +1,69 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdTokenController;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zu4 {
+public class zu4 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zu4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public gu4 a;
-    public DialogInterface.OnDismissListener b;
+    public Context a;
+    public b b;
+    public SensorManager c;
+    public Sensor d;
+    public Vibrator e;
+    public SoundPool f;
+    public int g;
+    public int h;
+    public long i;
+    public boolean j;
+    public MediaPlayer k;
+    public double l;
+    public double m;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public interface b {
+        void a();
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, sensor, i) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UserData a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ zu4 c;
+        public final /* synthetic */ zu4 a;
 
-        public a(zu4 zu4Var, UserData userData, TbPageContext tbPageContext) {
+        public a(zu4 zu4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zu4Var, userData, tbPageContext};
+                Object[] objArr = {zu4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,35 +73,24 @@ public class zu4 {
                     return;
                 }
             }
-            this.c = zu4Var;
-            this.a = userData;
-            this.b = tbPageContext;
+            this.a = zu4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.c.a != null) {
-                    this.c.a.a();
-                }
-                if (!TextUtils.isEmpty(this.a.getName_show()) && !TextUtils.isEmpty(this.a.getUserId())) {
-                    String name_show = this.a.getName_show();
-                    String userId = this.a.getUserId();
-                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_CLICK);
-                    statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.addParam("obj_param1", userId);
-                    TiebaStatic.log(statisticItem);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.b.getPageActivity(), userId, name_show)));
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
+                this.a.k.start();
             }
         }
     }
 
-    public zu4() {
+    public zu4(@NonNull Context context, @Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,150 +100,172 @@ public class zu4 {
                 return;
             }
         }
-        this.a = null;
+        this.l = 2.5d;
+        this.m = 4.2d;
+        if (context == null) {
+            return;
+        }
+        this.a = context;
+        this.b = bVar;
+        SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
+        this.c = sensorManager;
+        if (sensorManager != null) {
+            this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
+        }
+        this.e = (Vibrator) context.getSystemService("vibrator");
+        SoundPool soundPool = new SoundPool(1, 3, 0);
+        this.f = soundPool;
+        if (soundPool != null) {
+            try {
+                this.g = soundPool.load(context, R.raw.shake_tone, 1);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+        }
     }
 
-    public static zu4 c() {
+    public void j(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.m = d;
+        }
+    }
+
+    public void k(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.l = d;
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.b) != null) {
+            bVar.a();
+        }
+    }
+
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (zu4.class) {
-                    if (c == null) {
-                        c = new zu4();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.i > 2000) {
+                this.i = currentTimeMillis;
+                return true;
             }
-            return c;
+            return false;
         }
-        return (zu4) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void b() {
-        gu4 gu4Var;
+    public void c() {
+        SensorManager sensorManager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gu4Var = this.a) != null && gu4Var.isShowing()) {
-            this.a.a();
-        }
-    }
-
-    public void d(DialogInterface.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onDismissListener) == null) {
-            this.b = onDismissListener;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (sensorManager = this.c) != null) {
+            sensorManager.unregisterListener(this);
+            this.j = false;
         }
     }
 
-    public void e(@NonNull TbPageContext tbPageContext, @NonNull Context context, @NonNull UserData userData, @NonNull BdTokenController.m mVar) {
-        boolean z;
-        boolean z2;
-        String format;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, context, userData, mVar) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_param1", userData.getUserId());
-            TiebaStatic.log(statisticItem);
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.content_tieba_uid_info, (ViewGroup) null, false);
-            TextView textView = (TextView) viewGroup.findViewById(R.id.who_share_info);
-            boolean z3 = true;
-            textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.tieba_uid_share_info), mVar.a()));
-            textView.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-            View findViewById = viewGroup.findViewById(R.id.left_divider);
-            View findViewById2 = viewGroup.findViewById(R.id.right_divider);
-            findViewById.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-            findViewById2.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-            HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.user_averter);
-            headImageView.setDefaultResource(R.drawable.transparent_bg);
-            headImageView.setGodIconWidth(R.dimen.tbds68);
-            headImageView.setAutoChangeStyle(false);
-            UtilHelper.showHeadImageViewBigV(headImageView, userData);
-            headImageView.setIsRound(true);
-            headImageView.N(userData.getAvater(), 25, false);
-            TextView textView2 = (TextView) viewGroup.findViewById(R.id.user_name);
-            textView2.setText(userData.getName_show());
-            textView2.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0105));
-            TextView textView3 = (TextView) viewGroup.findViewById(R.id.user_tieba_uid);
-            textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.tieba_uid_info), mVar.b()));
-            textView3.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0109));
-            LinearLayout linearLayout = (LinearLayout) viewGroup.findViewById(R.id.container_authentication);
-            if (ListUtils.isEmpty(userData.getManagerForum()) && !userData.isNewGod()) {
-                linearLayout.setVisibility(8);
-            } else {
-                linearLayout.setVisibility(0);
-                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-                int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X001);
-                if (userData.isNewGod() && !ListUtils.isEmpty(userData.getManagerForum())) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (sensor = this.d) != null) {
+            this.c.registerListener(this, sensor, 2);
+            this.j = true;
+        }
+    }
+
+    public final boolean e(float[] fArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fArr)) == null) {
+            double sqrt = Math.sqrt(Math.pow(Math.abs(fArr[0]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[1]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[2]) / 9.8d, 2.0d));
+            if (Build.VERSION.SDK_INT <= 23) {
+                if (sqrt >= this.l && b()) {
+                    return true;
                 }
-                if (userData.isNewGod()) {
-                    TextView textView4 = new TextView(context);
-                    textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                    textView4.setText(userData.getNewGodData().getFieldName() + vx5.a(userData.getNewGodData()));
-                    textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
-                    linearLayout.addView(textView4);
-                    textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-                    SkinManager.setBackgroundShapeDrawable(textView4, R.dimen.tbds26, R.color.CAM_X0623, R.color.CAM_X0623, 0);
-                    z2 = true;
-                } else {
-                    z2 = false;
+            } else if (sqrt >= this.m && b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Context context = this.a;
+            if (context == null) {
+                return false;
+            }
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            int i = -1;
+            if (audioManager != null) {
+                i = audioManager.getRingerMode();
+            }
+            Vibrator vibrator = this.e;
+            if (vibrator == null || !vibrator.hasVibrator() || i <= 0) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= 26) {
+                this.e.vibrate(VibrationEffect.createOneShot(400L, 255));
+                return true;
+            }
+            this.e.vibrate(400L);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (!z && (i = this.h) != 0) {
+                SoundPool soundPool = this.f;
+                if (soundPool != null) {
+                    soundPool.play(i, 1.0f, 1.0f, 0, 0, 1.0f);
+                    return;
                 }
-                if (!ListUtils.isEmpty(userData.getManagerForum())) {
-                    TextView textView5 = new TextView(context);
-                    textView5.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                    String desc = userData.getManagerForum().get(0).getDesc();
-                    if (userData.getManagerForum().size() > 1) {
-                        if (z) {
-                            desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 6, "...");
-                        }
-                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.multi_bazhu_sign), desc, Integer.valueOf(userData.getManagerForum().size()));
-                    } else {
-                        if (z) {
-                            desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 8, "...");
-                        }
-                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.single_bazhu_sign), desc);
-                    }
-                    textView5.setText(format);
-                    textView5.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X09));
-                    if (z2) {
-                        View view2 = new View(context);
-                        view2.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 1));
-                        linearLayout.addView(view2);
-                    }
-                    linearLayout.addView(textView5);
-                    textView5.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-                    SkinManager.setBackgroundShapeDrawable(textView5, R.dimen.tbds26, R.color.CAM_X0623, R.color.CAM_X0623, 0);
-                }
-                z3 = false;
+                return;
             }
-            TextView textView6 = (TextView) viewGroup.findViewById(R.id.user_simple_intro);
-            String intro = userData.getIntro();
-            if (TextUtils.isEmpty(userData.getIntro()) && z3) {
-                intro = StringHelper.getBaAgeAutoYearAndMonth(userData.getTb_age());
+            SoundPool soundPool2 = this.f;
+            if (soundPool2 != null) {
+                soundPool2.play(this.g, 1.0f, 1.0f, 0, 0, 1.0f);
             }
-            textView6.setText(intro);
-            if (linearLayout.getVisibility() == 0) {
-                textView6.setMaxLines(1);
-            } else {
-                textView6.setMaxLines(2);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (this.k == null) {
+                this.k = new MediaPlayer();
             }
-            textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.jump_user_detail_btn);
-            la5 la5Var = new la5();
-            la5Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-            tBSpecificationBtn.setTextSize(R.dimen.T_X05);
-            tBSpecificationBtn.setConfig(la5Var);
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.browse_user_detail));
-            tBSpecificationBtn.setOnClickListener(new a(this, userData, tbPageContext));
-            this.a = new gu4(tbPageContext);
-            this.a.b(WebPManager.getMaskDrawable((int) R.drawable.mask_popup_background, false));
-            this.a.c(viewGroup);
-            this.a.setOnDismissListener(this.b);
-            this.a.d();
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
+            try {
+                this.k.reset();
+                this.k.setLooping(false);
+                this.k.setDataSource(str);
+                this.k.prepareAsync();
+                this.k.setOnPreparedListener(new a(this));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

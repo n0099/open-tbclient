@@ -11,7 +11,7 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int immersion_custom_statusbar_view = 0x7f0910dd;
+        public static final int immersion_custom_statusbar_view = 0x7f0910e2;
     }
 
     /* loaded from: classes4.dex */

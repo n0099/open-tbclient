@@ -3,9 +3,21 @@ package com.baidu.tieba;
 public interface bc5 {
     void a();
 
-    boolean c();
+    boolean b(String str);
 
-    boolean d(String str);
+    int c();
 
-    boolean e();
+    void d();
+
+    void e();
+
+    int f();
+
+    void g();
+
+    boolean isPlaying();
+
+    boolean isPrepared();
+
+    void seek(int i);
 }

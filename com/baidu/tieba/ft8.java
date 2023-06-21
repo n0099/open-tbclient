@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ft8 extends sl1<LiveLikeProxyService> {
+public class ft8 extends tl1<LiveRealAuthService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class ft8 extends sl1<LiveLikeProxyService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sl1
+    @Override // com.baidu.tieba.tl1
     /* renamed from: a */
-    public LiveLikeProxyService createService() throws ServiceNotFoundException {
+    public LiveRealAuthService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new gt8();
         }
-        return (LiveLikeProxyService) invokeV.objValue;
+        return (LiveRealAuthService) invokeV.objValue;
     }
 }

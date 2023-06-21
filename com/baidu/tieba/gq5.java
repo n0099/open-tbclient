@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
-import com.baidu.tbadk.switchs.PraiseSwitch;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tbadk.mutiprocess.share.InitWeiboSdkEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class gq5 implements cp5<SyncDataEvent> {
+public class gq5 implements hp5<InitWeiboSdkEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,35 +29,16 @@ public class gq5 implements cp5<SyncDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cp5
+    @Override // com.baidu.tieba.hp5
     /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
+    public boolean onEvent(InitWeiboSdkEvent initWeiboSdkEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            boolean z = false;
-            if (syncDataEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, initWeiboSdkEvent)) == null) {
+            if (!lp5.l()) {
                 return false;
             }
-            HashMap<String, Integer> hashMap = syncDataEvent.switches;
-            if (hashMap != null && hashMap.size() > 0) {
-                SwitchManager.getInstance().refreshSwitchManager(syncDataEvent.switches);
-            }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            qv5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
-            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
-            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
-            g9 f = g9.f();
-            if (syncDataEvent.themeIsBlack == 1) {
-                z = true;
-            }
-            f.q(z);
-            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
-            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
-            if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                eu4.w().J();
-            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
             return true;
         }
         return invokeL.booleanValue;

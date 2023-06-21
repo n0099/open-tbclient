@@ -1,12 +1,12 @@
 package com.baidu.searchbox.devicescore;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.sl1;
+import com.baidu.tieba.tl1;
 /* loaded from: classes3.dex */
-public class DeviceScoreCollectFetcher extends sl1<IScoreMetaDataCollect> {
+public class DeviceScoreCollectFetcher extends tl1<IScoreMetaDataCollect> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.sl1
+    @Override // com.baidu.tieba.tl1
     public IScoreMetaDataCollect createService() throws ServiceNotFoundException {
         return DeviceScoreManager.getInstance();
     }

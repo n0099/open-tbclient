@@ -64,7 +64,7 @@ public class wa {
                     BdSocketLinkService.startService(true, "time to reconnStragety");
                     wa.c(this.a);
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        if (this.a.b >= rh.o().q("alert_im", 3)) {
+                        if (this.a.b >= sh.o().q("alert_im", 3)) {
                             BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                             bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.b) + "_times");
                         }
@@ -124,7 +124,7 @@ public class wa {
             } else if (!this.a) {
                 this.a = true;
                 this.c.removeMessages(1);
-                if (vj.j().l()) {
+                if (wj.j().l()) {
                     BdLog.d("启动重连策略失败，  WebSocketClient opened");
                     f("in Opened");
                     return;

@@ -12,15 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.IAudioListener;
 import com.baidu.swan.apps.IAudioService;
-import com.baidu.tieba.bz2;
-import com.baidu.tieba.ej3;
-import com.baidu.tieba.fv2;
-import com.baidu.tieba.fz2;
-import com.baidu.tieba.is1;
+import com.baidu.tieba.cz2;
+import com.baidu.tieba.fj3;
+import com.baidu.tieba.gv2;
+import com.baidu.tieba.gz2;
+import com.baidu.tieba.js1;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public final class SwanAppAudioService extends Service implements fz2 {
-    public static final boolean DEBUG = is1.a;
+public final class SwanAppAudioService extends Service implements gz2 {
+    public static final boolean DEBUG = js1.a;
     public static final int INVALID_DURATION = -1;
     public static final int INVALID_ERROR_CODE = -1;
     public static final String TAG = "SwanAppAudioService";
@@ -37,7 +37,7 @@ public final class SwanAppAudioService extends Service implements fz2 {
         return false;
     }
 
-    @Override // com.baidu.tieba.fz2
+    @Override // com.baidu.tieba.gz2
     public void onGetDuration(int i2) {
     }
 
@@ -262,8 +262,8 @@ public final class SwanAppAudioService extends Service implements fz2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            bz2.b(SwanAppAudioService.TAG, "post#setParams id=" + this.a + " params=" + this.b);
-            fv2.f().a(this.b, SwanAppAudioService.this);
+            cz2.b(SwanAppAudioService.TAG, "post#setParams id=" + this.a + " params=" + this.b);
+            gv2.f().a(this.b, SwanAppAudioService.this);
         }
     }
 
@@ -319,8 +319,8 @@ public final class SwanAppAudioService extends Service implements fz2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            bz2.b(SwanAppAudioService.TAG, "post#play  id=" + this.a);
-            fv2.f().play();
+            cz2.b(SwanAppAudioService.TAG, "post#play  id=" + this.a);
+            gv2.f().play();
         }
     }
 
@@ -334,8 +334,8 @@ public final class SwanAppAudioService extends Service implements fz2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            bz2.b(SwanAppAudioService.TAG, "post#pause  id=" + this.a);
-            fv2.f().pause();
+            cz2.b(SwanAppAudioService.TAG, "post#pause  id=" + this.a);
+            gv2.f().pause();
         }
     }
 
@@ -349,8 +349,8 @@ public final class SwanAppAudioService extends Service implements fz2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            bz2.b(SwanAppAudioService.TAG, "post#stop id=" + this.a);
-            fv2.f().stop();
+            cz2.b(SwanAppAudioService.TAG, "post#stop id=" + this.a);
+            gv2.f().stop();
         }
     }
 
@@ -366,8 +366,8 @@ public final class SwanAppAudioService extends Service implements fz2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            bz2.b(SwanAppAudioService.TAG, "post#seek id=" + this.a + " position=" + this.b);
-            fv2.f().seek(this.b);
+            cz2.b(SwanAppAudioService.TAG, "post#seek id=" + this.a + " position=" + this.b);
+            gv2.f().seek(this.b);
         }
     }
 
@@ -381,10 +381,10 @@ public final class SwanAppAudioService extends Service implements fz2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            bz2.b(SwanAppAudioService.TAG, "post#release id=" + this.a);
+            cz2.b(SwanAppAudioService.TAG, "post#release id=" + this.a);
             SwanAppAudioService.this.notifyEventOnStop();
             SwanAppAudioService.this.stopSelf();
-            fv2.f().onRelease();
+            gv2.f().onRelease();
         }
     }
 
@@ -430,7 +430,7 @@ public final class SwanAppAudioService extends Service implements fz2 {
         @Override // android.os.RemoteCallbackList
         /* renamed from: a */
         public void onCallbackDied(IAudioListener iAudioListener) {
-            bz2.b(SwanAppAudioService.TAG, "AudioRemoteCallbackList#onCallbackDied");
+            cz2.b(SwanAppAudioService.TAG, "AudioRemoteCallbackList#onCallbackDied");
             SwanAppAudioService.this.stop();
         }
 
@@ -461,31 +461,31 @@ public final class SwanAppAudioService extends Service implements fz2 {
     }
 
     public int getDuration() {
-        return fv2.f().getDuration();
+        return gv2.f().getDuration();
     }
 
     public boolean isPlaying() {
-        return fv2.f().isPlaying();
+        return gv2.f().isPlaying();
     }
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        bz2.b(TAG, "#onCreate");
+        cz2.b(TAG, "#onCreate");
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        bz2.b(TAG, "#onDestroy");
+        cz2.b(TAG, "#onDestroy");
         this.mCallback.kill();
         this.mMainHandler.removeCallbacksAndMessages(null);
         release();
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.fz2
+    @Override // com.baidu.tieba.gz2
     public void onInvokeFailed() {
-        ej3.b("audio", 2001, "invoke fail", -1, "");
+        fj3.b("audio", 2001, "invoke fail", -1, "");
         notifyEventOnError(-1);
     }
 
@@ -507,25 +507,25 @@ public final class SwanAppAudioService extends Service implements fz2 {
 
     public void pause() {
         long nanoTime = System.nanoTime();
-        bz2.b(TAG, "#pause id=" + nanoTime);
+        cz2.b(TAG, "#pause id=" + nanoTime);
         this.mMainHandler.post(new n(nanoTime));
     }
 
     public void play() {
         long nanoTime = System.nanoTime();
-        bz2.b(TAG, "#play id=" + nanoTime);
+        cz2.b(TAG, "#play id=" + nanoTime);
         this.mMainHandler.post(new m(nanoTime));
     }
 
     public void release() {
         long nanoTime = System.nanoTime();
-        bz2.b(TAG, "#release id=" + nanoTime);
+        cz2.b(TAG, "#release id=" + nanoTime);
         this.mMainHandler.post(new q(nanoTime));
     }
 
     public void stop() {
         long nanoTime = System.nanoTime();
-        bz2.b(TAG, "#stop id=" + nanoTime);
+        cz2.b(TAG, "#stop id=" + nanoTime);
         this.mMainHandler.post(new o(nanoTime));
     }
 
@@ -581,50 +581,50 @@ public final class SwanAppAudioService extends Service implements fz2 {
     @Override // android.app.Service
     @Nullable
     public IBinder onBind(Intent intent) {
-        bz2.b(TAG, "#onBind");
+        cz2.b(TAG, "#onBind");
         return this.mBinder;
     }
 
     public void onError(int i2) {
-        ej3.b("audio", 2008, "error code is" + i2, -1, "");
+        fj3.b("audio", 2008, "error code is" + i2, -1, "");
         notifyEventOnError(i2);
     }
 
-    @Override // com.baidu.tieba.fz2
+    @Override // com.baidu.tieba.gz2
     public void onGetCurrentSong(String str) {
         notifyOnChangeSrc(str);
     }
 
-    @Override // com.baidu.tieba.fz2
+    @Override // com.baidu.tieba.gz2
     public void onGetDownloadProgress(int i2) {
         handleAudioEvent(new f(i2));
     }
 
-    @Override // com.baidu.tieba.fz2
+    @Override // com.baidu.tieba.gz2
     public void onStateChanged(BgMusicPlayState bgMusicPlayState) {
-        bz2.c(TAG, "#onStateChanged state=" + bgMusicPlayState, new Exception("stack"));
+        cz2.c(TAG, "#onStateChanged state=" + bgMusicPlayState, new Exception("stack"));
         handleStateChanged(bgMusicPlayState);
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        bz2.b(TAG, "#onUnbind");
+        cz2.b(TAG, "#onUnbind");
         return false;
     }
 
     public void seek(int i2) {
         long nanoTime = System.nanoTime();
-        bz2.b(TAG, "#seek id=" + nanoTime);
+        cz2.b(TAG, "#seek id=" + nanoTime);
         this.mMainHandler.post(new p(nanoTime, i2));
     }
 
     public void setParams(String str) {
         long nanoTime = System.nanoTime();
-        bz2.b(TAG, "#setParams id=" + nanoTime);
+        cz2.b(TAG, "#setParams id=" + nanoTime);
         this.mMainHandler.post(new k(nanoTime, str));
     }
 
-    @Override // com.baidu.tieba.fz2
+    @Override // com.baidu.tieba.gz2
     public void onGetPosition(int i2, int i3) {
         handleAudioEvent(new e(i2, i3));
     }

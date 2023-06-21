@@ -14,9 +14,9 @@ import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b71;
-import com.baidu.tieba.qt7;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.c71;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.yt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -216,8 +216,8 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
             String stringExtra = intent.getStringExtra("request");
             this.c = intent.getStringArrayExtra("permissions");
             int intExtra = intent.getIntExtra(WebChromeClient.KEY_ARG_CALLBACK, 0);
-            this.a = (PermissionService.IGrantCallback) qt7.a.get(Integer.valueOf(intExtra));
-            qt7.a.remove(Integer.valueOf(intExtra));
+            this.a = (PermissionService.IGrantCallback) yt7.a.get(Integer.valueOf(intExtra));
+            yt7.a.remove(Integer.valueOf(intExtra));
             if (stringExtra != null) {
                 if (stringExtra.equals("requestFloatPermission")) {
                     u1();
@@ -283,7 +283,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
                 startActivityForResult(intent, 12016);
                 return;
             } catch (Exception unused) {
-                vi.P(this, R.string.request_window_permission_default_text_by_yourself);
+                wi.P(this, R.string.request_window_permission_default_text_by_yourself);
                 PermissionService.IGrantCallback iGrantCallback3 = this.a;
                 if (iGrantCallback3 != null) {
                     iGrantCallback3.onResult(false);
@@ -304,7 +304,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
             this.b.clear();
             if (Build.VERSION.SDK_INT >= 23) {
                 for (String str : this.c) {
-                    if (b71.a(this, str) != 0) {
+                    if (c71.a(this, str) != 0) {
                         this.b.add(str);
                     }
                 }

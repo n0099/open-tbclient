@@ -36,12 +36,12 @@ public class c implements h {
                 com.ss.android.downloadlib.addownload.d.a(downloadInfo.getId());
             }
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0730a() { // from class: com.ss.android.downloadlib.c.3
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0730a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0731a() { // from class: com.ss.android.downloadlib.c.3
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0731a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0730a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0731a
             public void b() {
                 if (!l.b(bVar)) {
                     long j = a2;

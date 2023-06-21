@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.k9;
 import com.baidu.tieba.pb.data.ContriInfo;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,7 +141,7 @@ public class AddExperiencedModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
                 this.a.b = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                wg.a().postDelayed(this.a.c, 2000L);
+                xg.a().postDelayed(this.a.c, 2000L);
             }
         }
     }
@@ -174,7 +174,7 @@ public class AddExperiencedModel extends BdBaseModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (tg.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str)) {
+            if (ug.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str)) {
                 return true;
             }
             return false;
@@ -195,7 +195,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wg.a().removeCallbacks(this.c);
+            xg.a().removeCallbacks(this.c);
         }
     }
 

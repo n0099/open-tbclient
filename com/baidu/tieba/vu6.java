@@ -1,42 +1,29 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class vu6 implements r7.a {
+public class vu6 implements ru6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ys6 a;
-    public us6 b;
-    public PointF c;
-    public RectF d;
-    public Matrix e;
-    public float f;
-    public boolean g;
+    public final ru6 a;
+    public final Map<Integer, ru6> b;
 
-    @Override // com.baidu.tieba.r7.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    public vu6(ys6 item, us6 drawingCache, PointF position, RectF rect, Matrix transform) {
+    public vu6(ru6 defaultLayouter, Pair<Integer, ? extends ru6>... layouter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {item, drawingCache, position, rect, transform};
+            Object[] objArr = {defaultLayouter, layouter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,109 +33,87 @@ public final class vu6 implements r7.a {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(drawingCache, "drawingCache");
-        Intrinsics.checkNotNullParameter(position, "position");
-        Intrinsics.checkNotNullParameter(rect, "rect");
-        Intrinsics.checkNotNullParameter(transform, "transform");
-        this.a = item;
-        this.b = drawingCache;
-        this.c = position;
-        this.d = rect;
-        this.e = transform;
-        this.f = 1.0f;
+        Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
+        Intrinsics.checkNotNullParameter(layouter, "layouter");
+        this.a = defaultLayouter;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
     }
 
-    public final float a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ru6
+    public void a(dt6 item, long j, dv6 displayer, xs6 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final us6 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (us6) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final ys6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (ys6) invokeV.objValue;
-    }
-
-    public final PointF e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final RectF f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (RectF) invokeV.objValue;
-    }
-
-    public final Matrix g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final void h(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.f = f;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            f(item).a(item, j, displayer, config);
         }
     }
 
-    public final void i(us6 us6Var) {
+    @Override // com.baidu.tieba.ru6
+    public boolean d(dt6 item, long j, dv6 displayer, xs6 config) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, us6Var) == null) {
-            Intrinsics.checkNotNullParameter(us6Var, "<set-?>");
-            this.b = us6Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            return f(item).d(item, j, displayer, config);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ru6
+    public void b(dt6 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            f(item).b(item);
         }
     }
 
-    public final void j(boolean z) {
+    public int e(dt6 item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.g = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().j();
+        }
+        return invokeL.intValue;
+    }
+
+    public final ru6 f(dt6 dt6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, dt6Var)) == null) {
+            ru6 ru6Var = this.b.get(Integer.valueOf(e(dt6Var)));
+            if (ru6Var == null) {
+                return this.a;
+            }
+            return ru6Var;
+        }
+        return (ru6) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ru6
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c(i, i2);
+            for (ru6 ru6Var : this.b.values()) {
+                ru6Var.c(i, i2);
+            }
         }
     }
 
-    public final void k(ys6 ys6Var) {
+    @Override // com.baidu.tieba.ru6
+    public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ys6Var) == null) {
-            Intrinsics.checkNotNullParameter(ys6Var, "<set-?>");
-            this.a = ys6Var;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+            for (ru6 ru6Var : this.b.values()) {
+                ru6Var.clear();
+            }
         }
     }
 }

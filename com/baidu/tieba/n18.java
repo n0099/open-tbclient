@@ -1,116 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
+import com.squareup.wire.Wire;
+import java.io.IOException;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
 public class n18 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, List<vn> list) {
-        hy9 hy9Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947949716, "Lcom/baidu/tieba/n18;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947949716, "Lcom/baidu/tieba/n18;");
+        }
+    }
+
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
-            Iterator<vn> it = list.iterator();
-            int i = 0;
-            AdvertAppInfo advertAppInfo = null;
-            int i2 = 0;
-            int i3 = 0;
-            while (it.hasNext()) {
-                i++;
-                vn next = it.next();
-                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof m66)) {
-                    it.remove();
-                }
-                if (next instanceof r08) {
-                    advertAppInfo = ((r08) next).c();
-                } else if (next instanceof z25) {
-                    z25 z25Var = (z25) next;
-                    if (z25Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
-                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) z25Var.c()).getAdvertAppInfo();
-                    }
-                } else if ((next instanceof ThreadData) && (hy9Var = ((ThreadData) next).funAdData) != null && hy9Var.i()) {
-                    it.remove();
-                    i3 = i;
-                }
-                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
-                    it.remove();
-                    advertAppInfo = null;
-                    i2 = i;
-                }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            c55.d();
+            we<byte[]> c = c55.c("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+            if (c != null) {
+                c.e("0", new byte[0], 0L);
             }
         }
     }
 
-    public static void b(List<vn> list, DataRes.Builder builder, ez7 ez7Var, o08 o08Var) {
-        hy9 hy9Var;
+    public static DataRes b() {
+        InterceptResult invokeV;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, ez7Var, o08Var) == null) {
-            if (list != null && list.size() > 0) {
-                Iterator<vn> it = list.iterator();
-                while (it.hasNext()) {
-                    vn next = it.next();
-                    if (!(next instanceof r08) && !(next instanceof z25) && !(next instanceof m66)) {
-                        if ((next instanceof ThreadData) && (hy9Var = ((ThreadData) next).funAdData) != null) {
-                            hy9Var.p(true);
-                            it.remove();
-                        }
-                    } else {
-                        it.remove();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            c55.d();
+            we<byte[]> c = c55.c("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+            if (c != null && (bArr = c.get("0")) != null && bArr.length != 0) {
+                try {
+                    return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                } catch (IOException e) {
+                    BdLog.e(e);
                 }
             }
-            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
-                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-                List<App> list2 = builder2.app;
-                if (list2 != null) {
-                    list2.clear();
-                }
-                builder.banner_list = builder2.build(false);
-                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-                builder3.banner_list = builder2.build(true);
-                if (ez7Var != null) {
-                    ez7Var.a(builder3);
-                }
-            }
-            if (o08Var != null) {
-                o08Var.z(list);
-            }
+            return null;
         }
+        return (DataRes) invokeV.objValue;
     }
 
-    public static void c(String str, DataRes.Builder builder, ez7 ez7Var) {
-        BannerList bannerList;
-        List<App> list;
+    public static boolean c(ResponsedMessage responsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, ez7Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (App app : builder.banner_list.app) {
-                if (app != null && str.equals(nl9.a(app))) {
-                    arrayList.add(app);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, responsedMessage)) == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest) || ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() != 2) {
+                return false;
             }
-            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-            List<App> list2 = builder2.app;
-            if (list2 != null) {
-                list2.removeAll(arrayList);
-            }
-            builder.banner_list = builder2.build(false);
-            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-            builder3.banner_list = builder2.build(true);
-            if (ez7Var != null) {
-                ez7Var.a(builder3);
-            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -18,10 +18,10 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0722a implements InvocationHandler {
+    public static class C0723a implements InvocationHandler {
         public Object a;
 
-        public C0722a(Object obj) {
+        public C0723a(Object obj) {
             this.a = obj;
         }
 
@@ -139,7 +139,7 @@ public class a {
             if (obj2 == null || (cls = Class.forName("android.app.IActivityManager")) == null) {
                 return;
             }
-            declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C0722a(obj2)));
+            declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C0723a(obj2)));
         } catch (Throwable unused) {
         }
     }

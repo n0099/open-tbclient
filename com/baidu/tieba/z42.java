@@ -1,40 +1,33 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z42 extends v42 {
+public class z42 extends w42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z42(vc3 vc3Var) {
-        super(vc3Var, "/swanAPI/canvas/measureTextSync");
+    public z42(wc3 wc3Var) {
+        super(wc3Var, "/swanAPI/canvas/insert");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vc3Var};
+            Object[] objArr = {wc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((vc3) objArr2[0], (String) objArr2[1]);
+                super((wc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,61 +35,37 @@ public class z42 extends v42 {
         }
     }
 
-    @Override // com.baidu.tieba.vd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+    @Override // com.baidu.tieba.wd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
         InterceptResult invokeLLLL;
-        int i;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
-            unitedSchemeEntity.result = l(201);
-            y62 m = m(unitedSchemeEntity);
-            if (m == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
+            w62 k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = l(201);
+                z82.c("SwanAppCanvas", "insert action parse model is null");
+                return false;
+            } else if (context == null) {
+                z82.c("SwanAppCanvas", "context is null");
+                unitedSchemeEntity.result = l(1001);
+                return false;
+            } else {
+                String str = k.b;
+                f23 f23Var = k.h;
+                if (!TextUtils.isEmpty(str) && f23Var != null && f23Var.h()) {
+                    q72 insert = new z72(context, k).insert();
+                    boolean a = insert.a();
+                    if (!a) {
+                        z82.c("SwanAppCanvas", "insert canvas fail: " + insert.b);
+                    }
+                    j(unitedSchemeEntity, callbackHandler, a);
+                    return a;
+                }
+                z82.c("SwanAppCanvas", "canvas id is empty or position is null");
+                unitedSchemeEntity.result = l(202);
                 return false;
             }
-            String str = m.k;
-            if (str != null && str.length() > 0) {
-                if (m.n && m.o) {
-                    i2 = 3;
-                } else if (m.n) {
-                    i2 = 1;
-                } else if (m.o) {
-                    i2 = 2;
-                } else {
-                    i2 = 0;
-                }
-                TextPaint textPaint = new TextPaint();
-                textPaint.setTypeface(Typeface.create(m.l, i2));
-                textPaint.setTextSize(m.m);
-                Rect rect = new Rect();
-                String str2 = m.k;
-                textPaint.getTextBounds(str2, 0, str2.length(), rect);
-                i = pp3.O(rect.width());
-            } else {
-                i = 0;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("width", Integer.valueOf(i));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public y62 m(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (!TextUtils.isEmpty(str)) {
-                return new y62(str);
-            }
-            return null;
-        }
-        return (y62) invokeL.objValue;
     }
 }

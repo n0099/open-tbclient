@@ -16,9 +16,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.re8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,13 +71,13 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
                 }
             }
             view2.setVisibility(0);
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a8);
-            this.b = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a7);
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090511);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090510);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
-            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09050f);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920d2);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a5);
+            this.b = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a4);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050d);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050b);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09050c);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920dd);
         }
     }
 
@@ -218,31 +218,31 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
             TopBubbleData topBubbleData = this.a.get(i);
             TextView textView = excellentHolder.e;
             textView.setText(topBubbleData.getUserName() + "：" + topBubbleData.getContent());
-            excellentHolder.d.setText(R.string.obfuscated_res_0x7f0f0405);
-            if (!be8.a(topBubbleData.getVersionKey())) {
+            excellentHolder.d.setText(R.string.obfuscated_res_0x7f0f0406);
+            if (!re8.a(topBubbleData.getVersionKey())) {
                 excellentHolder.f.setVisibility(0);
             } else {
                 excellentHolder.f.setVisibility(8);
             }
-            o75 d = o75.d(excellentHolder.b);
+            p75 d = p75.d(excellentHolder.b);
             d.m(R.dimen.L_X02);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0207);
-            o75 d2 = o75.d(excellentHolder.d);
-            d2.w(R.color.CAM_X0101);
-            d2.C(R.string.F_X01);
-            d2.B(R.dimen.T_X10);
-            o75 d3 = o75.d(excellentHolder.e);
-            d3.C(R.string.F_X01);
-            d3.w(R.color.CAM_X0107);
-            d3.B(R.dimen.T_X08);
-            o75 d4 = o75.d(excellentHolder.c);
+            p75 d2 = p75.d(excellentHolder.d);
+            d2.x(R.color.CAM_X0101);
+            d2.D(R.string.F_X01);
+            d2.C(R.dimen.T_X10);
+            p75 d3 = p75.d(excellentHolder.e);
+            d3.D(R.string.F_X01);
+            d3.x(R.color.CAM_X0107);
+            d3.C(R.dimen.T_X08);
+            p75 d4 = p75.d(excellentHolder.c);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0303);
             SkinManager.setImageResource(excellentHolder.g, R.drawable.top_bubble_excellent_bg);
             SkinManager.setViewTextColor(excellentHolder.d, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(excellentHolder.e, (int) R.color.CAM_X0107);
-            SkinManager.setImageResource(excellentHolder.f, R.drawable.obfuscated_res_0x7f080610);
+            SkinManager.setImageResource(excellentHolder.f, R.drawable.obfuscated_res_0x7f080612);
             SkinManager.setViewTextColor(excellentHolder.c, (int) R.color.CAM_X0304);
             excellentHolder.itemView.setOnClickListener(new a(this, i, excellentHolder));
             excellentHolder.itemView.setOnLongClickListener(new b(this, i));
@@ -257,7 +257,7 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new ExcellentHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d095e, viewGroup, false));
+            return new ExcellentHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d095f, viewGroup, false));
         }
         return (ExcellentHolder) invokeLI.objValue;
     }

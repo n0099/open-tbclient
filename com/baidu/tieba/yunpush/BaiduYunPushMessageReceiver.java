@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
-import com.baidu.tieba.ip5;
-import com.baidu.tieba.le5;
-import com.baidu.tieba.n95;
+import com.baidu.tieba.me5;
+import com.baidu.tieba.np5;
+import com.baidu.tieba.o95;
 import com.baidu.tieba.push.PushGeneralData;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.zq8;
+import com.baidu.tieba.tr8;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -90,12 +90,12 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
-            zq8 yunPushLog = YunPushLog.getInstance();
+            tr8 yunPushLog = YunPushLog.getInstance();
             yunPushLog.c(TAG, "onBind errorCode:" + i + " appid:" + str + " userId:" + str2 + " channelId:" + str3 + " requestId:" + str4);
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                n95 m = n95.m();
-                m.w(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                o95 p = o95.p();
+                p.A(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -138,9 +138,9 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     pushGeneralData.parseData(jSONObject.optString("st_ext"));
                     PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                     pushRecevierEvent.generalData = pushGeneralData;
-                    ip5.i(pushRecevierEvent);
-                } else if (!le5.L()) {
-                    int e = tg.e(str6, 2500);
+                    np5.i(pushRecevierEvent);
+                } else if (!me5.L()) {
+                    int e = ug.e(str6, 2500);
                     if (e < 2500) {
                         e += 2500;
                     }
@@ -158,7 +158,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onMessage(Context context, String str, String str2, int i, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, str2, Integer.valueOf(i), pushCallBackExtra}) == null) {
-            zq8 yunPushLog = YunPushLog.getInstance();
+            tr8 yunPushLog = YunPushLog.getInstance();
             yunPushLog.c(TAG, "onMessage message:" + str + " customContentString:" + str2 + " notifyId:" + i + " extra:" + pushCallBackExtra);
         }
     }
@@ -167,7 +167,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onNotificationArrived(Context context, String str, String str2, String str3, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, context, str, str2, str3, pushCallBackExtra) == null) {
-            zq8 yunPushLog = YunPushLog.getInstance();
+            tr8 yunPushLog = YunPushLog.getInstance();
             yunPushLog.c(TAG, "onNotificationArrived title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
         }
     }
@@ -176,7 +176,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onNotificationClicked(Context context, String str, String str2, String str3, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2, str3, pushCallBackExtra) == null) {
-            zq8 yunPushLog = YunPushLog.getInstance();
+            tr8 yunPushLog = YunPushLog.getInstance();
             yunPushLog.c(TAG, "onNotificationClicked title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
         }
     }

@@ -1,26 +1,31 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.content.res.Resources;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.IndicatorView;
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class u75 {
+public class u75 implements s75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
+
+    @Override // com.baidu.tieba.s75
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
 
     public u75() {
         Interceptable interceptable = $ic;
@@ -36,97 +41,47 @@ public class u75 {
         }
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.s75
+    public v75 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            v75 v75Var = new v75();
+            v75Var.c(R.drawable.icon_banner_n);
+            v75Var.g(R.drawable.icon_banner_s);
+            v75Var.h(R.dimen.obfuscated_res_0x7f070393);
+            v75Var.d(81);
+            v75Var.e(R.dimen.obfuscated_res_0x7f070393);
+            return v75Var;
         }
-        return invokeV.intValue;
+        return (v75) invokeV.objValue;
     }
 
-    public int b() {
+    @Override // com.baidu.tieba.s75
+    public y75 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void i(IndicatorView indicatorView) {
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) != null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
-            return;
-        }
-        int i = this.d;
-        if (i > 0) {
-            indicatorView.setSpacing(resources.getDimensionPixelSize(i));
-        }
-        int i2 = this.b;
-        if (i2 > 0) {
-            indicatorView.setDrawable(resources.getDrawable(i2));
-        }
-        int i3 = this.c;
-        if (i3 > 0) {
-            indicatorView.setSelector(resources.getDrawable(i3));
-        }
-        ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
-        if (layoutParams instanceof FrameLayout.LayoutParams) {
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.gravity = this.a;
-            int i4 = this.e;
-            if (i4 > 0) {
-                layoutParams2.bottomMargin = resources.getDimensionPixelSize(i4);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            y75 y75Var = new y75();
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            if (resources != null) {
+                y75Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ba));
             }
-            int i5 = this.f;
-            if (i5 > 0) {
-                layoutParams2.rightMargin = resources.getDimensionPixelSize(i5);
-            }
-            indicatorView.setLayoutParams(layoutParams);
+            return y75Var;
         }
+        return (y75) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s75
+    public TbImageView d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            TbImageView tbImageView = new TbImageView(context);
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbImageView.setGifIconSupport(false);
+            return tbImageView;
+        }
+        return (TbImageView) invokeL.objValue;
     }
 }

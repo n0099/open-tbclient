@@ -1,219 +1,129 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Canvas;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class leb {
+public class leb {
     public static /* synthetic */ Interceptable $ic;
-    public static Logger a;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @JvmStatic
-    public static final void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            b.b(str, str2);
-        }
-    }
-
-    @JvmStatic
-    public static final void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            b.d(str, str2);
-        }
-    }
-
-    @JvmStatic
-    public static final void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            b.g(str, str2);
-        }
-    }
-
-    @JvmStatic
-    public static final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            b.j(str, str2);
-        }
-    }
+    public final yeb a;
+    public final SVGAVideoEntity b;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final teb b;
 
-        public a() {
+        public a(leb lebVar, String str, teb tebVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lebVar, str, tebVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final void h() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                g("sub_process_view", "init succeed");
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                b("sub_process_view", str);
-            }
-        }
-
-        @JvmStatic
-        public final void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                d("sub_process_view", str);
-            }
-        }
-
-        public final void e(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                Logger logger = leb.a;
-                if (logger != null) {
-                    logger.flush(z);
-                }
-                g("sub_process_view", "flushYalog!");
-            }
-        }
-
-        @JvmStatic
-        public final void f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                g("sub_process_view", str);
-            }
-        }
-
-        public final void i(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) {
-                return;
-            }
-            leb.a = LoggerManager.getLogger(str);
-        }
-
-        @JvmStatic
-        public final void b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                if (leb.a != null) {
-                    Logger logger = leb.a;
-                    if (logger == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    logger.d("3925", str, meb.a(str2));
                     return;
                 }
-                Log.d(str, meb.a(str2));
             }
+            this.a = str;
+            this.b = tebVar;
         }
 
-        @JvmStatic
-        public final void d(String str, String str2) {
+        public final teb a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-                if (leb.a != null) {
-                    Logger logger = leb.a;
-                    if (logger == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    logger.e("3925", str, meb.a(str2));
-                    return;
-                }
-                Log.e(str, meb.a(str2));
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
             }
+            return (teb) invokeV.objValue;
         }
 
-        @JvmStatic
-        public final void g(String str, String str2) {
+        public final String b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-                if (leb.a != null) {
-                    Logger logger = leb.a;
-                    if (logger == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    logger.i("3925", str, meb.a(str2));
-                    return;
-                }
-                Log.i(str, meb.a(str2));
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
             }
-        }
-
-        @JvmStatic
-        public final void j(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-                if (leb.a != null) {
-                    Logger logger = leb.a;
-                    if (logger == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    logger.w("3925", str, meb.a(str2));
-                    return;
-                }
-                Log.w(str, meb.a(str2));
-            }
+            return (String) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941408, "Lcom/baidu/tieba/leb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947941408, "Lcom/baidu/tieba/leb;");
+    public leb(SVGAVideoEntity sVGAVideoEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sVGAVideoEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new a(null);
-        try {
-            Log.i("sub_process_view", "KlogUtil init yalog");
-            b.i("yylivesdk");
-        } catch (Throwable th) {
-            a aVar = b;
-            th.printStackTrace();
-            aVar.d("sub_process_view", Unit.INSTANCE.toString());
+        this.b = sVGAVideoEntity;
+        this.a = new yeb();
+    }
+
+    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
+            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
         }
+    }
+
+    public final yeb b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (yeb) invokeV.objValue;
+    }
+
+    public final SVGAVideoEntity c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (SVGAVideoEntity) invokeV.objValue;
+    }
+
+    public final List<a> d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            List<seb> g = this.b.g();
+            ArrayList arrayList = new ArrayList();
+            for (seb sebVar : g) {
+                a aVar = null;
+                if (i >= 0 && i < sebVar.a().size() && sebVar.a().get(i).a() > 0.0d) {
+                    aVar = new a(this, sebVar.b(), sebVar.a().get(i));
+                }
+                if (aVar != null) {
+                    arrayList.add(aVar);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeI.objValue;
     }
 }

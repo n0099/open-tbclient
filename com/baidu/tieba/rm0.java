@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 /* loaded from: classes7.dex */
 public interface rm0 {
-    void a(@NonNull AdDownloadAction adDownloadAction, @NonNull zl0 zl0Var);
+    void a(AdDownloadStatus adDownloadStatus);
 
-    zl0 getData();
+    void b(AdDownloadCode adDownloadCode);
 }

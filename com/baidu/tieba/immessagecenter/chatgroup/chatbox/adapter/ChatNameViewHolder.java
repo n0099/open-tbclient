@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.id8;
-import com.baidu.tieba.jd8;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.vc8;
-import com.baidu.tieba.wc8;
+import com.baidu.tieba.ld8;
+import com.baidu.tieba.md8;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.yd8;
+import com.baidu.tieba.zd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,13 +27,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ChatNameViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
-    public static int i;
+    public static int j;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout d;
-    public TextView e;
-    public ImageView f;
-    public RecyclerView g;
-    public id8 h;
+    public RelativeLayout e;
+    public TextView f;
+    public ImageView g;
+    public RecyclerView h;
+    public yd8 i;
 
     /* loaded from: classes6.dex */
     public class a extends LinearLayoutManager {
@@ -99,20 +99,20 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
-                if (this.a.h.d()) {
-                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f080910);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.i != null) {
+                if (this.a.i.d()) {
+                    this.a.g.setImageResource(R.drawable.obfuscated_res_0x7f080912);
                     ChatNameViewHolder chatNameViewHolder = this.a;
-                    wc8.d(chatNameViewHolder, chatNameViewHolder.g);
-                    int unused = ChatNameViewHolder.i = 1;
+                    md8.d(chatNameViewHolder, chatNameViewHolder.h);
+                    int unused = ChatNameViewHolder.j = 1;
                 } else {
-                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08090f);
+                    this.a.g.setImageResource(R.drawable.obfuscated_res_0x7f080911);
                     ChatNameViewHolder chatNameViewHolder2 = this.a;
-                    wc8.a(chatNameViewHolder2, chatNameViewHolder2.g);
-                    int unused2 = ChatNameViewHolder.i = 2;
+                    md8.a(chatNameViewHolder2, chatNameViewHolder2.h);
+                    int unused2 = ChatNameViewHolder.j = 2;
                 }
                 this.a.n();
-                this.a.h.g(true ^ this.a.h.d());
+                this.a.i.g(true ^ this.a.i.d());
             }
         }
     }
@@ -126,67 +126,67 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091824);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e79);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e95);
-        this.g = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e86);
-        this.g.setLayoutManager(new a(this, view2.getContext()));
-        this.g.setFocusable(false);
-        this.d.setOnClickListener(new b(this));
+        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09182a);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e77);
+        this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e93);
+        this.h = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e84);
+        this.h.setLayoutManager(new a(this, view2.getContext()));
+        this.h.setFocusable(false);
+        this.e.setOnClickListener(new b(this));
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void f(int i2) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && !this.h.e()) {
-            o75 d = o75.d(this.e);
-            d.B(R.dimen.T_X08);
-            d.C(R.string.F_X01);
-            d.w(R.color.CAM_X0107);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.i.e()) {
+            p75 d = p75.d(this.f);
+            d.C(R.dimen.T_X08);
+            d.D(R.string.F_X01);
+            d.x(R.color.CAM_X0107);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull vc8 vc8Var, @NonNull TbPageContext tbPageContext, int i2) {
-        int i3;
+    public void d(@NonNull ld8 ld8Var, @NonNull TbPageContext tbPageContext, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, vc8Var, tbPageContext, i2) == null) && (vc8Var instanceof id8)) {
-            id8 id8Var = (id8) vc8Var;
-            this.h = id8Var;
-            this.e.setText(id8Var.b());
-            ImageView imageView = this.f;
-            int i4 = R.drawable.obfuscated_res_0x7f080910;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080910);
-            if (this.g.getAdapter() != this.h.getAdapter()) {
-                if (this.g.getAdapter() != null) {
-                    this.g.swapAdapter(this.h.getAdapter(), true);
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, ld8Var, tbPageContext, i) == null) && (ld8Var instanceof yd8)) {
+            yd8 yd8Var = (yd8) ld8Var;
+            this.i = yd8Var;
+            this.f.setText(yd8Var.b());
+            ImageView imageView = this.g;
+            int i3 = R.drawable.obfuscated_res_0x7f080912;
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080912);
+            if (this.h.getAdapter() != this.i.getAdapter()) {
+                if (this.h.getAdapter() != null) {
+                    this.h.swapAdapter(this.i.getAdapter(), true);
                 } else {
-                    this.g.setAdapter(this.h.getAdapter());
+                    this.h.setAdapter(this.i.getAdapter());
                 }
             } else {
-                this.h.f();
+                this.i.f();
             }
-            RecyclerView recyclerView = this.g;
-            if (this.h.d()) {
-                i3 = 8;
+            RecyclerView recyclerView = this.h;
+            if (this.i.d()) {
+                i2 = 8;
             } else {
-                i3 = 0;
+                i2 = 0;
             }
-            recyclerView.setVisibility(i3);
-            ImageView imageView2 = this.f;
-            if (this.h.d()) {
-                i4 = R.drawable.obfuscated_res_0x7f08090f;
+            recyclerView.setVisibility(i2);
+            ImageView imageView2 = this.g;
+            if (this.i.d()) {
+                i3 = R.drawable.obfuscated_res_0x7f080911;
             }
-            imageView2.setImageResource(i4);
+            imageView2.setImageResource(i3);
             o();
         }
     }
@@ -195,17 +195,17 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_CLICK);
-            vc8 vc8Var = this.h.getSubItems().get(0);
-            if (vc8Var instanceof jd8) {
-                jd8 jd8Var = (jd8) vc8Var;
-                if (jd8Var.a() != null) {
-                    statisticItem.param("fid", jd8Var.a().getForumId());
-                    statisticItem.param("fname", jd8Var.a().getForumName());
+            ld8 ld8Var = this.i.getSubItems().get(0);
+            if (ld8Var instanceof zd8) {
+                zd8 zd8Var = (zd8) ld8Var;
+                if (zd8Var.a() != null) {
+                    statisticItem.param("fid", zd8Var.a().getForumId());
+                    statisticItem.param("fname", zd8Var.a().getForumName());
                 }
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_source", this.h.b());
+            statisticItem.param("obj_type", j);
+            statisticItem.param("obj_source", this.i.b());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -213,10 +213,10 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.h.e()) {
-                this.d.setVisibility(8);
+            if (this.i.e()) {
+                this.e.setVisibility(8);
             } else {
-                this.d.setVisibility(0);
+                this.e.setVisibility(0);
             }
             f(TbadkCoreApplication.getInst().getSkinType());
         }

@@ -39,9 +39,9 @@ import com.baidu.searchbox.permission.DangerousPermissionManager;
 import com.baidu.searchbox.permission.DangerousPermissionUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a20;
-import com.baidu.tieba.u20;
-import com.baidu.tieba.w20;
+import com.baidu.tieba.b20;
+import com.baidu.tieba.v20;
+import com.baidu.tieba.x20;
 import com.kuaishou.weapon.p0.h;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
@@ -278,7 +278,7 @@ public final class DownloadHelper {
     }
 
     public static boolean checkTeenagerStyleAndTip() {
-        if (a20.a.e()) {
+        if (b20.a.e()) {
             UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.teenager_not_download).show();
             return true;
         }
@@ -506,7 +506,7 @@ public final class DownloadHelper {
                         externalStorageCallBack3.onResult(false);
                     }
                     if (PreferenceUtils.getBoolean(DownloadHelper.DOWNLOAD_GOTO_SETTING_DIALOG_SHOW, false)) {
-                        u20.i();
+                        v20.i();
                     } else {
                         PreferenceUtils.setBoolean(DownloadHelper.DOWNLOAD_GOTO_SETTING_DIALOG_SHOW, true);
                     }
@@ -1419,7 +1419,7 @@ public final class DownloadHelper {
                         if (eventCallback2 != null) {
                             eventCallback2.callBack(3, new EventCallback.EventBackInfo(EventCallback.Info.INFO_PERMISSION_SYSTEM_GRANTED));
                         }
-                        w20.t(str, true);
+                        x20.t(str, true);
                         return;
                     }
                     ExternalStorageCallBack externalStorageCallBack3 = ExternalStorageCallBack.this;
@@ -1430,8 +1430,8 @@ public final class DownloadHelper {
                     if (eventCallback3 != null) {
                         eventCallback3.callBack(2, new EventCallback.EventBackInfo(110));
                     }
-                    w20.t(str, false);
-                    u20.k(realTopActivity, str, eventCallback);
+                    x20.t(str, false);
+                    v20.k(realTopActivity, str, eventCallback);
                 }
             }
         });

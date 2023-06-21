@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f98;
-import com.baidu.tieba.u88;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.k98;
+import com.baidu.tieba.v98;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -85,17 +85,17 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setRadius(vi.g(this.a, R.dimen.tbds31));
+            this.b.setRadius(wi.g(this.a, R.dimen.tbds31));
             this.b.setConrers(3);
             ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
-            layoutParams.height = vi.g(this.a, R.dimen.tbds579);
+            layoutParams.height = wi.g(this.a, R.dimen.tbds579);
             this.g.setLayoutParams(layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
-            layoutParams2.leftMargin = vi.g(this.a, R.dimen.tbds27);
+            layoutParams2.leftMargin = wi.g(this.a, R.dimen.tbds27);
             this.h.setLayoutParams(layoutParams2);
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            layoutParams3.leftMargin = vi.g(this.a, R.dimen.tbds30);
-            layoutParams3.bottomMargin = vi.g(this.a, R.dimen.tbds27);
+            layoutParams3.leftMargin = wi.g(this.a, R.dimen.tbds30);
+            layoutParams3.bottomMargin = wi.g(this.a, R.dimen.tbds27);
             this.e.setLayoutParams(layoutParams3);
         }
     }
@@ -103,16 +103,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d071b, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09170f);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091716);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091715);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09171b);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0719, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091715);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09171c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09171b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091721);
             this.f = findViewById(R.id.black_mask);
             this.b.setConrers(15);
-            this.b.setRadius(vi.g(this.a, R.dimen.tbds21));
-            this.g = findViewById(R.id.obfuscated_res_0x7f09104d);
-            this.h = findViewById(R.id.obfuscated_res_0x7f09177f);
+            this.b.setRadius(wi.g(this.a, R.dimen.tbds21));
+            this.g = findViewById(R.id.obfuscated_res_0x7f091052);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091785);
             c();
         }
     }
@@ -120,12 +120,12 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080af8, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080afc, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
             } else {
-                gradientLinear.blRadius(vi.g(getContext(), R.dimen.tbds21)).brRadius(vi.g(getContext(), R.dimen.tbds21)).into(this.f);
+                gradientLinear.blRadius(wi.g(getContext(), R.dimen.tbds21)).brRadius(wi.g(getContext(), R.dimen.tbds21)).into(this.f);
             }
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
@@ -146,13 +146,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(f98.a aVar, int i, u88 u88Var) {
+    public void setData(v98.a aVar, int i, k98 k98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, u88Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, k98Var) == null) {
             this.b.N(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (u88Var != null) {
-                i = u88Var.i();
+            if (k98Var != null) {
+                i = k98Var.i();
             }
             d(i);
         }

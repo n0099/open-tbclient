@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.JsPromptResult;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import java.util.HashMap;
-import java.util.List;
+import android.app.Activity;
+import android.webkit.URLUtil;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface sl6 {
-    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
+public class sl6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(List<Pair<String, String>> list);
-
-    void b(String str, HashMap<String, Object> hashMap);
-
-    boolean c(WebView webView, String str, JsPromptResult jsPromptResult);
-
-    void d(View view2, String str, HashMap<String, Object> hashMap);
-
-    void e(View view2, String str, ValueCallback<String> valueCallback);
-
-    void f(ul6 ul6Var, Object obj);
+    public static void a(Activity activity, String str, boolean z, boolean z2) {
+        zm6 zm6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{activity, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if ((URLUtil.isNetworkUrl(str) || URLUtil.isFileUrl(str) || URLUtil.isAssetUrl(str)) && (zm6Var = (zm6) ServiceManager.getService(zm6.a)) != null) {
+                zm6Var.a(activity, str, z, z2);
+            }
+        }
+    }
 }

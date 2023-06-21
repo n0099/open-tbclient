@@ -1,373 +1,279 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.we;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.square.square.BarFolderFirstDirActivity;
+import com.baidu.tieba.square.view.BestStringsFitTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.FrsPage.FrsPageResIdl;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes7.dex */
-public class pw9 {
+public class pw9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final Wire c;
-    public static pw9 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public yw9 a;
-    public we<byte[]> b;
+    public Activity a;
+    public ArrayList<sw9> b;
+    public View.OnClickListener c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076599, "Lcom/baidu/tieba/pw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948076599, "Lcom/baidu/tieba/pw9;");
-                return;
-            }
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return null;
         }
-        c = new Wire(new Class[0]);
+        return invokeI.objValue;
     }
 
-    public static pw9 i() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (pw9.class) {
-                    if (d == null) {
-                        d = new pw9();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pw9 a;
+
+        public a(pw9 pw9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return d;
+            this.a = pw9Var;
         }
-        return (pw9) invokeV.objValue;
-    }
 
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long o = n95.m().o("key_frs_cache_time", 604800000L);
-            if (o < 0) {
-                return 604800000L;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            sw9 sw9Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Object tag = view2.getTag();
+                if (!(tag instanceof b) || (sw9Var = ((b) tag).d) == null) {
+                    return;
+                }
+                if (sw9Var.a == null) {
+                    BarFolderFirstDirActivity.D1(this.a.getContext(), null);
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.a.getContext(), sw9Var.b, sw9Var.a, sw9Var.c)));
+                }
             }
-            return o;
         }
-        return invokeV.longValue;
     }
 
-    public yw9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public BarImageView a;
+        public TextView b;
+        public BestStringsFitTextView c;
+        public sw9 d;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (yw9) invokeV.objValue;
     }
 
-    public pw9() {
+    public pw9(Activity activity, qw9 qw9Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, qw9Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.b = BdCacheService.n().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.c = new a(this);
+        this.a = activity;
+        this.b = qw9Var.h();
     }
 
-    public void a(String str, byte[] bArr, boolean z) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, str, bArr, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                we<byte[]> weVar = this.b;
-                weVar.e(currentAccount + str, bArr, h());
-                return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            int itemViewType = getItemViewType(i);
+            if (view2 == null) {
+                view2 = a(viewGroup, itemViewType);
+                ViewHelper.prepareNewView(view2);
             }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            we<byte[]> weVar2 = this.b;
-            weVar2.i(currentAccount2 + str, bArr, h());
-        }
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            we<byte[]> weVar = this.b;
-            byte[] bArr = weVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.forum != null && frsPageResIdl.data.forum.banner_list != null && frsPageResIdl.data.forum.banner_list.app != null && frsPageResIdl.data.forum.banner_list.app.size() > 0) {
-                        ArrayList arrayList = new ArrayList();
-                        for (App app : frsPageResIdl.data.forum.banner_list.app) {
-                            boolean isNull = StringUtils.isNull(str2);
-                            if (app != null && (isNull || str2.equals(nl9.a(app)))) {
-                                arrayList.add(app);
-                            }
-                        }
-                        BannerList.Builder builder = new BannerList.Builder(frsPageResIdl.data.forum.banner_list);
-                        if (builder.app != null) {
-                            builder.app.removeAll(arrayList);
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        DataRes.Builder builder3 = new DataRes.Builder(frsPageResIdl.data);
-                        ForumInfo.Builder builder4 = new ForumInfo.Builder(frsPageResIdl.data.forum);
-                        builder4.banner_list = builder.build(true);
-                        builder3.forum = builder4.build(true);
-                        builder2.data = builder3.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
+            ViewHelper.processCurrentSkin(view2);
+            if (itemViewType == 3) {
+                return view2;
+            }
+            TbadkCoreApplication.getInst().getSkinType();
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09079b);
+            SkinManager.setBackgroundResource(findViewById, R.drawable.addresslist_item_bg);
+            if (itemViewType == 2) {
+                if (getCount() > 1) {
+                    findViewById.setVisibility(0);
                 }
+            } else if (itemViewType == 1) {
+                b(viewGroup, (b) view2.getTag(), i);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public final View a(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == 3) {
+                return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0144, viewGroup, false);
+            }
+            if (i == 2) {
+                return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d013f, viewGroup, false);
+            }
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0140, viewGroup, false);
+            inflate.setOnClickListener(this.c);
+            b bVar = new b();
+            bVar.a = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c58);
+            bVar.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091824);
+            bVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090874);
+            inflate.setTag(bVar);
+            return inflate;
+        }
+        return (View) invokeLI.objValue;
+    }
+
+    public final void b(ViewGroup viewGroup, b bVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, bVar, i) == null) {
+            sw9 sw9Var = this.b.get(i / 2);
+            bVar.d = sw9Var;
+            bVar.b.setText(sw9Var.b);
+            if (sw9Var.e != null) {
+                bVar.c.setVisibility(0);
+                String[] strArr = new String[sw9Var.e.size()];
+                for (int i2 = 0; i2 < sw9Var.e.size(); i2++) {
+                    strArr[i2] = sw9Var.e.get(i2).b;
+                }
+                bVar.c.setTextArray(strArr);
+            } else {
+                bVar.c.setVisibility(8);
+            }
+            if (sw9Var.d != null) {
+                int d = wi.d(this.a, 45.0f);
+                bVar.a.setTag(sw9Var.d);
+                bVar.a.J(sw9Var.d, 10, d, d, false);
             }
         }
     }
 
-    public void m(String str, byte[] bArr) {
-        List<ThreadInfo> list;
-        int count;
+    public ArrayList<sw9> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, bArr) == null) && this.b != null && str != null && bArr != null && bArr.length > 0) {
-            try {
-                FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                if (frsPageResIdl == null || frsPageResIdl.data == null || (count = ListUtils.getCount((list = frsPageResIdl.data.thread_list))) <= 0) {
-                    return;
-                }
-                if (count >= 15) {
-                    a(str, bArr, true);
-                    return;
-                }
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                we<byte[]> weVar = this.b;
-                byte[] bArr2 = weVar.get(currentAccount + str);
-                if (bArr2 == null) {
-                    a(str, bArr, true);
-                    return;
-                }
-                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) c.parseFrom(bArr2, FrsPageResIdl.class);
-                if (frsPageResIdl2 != null && frsPageResIdl2.data != null && frsPageResIdl2.data.thread_list != null) {
-                    List<ThreadInfo> list2 = frsPageResIdl2.data.thread_list;
-                    int count2 = ListUtils.getCount(list2);
-                    ArrayList arrayList = new ArrayList();
-                    ArrayList arrayList2 = new ArrayList();
-                    int i = 0;
-                    for (int i2 = 15; i < count2 && count < i2; i2 = 15) {
-                        ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list2, i);
-                        if (threadInfo != null && threadInfo.tid != null && threadInfo.is_top.intValue() == 0 && !k(threadInfo.tid.longValue(), list)) {
-                            arrayList.add(threadInfo);
-                            User f = f(frsPageResIdl2.data.user_list, threadInfo.author_id.longValue());
-                            if (f != null) {
-                                arrayList2.add(f);
-                            }
-                            count++;
-                        }
-                        i++;
-                    }
-                    FrsPageResIdl.Builder builder = new FrsPageResIdl.Builder(frsPageResIdl);
-                    DataRes.Builder builder2 = new DataRes.Builder(frsPageResIdl.data);
-                    builder2.thread_list.addAll(arrayList);
-                    builder2.user_list.addAll(arrayList2);
-                    builder.data = builder2.build(true);
-                    a(str, builder.build(true).toByteArray(), true);
-                    return;
-                }
-                a(str, bArr, true);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public Activity getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<sw9> arrayList = this.b;
+            if (arrayList == null) {
+                return 0;
             }
+            return (arrayList.size() * 2) + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(ArrayList<sw9> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b = arrayList;
         }
     }
 
-    public void c(String str, String str2) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            we<byte[]> weVar = this.b;
-            byte[] bArr = weVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.ala_stage_list != null) {
-                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
-                        if (builder.ala_stage_list != null) {
-                            builder.ala_stage_list.clear();
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        builder2.data = builder.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (getCount() > 0 && i == getCount() - 1) {
+                return 2;
             }
+            if (Math.abs(i) % 2 != 1) {
+                return 1;
+            }
+            return 3;
         }
-    }
-
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            we<byte[]> weVar = this.b;
-            byte[] bArr = weVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.thread_list != null) {
-                        ArrayList arrayList = new ArrayList();
-                        for (ThreadInfo threadInfo : frsPageResIdl.data.thread_list) {
-                            if (threadInfo != null && threadInfo.tid != null && str2 != null && str2.equals(threadInfo.tid.toString())) {
-                                arrayList.add(threadInfo);
-                            }
-                        }
-                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
-                        if (builder.thread_list != null) {
-                            builder.thread_list.removeAll(arrayList);
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        builder2.data = builder.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-            }
-        }
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.b != null && str != null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                we<byte[]> weVar = this.b;
-                byte[] bArr = weVar.get(currentAccount + str);
-                if (bArr != null && bArr.length > 0) {
-                    yw9 yw9Var = new yw9();
-                    this.a = yw9Var;
-                    yw9Var.isFromCache = true;
-                    yw9Var.parserProtobuf(bArr, false);
-                    ForumData forumData = this.a.forum;
-                    if (forumData != null && forumData.getFrsBannerData() != null) {
-                        this.a.forum.getFrsBannerData().i = false;
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final User f(List<User> list, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, list, j)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            for (User user : list) {
-                if (user != null && user.id.longValue() == j) {
-                    return user;
-                }
-            }
-            return null;
-        }
-        return (User) invokeLJ.objValue;
-    }
-
-    public final boolean k(long j, List<ThreadInfo> list) {
-        InterceptResult invokeJL;
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, list)) == null) {
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list, i);
-                if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == j) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeJL.booleanValue;
-    }
-
-    public String g(String str, int i, int i2, int i3) {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048582, this, str, i, i2, i3)) == null) {
-            String str2 = str + i + i2;
-            if (i3 != 0) {
-                return str + i + i2 + FrsRequestData.CATEGORY_ID_KEY + i3;
-            }
-            return str2;
-        }
-        return (String) invokeLIII.objValue;
-    }
-
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        we.b<byte[]> h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (str != null && str.length() > 0 && (h = this.b.h(str)) != null) {
-                return UtilHelper.isSameDay(h.c, System.currentTimeMillis());
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void n(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                we<byte[]> weVar = this.b;
-                weVar.remove(currentAccount + str);
-                return;
-            }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            we<byte[]> weVar2 = this.b;
-            weVar2.d(currentAccount2 + str);
-        }
+        return invokeI.intValue;
     }
 }

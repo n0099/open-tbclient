@@ -1,83 +1,127 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes5.dex */
 public class fe4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ReentrantLock c;
+    public static volatile fe4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public JsFunction a;
-    public JsFunction b;
-    public JsFunction c;
+    public List<he4> a;
+    public ie4 b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947761236, "Lcom/baidu/tieba/fe4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947761236, "Lcom/baidu/tieba/fe4;");
+                return;
+            }
+        }
+        c = new ReentrantLock();
+    }
 
     public fe4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList(3);
+    }
+
+    public static fe4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (fe4.class) {
+                    if (d == null) {
+                        d = new fe4();
+                    }
+                }
+            }
+            return d;
+        }
+        return (fe4) invokeV.objValue;
     }
 
     public void b() {
-        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jsFunction = this.c) != null) {
-            jsFunction.call();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.a.clear();
         }
     }
 
-    public void c() {
-        JsFunction jsFunction;
+    public final void c(he4 he4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jsFunction = this.b) != null) {
-            jsFunction.call();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, he4Var) == null) {
+            c.lock();
+            try {
+                if (this.b != null) {
+                    this.b.a(he4Var);
+                } else {
+                    this.a.add(he4Var);
+                }
+            } finally {
+                c.unlock();
+            }
         }
     }
 
-    public static fe4 d(f42 f42Var) {
-        InterceptResult invokeL;
+    public void f(ie4 ie4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, f42Var)) == null) {
-            if (f42Var == null) {
-                return null;
-            }
-            fe4 fe4Var = new fe4();
-            JsFunction u = f42Var.u("onCheckForUpdate");
-            fe4Var.a = u;
-            if (u != null) {
-                u.setReleaseMode(false);
-            }
-            JsFunction u2 = f42Var.u("onUpdateReady");
-            fe4Var.b = u2;
-            if (u2 != null) {
-                u2.setReleaseMode(false);
-            }
-            JsFunction u3 = f42Var.u("onUpdateFailed");
-            fe4Var.c = u3;
-            if (u3 != null) {
-                u3.setReleaseMode(false);
-            }
-            return fe4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ie4Var) == null) {
+            this.b = ie4Var;
+            e();
         }
-        return (fe4) invokeL.objValue;
     }
 
-    public void a(ge4 ge4Var) {
-        JsFunction jsFunction;
+    public void d(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ge4Var) == null) && (jsFunction = this.a) != null) {
-            jsFunction.call(ge4Var);
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            z82.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
+            he4 he4Var = new he4(str);
+            he4Var.hasUpdate = z;
+            c(he4Var);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.a.isEmpty() && this.b != null) {
+            c.lock();
+            try {
+                for (he4 he4Var : this.a) {
+                    this.b.a(he4Var);
+                }
+                this.a.clear();
+            } finally {
+                c.unlock();
+            }
         }
     }
 }

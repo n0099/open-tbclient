@@ -1,28 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Message;
+import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes7.dex */
-public final class nq6 implements m87 {
+public class nq6 implements m67<Message> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
-
-    @Override // com.baidu.tieba.m87
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
-    }
 
     public nq6() {
         Interceptable interceptable = $ic;
@@ -34,48 +23,27 @@ public final class nq6 implements m87 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.m87
-    public Map<String, String> a(y47 businessInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.m67
+    /* renamed from: a */
+    public o87<?> b(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            Map<String, String> a = businessInfo.a();
-            this.a.put("obj_type", tq6.a.a(businessInfo));
-            this.a.put("obj_source", "1");
-            this.a.put("obj_param1", "1");
-            HashMap<String, String> hashMap = this.a;
-            String str = a.get("live_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            if (!(message instanceof UserFollowLive)) {
+                return null;
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
-            HashMap<String, String> hashMap2 = this.a;
-            String str3 = a.get("thread_id");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap2.put("obj_id", str2);
-            return this.a;
+            lw7 lw7Var = new lw7();
+            lw7Var.d((UserFollowLive) message);
+            po6 po6Var = new po6(null, lw7Var.c(), ImageViewerConfig.FROM_CONCERN);
+            c67 c67Var = new c67();
+            c67Var.a = po6Var;
+            return new p87(new m37(c67Var), "ala_live_attention");
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public final nq6 b(String locate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            Intrinsics.checkNotNullParameter(locate, "locate");
-            this.a.put("obj_locate", locate);
-            return this;
-        }
-        return (nq6) invokeL.objValue;
+        return (o87) invokeL.objValue;
     }
 }

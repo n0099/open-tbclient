@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ef implements cl1 {
+public class ef implements dl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,21 +30,22 @@ public class ef implements cl1 {
         }
     }
 
-    @Override // com.baidu.tieba.cl1
+    @Override // com.baidu.tieba.dl1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new MemoryThreadOptSwitch());
-            arrayList.add(new hk5());
+            arrayList.add(new lk5());
             arrayList.add(new CsjInitSwitch());
             arrayList.add(new GdtInitSwitch());
             arrayList.add(new KsInitSwitch());
             arrayList.add(new PicCaptureModeSwitch());
-            arrayList.add(new yj6());
-            arrayList.add(new zj6());
-            arrayList.add(new jp6());
+            arrayList.add(new dk6());
+            arrayList.add(new ek6());
+            arrayList.add(new op6());
+            arrayList.add(new m28());
             return arrayList;
         }
         return invokeV.objValue;

@@ -8,11 +8,11 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.b20;
-import com.baidu.tieba.hl1;
-import com.baidu.tieba.ll1;
-import com.baidu.tieba.nxa;
-import com.baidu.tieba.s90;
+import com.baidu.tieba.c20;
+import com.baidu.tieba.gza;
+import com.baidu.tieba.il1;
+import com.baidu.tieba.ml1;
+import com.baidu.tieba.t90;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
 /* loaded from: classes4.dex */
@@ -37,23 +37,23 @@ public class YaLogInitManager {
         if (z && this.mApp != null && !TextUtils.isEmpty(str)) {
             CloudControlBlCPManager.getInstance().registerConnectStateListener(this.mApp);
             FetchConnManager.getInstance().init();
-            s90.a(this.mApp, str, b20.a().getDeviceId(), 1);
+            t90.a(this.mApp, str, c20.a().getDeviceId(), 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        nxa nxaVar;
-        if (z && (nxaVar = (nxa) ServiceManager.getService(nxa.a)) != null) {
-            nxaVar.retry();
+        gza gzaVar;
+        if (z && (gzaVar = (gza) ServiceManager.getService(gza.a)) != null) {
+            gzaVar.retry();
         }
     }
 
     public void initYaLogBaseContext(Application application) {
         if (application != null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            ll1.b(application);
-            if (hl1.g()) {
+            ml1.b(application);
+            if (il1.g()) {
                 VoyagerIPCManager.b();
             }
             this.mApp = application;
@@ -61,7 +61,7 @@ public class YaLogInitManager {
     }
 
     public void initYaLog(boolean z, final boolean z2, final boolean z3, final String str) {
-        if (!hl1.g()) {
+        if (!il1.g()) {
             return;
         }
         if (z) {

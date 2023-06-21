@@ -51,7 +51,7 @@ public class id implements od {
                                         }
                                         if (a == byte[].class) {
                                             try {
-                                                return ni.e(String.valueOf(this.a), 0);
+                                                return oi.e(String.valueOf(this.a), 0);
                                             } catch (IOException e) {
                                                 e.printStackTrace();
                                                 return null;

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.WebViewTrackerEnableSwitch;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public final class TbChannelJsInterface {
     private void addDelayReportRunnable(final String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !this.isAlreadyReport && this.delayReportRunnable == null) {
-            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.px4
+            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.qx4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,7 +98,7 @@ public final class TbChannelJsInterface {
                     }
                 }
             };
-            wg.a().postDelayed(this.delayReportRunnable, 10000L);
+            xg.a().postDelayed(this.delayReportRunnable, 10000L);
         }
     }
 
@@ -139,7 +139,7 @@ public final class TbChannelJsInterface {
     private void removeDelayReportRunnable() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.delayReportRunnable != null) {
-            wg.a().removeCallbacks(this.delayReportRunnable);
+            xg.a().removeCallbacks(this.delayReportRunnable);
             this.delayReportRunnable = null;
         }
     }

@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.b5a;
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.f5a;
 import com.baidu.tieba.jb;
-import com.baidu.tieba.rx9;
+import com.baidu.tieba.jz9;
+import com.baidu.tieba.s6a;
+import com.baidu.tieba.v6a;
+import com.baidu.tieba.w6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<e5a> a;
-    public f5a b;
-    public List<b5a> c;
+    public List<v6a> a;
+    public w6a b;
+    public List<s6a> c;
     public b d;
     public boolean e;
     public jb f;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(int i, String str, List<b5a> list, f5a f5aVar, List<e5a> list2);
+        void a(int i, String str, List<s6a> list, w6a w6aVar, List<v6a> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -164,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            rx9.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            rx9.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            jz9.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            jz9.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

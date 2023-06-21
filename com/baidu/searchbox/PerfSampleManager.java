@@ -7,16 +7,16 @@ import com.baidu.searchbox.block.ubc.BlockPerfSampleCallback;
 import com.baidu.searchbox.fluency.ubc.FpsPerfSampleCallback;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
-import com.baidu.tieba.cl1;
-import com.baidu.tieba.el1;
-import com.baidu.tieba.gl1;
-import com.baidu.tieba.ur9;
+import com.baidu.tieba.dl1;
+import com.baidu.tieba.fl1;
+import com.baidu.tieba.hl1;
+import com.baidu.tieba.mt9;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PerfSampleManager {
     @Inject(force = false)
-    public gl1<IPerfSampleCallback> mCallbackList;
+    public hl1<IPerfSampleCallback> mCallbackList;
 
     /* loaded from: classes3.dex */
     public interface IPerfSampleCallback {
@@ -24,8 +24,8 @@ public class PerfSampleManager {
     }
 
     /* loaded from: classes3.dex */
-    public class IPerfSampleCallback_PerfSampleManager_ListProvider implements cl1 {
-        @Override // com.baidu.tieba.cl1
+    public class IPerfSampleCallback_PerfSampleManager_ListProvider implements dl1 {
+        @Override // com.baidu.tieba.dl1
         public Object get() {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new ANRPerfSampleCallback());
@@ -33,13 +33,13 @@ public class PerfSampleManager {
             arrayList.add(new FpsPerfSampleCallback());
             arrayList.add(new ExceptionPerfSampleCallback());
             arrayList.add(new LooperPerfSampleCallback());
-            arrayList.add(new ur9());
+            arrayList.add(new mt9());
             return arrayList;
         }
     }
 
     public void initmCallbackList() {
-        el1 b = el1.b();
+        fl1 b = fl1.b();
         this.mCallbackList = b;
         b.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
     }
@@ -50,9 +50,9 @@ public class PerfSampleManager {
 
     public String getSampleFlag() {
         List<IPerfSampleCallback> list;
-        gl1<IPerfSampleCallback> gl1Var = this.mCallbackList;
+        hl1<IPerfSampleCallback> hl1Var = this.mCallbackList;
         String str = 0;
-        if (gl1Var != null && (list = gl1Var.getList()) != null && list.size() != 0) {
+        if (hl1Var != null && (list = hl1Var.getList()) != null && list.size() != 0) {
             for (int i = 0; i < list.size(); i++) {
                 String sampleFlag = list.get(i).getSampleFlag();
                 if (!TextUtils.isEmpty(sampleFlag)) {

@@ -1,67 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.channel.GdtHelper;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Set;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
 /* loaded from: classes7.dex */
-public class p2b implements GdtHelper.GdtNativeContainerCreator {
+public class p2b extends n2b.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final p2b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<WeakReference<NativeAdContainer>> a;
+    public final /* synthetic */ x2b f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011561, "Lcom/baidu/tieba/p2b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948011561, "Lcom/baidu/tieba/p2b;");
-                return;
-            }
-        }
-        b = new p2b();
-    }
-
-    public p2b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p2b(n2b n2bVar, p3b p3bVar, String str, x2b x2bVar) {
+        super(n2bVar, p3bVar, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {n2bVar, p3bVar, str, x2bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((n2b) objArr2[0], (p3b) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet();
+        this.f = x2bVar;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
-    public ViewGroup generateGdtNativeContainer(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.n2b.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
-            this.a.add(new WeakReference<>(nativeAdContainer));
-            return nativeAdContainer;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            super.onAdClicked(view2, i);
+            x2b x2bVar = this.f;
+            String str = this.b;
+            FunSplashAdInteractionListener funSplashAdInteractionListener = x2bVar.j;
+            if (funSplashAdInteractionListener != null) {
+                funSplashAdInteractionListener.onAdClicked(str);
+            }
         }
-        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.n2b.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            super.onAdShow(view2, i);
+            x2b x2bVar = this.f;
+            x2bVar.g = x2bVar.b.getWidth();
+            x2bVar.h = x2bVar.b.getHeight();
+        }
     }
 }

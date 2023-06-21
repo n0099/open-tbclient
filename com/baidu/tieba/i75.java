@@ -1,84 +1,73 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class i75 {
+public final class i75 implements y65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final i75 a;
-    @JvmField
-    public static final n95 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806434, "Lcom/baidu/tieba/i75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947806434, "Lcom/baidu/tieba/i75;");
-                return;
-            }
-        }
-        a = new i75();
-        n95 a2 = w65.a();
-        Intrinsics.checkNotNullExpressionValue(a2, "getKvCache()");
-        b = a2;
-    }
 
     public i75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final String a(String dialogName) {
+    @Override // com.baidu.tieba.y65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "userIcon");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.y65
+    public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
+        IconPopData iconPopData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            return n95.q("KEY_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + dialogName;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            if (!LooperBlockSwitch.getIsOn() || (iconPopData = TbSingleton.getInstance().getIconPopData()) == null || !PollingModel.y0() || iconPopData.getPic160() == null || iconPopData.getTitle() == null) {
+                return false;
+            }
+            Long uid = iconPopData.getUid();
+            long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
+            if (uid == null || uid.longValue() != currentAccountId) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final void c(String dialogName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogName) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            String a2 = a(dialogName);
-            n95 n95Var = b;
-            n95Var.z(a2, n95Var.n(a2, 0) + 1);
-        }
-    }
-
-    public final void b(String dialogName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            zq8 yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.c("YunDialogManager", "重置弹窗 " + dialogName + " 的本地频次记录");
-            b.z(a(dialogName), 0);
-        }
+        return invokeL.booleanValue;
     }
 }

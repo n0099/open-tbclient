@@ -57,7 +57,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.u80;
+import com.baidu.tieba.v80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -289,7 +289,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                u80.e(mContext).d(mContext, creatMethodIntent);
+                v80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);
@@ -783,7 +783,7 @@ public class ChatSessionManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j3);
                 try {
-                    u80.e(mContext).d(mContext, creatMethodIntent);
+                    v80.e(mContext).d(mContext, creatMethodIntent);
                     return true;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "sendCustomNotifyMsg Exception ", e);
@@ -1367,7 +1367,7 @@ public class ChatSessionManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra("session_type", i2);
                 try {
-                    u80.e(mContext).d(mContext, creatMethodIntent);
+                    v80.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "getBusiSessionFromServer Exception ", e);
                     ListenerManager.getInstance().removeListener(addListener);
@@ -1832,7 +1832,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_FILTER_INFO, jSONObject.toString());
             try {
-                u80.e(mContext).d(mContext, creatMethodIntent);
+                v80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "getFilterSessionsByBusiness Exception ", e);
                 ListenerManager.getInstance().removeListener(addListener);

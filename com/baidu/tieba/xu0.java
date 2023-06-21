@@ -1,85 +1,66 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONArray;
 import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
+@JvmName(name = "AuthParser")
 /* loaded from: classes8.dex */
 public final class xu0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uu0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    public static final vu0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                kl0.c("AuthStrategyHelper", e.toString());
-            }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final List<tu0> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = wu0.a(p21.k().getString("host_auth_config", a()));
-            }
-            uu0 uu0Var = a;
-            if (uu0Var != null) {
-                return uu0Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null) {
+                try {
+                    JSONArray optJSONArray = new JSONObject(str).optJSONArray("hosts");
+                    if (optJSONArray == null) {
+                        return null;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            String host = optJSONObject.optString("host");
+                            String optString = optJSONObject.optString("auth");
+                            Intrinsics.checkNotNullExpressionValue(host, "host");
+                            arrayList.add(new uu0(host, b(optString)));
+                        }
+                    }
+                    return new vu0(arrayList);
+                } catch (Exception e) {
+                    ll0.a("AuthParser", e.getMessage());
+                }
             }
             return null;
         }
-        return (List) invokeV.objValue;
+        return (vu0) invokeL.objValue;
     }
 
-    public static final synchronized tu0 c(String str) {
+    public static final wu0 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (xu0.class) {
-                if (str == null) {
-                    return null;
-                }
-                List<tu0> b = b();
-                if (b == null) {
-                    return null;
-                }
-                try {
-                    String host = new URL(str).getHost();
-                    for (tu0 tu0Var : b) {
-                        if (Pattern.matches(tu0Var.b(), host)) {
-                            return tu0Var;
-                        }
-                    }
-                } catch (Exception e) {
-                    kl0.a("AuthStrategyHelper", e.getMessage());
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
                 return null;
             }
+            List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
+            if (split$default.size() < 4) {
+                return null;
+            }
+            return new wu0(BdVideoSeries.parseIntSafe((String) split$default.get(0), 0), BdVideoSeries.parseIntSafe((String) split$default.get(1), 0), BdVideoSeries.parseIntSafe((String) split$default.get(2), 0), BdVideoSeries.parseIntSafe((String) split$default.get(3), 0));
         }
-        return (tu0) invokeL.objValue;
+        return (wu0) invokeL.objValue;
     }
 }

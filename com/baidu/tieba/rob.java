@@ -1,7 +1,194 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface rob {
-    void shutdown();
 
-    void start();
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.job;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
+import rx.exceptions.OnErrorNotImplementedException;
+/* loaded from: classes7.dex */
+public class rob extends job {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Handler a;
+
+    /* loaded from: classes7.dex */
+    public static class a extends job.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Handler a;
+        public final pob b;
+        public volatile boolean c;
+
+        public a(Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler;
+            this.b = oob.a().b();
+        }
+
+        @Override // com.baidu.tieba.job.a
+        public nob b(tob tobVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tobVar)) == null) {
+                return c(tobVar, 0L, TimeUnit.MILLISECONDS);
+            }
+            return (nob) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.job.a
+        public nob c(tob tobVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tobVar, Long.valueOf(j), timeUnit})) == null) {
+                if (this.c) {
+                    return gtb.c();
+                }
+                this.b.c(tobVar);
+                b bVar = new b(tobVar, this.a);
+                Message obtain = Message.obtain(this.a, bVar);
+                obtain.obj = this;
+                this.a.sendMessageDelayed(obtain, timeUnit.toMillis(j));
+                if (this.c) {
+                    this.a.removeCallbacks(bVar);
+                    return gtb.c();
+                }
+                return bVar;
+            }
+            return (nob) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.nob
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.nob
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.c = true;
+                this.a.removeCallbacksAndMessages(this);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements Runnable, nob {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final tob a;
+        public final Handler b;
+        public volatile boolean c;
+
+        public b(tob tobVar, Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tobVar, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tobVar;
+            this.b = handler;
+        }
+
+        @Override // com.baidu.tieba.nob
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.nob
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c = true;
+                this.b.removeCallbacks(this);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            IllegalStateException illegalStateException;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.a.call();
+                } catch (Throwable th) {
+                    if (th instanceof OnErrorNotImplementedException) {
+                        illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
+                    } else {
+                        illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
+                    }
+                    tsb.c().b().a(illegalStateException);
+                    Thread currentThread = Thread.currentThread();
+                    currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
+                }
+            }
+        }
+    }
+
+    public rob(Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new Handler(looper);
+    }
+
+    @Override // com.baidu.tieba.job
+    public job.a createWorker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this.a);
+        }
+        return (job.a) invokeV.objValue;
+    }
 }

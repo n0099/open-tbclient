@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface lq9 {
-    void a(ShareEntity shareEntity, mq9 mq9Var);
+    void dispatch(JSONObject jSONObject, Context context);
 }

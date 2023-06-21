@@ -1,15 +1,9 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface n04 {
-    void onCompletion();
+    void d(String str, String str2);
 
-    boolean onError();
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onStart();
+    void f(View view2);
 }

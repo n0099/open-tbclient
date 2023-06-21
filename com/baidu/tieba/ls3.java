@@ -1,14 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ls3 implements kv1 {
+public class ls3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public Map<String, String> b;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(ls3 ls3Var);
+
+        void b(ls3 ls3Var);
+
+        void onFinish();
+
+        void onStart();
+    }
 
     public ls3() {
         Interceptable interceptable = $ic;
@@ -21,14 +34,6 @@ public class ls3 implements kv1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.kv1
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            xs3.i(context);
         }
     }
 }

@@ -84,7 +84,7 @@ public class af {
                     this.a.i(th, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE);
                     return null;
                 } finally {
-                    sg.a(cursor);
+                    tg.a(cursor);
                 }
             }
             return null;

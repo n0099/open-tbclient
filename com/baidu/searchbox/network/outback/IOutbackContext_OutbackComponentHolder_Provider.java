@@ -1,11 +1,11 @@
 package com.baidu.searchbox.network.outback;
 
-import com.baidu.tieba.cl1;
-import com.baidu.tieba.fr5;
+import com.baidu.tieba.dl1;
+import com.baidu.tieba.kr5;
 /* loaded from: classes4.dex */
-public class IOutbackContext_OutbackComponentHolder_Provider implements cl1 {
-    @Override // com.baidu.tieba.cl1
+public class IOutbackContext_OutbackComponentHolder_Provider implements dl1 {
+    @Override // com.baidu.tieba.dl1
     public Object get() {
-        return new fr5();
+        return new kr5();
     }
 }

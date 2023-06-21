@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c87;
-import com.baidu.tieba.d87;
-import com.baidu.tieba.h47;
-import com.baidu.tieba.i37;
+import com.baidu.tieba.h87;
+import com.baidu.tieba.i87;
+import com.baidu.tieba.m47;
+import com.baidu.tieba.n37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,10 +19,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\r\u001a\u00020\u000eH\u0016J\u000e\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0011R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \f*\u0004\u0018\u00010\u000b0\u000bX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0012"}, d2 = {"Lcom/baidu/tieba/feed/component/CardMountView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "realView", "Landroid/view/ViewGroup;", "resolver", "Lcom/baidu/tieba/feed/compat/Resolver$IMountView;", "kotlin.jvm.PlatformType", "onChangeSkin", "", "updateState", "state", "Lcom/baidu/tieba/feed/component/uistate/CardMountUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardMountView extends FrameLayout implements c87 {
+public final class CardMountView extends FrameLayout implements h87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i37.f a;
+    public final n37.f a;
     public final ViewGroup b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -69,7 +69,7 @@ public final class CardMountView extends FrameLayout implements c87 {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        i37.f b = i37.a().b();
+        n37.f b = n37.a().b();
         this.a = b;
         ViewGroup create = b.create(context);
         Intrinsics.checkNotNullExpressionValue(create, "resolver.create(context)");
@@ -81,7 +81,7 @@ public final class CardMountView extends FrameLayout implements c87 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public final void a(h47 state) {
+    public final void a(m47 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
@@ -90,10 +90,10 @@ public final class CardMountView extends FrameLayout implements c87 {
         }
     }
 
-    @Override // com.baidu.tieba.c87
+    @Override // com.baidu.tieba.h87
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || d87.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || i87.a(this)) {
             return;
         }
         this.a.a(this.b);

@@ -1,20 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Stack;
 /* loaded from: classes8.dex */
-public class zra implements gsa {
+public final class zra {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mra a;
-    public int b;
-    public int c;
-    public boolean d;
+    public Stack<WeakReference<Activity>> a;
+
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zra a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-221282909, "Lcom/baidu/tieba/zra$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-221282909, "Lcom/baidu/tieba/zra$a;");
+                    return;
+                }
+            }
+            a = new zra((byte) 0);
+        }
+    }
 
     public zra() {
         Interceptable interceptable = $ic;
@@ -29,127 +53,61 @@ public class zra implements gsa {
                 return;
             }
         }
-        this.d = true;
+        this.a = new Stack<>();
     }
 
-    @Override // com.baidu.tieba.gsa
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            mra mraVar = this.a;
-            if (mraVar == null || bArr == null) {
-                return 0;
-            }
-            this.b += bArr.length;
-            mraVar.putBytes(bArr, i);
-            return this.b;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.gsa
-    public boolean a() {
+    public final Stack<WeakReference<Activity>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gsa
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (mra) ova.a("com.baidu.ugc.audioedit.AudioChangeOperator");
-            }
-            mra mraVar = this.a;
-            if (mraVar != null) {
-                mraVar.initVoiceChanger(i, i2, i3, i4);
-            }
-            return this.a != null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeIIII.booleanValue;
+        return (Stack) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gsa
-    public byte[] a(int i) {
-        InterceptResult invokeI;
+    public /* synthetic */ zra(byte b) {
+        this();
+    }
+
+    public final void c(WeakReference<Activity> weakReference) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            mra mraVar = this.a;
-            if (mraVar == null || mraVar.availableBytes() <= 0) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[4096];
-            int bytes = this.a.getBytes(bArr, 4096);
-            this.c += bytes;
-            if (bytes == 0) {
-                return null;
-            }
-            if (4096 == bytes) {
-                return bArr;
-            }
-            byte[] bArr2 = new byte[bytes];
-            System.arraycopy(bArr, 0, bArr2, 0, bytes);
-            return bArr2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
+            this.a.add(weakReference);
         }
-        return (byte[]) invokeI.objValue;
     }
 
-    public void b(int[] iArr) {
-        mra mraVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (mraVar = this.a) == null) {
-            return;
-        }
-        mraVar.setVoiceChangeType(iArr);
-    }
-
-    @Override // com.baidu.tieba.gsa
-    public boolean b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < this.a.size(); i++) {
+                Activity activity = this.a.get(i).get();
+                if (activity != null) {
+                    sb.append(activity.getClass().getSimpleName());
+                    sb.append("->");
+                }
+            }
+            if (sb.length() > 0) {
+                return sb.substring(0, sb.length() - 2);
+            }
+            return "没有路径了";
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gsa
-    public void c() {
-        mra mraVar;
+    public final void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (mraVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (this.a != null) {
+                for (int i = 0; i < this.a.size(); i++) {
+                    if (this.a.get(i).get() == activity) {
+                        Stack<WeakReference<Activity>> stack = this.a;
+                        stack.remove(stack.get(i));
+                    }
+                }
+            }
+            b();
         }
-        mraVar.flush();
-    }
-
-    public void c(int[] iArr, int[] iArr2, double[] dArr) {
-        mra mraVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (mraVar = this.a) == null) {
-            return;
-        }
-        mraVar.setVoiceChangeType(iArr, iArr2, dArr);
-    }
-
-    @Override // com.baidu.tieba.gsa
-    public void d() {
-        mra mraVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (mraVar = this.a) == null) {
-            return;
-        }
-        mraVar.close();
-        this.a = null;
-    }
-
-    @Override // com.baidu.tieba.gsa
-    public void e() {
-        mra mraVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (mraVar = this.a) == null) {
-            return;
-        }
-        mraVar.clearQueues();
     }
 }

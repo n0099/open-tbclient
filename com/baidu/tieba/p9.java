@@ -7,7 +7,7 @@ public interface p9 {
 
     boolean isScroll();
 
-    void onPreLoad(zn znVar);
+    void onPreLoad(ao aoVar);
 
     void setIsScroll(boolean z);
 }

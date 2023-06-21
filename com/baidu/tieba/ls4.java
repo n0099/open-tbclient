@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class ls4 implements ms4<String> {
+public class ls4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ls4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final ks4<String> a;
+    public String b;
 
+    @SuppressLint({"BDThrowableCheck"})
     public ls4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,65 +32,50 @@ public class ls4 implements ms4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !TextUtils.equals("mounted", Environment.getExternalStorageState()) || !us4.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+        ks4<String> ks4Var = new ks4<>();
+        this.a = ks4Var;
+        if (context == null) {
             return;
         }
-        ss4.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
+        ks4Var.a(new os4(context));
+        this.a.a(new qs4(context));
+        this.a.a(new ps4(context));
+        this.a.a(new ss4(context));
+        this.a.a(new ms4(context));
+        this.a.a(new rs4(context));
     }
 
-    @Override // com.baidu.tieba.ms4
-    public boolean a() {
+    public static ls4 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (ls4.class) {
+                    if (c == null) {
+                        c = new ls4(context);
+                    }
+                }
+            }
+            return c;
+        }
+        return (ls4) invokeL.objValue;
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !us4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                return true;
+            if (TextUtils.isEmpty(this.b)) {
+                synchronized (this) {
+                    if (TextUtils.isEmpty(this.b)) {
+                        String b = this.a.b();
+                        this.b = b;
+                        this.a.d(b);
+                    }
+                }
             }
-            return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ms4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
+            return this.b;
         }
         return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !us4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                return null;
-            }
-            File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
-            if (!file.exists()) {
-                return null;
-            }
-            return ss4.c(file);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ms4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
     }
 }

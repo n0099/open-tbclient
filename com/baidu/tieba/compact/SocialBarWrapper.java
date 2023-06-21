@@ -44,7 +44,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public static final void b0(View.OnClickListener onClickListener, Function0 function0, View view2) {
+    public static final void e0(View.OnClickListener onClickListener, Function0 function0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, onClickListener, function0, view2) == null) {
             if (onClickListener != null) {
@@ -54,31 +54,31 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
         }
     }
 
-    public static final void d0(Function0 function0, SocialBarWrapper this$0, View it) {
+    public static final void g0(Function0 function0, SocialBarWrapper this$0, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, function0, this$0, it) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (function0 == null || !((Boolean) function0.invoke()).booleanValue()) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                this$0.a0(it);
+                this$0.d0(it);
             }
         }
     }
 
-    public static final void e0(SocialBarWrapper this$0, Function0 function0, View view2) {
+    public static final void h0(SocialBarWrapper this$0, Function0 function0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, function0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             View mShareContainer = this$0.l;
             Intrinsics.checkNotNullExpressionValue(mShareContainer, "mShareContainer");
-            this$0.a0(mShareContainer);
+            this$0.d0(mShareContainer);
             if (function0 != null) {
                 function0.invoke();
             }
         }
     }
 
-    public static final void c0(Function2 function2, long j, boolean z) {
+    public static final void f0(Function2 function2, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{function2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             function2.invoke(Long.valueOf(j), Boolean.valueOf(z));
@@ -121,7 +121,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
         socialBarWrapper.setOnShareClick(function0);
     }
 
-    public final void a0(View view2) {
+    public final void d0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             onClick(view2);
@@ -134,13 +134,13 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function0) == null) && function0 != null) {
             AgreeView agreeView = this.e;
             if (agreeView != null) {
-                onClickListener = agreeView.B;
+                onClickListener = agreeView.C;
             } else {
                 onClickListener = null;
             }
             AgreeView agreeView2 = this.e;
             if (agreeView2 != null) {
-                agreeView2.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qp6
+                agreeView2.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vp6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -148,7 +148,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            SocialBarWrapper.b0(onClickListener, function0, view2);
+                            SocialBarWrapper.e0(onClickListener, function0, view2);
                         }
                     }
                 });
@@ -159,7 +159,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
     public final void setOnAgreeNumUpdateListener(final Function2<? super Long, ? super Boolean, Unit> function2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, function2) == null) && function2 != null) {
-            this.e.setOnAgreeNumUpdateListener(new AgreeView.j() { // from class: com.baidu.tieba.rp6
+            this.e.setOnAgreeNumUpdateListener(new AgreeView.j() { // from class: com.baidu.tieba.wp6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -167,7 +167,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
                 public final void a(long j, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-                        SocialBarWrapper.c0(Function2.this, j, z);
+                        SocialBarWrapper.f0(Function2.this, j, z);
                     }
                 }
             });
@@ -177,7 +177,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
     public final void setOnCommentClick(final Function0<Boolean> function0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, function0) == null) {
-            this.i.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sp6
+            this.i.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xp6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -185,7 +185,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        SocialBarWrapper.d0(Function0.this, this, view2);
+                        SocialBarWrapper.g0(Function0.this, this, view2);
                     }
                 }
             });
@@ -195,7 +195,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
     public final void setOnShareClick(final Function0<Unit> function0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, function0) == null) {
-            this.l.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tp6
+            this.l.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yp6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -203,7 +203,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        SocialBarWrapper.e0(SocialBarWrapper.this, function0, view2);
+                        SocialBarWrapper.h0(SocialBarWrapper.this, function0, view2);
                     }
                 }
             });

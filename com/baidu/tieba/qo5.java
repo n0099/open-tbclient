@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes7.dex */
-public interface qo5 {
+public interface qo5 extends vo5 {
     @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
 
-    void a(@NonNull Context context, long j, int i, String str);
+    void onChangeSkinType(int i);
 
-    void b(@NonNull Context context, long j);
+    void onDestroy();
 
-    void c(@NonNull Context context, long j, String str);
+    void onPause();
 
-    void d(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z);
+    void onResume();
 }

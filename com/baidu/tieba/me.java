@@ -80,15 +80,15 @@ public class me extends ne<byte[]> {
                         reVar.e = rawQuery.getLong(2);
                         reVar.f = rawQuery.getLong(3);
                         reVar.b = rawQuery.getBlob(4);
-                        sg.a(rawQuery);
+                        tg.a(rawQuery);
                         return reVar;
                     }
-                    sg.a(rawQuery);
+                    tg.a(rawQuery);
                     return null;
                 } catch (Throwable th) {
                     th = th;
                     cursor = rawQuery;
-                    sg.a(cursor);
+                    tg.a(cursor);
                     throw th;
                 }
             } catch (Throwable th2) {

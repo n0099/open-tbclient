@@ -9,9 +9,11 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.m95;
+import com.baidu.tbadk.switchs.UniKVTestSwitch;
+import com.baidu.tieba.n95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +32,7 @@ public class MainSharedPrefProvider extends ContentProvider {
     public boolean onCreate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -40,7 +42,7 @@ public class MainSharedPrefProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048587, this, uri, strArr, str, strArr2, str2)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048588, this, uri, strArr, str, strArr2, str2)) == null) {
             return null;
         }
         return (Cursor) invokeLLLLL.objValue;
@@ -50,7 +52,7 @@ public class MainSharedPrefProvider extends ContentProvider {
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, uri, contentValues, str, strArr)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, uri, contentValues, str, strArr)) == null) {
             return 0;
         }
         return invokeLLLL.intValue;
@@ -76,6 +78,19 @@ public class MainSharedPrefProvider extends ContentProvider {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 return getContext().getSharedPreferences("common_settings", 0);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public final SharedPreferences d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                return KVStorageFactory.getSharedPreferences("common_settings", 0);
             } catch (Exception unused) {
                 return null;
             }
@@ -111,14 +126,14 @@ public class MainSharedPrefProvider extends ContentProvider {
         return (String) invokeL.objValue;
     }
 
-    public final boolean d(String str) {
+    public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = m95.l.length;
+                int length = n95.l.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(m95.l[i])) {
+                    if (str.equals(n95.l[i])) {
                         return true;
                     }
                 }
@@ -128,11 +143,11 @@ public class MainSharedPrefProvider extends ContentProvider {
         return invokeL.booleanValue;
     }
 
-    public final void e(String str) {
+    public final void f(String str) {
         SoftReference<Map<String, String>> softReference;
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (softReference = this.a) != null && (map = softReference.get()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (softReference = this.a) != null && (map = softReference.get()) != null) {
             map.remove(str);
         }
     }
@@ -141,16 +156,24 @@ public class MainSharedPrefProvider extends ContentProvider {
     public int delete(Uri uri, String str, String[] strArr) {
         InterceptResult invokeLLL;
         SharedPreferences c;
+        SharedPreferences d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, uri, str, strArr)) == null) {
             String lastPathSegment = uri.getLastPathSegment();
-            if (lastPathSegment != null && lastPathSegment.length() > 0 && (c = c()) != null) {
-                SharedPreferences.Editor edit = c.edit();
-                edit.remove(lastPathSegment);
-                edit.commit();
-                e(lastPathSegment);
-                if (d(lastPathSegment)) {
-                    f(lastPathSegment, null);
+            if (lastPathSegment != null && lastPathSegment.length() > 0) {
+                if ((UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv()) && (c = c()) != null) {
+                    SharedPreferences.Editor edit = c.edit();
+                    edit.remove(lastPathSegment);
+                    edit.commit();
+                }
+                if ((UniKVTestSwitch.isTypeKv() || UniKVTestSwitch.isTypeDoubleKv()) && (d = d()) != null) {
+                    SharedPreferences.Editor edit2 = d.edit();
+                    edit2.remove(lastPathSegment);
+                    edit2.commit();
+                }
+                f(lastPathSegment);
+                if (e(lastPathSegment)) {
+                    g(lastPathSegment, null);
                     return 0;
                 }
                 return 0;
@@ -160,9 +183,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         return invokeLLL.intValue;
     }
 
-    public final void f(String str, String str2) {
+    public final void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             Intent intent = new Intent();
             intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
             intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
@@ -172,10 +195,10 @@ public class MainSharedPrefProvider extends ContentProvider {
         }
     }
 
-    public final void g(String str, String str2) {
+    public final void h(String str, String str2) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
             SoftReference<Map<String, String>> softReference = this.a;
             if (softReference == null) {
                 map = new HashMap<>();
@@ -194,6 +217,7 @@ public class MainSharedPrefProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         InterceptResult invokeL;
+        SharedPreferences d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri)) == null) {
             String lastPathSegment = uri.getLastPathSegment();
@@ -201,9 +225,13 @@ public class MainSharedPrefProvider extends ContentProvider {
                 if (a(lastPathSegment)) {
                     return b(lastPathSegment);
                 }
-                SharedPreferences c = c();
-                if (c != null) {
-                    return c.getString(lastPathSegment, null);
+                if (UniKVTestSwitch.isTypeSp()) {
+                    d = c();
+                } else {
+                    d = d();
+                }
+                if (d != null) {
+                    return d.getString(lastPathSegment, null);
                 }
             }
             return null;
@@ -215,19 +243,28 @@ public class MainSharedPrefProvider extends ContentProvider {
     public Uri insert(Uri uri, ContentValues contentValues) {
         InterceptResult invokeLL;
         SharedPreferences c;
+        SharedPreferences d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, uri, contentValues)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uri, contentValues)) == null) {
             String lastPathSegment = uri.getLastPathSegment();
             if (lastPathSegment != null && contentValues != null && contentValues.size() > 0) {
                 String asString = contentValues.getAsString(lastPathSegment);
-                if ((!a(lastPathSegment) || !TextUtils.equals(asString, b(lastPathSegment))) && (c = c()) != null) {
+                if (a(lastPathSegment) && TextUtils.equals(asString, b(lastPathSegment))) {
+                    return null;
+                }
+                if ((UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv()) && (c = c()) != null) {
                     SharedPreferences.Editor edit = c.edit();
                     edit.putString(lastPathSegment, asString);
                     edit.commit();
+                }
+                if ((UniKVTestSwitch.isTypeKv() || UniKVTestSwitch.isTypeDoubleKv()) && (d = d()) != null) {
+                    SharedPreferences.Editor edit2 = d.edit();
+                    edit2.putString(lastPathSegment, asString);
+                    edit2.commit();
+                }
+                h(lastPathSegment, asString);
+                if (e(lastPathSegment)) {
                     g(lastPathSegment, asString);
-                    if (d(lastPathSegment)) {
-                        f(lastPathSegment, asString);
-                    }
                 }
             }
             return null;

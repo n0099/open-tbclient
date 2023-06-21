@@ -31,7 +31,7 @@ public class ShowConfirmBarLayout extends RelativeLayout {
 
     public ShowConfirmBarLayout(Context context) {
         super(context);
-        Button button = (Button) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00da, this).findViewById(R.id.obfuscated_res_0x7f090790);
+        Button button = (Button) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00da, this).findViewById(R.id.obfuscated_res_0x7f09078e);
         this.a = button;
         button.setOnClickListener(new a());
     }

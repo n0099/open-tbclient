@@ -8,10 +8,10 @@ import com.baidu.nadcore.component.AbsComponentPlugin;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hj0;
-import com.baidu.tieba.mq0;
+import com.baidu.tieba.ij0;
 import com.baidu.tieba.nq0;
 import com.baidu.tieba.oq0;
+import com.baidu.tieba.pq0;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0011\u0010\nJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\b\u0010\u0006J\u000f\u0010\t\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\t\u0010\nR\u0018\u0010\f\u001a\u0004\u0018\u00010\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\f\u0010\rR\u0018\u0010\u000f\u001a\u0004\u0018\u00010\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010¨\u0006\u0012"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/TopBarComponent;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "Landroid/view/ViewGroup;", "parent", "", "initCloseIcon", "(Landroid/view/ViewGroup;)V", "initTopBarView", "onCreateView", "onRelease", "()V", "Lcom/baidu/nadcore/widget/AdImageView;", "closeIcon", "Lcom/baidu/nadcore/widget/AdImageView;", "Landroid/widget/FrameLayout;", "topBarView", "Landroid/widget/FrameLayout;", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -30,11 +30,11 @@ public final class TopBarComponent extends AbsComponentPlugin {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            oq0 oq0Var = (oq0) TopBarComponent.this.j().q(oq0.class);
-            if (oq0Var != null) {
+            pq0 pq0Var = (pq0) TopBarComponent.this.j().q(pq0.class);
+            if (pq0Var != null) {
                 String str = ClogBuilder.LogType.FREE_CLICK.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                oq0Var.a(str, "exit");
+                pq0Var.a(str, "exit");
             }
             TopBarComponent.this.b().finish();
         }
@@ -58,9 +58,9 @@ public final class TopBarComponent extends AbsComponentPlugin {
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onRelease() {
         super.onRelease();
-        hj0.g(this.d);
+        ij0.g(this.d);
         this.d = null;
-        hj0.g(this.e);
+        ij0.g(this.e);
         this.e = null;
     }
 
@@ -75,7 +75,7 @@ public final class TopBarComponent extends AbsComponentPlugin {
         if (this.d != null) {
             return;
         }
-        mq0 a2 = nq0.a();
+        nq0 a2 = oq0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
         a2.b();
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_max_top, viewGroup, true);

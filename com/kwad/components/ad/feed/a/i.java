@@ -27,11 +27,11 @@ public final class i extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091257)).setRatio(0.56f);
-        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091216);
-        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f09121c);
-        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091218);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091283);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09125c)).setRatio(0.56f);
+        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09121b);
+        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091221);
+        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09121d);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091288);
     }
 
     @Override // com.kwad.components.core.widget.b
@@ -69,7 +69,7 @@ public final class i extends a implements View.OnClickListener {
         } else if (view2 == this.df) {
             i = 100;
         }
-        if (com.kwad.components.core.c.a.d.a(new a.C0630a(getContext()).L(this.mAdTemplate), 1) == 1) {
+        if (com.kwad.components.core.c.a.d.a(new a.C0631a(getContext()).L(this.mAdTemplate), 1) == 1) {
             aq(i);
             return;
         }

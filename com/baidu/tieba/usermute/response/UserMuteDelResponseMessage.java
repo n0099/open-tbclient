@@ -3,7 +3,7 @@ package com.baidu.tieba.usermute.response;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class UserMuteDelResponseMessage extends JsonHttpResponsedMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return tg.e(this.errorNo, -1);
+            return ug.e(this.errorNo, -1);
         }
         return invokeV.intValue;
     }

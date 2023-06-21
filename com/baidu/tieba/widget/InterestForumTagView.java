@@ -11,17 +11,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.py;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.qy;
 import com.baidu.tieba.view.SymbolEMTextView;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class InterestForumTagView extends LinearLayout implements py {
+public class InterestForumTagView extends LinearLayout implements qy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -97,7 +97,7 @@ public class InterestForumTagView extends LinearLayout implements py {
             this.d = selectForumData;
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a94, selectForumData.forumName));
+                symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a98, selectForumData.forumName));
             }
         }
     }
@@ -123,23 +123,23 @@ public class InterestForumTagView extends LinearLayout implements py {
         }
     }
 
-    @Override // com.baidu.tieba.py
+    @Override // com.baidu.tieba.qy
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                o75 d = o75.d(symbolEMTextView);
-                d.B(R.dimen.T_X09);
-                d.w(R.color.CAM_X0107);
-                d.y(R.dimen.tbds0);
-                d.C(R.string.F_X01);
+                p75 d = p75.d(symbolEMTextView);
+                d.C(R.dimen.T_X09);
+                d.x(R.color.CAM_X0107);
+                d.z(R.dimen.tbds0);
+                d.D(R.string.F_X01);
             }
             ImageView imageView = this.c;
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
-            o75 d2 = o75.d(this);
+            p75 d2 = p75.d(this);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0202);
         }
@@ -164,7 +164,7 @@ public class InterestForumTagView extends LinearLayout implements py {
                 return;
             }
         }
-        this.a = vi.g(getContext(), R.dimen.M_W_X004) + vi.g(getContext(), R.dimen.M_W_X013);
+        this.a = wi.g(getContext(), R.dimen.M_W_X004) + wi.g(getContext(), R.dimen.M_W_X013);
         c();
     }
 
@@ -187,8 +187,8 @@ public class InterestForumTagView extends LinearLayout implements py {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int g = vi.g(getContext(), R.dimen.M_W_X004);
-            int g2 = vi.g(getContext(), R.dimen.M_H_X002);
+            int g = wi.g(getContext(), R.dimen.M_W_X004);
+            int g2 = wi.g(getContext(), R.dimen.M_H_X002);
             setPadding(g, g2, 0, g2);
             setOrientation(0);
             setGravity(16);
@@ -197,11 +197,11 @@ public class InterestForumTagView extends LinearLayout implements py {
             symbolEMTextView.setMaxLines(1);
             this.b.setEllipsize(TextUtils.TruncateAt.END);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            int g3 = vi.g(getContext(), R.dimen.tbds5);
-            layoutParams.setMargins(0, vi.g(getContext(), R.dimen.tbds3), g3, 0);
+            int g3 = wi.g(getContext(), R.dimen.tbds5);
+            layoutParams.setMargins(0, wi.g(getContext(), R.dimen.tbds3), g3, 0);
             addView(this.b, layoutParams);
             this.c = new ImageView(getContext());
-            int g4 = vi.g(getContext(), R.dimen.tbds42);
+            int g4 = wi.g(getContext(), R.dimen.tbds42);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(g4, g4);
             layoutParams2.setMargins(0, 0, g3 * 3, 0);
             addView(this.c, layoutParams2);
@@ -216,7 +216,7 @@ public class InterestForumTagView extends LinearLayout implements py {
             int i = this.a;
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                return i + vi.G(symbolEMTextView.getPaint(), this.b.getText().toString()).right;
+                return i + wi.G(symbolEMTextView.getPaint(), this.b.getText().toString()).right;
             }
             return i;
         }

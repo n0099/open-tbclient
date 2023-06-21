@@ -3,9 +3,9 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.qq5;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.ww5;
+import com.baidu.tieba.bx5;
+import com.baidu.tieba.vq5;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +15,12 @@ import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes5.dex */
-public class FrsItemTabRequestData extends OrmObject implements qq5 {
+public class FrsItemTabRequestData extends OrmObject implements vq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
 
-    @Override // com.baidu.tieba.pq5
+    @Override // com.baidu.tieba.uq5
     public HashMap<String, Object> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class FrsItemTabRequestData extends OrmObject implements qq5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pq5
+    @Override // com.baidu.tieba.uq5
     public HashMap<String, String> S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class FrsItemTabRequestData extends OrmObject implements qq5 {
         }
     }
 
-    @Override // com.baidu.tieba.sq5
+    @Override // com.baidu.tieba.xq5
     public Object p(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.item_id = Integer.valueOf(this.itemId);
-            builder.scr_h = Integer.valueOf(vi.j(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(vi.l(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) vi.i(TbadkCoreApplication.getInst()));
-            ww5.c(builder, true, false, true);
+            builder.scr_h = Integer.valueOf(wi.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(wi.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) wi.i(TbadkCoreApplication.getInst()));
+            bx5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

@@ -1,113 +1,73 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes8.dex */
-public class z08 extends BaseCardInfo {
+public class z08 extends jn<gp6, CardViewHolder<do6>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public List<String> f;
-    public List<String> g;
+    public TbPageContext<?> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306247, "Lcom/baidu/tieba/z08;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948306247, "Lcom/baidu/tieba/z08;");
-                return;
-            }
-        }
-        h = BdUniqueId.gen();
-    }
-
-    public z08() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z08(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), gp6.j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.g = new ArrayList();
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: s */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            do6 do6Var = new do6(this.a);
+            do6Var.t("c10718", "c10719", "c10742");
+            return new CardViewHolder(do6Var);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void c(LiveAnswer liveAnswer) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gp6 gp6Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, liveAnswer) != null) || liveAnswer == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gp6Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(gp6Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            eo6.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(gp6Var.a)));
+            return cardViewHolder.getView();
         }
-        this.a = liveAnswer.activity_id.toString();
-        this.d = liveAnswer.banner_url;
-        this.b = liveAnswer.banner_high.intValue();
-        this.c = liveAnswer.banner_width.intValue();
-        this.e = liveAnswer.jump_url;
-        this.f.clear();
-        this.f.addAll(liveAnswer.show_statistics_urls);
-        this.g.clear();
-        this.g.addAll(liveAnswer.click_statistics_urls);
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("activity_id", this.a);
-                jSONObject.put("img_width", this.c);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.d);
-                jSONObject.put("img_height", this.b);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.e);
-                jSONObject.put("show_statistics_urls", this.f);
-                jSONObject.put("click_statistics_urls", this.g);
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

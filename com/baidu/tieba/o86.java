@@ -1,122 +1,91 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
 /* loaded from: classes7.dex */
 public class o86 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
+    public static boolean b;
+    public static boolean c;
+    public static long d;
+    public static String e;
+    public static long f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947986172, "Lcom/baidu/tieba/o86;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947986172, "Lcom/baidu/tieba/o86;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements l30<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l30
-        /* renamed from: a */
-        public void onResult(String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bundle) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.l30
-        public void onError(int i, Throwable th, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, th, bundle) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ty3.a();
-            }
-        }
-    }
-
-    public static void a() {
+    public static void a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || a) {
-            return;
-        }
-        a = true;
-        SwanAppInitHelper.initContext(TbadkCoreApplication.getInst());
-        SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
-        if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            w96.b();
-            if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
-                Fresco.initialize(AppRuntime.getAppContext(), wc7.a());
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST_SUCCESS_NOT_SHOW);
+            statisticItem.param("obj_source", str);
+            statisticItem.param("obj_type", "a064");
+            if (p86.b.equals(str)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
             }
-            q86.l().q(TbadkCoreApplication.getInst());
-            t96.a().b(TbadkCoreApplication.getInst());
-            j30.f(TbadkCoreApplication.getInst()).o(new a());
-            sp3.b0(new b(), 3000L);
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+            statisticItem.param(TiebaStatic.Params.SPLASH_UNI, j);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && b && a && c) {
+            if (p86.b.equals(g)) {
+                a(p86.c, null, d);
+            } else {
+                a(p86.b, e, f);
+            }
+            c();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            b = false;
+            a = false;
+            c = false;
+            d = 0L;
+            e = null;
+            f = 0L;
+            g = null;
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            c = true;
+            g = str;
+            b();
+        }
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
+            a = true;
+            d = j;
+            b();
+        }
+    }
+
+    public static void f(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (i == 3 && !wv5.v()) {
+                return;
+            }
+            b = true;
+            e = wv5.m(i);
+            f = j;
+            b();
         }
     }
 }

@@ -259,7 +259,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         if (findSuitableParent != null) {
             LayoutInflater from = LayoutInflater.from(findSuitableParent.getContext());
             if (hasSnackbarContentStyleAttrs(findSuitableParent.getContext())) {
-                i2 = R.layout.obfuscated_res_0x7f0d0635;
+                i2 = R.layout.obfuscated_res_0x7f0d0633;
             } else {
                 i2 = R.layout.obfuscated_res_0x7f0d0249;
             }

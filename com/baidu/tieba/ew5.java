@@ -1,143 +1,116 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class ew5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public b h;
-    public Runnable i;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void onCountDown(long j, long j2);
-
-        void onCountDownFinish(long j);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ew5 a;
+        public String a;
+        public int b;
 
-        public a(ew5 ew5Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ew5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.a = ew5Var;
+            this.a = str;
+            this.b = i;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static a a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (this.a.g > this.a.f) {
-                    ew5 ew5Var = this.a;
-                    ew5Var.f = currentTimeMillis - ew5Var.d;
-                    ew5 ew5Var2 = this.a;
-                    ew5Var2.g = ew5Var2.f;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (StringUtils.isNull(str)) {
+                    return null;
                 }
-                long j = currentTimeMillis - this.a.f;
-                this.a.c += this.a.d;
-                if (this.a.c >= this.a.b) {
-                    ew5 ew5Var3 = this.a;
-                    ew5Var3.c = ew5Var3.b;
-                    this.a.m();
+                a aVar = new a();
+                if (str.contains("#")) {
+                    String[] split = str.split("#");
+                    if (split.length == 1) {
+                        aVar.a = split[0];
+                    } else if (split.length == 2) {
+                        aVar.a = split[0];
+                        aVar.b = ug.e(split[1], -1);
+                    }
                 } else {
-                    this.a.a.postDelayed(this.a.i, (this.a.d * 2) - j);
-                    if (this.a.h != null) {
-                        this.a.h.onCountDown(this.a.b, this.a.b - this.a.c);
+                    aVar.a = str;
+                }
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (StringUtils.isNull(this.a)) {
+                    return "";
+                }
+                return this.a + "#" + this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public static String[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String w = o95.p().w("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (StringUtils.isNull(w)) {
+                return new String[0];
+            }
+            String[] split = w.split("\\^");
+            if (split != null && split.length > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (String str : split) {
+                    a a2 = a.a(str);
+                    if (a2 != null && !StringUtils.isNull(a2.a)) {
+                        arrayList.add(a2.a);
                     }
                 }
-                this.a.f = currentTimeMillis;
+                return (String[]) arrayList.toArray(new String[arrayList.size()]);
             }
+            return null;
         }
-    }
-
-    public ew5(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Handler(Looper.getMainLooper());
-        this.i = new a(this);
-        this.b = j;
-        this.d = j2;
-    }
-
-    public void n(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.h = bVar;
-        }
-    }
-
-    public final void m() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.h) != null) {
-            bVar.onCountDownFinish(this.b);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.e = currentTimeMillis;
-            this.f = currentTimeMillis;
-            b bVar = this.h;
-            if (bVar != null) {
-                long j = this.b;
-                bVar.onCountDown(j, j - this.c);
-            }
-            this.a.postDelayed(this.i, this.d);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j = this.e;
-            this.f = j;
-            this.g = j;
-            this.a.removeCallbacks(this.i);
-        }
+        return (String[]) invokeV.objValue;
     }
 }

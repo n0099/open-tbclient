@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public interface gw4 {
-    String a();
+    void a(Object obj, HashMap<String, String> hashMap, String str, j9 j9Var);
 
-    void b(HashMap<String, String> hashMap, hw4 hw4Var);
+    iw4 b(Object obj, HashMap<String, String> hashMap, String str);
 }

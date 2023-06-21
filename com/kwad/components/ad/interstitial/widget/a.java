@@ -18,12 +18,12 @@ public final class a extends PagerAdapter {
     public final Dialog gi;
     public final boolean ia;
     public b ib;
-    public InterfaceC0598a ic;
+    public InterfaceC0599a ic;
     public final List<AdTemplate> mAdTemplateList = new ArrayList();
 
     /* renamed from: com.kwad.components.ad.interstitial.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0598a {
+    public interface InterfaceC0599a {
         void dL();
     }
 
@@ -39,8 +39,8 @@ public final class a extends PagerAdapter {
         this.ia = com.kwad.sdk.core.response.a.a.bu(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) == 1;
     }
 
-    public final void a(InterfaceC0598a interfaceC0598a) {
-        this.ic = interfaceC0598a;
+    public final void a(InterfaceC0599a interfaceC0599a) {
+        this.ic = interfaceC0599a;
     }
 
     public final void a(b bVar) {

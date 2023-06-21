@@ -1,105 +1,67 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class kf8 {
+public class kf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AbilityItem a;
-    public final Integer b;
-    public final View c;
+    public jf8<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof kf8) {
-                kf8 kf8Var = (kf8) obj;
-                return Intrinsics.areEqual(this.a, kf8Var.a) && Intrinsics.areEqual(this.b, kf8Var.b) && Intrinsics.areEqual(this.c, kf8Var.c);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            Integer num = this.b;
-            int hashCode2 = (hashCode + (num == null ? 0 : num.hashCode())) * 31;
-            View view2 = this.c;
-            return hashCode2 + (view2 != null ? view2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "DirectTagData(data=" + this.a + ", position=" + this.b + ", redView=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public kf8(AbilityItem data, Integer num, View view2) {
+    public kf8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, num, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
-        this.b = num;
-        this.c = view2;
     }
 
-    public final AbilityItem a() {
+    @NonNull
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> jf8<T, Msg> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return (jf8<T, Msg>) this.a;
         }
-        return (AbilityItem) invokeV.objValue;
+        return (jf8) invokeV.objValue;
     }
 
-    public final Integer b() {
-        InterceptResult invokeV;
+    @Nullable
+    public static kf8 b(@NonNull View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (kf8) view2.getTag(R.id.obfuscated_res_0x7f0922f9);
         }
-        return (Integer) invokeV.objValue;
+        return (kf8) invokeL.objValue;
     }
 
-    public final View c() {
-        InterceptResult invokeV;
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull jf8<T, Msg> jf8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jf8Var) == null) {
+            this.a = jf8Var;
         }
-        return (View) invokeV.objValue;
+    }
+
+    public static void d(@NonNull View view2, @NonNull kf8 kf8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, kf8Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f0922f9, kf8Var);
+        }
     }
 }

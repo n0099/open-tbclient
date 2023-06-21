@@ -3,8 +3,8 @@ package com.baidu.tieba.newinterest.fragment;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.f19;
-import com.baidu.tieba.m19;
+import com.baidu.tieba.a29;
+import com.baidu.tieba.h29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,9 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public boolean b;
-    public String[] c;
-    public List<f19> d;
-    public View e;
+    public String[] b;
+    public List<a29> c;
+    public View d;
 
     public BaseInterestedForumFragment() {
         Interceptable interceptable = $ic;
@@ -47,7 +46,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hideLoadingView(this.e);
+            hideLoadingView(this.d);
         }
     }
 
@@ -57,7 +56,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 2) {
-                m19.c(2, this.a);
+                h29.c(2, this.a);
             }
         }
     }
@@ -65,15 +64,15 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public void J1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            hideLoadingView(this.e);
-            showNetRefreshView(this.e, str, false);
+            hideLoadingView(this.d);
+            showNetRefreshView(this.d, str, false);
         }
     }
 
-    public void K1(List<f19> list) {
+    public void K1(List<a29> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.d = list;
+            this.c = list;
         }
     }
 }

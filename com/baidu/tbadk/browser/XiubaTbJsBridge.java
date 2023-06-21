@@ -20,9 +20,9 @@ import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.nh5;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.xy9;
+import com.baidu.tieba.p0a;
+import com.baidu.tieba.rh5;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class XiubaTbJsBridge implements xy9 {
+public class XiubaTbJsBridge implements p0a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -253,7 +253,7 @@ public class XiubaTbJsBridge implements xy9 {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            nh5.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+            rh5.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
         }
     }
 
@@ -380,11 +380,11 @@ public class XiubaTbJsBridge implements xy9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
             if (!StringUtils.isNull(str) && (split = str.split("\\.")) != null && split.length != 0) {
-                int e = tg.e(split[0], 0);
+                int e = ug.e(split[0], 0);
                 if (e > 3) {
                     return true;
                 }
-                if (split.length >= 2 && e == 3 && tg.e(split[1], 0) >= 2) {
+                if (split.length >= 2 && e == 3 && ug.e(split[1], 0) >= 2) {
                     return true;
                 }
             }
@@ -393,7 +393,7 @@ public class XiubaTbJsBridge implements xy9 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xy9
+    @Override // com.baidu.tieba.p0a
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

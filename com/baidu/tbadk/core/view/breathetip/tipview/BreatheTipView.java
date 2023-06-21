@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fa5;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.ga5;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -92,7 +92,7 @@ public class BreatheTipView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new TextView(context);
             this.b = new TextView(context);
-            int g = vi.g(context, R.dimen.M_W_X007);
+            int g = wi.g(context, R.dimen.M_W_X007);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 1;
             layoutParams.leftMargin = g;
@@ -104,38 +104,38 @@ public class BreatheTipView extends FrameLayout {
             layoutParams2.leftMargin = g;
             layoutParams2.rightMargin = g;
             addView(this.b, layoutParams2);
-            o75 d = o75.d(this.a);
-            d.B(R.dimen.T_X08);
-            d.C(R.string.F_X02);
-            o75 d2 = o75.d(this.b);
-            d2.B(R.dimen.T_X09);
-            d2.C(R.string.F_X01);
+            p75 d = p75.d(this.a);
+            d.C(R.dimen.T_X08);
+            d.D(R.string.F_X02);
+            p75 d2 = p75.d(this.b);
+            d2.C(R.dimen.T_X09);
+            d2.D(R.string.F_X01);
         }
     }
 
-    public void setData(fa5 fa5Var) {
+    public void setData(ga5 ga5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fa5Var) != null) || fa5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ga5Var) != null) || ga5Var == null) {
             return;
         }
-        int i = fa5Var.g;
+        int i = ga5Var.g;
         int i2 = -2;
         if (i < 0) {
             i = -2;
         }
-        int i3 = fa5Var.h;
+        int i3 = ga5Var.h;
         if (i3 >= 0) {
             i2 = i3;
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i2);
-        layoutParams.setMargins(fa5Var.j, fa5Var.k, fa5Var.i, fa5Var.l);
+        layoutParams.setMargins(ga5Var.j, ga5Var.k, ga5Var.i, ga5Var.l);
         setLayoutParams(layoutParams);
-        this.a.setText(fa5Var.a);
-        SkinManager.setViewTextColor(this.a, fa5Var.c);
-        ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = fa5Var.f;
-        this.b.setText(fa5Var.b);
-        SkinManager.setViewTextColor(this.b, fa5Var.d);
-        ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = fa5Var.f + vi.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-        SkinManager.setBackgroundResource(this, fa5Var.e);
+        this.a.setText(ga5Var.a);
+        SkinManager.setViewTextColor(this.a, ga5Var.c);
+        ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ga5Var.f;
+        this.b.setText(ga5Var.b);
+        SkinManager.setViewTextColor(this.b, ga5Var.d);
+        ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = ga5Var.f + wi.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+        SkinManager.setBackgroundResource(this, ga5Var.e);
     }
 }

@@ -97,15 +97,15 @@ public class bf extends ne<String> {
                         reVar.e = rawQuery.getLong(3);
                         reVar.f = rawQuery.getLong(4);
                         reVar.b = rawQuery.getString(5);
-                        sg.a(rawQuery);
+                        tg.a(rawQuery);
                         return reVar;
                     }
-                    sg.a(rawQuery);
+                    tg.a(rawQuery);
                     return null;
                 } catch (Throwable th) {
                     th = th;
                     cursor = rawQuery;
-                    sg.a(cursor);
+                    tg.a(cursor);
                     throw th;
                 }
             } catch (Throwable th2) {

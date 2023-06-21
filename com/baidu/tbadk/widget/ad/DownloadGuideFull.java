@@ -253,7 +253,7 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
             ViewGroup.LayoutParams layoutParams = getGuideProgressView().getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = UtilHelper.getDimenPixelSize(m);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uy5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zy5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

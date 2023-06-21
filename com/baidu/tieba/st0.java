@@ -1,228 +1,181 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.net.URL;
-import org.apache.http.client.methods.HttpDelete;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class st0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] g;
+    public static final st0 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public URL a;
+    public BodyStyle a;
     public String b;
-    public Headers.a c;
-    @Nullable
-    public rt0 d;
-    public Object e;
-    @NonNull
-    public final xs0 f;
-    public boolean g;
-    public boolean h;
+    public String c;
+    public byte[] d;
+    public File e;
+    public Map<String, String> f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948162810, "Lcom/baidu/tieba/st0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948162810, "Lcom/baidu/tieba/st0;");
+                return;
+            }
+        }
+        byte[] bArr = new byte[0];
+        g = bArr;
+        h = d(null, bArr);
+        b(null, "");
+        c(null, new HashMap());
+    }
 
     public st0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.g = true;
-        this.h = false;
-        this.b = "GET";
-        this.c = new Headers.a();
-        new Headers.a();
-        this.f = new xs0();
+    }
+
+    public static st0 b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            st0 st0Var = new st0();
+            st0Var.k(BodyStyle.STRING);
+            st0Var.i(str);
+            st0Var.h(str2);
+            return st0Var;
+        }
+        return (st0) invokeLL.objValue;
+    }
+
+    public static st0 c(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            st0 st0Var = new st0();
+            st0Var.k(BodyStyle.FORM);
+            st0Var.i(str);
+            st0Var.j(map);
+            return st0Var;
+        }
+        return (st0) invokeLL.objValue;
+    }
+
+    public static st0 d(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr)) == null) {
+            st0 st0Var = new st0();
+            st0Var.k(BodyStyle.BYTE);
+            st0Var.i(str);
+            st0Var.g(bArr);
+            return st0Var;
+        }
+        return (st0) invokeLL.objValue;
     }
 
     public st0 a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.c.a(str, str2);
+            if (this.f == null) {
+                this.f = new HashMap();
+            }
+            this.f.put(str, str2);
             return this;
         }
         return (st0) invokeLL.objValue;
     }
 
-    public st0 d(String str, String str2) {
-        InterceptResult invokeLL;
+    public static st0 e(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            this.c.e(str, str2);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            return c("application/x-www-form-urlencoded", map);
         }
-        return (st0) invokeLL.objValue;
+        return (st0) invokeL.objValue;
     }
 
-    public st0 e(String str, @Nullable rt0 rt0Var) {
-        InterceptResult invokeLL;
+    public static st0 f(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, rt0Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            return d("application/octet-stream", bArr);
+        }
+        return (st0) invokeL.objValue;
+    }
+
+    public st0 g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            this.d = bArr;
+            return this;
+        }
+        return (st0) invokeL.objValue;
+    }
+
+    public st0 h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (st0) invokeL.objValue;
+    }
+
+    public st0 i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             this.b = str;
-            this.d = rt0Var;
-            return this;
-        }
-        return (st0) invokeLL.objValue;
-    }
-
-    public RequestError b() {
-        InterceptResult invokeV;
-        RequestError requestError;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null) {
-                requestError = new RequestError("url is null");
-            } else {
-                requestError = null;
-            }
-            if (this.d != null && !ot0.a(this.b)) {
-                requestError = new RequestError("method " + this.b + " must not have a request body.");
-            }
-            if (this.d == null && ot0.b(this.b)) {
-                return new RequestError("method " + this.b + " must have a request body.");
-            }
-            return requestError;
-        }
-        return (RequestError) invokeV.objValue;
-    }
-
-    public st0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e("GET", null);
-            return this;
-        }
-        return (st0) invokeV.objValue;
-    }
-
-    public st0 delete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return delete(rt0.h);
-        }
-        return (st0) invokeV.objValue;
-    }
-
-    public st0 delete(@Nullable rt0 rt0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rt0Var)) == null) {
-            e(HttpDelete.METHOD_NAME, rt0Var);
             return this;
         }
         return (st0) invokeL.objValue;
     }
 
-    public st0 f(rt0 rt0Var) {
+    public st0 j(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, rt0Var)) == null) {
-            e("POST", rt0Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            this.f = map;
             return this;
         }
         return (st0) invokeL.objValue;
     }
 
-    public st0 g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.f.a(i);
-            return this;
-        }
-        return (st0) invokeI.objValue;
-    }
-
-    public st0 h(nt0 nt0Var) {
+    public st0 k(BodyStyle bodyStyle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, nt0Var)) == null) {
-            this.f.b(nt0Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bodyStyle)) == null) {
+            this.a = bodyStyle;
             return this;
-        }
-        return (st0) invokeL.objValue;
-    }
-
-    public st0 i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.g = z;
-            return this;
-        }
-        return (st0) invokeZ.objValue;
-    }
-
-    public st0 j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            this.f.c(i);
-            return this;
-        }
-        return (st0) invokeI.objValue;
-    }
-
-    public st0 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.f.d(i);
-            return this;
-        }
-        return (st0) invokeI.objValue;
-    }
-
-    public st0 m(URL url) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, url)) == null) {
-            this.a = url;
-            return this;
-        }
-        return (st0) invokeL.objValue;
-    }
-
-    public st0 l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.a = null;
-                return this;
-            }
-            if (str.regionMatches(true, 0, "ws:", 0, 3)) {
-                str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
-            } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
-                str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
-            }
-            try {
-                m(new URL(str));
-                return this;
-            } catch (MalformedURLException | Exception unused) {
-                m(null);
-                return this;
-            }
         }
         return (st0) invokeL.objValue;
     }

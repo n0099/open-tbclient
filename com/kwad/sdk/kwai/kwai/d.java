@@ -93,7 +93,7 @@ public final class d implements View.OnClickListener {
         if (ae.length() >= 8) {
             ae = ae.substring(0, 7) + "...";
         }
-        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f0b34 : R.string.obfuscated_res_0x7f0f0b35, ae));
+        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f0b38 : R.string.obfuscated_res_0x7f0f0b39, ae));
     }
 
     @SuppressLint({"InflateParams"})
@@ -109,10 +109,10 @@ public final class d implements View.OnClickListener {
         }
         this.mRootView = from.inflate(i, (ViewGroup) null);
         ViewCompat.setElevation(this.mRootView, this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704b5));
-        this.Rw = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091291);
-        this.Rx = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091293);
-        this.Ry = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091292);
-        this.Rz = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091294);
+        this.Rw = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091296);
+        this.Rx = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091298);
+        this.Ry = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091297);
+        this.Rz = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091299);
         return this.mRootView;
     }
 
@@ -166,8 +166,8 @@ public final class d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         dismiss();
-        if (view2.getId() != R.id.obfuscated_res_0x7f091294) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091291) {
+        if (view2.getId() != R.id.obfuscated_res_0x7f091299) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091296) {
                 if (!this.Ru) {
                     com.kwad.sdk.core.report.a.p(this.mAdTemplate, 48);
                 } else if (!this.RC) {

@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb9;
-import com.baidu.tieba.in;
+import com.baidu.tieba.fc9;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.o49;
 import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorSimilarTitleAdapter;
 import com.baidu.tieba.pb.pb.main.view.SimilarTitleView;
-import com.baidu.tieba.r39;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\u0018\u00002\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\b\u0012\u00060\u0003R\u00020\u00000\u0001:\u0001\u0014B\u001d\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tJ\u0014\u0010\n\u001a\u00060\u0003R\u00020\u00002\u0006\u0010\u000b\u001a\u00020\fH\u0014J6\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u000e2\u0006\u0010\u000b\u001a\u00020\f2\b\u0010\u0012\u001a\u0004\u0018\u00010\u00022\n\u0010\u0013\u001a\u00060\u0003R\u00020\u0000H\u0014R\u0014\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorSimilarTitleAdapter;", "Lcom/baidu/adp/widget/ListView/AbsDelegateAdapter;", "Lcom/baidu/tieba/pb/data/PbFirstFloorSimilarTitleData;", "Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorSimilarTitleAdapter$PbFirstFloorSimilarTitleViewHolder;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "type", "Lcom/baidu/adp/BdUniqueId;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/adp/BdUniqueId;)V", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "onFillViewHolder", "Landroid/view/View;", CriusAttrConstants.POSITION, "", "convertView", "data", "viewHolder", "PbFirstFloorSimilarTitleViewHolder", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbFirstFloorSimilarTitleAdapter extends in<r39, PbFirstFloorSimilarTitleViewHolder> {
+public final class PbFirstFloorSimilarTitleAdapter extends jn<o49, PbFirstFloorSimilarTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<BaseFragmentActivity> a;
@@ -75,14 +75,14 @@ public final class PbFirstFloorSimilarTitleAdapter extends in<r39, PbFirstFloorS
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.pb.pb.main.view.SimilarTitleView");
         }
 
-        public static final void c(r39 r39Var, PbFirstFloorSimilarTitleAdapter this$0, View view2) {
+        public static final void c(o49 o49Var, PbFirstFloorSimilarTitleAdapter this$0, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65537, null, r39Var, this$0, view2) == null) {
+            if (interceptable == null || interceptable.invokeLLL(65537, null, o49Var, this$0, view2) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
-                if (r39Var != null) {
-                    UrlManager.getInstance().dealOneLink(r39Var.getUrl());
+                if (o49Var != null) {
+                    UrlManager.getInstance().dealOneLink(o49Var.getUrl());
                 }
-                bb9.m(r39Var, 1, this$0.a);
+                fc9.n(o49Var, 1, this$0.a, "2");
             }
         }
 
@@ -94,19 +94,19 @@ public final class PbFirstFloorSimilarTitleAdapter extends in<r39, PbFirstFloorS
             }
         }
 
-        public final void b(final r39 r39Var) {
+        public final void b(final o49 o49Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r39Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o49Var) == null) {
                 SimilarTitleView similarTitleView = this.b;
-                CharSequence text = this.d.mContext.getText(R.string.obfuscated_res_0x7f0f0f96);
+                CharSequence text = this.d.mContext.getText(R.string.obfuscated_res_0x7f0f0f9a);
                 Intrinsics.checkNotNullExpressionValue(text, "mContext.getText(R.strin…st_floor_similar_content)");
                 similarTitleView.setTitle(text);
-                if (r39Var != null) {
-                    this.b.setTags(r39Var.J());
+                if (o49Var != null) {
+                    this.b.setTags(o49Var.J());
                 }
                 SimilarTitleView similarTitleView2 = this.b;
                 final PbFirstFloorSimilarTitleAdapter pbFirstFloorSimilarTitleAdapter = this.d;
-                similarTitleView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e89
+                similarTitleView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a99
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public final class PbFirstFloorSimilarTitleAdapter extends in<r39, PbFirstFloorS
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            PbFirstFloorSimilarTitleAdapter.PbFirstFloorSimilarTitleViewHolder.c(r39.this, pbFirstFloorSimilarTitleAdapter, view2);
+                            PbFirstFloorSimilarTitleAdapter.PbFirstFloorSimilarTitleViewHolder.c(o49.this, pbFirstFloorSimilarTitleAdapter, view2);
                         }
                     }
                 });
@@ -146,14 +146,14 @@ public final class PbFirstFloorSimilarTitleAdapter extends in<r39, PbFirstFloorS
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.in
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r39 r39Var, PbFirstFloorSimilarTitleViewHolder pbFirstFloorSimilarTitleViewHolder) {
-        x(i, view2, viewGroup, r39Var, pbFirstFloorSimilarTitleViewHolder);
+    @Override // com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, o49 o49Var, PbFirstFloorSimilarTitleViewHolder pbFirstFloorSimilarTitleViewHolder) {
+        x(i, view2, viewGroup, o49Var, pbFirstFloorSimilarTitleViewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
+    @Override // com.baidu.tieba.jn
     /* renamed from: u */
     public PbFirstFloorSimilarTitleViewHolder onCreateViewHolder(ViewGroup parent) {
         InterceptResult invokeL;
@@ -163,7 +163,7 @@ public final class PbFirstFloorSimilarTitleAdapter extends in<r39, PbFirstFloorS
             LinearLayout linearLayout = new LinearLayout(this.mContext);
             linearLayout.setOrientation(1);
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            linearLayout.addView(new View(this.mContext), new LinearLayout.LayoutParams(-1, vi.g(this.mContext, R.dimen.tbds16)));
+            linearLayout.addView(new View(this.mContext), new LinearLayout.LayoutParams(-1, wi.g(this.mContext, R.dimen.tbds16)));
             Context mContext = this.mContext;
             Intrinsics.checkNotNullExpressionValue(mContext, "mContext");
             linearLayout.addView(new SimilarTitleView(mContext, null, 0, 6, null), new LinearLayout.LayoutParams(-1, -2));
@@ -172,15 +172,15 @@ public final class PbFirstFloorSimilarTitleAdapter extends in<r39, PbFirstFloorS
         return (PbFirstFloorSimilarTitleViewHolder) invokeL.objValue;
     }
 
-    public View x(int i, View convertView, ViewGroup parent, r39 r39Var, PbFirstFloorSimilarTitleViewHolder viewHolder) {
+    public View x(int i, View convertView, ViewGroup parent, o49 o49Var, PbFirstFloorSimilarTitleViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, r39Var, viewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, o49Var, viewHolder})) == null) {
             Intrinsics.checkNotNullParameter(convertView, "convertView");
             Intrinsics.checkNotNullParameter(parent, "parent");
             Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
-            if (r39Var != null) {
-                viewHolder.b(r39Var);
+            if (o49Var != null) {
+                viewHolder.b(o49Var);
             }
             viewHolder.a();
             return convertView;

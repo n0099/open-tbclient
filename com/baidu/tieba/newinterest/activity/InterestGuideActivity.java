@@ -9,23 +9,20 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.q19;
+import com.baidu.tieba.l29;
+import com.baidu.tieba.o95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q19 a;
+    public l29 a;
     public int b;
-    public boolean c;
-    public ArrayList<Integer> d;
-    public String[] e;
-    public boolean f;
+    public String[] c;
+    public boolean d;
 
     public InterestGuideActivity() {
         Interceptable interceptable = $ic;
@@ -66,9 +63,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             t1();
-            q19 q19Var = new q19(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = q19Var;
-            setContentView(q19Var.d());
+            l29 l29Var = new l29(this, this.b, this.c, this.d);
+            this.a = l29Var;
+            setContentView(l29Var.d());
             u1();
         }
     }
@@ -77,10 +74,8 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getIntent() != null) {
             this.b = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
-            this.c = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM, false);
-            this.d = getIntent().getIntegerArrayListExtra(InterestGuideActivityConfig.KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM);
-            this.e = getIntent().getStringArrayExtra(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
-            this.f = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_INTEREST_BACK_TO_MAINTAB, true);
+            this.c = getIntent().getStringArrayExtra(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
+            this.d = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_INTEREST_BACK_TO_MAINTAB, true);
         }
     }
 
@@ -89,17 +84,16 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
             String str = "";
-            String s = n95.m().s("key_interest_guide_show", "");
+            String w = o95.p().w("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
-            sb.append(s);
-            if (!StringUtils.isNull(s)) {
+            sb.append(w);
+            if (!StringUtils.isNull(w)) {
                 str = ",";
             }
             sb.append(str);
             String sb2 = sb.toString();
-            n95 m = n95.m();
-            m.B("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            n95.m().A("key_interest_panel_show_time", System.currentTimeMillis());
+            o95 p = o95.p();
+            p.J("key_interest_guide_show", sb2 + System.currentTimeMillis());
         }
     }
 }

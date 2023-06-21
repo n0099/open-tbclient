@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.i17;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.g17;
 /* loaded from: classes6.dex */
 public interface h17 {
-    String a(String str);
+    boolean a(QmFilterItem qmFilterItem);
 
-    boolean b(QmStickerItem qmStickerItem);
+    QmFilterItem b();
 
-    void c(i17.b bVar);
+    void c(QmFilterItem qmFilterItem);
 
-    void d(QmStickerItem qmStickerItem);
+    void d(g17.b bVar);
 
     void e();
 
-    void onDestroy();
+    String f(String str);
+
+    void g();
+
+    void h();
 
     void reset();
 }

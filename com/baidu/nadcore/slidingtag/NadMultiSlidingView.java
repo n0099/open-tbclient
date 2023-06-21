@@ -22,13 +22,13 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b31;
 import com.baidu.tieba.c31;
-import com.baidu.tieba.c61;
 import com.baidu.tieba.d31;
-import com.baidu.tieba.f31;
-import com.baidu.tieba.js0;
-import com.baidu.tieba.y51;
+import com.baidu.tieba.d61;
+import com.baidu.tieba.e31;
+import com.baidu.tieba.g31;
+import com.baidu.tieba.ks0;
+import com.baidu.tieba.z51;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.yy.gslbsdk.db.DelayTB;
@@ -40,18 +40,18 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0080\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\u0006\u0010K\u001a\u00020J\u0012\n\b\u0002\u0010M\u001a\u0004\u0018\u00010L\u0012\b\b\u0002\u0010N\u001a\u00020 ¢\u0006\u0004\bO\u0010PJ\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0006\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0005J\u0017\u0010\t\u001a\u00020\u00032\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00032\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u000b\u0010\nJ\u0017\u0010\r\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0017\u0010\u000f\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u000f\u0010\u000eJ\u0017\u0010\u0010\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u0010\u0010\u000eJ\u0017\u0010\u0011\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u0011\u0010\u000eJ\u001b\u0010\u0014\u001a\u0004\u0018\u00010\u00072\b\u0010\u0013\u001a\u0004\u0018\u00010\u0012H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0016\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0016\u0010\u0005J\u0019\u0010\u0019\u001a\u00020\u00032\b\u0010\u0018\u001a\u0004\u0018\u00010\u0017H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ!\u0010\u001e\u001a\u00020\u00032\u0006\u0010\u001b\u001a\u00020\u00072\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u001f\u0010$\u001a\u00020\u00032\u0006\u0010!\u001a\u00020 2\u0006\u0010#\u001a\u00020\"H\u0016¢\u0006\u0004\b$\u0010%J\u0017\u0010'\u001a\u00020\u00032\u0006\u0010&\u001a\u00020 H\u0016¢\u0006\u0004\b'\u0010(J\u0017\u0010*\u001a\u00020\u00032\u0006\u0010)\u001a\u00020 H\u0016¢\u0006\u0004\b*\u0010(J\u0019\u0010-\u001a\u00020\u00032\b\u0010,\u001a\u0004\u0018\u00010+H\u0016¢\u0006\u0004\b-\u0010.J\u0017\u00101\u001a\u00020\u00032\u0006\u00100\u001a\u00020/H\u0002¢\u0006\u0004\b1\u00102J\u0019\u00103\u001a\u00020\u00032\b\u0010,\u001a\u0004\u0018\u00010+H\u0016¢\u0006\u0004\b3\u0010.J!\u00103\u001a\u00020\u00032\b\u0010,\u001a\u0004\u0018\u00010+2\u0006\u00100\u001a\u00020/H\u0016¢\u0006\u0004\b3\u00104J\u000f\u00105\u001a\u00020\u0003H\u0016¢\u0006\u0004\b5\u0010\u0005R\u0016\u00106\u001a\u00020/8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00108\u001a\u00020/8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00107R\u0016\u0010:\u001a\u0002098\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b:\u0010;R\u0018\u0010\u0018\u001a\u0004\u0018\u00010\u00178\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0018\u0010<R\u0016\u0010>\u001a\u00020=8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b>\u0010?R\u0016\u0010&\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010@R\u0016\u0010A\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010@R\u0016\u0010B\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bB\u0010@R\u0018\u0010C\u001a\u0004\u0018\u00010+8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u0010DR\u0016\u0010F\u001a\u00020E8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bF\u0010GR\u0016\u0010H\u001a\u00020\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bH\u0010I¨\u0006Q"}, d2 = {"Lcom/baidu/nadcore/slidingtag/NadMultiSlidingView;", "Lcom/baidu/tieba/d31;", "Landroid/widget/RelativeLayout;", "", "addViewToContainer", "()V", "destroy", "Landroid/view/View;", "animView", "fadeIn", "(Landroid/view/View;)V", "fadeOut", "Landroid/animation/ValueAnimator;", "getFadeInAlphaAnimator", "(Landroid/view/View;)Landroid/animation/ValueAnimator;", "getFadeInPositionAnimator", "getFadeOutAlphaAnimator", "getFadeUpPositionAnimator", "Lcom/baidu/nadcore/model/NadSlidingTagModel$TagItem;", "item", "getSlidingView", "(Lcom/baidu/nadcore/model/NadSlidingTagModel$TagItem;)Landroid/view/View;", "reset", "Lcom/baidu/nadcore/slidingtag/INadSlidingActionListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setActionListener", "(Lcom/baidu/nadcore/slidingtag/INadSlidingActionListener;)V", "view", "", TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "setBackground", "(Landroid/view/View;Ljava/lang/String;)V", "", "iconSize", "", "textSize", "setFontSize", "(IF)V", "maxWidthPx", "setMaxWidth", "(I)V", "visibility", "setVisibility", "Lcom/baidu/nadcore/model/NadSlidingTagModel;", "model", "start", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;)V", "", DelayTB.DELAY, "startAnimWithDelay", "(J)V", "startDelay", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;J)V", "stop", "delayMillis", "J", "intervalMillis", "", "isPlaying", "Z", "Lcom/baidu/nadcore/slidingtag/INadSlidingActionListener;", "Landroid/os/Handler;", "mainHandler", "Landroid/os/Handler;", "I", "showCount", "showIndex", "slidingModel", "Lcom/baidu/nadcore/model/NadSlidingTagModel;", "Ljava/lang/Runnable;", "startAnimation", "Ljava/lang/Runnable;", "textSizePx", "F", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0080\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\u0006\u0010K\u001a\u00020J\u0012\n\b\u0002\u0010M\u001a\u0004\u0018\u00010L\u0012\b\b\u0002\u0010N\u001a\u00020 ¢\u0006\u0004\bO\u0010PJ\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0006\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0005J\u0017\u0010\t\u001a\u00020\u00032\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00032\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u000b\u0010\nJ\u0017\u0010\r\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0017\u0010\u000f\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u000f\u0010\u000eJ\u0017\u0010\u0010\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u0010\u0010\u000eJ\u0017\u0010\u0011\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u0011\u0010\u000eJ\u001b\u0010\u0014\u001a\u0004\u0018\u00010\u00072\b\u0010\u0013\u001a\u0004\u0018\u00010\u0012H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0016\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0016\u0010\u0005J\u0019\u0010\u0019\u001a\u00020\u00032\b\u0010\u0018\u001a\u0004\u0018\u00010\u0017H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ!\u0010\u001e\u001a\u00020\u00032\u0006\u0010\u001b\u001a\u00020\u00072\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u001f\u0010$\u001a\u00020\u00032\u0006\u0010!\u001a\u00020 2\u0006\u0010#\u001a\u00020\"H\u0016¢\u0006\u0004\b$\u0010%J\u0017\u0010'\u001a\u00020\u00032\u0006\u0010&\u001a\u00020 H\u0016¢\u0006\u0004\b'\u0010(J\u0017\u0010*\u001a\u00020\u00032\u0006\u0010)\u001a\u00020 H\u0016¢\u0006\u0004\b*\u0010(J\u0019\u0010-\u001a\u00020\u00032\b\u0010,\u001a\u0004\u0018\u00010+H\u0016¢\u0006\u0004\b-\u0010.J\u0017\u00101\u001a\u00020\u00032\u0006\u00100\u001a\u00020/H\u0002¢\u0006\u0004\b1\u00102J\u0019\u00103\u001a\u00020\u00032\b\u0010,\u001a\u0004\u0018\u00010+H\u0016¢\u0006\u0004\b3\u0010.J!\u00103\u001a\u00020\u00032\b\u0010,\u001a\u0004\u0018\u00010+2\u0006\u00100\u001a\u00020/H\u0016¢\u0006\u0004\b3\u00104J\u000f\u00105\u001a\u00020\u0003H\u0016¢\u0006\u0004\b5\u0010\u0005R\u0016\u00106\u001a\u00020/8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00108\u001a\u00020/8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00107R\u0016\u0010:\u001a\u0002098\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b:\u0010;R\u0018\u0010\u0018\u001a\u0004\u0018\u00010\u00178\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0018\u0010<R\u0016\u0010>\u001a\u00020=8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b>\u0010?R\u0016\u0010&\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010@R\u0016\u0010A\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010@R\u0016\u0010B\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bB\u0010@R\u0018\u0010C\u001a\u0004\u0018\u00010+8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u0010DR\u0016\u0010F\u001a\u00020E8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bF\u0010GR\u0016\u0010H\u001a\u00020\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bH\u0010I¨\u0006Q"}, d2 = {"Lcom/baidu/nadcore/slidingtag/NadMultiSlidingView;", "Lcom/baidu/tieba/e31;", "Landroid/widget/RelativeLayout;", "", "addViewToContainer", "()V", "destroy", "Landroid/view/View;", "animView", "fadeIn", "(Landroid/view/View;)V", "fadeOut", "Landroid/animation/ValueAnimator;", "getFadeInAlphaAnimator", "(Landroid/view/View;)Landroid/animation/ValueAnimator;", "getFadeInPositionAnimator", "getFadeOutAlphaAnimator", "getFadeUpPositionAnimator", "Lcom/baidu/nadcore/model/NadSlidingTagModel$TagItem;", "item", "getSlidingView", "(Lcom/baidu/nadcore/model/NadSlidingTagModel$TagItem;)Landroid/view/View;", "reset", "Lcom/baidu/nadcore/slidingtag/INadSlidingActionListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setActionListener", "(Lcom/baidu/nadcore/slidingtag/INadSlidingActionListener;)V", "view", "", TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "setBackground", "(Landroid/view/View;Ljava/lang/String;)V", "", "iconSize", "", "textSize", "setFontSize", "(IF)V", "maxWidthPx", "setMaxWidth", "(I)V", "visibility", "setVisibility", "Lcom/baidu/nadcore/model/NadSlidingTagModel;", "model", "start", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;)V", "", DelayTB.DELAY, "startAnimWithDelay", "(J)V", "startDelay", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;J)V", "stop", "delayMillis", "J", "intervalMillis", "", "isPlaying", "Z", "Lcom/baidu/nadcore/slidingtag/INadSlidingActionListener;", "Landroid/os/Handler;", "mainHandler", "Landroid/os/Handler;", "I", "showCount", "showIndex", "slidingModel", "Lcom/baidu/nadcore/model/NadSlidingTagModel;", "Ljava/lang/Runnable;", "startAnimation", "Ljava/lang/Runnable;", "textSizePx", "F", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class NadMultiSlidingView extends RelativeLayout implements d31 {
+public final class NadMultiSlidingView extends RelativeLayout implements e31 {
     public int a;
     public int b;
     public int c;
     public boolean d;
-    public js0 e;
+    public ks0 e;
     public float f;
     public long g;
     public long h;
-    public c31 i;
+    public d31 i;
     public final Handler j;
     public final Runnable k;
 
@@ -157,15 +157,15 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
 
     /* loaded from: classes3.dex */
     public static final class e implements View.OnClickListener {
-        public final /* synthetic */ js0 a;
-        public final /* synthetic */ c31 b;
+        public final /* synthetic */ ks0 a;
+        public final /* synthetic */ d31 b;
         public final /* synthetic */ NadMultiSlidingView c;
         public final /* synthetic */ TextView d;
-        public final /* synthetic */ js0.c e;
+        public final /* synthetic */ ks0.c e;
 
-        public e(js0 js0Var, c31 c31Var, NadMultiSlidingView nadMultiSlidingView, TextView textView, js0.c cVar) {
-            this.a = js0Var;
-            this.b = c31Var;
+        public e(ks0 ks0Var, d31 d31Var, NadMultiSlidingView nadMultiSlidingView, TextView textView, ks0.c cVar) {
+            this.a = ks0Var;
+            this.b = d31Var;
             this.c = nadMultiSlidingView;
             this.d = textView;
             this.e = cVar;
@@ -174,15 +174,15 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            c31 c31Var = this.b;
+            d31 d31Var = this.b;
             Context context = this.c.getContext();
-            js0.c cVar = this.e;
+            ks0.c cVar = this.e;
             if (cVar != null) {
                 str = cVar.a;
             } else {
                 str = null;
             }
-            c31Var.a(new b31(context, str, CollectionsKt___CollectionsKt.indexOf((List<? extends js0.c>) this.a.a, this.e), this.a.g));
+            d31Var.a(new c31(context, str, CollectionsKt___CollectionsKt.indexOf((List<? extends ks0.c>) this.a.a, this.e), this.a.g));
         }
     }
 
@@ -194,9 +194,9 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
 
         @Override // java.lang.Runnable
         public void run() {
-            js0.c cVar;
-            List<js0.c> list;
-            List<js0.c> list2;
+            ks0.c cVar;
+            List<ks0.c> list;
+            List<ks0.c> list2;
             NadMultiSlidingView.this.j.removeCallbacksAndMessages(null);
             if (NadMultiSlidingView.this.getChildCount() > NadMultiSlidingView.this.a) {
                 NadMultiSlidingView nadMultiSlidingView = NadMultiSlidingView.this;
@@ -218,16 +218,16 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
                             NadMultiSlidingView.this.r(childAt2).start();
                         }
                     } else {
-                        js0 js0Var = NadMultiSlidingView.this.e;
-                        if (js0Var != null && (list2 = js0Var.a) != null) {
+                        ks0 ks0Var = NadMultiSlidingView.this.e;
+                        if (ks0Var != null && (list2 = ks0Var.a) != null) {
                             int size = list2.size();
                             NadMultiSlidingView nadMultiSlidingView2 = NadMultiSlidingView.this;
                             nadMultiSlidingView2.c = (nadMultiSlidingView2.c + 1) % size;
                         }
                         NadMultiSlidingView nadMultiSlidingView3 = NadMultiSlidingView.this;
-                        js0 js0Var2 = nadMultiSlidingView3.e;
-                        if (js0Var2 != null && (list = js0Var2.a) != null) {
-                            cVar = (js0.c) CollectionsKt___CollectionsKt.getOrNull(list, NadMultiSlidingView.this.c);
+                        ks0 ks0Var2 = nadMultiSlidingView3.e;
+                        if (ks0Var2 != null && (list = ks0Var2.a) != null) {
+                            cVar = (ks0.c) CollectionsKt___CollectionsKt.getOrNull(list, NadMultiSlidingView.this.c);
                         } else {
                             cVar = null;
                         }
@@ -252,8 +252,8 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
         super(context, attributeSet, i);
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = 2;
-        this.b = (int) (c61.c.e(context) * 0.6d);
-        this.f = c61.c.a(context, 12.0f);
+        this.b = (int) (d61.c.e(context) * 0.6d);
+        this.f = d61.c.a(context, 12.0f);
         this.g = 800L;
         this.h = 800L;
         this.j = new Handler(Looper.getMainLooper());
@@ -276,7 +276,7 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
     }
 
     public final void u(View view2, String str) {
-        int a2 = y51.a(str, R.color.nad_sliding_multi_bg_color_default);
+        int a2 = z51.a(str, R.color.nad_sliding_multi_bg_color_default);
         Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.nad_sliding_multi_bg);
         if (drawable != null) {
             drawable.setColorFilter(new PorterDuffColorFilter(a2, PorterDuff.Mode.SRC_ATOP));
@@ -287,13 +287,13 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
         view2.setBackground(drawable);
     }
 
-    public void w(js0 js0Var, long j) {
+    public void w(ks0 ks0Var, long j) {
         t();
-        if (js0Var != null && !js0Var.a.isEmpty()) {
+        if (ks0Var != null && !ks0Var.a.isEmpty()) {
             this.h = j;
-            this.e = js0Var;
-            this.a = RangesKt___RangesKt.coerceAtMost(js0Var.h, 3);
-            this.g = js0Var.d;
+            this.e = ks0Var;
+            this.a = RangesKt___RangesKt.coerceAtMost(ks0Var.h, 3);
+            this.g = ks0Var.d;
             l();
             v(j);
         }
@@ -318,7 +318,7 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
     }
 
     public final ValueAnimator p(View view2) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, this.f + c61.c.a(getContext(), 13.0f), 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, this.f + d61.c.a(getContext(), 13.0f), 0.0f);
         ofFloat.setDuration(200L);
         Intrinsics.checkNotNullExpressionValue(ofFloat, "ObjectAnimator.ofFloat(a…LT_RELAY_MILLIS\n        }");
         return ofFloat;
@@ -333,8 +333,8 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
         return ofFloat;
     }
 
-    public void setActionListener(c31 c31Var) {
-        this.i = c31Var;
+    public void setActionListener(d31 d31Var) {
+        this.i = d31Var;
     }
 
     public void setMaxWidth(int i) {
@@ -348,10 +348,10 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
 
     public final void v(long j) {
         int i;
-        List<js0.c> list;
+        List<ks0.c> list;
         if (this.a > 0) {
-            js0 js0Var = this.e;
-            if (js0Var != null && (list = js0Var.a) != null) {
+            ks0 ks0Var = this.e;
+            if (ks0Var != null && (list = ks0Var.a) != null) {
                 i = list.size();
             } else {
                 i = 0;
@@ -365,20 +365,20 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
 
     public final void l() {
         int i;
-        js0.c cVar;
-        List<js0.c> list;
+        ks0.c cVar;
+        List<ks0.c> list;
         int i2;
-        List<js0.c> list2;
-        List<js0.c> list3;
-        js0 js0Var = this.e;
-        if (js0Var != null && (list3 = js0Var.a) != null) {
+        List<ks0.c> list2;
+        List<ks0.c> list3;
+        ks0 ks0Var = this.e;
+        if (ks0Var != null && (list3 = ks0Var.a) != null) {
             i = list3.size();
         } else {
             i = 0;
         }
         if (i < this.a) {
-            js0 js0Var2 = this.e;
-            if (js0Var2 != null && (list2 = js0Var2.a) != null) {
+            ks0 ks0Var2 = this.e;
+            if (ks0Var2 != null && (list2 = ks0Var2.a) != null) {
                 i2 = list2.size();
             } else {
                 i2 = 0;
@@ -388,7 +388,7 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
         if (this.a <= 0) {
             return;
         }
-        int a2 = (int) (this.f + c61.c.a(getContext(), 13.0f));
+        int a2 = (int) (this.f + d61.c.a(getContext(), 13.0f));
         if (getLayoutParams() == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-2, (this.a + 1) * a2));
         } else {
@@ -396,9 +396,9 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
         }
         int i3 = this.a;
         for (int i4 = 0; i4 < i3; i4++) {
-            js0 js0Var3 = this.e;
-            if (js0Var3 != null && (list = js0Var3.a) != null) {
-                cVar = (js0.c) CollectionsKt___CollectionsKt.getOrNull(list, i4);
+            ks0 ks0Var3 = this.e;
+            if (ks0Var3 != null && (list = ks0Var3.a) != null) {
+                cVar = (ks0.c) CollectionsKt___CollectionsKt.getOrNull(list, i4);
             } else {
                 cVar = null;
             }
@@ -431,21 +431,21 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
     }
 
     public final ValueAnimator r(View view2) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getTranslationY(), view2.getTranslationY() - (this.f + c61.c.a(getContext(), 13.0f)));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getTranslationY(), view2.getTranslationY() - (this.f + d61.c.a(getContext(), 13.0f)));
         ofFloat.setDuration(200L);
         ofFloat.addListener(new d(view2));
         Intrinsics.checkNotNullExpressionValue(ofFloat, "ObjectAnimator.ofFloat(a…\n            })\n        }");
         return ofFloat;
     }
 
-    public final View s(js0.c cVar) {
-        js0 js0Var;
-        TextView a2 = f31.a(getContext(), cVar);
+    public final View s(ks0.c cVar) {
+        ks0 ks0Var;
+        TextView a2 = g31.a(getContext(), cVar);
         if (a2 != null) {
             a2.setId(ViewCompat.generateViewId());
             a2.setTextSize(0, this.f);
             a2.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
-            a2.setPadding(c61.c.a(a2.getContext(), 10.0f), c61.c.a(a2.getContext(), 4.0f), c61.c.a(a2.getContext(), 10.0f), c61.c.a(a2.getContext(), 4.0f));
+            a2.setPadding(d61.c.a(a2.getContext(), 10.0f), d61.c.a(a2.getContext(), 4.0f), d61.c.a(a2.getContext(), 10.0f), d61.c.a(a2.getContext(), 4.0f));
             a2.setMaxLines(1);
             a2.setMaxWidth(this.b);
             a2.setSingleLine();
@@ -454,11 +454,11 @@ public final class NadMultiSlidingView extends RelativeLayout implements d31 {
             a2.setIncludeFontPadding(false);
             a2.setVisibility(0);
             if (a2 != null) {
-                js0 js0Var2 = this.e;
-                u(a2, (js0Var2 == null || (r1 = js0Var2.f) == null) ? "" : "");
-                c31 c31Var = this.i;
-                if (c31Var != null && (js0Var = this.e) != null) {
-                    a2.setOnClickListener(new e(js0Var, c31Var, this, a2, cVar));
+                ks0 ks0Var2 = this.e;
+                u(a2, (ks0Var2 == null || (r1 = ks0Var2.f) == null) ? "" : "");
+                d31 d31Var = this.i;
+                if (d31Var != null && (ks0Var = this.e) != null) {
+                    a2.setOnClickListener(new e(ks0Var, d31Var, this, a2, cVar));
                 }
                 return a2;
             }

@@ -89,11 +89,15 @@ public final class VideoInsertLiveServiceImpl implements IVideoInsertLiveService
             pluginInvokeService.checkAndLoadPluginInsertVideo(stringPlus, new IVideoInsertLiveService.LoadResultCallback() { // from class: com.baidu.searchbox.live.video.VideoInsertLiveServiceImpl$checkAndLoadLivePlugin$1
                 @Override // com.baidu.searchbox.live.host2live.video.IVideoInsertLiveService.LoadResultCallback
                 public void onResult(boolean z) {
-                    InsertLiveUbc.INSTANCE.insertLoadPluginEnd(z);
                     IVideoInsertLiveService.LoadResultCallback loadResultCallback2 = IVideoInsertLiveService.LoadResultCallback.this;
                     if (loadResultCallback2 != null) {
                         loadResultCallback2.onResult(z);
                     }
+                }
+
+                @Override // com.baidu.searchbox.live.host2live.video.IVideoInsertLiveService.LoadResultCallback
+                public void onEvent(boolean z, int i) {
+                    InsertLiveUbc.INSTANCE.insertLoadPluginEnd(z, Integer.valueOf(i));
                 }
             });
         }

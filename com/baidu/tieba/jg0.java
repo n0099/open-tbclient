@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface jg0 {
-    void a(String str, String str2, String str3, ig0 ig0Var);
+    void a(long j, long j2, int i);
+
+    void b(String str);
+
+    void onFailed(Exception exc);
+
+    void onStarted();
 }

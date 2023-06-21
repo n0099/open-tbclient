@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,16 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import com.yy.transvod.player.core.TransVodProxy;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 public class ljb {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ljb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<Integer, a> a;
-    public TreeMap<Integer, TreeSet<String>> b;
+    public wib a;
+    public vib b;
+    public List<mjb> c;
+    public List<mjb> d;
+    public AtomicInteger e;
+    public WeakReference<TransVodProxy> f;
+    public AtomicBoolean g;
+    public AtomicBoolean h;
+    public long i;
 
     static {
         InterceptResult invokeClinit;
@@ -34,28 +47,9 @@ public class ljb {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            this.b = false;
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
         }
     }
 
@@ -72,144 +66,184 @@ public class ljb {
                 return;
             }
         }
-        this.a = new TreeMap<>();
-        this.b = new TreeMap<>();
+        this.a = null;
+        this.b = new vib();
+        this.c = new LinkedList();
+        this.d = new LinkedList();
+        this.e = new AtomicInteger(4);
+        this.f = null;
+        this.g = new AtomicBoolean(false);
+        this.h = new AtomicBoolean(false);
+        this.i = 0L;
     }
 
-    public static ljb c() {
-        InterceptResult invokeV;
+    public void c() {
+        mjb mjbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (ljb.class) {
-                    if (c == null) {
-                        c = new ljb();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Iterator<mjb> it = this.c.iterator();
+            mjb mjbVar2 = null;
+            if (it.hasNext()) {
+                mjbVar = it.next();
+            } else {
+                mjbVar = null;
             }
-            return c;
+            while (it.hasNext()) {
+                mjb next = it.next();
+                mjbVar.k(next);
+                mjbVar = next;
+            }
+            Iterator<mjb> it2 = this.d.iterator();
+            if (it2.hasNext()) {
+                mjbVar2 = it2.next();
+            }
+            while (it2.hasNext()) {
+                mjb next2 = it2.next();
+                mjbVar2.k(next2);
+                mjbVar2 = next2;
+            }
         }
-        return (ljb) invokeV.objValue;
     }
 
-    public synchronized int a() {
-        InterceptResult invokeV;
-        int size;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                size = this.b.size();
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.e.set(6);
+            for (mjb mjbVar : this.c) {
+                mjbVar.a();
             }
-            return size;
+            for (mjb mjbVar2 : this.d) {
+                mjbVar2.a();
+            }
+            this.g.set(true);
+            this.h.set(true);
         }
-        return invokeV.intValue;
     }
 
-    public synchronized int d() {
-        InterceptResult invokeV;
-        int size;
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                size = this.a.size();
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.e.set(1);
+            for (mjb mjbVar : this.c) {
+                mjbVar.x();
             }
-            return size;
+            for (mjb mjbVar2 : this.d) {
+                mjbVar2.x();
+            }
+            this.g.set(false);
+            this.h.set(false);
+            wib wibVar = this.a;
+            if (wibVar != null) {
+                wibVar.f();
+            }
+            vib vibVar = this.b;
+            if (vibVar != null) {
+                vibVar.h();
+            }
         }
-        return invokeV.intValue;
     }
 
-    public synchronized int b() {
-        InterceptResult invokeV;
-        int i;
+    public ljb a(int i, mjb mjbVar) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, TreeSet<String>> entry : this.b.entrySet()) {
-                    i += entry.getValue().size();
-                }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, mjbVar)) == null) {
+            mjbVar.t(i);
+            mjbVar.q(this);
+            if (i == 0) {
+                this.c.add(mjbVar);
+            } else if (i == 1) {
+                this.d.add(mjbVar);
             }
-            return i;
+            return this;
         }
-        return invokeV.intValue;
+        return (ljb) invokeIL.objValue;
     }
 
-    public synchronized int f() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.clear();
+            this.d.clear();
+        }
+    }
+
+    public long e() {
         InterceptResult invokeV;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
-                    if (entry.getValue().a && entry.getValue().b) {
-                        i++;
-                    }
-                }
-            }
-            return i;
+            return this.i;
+        }
+        return invokeV.longValue;
+    }
+
+    public final wib f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (wib) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e.get();
         }
         return invokeV.intValue;
     }
 
-    public synchronized int i() {
+    public final vib h() {
         InterceptResult invokeV;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
-                    if (entry.getValue().a) {
-                        i++;
-                    }
-                }
-            }
-            return i;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (vib) invokeV.objValue;
     }
 
-    public synchronized void e(ihb ihbVar) {
+    public final TransVodProxy i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ihbVar) == null) {
-            synchronized (this) {
-                if (ihbVar != null) {
-                    if (!this.a.containsKey(Integer.valueOf(ihbVar.hashCode()))) {
-                        this.a.put(Integer.valueOf(ihbVar.hashCode()), new a());
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f.get();
         }
+        return (TransVodProxy) invokeV.objValue;
     }
 
-    public synchronized void h(ihb ihbVar) {
-        a aVar;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ihbVar) == null) {
-            synchronized (this) {
-                if (ihbVar != null) {
-                    if (this.a.containsKey(Integer.valueOf(ihbVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(ihbVar.hashCode()))) != null) {
-                        aVar.a = false;
-                        aVar.b = false;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (mjb mjbVar : this.c) {
+                mjbVar.l();
+            }
+            for (mjb mjbVar2 : this.d) {
+                mjbVar2.l();
             }
         }
     }
 
-    public synchronized void g(ihb ihbVar, int i, boolean z) {
-        a aVar;
+    public void k(Handler handler, TransVodProxy transVodProxy, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{ihbVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (ihbVar != null) {
-                    if (this.a.containsKey(Integer.valueOf(ihbVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(ihbVar.hashCode()))) != null) {
-                        aVar.a = true;
-                        aVar.b = z;
-                    }
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, handler, transVodProxy, context) == null) {
+            if (handler != null) {
+                if (transVodProxy != null) {
+                    this.f = new WeakReference<>(transVodProxy);
+                    this.a = new wib(this.f.get(), context);
+                    this.b.b(this.f.get());
+                    return;
                 }
+                throw new RuntimeException("proxy MUST not be null.");
             }
+            throw new RuntimeException("handler MUST not be null.");
+        }
+    }
+
+    public void l(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.i = j;
         }
     }
 }

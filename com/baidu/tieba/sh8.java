@@ -1,34 +1,213 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.util.orderlist.OrderLinkList;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class sh8 extends th8 {
+public class sh8 implements uh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public ChatRoomDetail a;
+    @NonNull
+    public final OrderLinkList<eh8> b;
+    @NonNull
+    public final GroupInputViewController c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sh8(Context context, RecyclerView recyclerView, wh8 wh8Var, xh8 xh8Var, int i, int i2) {
-        super(context, recyclerView, wh8Var, xh8Var, i, i2);
+    public sh8(@NonNull GroupInputViewController groupInputViewController) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, wh8Var, xh8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {groupInputViewController};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (RecyclerView) objArr2[1], (wh8) objArr2[2], (xh8) objArr2[3], ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = groupInputViewController;
+        this.b = new OrderLinkList<>();
+    }
+
+    @Override // com.baidu.tieba.uh8
+    public void d(@NonNull List<eh8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && list.size() > 0) {
+            for (eh8 eh8Var : list) {
+                eh8Var.b(i(eh8Var.d()));
+                eh8Var.h(false);
+                this.b.insert(eh8Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.uh8
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.c(i(i));
+        }
+    }
+
+    @Override // com.baidu.tieba.uh8
+    public void b(@NonNull eh8 eh8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eh8Var) == null) {
+            eh8Var.b(i(eh8Var.d()));
+            eh8Var.h(false);
+            this.b.insert(eh8Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.uh8
+    public void g(@NonNull ChatRoomDetail chatRoomDetail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, chatRoomDetail) == null) {
+            this.a = chatRoomDetail;
+        }
+    }
+
+    @Override // com.baidu.tieba.uh8
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            eh8 f = f();
+            if (f == null) {
+                return false;
+            }
+            this.c.H1(f.c());
+            this.c.X1(false);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.uh8
+    @Nullable
+    public eh8 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.b();
+        }
+        return (eh8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uh8
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            int i2 = i(i);
+            eh8 a = this.b.a(i2);
+            if (i == 7011 && a != null && a.e()) {
+                a.f(h(i));
+            }
+            if (a == null) {
+                eh8 eh8Var = new eh8();
+                eh8Var.g(i);
+                eh8Var.b(i2);
+                eh8Var.f(h(i));
+                eh8Var.h(true);
+                this.b.insert(eh8Var);
+            }
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @SuppressLint({"StringFormatMatches"})
+    public final String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i != 102) {
+                if (i != 7003) {
+                    if (i != 7005) {
+                        if (i != 7007) {
+                            switch (i) {
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
+                                    ChatRoomDetail chatRoomDetail = this.a;
+                                    if (chatRoomDetail != null) {
+                                        return String.format(th8.g, Integer.valueOf(chatRoomDetail.getExtraInfo().getTalkThresholdLevel()));
+                                    }
+                                    break;
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
+                                    return th8.b;
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
+                                    return th8.e;
+                            }
+                            return "";
+                        }
+                        return th8.c;
+                    }
+                    return th8.d;
+                }
+                return th8.f;
+            }
+            return th8.a;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final int i(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (i != 102) {
+                switch (i) {
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE /* 7003 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE /* 7004 */:
+                        i2 = 5;
+                        break;
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL /* 7005 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL /* 7006 */:
+                        i2 = 7;
+                        break;
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN /* 7007 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN /* 7008 */:
+                        i2 = 8;
+                        break;
+                    default:
+                        switch (i) {
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
+                                i2 = 4;
+                                break;
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
+                                i2 = 9;
+                                break;
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
+                                i2 = 6;
+                                break;
+                            default:
+                                i2 = 0;
+                                break;
+                        }
+                }
+            } else {
+                i2 = 10;
+            }
+            if (i2 != 0) {
+                return i2;
+            }
+            throw new IllegalArgumentException("The type of the banned msg is unknown!");
+        }
+        return invokeI.intValue;
     }
 }

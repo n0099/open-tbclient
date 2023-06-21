@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import org.json.JSONArray;
+import android.app.Activity;
+import android.os.Bundle;
 /* loaded from: classes5.dex */
 public interface gw1 {
-    long a(Context context);
-
-    void b(Context context, String str, rq3<String> rq3Var);
-
-    void c(Context context, JSONArray jSONArray, rq3<String> rq3Var);
+    void a(Activity activity, Bundle bundle, vz2 vz2Var);
 }

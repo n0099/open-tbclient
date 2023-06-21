@@ -246,7 +246,7 @@ public class ic extends DiskFileOperate {
     public void endLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            mg.k(isSuccess(), System.currentTimeMillis() - this.e);
+            ng.k(isSuccess(), System.currentTimeMillis() - this.e);
         }
     }
 
@@ -295,7 +295,7 @@ public class ic extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
             super.setData(bArr);
-            if (!isGif() && vi.D(bArr)) {
+            if (!isGif() && wi.D(bArr)) {
                 setGif(true);
             }
         }

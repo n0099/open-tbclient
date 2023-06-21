@@ -1,13 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.UIMsg;
-import com.baidu.poly.statistics.exception.ServerDataException;
-import com.baidu.poly.widget.PayChannelEntity;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.poly.util.HttpSigner;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,21 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONException;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nh1 {
+public final class nh1 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "payChannel";
-    public static String c = "installmentPeriod";
-    public static String d = "payType";
-    public static volatile nh1 e;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public kh1 a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,18 +35,18 @@ public class nh1 {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends fh1<String> {
+    public static final class a extends gh1<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fh1 a;
-        public final /* synthetic */ nh1 b;
+        public final /* synthetic */ ji1 a;
+        public final /* synthetic */ JSONObject b;
 
-        public a(nh1 nh1Var, fh1 fh1Var) {
+        public a(ji1 ji1Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var, fh1Var};
+                Object[] objArr = {ji1Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,61 +56,46 @@ public class nh1 {
                     return;
                 }
             }
-            this.b = nh1Var;
-            this.a = fh1Var;
+            this.a = ji1Var;
+            this.b = jSONObject;
         }
 
-        @Override // com.baidu.tieba.fh1
+        @Override // com.baidu.tieba.gh1
         public void a(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.b.w("7", 119501, "cashier/channelAllInfo", i);
-                this.a.b(th, str);
+                ji1 ji1Var = this.a;
+                if (ji1Var != null) {
+                    ji1Var.a(1, str);
+                }
+                rh1.d(this.b);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fh1
+        @Override // com.baidu.tieba.gh1
         /* renamed from: d */
         public void c(String str) {
+            ji1 ji1Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt(StatConstants.KEY_EXT_ERR_CODE, -1);
-                    int optInt2 = jSONObject.optInt("errno", -1);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optJSONObject == null || optInt != 0 || optInt2 != 0) {
-                        this.b.w("7", 119503, "cashier/channelAllInfo", optInt2);
-                        String optString = jSONObject.optString("errmsg");
-                        fh1 fh1Var = this.a;
-                        ServerDataException serverDataException = new ServerDataException("errmsg = " + optString);
-                        fh1Var.b(serverDataException, "errno is " + optInt2);
-                        return;
-                    }
-                    this.a.c(optJSONObject);
-                } catch (JSONException unused) {
-                    this.b.w("7", 119502, "cashier/channelAllInfo", -1);
-                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
-                }
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (ji1Var = this.a) != null) {
+                ji1Var.a(0, "");
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends fh1<String> {
+    public static final class b extends gh1<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ fh1 b;
-        public final /* synthetic */ nh1 c;
+        public final /* synthetic */ ji1 a;
 
-        public b(nh1 nh1Var, String str, fh1 fh1Var) {
+        public b(ji1 ji1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var, str, fh1Var};
+                Object[] objArr = {ji1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,654 +105,71 @@ public class nh1 {
                     return;
                 }
             }
-            this.c = nh1Var;
-            this.a = str;
-            this.b = fh1Var;
-        }
-
-        @Override // com.baidu.tieba.fh1
-        public void a(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLIL(1048576, this, th, i, str) != null) {
-                return;
-            }
-            this.c.x("8", 119501, "cashier/launchpayment", i, this.a);
-            this.b.b(th, bj1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0493));
+            this.a = ji1Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fh1
+        @Override // com.baidu.tieba.gh1
         /* renamed from: d */
         public void c(String str) {
+            ji1 ji1Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("errno", -1);
-                    if (optInt != 0) {
-                        this.c.x("8", 119503, "cashier/launchpayment", optInt, this.a);
-                        String optString = jSONObject.optString("msg");
-                        fh1 fh1Var = this.b;
-                        fh1Var.b(new ServerDataException("msg = " + optString), optString);
-                        return;
-                    }
-                    this.b.c(this.c.y(jSONObject.optJSONObject("data")));
-                } catch (JSONException unused) {
-                    this.c.x("8", 119502, "cashier/launchpayment", -1, this.a);
-                    this.b.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
-                }
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (ji1Var = this.a) != null) {
+                ji1Var.a(0, "");
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public class c extends fh1<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fh1 a;
-        public final /* synthetic */ nh1 b;
-
-        public c(nh1 nh1Var, fh1 fh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var, fh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nh1Var;
-            this.a = fh1Var;
-        }
-
-        @Override // com.baidu.tieba.fh1
+        @Override // com.baidu.tieba.gh1
         public void a(Throwable th, int i, String str) {
+            ji1 ji1Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.b.w("8", 119501, "cashier/pay", i);
-                this.a.b(th, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fh1
-        /* renamed from: d */
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("errno", -1);
-                    if (optInt != 0) {
-                        this.b.w("8", 119503, "cashier/pay", optInt);
-                        String optString = jSONObject.optString("msg");
-                        fh1 fh1Var = this.a;
-                        fh1Var.b(new ServerDataException("msg = " + optString), optString);
-                        return;
-                    }
-                    this.a.c(this.b.y(jSONObject.optJSONObject("data")));
-                } catch (Throwable unused) {
-                    this.b.w("8", 119502, "cashier/pay", -1);
-                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
-                }
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) && (ji1Var = this.a) != null) {
+                ji1Var.a(1, str);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class d extends fh1<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fh1 a;
-        public final /* synthetic */ nh1 b;
-
-        public d(nh1 nh1Var, fh1 fh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var, fh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nh1Var;
-            this.a = fh1Var;
-        }
-
-        @Override // com.baidu.tieba.fh1
-        public void a(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.b.w("105", 119501, "cashier/sdkAdaptH5QueryPay", i);
-                this.a.b(th, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fh1
-        /* renamed from: d */
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("errno", -1);
-                    if (optInt != 0) {
-                        this.b.w("105", 119503, "cashier/sdkAdaptH5QueryPay", optInt);
-                        String optString = jSONObject.optString("msg");
-                        fh1 fh1Var = this.a;
-                        ServerDataException serverDataException = new ServerDataException("msg = " + optString);
-                        fh1Var.b(serverDataException, "errno is " + optInt);
-                        return;
-                    }
-                    this.a.c(jSONObject.optJSONObject("data"));
-                } catch (Throwable unused) {
-                    this.b.w("105", 119502, "cashier/sdkAdaptH5QueryPay", -1);
-                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e extends fh1<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fh1 a;
-
-        public e(nh1 nh1Var, fh1 fh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var, fh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fh1Var;
-        }
-
-        @Override // com.baidu.tieba.fh1
-        public void a(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.a.b(th, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fh1
-        /* renamed from: d */
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("errno", -1);
-                    if (optInt == 0) {
-                        this.a.c(jSONObject.optJSONObject("data"));
-                        return;
-                    }
-                    String optString = jSONObject.optString("msg");
-                    fh1 fh1Var = this.a;
-                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
-                    fh1Var.b(serverDataException, "code=" + optInt);
-                } catch (Throwable th) {
-                    xi1.d(th.getMessage());
-                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f extends fh1<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fh1 a;
-
-        public f(nh1 nh1Var, fh1 fh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var, fh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fh1Var;
-        }
-
-        @Override // com.baidu.tieba.fh1
-        public void a(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.a.b(th, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fh1
-        /* renamed from: d */
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("errno", -1);
-                    if (optInt == 0) {
-                        this.a.c(jSONObject.optJSONObject("data"));
-                        return;
-                    }
-                    String optString = jSONObject.optString("msg");
-                    fh1 fh1Var = this.a;
-                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
-                    fh1Var.b(serverDataException, "code=" + optInt);
-                } catch (Throwable th) {
-                    xi1.d(th.getMessage());
-                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class g extends fh1<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fh1 a;
-
-        public g(nh1 nh1Var, fh1 fh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var, fh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fh1Var;
-        }
-
-        @Override // com.baidu.tieba.fh1
-        public void a(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.a.b(th, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fh1
-        /* renamed from: d */
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("errno", -1);
-                    if (optInt == 0) {
-                        this.a.c(jSONObject.optJSONObject("data"));
-                        return;
-                    }
-                    String optString = jSONObject.optString("msg");
-                    fh1 fh1Var = this.a;
-                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
-                    fh1Var.b(serverDataException, "code=" + optInt);
-                } catch (Throwable th) {
-                    xi1.d(th.getMessage());
-                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
-                }
-            }
-        }
-    }
-
-    public nh1(kh1 kh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kh1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = kh1Var;
-    }
-
-    public final hh1 i(hh1 hh1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hh1Var)) == null) {
-            if (hh1Var == null) {
-                hh1Var = new hh1();
-            }
-            oh1.d(hh1Var);
-            return hh1Var;
-        }
-        return (hh1) invokeL.objValue;
-    }
-
-    public gh1 d(Bundle bundle, hh1 hh1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundle, hh1Var)) == null) {
-            gh1 gh1Var = new gh1();
-            t(gh1Var, bundle);
-            gh1Var.d(d, "android");
-            n(bundle, gh1Var, hh1Var);
-            return gh1Var;
-        }
-        return (gh1) invokeLL.objValue;
-    }
-
-    public void e(Bundle bundle, fh1<JSONObject> fh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, fh1Var) == null) {
-            f(bundle, false, fh1Var);
-        }
-    }
-
-    public void u(Bundle bundle, fh1<Map<String, String>> fh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, bundle, fh1Var) == null) {
-            hh1 h = h();
-            gh1 d2 = d(bundle, h);
-            this.a.a(ph1.l(), h, d2, new c(this, fh1Var));
-        }
-    }
-
-    public static nh1 j() {
+    public static final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e == null) {
-                synchronized (nh1.class) {
-                    if (e == null) {
-                        e = new nh1(new lh1());
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return (nh1) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void f(Bundle bundle, boolean z, fh1<JSONObject> fh1Var) {
-        String c2;
+    public static final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bundle, Boolean.valueOf(z), fh1Var}) == null) {
-            hh1 h = h();
-            Set<String> keySet = bundle.keySet();
-            gh1 gh1Var = new gh1();
-            for (String str : keySet) {
-                if ((bundle.get(str) instanceof String) && (!z || !"bduss".equals(str))) {
-                    gh1Var.d(str, bundle.get(str).toString());
-                }
-            }
-            n(bundle, gh1Var, h);
-            r(bundle, gh1Var, h);
-            p(bundle, gh1Var, h);
-            if (z) {
-                c2 = ph1.d();
-            } else {
-                c2 = ph1.c();
-            }
-            ki1.a("1.02", System.currentTimeMillis());
-            this.a.a(c2, h, gh1Var, new a(this, fh1Var));
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            a = i;
         }
     }
 
-    public void g(String str, gh1 gh1Var, fh1<JSONObject> fh1Var) {
+    public static final void c(JSONObject jSONObject, ji1 ji1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, gh1Var, fh1Var) == null) {
-            this.a.a(str, h(), gh1Var, new g(this, fh1Var));
+        if ((interceptable != null && interceptable.invokeLL(65539, null, jSONObject, ji1Var) != null) || jSONObject == null) {
+            return;
         }
+        ih1 ih1Var = new ih1();
+        ph1.d(ih1Var);
+        hh1 e = ph1.e(jSONObject);
+        ph1.c(ih1Var, e.a("bduss"));
+        HttpSigner.b(e);
+        new mh1(false).a(qh1.f(), ih1Var, e, new a(ji1Var, jSONObject));
     }
 
-    public final void n(Bundle bundle, gh1 gh1Var, hh1 hh1Var) {
+    public static final void d(JSONArray jSONArray, ji1 ji1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, bundle, gh1Var, hh1Var) == null) {
-            String string = bundle.getString("bduss");
-            if (TextUtils.isEmpty(string)) {
-                return;
-            }
-            o(string, hh1Var);
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, ji1Var) != null) || jSONArray == null) {
+            return;
         }
-    }
-
-    public final void p(Bundle bundle, gh1 gh1Var, hh1 hh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, bundle, gh1Var, hh1Var) == null) {
-            String string = bundle.getString("clientId");
-            if (TextUtils.isEmpty(string)) {
-                return;
-            }
-            q(string, hh1Var);
-        }
-    }
-
-    public final void r(Bundle bundle, gh1 gh1Var, hh1 hh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, bundle, gh1Var, hh1Var) == null) {
-            String string = bundle.getString("openBduss");
-            if (TextUtils.isEmpty(string)) {
-                return;
-            }
-            s(string, hh1Var);
-        }
-    }
-
-    public final hh1 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            hh1 hh1Var = new hh1();
-            oh1.d(hh1Var);
-            return hh1Var;
-        }
-        return (hh1) invokeV.objValue;
-    }
-
-    public void k(String str, String str2, String str3, fh1<JSONObject> fh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, fh1Var) == null) {
-            hh1 h = h();
-            o(str, h);
-            gh1 gh1Var = new gh1();
-            gh1Var.d("bduss", str);
-            gh1Var.d("payChannel", str2);
-            gh1Var.d("appKey", str3);
-            this.a.a(ph1.i(), h, gh1Var, new e(this, fh1Var));
-        }
-    }
-
-    public void l(String str, String str2, String str3, fh1<JSONObject> fh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048583, this, str, str2, str3, fh1Var) == null) {
-            hh1 h = h();
-            o(str, h);
-            gh1 gh1Var = new gh1();
-            gh1Var.d("appKey", str3);
-            gh1Var.d("bduss", str);
-            gh1Var.d("payChannel", str2);
-            gh1Var.d("sign", ei1.c("appKey=" + str3 + "&bduss=" + str + "&payChannel=" + str2 + "&lLoIsWxrSeJmHQD2TVQQ"));
-            this.a.a(ph1.k(), h, gh1Var, new f(this, fh1Var));
-        }
-    }
-
-    public void m(Bundle bundle, fh1<JSONObject> fh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, fh1Var) == null) {
-            hh1 h = h();
-            Set<String> keySet = bundle.keySet();
-            gh1 gh1Var = new gh1();
-            for (String str : keySet) {
-                if (bundle.get(str) instanceof String) {
-                    gh1Var.d(str, bundle.get(str).toString());
-                }
-            }
-            this.a.a(ph1.m(), h, gh1Var, new d(this, fh1Var));
-        }
-    }
-
-    public final void t(gh1 gh1Var, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, gh1Var, bundle) == null) && bundle != null && gh1Var != null) {
-            for (String str : bundle.keySet()) {
-                gh1Var.d(str, bundle.getString(str));
-            }
-            Iterator<Map.Entry<String, String>> it = gh1Var.b().entrySet().iterator();
-            while (it.hasNext()) {
-                if (TextUtils.isEmpty(it.next().getValue())) {
-                    it.remove();
-                }
-            }
-        }
-    }
-
-    public final void o(String str, hh1 hh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hh1Var) == null) {
-            String a2 = hh1Var.a("Cookie");
-            String str2 = "BDUSS=" + str;
-            if (a2 == null) {
-                hh1Var.d("Cookie", str2);
-                return;
-            }
-            hh1Var.d("Cookie", a2 + "; " + str2);
-        }
-    }
-
-    public final void q(String str, hh1 hh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, hh1Var) == null) {
-            String a2 = hh1Var.a("Cookie");
-            String str2 = "CLIENTID=" + str;
-            if (a2 == null) {
-                hh1Var.d("Cookie", str2);
-                return;
-            }
-            hh1Var.d("Cookie", a2 + "; " + str2);
-        }
-    }
-
-    public final void s(String str, hh1 hh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, hh1Var) == null) {
-            String a2 = hh1Var.a("Cookie");
-            String str2 = "OPENBDUSS=" + str;
-            if (a2 == null) {
-                hh1Var.d("Cookie", str2);
-                return;
-            }
-            hh1Var.d("Cookie", a2 + "; " + str2);
-        }
-    }
-
-    public void v(hh1 hh1Var, Bundle bundle, fh1<Map<String, String>> fh1Var, PayChannelEntity payChannelEntity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048593, this, hh1Var, bundle, fh1Var, payChannelEntity, str) == null) {
-            hh1 i = i(hh1Var);
-            Set<String> keySet = bundle.keySet();
-            gh1 gh1Var = new gh1();
-            for (String str2 : keySet) {
-                if (bundle.get(str2) instanceof String) {
-                    gh1Var.d(str2, bundle.get(str2).toString());
-                }
-            }
-            if (payChannelEntity == null) {
-                return;
-            }
-            String payChannel = payChannelEntity.getPayChannel();
-            if (!TextUtils.isEmpty(payChannel)) {
-                gh1Var.d(b, payChannel);
-            }
-            String installmentPeriod = payChannelEntity.getInstallmentPeriod();
-            if (!TextUtils.isEmpty(installmentPeriod)) {
-                gh1Var.d(c, installmentPeriod);
-            }
-            n(bundle, gh1Var, i);
-            this.a.a(ph1.j(), i, gh1Var, new b(this, str, fh1Var));
-        }
-    }
-
-    public final void x(String str, int i, String str2, int i2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("exceptionType", "" + i);
-            hashMap.put("path", str2);
-            hashMap.put(StatConstants.KEY_EXT_ERR_CODE, "" + i2);
-            if (!TextUtils.isEmpty(str3)) {
-                hashMap.put("isFoldChannel", str3);
-            }
-            ki1.c(str, hashMap);
-        }
-    }
-
-    public final void w(String str, int i, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("exceptionType", "" + i);
-            hashMap.put("path", str2);
-            hashMap.put(StatConstants.KEY_EXT_ERR_CODE, "" + i2);
-            ki1.c(str, hashMap);
-        }
-    }
-
-    public final Map<String, String> y(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, jSONObject)) == null) {
-            Map<String, String> c2 = yi1.c();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!TextUtils.isEmpty(next)) {
-                        c2.put(next, jSONObject.optString(next));
-                    }
-                }
-            }
-            return c2;
-        }
-        return (Map) invokeL.objValue;
+        ih1 ih1Var = new ih1();
+        ph1.d(ih1Var);
+        hh1 hh1Var = new hh1();
+        String jSONArray2 = jSONArray.toString();
+        Intrinsics.checkExpressionValueIsNotNull(jSONArray2, "params.toString()");
+        hh1Var.d("batchData", jSONArray2);
+        HttpSigner.b(hh1Var);
+        new mh1(false).a(qh1.a(), ih1Var, hh1Var, new b(ji1Var));
     }
 }

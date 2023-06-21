@@ -8,9 +8,9 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.HandlerThread;
-import com.baidu.tieba.bra;
-import com.baidu.tieba.dva;
-import com.baidu.tieba.yua;
+import com.baidu.tieba.rwa;
+import com.baidu.tieba.usa;
+import com.baidu.tieba.wwa;
 import com.baidu.ugc.editvideo.editvideo.clip.OutputSurfaceWithoutFilter;
 import com.baidu.ugc.editvideo.faceunity.encoder.MediaCodecHelper;
 import com.baidu.ugc.editvideo.magicmusic.EffectType;
@@ -92,7 +92,7 @@ public class VideoKeyFrameModel {
         MediaExtractor mediaExtractor2 = mediaExtractor;
         ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
         MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-        if (dva.e(list) || list.size() != 1) {
+        if (wwa.e(list) || list.size() != 1) {
             j = 0;
             j2 = -1;
         } else {
@@ -110,7 +110,7 @@ public class VideoKeyFrameModel {
             }
             j2 = j5;
         }
-        if (dva.e(list)) {
+        if (wwa.e(list)) {
             if (this.mStartPosition > j) {
                 mediaExtractor.getSampleTime();
                 long j6 = this.mStartPosition;
@@ -149,7 +149,7 @@ public class VideoKeyFrameModel {
                     j4 = j3;
                     i2 = i3;
                     if (mediaExtractor.getSampleTrackIndex() != i) {
-                        yua.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
+                        rwa.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
                     }
                     mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
                     mediaExtractor.advance();
@@ -165,10 +165,10 @@ public class VideoKeyFrameModel {
                     if (dequeueOutputBuffer == -2) {
                         mediaCodec.getOutputFormat();
                     } else if (dequeueOutputBuffer < 0) {
-                        yua.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                        rwa.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                     } else {
                         boolean z7 = (bufferInfo.flags & 4) != 0 ? true : z5;
-                        if (this.mDuration > j4 || dva.e(list)) {
+                        if (this.mDuration > j4 || wwa.e(list)) {
                             if (bufferInfo.size != 0) {
                                 z2 = z7;
                                 if (bufferInfo.presentationTimeUs >= this.mStartPosition) {
@@ -217,7 +217,7 @@ public class VideoKeyFrameModel {
                                     } else if (bufferInfo.presentationTimeUs >= j2) {
                                         long currentTimeMillis = System.currentTimeMillis();
                                         this.mBitmap = baseOutputSurface.getFrameBitmap();
-                                        yua.c("zmy", "draw cost : " + (System.currentTimeMillis() - currentTimeMillis));
+                                        rwa.c("zmy", "draw cost : " + (System.currentTimeMillis() - currentTimeMillis));
                                     }
                                     i3 = i2;
                                     z7 = true;
@@ -302,7 +302,7 @@ public class VideoKeyFrameModel {
         r1 = r2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:53:0x00f8, code lost:
-        com.baidu.tieba.yua.g(r0);
+        com.baidu.tieba.rwa.g(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:54:0x00fb, code lost:
         if (r1 != null) goto L37;
@@ -407,7 +407,7 @@ public class VideoKeyFrameModel {
             integer2 = i2;
             hasEffect = VideoEffectData.hasEffect(this.mVideoEffectData);
             if (hasEffect == 0) {
-                OutputSurfaceWithFilter outputSurfaceWithFilter = new OutputSurfaceWithFilter(bra.c().getContext(), null, false, integer, integer2, true, this.mHandler);
+                OutputSurfaceWithFilter outputSurfaceWithFilter = new OutputSurfaceWithFilter(usa.c().getContext(), null, false, integer, integer2, true, this.mHandler);
                 outputSurfaceWithFilter.setMagicEffectList(this.mVideoEffectData.getMagicEffectList());
                 hasEffect = outputSurfaceWithFilter;
             } else {
@@ -449,7 +449,7 @@ public class VideoKeyFrameModel {
         if (videoEffectData == null) {
             return;
         }
-        if (!dva.e(videoEffectData.getMagicEffectList())) {
+        if (!wwa.e(videoEffectData.getMagicEffectList())) {
             ArrayList arrayList = new ArrayList();
             for (BaseEffect baseEffect : this.mVideoEffectData.getMagicEffectList()) {
                 EffectUtil.addEffect(baseEffect, arrayList);
@@ -462,7 +462,7 @@ public class VideoKeyFrameModel {
     private void processMagicEffectListForTimeEffect() {
         int i;
         int i2;
-        if (dva.e(this.mVideoEffectData.getMagicEffectList()) || this.mVideoEffectData.getTimeEffect() == null) {
+        if (wwa.e(this.mVideoEffectData.getMagicEffectList()) || this.mVideoEffectData.getTimeEffect() == null) {
             return;
         }
         BaseEffect timeEffect = this.mVideoEffectData.getTimeEffect();
@@ -559,7 +559,7 @@ public class VideoKeyFrameModel {
                     arrayList.add(Long.valueOf(j));
                     VideoKeyFrameModel.this.extractMpegFrames(str, arrayList, z, i, i2);
                 } catch (Exception e2) {
-                    yua.g(e2);
+                    rwa.g(e2);
                     e2.printStackTrace();
                 }
             }
@@ -586,7 +586,7 @@ public class VideoKeyFrameModel {
                 try {
                     VideoKeyFrameModel.this.extractMpegFrames(str, list, true, i, i2);
                 } catch (Exception e) {
-                    yua.g(e);
+                    rwa.g(e);
                     e.printStackTrace();
                 }
             }

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.qr;
 /* loaded from: classes7.dex */
-public interface rr {
-    void onEvent(pr prVar);
+public interface rr<T extends qr> {
+    void a(T t);
 }

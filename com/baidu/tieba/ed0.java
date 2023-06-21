@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface ed0<T> {
-    void onNetResponse(NetResponse netResponse, T t, Map<String, String> map, List<String> list);
+public class ed0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    T onParseResponseInBackground(NetResponse netResponse);
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
+    }
 }

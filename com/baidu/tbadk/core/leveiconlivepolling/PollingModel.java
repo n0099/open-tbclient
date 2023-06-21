@@ -12,7 +12,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
@@ -28,23 +27,23 @@ import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
 import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.a95;
+import com.baidu.tieba.a65;
 import com.baidu.tieba.ac;
 import com.baidu.tieba.b95;
-import com.baidu.tieba.fx5;
+import com.baidu.tieba.c95;
 import com.baidu.tieba.im.message.ResponsedGroupChatListCompleteMessage;
-import com.baidu.tieba.ip5;
 import com.baidu.tieba.jb;
-import com.baidu.tieba.je5;
+import com.baidu.tieba.jz9;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.lk5;
-import com.baidu.tieba.mt5;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.rx9;
-import com.baidu.tieba.sg5;
-import com.baidu.tieba.y55;
-import com.baidu.tieba.y85;
+import com.baidu.tieba.ke5;
+import com.baidu.tieba.kx5;
+import com.baidu.tieba.np5;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.pk5;
+import com.baidu.tieba.rt5;
+import com.baidu.tieba.wg5;
 import com.baidu.tieba.z55;
+import com.baidu.tieba.z85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +79,7 @@ public class PollingModel extends BdBaseModel {
     public BdUniqueId c;
     public LevePopData d;
     public IconPopData e;
-    public sg5 f;
+    public wg5 f;
     public List<AlaLiveInfo> g;
     public List<AlaLiveInfo> h;
     public final List<AlaLiveInfo> i;
@@ -93,8 +92,8 @@ public class PollingModel extends BdBaseModel {
     public c p;
     public MemberBroadcastData q;
     public String r;
-    public final fx5 s;
-    public y55 t;
+    public final kx5 s;
+    public z55 t;
     public jb u;
 
     /* loaded from: classes4.dex */
@@ -204,35 +203,35 @@ public class PollingModel extends BdBaseModel {
                     arrayList = Arrays.asList(dataType.split(","));
                 }
             }
-            if (!ListUtils.isEmpty(arrayList) && (responsedMessage instanceof y85)) {
-                y85 y85Var = (y85) responsedMessage;
-                this.a.r = y85Var.getUniqueId();
+            if (!ListUtils.isEmpty(arrayList) && (responsedMessage instanceof z85)) {
+                z85 z85Var = (z85) responsedMessage;
+                this.a.r = z85Var.getUniqueId();
                 if (arrayList.contains("live")) {
-                    this.a.a = y85Var.getLiveRemindData();
+                    this.a.a = z85Var.getLiveRemindData();
                 }
                 if (arrayList.contains("level")) {
-                    this.a.d = y85Var.getLevePopData();
+                    this.a.d = z85Var.getLevePopData();
                 }
                 if (arrayList.contains("icon")) {
-                    this.a.e = y85Var.getIconPopData();
+                    this.a.e = z85Var.getIconPopData();
                 }
                 if (arrayList.contains(PollingModel.FESTIVAL)) {
-                    this.a.f = y85Var.getFestivalConfigData();
+                    this.a.f = z85Var.getFestivalConfigData();
                 }
                 if (arrayList.contains(PollingModel.LIVE_FOLLOW_SECOND_FLOOR)) {
                     this.a.g.clear();
-                    this.a.g.addAll(y85Var.getLiveFollowSecondFloor());
+                    this.a.g.addAll(z85Var.getLiveFollowSecondFloor());
                 }
                 if (arrayList.contains(PollingModel.LIVE_INDEX_SECOND_FLOOR)) {
                     this.a.h.clear();
-                    this.a.h.addAll(y85Var.getLiveIndexSecondFloor());
+                    this.a.h.addAll(z85Var.getLiveIndexSecondFloor());
                 }
                 if (arrayList.contains(PollingModel.LIVE_PIC_SECOND_FLOOR)) {
                     this.a.i.clear();
-                    this.a.i.addAll(y85Var.getLivePicSecondFloor());
+                    this.a.i.addAll(z85Var.getLivePicSecondFloor());
                 }
                 if (arrayList.contains(PollingModel.CHATROOM_FRS)) {
-                    this.a.o = y85Var.getChatRoomEntranceData();
+                    this.a.o = z85Var.getChatRoomEntranceData();
                     this.a.n = new ChatEntranceLoopData();
                     this.a.n.setEntranceData(this.a.o);
                     this.a.n.setUniqueId(this.a.r);
@@ -242,15 +241,15 @@ public class PollingModel extends BdBaseModel {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921763, this.a.n));
                 }
                 if (arrayList.contains(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST)) {
-                    this.a.m = y85Var.getSubscribeChatHaveUnReadMsg();
+                    this.a.m = z85Var.getSubscribeChatHaveUnReadMsg();
                 }
                 if (arrayList.contains(PollingModel.MEMBER_BROADCAST)) {
-                    this.a.q = y85Var.getMemberBroadcastData();
+                    this.a.q = z85Var.getMemberBroadcastData();
                     if (this.a.q != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921774, this.a.q));
                     }
                 }
-                if (arrayList.contains(PollingModel.ACTIVITY_BROADCAST) && (activityBroadcastData = y85Var.getActivityBroadcastData()) != null) {
+                if (arrayList.contains(PollingModel.ACTIVITY_BROADCAST) && (activityBroadcastData = z85Var.getActivityBroadcastData()) != null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921801, activityBroadcastData));
                 }
             }
@@ -267,7 +266,7 @@ public class PollingModel extends BdBaseModel {
                 }
             }
             if (this.a.f != null) {
-                lk5.b().update(this.a.f);
+                pk5.b().update(this.a.f);
             }
             this.a.I0();
             PollingModel pollingModel3 = this.a;
@@ -352,20 +351,20 @@ public class PollingModel extends BdBaseModel {
         this.h = new ArrayList();
         this.i = new ArrayList();
         this.o = new ChatRoomEntranceData();
-        this.s = fx5.g();
+        this.s = kx5.g();
         this.u = new a(this, CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, 309732);
         this.b = tbPageContext;
         setUniqueId(bdUniqueId);
         this.c = bdUniqueId;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, rx9.a(TbConfig.GET_POLLING_DATA, 309732));
-        mt5 mt5Var = new mt5(309732);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, jz9.a(TbConfig.GET_POLLING_DATA, 309732));
+        rt5 rt5Var = new rt5(309732);
         tbHttpMessageTask.setResponsedClass(PollingHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        mt5Var.setResponsedClass(PollingSocketResMessage.class);
-        mt5Var.g(true);
-        mt5Var.h(false);
-        MessageManager.getInstance().registerTask(mt5Var);
+        rt5Var.setResponsedClass(PollingSocketResMessage.class);
+        rt5Var.g(true);
+        rt5Var.h(false);
+        MessageManager.getInstance().registerTask(rt5Var);
         this.u.getHttpMessageListener().setSelfListener(true);
         this.u.getSocketMessageListener().setSelfListener(true);
         registerListener(this.u);
@@ -402,17 +401,17 @@ public class PollingModel extends BdBaseModel {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.t != null && (tbPageContext = this.b) != null && tbPageContext.getPageActivity() != null) {
-            z55.o(this.b.getPageActivity(), this.t);
+            a65.o(this.b.getPageActivity(), this.t);
         }
     }
 
     public final void I0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a95.a().d(this.a);
+            b95.a().d(this.a);
             LiveRemindDataEvent liveRemindDataEvent = new LiveRemindDataEvent();
             liveRemindDataEvent.liveRemindData = this.a;
-            ip5.i(liveRemindDataEvent);
+            np5.i(liveRemindDataEvent);
         }
     }
 
@@ -430,8 +429,8 @@ public class PollingModel extends BdBaseModel {
         if ((interceptable == null || interceptable.invokeLZ(65539, null, iconPopData, z) == null) && iconPopData != null) {
             iconPopData.setHadShow(z);
             TbSingleton.getInstance().setIconPopData(iconPopData);
-            n95 m = n95.m();
-            m.B("key_polling_icon_change" + TbadkCoreApplication.getCurrentAccountId(), DataExt.toJson(iconPopData));
+            o95 p = o95.p();
+            p.J("key_polling_icon_change" + TbadkCoreApplication.getCurrentAccountId(), DataExt.toJson(iconPopData));
         }
     }
 
@@ -440,8 +439,8 @@ public class PollingModel extends BdBaseModel {
         if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, levePopData, z) == null) && levePopData != null) {
             levePopData.setHadShow(z);
             TbSingleton.getInstance().setLevePopData(levePopData);
-            n95 m = n95.m();
-            m.B("key_polling_level_change" + TbadkCoreApplication.getCurrentAccountId(), DataExt.toJson(levePopData));
+            o95 p = o95.p();
+            p.J("key_polling_level_change" + TbadkCoreApplication.getCurrentAccountId(), DataExt.toJson(levePopData));
         }
     }
 
@@ -464,9 +463,9 @@ public class PollingModel extends BdBaseModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            n95 m = n95.m();
-            String q = n95.q(SP_KEY_GROUP_CHAT_DISTURB_SETTING);
-            return !m.i(q + str, true);
+            o95 p = o95.p();
+            String t = o95.t(SP_KEY_GROUP_CHAT_DISTURB_SETTING);
+            return !p.l(t + str, true);
         }
         return invokeL.intValue;
     }
@@ -485,10 +484,10 @@ public class PollingModel extends BdBaseModel {
         }
     }
 
-    public void M0(y55 y55Var) {
+    public void M0(z55 z55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, y55Var) == null) {
-            this.t = y55Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, z55Var) == null) {
+            this.t = z55Var;
         }
     }
 
@@ -572,8 +571,8 @@ public class PollingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
             int i = 0;
-            LiveRemindRecommendData c2 = a95.a().c(0);
-            if (c2 != null && b95.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+            LiveRemindRecommendData c2 = b95.a().c(0);
+            if (c2 != null && c95.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
                 HashMap hashMap = new HashMap();
                 if (c2.getRemindType() == 1) {
                     i = 3;
@@ -593,8 +592,8 @@ public class PollingModel extends BdBaseModel {
                 hashMap.put("view_top_params_key_yyext", c2.getYyExtData());
                 hashMap.put("view_top_params_key_type", Integer.valueOf(i));
                 hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                if (je5.f(null, tbPageContext, hashMap, 0L, 4000L) != null) {
-                    b95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                if (ke5.f(null, tbPageContext, hashMap, 0L, 4000L) != null) {
+                    c95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
                 }
             }
         }
@@ -632,11 +631,7 @@ public class PollingModel extends BdBaseModel {
             if (this.l != null) {
                 List<AlaLiveInfo> list = null;
                 if (!this.i.isEmpty()) {
-                    if (UbsABTestHelper.isBigPicPageRecommendLiveSecondFloorShowA()) {
-                        list = this.i;
-                    } else if (UbsABTestHelper.isBigPicPageRecommendLiveSecondFloorShowB()) {
-                        list = this.g;
-                    }
+                    list = this.g;
                 }
                 this.l.onSuccess(list);
             }

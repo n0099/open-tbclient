@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,21 +9,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringNumberConversionsKt;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class gs0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a g;
+    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
+    public final String a;
+    public final int b;
+    public final String c;
+    public final jr0 d;
 
     static {
         InterceptResult invokeClinit;
@@ -39,17 +37,17 @@ public final class gs0 {
                 return;
             }
         }
-        g = new a(null);
+        e = new a(null);
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (this != obj) {
                 if (obj instanceof gs0) {
                     gs0 gs0Var = (gs0) obj;
-                    return Intrinsics.areEqual(this.a, gs0Var.a) && Intrinsics.areEqual(this.b, gs0Var.b) && Intrinsics.areEqual(this.c, gs0Var.c) && Intrinsics.areEqual(this.d, gs0Var.d) && Intrinsics.areEqual(this.e, gs0Var.e) && this.f == gs0Var.f;
+                    return Intrinsics.areEqual(this.a, gs0Var.a) && this.b == gs0Var.b && Intrinsics.areEqual(this.c, gs0Var.c) && Intrinsics.areEqual(this.d, gs0Var.d);
                 }
                 return false;
             }
@@ -61,17 +59,13 @@ public final class gs0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
+            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
+            String str2 = this.c;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.c;
-            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            String str4 = this.d;
-            int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.e;
-            return ((hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31) + this.f;
+            jr0 jr0Var = this.d;
+            return hashCode2 + (jr0Var != null ? jr0Var.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -79,8 +73,8 @@ public final class gs0 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "LottieDialogRewardData(coin=" + this.a + ", appendCoin=" + this.b + ", appendUrl=" + this.c + ", upperLimit=" + this.d + ", completeToast=" + this.e + ", countDownTime=" + this.f + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "ImageInfoData(url=" + this.a + ", chargeDuration=" + this.b + ", scrollChargeSwitch=" + this.c + ", downloadData=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -108,36 +102,18 @@ public final class gs0 {
             this();
         }
 
+        @JvmStatic
         public final gs0 a(JSONObject jSONObject) {
             InterceptResult invokeL;
-            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
                 if (jSONObject != null) {
-                    String optString = jSONObject.optString("data");
-                    if (optString == null) {
-                        optString = "";
-                    }
-                    JSONObject jSONObject2 = new JSONObject(optString);
-                    String optString2 = jSONObject2.optString("coin");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "dataJsonObject.optString(\"coin\")");
-                    String optString3 = jSONObject2.optString("appendCoin");
-                    Intrinsics.checkNotNullExpressionValue(optString3, "dataJsonObject.optString(\"appendCoin\")");
-                    String optString4 = jSONObject2.optString("appendUrl");
-                    Intrinsics.checkNotNullExpressionValue(optString4, "dataJsonObject.optString(\"appendUrl\")");
-                    String optString5 = jSONObject2.optString("upperLimit");
-                    Intrinsics.checkNotNullExpressionValue(optString5, "dataJsonObject.optString(\"upperLimit\")");
-                    String optString6 = jSONObject2.optString("completeToast");
-                    Intrinsics.checkNotNullExpressionValue(optString6, "dataJsonObject.optString(\"completeToast\")");
-                    String optString7 = jSONObject2.optString("count_down");
-                    Intrinsics.checkNotNullExpressionValue(optString7, "dataJsonObject.optString(\"count_down\")");
-                    Integer intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(optString7);
-                    if (intOrNull != null) {
-                        i = intOrNull.intValue();
-                    } else {
-                        i = 59;
-                    }
-                    return new gs0(optString2, optString3, optString4, optString5, optString6, i);
+                    String optString = jSONObject.optString("url");
+                    Intrinsics.checkNotNullExpressionValue(optString, "optString(\"url\")");
+                    int optInt = jSONObject.optInt("image_style_charge_duration");
+                    String optString2 = jSONObject.optString("image_style_scroll_charge_switch");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"image_style_scroll_charge_switch\")");
+                    return new gs0(optString, optInt, optString2, jr0.c(jSONObject.optJSONObject("ad_download")));
                 }
                 return null;
             }
@@ -145,12 +121,12 @@ public final class gs0 {
         }
     }
 
-    public gs0(String coin, String appendCoin, String appendUrl, String upperLimit, String completeToast, int i) {
+    public gs0(String url, int i, String scrollChargeSwitch, jr0 jr0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {coin, appendCoin, appendUrl, upperLimit, completeToast, Integer.valueOf(i)};
+            Object[] objArr = {url, Integer.valueOf(i), scrollChargeSwitch, jr0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -160,35 +136,34 @@ public final class gs0 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(coin, "coin");
-        Intrinsics.checkNotNullParameter(appendCoin, "appendCoin");
-        Intrinsics.checkNotNullParameter(appendUrl, "appendUrl");
-        Intrinsics.checkNotNullParameter(upperLimit, "upperLimit");
-        Intrinsics.checkNotNullParameter(completeToast, "completeToast");
-        this.a = coin;
-        this.b = appendCoin;
-        this.c = appendUrl;
-        this.d = upperLimit;
-        this.e = completeToast;
-        this.f = i;
+        Intrinsics.checkNotNullParameter(url, "url");
+        Intrinsics.checkNotNullParameter(scrollChargeSwitch, "scrollChargeSwitch");
+        this.a = url;
+        this.b = i;
+        this.c = scrollChargeSwitch;
+        this.d = jr0Var;
     }
 
-    public final String a() {
+    public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            int i = this.b;
+            if (i <= 0) {
+                return 0L;
+            }
+            return TimeUnit.SECONDS.toMillis(i);
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public final String b() {
+    public final jr0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (jr0) invokeV.objValue;
     }
 
     public final String c() {
@@ -200,37 +175,12 @@ public final class gs0 {
         return (String) invokeV.objValue;
     }
 
-    public final String d() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+            return Intrinsics.areEqual(this.c, "1");
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.f = i;
-        }
+        return invokeV.booleanValue;
     }
 }

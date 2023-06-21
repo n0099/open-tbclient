@@ -1,17 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface r40 {
-    String a();
-
-    String a(Context context);
-
-    long b();
-
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
+    String a(String str, String str2, Map<String, String> map, JSONObject jSONObject);
 }

@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cb8;
 import com.baidu.tieba.im.data.ShareChatroomMsgData;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.po5;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.sb8;
+import com.baidu.tieba.to5;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,14 +89,14 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 return;
             }
         }
-        f = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        g = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
-        h = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        i = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds395);
-        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0766);
+        f = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        g = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
+        h = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        i = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds395);
+        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0767);
         Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.forum)");
         j = string;
-        String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0622);
+        String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0623);
         Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.string.ellipsis)");
         k = string2;
     }
@@ -160,8 +160,8 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
             Intrinsics.checkNotNullParameter(it, "$it");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (it.getId() != this$0.e) {
-                po5.a().b(this$0.getContext(), it.getId());
-                cb8.d("c15286", 5, this$0.d);
+                to5.a().b(this$0.getContext(), it.getId());
+                sb8.d("c15286", 5, this$0.d);
             }
         }
     }
@@ -178,7 +178,7 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 textView.setText(shareChatroomMsgData.getName());
             }
             e(shareChatroomMsgData);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sb8
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ic8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -249,8 +249,8 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 tbImageView.setConrers(15);
                 tbImageView.setRadiusById(R.string.J_X04);
             }
-            o75.d(this.b).w(R.color.CAM_X0105);
-            o75.d(this.c).w(R.color.CAM_X0109);
+            p75.d(this.b).x(R.color.CAM_X0105);
+            p75.d(this.c).x(R.color.CAM_X0109);
         }
     }
 

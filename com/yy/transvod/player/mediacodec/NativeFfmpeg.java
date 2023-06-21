@@ -1,14 +1,14 @@
 package com.yy.transvod.player.mediacodec;
 
 import android.media.MediaFormat;
-import com.baidu.tieba.yhb;
+import com.baidu.tieba.rjb;
 import com.yy.transvod.player.common.MixAudioExtraInfo;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.TreeMap;
 /* loaded from: classes10.dex */
-public final class NativeFfmpeg extends yhb {
+public final class NativeFfmpeg extends rjb {
     public static final Integer d = 1;
     public static final Integer e = 2;
     public long c = 0;

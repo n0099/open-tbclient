@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.un0;
+import com.baidu.tieba.vn0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class mn0 implements sn0, Runnable {
+public class mn0 implements tn0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<un0.b<?>> a;
+    public final ConcurrentLinkedQueue<vn0.b<?>> a;
     public final AtomicBoolean b;
 
     /* loaded from: classes6.dex */
@@ -58,13 +58,13 @@ public class mn0 implements sn0, Runnable {
         this.b = new AtomicBoolean(false);
     }
 
-    public static sn0 b() {
+    public static tn0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             return a.a;
         }
-        return (sn0) invokeV.objValue;
+        return (tn0) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
@@ -74,7 +74,7 @@ public class mn0 implements sn0, Runnable {
             return;
         }
         while (true) {
-            un0.b<?> poll = this.a.poll();
+            vn0.b<?> poll = this.a.poll();
             if (poll != null) {
                 poll.a.onEvent(poll.b);
             } else {
@@ -84,19 +84,14 @@ public class mn0 implements sn0, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.sn0
-    public <T extends qn0> void a(vn0 vn0Var, tn0<T> tn0Var, T t) {
+    @Override // com.baidu.tieba.tn0
+    public <T extends rn0> void a(wn0 wn0Var, un0<T> un0Var, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, vn0Var, tn0Var, t) == null) {
-            if (zk0.a()) {
-                this.a.offer(new un0.b<>(vn0Var, tn0Var, t));
-                if (this.b.compareAndSet(false, true)) {
-                    o41.c(this, "BackgroundDeliver", 3);
-                    return;
-                }
-                return;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, wn0Var, un0Var, t) == null) {
+            this.a.offer(new vn0.b<>(wn0Var, un0Var, t));
+            if (this.b.compareAndSet(false, true)) {
+                p41.c(this, "AsyncDeliver", 3);
             }
-            tn0Var.onEvent(t);
         }
     }
 }

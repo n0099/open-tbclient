@@ -1,6 +1,6 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import com.baidu.tieba.x31;
+import com.baidu.tieba.y31;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class LongColumn extends Column implements Serializable {
@@ -12,8 +12,8 @@ public class LongColumn extends Column implements Serializable {
         return 3;
     }
 
-    public LongColumn(x31 x31Var) {
-        super(x31Var);
+    public LongColumn(y31 y31Var) {
+        super(y31Var);
     }
 
     public LongColumn setDefaultValue(long j) {

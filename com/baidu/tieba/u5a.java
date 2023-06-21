@@ -1,89 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetPendantByCategory.ThemePendantInMain;
+import tbclient.ThemeBgProp;
 /* loaded from: classes8.dex */
 public class u5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<DressItemData> b;
 
-    public static void a(ClientUpdateInfo clientUpdateInfo, String str) {
+    public u5a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, clientUpdateInfo, str) == null) && clientUpdateInfo != null && !TextUtils.isEmpty(str)) {
-            if (!LooperBlockSwitch.getIsOn()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("is_force_update", clientUpdateInfo.mIsForceUpdate);
-                jSONObject.put("status", clientUpdateInfo.mStatus);
-                jSONObject.put("reverson", clientUpdateInfo.mReverson);
-                jSONObject.put("content_url", clientUpdateInfo.mContentUrl);
-                jSONObject.put("apk_md5_rsa", str);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            z55.p(TbadkCoreApplication.getInst().getApp(), "lcUpdateDialog", jSONObject);
         }
     }
 
-    public static void b(ve5 ve5Var) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, ve5Var) != null) || ve5Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        VersionData u = ve5Var.u();
-        TbadkCoreApplication.getInst().setVersionData(u);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (u.forceUpdate()) {
-            if (ve5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0 && !LooperBlockSwitch.getIsOn()) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u, ve5Var.j())));
-                return;
-            }
-            return;
-        }
-        Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
-        Long valueOf2 = Long.valueOf(new Date().getTime());
-        if (valueOf2.longValue() - valueOf.longValue() > 86400000 && u.getStrategy() == 0 && ve5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            TbSingleton.getInstance().setSyncModel(ve5Var);
-            if (TbSingleton.getInstance().hasPerformedFirstLoginTest() && !LooperBlockSwitch.getIsOn()) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-                z46.d();
-            }
-            TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
-        }
+        return (String) invokeV.objValue;
     }
 
-    public static void c(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
+    public List<DressItemData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void c(ThemePendantInMain themePendantInMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) != null) || themePendantInMain == null) {
             return;
         }
-        TbadkCoreApplication.getInst().setVersionData(versionData);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            if (versionData.forceUpdate()) {
-                a(clientUpdateInfo, str);
-            } else if ((Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime()).longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
-                a(clientUpdateInfo, str);
-            }
+        this.a = themePendantInMain.pendant_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
         }
     }
 }

@@ -10,8 +10,8 @@ import com.baidu.live.business.model.data.LiveHostInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.feed.search.view.LiveBaseLottieView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce0;
-import com.baidu.tieba.lb0;
+import com.baidu.tieba.de0;
+import com.baidu.tieba.mb0;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes3.dex */
 public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
@@ -25,14 +25,14 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
     public LiveSearchHotRankItemViewHolder(@NonNull View view2) {
         super(view2);
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926a2);
-        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09163a);
-        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0911be);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09267e);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092651);
-        this.e.setTextColor(ce0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-        this.f.setTextColor(ce0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
-        if (!"night".equals(ce0.f().r()) && !"dark".equals(ce0.f().r())) {
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926af);
+        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091640);
+        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0911c3);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09268b);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09265e);
+        this.e.setTextColor(de0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        this.f.setTextColor(de0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+        if (!"night".equals(de0.f().r()) && !"dark".equals(de0.f().r())) {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning.json");
         } else {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning_night.json");
@@ -54,10 +54,10 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
             if (i4 != 1) {
                 if (i4 != 2) {
                     if (i4 != 3) {
-                        this.b.setTextColor(ce0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+                        this.b.setTextColor(de0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
                     } else {
                         TextView textView2 = this.b;
-                        if ("night".equals(ce0.f().r())) {
+                        if ("night".equals(de0.f().r())) {
                             i3 = -8760559;
                         } else {
                             i3 = -349938;
@@ -66,7 +66,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                     }
                 } else {
                     TextView textView3 = this.b;
-                    if ("night".equals(ce0.f().r())) {
+                    if ("night".equals(de0.f().r())) {
                         i2 = -8375552;
                     } else {
                         i2 = -39424;
@@ -75,7 +75,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                 }
             } else {
                 TextView textView4 = this.b;
-                if ("night".equals(ce0.f().r())) {
+                if ("night".equals(de0.f().r())) {
                     i = -8447719;
                 } else {
                     i = -52429;
@@ -115,7 +115,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
         }
         TextView textView6 = this.f;
         if (textView6 != null) {
-            textView6.setText(lb0.a(textView6.getContext(), liveRoomEntity.audienceCount));
+            textView6.setText(mb0.a(textView6.getContext(), liveRoomEntity.audienceCount));
         }
     }
 

@@ -1,26 +1,32 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.app.PendingIntent;
-import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.webkit.URLUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.QuickWebViewSwitch;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
+import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,45 +34,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class ym9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ym9 c;
-    public static DownloadData d;
-    public static List<DownloadData> e;
-    public static HashMap<String, Integer> f;
+    public static ym9 f;
+    public static final String g;
+    public static int h;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public HashMap<String, cn9> b;
+    public boolean a;
+    public String b;
+    public Map<String, String> c;
+    public CustomMessageListener d;
+    public jb e;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<DownloadData, DownloadData, DownloadData> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ym9 a;
 
-        public b(ym9 ym9Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ym9 ym9Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ym9Var};
+                Object[] objArr = {ym9Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -75,97 +92,111 @@ public class ym9 {
             this.a = ym9Var;
         }
 
-        public /* synthetic */ b(ym9 ym9Var, a aVar) {
-            this(ym9Var);
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public DownloadData doInBackground(DownloadData... downloadDataArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadDataArr)) == null) {
-                DownloadData downloadData = downloadDataArr[0];
-                if (downloadData == null) {
-                    return downloadData;
-                }
-                String id = downloadData.getId();
-                String name = downloadData.getName();
-                if (!ui.isEmpty(id) && !ui.isEmpty(name)) {
-                    boolean isForceDownload = downloadData.isForceDownload();
-                    String str = id.replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
-                    String l = ym9.l(str);
-                    File GetFile = FileHelper.GetFile(str);
-                    if (!isForceDownload && GetFile != null) {
-                        DownloadData downloadData2 = new DownloadData(id);
-                        downloadData2.setName(str);
-                        downloadData2.setPath(l);
-                        downloadData2.setStatus(3);
-                        return downloadData2;
-                    }
-                    downloadData.setCallback(new lh5());
-                    downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
-                    downloadData.setType(12);
-                    downloadData.setPath(l);
-                    return downloadData;
-                }
-                return downloadData;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || this.a.a) {
+                return;
             }
-            return (DownloadData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                super.onPostExecute(downloadData);
-                this.a.a = null;
-                if (downloadData != null) {
-                    if (downloadData.getStatus() == 3) {
-                        this.a.y(downloadData);
-                        if (downloadData.isNeedInvokeApk()) {
-                            Application app = TbadkCoreApplication.getInst().getApp();
-                            UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                        }
-                    } else {
-                        bn9.j().l(downloadData, 5);
-                        if (this.a.j(downloadData.getId(), downloadData.getName()) <= 0) {
-                            if (downloadData.getDownloadStaticsData() != null) {
-                                downloadData.getDownloadStaticsData().setDa_range("0");
-                            }
-                            if (downloadData.isNeedNotify()) {
-                                String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
-                                cn9 cn9Var = new cn9(downloadData, 0);
-                                this.a.b.put(downloadData.getUrl(), cn9Var);
-                                Application app2 = TbadkCoreApplication.getInst().getApp();
-                                int notifyId = downloadData.getNotifyId();
-                                NotificationHelper.showProgressNotification(app2, notifyId, downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), this.a.h(downloadData.getAction()), false, cn9Var.b(), false);
-                            }
-                        } else {
-                            if (downloadData.getDownloadStaticsData() != null) {
-                                downloadData.getDownloadStaticsData().setDa_range("1");
-                            }
-                            this.a.C(downloadData);
-                        }
-                    }
-                    DownloadData unused = ym9.d = null;
-                    if (!ym9.e.isEmpty()) {
-                        ym9.e.remove(0);
-                        this.a.F();
-                    }
+            this.a.a = true;
+            if (QuickWebViewSwitch.getInOn()) {
+                if (!TbSingleton.getInstance().isUploadOffPack() && !TbSingleton.getInstance().isClearOffPack()) {
+                    e eVar = new e(this.a);
+                    eVar.setPriority(4);
+                    eVar.execute(new Void[0]);
+                    return;
                 }
+                c cVar = new c(this.a, null);
+                cVar.setPriority(4);
+                cVar.execute(new Void[0]);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
+    public class b extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<AdvertAppInfo> a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ym9 ym9Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ym9Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
+            com.baidu.tieba.rx4.n(r0.get(r2));
+         */
+        @Override // com.baidu.tieba.jb
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            if (responsedMessage instanceof WebViewCacheResHttpMsg) {
+                WebViewCacheResHttpMsg webViewCacheResHttpMsg = (WebViewCacheResHttpMsg) responsedMessage;
+                try {
+                    List<String> header = webViewCacheResHttpMsg.getHeader("Set-Cookie");
+                    if (header != null && header.size() > 0) {
+                        int i = 0;
+                        while (true) {
+                            if (i >= header.size()) {
+                                break;
+                            }
+                            if (!TextUtils.isEmpty(header.get(i)) && header.get(i).contains("BAIDUID=")) {
+                                break;
+                            }
+                            i++;
+                        }
+                    }
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                }
+                Map<String, cn9> moduleInfos = webViewCacheResHttpMsg.getModuleInfos();
+                if (moduleInfos != null && moduleInfos.size() > 0) {
+                    for (String str : moduleInfos.keySet()) {
+                        ym9.l(str, moduleInfos.get(str));
+                    }
+                    return;
+                }
+                zm9.a().g(true);
+            } else if (responsedMessage instanceof WebViewCacheResSocketMsg) {
+                Map<String, cn9> moduleInfos2 = ((WebViewCacheResSocketMsg) responsedMessage).getModuleInfos();
+                if (moduleInfos2 != null && moduleInfos2.size() > 0) {
+                    for (String str2 : moduleInfos2.keySet()) {
+                        ym9.l(str2, moduleInfos2.get(str2));
+                    }
+                    return;
+                }
+                zm9.a().g(true);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c extends BdAsyncTask<Void, Void, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
         public final /* synthetic */ ym9 b;
 
         public c(ym9 ym9Var) {
@@ -194,51 +225,188 @@ public class ym9 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public List<DownloadData> doInBackground(ArrayList<AdvertAppInfo>... arrayListArr) {
+        public String doInBackground(Void... voidArr) {
             InterceptResult invokeL;
+            d A;
+            String str;
+            String str2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayListArr)) == null) {
-                ArrayList<AdvertAppInfo> arrayList = arrayListArr[0];
-                LinkedList linkedList = new LinkedList();
-                if (arrayList == null) {
-                    return linkedList;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                String modName = TbSingleton.getInstance().getModName();
+                if (TextUtils.isEmpty(modName) || (A = this.b.A(modName)) == null) {
+                    return null;
                 }
-                this.a = arrayList;
-                Iterator<AdvertAppInfo> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    AdvertAppInfo next = it.next();
-                    String downloadId = next.getDownloadId();
-                    if (FileHelper.GetFile(this.b.k(next.o)) != null) {
-                        DownloadData downloadData = new DownloadData(downloadId);
-                        downloadData.setStatus(3);
-                        linkedList.add(downloadData);
-                    }
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
+                this.a = netWork;
+                netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
+                this.a.addPostData("mod_name", modName);
+                NetWork netWork2 = this.a;
+                if (A.a) {
+                    str = "1";
+                } else {
+                    str = "2";
                 }
-                return linkedList;
+                netWork2.addPostData("status", str);
+                NetWork netWork3 = this.a;
+                if (A.a) {
+                    str2 = "";
+                } else {
+                    str2 = A.b;
+                }
+                netWork3.addPostData("fail_reason", str2);
+                this.a.postNetData();
+                return null;
             }
-            return (List) invokeL.objValue;
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                e eVar = new e(this.b);
+                eVar.setPriority(4);
+                eVar.execute(new Void[0]);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e extends BdAsyncTask<Void, Void, f> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ym9 a;
+
+        public e(ym9 ym9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ym9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ym9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(List<DownloadData> list) {
+        public void onPostExecute(f fVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                super.onPostExecute(list);
-                if (list == null) {
-                    list = new LinkedList<>();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+                if (fVar == null) {
+                    d95.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
+                } else {
+                    zm9.a().i(fVar.b);
                 }
-                for (DownloadData downloadData : bn9.j().i()) {
-                    Iterator<AdvertAppInfo> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        if (TextUtils.equals(it.next().getDownloadId(), downloadData.getId())) {
-                            list.add(downloadData);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public f doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            HashMap<String, an9> hashMap;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                f fVar = new f();
+                for (String str : ym9.n().q()) {
+                    String p = ym9.n().p(str);
+                    g o = ym9.o(str, p);
+                    if (o != null && !TextUtils.isEmpty(o.a) && (hashMap = o.b) != null && hashMap.size() != 0) {
+                        if (fVar.a == null) {
+                            fVar.a = new HashMap();
                         }
+                        fVar.a.put(str, o);
+                        if (fVar.b == null) {
+                            fVar.b = new HashMap<>();
+                        }
+                        fVar.b.putAll(o.b);
+                        ym9.j(o.c, str);
+                    } else {
+                        ym9.h = 5;
+                        d95.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", p, "hybridResult", "bundle incomplete");
+                        this.a.i(str);
                     }
                 }
-                this.b.x(list);
-                this.a = null;
+                return fVar;
+            }
+            return (f) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Map<String, g> a;
+        public HashMap<String, an9> b;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public HashMap<String, an9> b;
+        public String c;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
@@ -256,8 +424,8 @@ public class ym9 {
                 return;
             }
         }
-        e = new LinkedList();
-        f = new HashMap<>();
+        g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
+        h = 0;
     }
 
     public ym9() {
@@ -273,435 +441,627 @@ public class ym9 {
                 return;
             }
         }
-        this.a = null;
-        this.b = new HashMap<>();
+        this.a = false;
+        this.d = new a(this, 2001371);
+        this.e = new b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
     }
 
-    public static ym9 n() {
-        InterceptResult invokeV;
+    public void h(String str) {
+        Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            synchronized (ym9.class) {
-                if (c == null) {
-                    c = new ym9();
-                }
-            }
-            return c;
-        }
-        return (ym9) invokeV.objValue;
-    }
-
-    public void i(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadData) == null) {
-            bn9.j().h(downloadData);
-            NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            y(downloadData);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !TextUtils.isEmpty(str) && (map = this.c) != null) {
+            map.remove(str);
         }
     }
 
-    public final boolean s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            TbadkApplication inst = TbadkApplication.getInst();
-            if (inst == null) {
-                return false;
-            }
-            try {
-                if (inst.getPackageManager() == null) {
-                    return false;
-                }
-                inst.getPackageManager().getPackageInfo(str, 64);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void w(ArrayList<AdvertAppInfo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, arrayList) == null) {
-            try {
-                new c(this, null).execute(arrayList);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public void x(List<DownloadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
-        }
-    }
-
-    public void y(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, downloadData) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(downloadData);
-            g16.c().f(linkedList);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
-        }
-    }
-
-    public static String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(FileHelper.getCacheDir());
-            File file = new File(sb.toString());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            sb.append("/");
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Integer o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f.containsKey(str)) {
-                return f.get(str);
-            }
-            Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-            f.put(str, valueOf);
-            return valueOf;
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public final PendingIntent h(String str) {
+    public String p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Intent intent = new Intent(str);
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return PendingIntent.getActivity(TbadkCoreApplication.getInst(), 0, intent, 0);
-        }
-        return (PendingIntent) invokeL.objValue;
-    }
-
-    public String k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (str != null && str.length() != 0) {
-                if (str.contains("?")) {
-                    str = str.substring(0, str.indexOf("?"));
-                }
-                String[] split = str.split("/");
-                return split[split.length - 1];
+            if (this.c != null && !TextUtils.isEmpty(str)) {
+                return this.c.get(str);
             }
             return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public boolean r(String str) {
-        InterceptResult invokeL;
+    @NonNull
+    public static String y(boolean z, @Nullable String str) {
+        InterceptResult invokeZL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            for (DownloadData downloadData : bn9.j().i()) {
-                if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
-                    return true;
-                }
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(65551, null, z, str)) == null) {
+            if (z) {
+                str2 = "none";
+            } else {
+                str2 = "0.0.0.0";
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return false;
+                return str2;
             }
-            if (FileHelper.GetFile(str.replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX) == null) {
-                return false;
-            }
-            return true;
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeZL.objValue;
     }
 
-    public boolean u(String str) {
-        InterceptResult invokeL;
+    public void z(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            for (DownloadData downloadData : bn9.j().i()) {
-                if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void z(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, downloadData) == null) && downloadData != null) {
-            cn9 cn9Var = this.b.get(downloadData.getUrl());
-            int j = j(downloadData.getId(), downloadData.getName());
-            if (cn9Var == null) {
-                cn9Var = new cn9(downloadData, j);
-            }
-            cn9Var.d();
-        }
-    }
-
-    public static int p(DownloadData downloadData) {
-        InterceptResult invokeL;
-        int i;
-        String id;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
-            if (n().t(downloadData.getId())) {
-                i = 3;
-            } else if (n().r(downloadData.getId())) {
-                i = 5;
-            } else if (n().u(downloadData.getId())) {
-                i = 1;
-            } else if (n().q(downloadData.getId(), downloadData.getName())) {
-                i = 7;
-            } else {
-                i = 6;
-            }
-            DownloadStaticsData downloadStaticsData = downloadData.getDownloadStaticsData();
-            if (downloadStaticsData != null) {
-                id = downloadStaticsData.getApk_name();
-            } else {
-                id = downloadData.getId();
-            }
-            if (TextUtils.isEmpty(id)) {
-                return i;
-            }
-            if (e36.a().k() && n().s(id)) {
-                return 8;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public void A(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null) {
-            cn9 cn9Var = this.b.get(downloadData.getUrl());
-            int j = j(downloadData.getId(), downloadData.getName());
-            if (cn9Var == null) {
-                cn9Var = new cn9(downloadData, j);
-            }
-            cn9Var.e();
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, j(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), h(downloadData.getAction()), false, cn9Var.b(), false);
-        }
-    }
-
-    public void B(DownloadData downloadData) {
-        String string;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) != null) || downloadData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048589, this, str, str2) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        int errorCode = downloadData.getErrorCode();
-        if (errorCode != 1) {
-            if (errorCode != 3) {
-                string = TbadkCoreApplication.getInst().getString(R.string.download_fail_tip);
-            } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.download_fail_tip_net);
-            }
-        } else {
-            string = TbadkCoreApplication.getInst().getString(R.string.download_fail_tip_sdcrad);
+        if (this.c == null) {
+            this.c = new ConcurrentHashMap();
         }
-        String str = string;
-        if (downloadData.isNeedNotify()) {
-            int process = downloadData.getProcess();
-            Application app = TbadkCoreApplication.getInst().getApp();
-            int notifyId = downloadData.getNotifyId();
-            NotificationHelper.showProgressNotification(app, notifyId, downloadData.getUser_name() + TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_fail_tip), process, process + "%", str, h(downloadData.getAction()), false);
+        this.c.put(str, str2);
+    }
+
+    public static void j(String str, String str2) {
+        String[] list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, str, str2) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String str3 = g + "bdtbNWCache/" + str2;
+        File file = new File(str3);
+        if (file.exists() && file.isDirectory() && (list = file.list()) != null && list.length != 0) {
+            for (String str4 : list) {
+                if (!StringUtils.isNull(str4) && !str4.equals(str)) {
+                    FileHelper.deleteFileOrDir(new File(str3 + "/" + str4));
+                }
+            }
         }
     }
 
-    public void C(DownloadData downloadData) {
+    public static void l(String str, cn9 cn9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData) == null) && downloadData != null && downloadData.isNeedNotify()) {
-            int j = j(downloadData.getId(), downloadData.getName());
-            String str = j + "%";
-            cn9 cn9Var = this.b.get(downloadData.getUrl());
-            if (cn9Var == null) {
-                cn9Var = new cn9(downloadData, j);
-            }
-            int p = p(downloadData);
-            if (p == 1) {
-                cn9Var.e();
-            } else if (p != 4 && p != 2 && p != 7) {
-                if (p == 6) {
-                    NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, cn9Var) == null) {
+            if (cn9Var != null && !StringUtils.isNull(cn9Var.c()) && !StringUtils.isNull(cn9Var.b()) && !StringUtils.isNull(cn9Var.a())) {
+                String p = n().p(str);
+                String c2 = cn9Var.c();
+                String a2 = cn9Var.a();
+                boolean d2 = cn9Var.d();
+                if (StringUtils.isNull(p)) {
+                    p = "0.0.0.0";
+                }
+                if (d2 && c2.equals(p)) {
+                    zm9.a().h(true, str);
+                    return;
+                } else {
+                    d95.a("OfflineCache", -1L, 0, "downloadCache", 0, "", "url", a2, "hybridVersion", c2, "lastVersion", p, "type", "start", "hybridName", str, "hybridResult", "success");
                     return;
                 }
-            } else {
-                cn9Var.d();
             }
-            cn9Var.c(j);
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str, downloadData.getUser_name(), h(downloadData.getAction()), false, cn9Var.b(), false);
+            zm9.a().h(true, str);
         }
     }
 
-    public void D(DownloadData downloadData) {
+    public static g o(String str, String str2) {
+        InterceptResult invokeLL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
-            return;
-        }
-        List<DownloadData> i = bn9.j().i();
-        if (i != null && i.size() >= 5) {
-            downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
-            y(downloadData);
-            UtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.download_fail_over_max);
-            return;
-        }
-        e.add(downloadData);
-        F();
-    }
-
-    public void v(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, downloadData) == null) && downloadData != null) {
-            z(downloadData);
-            cn9 cn9Var = this.b.get(downloadData.getUrl());
-            if (cn9Var != null) {
-                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, j(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), h(downloadData.getAction()), false, cn9Var.b(), false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) {
+            File file = new File(g + "bdtbNWCache");
+            FileInputStream fileInputStream2 = null;
+            if (!file.exists() || TextUtils.isEmpty(str2)) {
+                return null;
             }
-        }
-    }
-
-    public void E(String str, String str2, String str3, int i, int i2, String[] strArr, boolean z, boolean z2, boolean z3, String str4, DownloadStaticsData downloadStaticsData, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), strArr, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str4, downloadStaticsData, str5}) == null) {
-            DownloadData downloadData = new DownloadData(str);
-            downloadData.setType(12);
-            downloadData.setId(str);
-            downloadData.setUrl(str2);
-            downloadData.setName(str3);
-            downloadData.setTag(strArr);
-            downloadData.setPosition(i);
-            downloadData.setNotifyId(i2);
-            downloadData.setNeedInvokeApk(z);
-            downloadData.setForceDownload(z2);
-            downloadData.setNeedNotify(z3);
-            downloadData.setApp_icon(str4);
-            downloadData.setDownloadStaticsData(downloadStaticsData);
-            downloadData.setUser_name(str5);
-            D(downloadData);
-        }
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && d == null && !e.isEmpty()) {
-            DownloadData downloadData = e.get(0);
-            d = downloadData;
-            if (downloadData != null) {
-                b bVar = new b(this, null);
-                this.a = bVar;
-                bVar.setPriority(3);
-                this.a.execute(d);
-            }
-        }
-    }
-
-    public void g(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048582, this, str, str2, z) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        DownloadData downloadData = null;
-        for (DownloadData downloadData2 : bn9.j().i()) {
-            if (downloadData2.getId() != null && downloadData2.getId().equals(str2)) {
-                downloadData = downloadData2;
-            }
-        }
-        if (z) {
-            bn9.j().g(str, true);
-        } else {
-            bn9.j().f(str);
-        }
-        if (downloadData != null) {
-            int j = j(downloadData.getId(), downloadData.getName());
-            String str3 = j + "%";
-            if (downloadData != null && j >= 0) {
-                cn9 cn9Var = this.b.get(downloadData.getUrl());
-                if (cn9Var == null) {
-                    cn9Var = new cn9(downloadData, j);
+            g gVar = new g();
+            File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
+            gVar.a = file.getAbsolutePath();
+            gVar.c = str2;
+            File file3 = new File(file2, "router.json");
+            try {
+                if (!file3.exists()) {
+                    return null;
                 }
-                cn9Var.d();
-                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str3, downloadData.getUser_name(), h(downloadData.getAction()), false, cn9Var.b(), false);
+                try {
+                    fileInputStream = new FileInputStream(file3);
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                }
+                try {
+                    gVar.b = w(fileInputStream);
+                    xi.e(fileInputStream);
+                } catch (FileNotFoundException e3) {
+                    e = e3;
+                    fileInputStream2 = fileInputStream;
+                    e.printStackTrace();
+                    xi.e(fileInputStream2);
+                    return gVar;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    xi.e(fileInputStream2);
+                    throw th;
+                }
+                return gVar;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (g) invokeLL.objValue;
+        }
+    }
+
+    public static ym9 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (f == null) {
+                synchronized (ym9.class) {
+                    if (f == null) {
+                        f = new ym9();
+                    }
+                }
+            }
+            return f;
+        }
+        return (ym9) invokeV.objValue;
+    }
+
+    public String B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Map<String, String> map = this.c;
+            if (map != null && !map.isEmpty()) {
+                return new JSONObject(this.c).toString();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.c == null) {
+                this.c = new ConcurrentHashMap();
+            }
+            this.c.clear();
+        }
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Set<String> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.c == null) {
+                this.c = new ConcurrentHashMap();
+            }
+            return this.c.keySet();
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            String B = B();
+            if (!TextUtils.isEmpty(B)) {
+                o95.p().J("pref_key_quick_webview_versions", B);
             }
         }
     }
 
-    public int j(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean s(String str) {
+        InterceptResult invokeL;
+        String queryParameter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
-            long m = m(str, str2);
-            long j = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L);
-            if (0 == j) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (URLUtil.isHttpsUrl(str) || URLUtil.isHttpUrl(str)) {
+                try {
+                    queryParameter = Uri.parse(str).getQueryParameter("useOfflinePackage");
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                }
+                return TextUtils.equals("0", queryParameter);
             }
-            if (m > j) {
-                return 0;
-            }
-            return (int) ((m * 100) / j);
+            queryParameter = null;
+            return TextUtils.equals("0", queryParameter);
         }
-        return invokeLL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public long m(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void u(JSONObject jSONObject, HashMap<String, an9> hashMap) {
+        String str;
+        String str2;
+        String str3;
+        boolean z;
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            String str3 = str + "_" + str2 + ".tmp";
-            File GetFile = FileHelper.GetFile(str3);
-            if (GetFile == null) {
-                GetFile = FileHelper.GetFileInCache(str3);
+        if (interceptable == null || interceptable.invokeLL(65549, null, jSONObject, hashMap) == null) {
+            JSONObject jSONObject2 = jSONObject;
+            String str4 = "source";
+            String str5 = "path";
+            if (jSONObject2 != null && hashMap != null) {
+                try {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!hashMap.containsKey(next)) {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
+                            ArrayList<String> arrayList = new ArrayList<>();
+                            if (jSONObject3.has("data_urls") && (optJSONArray2 = jSONObject3.optJSONArray("data_urls")) != null) {
+                                for (int i = 0; i < optJSONArray2.length(); i++) {
+                                    arrayList.add(optJSONArray2.optString(i));
+                                }
+                            }
+                            if (!jSONObject3.has("module")) {
+                                str = "";
+                            } else {
+                                str = jSONObject3.optString("module");
+                            }
+                            if (!jSONObject3.has(str5)) {
+                                str2 = "";
+                            } else {
+                                str2 = jSONObject3.optString(str5);
+                            }
+                            ArrayList<String> arrayList2 = new ArrayList<>();
+                            if (jSONObject3.has(str4) && (optJSONArray = jSONObject3.optJSONArray(str4)) != null) {
+                                str3 = str4;
+                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                    arrayList2.add(optJSONArray.optString(i2));
+                                }
+                            } else {
+                                str3 = str4;
+                            }
+                            String optString = jSONObject3.optString("staticPrePath", "");
+                            int optInt = jSONObject3.optInt("proxyMode");
+                            zm9.a().j(next, next);
+                            zm9.a().k(next, str2);
+                            Iterator<String> it = arrayList2.iterator();
+                            while (it.hasNext()) {
+                                String next2 = it.next();
+                                if (!TextUtils.isEmpty(next2)) {
+                                    zm9 a2 = zm9.a();
+                                    String str6 = str5;
+                                    a2.j(optString + "/" + next2, next);
+                                    zm9 a3 = zm9.a();
+                                    a3.k(optString + "/" + next2, next2);
+                                    str5 = str6;
+                                }
+                            }
+                            String str7 = str5;
+                            an9 an9Var = new an9();
+                            an9Var.a = arrayList;
+                            an9Var.b = str;
+                            an9Var.c = str2;
+                            an9Var.d = arrayList2;
+                            if (optInt == 1) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            an9Var.f = z;
+                            hashMap.put(next, an9Var);
+                            jSONObject2 = jSONObject;
+                            str4 = str3;
+                            str5 = str7;
+                        }
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
             }
-            if (GetFile != null && GetFile.exists() && GetFile.isFile()) {
-                return GetFile.length();
-            }
-            return -1L;
         }
-        return invokeLL.longValue;
     }
 
-    public boolean q(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x004d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x004f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0051 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0053 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:62:0x0005 */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.io.InputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: java.io.BufferedReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v14, resolved type: java.io.BufferedReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.io.BufferedReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v16, resolved type: java.io.BufferedReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v17, resolved type: java.io.BufferedReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: java.io.BufferedReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v21, resolved type: java.io.BufferedReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v4, resolved type: java.io.BufferedReader */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r5v10 */
+    /* JADX WARN: Type inference failed for: r5v18 */
+    /* JADX WARN: Type inference failed for: r5v19 */
+    /* JADX WARN: Type inference failed for: r5v20 */
+    /* JADX WARN: Type inference failed for: r5v25 */
+    /* JADX WARN: Type inference failed for: r5v26 */
+    /* JADX WARN: Type inference failed for: r5v27 */
+    public static HashMap<String, an9> w(InputStream inputStream) {
+        InterceptResult invokeL;
+        InputStreamReader inputStreamReader;
+        Throwable th;
+        Object obj;
+        HashMap<String, an9> hashMap;
+        Object obj2;
+        Object obj3;
+        Reader reader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
-            if (TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L) == 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, inputStream)) == null) {
+            InputStreamReader inputStreamReader2 = null;
+            try {
+                if (inputStream == 0) {
+                    return null;
+                }
+                try {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    inputStreamReader = new InputStreamReader(inputStream);
+                    try {
+                        inputStream = new BufferedReader(inputStreamReader);
+                        try {
+                            try {
+                                for (String readLine = inputStream.readLine(); readLine != null; readLine = inputStream.readLine()) {
+                                    stringBuffer.append(readLine);
+                                }
+                                inputStream.close();
+                                hashMap = new HashMap<>();
+                                try {
+                                    JSONObject jSONObject = new JSONObject(stringBuffer.toString());
+                                    u(jSONObject.optJSONObject("proxyConfig"), hashMap);
+                                    u(jSONObject.optJSONObject("config"), hashMap);
+                                    xi.g(inputStreamReader);
+                                    reader = inputStream;
+                                } catch (IOException e2) {
+                                    e = e2;
+                                    inputStreamReader2 = inputStreamReader;
+                                    obj3 = inputStream;
+                                    e.printStackTrace();
+                                    inputStream = obj3;
+                                    xi.g(inputStreamReader2);
+                                    reader = inputStream;
+                                    xi.g(reader);
+                                    return hashMap;
+                                } catch (JSONException e3) {
+                                    e = e3;
+                                    inputStreamReader2 = inputStreamReader;
+                                    obj2 = inputStream;
+                                    e.printStackTrace();
+                                    inputStream = obj2;
+                                    xi.g(inputStreamReader2);
+                                    reader = inputStream;
+                                    xi.g(reader);
+                                    return hashMap;
+                                } catch (Exception e4) {
+                                    e = e4;
+                                    inputStreamReader2 = inputStreamReader;
+                                    obj = inputStream;
+                                    e.printStackTrace();
+                                    inputStream = obj;
+                                    xi.g(inputStreamReader2);
+                                    reader = inputStream;
+                                    xi.g(reader);
+                                    return hashMap;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                xi.g(inputStreamReader);
+                                xi.g(inputStream);
+                                throw th;
+                            }
+                        } catch (IOException e5) {
+                            e = e5;
+                            hashMap = null;
+                        } catch (JSONException e6) {
+                            e = e6;
+                            hashMap = null;
+                        } catch (Exception e7) {
+                            e = e7;
+                            hashMap = null;
+                        }
+                    } catch (IOException e8) {
+                        e = e8;
+                        inputStream = 0;
+                        hashMap = null;
+                    } catch (JSONException e9) {
+                        e = e9;
+                        inputStream = 0;
+                        hashMap = null;
+                    } catch (Exception e10) {
+                        e = e10;
+                        inputStream = 0;
+                        hashMap = null;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        inputStream = 0;
+                    }
+                } catch (IOException e11) {
+                    e = e11;
+                    obj3 = null;
+                    hashMap = null;
+                } catch (JSONException e12) {
+                    e = e12;
+                    obj2 = null;
+                    hashMap = null;
+                } catch (Exception e13) {
+                    e = e13;
+                    obj = null;
+                    hashMap = null;
+                } catch (Throwable th4) {
+                    inputStreamReader = null;
+                    th = th4;
+                    inputStream = 0;
+                }
+                xi.g(reader);
+                return hashMap;
+            } catch (Throwable th5) {
+                inputStreamReader = inputStreamReader2;
+                th = th5;
             }
-            File GetFile = FileHelper.GetFile(str + "_" + str2 + ".tmp");
-            if (GetFile == null || !GetFile.exists() || !GetFile.isFile()) {
-                return false;
-            }
-            return true;
+        } else {
+            return (HashMap) invokeL.objValue;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public final d A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            d dVar = new d();
+            if (TextUtils.isEmpty(str)) {
+                dVar.b = "module not exit";
+                return dVar;
+            }
+            File file = new File(g + "bdtbNWCache", str);
+            String p = n().p(str);
+            if (TbSingleton.getInstance().isUploadOffPack()) {
+                dVar.a = false;
+                if (!file.exists()) {
+                    dVar.b = "bundle not exist";
+                    return dVar;
+                } else if (TextUtils.isEmpty(p)) {
+                    dVar.b = "the local has no valid version name";
+                    return dVar;
+                } else {
+                    String str2 = file.getAbsolutePath() + "/" + p + "/";
+                    if (!new File(str2).exists()) {
+                        dVar.b = "bundle not exist";
+                        return dVar;
+                    }
+                    String str3 = file.getAbsolutePath() + "/" + p + ".zip";
+                    File file2 = new File(str3);
+                    if (file2.exists()) {
+                        FileHelper.deleteFileOrDir(file2);
+                    }
+                    if (w85.e(str2, str3)) {
+                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
+                        netWork.addPostData("offline_pack_version", p);
+                        netWork.addPostData("mod_name", str);
+                        netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                        netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                        t(netWork.uploadFile("offline_pack_file_stream", str3), dVar);
+                        if (!dVar.a) {
+                            return dVar;
+                        }
+                    } else {
+                        dVar.b = "zip bundle error";
+                        return dVar;
+                    }
+                }
+            } else {
+                dVar.a = true;
+            }
+            if (TbSingleton.getInstance().isClearOffPack()) {
+                i(str);
+                if (!TextUtils.isEmpty(p)) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", str).param("obj_id", p));
+                }
+                if (file.exists() && !StringUtils.isNull(p)) {
+                    if (!new File(file.getAbsolutePath(), p).exists()) {
+                        return dVar;
+                    }
+                    dVar.b = "delete fail";
+                    dVar.a = false;
+                }
+            }
+            return dVar;
+        }
+        return (d) invokeL.objValue;
+    }
+
+    public void g() {
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            k();
+            o95.p().J("pref_key_quick_webview_versions", "");
+            String str = g + "bdtbNWCache";
+            File file = new File(str);
+            if (file.exists() && file.isDirectory() && (list = file.list()) != null && list.length != 0) {
+                for (String str2 : list) {
+                    if (!StringUtils.isNull(str2)) {
+                        FileHelper.deleteFileOrDir(new File(str + "/" + str2));
+                    }
+                }
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        h(str);
+        o95.p().J("pref_key_quick_webview_versions", B());
+        File file = new File(g + "bdtbNWCache/" + str);
+        if (file.exists() && file.isDirectory()) {
+            FileHelper.deleteFileOrDir(file);
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            Iterator<String> keys = jSONObject.keys();
+            if (keys == null) {
+                return;
+            }
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(optString)) {
+                    if (this.c == null) {
+                        this.c = new ConcurrentHashMap();
+                    }
+                    this.c.put(next, optString);
+                }
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            MessageManager.getInstance().registerListener(this.e);
+            MessageManager.getInstance().registerListener(this.d);
+            this.b = new File(g + "bdtbNWCache").getAbsolutePath();
+            v(o95.p().w("pref_key_quick_webview_versions", ""));
+        }
+    }
+
+    public final d t(String str, d dVar) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, dVar)) == null) {
+            if (StringUtils.isNull(str)) {
+                dVar.b = "serve return is null";
+                return dVar;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.optInt("error_code") == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                dVar.a = z;
+                dVar.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            } catch (JSONException e2) {
+                dVar.b = "parse json exception";
+                BdLog.e(e2);
+            }
+            return dVar;
+        }
+        return (d) invokeLL.objValue;
     }
 }

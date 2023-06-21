@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
+import android.os.Looper;
+import android.util.Printer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public final class it9 extends zr6<ht9> {
+public class it9 implements ILooperNeedContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public it9() {
-        super(ht9.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,21 +25,25 @@ public final class it9 extends zr6<ht9> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Class) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zr6
-    public void onEvent(ht9 event) {
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void addLooperPrinter(Printer printer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            HomeSpriteEdgeFloatManager.j.c().Q();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, printer) == null) && printer != null) {
+            Looper.getMainLooper().setMessageLogging(printer);
+        }
+    }
+
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void removeLooperPrinter(Printer printer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
+            Looper.getMainLooper().setMessageLogging(null);
         }
     }
 }

@@ -54,11 +54,11 @@ public final class ItemQuickChatReplyBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f091d50;
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d50);
+            int i = R.id.obfuscated_res_0x7f091d5a;
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d5a);
             if (textView != null) {
-                i = R.id.obfuscated_res_0x7f091d59;
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d59);
+                i = R.id.obfuscated_res_0x7f091d63;
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d63);
                 if (tbImageView != null) {
                     RelativeLayout relativeLayout = (RelativeLayout) view2;
                     return new ItemQuickChatReplyBinding(relativeLayout, textView, tbImageView, relativeLayout);

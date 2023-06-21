@@ -2,27 +2,14 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.constants.PlayerStatus;
 /* loaded from: classes8.dex */
 public interface vx0 {
-    void a(@NonNull uw0 uw0Var);
+    void a(@NonNull cu0 cu0Var);
 
-    void d(@NonNull uw0 uw0Var);
+    @NonNull
+    pz0 b(@NonNull cu0 cu0Var, @Nullable pz0 pz0Var);
 
-    int getExpectOrder();
+    void c(@NonNull cu0 cu0Var, boolean z);
 
-    @Nullable
-    int[] getSubscribeEvent();
-
-    int getType();
-
-    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
-
-    void j(@NonNull uw0 uw0Var);
-
-    void k(@NonNull uw0 uw0Var);
-
-    void n(@NonNull uw0 uw0Var);
-
-    void q(@NonNull uw0 uw0Var);
+    boolean d(@NonNull cu0 cu0Var, pz0 pz0Var);
 }

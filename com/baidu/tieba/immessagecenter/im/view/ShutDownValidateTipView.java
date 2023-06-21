@@ -198,11 +198,11 @@ public class ShutDownValidateTipView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0878, (ViewGroup) null));
+            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0879, (ViewGroup) null));
             this.b = (ImageView) findViewById(R.id.no_network_icon);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e2);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e3);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e9);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ec);
         }
     }
 

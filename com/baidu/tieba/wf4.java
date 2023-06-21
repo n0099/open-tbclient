@@ -1,73 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.webkit.JavascriptInterface;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.games.view.webview.GameWebViewManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.gf4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 /* loaded from: classes8.dex */
-public class wf4 extends EventTargetImpl {
+public class wf4 implements hf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public iy1 a;
-    public volatile String b;
-    public e c;
+    public hf4 a;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ wf4 b;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ jf4 b;
+        public final /* synthetic */ gf4.b c;
+        public final /* synthetic */ wf4 d;
 
-        public a(wf4 wf4Var, String str) {
+        public a(wf4 wf4Var, int i, jf4 jf4Var, gf4.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wf4Var, str};
+                Object[] objArr = {wf4Var, Integer.valueOf(i), jf4Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = wf4Var;
-            this.a = str;
+            this.d = wf4Var;
+            this.a = i;
+            this.b = jf4Var;
+            this.c = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.F();
+                Context b = te4.b();
+                if (b == null) {
+                    z82.c("RecommendButton", "context is null.");
+                    return;
                 }
-                if (!this.b.a.c()) {
-                    this.b.a.G();
-                }
-                this.b.a.loadUrl(this.a);
-                this.b.D("open", new xf4(this.a));
+                this.d.a = gf4.c(this.a, b, this.b);
+                this.d.a.t(this.c);
             }
         }
     }
@@ -76,52 +63,15 @@ public class wf4 extends EventTargetImpl {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wf4 a;
-
-        public b(wf4 wf4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wf4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.a.c()) {
-                this.a.a.removeFromParent();
-                this.a.a.destroy();
-                this.a.a = null;
-                wf4 wf4Var = this.a;
-                wf4Var.D("close", new xf4(wf4Var.b));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ of4 a;
         public final /* synthetic */ wf4 b;
 
-        public c(wf4 wf4Var, String str) {
+        public b(wf4 wf4Var, of4 of4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wf4Var, str};
+                Object[] objArr = {wf4Var, of4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,29 +82,95 @@ public class wf4 extends EventTargetImpl {
                 }
             }
             this.b = wf4Var;
-            this.a = str;
+            this.a = of4Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                if (TextUtils.equals("1", this.a)) {
-                    this.b.a.f(true);
-                } else {
-                    this.b.a.f(false);
-                }
+                this.b.a.d(this.a);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class d implements View.OnClickListener {
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gf4.b a;
+        public final /* synthetic */ wf4 b;
+
+        public c(wf4 wf4Var, gf4.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf4Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wf4Var;
+            this.a = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.t(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ wf4 b;
+
+        public d(wf4 wf4Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf4Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wf4Var;
+            this.a = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.m(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wf4 a;
 
-        public d(wf4 wf4Var) {
+        public e(wf4 wf4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,30 +188,27 @@ public class wf4 extends EventTargetImpl {
             this.a = wf4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.close();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.show();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class e {
+    public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public long c;
-        public long d;
+        public final /* synthetic */ wf4 a;
 
-        public e(String str, String str2, long j) {
+        public f(wf4 wf4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Long.valueOf(j)};
+                Object[] objArr = {wf4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -205,238 +218,155 @@ public class wf4 extends EventTargetImpl {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = j;
+            this.a = wf4Var;
         }
 
-        public /* synthetic */ e(String str, String str2, long j, a aVar) {
-            this(str, str2, j);
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "H5GameInfo{mGameId='" + this.a + "', mGameName='" + this.b + "', mStartLoadingTimestamp=" + this.c + ", mFinishLoadingTimestamp=" + this.d + '}';
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.hide();
             }
-            return (String) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948268644, "Lcom/baidu/tieba/wf4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wf4 a;
+
+        public g(wf4 wf4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948268644, "Lcom/baidu/tieba/wf4;");
-                return;
-            }
+            this.a = wf4Var;
         }
-        d = is1.a;
-    }
 
-    public static wf4 E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            gj2 n = y74.m().n();
-            if (n == null) {
-                return null;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.destroy();
             }
-            EventTarget m = n.m();
-            if (!(m instanceof f64)) {
-                return null;
-            }
-            return ((f64) m).getWebViewManager();
-        }
-        return (wf4) invokeV.objValue;
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
-            GameWebViewManager gameWebViewManager = new GameWebViewManager(fv2.c());
-            this.a = gameWebViewManager;
-            gameWebViewManager.h(new d(this));
         }
     }
 
-    @JavascriptInterface
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sp3.e0(new b(this));
+    /* loaded from: classes8.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wf4 a;
+
+        public h(wf4 wf4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wf4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.update();
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wf4(ij2 ij2Var) {
-        super(ij2Var);
+    public wf4(int i, @NonNull jf4 jf4Var, gf4.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ij2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+            Object[] objArr = {Integer.valueOf(i), jf4Var, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        tp3.e0(new a(this, i, jf4Var, bVar));
     }
 
-    public final boolean G(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hf4
+    public void d(of4 of4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            String lowerCase = str.toLowerCase(Locale.US);
-            if (!lowerCase.startsWith("http://") && !lowerCase.startsWith("https://")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @JavascriptInterface
-    public void setCloseViewVisibility(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
-            f42 F = f42.F(jsObject);
-            if (F == null) {
-                D("error", C(null, "1001"));
-            } else {
-                sp3.e0(new c(this, F.C("setCloseViewVisibility", null)));
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, of4Var) == null) {
+            tp3.e0(new b(this, of4Var));
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final yf4 C(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c2;
+    @Override // com.baidu.tieba.hf4
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            switch (str2.hashCode()) {
-                case 1507424:
-                    if (str2.equals("1001")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1507425:
-                    if (str2.equals("1002")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    return null;
-                }
-                return new yf4(str, str2, "open:host not in white list");
-            }
-            return new yf4(str, str2, "open:url is invalid");
-        }
-        return (yf4) invokeLL.objValue;
-    }
-
-    public final void D(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            if (d) {
-                Log.i("GameWebViewApi", "dispatchEvent:" + str + "," + obj);
-            }
-            dispatchEvent(new JSEvent(str, obj));
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            tp3.e0(new d(this, z));
         }
     }
 
-    public void H() {
+    @Override // com.baidu.tieba.hf4
+    public void t(gf4.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            tp3.e0(new c(this, bVar));
+        }
+    }
+
+    @Override // com.baidu.tieba.ff4
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            tp3.e0(new g(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.ff4
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            tp3.e0(new f(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.ff4
+    public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.c == null) {
-                if (d) {
-                    Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
-                    return;
-                }
-                return;
-            }
-            yb3 b0 = yb3.b0();
-            if (b0 == null) {
-                if (d) {
-                    Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
-                    return;
-                }
-                return;
-            }
-            this.c.d = System.currentTimeMillis();
-            if (d) {
-                Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.c);
-            }
-            zf4.a(b0, this.c);
-            this.c = null;
+            tp3.e0(new e(this));
         }
     }
 
-    @JavascriptInterface
-    public void onGameLoadingStart(JsObject jsObject) {
-        f42 F;
+    @Override // com.baidu.tieba.hf4
+    public void update() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jsObject) != null) || (F = f42.F(jsObject)) == null) {
-            return;
-        }
-        String B = F.B("gameId");
-        String B2 = F.B("gameName");
-        if (!TextUtils.isEmpty(B) && !TextUtils.isEmpty(B2)) {
-            this.c = new e(B, B2, System.currentTimeMillis(), null);
-            if (d) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.c);
-            }
-            ke4.call(F, true, null);
-            return;
-        }
-        ke4.call(F, false, null);
-    }
-
-    @JavascriptInterface
-    public void open(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
-            f42 F = f42.F(jsObject);
-            if (F == null) {
-                D("error", C(null, "1001"));
-                return;
-            }
-            String C = F.C("url", null);
-            if (!G(C)) {
-                D("error", C(C, "1001"));
-            } else if (!pc3.h(C)) {
-                D("error", C(C, "1002"));
-            } else {
-                if (d) {
-                    Log.i("GameWebViewApi", "open:" + C);
-                }
-                this.b = C;
-                sp3.e0(new a(this, C));
-            }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            tp3.e0(new h(this));
         }
     }
 }

@@ -15,7 +15,7 @@ public final class f54 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public g64 a;
+    public h64 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +30,7 @@ public final class f54 {
                 return;
             }
         }
-        b = is1.a;
+        b = js1.a;
     }
 
     public f54() {
@@ -48,22 +48,22 @@ public final class f54 {
     }
 
     public void c() {
-        g64 g64Var;
+        h64 h64Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (g64Var = this.a) != null) {
-            g64Var.c();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (h64Var = this.a) != null) {
+            h64Var.c();
         }
     }
 
-    public static f54 d(f42 f42Var) {
+    public static f54 d(g42 g42Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, f42Var)) == null) {
-            if (f42Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, g42Var)) == null) {
+            if (g42Var == null) {
                 return null;
             }
             f54 f54Var = new f54();
-            f54Var.a = g64.e(f42Var);
+            f54Var.a = h64.e(g42Var);
             return f54Var;
         }
         return (f54) invokeL.objValue;
@@ -73,9 +73,9 @@ public final class f54 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONObject a = a(str);
-            g64 g64Var = this.a;
-            if (g64Var != null) {
-                g64Var.b(a);
+            h64 h64Var = this.a;
+            if (h64Var != null) {
+                h64Var.b(a);
             }
         }
     }
@@ -88,7 +88,7 @@ public final class f54 {
             try {
                 jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
                 jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
-                jSONObject.put("errDes", l14.a(str));
+                jSONObject.put("errDes", m14.a(str));
             } catch (Exception e) {
                 if (b) {
                     e.printStackTrace();

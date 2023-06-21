@@ -10,14 +10,14 @@ import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tieba.b98;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.ix5;
-import com.baidu.tieba.l88;
-import com.baidu.tieba.mw5;
-import com.baidu.tieba.mx5;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.to9;
+import com.baidu.tieba.lq9;
+import com.baidu.tieba.nx5;
+import com.baidu.tieba.rw5;
+import com.baidu.tieba.rx5;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +29,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SelectPrivateMsgPageDispatcher implements to9 {
+public class SelectPrivateMsgPageDispatcher implements lq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends ix5<ImMessageCenterPojo> {
+    public class a extends nx5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -58,20 +58,20 @@ public class SelectPrivateMsgPageDispatcher implements to9 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ix5
+        @Override // com.baidu.tieba.nx5
         /* renamed from: a */
         public ImMessageCenterPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return l88.f().i(this.a);
+                return b98.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements mw5<ImMessageCenterPojo> {
+    public class b implements rw5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -97,7 +97,7 @@ public class SelectPrivateMsgPageDispatcher implements to9 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mw5
+        @Override // com.baidu.tieba.rw5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class SelectPrivateMsgPageDispatcher implements to9 {
                 return;
             }
             if (imMessageCenterPojo != null) {
-                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), tg.g(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), ug.g(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
                 personalChatActivityConfig.setRequestCode(12019);
                 personalChatActivityConfig.setIntentAction(IntentAction.ActivityForResult);
                 personalChatActivityConfig.setIsReportSelect(true);
@@ -136,7 +136,7 @@ public class SelectPrivateMsgPageDispatcher implements to9 {
         }
     }
 
-    @Override // com.baidu.tieba.to9
+    @Override // com.baidu.tieba.lq9
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class SelectPrivateMsgPageDispatcher implements to9 {
                     }
                 }
             }
-            mx5.c(new a(this, optString), new b(this, optString, arrayList));
+            rx5.c(new a(this, optString), new b(this, optString, arrayList));
         }
     }
 }

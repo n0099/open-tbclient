@@ -1,335 +1,89 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.method.Touch;
+import android.text.style.ClickableSpan;
+import android.view.MotionEvent;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.tieba.hr0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class fe1 extends Dialog {
+public class fe1 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
+    public a a;
 
     /* loaded from: classes5.dex */
-    public interface d {
-        void a(List<hr0.a> list);
+    public interface a {
+        void onLinkTouch(TextView textView, MotionEvent motionEvent);
+
+        void onNoLinkTouch(TextView textView, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ AdBaseModel b;
-        public final /* synthetic */ fe1 c;
-
-        public a(fe1 fe1Var, List list, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fe1Var, list, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = fe1Var;
-            this.a = list;
-            this.b = adBaseModel;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.c.a != null) {
-                    this.c.a.a(this.a);
-                }
-                this.c.g(this.b, this.a);
-                this.c.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ fe1 b;
-
-        public b(fe1 fe1Var, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fe1Var, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fe1Var;
-            this.a = adBaseModel;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.dismiss();
-                tj0.c(this.a.g.c, this.b.getContext());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hr0.a a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ TextView c;
-        public final /* synthetic */ TextView d;
-        public final /* synthetic */ fe1 e;
-
-        public c(fe1 fe1Var, hr0.a aVar, List list, TextView textView, TextView textView2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fe1Var, aVar, list, textView, textView2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = fe1Var;
-            this.a = aVar;
-            this.b = list;
-            this.c = textView;
-            this.d = textView2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.c()) {
-                    this.a.f(false);
-                    if (this.b.contains(this.a)) {
-                        x21.j(this.b, this.a);
-                    }
-                    if (this.b.size() == 0) {
-                        this.c.setText(view2.getContext().getResources().getText(R.string.nad_dislike_dislike));
-                    }
-                    this.d.setTextColor(view2.getContext().getResources().getColor(R.color.NAD_FC1));
-                    return;
-                }
-                this.a.f(true);
-                if (!this.b.contains(this.a)) {
-                    x21.b(this.b, this.a);
-                }
-                this.d.setTextColor(view2.getContext().getResources().getColor(R.color.NAD_FC13));
-                this.c.setText(view2.getContext().getResources().getText(R.string.nad_dislike_done));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fe1(Context context, @NonNull AdBaseModel adBaseModel) {
-        super(context);
+    public fe1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, adBaseModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        f(adBaseModel);
     }
 
-    public final void g(AdBaseModel adBaseModel, List<hr0.a> list) {
+    public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, adBaseModel, list) != null) || adBaseModel == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
-        n31.b(new r31().e(e(list)).g(adBaseModel.f.d).f(kk0.a().g()));
     }
 
-    public final List<hr0.a> d(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        hr0 hr0Var;
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel)) == null) {
-            if (adBaseModel != null && (hr0Var = adBaseModel.g) != null) {
-                return hr0Var.b;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, spannable, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 1 && action != 0) {
+                return Touch.onTouchEvent(textView, spannable, motionEvent);
             }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void h(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.a = dVar;
-        }
-    }
-
-    public final void c(AdBaseModel adBaseModel) {
-        int i;
-        hr0 hr0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
-            ArrayList arrayList = new ArrayList();
-            ViewGroup viewGroup = null;
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_dialog_menu_new_dislike, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.tv_bottom);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0914d8);
-            textView.setText(getContext().getString(R.string.nad_dislike_dislike));
-            textView.setOnClickListener(new a(this, arrayList, adBaseModel));
-            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.nad_bg_bottom_popup_ffffff));
-            Resources resources = inflate.getContext().getResources();
-            int i2 = R.color.NAD_FC1;
-            textView.setTextColor(resources.getColor(R.color.NAD_FC1));
-            findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.NAD_FC96));
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.layout_enum);
-            LayoutInflater from = LayoutInflater.from(inflate.getContext());
-            TextView textView2 = (TextView) inflate.findViewById(R.id.tv_why_show_ad);
-            if (adBaseModel != null && (hr0Var = adBaseModel.g) != null && !TextUtils.isEmpty(hr0Var.c)) {
-                if (!TextUtils.isEmpty(adBaseModel.g.a)) {
-                    textView2.setText(adBaseModel.g.a);
+            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+            int scrollX = x + textView.getScrollX();
+            int scrollY = y + textView.getScrollY();
+            Layout layout = textView.getLayout();
+            int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+            Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+            if (objArr.length != 0) {
+                if (action == 1) {
+                    objArr[0].onClick(textView);
+                } else if (action == 0) {
+                    Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                 }
-                textView2.setVisibility(0);
-                textView2.setOnClickListener(new b(this, adBaseModel));
-            } else {
-                textView2.setVisibility(8);
-            }
-            List<hr0.a> d2 = d(adBaseModel);
-            if (d2 == null) {
-                linearLayout.setVisibility(8);
-                return;
-            }
-            int min = Math.min(d2.size(), 7);
-            int i3 = 0;
-            while (i3 < min) {
-                hr0.a aVar = (hr0.a) x21.d(d2, i3);
-                if (aVar != null && !TextUtils.isEmpty(aVar.a())) {
-                    View inflate2 = from.inflate(R.layout.nad_item_menu_new_dislike, viewGroup);
-                    TextView textView3 = (TextView) inflate2.findViewById(R.id.tv_enum);
-                    textView3.setText(aVar.a());
-                    textView3.setTextColor(inflate.getContext().getResources().getColor(i2));
-                    i = i3;
-                    inflate2.setOnClickListener(new c(this, aVar, arrayList, textView, textView3));
-                    linearLayout.addView(inflate2);
-                } else {
-                    i = i3;
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onLinkTouch(textView, motionEvent);
                 }
-                i3 = i + 1;
-                viewGroup = null;
-                i2 = R.color.NAD_FC1;
+                return true;
             }
-            setContentView(inflate);
+            a aVar2 = this.a;
+            if (aVar2 != null) {
+                aVar2.onNoLinkTouch(textView, motionEvent);
+            }
+            Selection.removeSelection(spannable);
+            super.onTouchEvent(textView, spannable, motionEvent);
+            return false;
         }
-    }
-
-    public String e(List<hr0.a> list) {
-        InterceptResult invokeL;
-        hr0.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list == null) {
-                return StringUtil.EMPTY_ARRAY;
-            }
-            String str = "";
-            for (int i = 0; i < list.size(); i++) {
-                if (((hr0.a) x21.d(list, i)) != null) {
-                    if (!TextUtils.isEmpty(str)) {
-                        str = str + "," + aVar.b();
-                    } else {
-                        str = str + aVar.b();
-                    }
-                }
-            }
-            if (TextUtils.isEmpty(str)) {
-                return StringUtil.EMPTY_ARRAY;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void f(@NonNull AdBaseModel adBaseModel) {
-        Window window;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || (window = getWindow()) == null) {
-            return;
-        }
-        window.requestFeature(1);
-        c(adBaseModel);
-        window.getDecorView().setPadding(0, 0, 0, 0);
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = -1;
-        attributes.height = -2;
-        attributes.windowAnimations = R.style.obfuscated_res_0x7f1003de;
-        attributes.gravity = 80;
-        window.setAttributes(attributes);
-        window.setBackgroundDrawableResource(17170445);
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Window window = getWindow();
-            if (window == null) {
-                u51.b(this);
-                return;
-            }
-            window.setFlags(8, 8);
-            u51.b(this);
-            t61.a(window);
-            window.clearFlags(8);
-        }
+        return invokeLLL.booleanValue;
     }
 }

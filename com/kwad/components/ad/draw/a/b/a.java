@@ -44,7 +44,7 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f0913fc);
+        this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f091401);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

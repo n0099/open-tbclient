@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.er8;
-import com.baidu.tieba.fr8;
 import com.baidu.tieba.jb;
 import com.baidu.tieba.k9;
+import com.baidu.tieba.yr8;
+import com.baidu.tieba.zr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ public class HotForumModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public k9 a;
     public b b;
-    public List<er8> c;
+    public List<yr8> c;
     public HotSearchInfoData d;
-    public List<fr8> e;
+    public List<zr8> e;
     public String f;
 
     /* loaded from: classes6.dex */
     public interface b {
         void F(String str);
 
-        void r(List<er8> list, List<fr8> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void r(List<yr8> list, List<zr8> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,7 +88,7 @@ public class HotForumModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0def));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0df3));
                 } else if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
                     if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                         if (responsedMessage instanceof HotForumHttpResponseMessage) {
@@ -110,10 +110,10 @@ public class HotForumModel extends BdBaseModel {
                     } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                         this.a.b.F(responsedMessage.getErrorString());
                     } else {
-                        this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0def));
+                        this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0df3));
                     }
                 } else {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0def));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0df3));
                 }
             }
         }

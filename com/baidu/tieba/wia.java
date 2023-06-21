@@ -1,169 +1,333 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.switchs.RepostToDynamicDefaultSwitch;
+import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.ForumTagInfo;
+import com.baidu.tbadk.core.view.NormalItemCell;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wia {
+public class wia extends dja<wja> implements fja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public ForumTagInfo g;
+    @Nullable
+    public String h;
+    @Nullable
+    public View i;
+    @Nullable
+    public NormalItemCell j;
+    @Nullable
+    public ola k;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
+    @Override // com.baidu.tieba.ija
+    public void a(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, editorTools, vh5Var) == null) {
-            editorTools.d(new ii5(tbPageContext.getPageActivity(), 7));
-            editorTools.setActionListener(16, vh5Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
         }
     }
 
-    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
+    @Override // com.baidu.tieba.ija
+    public void c(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, tbPageContext, editorTools, vh5Var) == null) {
-            editorTools.d(new xh5(tbPageContext.getPageActivity(), 10));
-            editorTools.setActionListener(59, vh5Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
         }
     }
 
-    public static void e(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
+    @Override // com.baidu.tieba.ija
+    public void e(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, editorTools, vh5Var) == null) {
-            editorTools.d(new oi5(tbPageContext.getPageActivity(), 12));
-            editorTools.setActionListener(69, vh5Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
         }
     }
 
-    public static void f(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, tbPageContext, editorTools, vh5Var) == null) {
-            editorTools.d(new ti5(tbPageContext.getPageActivity(), 11));
-            editorTools.setActionListener(61, vh5Var);
-        }
-    }
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wia a;
 
-    public static ui5 g(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, tbPageContext, editorTools, vh5Var)) == null) {
-            ui5 ui5Var = new ui5(tbPageContext.getPageActivity(), 4);
-            editorTools.d(ui5Var);
-            editorTools.setActionListener(21, vh5Var);
-            return ui5Var;
-        }
-        return (ui5) invokeLLL.objValue;
-    }
-
-    public static void j(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, editorTools, vh5Var) == null) {
-            editorTools.d(new ik5(tbPageContext.getPageActivity(), 2));
-            editorTools.setActionListener(60, vh5Var);
-        }
-    }
-
-    public static void l(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, editorTools, vh5Var) == null) {
-            editorTools.d(new kk5(tbPageContext.getPageActivity(), 8));
-            editorTools.setActionListener(22, vh5Var);
-        }
-    }
-
-    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
-        CustomResponsedMessage runTask;
-        gi5 gi5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, editorTools, vh5Var) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, tbPageContext.getPageActivity()), gi5.class)) != null && (gi5Var = (gi5) runTask.getData()) != null) {
-            gi5Var.o = true;
-            gi5Var.l = 9;
-            editorTools.d(gi5Var);
-            editorTools.setActionListener(25, vh5Var);
-        }
-    }
-
-    public static void d(@NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, editorTools, vh5Var) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            editorTools.h(arrayList);
-            gi5 p = editorTools.p(5);
-            if (p != null) {
-                p.l = 5;
-                p.d(true);
+        public a(wia wiaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wiaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            editorTools.setActionListener(24, vh5Var);
-            editorTools.setActionListener(3, vh5Var);
+            this.a = wiaVar;
         }
-    }
 
-    public static void i(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
-        CustomResponsedMessage runTask;
-        gi5 gi5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, editorTools) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, tbPageContext.getPageActivity()), gi5.class)) != null && (gi5Var = (gi5) runTask.getData()) != null) {
-            gi5Var.o = true;
-            gi5Var.l = 10;
-            editorTools.d(gi5Var);
-        }
-    }
-
-    public static void h(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, editorTools, vh5Var) == null) {
-            editorTools.d(new ri5(tbPageContext.getPageActivity(), 1));
-            editorTools.setActionListener(14, vh5Var);
-            editorTools.setActionListener(12, vh5Var);
-            editorTools.setActionListener(13, vh5Var);
-            editorTools.setActionListener(15, vh5Var);
-            editorTools.setActionListener(48, vh5Var);
-            editorTools.setActionListener(46, vh5Var);
-            editorTools.setActionListener(49, vh5Var);
-            editorTools.setActionListener(47, vh5Var);
-        }
-    }
-
-    public static void k(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull vh5 vh5Var) {
-        gi5 gi5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65546, null, tbPageContext, editorTools, vh5Var) == null) && d0a.a()) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, tbPageContext.getPageActivity()), gi5.class);
-            if (runTask != null && (gi5Var = (gi5) runTask.getData()) != null) {
-                gi5Var.l = 3;
-                editorTools.d(gi5Var);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.L()) {
+                    if (this.a.b != null) {
+                        this.a.b.c(this.a.a.getString(R.string.obfuscated_res_0x7f0f0438));
+                    }
+                } else if (this.a.g == null) {
+                    if (!TextUtils.isEmpty(this.a.h)) {
+                        this.a.N();
+                    } else {
+                        this.a.M();
+                    }
+                }
             }
-            editorTools.setActionListener(10, vh5Var);
-            editorTools.setActionListener(11, vh5Var);
         }
     }
 
-    public static bfa m(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, String str, @NonNull vh5 vh5Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, editorTools, str, vh5Var)) == null) {
-            bfa bfaVar = new bfa(tbPageContext.getPageActivity(), str);
-            boolean z = false;
-            bfaVar.k(0);
-            if (SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1) {
-                z = true;
+    /* loaded from: classes8.dex */
+    public class b implements lla {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wia a;
+
+        public b(wia wiaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wiaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            bfaVar.l(z);
-            editorTools.d(bfaVar);
-            editorTools.setActionListener(43, vh5Var);
-            editorTools.setActionListener(55, vh5Var);
-            editorTools.setActionListener(66, vh5Var);
-            editorTools.setActionListener(77, vh5Var);
-            return bfaVar;
+            this.a = wiaVar;
         }
-        return (bfa) invokeLLLL.objValue;
+
+        @Override // com.baidu.tieba.lla
+        public void a(@NonNull QuestionTagListData.QuestionTag questionTag) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, questionTag) == null) {
+                if (this.a.e != null) {
+                    this.a.e.setQuestionTagId(questionTag.id);
+                    this.a.e.setQuestionTagManualCreated(true);
+                }
+                if (this.a.j != null) {
+                    this.a.j.setSubTitle(questionTag.tagName);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wia(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, wja.class);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ija
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            NormalItemCell normalItemCell = this.j;
+            if (normalItemCell != null) {
+                normalItemCell.d();
+            }
+            ola olaVar = this.k;
+            if (olaVar != null) {
+                olaVar.r();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fja
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, obj) == null) && (obj instanceof SelectForumData)) {
+            SelectForumData selectForumData = (SelectForumData) obj;
+            this.g = selectForumData.forumTagInfo;
+            this.h = selectForumData.firstCategory;
+            O();
+        }
+    }
+
+    public final boolean L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WriteData writeData = this.e;
+            if (writeData == null || !"2".equals(writeData.getCallFrom()) || this.g != null || !TextUtils.isEmpty(this.e.getForumName())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void M() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e != null && this.j != null && this.a.getPageActivity() != null && !this.a.getPageActivity().isFinishing()) {
+            if (this.k == null) {
+                this.k = new ola();
+            }
+            String str = null;
+            if (this.g == null) {
+                str = this.j.getSubTitleContent();
+            }
+            this.k.u(this.a.getPageActivity(), str, this.e.getForumId(), new b(this));
+        }
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.j == null) {
+            return;
+        }
+        ForumTagInfo forumTagInfo = this.g;
+        if (forumTagInfo != null) {
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setQuestionTagId(forumTagInfo.id);
+                this.e.setQuestionTagManualCreated(false);
+            }
+            this.j.setSubTitle(this.g.name);
+            this.j.a();
+            return;
+        }
+        WriteData writeData2 = this.e;
+        if (writeData2 != null) {
+            writeData2.setQuestionTagId(null);
+            this.e.setQuestionTagManualCreated(false);
+        }
+        this.j.setSubTitle(null);
+        this.j.h();
+    }
+
+    public final void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            QuestionTagChooseActivityConfig questionTagChooseActivityConfig = new QuestionTagChooseActivityConfig(this.a.getPageActivity());
+            questionTagChooseActivityConfig.setCategory(this.h);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, questionTagChooseActivityConfig));
+        }
+    }
+
+    @Override // com.baidu.tieba.dja, com.baidu.tieba.ija
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.d();
+            ola olaVar = this.k;
+            if (olaVar != null) {
+                olaVar.s();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dja, com.baidu.tieba.ija
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (bundle != null) {
+                this.h = bundle.getString(WriteActivityConfig.FORUM_FIRST_CATEGORY);
+                this.g = (ForumTagInfo) bundle.getSerializable(WriteActivityConfig.FORUM_TAG_INFO);
+            } else if (intent != null) {
+                this.h = intent.getStringExtra(WriteActivityConfig.FORUM_FIRST_CATEGORY);
+                this.g = (ForumTagInfo) intent.getSerializableExtra(WriteActivityConfig.FORUM_TAG_INFO);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dja, com.baidu.tieba.ija
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 != -1 || i != 25072 || intent == null || this.e == null || this.j == null) {
+                return;
+            }
+            if (intent.getBooleanExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_CREATE_TAG, false)) {
+                M();
+                return;
+            }
+            QuestionTagListData.QuestionTag questionTag = (QuestionTagListData.QuestionTag) intent.getParcelableExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_TAG);
+            if (questionTag == null) {
+                return;
+            }
+            this.e.setQuestionTagId(questionTag.id);
+            this.e.setQuestionTagManualCreated(false);
+            this.j.setSubTitle(questionTag.tagName);
+        }
+    }
+
+    @Override // com.baidu.tieba.ija
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        ForumTagInfo forumTagInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0538, viewGroup, false);
+            this.i = inflate;
+            this.j = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091d61);
+            NormalItemCell.a aVar = new NormalItemCell.a();
+            aVar.b = 1;
+            aVar.f = this.a.getString(R.string.obfuscated_res_0x7f0f0445);
+            aVar.e = this.a.getString(R.string.obfuscated_res_0x7f0f0444);
+            NormalItemCell normalItemCell = this.j;
+            if (normalItemCell != null) {
+                normalItemCell.setConfig(aVar);
+                this.j.setOnClickListener(new a(this));
+                WriteData writeData = this.e;
+                if (writeData != null && "2".equals(writeData.getCallFrom()) && (forumTagInfo = this.g) != null && forumTagInfo.isValid()) {
+                    this.e.setQuestionTagId(this.g.id);
+                    this.e.setQuestionTagManualCreated(false);
+                    this.j.setSubTitle(this.g.name);
+                    this.j.setOnClickListener(null);
+                    this.j.a();
+                }
+            }
+            return this.i;
+        }
+        return (View) invokeL.objValue;
     }
 }

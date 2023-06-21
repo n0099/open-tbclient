@@ -18,6 +18,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
     public boolean mIsNeedAddCommenParam;
     public boolean mIsNeedAddStatisticsParam;
     public boolean mIsNeedCookie;
+    public boolean mIsNeedDialog;
     public boolean mIsNeedLogin;
     public boolean mIsNeedTbs;
     public boolean mIsNeedToast;
@@ -25,7 +26,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
 
     public void setIsUseCurrentBDUSS(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
         }
     }
 
@@ -55,6 +56,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
         this.mIsBaiduServer = true;
         this.mIsNeedLogin = false;
         this.mIsNeedToast = true;
+        this.mIsNeedDialog = false;
         this.mIsNeedCookie = false;
     }
 
@@ -121,10 +123,19 @@ public class TbHttpMessageTask extends HttpMessageTask {
         return invokeV.booleanValue;
     }
 
-    public boolean isNeedLogin() {
+    public boolean isNeedDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mIsNeedDialog;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNeedLogin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mIsNeedLogin;
         }
         return invokeV.booleanValue;
@@ -133,7 +144,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
     public boolean isNeedTbs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mIsNeedTbs;
         }
         return invokeV.booleanValue;
@@ -142,7 +153,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
     public boolean isUseCurrentBDUSS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mIsUseCurrentBDUSS;
         }
         return invokeV.booleanValue;
@@ -150,63 +161,70 @@ public class TbHttpMessageTask extends HttpMessageTask {
 
     public void setIsBDImage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.mIsBDImage = z;
         }
     }
 
     public void setIsFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.mIsFromCDN = z;
         }
     }
 
     public void setIsNeedAddCommenParam(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.mIsNeedAddCommenParam = z;
         }
     }
 
     public void setIsNeedAddStatisticsParam(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.mIsNeedAddStatisticsParam = z;
         }
     }
 
     public void setIsNeedCookie(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.mIsNeedCookie = z;
+        }
+    }
+
+    public void setIsNeedDialog(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.mIsNeedDialog = z;
         }
     }
 
     public void setIsNeedLogin(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.mIsNeedLogin = z;
         }
     }
 
     public void setIsNeedTbs(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             this.mIsNeedTbs = z;
         }
     }
 
     public void setIsNeedToast(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             this.mIsNeedToast = z;
         }
     }
 
     public void setmIsNBaiduServer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.mIsBaiduServer = z;
         }
     }

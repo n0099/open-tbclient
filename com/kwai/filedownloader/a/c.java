@@ -141,7 +141,7 @@ public final class c implements a {
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public final a.InterfaceC0682a Dh() {
+    public final a.InterfaceC0683a Dh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -149,7 +149,7 @@ public final class c implements a {
             b bVar = this.atT;
             return dVar.a(bVar.atQ, bVar.atR);
         }
-        return (a.InterfaceC0682a) invokeV.objValue;
+        return (a.InterfaceC0683a) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.a

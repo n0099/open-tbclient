@@ -485,7 +485,10 @@ public class NpsLoadChainLog {
     }
 
     private void updateEntrancePluginVer() {
-        this.pluginVersion = String.valueOf(this.pluginService.getPluginVersionCode("com.baidu.searchbox.yylive.entrance"));
+        PluginInvokeService pluginInvokeService = this.pluginService;
+        if (pluginInvokeService != null) {
+            this.pluginVersion = String.valueOf(pluginInvokeService.getPluginVersionCode("com.baidu.searchbox.yylive.entrance"));
+        }
     }
 
     public String getEntry() {

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GamePlayServiceData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.n95;
+import com.baidu.tieba.o95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -160,8 +160,8 @@ public class GamePlayServiceModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            n95 m = n95.m();
-            return m.s(PREFIX + str, "");
+            o95 p = o95.p();
+            return p.w(PREFIX + str, "");
         }
         return (String) invokeL.objValue;
     }
@@ -199,12 +199,12 @@ public class GamePlayServiceModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, str, gamePlayServiceData) == null) {
             if (gamePlayServiceData == null) {
-                n95 m = n95.m();
-                m.B(PREFIX + str, "");
+                o95 p = o95.p();
+                p.J(PREFIX + str, "");
                 return;
             }
-            n95 m2 = n95.m();
-            m2.B(PREFIX + str, new Gson().toJson(gamePlayServiceData));
+            o95 p2 = o95.p();
+            p2.J(PREFIX + str, new Gson().toJson(gamePlayServiceData));
         }
     }
 

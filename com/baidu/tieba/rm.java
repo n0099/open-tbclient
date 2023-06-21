@@ -1,38 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
 /* loaded from: classes7.dex */
-public class rm {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "http://mbd.baidu.com";
-    public transient /* synthetic */ FieldHolder $fh;
-
+public interface rm {
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448316114, "Lcom/baidu/tieba/rm;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448316114, "Lcom/baidu/tieba/rm;");
-        }
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return String.format(CloudControlUrlConfig.mUrl, a);
-        }
-        return (String) invokeV.objValue;
+        new ServiceReference(AppBeforeCreateSpeedStats.TITAN_DETAILS, "TitanInfo");
     }
 }

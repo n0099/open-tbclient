@@ -96,16 +96,16 @@ public final class q extends p {
         if (viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f9);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f7);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f8);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091300);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f6);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912fb);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f2);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912fa);
-        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f1);
-        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f3);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912fe);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912fc);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912fd);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091305);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912fb);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091300);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f7);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ff);
+        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f6);
+        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f8);
     }
 
     @Override // com.kwad.components.ad.reward.k.p
@@ -115,6 +115,6 @@ public final class q extends p {
 
     @Override // com.kwad.components.ad.reward.k.p
     public final int jc() {
-        return R.id.obfuscated_res_0x7f0912f4;
+        return R.id.obfuscated_res_0x7f0912f9;
     }
 }

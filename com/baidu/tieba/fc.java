@@ -253,7 +253,7 @@ public class fc {
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                         if (!z) {
-                            sg.d(outputStream);
+                            tg.d(outputStream);
                         }
                         this.c.unLock();
                         return false;
@@ -263,7 +263,7 @@ public class fc {
                 byte[] data = this.c.getData();
                 if ((buildFormatData == null && data == null) || this.b.get()) {
                     if (!z) {
-                        sg.d(outputStream);
+                        tg.d(outputStream);
                     }
                     this.c.unLock();
                     return false;
@@ -278,7 +278,7 @@ public class fc {
                 this.c.setFileInfo(fileInfo);
                 this.c.setSuccess(true);
                 if (!z) {
-                    sg.d(outputStream);
+                    tg.d(outputStream);
                 } else {
                     this.c.setOutputStream(outputStream);
                 }
@@ -286,7 +286,7 @@ public class fc {
                 return true;
             } catch (Throwable th) {
                 if (!z) {
-                    sg.d(outputStream);
+                    tg.d(outputStream);
                 }
                 this.c.unLock();
                 throw th;
@@ -308,7 +308,7 @@ public class fc {
                             if (z) {
                                 c.delete();
                             } else {
-                                sg.d(null);
+                                tg.d(null);
                                 this.c.unLock();
                                 return true;
                             }
@@ -324,13 +324,13 @@ public class fc {
                                     e = e;
                                     fileOutputStream = fileOutputStream2;
                                     BdLog.e(e.getMessage());
-                                    sg.d(fileOutputStream);
+                                    tg.d(fileOutputStream);
                                     this.c.unLock();
                                     return false;
                                 } catch (Throwable th) {
                                     th = th;
                                     fileOutputStream = fileOutputStream2;
-                                    sg.d(fileOutputStream);
+                                    tg.d(fileOutputStream);
                                     this.c.unLock();
                                     throw th;
                                 }
@@ -339,14 +339,14 @@ public class fc {
                                 fileOutputStream2.write(data);
                             }
                             fileOutputStream2.flush();
-                            sg.d(fileOutputStream2);
+                            tg.d(fileOutputStream2);
                             this.c.setFileInfo(c);
                             this.c.setSuccess(true);
                             this.c.unLock();
                             return true;
                         }
                     }
-                    sg.d(null);
+                    tg.d(null);
                     this.c.unLock();
                     return false;
                 } catch (Throwable th2) {
@@ -489,24 +489,24 @@ public class fc {
                                     z = true;
                                 }
                             }
-                            sg.c(fileInputStream);
-                            sg.d(byteArrayOutputStream);
+                            tg.c(fileInputStream);
+                            tg.d(byteArrayOutputStream);
                             if (z) {
                                 this.c.setSuccess(true);
                             }
                         } catch (Exception e3) {
                             e = e3;
                             BdLog.e(e.getMessage());
-                            sg.c(fileInputStream);
-                            sg.d(byteArrayOutputStream);
+                            tg.c(fileInputStream);
+                            tg.d(byteArrayOutputStream);
                             this.c.unLock();
                             this.c.endLog();
                             return z;
                         }
                     } catch (Throwable th3) {
                         th = th3;
-                        sg.c(fileInputStream);
-                        sg.d(byteArrayOutputStream);
+                        tg.c(fileInputStream);
+                        tg.d(byteArrayOutputStream);
                         this.c.unLock();
                         throw th;
                     }
@@ -517,8 +517,8 @@ public class fc {
                     th = th4;
                     byteArrayOutputStream = null;
                     th = th;
-                    sg.c(fileInputStream);
-                    sg.d(byteArrayOutputStream);
+                    tg.c(fileInputStream);
+                    tg.d(byteArrayOutputStream);
                     this.c.unLock();
                     throw th;
                 }
@@ -526,8 +526,8 @@ public class fc {
                 this.c.endLog();
                 return z;
             }
-            sg.c(null);
-            sg.d(null);
+            tg.c(null);
+            tg.d(null);
             this.c.unLock();
             return false;
         }

@@ -106,9 +106,9 @@ public class RedTipImageView extends RelativeLayout implements IFontSizeViewList
     private void init() {
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0217, this);
-        this.mIcon = (SelectorImageView) findViewById(R.id.obfuscated_res_0x7f091de8);
-        this.mCopyIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de9);
-        BadgeView badgeView = (BadgeView) findViewById(R.id.obfuscated_res_0x7f091dea);
+        this.mIcon = (SelectorImageView) findViewById(R.id.obfuscated_res_0x7f091df3);
+        this.mCopyIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df4);
+        BadgeView badgeView = (BadgeView) findViewById(R.id.obfuscated_res_0x7f091df5);
         this.mRedTip = badgeView;
         badgeView.setType(BadgeView.Type.SMALL_TEXT);
         this.mIcon.setVisibility(0);

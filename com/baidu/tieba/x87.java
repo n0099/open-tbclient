@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardMountView;
+import com.baidu.tieba.feed.component.CardAbstractView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x87 extends t77<CardMountView, h47> {
+public class x87 extends y77<CardAbstractView, h47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class x87 extends t77<CardMountView, h47> {
         }
     }
 
-    @Override // com.baidu.tieba.t77, com.baidu.tieba.i87
+    @Override // com.baidu.tieba.y77, com.baidu.tieba.n87
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            q97.j(a);
+            v97.l(a, null, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i87
+    @Override // com.baidu.tieba.n87
     /* renamed from: e */
-    public void b(@NonNull CardMountView cardMountView, @NonNull h47 h47Var) {
+    public void b(@NonNull CardAbstractView cardAbstractView, @NonNull h47 h47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMountView, h47Var) == null) {
-            cardMountView.a(h47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAbstractView, h47Var) == null) {
+            cardAbstractView.f(h47Var);
         }
     }
 }

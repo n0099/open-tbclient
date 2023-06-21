@@ -74,12 +74,12 @@ public class qa {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                ri.a(byteArrayInputStream, byteArrayOutputStream);
+                si.a(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                sg.d(byteArrayOutputStream);
-                sg.c(byteArrayInputStream);
+                tg.d(byteArrayOutputStream);
+                tg.c(byteArrayInputStream);
             }
         }
         return (byte[]) invokeLII.objValue;
@@ -92,12 +92,12 @@ public class qa {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                ri.c(byteArrayInputStream, byteArrayOutputStream);
+                si.c(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                sg.d(byteArrayOutputStream);
-                sg.c(byteArrayInputStream);
+                tg.d(byteArrayOutputStream);
+                tg.c(byteArrayInputStream);
             }
         }
         return (byte[]) invokeLII.objValue;
@@ -177,7 +177,7 @@ public class qa {
                 if (paVar.d() && raVar.d > 0) {
                     if (sa.a().b() != null) {
                         try {
-                            byte[] a2 = dj.a(sa.a().b(), raVar.b, raVar.c, raVar.d);
+                            byte[] a2 = ej.a(sa.a().b(), raVar.b, raVar.c, raVar.d);
                             raVar.b = a2;
                             raVar.c = 0;
                             raVar.d = a2.length;
@@ -233,7 +233,7 @@ public class qa {
                 encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = dj.c(sa.a().b(), encodeInBackGround);
+                encodeInBackGround = ej.c(sa.a().b(), encodeInBackGround);
             }
             return pa.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         }

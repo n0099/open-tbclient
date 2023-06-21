@@ -1,51 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.core.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "PageUtil")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class mp6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mp6 {
+    void a(int i, a aVar);
 
-    public static final boolean a(Activity activity) {
-        InterceptResult invokeL;
-        ComponentName componentName;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (activity != null) {
-                componentName = activity.getComponentName();
-            } else {
-                componentName = null;
-            }
-            if (componentName == null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void b(int i, String str, a aVar);
 
-    public static final boolean b(Activity activity, String activityClassName) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, activityClassName)) == null) {
-            Intrinsics.checkNotNullParameter(activityClassName, "activityClassName");
-            if (!a(activity)) {
-                Intrinsics.checkNotNull(activity);
-                ComponentName componentName = activity.getComponentName();
-                Intrinsics.checkNotNull(componentName);
-                if (Intrinsics.areEqual(activityClassName, componentName.getClassName())) {
-                    return true;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+
+        public void a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i != 1 && i != 2 && i != 3 && BdLog.e()) {
+                throw new IllegalArgumentException("invalid source code");
+            }
+        }
+
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i != 1 && i != 2 && i != 3 && BdLog.e()) {
+                throw new IllegalArgumentException("invalid source code");
+            }
+        }
     }
 }

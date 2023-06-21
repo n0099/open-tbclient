@@ -1,73 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
-import java.util.List;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 /* loaded from: classes5.dex */
-public class cwb extends BaseAdapter {
+public class cwb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public List<GiftBagItemInfo> b;
-    public PayUIKitConfig c;
+    public ProductInfo a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public String f;
+    public boolean g;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-
-        public a(cwb cwbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cwbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public cwb(Context context, List<GiftBagItemInfo> list, PayUIKitConfig payUIKitConfig) {
+    public cwb(ProductInfo productInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, payUIKitConfig};
+            Object[] objArr = {productInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,88 +34,145 @@ public class cwb extends BaseAdapter {
                 return;
             }
         }
-        this.a = context;
-        this.b = list;
-        this.c = payUIKitConfig;
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.g = true;
+        this.a = productInfo;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public GiftBagItemInfo getItem(int i) {
-        InterceptResult invokeI;
+    public cwb(ProductInfo productInfo, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<GiftBagItemInfo> list = this.b;
-            if (list != null && !list.isEmpty() && i >= 0 && i < this.b.size()) {
-                return this.b.get(i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {productInfo, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return null;
         }
-        return (GiftBagItemInfo) invokeI.objValue;
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.g = true;
+        this.a = productInfo;
+        this.b = i;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public cwb(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.g = true;
+        this.c = z;
+    }
+
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                return productInfo.destAmount / 100.0d;
+            }
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.size();
+            return this.f;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        int i2;
+    public double c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, pvb.a.a(this.c));
-                if (getCount() <= 2) {
-                    i2 = R.layout.pay_ui_item_pay_gift_bag_big;
-                } else {
-                    i2 = R.layout.pay_ui_item_pay_gift_bag_small;
-                }
-                view2 = LayoutInflater.from(contextThemeWrapper).inflate(i2, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.tv_gift_name);
-                aVar.c = (ImageView) view2.findViewById(R.id.img_gift);
-                aVar.b = (TextView) view2.findViewById(R.id.tv_num);
-                aVar.d = (TextView) view2.findViewById(R.id.tv_type);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                return productInfo.srcAmount;
             }
-            GiftBagItemInfo item = getItem(i);
-            if (TextUtils.isEmpty(item.name)) {
-                aVar.a.setVisibility(4);
-            } else {
-                aVar.a.setVisibility(0);
-                aVar.a.setText(item.name);
-            }
-            if (!TextUtils.isEmpty(item.countDisplay) && !StringUtil.NULL_STRING.equals(item.countDisplay)) {
-                aVar.b.setVisibility(0);
-                aVar.b.setText(item.countDisplay);
-            } else {
-                aVar.b.setVisibility(4);
-            }
-            if (!TextUtils.isEmpty(item.typeName) && !StringUtil.NULL_STRING.equals(item.typeName)) {
-                aVar.d.setVisibility(0);
-                aVar.d.setText(item.typeName);
-            } else {
-                aVar.d.setVisibility(4);
-            }
-            PayUIKitConfig payUIKitConfig = this.c;
-            if (payUIKitConfig != null && payUIKitConfig.imageLoaderSupplier != null) {
-                this.c.imageLoaderSupplier.onLoad(this.a, aVar.c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
-            } else {
-                RLog.error("PayGiftListAdapter", "getView error mPayUIKitConfig null", new Object[0]);
-            }
-            return view2;
+            return 0.0d;
         }
-        return (View) invokeILL.objValue;
+        return invokeV.doubleValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        double d;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("PayAmount{ isVisible=");
+            sb.append(this.g);
+            sb.append(", currencyType=");
+            sb.append(this.b);
+            sb.append(", splitDetailId=");
+            sb.append(this.f);
+            sb.append(", srcAmount=");
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                d = productInfo.srcAmount;
+            } else {
+                d = 0.0d;
+            }
+            sb.append(d);
+            sb.append(", dstAmount=");
+            ProductInfo productInfo2 = this.a;
+            if (productInfo2 != null) {
+                j = productInfo2.destAmount;
+            } else {
+                j = 0;
+            }
+            sb.append(j);
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

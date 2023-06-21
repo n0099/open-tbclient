@@ -1,243 +1,274 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b0b;
-import com.baidu.tieba.d0b;
-import com.baidu.tieba.f0b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 /* loaded from: classes5.dex */
 public class f0b {
     public static /* synthetic */ Interceptable $ic;
+    public static final float[] b;
+    public static final float[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public mza a;
-    public final b0b b;
-    public final HashMap<String, d0b> c;
+    public int a;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(Set<Ssp> set, Set<Ssp> set2);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d<E> {
-        void a(E e);
-
-        void b(E e);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947711729, "Lcom/baidu/tieba/f0b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947711729, "Lcom/baidu/tieba/f0b;");
+                return;
+            }
+        }
+        b = new float[]{1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
+        c = new float[]{1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
     }
 
     public f0b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new b0b();
-        this.c = new HashMap<>();
     }
 
-    public synchronized void a(mza mzaVar) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mzaVar) == null) {
-            synchronized (this) {
-                HashSet hashSet = new HashSet();
-                mza mzaVar2 = this.a;
-                if (mzaVar2 != null) {
-                    for (zza zzaVar : mzaVar2.b) {
-                        hashSet.add(zzaVar.a);
-                    }
-                    for (xza xzaVar : this.a.c) {
-                        hashSet.add(xzaVar.a);
-                    }
-                }
-                mza mzaVar3 = this.a;
-                Set<xza> set = null;
-                b(mzaVar3 == null ? null : mzaVar3.b, mzaVar.b, new a(this, hashSet));
-                mza mzaVar4 = this.a;
-                if (mzaVar4 != null) {
-                    set = mzaVar4.c;
-                }
-                b(set, mzaVar.c, new b(this, hashSet));
-                if (!hashSet.isEmpty()) {
-                    Iterator it = hashSet.iterator();
-                    while (it.hasNext()) {
-                        String str = (String) it.next();
-                        LogPrinter.d("reduce sid(%s).", str);
-                        this.c.remove(str);
-                    }
-                }
-                this.a = mzaVar;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    public final <E> void b(Set<E> set, Set<E> set2, d<E> dVar) {
+    /* JADX WARN: Removed duplicated region for block: B:114:0x008e A[EDGE_INSN: B:114:0x008e->B:44:0x008e ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0043  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0099  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x009f  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00ba A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x00df  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public float b(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        boolean z;
+        int i3;
+        int i4;
+        boolean z2;
+        int i5;
+        int i6;
+        int i7;
+        float f;
+        char charAt;
+        int i8;
+        boolean z3;
+        boolean z4;
+        char charAt2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set, set2, dVar) == null) {
-            for (E e : set2) {
-                if (set == null || !set.contains(e)) {
-                    dVar.b(e);
-                } else {
-                    dVar.a(e);
-                }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, i2)) == null) {
+            this.a = i;
+            if (i >= i2) {
+                return Float.NaN;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements d<zza> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ f0b b;
-
-        public a(f0b f0bVar, Set set) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f0bVar, set};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f0bVar;
-            this.a = set;
-        }
-
-        public static /* synthetic */ FunAdLoader a(zza zzaVar, f6b f6bVar) {
-            return new a6b(zzaVar, f6bVar);
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.f0b.d
-        public void a(zza zzaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zzaVar) == null) {
-                zza zzaVar2 = zzaVar;
-                LogPrinter.v("SlotId:%s is totally same with oldOne", zzaVar2.a);
-                this.a.remove(zzaVar2.a);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0b.d
-        /* renamed from: c */
-        public void b(final zza zzaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zzaVar) == null) {
-                LogPrinter.v("Update SlotId:%s", zzaVar.a);
-                HashMap<String, d0b> hashMap = this.b.c;
-                String str = zzaVar.a;
-                hashMap.put(str, new d0b(str, new d0b.a() { // from class: com.baidu.tieba.eza
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.d0b.a
-                    public final FunAdLoader a(f6b f6bVar) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, f6bVar)) == null) ? f0b.a.a(zza.this, f6bVar) : (FunAdLoader) invokeL.objValue;
+            char charAt3 = str.charAt(i);
+            if (charAt3 != '+') {
+                if (charAt3 != '-') {
+                    z = false;
+                    int i9 = this.a;
+                    long j = 0;
+                    i3 = 0;
+                    i4 = 0;
+                    int i10 = 0;
+                    z2 = false;
+                    int i11 = 0;
+                    while (true) {
+                        i5 = this.a;
+                        if (i5 >= i2) {
+                            break;
+                        }
+                        char charAt4 = str.charAt(i5);
+                        if (charAt4 == '0') {
+                            if (i3 == 0) {
+                                i10++;
+                            } else {
+                                i4++;
+                            }
+                        } else if (charAt4 >= '1' && charAt4 <= '9') {
+                            int i12 = i3 + i4;
+                            while (i4 > 0) {
+                                if (j > 922337203685477580L) {
+                                    return Float.NaN;
+                                }
+                                j *= 10;
+                                i4--;
+                            }
+                            if (j > 922337203685477580L) {
+                                return Float.NaN;
+                            }
+                            j = (j * 10) + (charAt4 - '0');
+                            i3 = i12 + 1;
+                            if (j < 0) {
+                                return Float.NaN;
+                            }
+                        } else if (charAt4 != '.' || z2) {
+                            break;
+                        } else {
+                            i11 = this.a - i9;
+                            z2 = true;
+                        }
+                        this.a++;
                     }
-                }));
-                b0b b0bVar = this.b.b;
-                synchronized (b0bVar.a) {
-                    b0bVar.a(zzaVar.a).add(new b0b.a(zzaVar));
-                }
-                this.a.remove(zzaVar.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements d<xza> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ f0b b;
-
-        public b(f0b f0bVar, Set set) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f0bVar, set};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f0bVar;
-            this.a = set;
-        }
-
-        public static /* synthetic */ FunAdLoader a(xza xzaVar, f6b f6bVar) {
-            return new b6b(xzaVar, f6bVar);
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.f0b.d
-        public void a(xza xzaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, xzaVar) == null) {
-                xza xzaVar2 = xzaVar;
-                LogPrinter.v("SerialSlotId:%s is totally same with oldOne", xzaVar2.a);
-                this.a.remove(xzaVar2.a);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f0b.d
-        /* renamed from: c */
-        public void b(final xza xzaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xzaVar) == null) {
-                LogPrinter.v("Update SerialSlotId:%s", xzaVar.a);
-                HashMap<String, d0b> hashMap = this.b.c;
-                String str = xzaVar.a;
-                hashMap.put(str, new d0b(str, new d0b.a() { // from class: com.baidu.tieba.cza
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.d0b.a
-                    public final FunAdLoader a(f6b f6bVar) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, f6bVar)) == null) ? f0b.b.a(xza.this, f6bVar) : (FunAdLoader) invokeL.objValue;
+                    if (!z2 && this.a == i11 + 1) {
+                        return Float.NaN;
                     }
-                }));
-                b0b b0bVar = this.b.b;
-                synchronized (b0bVar.a) {
-                    b0bVar.a(xzaVar.a).add(new b0b.b(xzaVar));
+                    if (i3 == 0) {
+                        if (i10 == 0) {
+                            return Float.NaN;
+                        }
+                        i3 = 1;
+                    }
+                    if (z2) {
+                        i4 = (i11 - i10) - i3;
+                    }
+                    i6 = this.a;
+                    if (i6 < i2 && ((charAt = str.charAt(i6)) == 'E' || charAt == 'e')) {
+                        i8 = this.a + 1;
+                        this.a = i8;
+                        if (i8 != i2) {
+                            return Float.NaN;
+                        }
+                        char charAt5 = str.charAt(i8);
+                        if (charAt5 != '+') {
+                            if (charAt5 != '-') {
+                                switch (charAt5) {
+                                    case '0':
+                                    case '1':
+                                    case '2':
+                                    case '3':
+                                    case '4':
+                                    case '5':
+                                    case '6':
+                                    case '7':
+                                    case '8':
+                                    case '9':
+                                        z3 = false;
+                                        z4 = false;
+                                        break;
+                                    default:
+                                        this.a--;
+                                        z3 = false;
+                                        z4 = true;
+                                        break;
+                                }
+                                if (!z4) {
+                                    int i13 = this.a;
+                                    int i14 = 0;
+                                    while (true) {
+                                        int i15 = this.a;
+                                        if (i15 < i2 && (charAt2 = str.charAt(i15)) >= '0' && charAt2 <= '9') {
+                                            if (i14 > 922337203685477580L) {
+                                                return Float.NaN;
+                                            }
+                                            i14 = (i14 * 10) + (charAt2 - '0');
+                                            this.a++;
+                                        }
+                                    }
+                                    if (this.a == i13) {
+                                        return Float.NaN;
+                                    }
+                                    if (z3) {
+                                        i4 -= i14;
+                                    } else {
+                                        i4 += i14;
+                                    }
+                                }
+                            } else {
+                                z3 = true;
+                            }
+                        } else {
+                            z3 = false;
+                        }
+                        this.a++;
+                        z4 = false;
+                        if (!z4) {
+                        }
+                    }
+                    i7 = i3 + i4;
+                    if (i7 <= 39 || i7 < -44) {
+                        return Float.NaN;
+                    }
+                    long j2 = j;
+                    float f2 = (float) j2;
+                    if (j2 != 0) {
+                        if (i4 > 0) {
+                            f = b[i4];
+                        } else if (i4 < 0) {
+                            if (i4 < -38) {
+                                f2 = (float) (f2 * 1.0E-20d);
+                                i4 += 20;
+                            }
+                            f = c[-i4];
+                        }
+                        f2 *= f;
+                    }
+                    if (z) {
+                        return -f2;
+                    }
+                    return f2;
                 }
-                this.a.remove(xzaVar.a);
+                z = true;
+            } else {
+                z = false;
             }
+            this.a++;
+            int i92 = this.a;
+            long j3 = 0;
+            i3 = 0;
+            i4 = 0;
+            int i102 = 0;
+            z2 = false;
+            int i112 = 0;
+            while (true) {
+                i5 = this.a;
+                if (i5 >= i2) {
+                }
+                this.a++;
+            }
+            if (!z2) {
+            }
+            if (i3 == 0) {
+            }
+            if (z2) {
+            }
+            i6 = this.a;
+            if (i6 < i2) {
+                i8 = this.a + 1;
+                this.a = i8;
+                if (i8 != i2) {
+                }
+            }
+            i7 = i3 + i4;
+            if (i7 <= 39) {
+            }
+            return Float.NaN;
         }
+        return invokeLII.floatValue;
     }
 }

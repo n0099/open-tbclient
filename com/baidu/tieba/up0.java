@@ -1,84 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class up0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static rp0 a;
-    public static tp0 b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface up0 {
+    public static final ServiceReference a = new ServiceReference("nad.business", "rewardVideoLpTaskCenter");
+    public static final up0 b = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948218548, "Lcom/baidu/tieba/up0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948218548, "Lcom/baidu/tieba/up0;");
-        }
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(np0 np0Var);
+
+        void onFail(Exception exc);
     }
 
-    public up0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    void a(@NonNull vr0 vr0Var, @NonNull ls0 ls0Var, @NonNull b bVar);
+
+    /* loaded from: classes8.dex */
+    public static class a implements up0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.up0
+        public void a(@NonNull vr0 vr0Var, @NonNull ls0 ls0Var, @NonNull b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, vr0Var, ls0Var, bVar) == null) {
             }
         }
-    }
 
-    public static rp0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (up0.class) {
-                    if (a == null) {
-                        a = (rp0) ServiceManager.getService(rp0.a);
-                    }
-                    if (a == null) {
-                        a = rp0.b;
-                    }
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return a;
         }
-        return (rp0) invokeV.objValue;
-    }
-
-    public static tp0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (up0.class) {
-                    if (b == null) {
-                        b = (tp0) ServiceManager.getService(tp0.a);
-                    }
-                    if (b == null) {
-                        b = tp0.b;
-                    }
-                }
-            }
-            return b;
-        }
-        return (tp0) invokeV.objValue;
     }
 }

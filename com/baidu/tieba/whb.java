@@ -1,31 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.FrameInfo;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediacodec.NativeIttiam;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class whb extends qhb {
+public class whb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NativeIttiam A;
-    public ByteBuffer B;
-    public ByteBuffer C;
-    public int D;
-    public boolean E;
-    public FrameInfo F;
-    public WeakReference<zgb> G;
+    public String a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public transient akb j;
+    public transient zjb k;
+    public int l;
+    public boolean m;
+    public int n;
+    public int o;
 
     public whb() {
         Interceptable interceptable = $ic;
@@ -40,177 +41,86 @@ public abstract class whb extends qhb {
                 return;
             }
         }
-        this.A = new NativeIttiam();
-        this.B = null;
-        this.C = null;
-        this.D = 0;
-        this.E = false;
-        this.F = new FrameInfo();
-        this.G = new WeakReference<>(null);
+        this.a = null;
+        this.b = 1;
+        this.c = 1;
+        this.d = 0;
+        this.e = 1;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.k = null;
+        this.l = 0;
+        this.m = false;
+        this.n = 1;
+        this.o = 4000;
     }
 
-    @Override // com.baidu.tieba.qhb
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (!this.r.b() && K() == 1) {
-                TLog.g(this, "handleEndOfStream");
-                try {
-                    Thread.sleep(20L);
-                } catch (Exception unused) {
-                    TLog.g(this, "handleEndOfStream error");
-                }
-            }
-        }
-    }
-
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TLog.g(this, "NativeIttiamFilter.stopCodec enter.");
-            this.A.l();
-            this.B = null;
-            this.C = null;
-            this.F.a = 0L;
-            this.D = 0;
-            this.v = 0L;
-            G();
-            TLog.g(this, "NativeIttiamFilter.stopCodec leave.");
-        }
-    }
-
-    @Override // com.baidu.tieba.qhb
-    public int D(MediaSample mediaSample) {
+    public static whb a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
-            this.E = false;
-            int J = J(mediaSample);
-            if (J == 1 && this.E) {
-                this.E = false;
-                K();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            whb whbVar = new whb();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                whbVar.a = jSONObject.optString("cacheDirectory");
+                whbVar.b = jSONObject.optInt("avcCodec");
+                whbVar.c = jSONObject.optInt("hevcCodec");
+                whbVar.d = jSONObject.optInt("audioCodec");
+                whbVar.e = jSONObject.optInt("videoSeekMode");
+                whbVar.f = jSONObject.optBoolean("clearRender");
+                whbVar.g = jSONObject.optBoolean("usingSurfaceView");
+                whbVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
+                whbVar.i = jSONObject.optBoolean("forceNotCrop");
+                whbVar.l = jSONObject.optInt("samplerFilter");
+                whbVar.m = jSONObject.optBoolean("isSubProcess");
+                whbVar.n = jSONObject.optInt("pcdnCatonTime");
+                whbVar.o = jSONObject.optInt("pcdnCatonCount");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return J;
+            return whbVar;
         }
-        return invokeL.intValue;
+        return (whb) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.qhb, com.baidu.tieba.zhb, com.baidu.tieba.hgb.a
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
-            if (message.what != 1002) {
-                super.handleMessage(message);
-            } else {
-                L();
-            }
-        }
-    }
-
-    public final int J(MediaSample mediaSample) {
+    public static String b(whb whbVar) {
         InterceptResult invokeL;
-        AVframe aVframe;
-        MediaInfo mediaInfo;
-        ByteBuffer byteBuffer;
-        boolean z;
-        byte[] bArr;
-        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
-            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || this.C == null || mediaInfo.k == null) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, whbVar)) == null) {
+            if (whbVar == null) {
+                return null;
             }
-            int i = aVframe.e;
-            int i2 = this.a;
-            if (i > i2) {
-                long j = this.v + 1;
-                this.v = j;
-                if (j >= 10 && j % 1000 != 0) {
-                    return 0;
-                }
-                TLog.c(this, String.format("Ittiam::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
-                return 0;
-            } else if (i < i2) {
-                long j2 = this.v + 1;
-                this.v = j2;
-                if (j2 < 10 || j2 % 1000 == 0) {
-                    TLog.c(this, String.format("Ittiam::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
-                }
-                return -1;
-            } else {
-                byteBuffer.clear();
-                this.C.clear();
-                FrameInfo frameInfo = this.F;
-                frameInfo.a = 0L;
-                frameInfo.b = 0L;
-                boolean z2 = mediaSample.g.c;
-                int capacity = mediaSample.i.k.capacity();
-                if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
-                    capacity += bArr2.length + 4;
-                }
-                ByteBuffer byteBuffer2 = this.B;
-                if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
-                    int i3 = (int) (capacity * 1.5d);
-                    if (i3 > 2000000 || i3 < capacity) {
-                        i3 = capacity;
-                    }
-                    this.B = ByteBuffer.allocateDirect(i3);
-                }
-                if (this.B.capacity() < capacity) {
-                    return -1;
-                }
-                if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
-                    this.B.putInt(bArr.length);
-                    this.B.put(mediaSample.g.q);
-                }
-                this.B.put(mediaSample.i.k).flip();
-                int k = this.A.k(this.B, this.C, mediaSample.d, mediaSample.l, this.F);
-                if (k != 0 && k != -2) {
-                    TLog.c(this, "ittiam decode error.maybe");
-                    return -1;
-                }
-                this.r.a(mediaSample);
-                if (k == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                this.E = z;
-                return 1;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cacheDirectory", whbVar.a);
+                jSONObject.put("avcCodec", whbVar.b);
+                jSONObject.put("hevcCodec", whbVar.c);
+                jSONObject.put("audioCodec", whbVar.d);
+                jSONObject.put("videoSeekMode", whbVar.e);
+                jSONObject.put("clearRender", whbVar.f);
+                jSONObject.put("usingSurfaceView", whbVar.g);
+                jSONObject.put("hardDecodeOutputToBuffer", whbVar.h);
+                jSONObject.put("forceNotCrop", whbVar.i);
+                jSONObject.put("samplerFilter", whbVar.l);
+                jSONObject.put("isSubProcess", whbVar.m);
+                jSONObject.put("pcdnCatonTime", whbVar.n);
+                jSONObject.put("pcdnCatonCount", whbVar.o);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject.toString();
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public final int K() {
+    public String toString() {
         InterceptResult invokeV;
-        MediaInfo mediaInfo;
-        AVframe aVframe;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MediaSample c = this.r.c();
-            if (c != null && c.g != null && (mediaInfo = c.i) != null) {
-                mediaInfo.c(this.q);
-                c.i.k = this.C;
-                FrameInfo frameInfo = this.F;
-                c.l = frameInfo.a;
-                E(c, frameInfo.b);
-                this.u++;
-                dhb.c(c, 6);
-                n(c);
-                zgb zgbVar = this.G.get();
-                if (zgbVar != null && (aVframe = c.g) != null) {
-                    zgbVar.t((int) aVframe.l);
-                }
-                synchronized (this.k) {
-                    if (this.d != null) {
-                        this.d.f(c);
-                    }
-                }
-                return 1;
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 }

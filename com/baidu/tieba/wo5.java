@@ -1,21 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragment;
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
 public interface wo5 {
-    long m();
+    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 
-    void p(int i, int i2, Intent intent);
-
-    boolean r();
-
-    BaseFragment s();
-
-    void setUniqueId(BdUniqueId bdUniqueId);
-
-    void setUserVisibleHint(boolean z);
-
-    void t(boolean z);
+    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 }

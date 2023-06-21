@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class d62 extends e52 {
+public class d62 extends f52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public int a;
 
     public d62() {
         Interceptable interceptable = $ic;
@@ -23,28 +23,32 @@ public class d62 extends e52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1.0f;
     }
 
-    @Override // com.baidu.tieba.e52
-    public void a(f52 f52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.f52
+    public void a(g52 g52Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) {
-            float f = this.a;
-            if (f >= 0.0f && f <= 1.0f) {
-                f52Var.j = (int) (f * 255.0f);
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) && (i = this.a) > 0) {
+            g52Var.e.setTextSize(i);
         }
     }
 
-    @Override // com.baidu.tieba.e52
+    @Override // com.baidu.tieba.f52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = (float) jSONArray.optDouble(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    this.a = qp3.g((float) jSONArray.optDouble(0));
+                }
+            } catch (Exception e) {
+                if (js1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

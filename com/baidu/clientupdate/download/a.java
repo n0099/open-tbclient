@@ -10,7 +10,6 @@ import android.util.Log;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -135,7 +134,7 @@ public class a extends SQLiteOpenHelper {
             contentValues.put("sc", aVar.f.toString());
             contentValues.put("etm", aVar.g.toString());
             contentValues.put("mg", aVar.h.toString());
-            contentValues.put(Config.EXCEPTION_PART, aVar.i.toString());
+            contentValues.put("ex", aVar.i.toString());
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;

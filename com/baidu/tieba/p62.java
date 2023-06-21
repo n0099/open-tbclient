@@ -1,46 +1,67 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class p62 extends e52 {
+public class p62 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public n52 d;
 
-    @Override // com.baidu.tieba.e52
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
-
-    public p62() {
+    public p62(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b(jSONArray);
     }
 
-    @Override // com.baidu.tieba.e52
-    public void a(f52 f52Var, Canvas canvas) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) {
-            int alpha = f52Var.c.getAlpha();
-            f52Var.c(f52Var.c);
-            canvas.drawPath(f52Var.f, f52Var.c);
-            f52Var.c.setAlpha(alpha);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n52 n52Var = this.d;
+            if (n52Var != null && n52Var.d()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 3) {
+                    this.a = qp3.g((float) jSONArray.optDouble(0));
+                    this.b = qp3.g((float) jSONArray.optDouble(1));
+                    this.c = jSONArray.optInt(2);
+                    this.d = new n52(jSONArray.optJSONArray(3));
+                }
+            } catch (Exception e) {
+                if (js1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

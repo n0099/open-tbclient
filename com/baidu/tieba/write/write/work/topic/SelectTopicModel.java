@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.d68;
-import com.baidu.tieba.gla;
 import com.baidu.tieba.jb;
 import com.baidu.tieba.k9;
+import com.baidu.tieba.t68;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
+import com.baidu.tieba.zma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,11 +28,11 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final jb a;
     public b b;
     public boolean c;
-    public List<d68> d;
+    public List<t68> d;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull List<d68> list);
+        void a(@NonNull List<t68> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,8 +88,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof gla)) {
-                    this.a.Y(((gla) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof zma)) {
+                    this.a.Y(((zma) responsedMessage).getTopicList());
                 }
             }
         }
@@ -122,7 +122,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.d = new ArrayList();
             for (TopicList topicList : list) {
-                this.d.add(new d68(topicList));
+                this.d.add(new t68(topicList));
             }
             b bVar = this.b;
             if (bVar != null) {

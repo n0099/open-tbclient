@@ -1,37 +1,124 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.tieba.b02;
+import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
+import com.baidu.tieba.eh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d22 extends b22 {
+public class d22 extends c22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int f;
+    public String g;
 
-    @Override // com.baidu.tieba.b02
+    @Override // com.baidu.tieba.c02
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "SubscribeServiceApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "RequestSubscribeFormIdApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements b02.a {
+    public class b implements sq3<ch3<eh3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zb3 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ SubscribeHelper d;
+        public final /* synthetic */ d22 e;
+
+        /* loaded from: classes5.dex */
+        public class a implements SubscribeHelper.k {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
+            public void a(int i, @NonNull String str, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jSONObject) == null) {
+                    if (jSONObject == null) {
+                        b bVar = this.a;
+                        bVar.e.d(bVar.c, new z32(i, str));
+                        return;
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    b bVar2 = this.a;
+                    bVar2.e.D(jSONObject, jSONObject2, bVar2.d);
+                    b bVar3 = this.a;
+                    bVar3.e.d(bVar3.c, new z32(i, str, jSONObject2));
+                }
+            }
+        }
+
+        public b(d22 d22Var, zb3 zb3Var, String str, String str2, SubscribeHelper subscribeHelper) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d22Var, zb3Var, str, str2, subscribeHelper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = d22Var;
+            this.a = zb3Var;
+            this.b = str;
+            this.c = str2;
+            this.d = subscribeHelper;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sq3
+        /* renamed from: b */
+        public void a(ch3<eh3.e> ch3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ch3Var) == null) {
+                if (xg3.h(ch3Var)) {
+                    this.d.o(this.b, new a(this));
+                } else {
+                    this.e.C(this.a, this.b, this.c, this.d);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements SubscribeHelper.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d22 a;
@@ -54,37 +141,31 @@ public class d22 extends b22 {
             this.a = d22Var;
         }
 
-        @Override // com.baidu.tieba.b02.a
-        public y32 a(yb3 yb3Var, JSONObject jSONObject, String str) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
+        public void a(int i, @NonNull String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, yb3Var, jSONObject, str)) == null) {
-                return this.a.E(yb3Var, jSONObject, str);
+            if (interceptable != null && interceptable.invokeILL(1048576, this, i, str, jSONObject) != null) {
+                return;
             }
-            return (y32) invokeLLL.objValue;
+            this.a.f = i;
+            this.a.g = str;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends ResponseCallback {
+    public class c implements SubscribeHelper.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ d22 b;
+        public final /* synthetic */ SubscribeHelper b;
+        public final /* synthetic */ d22 c;
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public b(d22 d22Var, String str) {
+        public c(d22 d22Var, String str, SubscribeHelper subscribeHelper) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d22Var, str};
+                Object[] objArr = {d22Var, str, subscribeHelper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -94,51 +175,39 @@ public class d22 extends b22 {
                     return;
                 }
             }
-            this.b = d22Var;
+            this.c = d22Var;
             this.a = str;
+            this.b = subscribeHelper;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            String message;
+        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
+        public void a(int i, @NonNull String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                d22 d22Var = this.b;
-                String str = this.a;
-                if (exc == null) {
-                    message = "";
-                } else {
-                    message = exc.getMessage();
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jSONObject) == null) {
+                if (jSONObject == null) {
+                    this.c.d(this.a, new z32(i, str));
+                    return;
                 }
-                d22Var.B(str, message);
+                JSONObject jSONObject2 = new JSONObject();
+                this.c.D(jSONObject, jSONObject2, this.b);
+                this.c.d(this.a, new z32(i, str, jSONObject2));
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.b.d(this.a, this.b.D(response));
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d22(@NonNull zz1 zz1Var) {
-        super(zz1Var);
+    public d22(@NonNull a02 a02Var) {
+        super(a02Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zz1Var};
+            Object[] objArr = {a02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zz1) newInitContext.callArgs[0]);
+                super((a02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -146,97 +215,82 @@ public class d22 extends b22 {
         }
     }
 
-    public y32 F(String str) {
-        InterceptResult invokeL;
+    public final void B(zb3 zb3Var, String str, String str2, SubscribeHelper subscribeHelper) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#subscribe params=" + str, false);
-            return l(str, true, new a(this));
-        }
-        return (y32) invokeL.objValue;
-    }
-
-    public final void A(@NonNull Request request, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, request, str) == null) {
-            bj4 bj4Var = new bj4(request.url().toString(), request.body(), new b(this, str));
-            bj4Var.i = request.tag();
-            bj4Var.f = true;
-            bj4Var.g = true;
-            bj4Var.h = true;
-            cj4.g().e(bj4Var);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, zb3Var, str, str2, subscribeHelper) == null) {
+            zb3Var.e0().g(getContext(), "mapp_request_subscribe_message", new b(this, zb3Var, str, str2, subscribeHelper));
         }
     }
 
-    public final void B(@NonNull String str, String str2) {
+    public final void C(zb3 zb3Var, String str, String str2, SubscribeHelper subscribeHelper) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            d(str, new y32(500106, str2));
-        }
-    }
-
-    public final RequestBody C(@NonNull yb3 yb3Var, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, yb3Var, jSONObject)) == null) {
-            String optString = jSONObject.optString("subscribeId");
-            String O = yb3Var.O();
-            String optString2 = jSONObject.optString("templateId");
-            if (!TextUtils.isEmpty(O) && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                return new FormBody.Builder().add("appkey", O).add("uniq_id", optString).add("type", jSONObject.optString("type", "query")).add("template_id", optString2).build();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zb3Var, str, str2, subscribeHelper) == null) {
+            if (TextUtils.equals(tp3.n().e(), rp3.g(zb3Var.W().e0())) && TextUtils.equals("1", zb3Var.W().i0())) {
+                subscribeHelper.o(str, new c(this, str2, subscribeHelper));
+            } else {
+                d(str2, new z32(500107, "不符合使用条件"));
             }
-            return null;
         }
-        return (RequestBody) invokeLL.objValue;
     }
 
-    public final Pair<Request, Integer> z(@NonNull yb3 yb3Var, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public final void D(JSONObject jSONObject, JSONObject jSONObject2, SubscribeHelper subscribeHelper) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, yb3Var, jSONObject)) == null) {
-            RequestBody C = C(yb3Var, jSONObject);
-            if (C == null) {
-                return new Pair<>(null, 202);
-            }
-            return new Pair<>(new Request.Builder().url(fv2.W().a()).post(C).build(), 0);
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    public y32 D(Response response) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, response)) == null) {
-            if (response != null && response.body() != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(response.body().string());
-                    String optString = jSONObject.optString("errno");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (TextUtils.equals("0", optString) && optJSONObject != null) {
-                        return new y32(0, optJSONObject, false);
-                    }
-                    return new y32(500106, "subscribe fail");
-                } catch (Exception e) {
-                    return new y32(500106, Log.getStackTraceString(e));
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, jSONObject2, subscribeHelper) == null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null || (optJSONArray = optJSONObject.optJSONArray("list")) == null) {
+                    return;
                 }
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("sub_info")) != null) {
+                        int length2 = optJSONArray2.length();
+                        for (int i2 = 0; i2 < length2; i2++) {
+                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
+                            if (optJSONObject3 != null) {
+                                jSONObject2.put(optJSONObject3.optString("template_id"), optJSONObject3.optString("formid"));
+                            }
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                p("#parseDate put json data error", e, false);
             }
-            return new y32(500106, "response body is null");
         }
-        return (y32) invokeL.objValue;
     }
 
-    public final y32 E(@NonNull yb3 yb3Var, @NonNull JSONObject jSONObject, String str) {
-        InterceptResult invokeLLL;
+    public z32 E(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, yb3Var, jSONObject, str)) == null) {
-            Pair<Request, Integer> z = z(yb3Var, jSONObject);
-            Request request = (Request) z.first;
-            if (request == null) {
-                return new y32(((Integer) z.second).intValue(), IActiveUploadListener.PARAM_ERR_MSG);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#requestSubscribeFormId params=" + str, false);
+            zb3 b0 = zb3.b0();
+            if (b0 == null) {
+                return new z32(202, "swan app is null");
             }
-            A(request, str);
-            return new y32(0, "success");
+            String O = b0.O();
+            if (TextUtils.isEmpty(O)) {
+                return new z32(202, "appKey is empty");
+            }
+            Pair<z32, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (((z32) s.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new z32(202, "cb is invalid");
+                }
+                SubscribeHelper subscribeHelper = new SubscribeHelper();
+                if (!subscribeHelper.n(getContext(), b0, O, jSONObject, SubscribeHelper.invokeSubscribeFrom.REQUEST_SUBSCRIBE_FORM_ID_API, new a(this))) {
+                    return new z32(this.f, this.g);
+                }
+                B(b0, O, optString, subscribeHelper);
+                return z32.f();
+            }
+            return new z32(202);
         }
-        return (y32) invokeLLL.objValue;
+        return (z32) invokeL.objValue;
     }
 }

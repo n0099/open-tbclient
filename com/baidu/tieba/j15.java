@@ -1,118 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+import tbclient.ActInfo;
 /* loaded from: classes6.dex */
 public class j15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public float e;
-    public String f;
-    @Nullable
-    public b g;
-    @Nullable
-    public a h;
-    public String i;
-    public String j;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("desc", "权限");
-                String optString = jSONObject.optString("url");
-                aVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    aVar.b = jSONObject.optString("cmd");
-                }
-                aVar.c = jSONObject.optString("cmd");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("desc", "隐私");
-                String optString = jSONObject.optString("url");
-                bVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    bVar.b = jSONObject.optString("cmd");
-                }
-                bVar.c = jSONObject.optString("cmd");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public String e;
+    public int f;
+    public boolean g;
+    public int h;
+    public int i;
+    public i45 j;
 
     public j15() {
         Interceptable interceptable = $ic;
@@ -127,73 +39,176 @@ public class j15 {
                 return;
             }
         }
-        this.e = -1.0f;
+        this.h = 1;
+        this.i = 1;
     }
 
-    public static boolean a(j15 j15Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, j15Var)) == null) {
-            if (j15Var == null) {
-                return false;
-            }
-            if (TextUtils.isEmpty(j15Var.f) && TextUtils.isEmpty(j15Var.d) && (((bVar = j15Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = j15Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Nullable
-    public static j15 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optInt("activity_type");
+            this.b = jSONObject.optInt("status");
+            this.c = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
+            this.d = jSONObject.optInt("end_time");
+            this.e = jSONObject.optString("url");
+            this.f = jSONObject.optInt("total_num");
+            jSONObject.optInt("activity_id");
+            jSONObject.optInt("award_act_id");
+            jSONObject.optInt("component_id");
+            this.g = jSONObject.optBoolean("is_senior");
+            jSONObject.optString("banner_img");
+            jSONObject.optInt("show_total_num");
+            String optString = jSONObject.optString("banner_img_size");
+            if (!vi.isEmpty(optString)) {
+                String[] split = optString.split(",");
+                this.h = ug.e(split[0], 1);
+                this.i = ug.e(split[1], 1);
             }
-            j15 j15Var = new j15();
-            j15Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            j15Var.b = jSONObject.optString("app_icon");
-            j15Var.c = jSONObject.optString("app_name");
-            j15Var.d = jSONObject.optString("developer_name");
-            j15Var.f = jSONObject.optString("version");
-            j15Var.g = b.a(jSONObject.optJSONObject("privacy"));
-            j15Var.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-            j15Var.i = jSONObject.optString("apk_size");
-            j15Var.j = jSONObject.optString("apk_url");
+            if (this.h <= 0) {
+                this.h = 1;
+            }
+            if (this.i <= 0) {
+                this.i = 1;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void i(ActInfo actInfo) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) != null) || actInfo == null) {
+            return;
+        }
+        Integer num = actInfo.activity_type;
+        int i5 = -1;
+        if (num != null) {
+            i = num.intValue();
+        } else {
+            i = -1;
+        }
+        this.a = i;
+        Integer num2 = actInfo.status;
+        if (num2 != null) {
+            i2 = num2.intValue();
+        } else {
+            i2 = -1;
+        }
+        this.b = i2;
+        Integer num3 = actInfo.begin_time;
+        if (num3 != null) {
+            i3 = num3.intValue();
+        } else {
+            i3 = -1;
+        }
+        this.c = i3;
+        Integer num4 = actInfo.end_time;
+        if (num4 != null) {
+            i4 = num4.intValue();
+        } else {
+            i4 = -1;
+        }
+        this.d = i4;
+        this.e = actInfo.url;
+        Integer num5 = actInfo.total_num;
+        if (num5 != null) {
+            i5 = num5.intValue();
+        }
+        this.f = i5;
+        actInfo.activity_id.intValue();
+        actInfo.award_act_id.intValue();
+        actInfo.component_id.intValue();
+        this.g = actInfo.is_senior.booleanValue();
+        String str = actInfo.banner_img;
+        actInfo.show_total_num.intValue();
+        String str2 = actInfo.banner_img_size;
+        if (!vi.isEmpty(str2)) {
             try {
-                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
-                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    j15Var.e = parseFloat;
-                } else {
-                    j15Var.e = -1.0f;
-                }
-            } catch (NumberFormatException unused) {
-                j15Var.e = -1.0f;
+                String[] split = str2.split(",");
+                this.h = ug.e(split[0], 1);
+                this.i = ug.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return j15Var;
         }
-        return (j15) invokeL.objValue;
-    }
-
-    public static boolean c(j15 j15Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, j15Var)) == null) {
-            if (j15Var == null || !j15Var.a) {
-                return true;
-            }
-            if (!TextUtils.isEmpty(j15Var.f) && !TextUtils.isEmpty(j15Var.d) && (bVar = j15Var.g) != null && !TextUtils.isEmpty(bVar.b) && (aVar = j15Var.h) != null && !TextUtils.isEmpty(aVar.b)) {
-                return true;
-            }
-            return false;
+        if (this.h <= 0) {
+            this.h = 1;
         }
-        return invokeL.booleanValue;
+        if (this.i <= 0) {
+            this.i = 1;
+        }
+        i45 i45Var = new i45();
+        this.j = i45Var;
+        i45Var.a(actInfo.lottery_senior);
     }
 }

@@ -9,7 +9,6 @@ public class zs3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
 
     public zs3() {
         Interceptable interceptable = $ic;

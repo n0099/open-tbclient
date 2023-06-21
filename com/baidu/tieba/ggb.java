@@ -1,96 +1,53 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodecList;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ggb {
+public abstract class ggb {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void a(String str);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    int codecCount = MediaCodecList.getCodecCount();
-                    for (int i = 0; i < codecCount; i++) {
-                        String name = MediaCodecList.getCodecInfoAt(i).getName();
-                        if (name.contains("decoder") && (name.contains("avc") || name.contains("h264"))) {
-                            boolean unused = ggb.a = true;
-                        }
-                        if (name.contains("decoder") && (name.contains("hevc") || name.contains("h265"))) {
-                            boolean unused2 = ggb.b = true;
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947794375, "Lcom/baidu/tieba/ggb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947794375, "Lcom/baidu/tieba/ggb;");
-                return;
-            }
-        }
-        new Thread(new a()).start();
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
+    public final boolean b(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            TLog.h("CodecCheckHelper", "CodecCheck isSupportH264HwDecode " + a);
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                egb.b.f("sendBitmap2MainProcess channelId is null");
+                return false;
+            }
+            wfb a = wfb.c.a();
+            String str = this.a;
+            if (str == null) {
+                Intrinsics.throwNpe();
+            }
+            return a.g(str, bitmap);
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public final boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            TLog.h("CodecCheckHelper", "CodecCheck isSupportH265HwDecode " + b);
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                egb.b.f("sendData2MainProcess: error channelId is empty or null");
+                return false;
+            }
+            wfb a = wfb.c.a();
+            String str2 = this.a;
+            if (str2 == null) {
+                Intrinsics.throwNpe();
+            }
+            return a.h(str2, str);
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

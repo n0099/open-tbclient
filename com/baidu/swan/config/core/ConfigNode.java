@@ -5,17 +5,17 @@ import com.baidu.tieba.aw3;
 import com.baidu.tieba.bw3;
 import com.baidu.tieba.cw3;
 import com.baidu.tieba.dw3;
-import com.baidu.tieba.fw3;
+import com.baidu.tieba.ew3;
 import com.baidu.tieba.gw3;
-import com.baidu.tieba.yv3;
+import com.baidu.tieba.hw3;
 import com.baidu.tieba.zv3;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public enum ConfigNode {
-    HOST_INFO("host_info", cw3.class, dw3.class),
-    FRAMEWORK("framework", aw3.class, bw3.class),
-    EXTENSION(ETAG.KEY_EXTENSION, yv3.class, zv3.class),
-    TIP_MSG("tipmsgs", fw3.class, gw3.class);
+    HOST_INFO("host_info", dw3.class, ew3.class),
+    FRAMEWORK("framework", bw3.class, cw3.class),
+    EXTENSION(ETAG.KEY_EXTENSION, zv3.class, aw3.class),
+    TIP_MSG("tipmsgs", gw3.class, hw3.class);
     
     public String mName;
     public Class<? extends Object> mParamsProvider;

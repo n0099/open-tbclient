@@ -1,28 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+/* loaded from: classes7.dex */
 public class u0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashSet<String> a;
+    public String b;
 
-    public static void a(String str) {
+    public u0a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StringBuilder sb = new StringBuilder();
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace.length > 4) {
-                StackTraceElement stackTraceElement = stackTrace[4];
-                String methodName = stackTraceElement.getMethodName();
-                sb.append(stackTraceElement.getClassName());
-                sb.append(":");
-                sb.append(methodName);
-                sb.append(":");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            sb.append(str);
-            DefaultLog.getInstance().c("MainTab", sb.toString());
         }
     }
 }

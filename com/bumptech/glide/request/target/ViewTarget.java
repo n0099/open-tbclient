@@ -25,7 +25,7 @@ import java.util.List;
 public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static final String TAG = "ViewTarget";
     public static boolean isTagUsedAtLeastOnce = false;
-    public static int tagId = 2131299876;
+    public static int tagId = 2131299874;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
     public boolean isAttachStateListenerAdded;

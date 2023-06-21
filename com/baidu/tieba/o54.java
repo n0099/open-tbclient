@@ -12,8 +12,6 @@ public class o54 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public int c;
-    public long d;
 
     public o54() {
         Interceptable interceptable = $ic;
@@ -36,8 +34,6 @@ public class o54 {
             o54 o54Var = new o54();
             o54Var.a = jSONObject.optInt("state");
             o54Var.b = jSONObject.optString("msg");
-            o54Var.c = jSONObject.optInt("switch_open");
-            o54Var.d = jSONObject.optLong("heartbeat_time");
             return o54Var;
         }
         return (o54) invokeL.objValue;
@@ -47,7 +43,7 @@ public class o54 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
         }
         return (String) invokeV.objValue;
     }

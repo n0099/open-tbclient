@@ -117,7 +117,7 @@ public class ShareForumAdapter extends BaseChatAdapter<ShareForumSysMsg, ViewHol
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.V = 1;
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090e84);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090e82);
             chatShareCard.setCurrentCardType((short) 33);
             return new ViewHolder(chatShareCard);
         }

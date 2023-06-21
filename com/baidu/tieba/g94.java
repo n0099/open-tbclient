@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.j54;
 /* loaded from: classes5.dex */
 public interface g94 {
-    boolean a(Object obj);
-
-    void b(Object obj);
-
-    void c(Object obj);
+    void b(j54.d dVar);
 }

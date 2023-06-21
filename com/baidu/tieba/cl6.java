@@ -1,221 +1,241 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tbadk.TbConfig;
+import android.webkit.URLUtil;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.core.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.QuickWebViewSwitch;
+import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cl6 {
+public final class cl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ez4 a;
 
-    public static zk6 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public cl6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            File l = vk6.m().l();
-            File file = new File(l, str + "/" + str2);
-            if (!file.exists() || TextUtils.isEmpty(str2)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            Map<String, el6> b = b(file);
-            if (!f(file, b)) {
-                return null;
-            }
-            return new zk6(file, str2, b);
         }
-        return (zk6) invokeLL.objValue;
     }
 
-    public static Map<String, el6> b(File file) {
+    public void c() {
+        ez4 ez4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ez4Var = this.a) != null) {
+            ez4Var.h();
+            this.a = null;
+        }
+    }
+
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            File file2 = new File(file, "router.json");
-            if (!file2.exists()) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(lm6.d(file2));
-                Map<String, el6> d = d(jSONObject.optJSONObject("config"));
-                Map<String, el6> d2 = d(jSONObject.optJSONObject("proxyConfig"));
-                if (!jm6.b(d2)) {
-                    d.putAll(d2);
-                }
-                return d;
+                return "0".equals(Uri.parse(str).getQueryParameter("useOfflinePackage"));
             } catch (Exception e) {
                 e.printStackTrace();
-                return null;
+                return false;
             }
         }
-        return (Map) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static Set<String> c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return str + str2;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("data_urls");
-            if (!jm6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
+            return str + str2 + "?" + str3;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public final void d(WebView webView, Uri uri, jl6 jl6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, uri, jl6Var) == null) && !om6.a(jl6Var.b) && webView != null) {
+            if (this.a == null) {
+                this.a = new ez4();
+            }
+            Map<String, String> a = oj6.a(uri);
+            Iterator<String> it = jl6Var.b.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                Uri parse = Uri.parse(next);
+                for (String str : parse.getQueryParameterNames()) {
+                    String queryParameter = parse.getQueryParameter(str);
+                    if (!TextUtils.isEmpty(queryParameter) && queryParameter.startsWith("{") && queryParameter.endsWith("}")) {
+                        next = next.replace(queryParameter, oj6.c(a, queryParameter));
+                    }
+                }
+                OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
+                offlineBridgeData.type = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
+                offlineBridgeData.url = next;
+                offlineBridgeData.module = jl6Var.c;
+                offlineBridgeData.begin = System.currentTimeMillis();
+                ez4 ez4Var = this.a;
+                if (ez4Var != null) {
+                    ez4Var.j(webView, offlineBridgeData, null);
                 }
             }
-            return hashSet;
         }
-        return (Set) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v0, types: [int] */
-    /* JADX WARN: Type inference failed for: r10v1 */
-    /* JADX WARN: Type inference failed for: r10v4, types: [boolean] */
-    public static Map<String, el6> d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        boolean z;
-        JSONObject optJSONObject;
+    public final void e(String str, String str2, boolean z, String str3, String str4) {
+        String str5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            HashMap hashMap = new HashMap();
-            if (jSONObject == null) {
-                return hashMap;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), str3, str4}) == null) {
+            ck6 a = ck6.a(HybridStatisticKey.KEY_OFFLINE_PACKAGE);
+            a.c("obj_name", str3);
+            a.c("obj_source", str);
+            a.c("obj_locate", str2);
+            a.c("obj_param1", str4);
+            Pair[] pairArr = new Pair[2];
+            if (z) {
+                str5 = "1";
+            } else {
+                str5 = "0";
             }
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !hashMap.containsKey(next)) {
+            pairArr[0] = Pair.create("is_proxy", str5);
+            pairArr[1] = Pair.create("is_new_hybrid", "1");
+            a.c(TiebaStatic.Params.OBJ_PARAM2, rm6.a(pairArr));
+            a.d();
+        }
+    }
+
+    public final String f(WebView webView, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+            Uri parse = Uri.parse(str);
+            jl6 g = bl6.e().g(parse);
+            if (g == null) {
+                HybridLog.getInstance().b("Offline", "离线包匹配失败 rule不存在：" + str);
+                e(str, "without_bundle", false, "", "");
+                return null;
+            }
+            String p = al6.n().p(g.c);
+            if (TextUtils.isEmpty(g.c)) {
+                str2 = "none";
+            } else {
+                str2 = g.c;
+            }
+            String str3 = str2;
+            if (TextUtils.isEmpty(p)) {
+                p = "0.0.0.0";
+            }
+            String str4 = p;
+            if (!g.g) {
+                if (!al6.n().s()) {
+                    HybridLog.getInstance().c("Offline", "接口未返回，启用旧的离线包：moduleName: " + str3 + " moduleVersion:" + str4 + " + url+" + str);
+                    g.g = true;
+                } else {
+                    e(str, "processing_bundle", g.h, str3, str4);
+                    HybridLog.getInstance().b("Offline", "离线包匹配失败 离线包不可用：" + str3 + " " + str4);
+                    return null;
+                }
+            }
+            String str5 = g.d;
+            if (!TextUtils.isEmpty(str5) && !str5.endsWith(".html")) {
+                str5 = g.d + ".html";
+            }
+            String str6 = str5;
+            if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str6) && !TextUtils.isEmpty(str4)) {
+                String str7 = al6.n().m() + "/" + str3 + "/" + str4 + "/";
+                File file = new File(str7, str6);
+                if (!file.exists()) {
+                    g.g = false;
+                    e(str, "path_not_found", g.h, str3, str4);
+                    HybridLog.getInstance().b("Offline", "离线包匹配失败 本地主html文件不存在：" + file);
+                    return null;
+                }
+                g.g = true;
+                g.e = "file://" + str7;
+                bl6.e().a(tm6.c(str), g);
+                if (!g.h && !om6.a(g.b)) {
+                    d(webView, parse, g);
+                }
+                e(str, "success", g.h, str3, str4);
+                if (g.h) {
+                    HybridLog.getInstance().c("Offline", "命中代理模式离线包：url: " + str);
+                    return str;
+                }
+                return a(g.e, str6, parse.getQuery());
+            }
+            g.g = false;
+            e(str, "config_error", g.h, str3, str4);
+            HybridLog.getInstance().b("Offline", "离线包匹配失败 配置校验失败：" + str3 + " " + str6 + " " + str4);
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @NonNull
+    public Pair<Boolean, String> g(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
+            if (!URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str)) {
+                if (!URLUtil.isNetworkUrl(str)) {
+                    return Pair.create(Boolean.FALSE, str);
+                }
+                e(str, "start", false, "", "");
+                if (!QuickWebViewSwitch.getInOn()) {
+                    tr8 hybridLog = HybridLog.getInstance();
+                    hybridLog.b("Offline", "离线包开关关闭：" + str);
+                    bl6.e().h(str);
+                    e(str, "close_offline", false, "", "");
+                    return Pair.create(Boolean.FALSE, str);
+                } else if (b(str)) {
+                    bl6.e().h(str);
+                    tr8 hybridLog2 = HybridLog.getInstance();
+                    hybridLog2.b("Offline", "强制使用线上：" + str);
+                    e(str, "dev_mode", false, "", "");
+                    return Pair.create(Boolean.FALSE, str);
+                } else {
+                    String str2 = null;
                     try {
-                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
-                        String optString = jSONObject2.optString("module", "");
-                        String optString2 = jSONObject2.optString("path", "");
-                        ?? optInt = jSONObject2.optInt("proxyMode", 0);
-                        if (jSONObject2.has("proxySwitch") && (optJSONObject = jSONObject2.optJSONObject("proxySwitch")) != null) {
-                            optInt = qm6.a(optJSONObject.optString("android", ""), TbConfig.getVersion());
-                        }
-                        el6 el6Var = new el6();
-                        if (jSONObject2.optInt("proxyMode", 0) == 1) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        el6Var.i = z;
-                        if (optInt == 1) {
-                            el6Var.h = true;
-                            el6Var.a = ol6.a(jSONObject2);
-                        } else {
-                            el6Var.h = false;
-                            el6Var.b = c(jSONObject2);
-                        }
-                        el6Var.c = optString;
-                        el6Var.d = optString2;
-                        el6Var.f = e(next, jSONObject2);
-                        hashMap.put(next, el6Var);
-                        hl9.a().j(next, next);
-                        hl9.a().k(next, optString2);
-                    } catch (JSONException unused) {
+                        str2 = f(webView, str);
+                    } catch (Exception e) {
+                        tr8 hybridLog3 = HybridLog.getInstance();
+                        hybridLog3.b("Offline", "离线包处理异常 exception：" + e + " " + str);
+                        e(str, "exception", false, "", "");
                     }
+                    if (!TextUtils.isEmpty(str2)) {
+                        return Pair.create(Boolean.TRUE, str2);
+                    }
+                    bl6.e().h(str);
+                    return Pair.create(Boolean.FALSE, str);
                 }
             }
-            return hashMap;
+            return Pair.create(Boolean.TRUE, str);
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public static Set<String> e(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            HashSet<String> hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("source");
-            if (!jm6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
-                }
-            }
-            String optString = jSONObject.optString("staticPrePath", "");
-            for (String str2 : hashSet) {
-                if (!TextUtils.isEmpty(str2)) {
-                    hl9 a = hl9.a();
-                    a.j(optString + "/" + str2, str);
-                    hl9 a2 = hl9.a();
-                    a2.k(optString + "/" + str2, str2);
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean f(File file, Map<String, el6> map) {
-        InterceptResult invokeLL;
-        String d;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, map)) == null) {
-            File file2 = new File(file, "staticSources.json");
-            if (jm6.b(map) || !file2.exists() || !file2.isFile()) {
-                return false;
-            }
-            try {
-                d = lm6.d(file2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (TextUtils.isEmpty(d)) {
-                return false;
-            }
-            JSONObject optJSONObject2 = new JSONObject(d).optJSONObject("sources");
-            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(SmsLoginView.f.j)) == null) {
-                return true;
-            }
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, el6> entry : map.entrySet()) {
-                el6 value = entry.getValue();
-                HashSet<String> hashSet = new HashSet(value.f);
-                hashSet.add(value.d);
-                Log.e("newHybrid", "-------------------------：" + entry.getKey());
-                for (String str : hashSet) {
-                    String str2 = (String) hashMap.get(str);
-                    if (str2 == null) {
-                        str2 = km6.b(new File(file, str));
-                        hashMap.put(str, str2);
-                    }
-                    String optString = optJSONObject.optString(str, "");
-                    if (TextUtils.isEmpty(optString) || !optString.equalsIgnoreCase(str2)) {
-                        Log.e("newHybrid", str + "," + optString + "_" + str2);
-                        return false;
-                    }
-                    while (r5.hasNext()) {
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
+        return (Pair) invokeLL.objValue;
     }
 }

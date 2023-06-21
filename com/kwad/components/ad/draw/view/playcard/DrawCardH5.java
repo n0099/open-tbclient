@@ -55,10 +55,10 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     private void E(Context context) {
         this.mContext = context;
         FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0481, this);
-        this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f09124c);
-        this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f091242);
-        this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f09124e);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091277);
+        this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f091251);
+        this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f091247);
+        this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f091253);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09127c);
     }
 
     private void aL() {
@@ -103,7 +103,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 != this.cp) {
-            com.kwad.components.core.c.a.a.a(new a.C0630a(getContext()).L(this.mAdTemplate).a(new a.b() { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
+            com.kwad.components.core.c.a.a.a(new a.C0631a(getContext()).L(this.mAdTemplate).a(new a.b() { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     if (DrawCardH5.this.co != null) {

@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uw9;
+import com.baidu.tieba.my9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<uw9> g;
+    public List<my9> g;
     public int h;
     public Runnable i;
 
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<uw9> list) {
+    public void m(List<my9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -291,12 +291,12 @@ public class FrsAdCommentScrollView extends LinearLayout {
             this.g = new LinkedList();
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0332, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090815);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c2);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090814);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090813);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c8);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090812);
             this.c = frameLayout;
             frameLayout.setTag(this.a);
-            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0918c1);
+            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0918c7);
             this.d = frameLayout2;
             frameLayout2.setTag(this.b);
         }
@@ -324,26 +324,26 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        uw9 uw9Var;
+        my9 my9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            uw9 uw9Var2 = (uw9) ListUtils.getItem(this.g, this.h);
+            my9 my9Var2 = (my9) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                uw9Var = (uw9) ListUtils.getItem(this.g, 0);
+                my9Var = (my9) ListUtils.getItem(this.g, 0);
             } else {
-                uw9Var = (uw9) ListUtils.getItem(this.g, this.h + 1);
+                my9Var = (my9) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && uw9Var2 != null) {
-                String a2 = uw9Var2.a();
-                if (uw9Var2.b()) {
-                    a2 = getContext().getString(R.string.obfuscated_res_0x7f0f0867, a2);
+            if ((this.c.getTag() instanceof TextView) && my9Var2 != null) {
+                String a2 = my9Var2.a();
+                if (my9Var2.b()) {
+                    a2 = getContext().getString(R.string.obfuscated_res_0x7f0f086b, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && uw9Var != null) {
-                String a3 = uw9Var.a();
-                if (uw9Var.b()) {
-                    a3 = getContext().getString(R.string.obfuscated_res_0x7f0f0867, a3);
+            if ((this.d.getTag() instanceof TextView) && my9Var != null) {
+                String a3 = my9Var.a();
+                if (my9Var.b()) {
+                    a3 = getContext().getString(R.string.obfuscated_res_0x7f0f086b, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);
             }

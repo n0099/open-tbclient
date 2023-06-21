@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.entity.RequestHeader;
-import com.hihonor.push.sdk.common.data.ApiException;
 /* loaded from: classes5.dex */
-public abstract class g9b<TResult> {
+public final class g9b extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final IMessageEntity b;
-    public final q8b c;
-    public RequestHeader d;
-    public o9b<TResult> e;
+    public final /* synthetic */ d9b a;
+    public final /* synthetic */ c9b b;
 
-    public abstract void a(ApiException apiException, Object obj);
-
-    public g9b(String str, IMessageEntity iMessageEntity) {
+    public g9b(c9b c9bVar, d9b d9bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, iMessageEntity};
+            Object[] objArr = {c9bVar, d9bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,20 +30,33 @@ public abstract class g9b<TResult> {
                 return;
             }
         }
-        getClass().getSimpleName();
-        this.a = str;
-        this.b = iMessageEntity;
-        this.c = q8b.b(str);
+        this.b = c9bVar;
+        this.a = d9bVar;
     }
 
-    public final void b(ApiException apiException, Object obj) {
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
-            if (this.e != null) {
-                a(apiException, obj);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            Bundle extras = intent.getExtras();
+            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
                 return;
             }
-            String str = "This Task has been canceled, uri:" + this.a;
+            this.b.p();
+            int i = extras.getInt("install.status");
+            if (i != 1 && i != 2 && i != 3) {
+                if (i != 4) {
+                    if (i == 6) {
+                        this.a.a(com.google.ar.core.p.CANCELLED);
+                        return;
+                    }
+                    return;
+                }
+                this.a.a(com.google.ar.core.p.COMPLETED);
+                return;
+            }
+            this.a.a(com.google.ar.core.p.ACCEPTED);
         }
     }
 }

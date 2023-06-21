@@ -7,12 +7,12 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import com.baidu.tieba.is1;
-import com.baidu.tieba.ka3;
-import com.baidu.tieba.rq4;
+import com.baidu.tieba.js1;
+import com.baidu.tieba.la3;
+import com.baidu.tieba.sq4;
 /* loaded from: classes4.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
-    public static final boolean y = is1.a;
+    public static final boolean y = js1.a;
     public a w;
     public boolean x;
 
@@ -62,8 +62,8 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
         return getRefreshableFactory().createRefreshableView(context);
     }
 
-    public PullToRefreshBaseWebView(Context context, ka3<T> ka3Var, PullToRefreshBase.HEADERTYPE headertype) {
-        super(context, ka3Var, headertype);
+    public PullToRefreshBaseWebView(Context context, la3<T> la3Var, PullToRefreshBase.HEADERTYPE headertype) {
+        super(context, la3Var, headertype);
         this.x = false;
     }
 
@@ -84,7 +84,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
         if (getScrollYValue() == 0 && this.x) {
             return false;
         }
-        boolean a2 = rq4.a(this.p, -1);
+        boolean a2 = sq4.a(this.p, -1);
         if (y) {
             Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + a2);
         }

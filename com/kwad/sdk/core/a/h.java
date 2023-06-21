@@ -2,7 +2,7 @@ package com.kwad.sdk.core.a;
 
 import androidx.annotation.NonNull;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface h {
     void a(String str, Map<String, String> map, String str2);
 

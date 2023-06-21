@@ -1,33 +1,36 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.crypto.SecretKey;
+import com.hihonor.push.framework.aidl.entity.PushTokenResult;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.common.data.DownMsgType;
+import com.hihonor.push.sdk.common.data.UpMsgType;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
-public class fab implements hab {
+public class fab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eab a;
-    public SecretKey b;
+    public final Context a;
+    public rab b;
 
-    public fab(eab eabVar) {
+    public fab(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eabVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,72 +40,149 @@ public class fab implements hab {
                 return;
             }
         }
-        this.a = eabVar;
-        b();
+        this.a = context;
+        this.b = new rab();
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
-                return matcher.find() ? matcher.group(1) : "";
-            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
-                Log.e("ExclamationMark", "getRawString exception");
-                return "";
-            }
+    public static /* synthetic */ void f(s9b s9bVar, int i, String str) {
+        if (s9bVar != null) {
+            s9bVar.onFailure(i, str);
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hab
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
+    public final void b(final s9b<?> s9bVar, final int i, final String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.b == null) {
-                str3 = "mKey is null, return default value";
-            } else if (!c(str)) {
-                return str2;
-            } else {
-                try {
-                    return new String(jab.b(this.b, z9b.b(d(str))), "UTF-8");
-                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s9bVar, i, str) == null) {
+            qab.b(new Runnable() { // from class: com.baidu.tieba.r9b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        fab.f(s9b.this, i, str);
+                    }
+                }
+            });
+        }
+    }
+
+    public static /* synthetic */ void g(s9b s9bVar, Object obj) {
+        if (s9bVar != null) {
+            s9bVar.onSuccess(obj);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void h(Callable callable, s9b s9bVar) {
+        try {
+            c(s9bVar, callable.call());
+        } catch (ApiException e) {
+            b(s9bVar, e.getErrorCode(), e.getMessage());
+        } catch (Exception unused) {
+            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_INTERNAL_ERROR;
+            b(s9bVar, honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
+        }
+    }
+
+    public final <T> void c(final s9b<T> s9bVar, final T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, s9bVar, t) == null) {
+            qab.b(new Runnable() { // from class: com.baidu.tieba.q9b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        fab.g(s9b.this, t);
+                    }
+                }
+            });
+        }
+    }
+
+    public void d(s9b<String> s9bVar, final boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, s9bVar, z) == null) {
+            e(new Callable() { // from class: com.baidu.tieba.k9b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? fab.this.a(z) : invokeV.objValue;
+                }
+            }, s9bVar);
+        }
+    }
+
+    public final <T> void e(final Callable<T> callable, final s9b<T> s9bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, callable, s9bVar) == null) {
+            Runnable runnable = new Runnable() { // from class: com.baidu.tieba.p9b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        fab.this.h(callable, s9bVar);
+                    }
+                }
+            };
+            qab qabVar = qab.f;
+            if (qabVar.d == null) {
+                synchronized (qabVar.e) {
+                    if (qabVar.d == null) {
+                        qabVar.d = qabVar.c();
+                    }
                 }
             }
-            Log.e("ExclamationMark", str3);
-            return str2;
+            qabVar.d.execute(runnable);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public final SecretKey b() {
-        InterceptResult invokeV;
+    public final String a(boolean z) throws Exception {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.b.getClass();
             try {
-                String a = this.a.a("/code/code1", null);
-                String a2 = this.a.a("/code/code2", null);
-                String a3 = this.a.a("/code/code3", null);
-                String a4 = this.a.a("/code/code4", null);
-                if (a != null && a2 != null && a3 != null && a4 != null) {
-                    this.b = jab.a(z9b.b(a), z9b.b(a2), z9b.b(a3), z9b.b(a4), 10000);
+                wab wabVar = new wab(UpMsgType.REQUEST_PUSH_TOKEN, null);
+                wabVar.d = w9b.a();
+                String pushToken = ((PushTokenResult) w9b.d(oab.c.a(wabVar))).getPushToken();
+                if (z && !TextUtils.isEmpty(pushToken)) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, DownMsgType.RECEIVE_TOKEN);
+                    bundle.putString("push_token", pushToken);
+                    abb abbVar = new abb();
+                    Context context = this.a;
+                    Log.i("MessengerSrvConnection", "start bind service.");
+                    try {
+                        Intent intent = new Intent();
+                        intent.setPackage(context.getPackageName());
+                        intent.setAction("com.hihonor.push.action.MESSAGING_EVENT");
+                        Context applicationContext = context.getApplicationContext();
+                        abbVar.c = applicationContext;
+                        abbVar.b = bundle;
+                        if (applicationContext.bindService(intent, abbVar, 1)) {
+                            Log.i("MessengerSrvConnection", "bind service succeeded.");
+                        }
+                    } catch (Exception e) {
+                        String str = "bind service failed." + e.getMessage();
+                    }
                 }
-            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
-                this.b = null;
+                return pushToken;
+            } catch (Exception e2) {
+                throw w9b.b(e2);
             }
-            return this.b;
         }
-        return (SecretKey) invokeV.objValue;
+        return (String) invokeZ.objValue;
     }
 }

@@ -38,7 +38,7 @@ public final class a {
             intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
             if (this.mContext.bindService(intent, this.Zq, 1)) {
                 try {
-                    str = new a.C0666a(this.Zp.take()).getID();
+                    str = new a.C0667a(this.Zp.take()).getID();
                     new StringBuilder("getOAID oaid:").append(str);
                     context = this.mContext;
                 } catch (Exception unused) {

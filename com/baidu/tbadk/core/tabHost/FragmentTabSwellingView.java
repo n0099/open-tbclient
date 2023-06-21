@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -134,13 +134,13 @@ public class FragmentTabSwellingView extends View {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e = vi.g(getContext().getApplicationContext(), R.dimen.tbds137);
-            this.f = vi.g(getContext().getApplicationContext(), R.dimen.tbds204);
-            this.g = vi.g(getContext().getApplicationContext(), R.dimen.tbds23);
-            this.h = vi.g(getContext().getApplicationContext(), R.dimen.tbds51);
-            this.i = vi.g(getContext().getApplicationContext(), R.dimen.tbds16);
-            this.j = vi.g(getContext().getApplicationContext(), R.dimen.tbds52);
-            this.k = vi.g(getContext().getApplicationContext(), R.dimen.tbds2);
+            this.e = wi.g(getContext().getApplicationContext(), R.dimen.tbds137);
+            this.f = wi.g(getContext().getApplicationContext(), R.dimen.tbds204);
+            this.g = wi.g(getContext().getApplicationContext(), R.dimen.tbds23);
+            this.h = wi.g(getContext().getApplicationContext(), R.dimen.tbds51);
+            this.i = wi.g(getContext().getApplicationContext(), R.dimen.tbds16);
+            this.j = wi.g(getContext().getApplicationContext(), R.dimen.tbds52);
+            this.k = wi.g(getContext().getApplicationContext(), R.dimen.tbds2);
         }
     }
 
@@ -149,7 +149,7 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            if (getWidth() > vi.l(getContext())) {
+            if (getWidth() > wi.l(getContext())) {
                 return;
             }
             this.c.reset();

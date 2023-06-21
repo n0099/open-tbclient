@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import java.net.MalformedURLException;
+import com.baidu.tieba.o43;
 /* loaded from: classes5.dex */
 public interface ft1 {
-    String a();
-
-    boolean b();
-
-    String c(String str) throws MalformedURLException;
+    void a(String str, o43.k kVar);
 }

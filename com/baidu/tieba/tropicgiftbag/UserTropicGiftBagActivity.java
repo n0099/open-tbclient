@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
 import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -156,7 +156,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f1417));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f141b));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -166,17 +166,17 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925d6);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925e3);
             this.a = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(vi.g(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d7);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0928b7);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0914e4);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0914e5);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c7);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c8);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0925d8);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09071a);
+            roundRelativeLayout.setAllCornerRound(wi.g(this, R.dimen.tbds32));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0925e4);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0928c4);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0914ea);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0914eb);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920d2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920d3);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0925e5);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090717);
         }
     }
 
@@ -185,18 +185,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080ce0);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080ce4);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080ce1);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080ce5);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080ce2);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080ce6);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080ad4);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080ad8);
             this.i.setSkinType(i);
         }
     }

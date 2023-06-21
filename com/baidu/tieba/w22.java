@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.app.Application;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 /* loaded from: classes8.dex */
-public final class w22 extends s22 {
+public final class w22 extends t22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,46 +28,47 @@ public final class w22 extends s22 {
         }
     }
 
-    @Override // com.baidu.tieba.s22
-    public y32 c(@NonNull eb2 eb2Var) {
+    @Override // com.baidu.tieba.t22
+    public z32 c(@NonNull fb2 fb2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eb2Var)) == null) {
-            View q = gv2.i().q(eb2Var);
-            if (q == null) {
-                return new y32(1001);
-            }
-            return e(q);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fb2Var)) == null) {
+            return e();
         }
-        return (y32) invokeL.objValue;
+        return (z32) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s22
-    public y32 d(int i) {
+    @Override // com.baidu.tieba.t22
+    public z32 d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return new y32(1001);
+            return e();
         }
-        return (y32) invokeI.objValue;
+        return (z32) invokeI.objValue;
     }
 
-    public final y32 e(@NonNull View view2) {
-        InterceptResult invokeL;
-        y32 y32Var;
+    public z32 e() {
+        InterceptResult invokeV;
+        z32 z32Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Application c = gv2.c();
+            int i = (int) 28.4d;
+            int P = (int) qp3.P(qp3.o(c) - c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f6));
+            int i2 = P - ((int) 75.53d);
+            int P2 = ((int) (qp3.P(qp3.t()) + 0.5f)) + ((38 - i) / 2);
             try {
-                y32Var = new y32(0, b((int) (pp3.P(view2.getLeft()) + 0.5f), (int) (pp3.P(view2.getTop()) + 0.5f), (int) (pp3.P(view2.getRight()) + 0.5f), (int) (pp3.P(view2.getBottom()) + 0.5f)));
+                z32Var = new z32(0, b(i2, P2, P, i + P2));
             } catch (JSONException e) {
-                if (s22.a) {
+                if (t22.a) {
                     e.printStackTrace();
                 }
-                y32Var = new y32(1001, "result JSONException");
+                z32Var = new z32(1001, "result JSONException");
             }
-            y82.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param normally, result = " + y32Var);
-            return y32Var;
+            z82.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param abnormally, result = " + z32Var);
+            return z32Var;
         }
-        return (y32) invokeL.objValue;
+        return (z32) invokeV.objValue;
     }
 }

@@ -4,7 +4,10 @@ import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gf;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.Cif;
+import com.baidu.tieba.ff;
 import com.baidu.tieba.hf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +26,8 @@ public class SwitchManager {
     public static SwitchManager sSwitchManager;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> mBaseSwitchs;
-    public ConcurrentHashMap<String, hf> mSwitchs;
+    public ConcurrentHashMap<String, Cif> mSwitchs;
+    public ff service;
 
     static {
         InterceptResult invokeClinit;
@@ -55,14 +59,31 @@ public class SwitchManager {
         }
         this.mSwitchs = null;
         this.mBaseSwitchs = null;
+        this.service = (ff) ServiceManager.getService(ff.a);
         this.mSwitchs = new ConcurrentHashMap<>();
+    }
+
+    private void clearInternal(SharedPreferences sharedPreferences) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, this, sharedPreferences) != null) || this.mSwitchs == null) {
+            return;
+        }
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        for (Cif cif : this.mSwitchs.values()) {
+            if (cif != null) {
+                cif.h(0);
+                edit.putInt(cif.d() + Cif.e, 0);
+                edit.putInt(cif.d() + Cif.f, cif.c());
+            }
+        }
+        edit.commit();
     }
 
     public static synchronized SwitchManager getInstance() {
         InterceptResult invokeV;
         SwitchManager switchManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (SwitchManager.class) {
                 if (sSwitchManager == null) {
                     sSwitchManager = new SwitchManager();
@@ -83,18 +104,18 @@ public class SwitchManager {
         return (HashMap) invokeV.objValue;
     }
 
-    public void addSwitchData(gf gfVar) {
+    public void addSwitchData(hf hfVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, gfVar) != null) || gfVar == null || this.mSwitchs.containsKey(gfVar.e())) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hfVar) != null) || hfVar == null || this.mSwitchs.containsKey(hfVar.e())) {
             return;
         }
-        this.mSwitchs.put(gfVar.e(), new hf(gfVar));
+        this.mSwitchs.put(hfVar.e(), new Cif(hfVar));
     }
 
     public void crash(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Iterator<hf> it = this.mSwitchs.values().iterator();
+            Iterator<Cif> it = this.mSwitchs.values().iterator();
             while (it.hasNext() && !it.next().a(str)) {
             }
         }
@@ -104,9 +125,9 @@ public class SwitchManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            hf hfVar = this.mSwitchs.get(str);
-            if (hfVar != null) {
-                return hfVar.getType();
+            Cif cif = this.mSwitchs.get(str);
+            if (cif != null) {
+                return cif.getType();
             }
             return -1;
         }
@@ -126,33 +147,31 @@ public class SwitchManager {
         }
     }
 
-    public gf removeSwitchData(String str) {
+    public hf removeSwitchData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            hf remove = this.mSwitchs.remove(str);
+            Cif remove = this.mSwitchs.remove(str);
             if (remove != null) {
                 return remove.b();
             }
             return null;
         }
-        return (gf) invokeL.objValue;
+        return (hf) invokeL.objValue;
     }
 
     public void clear() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.mSwitchs == null) {
-            return;
-        }
-        SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        for (hf hfVar : this.mSwitchs.values()) {
-            if (hfVar != null) {
-                hfVar.h(0);
-                edit.putInt(hfVar.d() + hf.d, 0);
-                edit.putInt(hfVar.d() + hf.e, hfVar.c());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ff ffVar = this.service;
+            if (ffVar == null || ffVar.isTypeSp() || this.service.isTypeDoubleKv()) {
+                clearInternal(BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0));
+            }
+            ff ffVar2 = this.service;
+            if (ffVar2 == null || ffVar2.isTypeKv() || this.service.isTypeDoubleKv()) {
+                clearInternal(KVStorageFactory.getSharedPreferences("adp_feature_switch", 0));
             }
         }
-        edit.commit();
     }
 
     public void refreshSwitchManager(HashMap<String, Integer> hashMap) {
@@ -169,13 +188,13 @@ public class SwitchManager {
 
     public boolean turn(String str, int i) {
         InterceptResult invokeLI;
-        hf hfVar;
+        Cif cif;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            if (i < 0 || (hfVar = this.mSwitchs.get(str)) == null) {
+            if (i < 0 || (cif = this.mSwitchs.get(str)) == null) {
                 return false;
             }
-            return hfVar.i(i);
+            return cif.i(i);
         }
         return invokeLI.booleanValue;
     }

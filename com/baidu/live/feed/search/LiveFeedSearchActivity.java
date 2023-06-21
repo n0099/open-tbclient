@@ -46,14 +46,14 @@ import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc0;
 import com.baidu.tieba.cc0;
-import com.baidu.tieba.ce0;
-import com.baidu.tieba.fb0;
-import com.baidu.tieba.jc0;
-import com.baidu.tieba.md0;
-import com.baidu.tieba.nb0;
-import com.baidu.tieba.tb0;
+import com.baidu.tieba.dc0;
+import com.baidu.tieba.de0;
+import com.baidu.tieba.gb0;
+import com.baidu.tieba.kc0;
+import com.baidu.tieba.nd0;
+import com.baidu.tieba.ob0;
+import com.baidu.tieba.ub0;
 import com.baidu.ubc.Flow;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.ArrayList;
@@ -67,11 +67,11 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009e\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0010!\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u0000 ¹\u00012\u00020\u00012\u00020\u0002:\u0002¹\u0001B\b¢\u0006\u0005\b¸\u0001\u0010\u0005J\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0006\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0006\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0007\u0010\u0005J\u0017\u0010\n\u001a\u00020\u00032\u0006\u0010\t\u001a\u00020\bH\u0016¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\f\u0010\u0005J\u000f\u0010\r\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\r\u0010\u0005J\u000f\u0010\u000e\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u000e\u0010\u0005J\u000f\u0010\u000f\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u000f\u0010\u0005J\u000f\u0010\u0010\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0010\u0010\u0005J\u000f\u0010\u0011\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0011\u0010\u0005J\u0019\u0010\u0014\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u0012H\u0014¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0016H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u001a\u0010\u0005J\u000f\u0010\u001b\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u001b\u0010\u0005J\u000f\u0010\u001c\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u001c\u0010\u0005J\u000f\u0010\u001d\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u001d\u0010\u0005J\r\u0010\u001e\u001a\u00020\u0003¢\u0006\u0004\b\u001e\u0010\u0005J\u001d\u0010!\u001a\u00020\u00032\f\u0010 \u001a\b\u0012\u0004\u0012\u00020\u00160\u001fH\u0016¢\u0006\u0004\b!\u0010\"J\u001f\u0010&\u001a\u00020\u00032\u000e\u0010%\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010#H\u0016¢\u0006\u0004\b&\u0010\"J\u0017\u0010)\u001a\u00020\u00032\u0006\u0010(\u001a\u00020'H\u0016¢\u0006\u0004\b)\u0010*J\u001f\u0010,\u001a\u00020\u00032\u000e\u0010+\u001a\n\u0012\u0004\u0012\u00020\u0016\u0018\u00010\u001fH\u0016¢\u0006\u0004\b,\u0010\"JA\u00104\u001a\u00020\u00032\u0006\u0010.\u001a\u00020-2\u0006\u0010/\u001a\u00020-2\u0006\u00100\u001a\u00020-2\u0006\u00101\u001a\u00020-2\b\b\u0002\u00102\u001a\u00020-2\b\b\u0002\u00103\u001a\u00020-¢\u0006\u0004\b4\u00105J/\u0010:\u001a\u00020\u00032\u000e\u00107\u001a\n\u0012\u0004\u0012\u000206\u0018\u00010#2\u000e\u00109\u001a\n\u0012\u0004\u0012\u000208\u0018\u00010#H\u0016¢\u0006\u0004\b:\u0010;J\u000f\u0010<\u001a\u00020\u0003H\u0002¢\u0006\u0004\b<\u0010\u0005J\u000f\u0010=\u001a\u00020\u0003H\u0002¢\u0006\u0004\b=\u0010\u0005J\u000f\u0010>\u001a\u00020\u0003H\u0016¢\u0006\u0004\b>\u0010\u0005J\u000f\u0010?\u001a\u00020\u0003H\u0016¢\u0006\u0004\b?\u0010\u0005J\u0017\u0010B\u001a\u00020\u00032\u0006\u0010A\u001a\u00020@H\u0016¢\u0006\u0004\bB\u0010CJ\u000f\u0010D\u001a\u00020\u0003H\u0002¢\u0006\u0004\bD\u0010\u0005J\u0017\u0010F\u001a\u00020\u00032\u0006\u0010E\u001a\u00020\u0016H\u0016¢\u0006\u0004\bF\u0010\u0019J!\u0010I\u001a\u00020\u00032\u0006\u0010G\u001a\u00020-2\b\b\u0002\u0010H\u001a\u00020-H\u0002¢\u0006\u0004\bI\u0010JJ\u000f\u0010K\u001a\u00020\u0003H\u0002¢\u0006\u0004\bK\u0010\u0005J\u0017\u0010L\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0016H\u0002¢\u0006\u0004\bL\u0010\u0019R\u0016\u0010N\u001a\u00020M8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bN\u0010OR\u0018\u0010Q\u001a\u0004\u0018\u00010P8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bQ\u0010RR\u0018\u0010T\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bT\u0010UR\u0018\u0010V\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bV\u0010UR\u0018\u0010X\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bX\u0010YR\u0016\u0010Z\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bZ\u0010[R\u0018\u0010]\u001a\u0004\u0018\u00010\\8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b]\u0010^R\u0018\u0010_\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b_\u0010YR\u0018\u0010`\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b`\u0010YR\u0018\u0010a\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\ba\u0010UR\u0018\u0010b\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bb\u0010UR\u0018\u0010d\u001a\u0004\u0018\u00010c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bd\u0010eR\u0018\u0010f\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bf\u0010UR\u0018\u0010g\u001a\u0004\u0018\u00010P8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bg\u0010RR\u0018\u0010i\u001a\u0004\u0018\u00010h8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bi\u0010jR\u0018\u0010k\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bk\u0010UR\u0018\u0010l\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bl\u0010YR\u0018\u0010n\u001a\u0004\u0018\u00010m8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bn\u0010oR\u0018\u0010p\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bp\u0010YR\u0016\u0010q\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bq\u0010[R\u0016\u0010r\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\br\u0010[R\u0016\u0010t\u001a\u00020s8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bt\u0010uR\u0018\u0010w\u001a\u0004\u0018\u00010v8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bw\u0010xR\u0018\u0010z\u001a\u0004\u0018\u00010y8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bz\u0010{R\u0018\u0010|\u001a\u0004\u0018\u00010y8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b|\u0010{R\u0018\u0010~\u001a\u0004\u0018\u00010}8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b~\u0010\u007fR\u001c\u0010\u0081\u0001\u001a\u0005\u0018\u00010\u0080\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0081\u0001\u0010\u0082\u0001R\u001c\u0010\u0084\u0001\u001a\u0005\u0018\u00010\u0083\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0084\u0001\u0010\u0085\u0001R\u001c\u0010\u0087\u0001\u001a\u0005\u0018\u00010\u0086\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0087\u0001\u0010\u0088\u0001R\u001c\u0010\u008a\u0001\u001a\u0005\u0018\u00010\u0089\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008a\u0001\u0010\u008b\u0001R\u0019\u0010\u008c\u0001\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008c\u0001\u0010\u008d\u0001R\u0019\u0010(\u001a\u0004\u0018\u00010'8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b(\u0010\u008e\u0001R!\u0010\u008f\u0001\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010\u001f8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008f\u0001\u0010\u0090\u0001R\u0019\u0010\u0091\u0001\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0091\u0001\u0010\u008d\u0001R\u001a\u0010\u0093\u0001\u001a\u00030\u0092\u00018\u0002@\u0002X\u0082.¢\u0006\b\n\u0006\b\u0093\u0001\u0010\u0094\u0001R\u001a\u0010\u0096\u0001\u001a\u00030\u0095\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0096\u0001\u0010\u0097\u0001R\u001a\u0010\u0098\u0001\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0098\u0001\u0010YR\u001a\u0010\u0099\u0001\u001a\u0004\u0018\u00010c8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0099\u0001\u0010eR\u001c\u0010\u009b\u0001\u001a\u0005\u0018\u00010\u009a\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009b\u0001\u0010\u009c\u0001R\u001a\u0010\u009d\u0001\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u009d\u0001\u0010YR*\u0010\u009e\u0001\u001a\u0004\u0018\u00010@8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0006\b\u009e\u0001\u0010\u009f\u0001\u001a\u0006\b \u0001\u0010¡\u0001\"\u0005\b¢\u0001\u0010CR\u001c\u0010¤\u0001\u001a\u0005\u0018\u00010£\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¤\u0001\u0010¥\u0001R\u001a\u0010¦\u0001\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b¦\u0001\u0010YR\u001c\u0010¨\u0001\u001a\u0005\u0018\u00010§\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¨\u0001\u0010©\u0001R\u001c\u0010«\u0001\u001a\u0005\u0018\u00010ª\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b«\u0001\u0010¬\u0001R\u001a\u0010\u00ad\u0001\u001a\u0004\u0018\u00010c8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u00ad\u0001\u0010eR#\u0010³\u0001\u001a\u00030®\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b¯\u0001\u0010°\u0001\u001a\u0006\b±\u0001\u0010²\u0001R#\u0010¶\u0001\u001a\u00030®\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b´\u0001\u0010°\u0001\u001a\u0006\bµ\u0001\u0010²\u0001R\u001a\u0010·\u0001\u001a\u0004\u0018\u00010P8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b·\u0001\u0010R¨\u0006º\u0001"}, d2 = {"Lcom/baidu/live/feed/search/LiveFeedSearchActivity;", "Lcom/baidu/tieba/bc0;", "Landroidx/appcompat/app/AppCompatActivity;", "", "attachKeyboard", "()V", "checkFirstScreenDataIntegrity", "clearHistoryList", "", "posotion", "followCallback", "(I)V", "hideIncognitoModeBgView", "hideLoading", "hideSoftInput", "hideSuggestView", "initData", "initView", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", "", "uiMode", "onDarkModeChange", "(Ljava/lang/String;)V", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "releaseHotRank", "resetRequestData", "", "historyList", "setHistoryList", "(Ljava/util/List;)V", "", "Lcom/baidu/live/business/model/data/LiveRoomEntity;", "entities", "setHotRank", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$Presenter;", "presenter", "setPresenter", "(Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$Presenter;)V", "hintList", "setQueryHintList", "", "sug", "record", "hotrank", "result", "error", SchemeCollecter.CLASSIFY_EMPTY, "setRecyccleVisiable", "(ZZZZZZ)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "searchList", "Lcom/baidu/live/feed/search/model/data/LiveSearchSuggestion;", "suggestionList", "setSuggestions", "(Ljava/util/List;Ljava/util/List;)V", "showHistoryRecord", "showIncognitoModeBgView", "showLoading", "showSearchError", "Lcom/baidu/live/feed/search/model/data/SearchResultBean;", "searchBean", "showSearchResult", "(Lcom/baidu/live/feed/search/model/data/SearchResultBean;)V", "showSuggestView", "content", PopItemMethodConstant.showToast, "isEnterIncognito", "isShowToast", "switchIncognitoMode", "(ZZ)V", "ubcLogSearchResultPageShowEnd", "updateIncognitoModeBg", "Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter;", "adapter", "Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter;", "Landroid/widget/ImageView;", "backIcon", "Landroid/widget/ImageView;", "Landroid/widget/TextView;", "completeText", "Landroid/widget/TextView;", "deleteAllText", "Landroid/view/View;", "deleteIcon", "Landroid/view/View;", "firstScreenLoadSuccess", "Z", "Lcom/baidu/live/feed/search/adapter/LiveSearchHistoryRecordAdapter;", "historyRecordAdapter", "Lcom/baidu/live/feed/search/adapter/LiveSearchHistoryRecordAdapter;", "historyRecordHeadDelete", "historyRecordHeadNomal", "historyTitleOne", "historyTitleTwo", "Landroidx/recyclerview/widget/RecyclerView;", "hotRankView", "Landroidx/recyclerview/widget/RecyclerView;", "incognitoModeBgDes", "incognitoModeBgIcon", "Landroid/view/ViewStub;", "incognitoModeBgStub", "Landroid/view/ViewStub;", "incognitoModeBgTip", "incognitoModeBgView", "Landroid/widget/Button;", "incognitoModeBtn", "Landroid/widget/Button;", "incognitoModeView", "isInIncognito", "isRecommend", "Landroidx/recyclerview/widget/GridLayoutManager;", "layoutManager", "Landroidx/recyclerview/widget/GridLayoutManager;", "Landroidx/recyclerview/widget/LinearLayoutManager;", "layoutManagerHotRank", "Landroidx/recyclerview/widget/LinearLayoutManager;", "Landroidx/recyclerview/widget/StaggeredGridLayoutManager;", "layoutManagerRecommend", "Landroidx/recyclerview/widget/StaggeredGridLayoutManager;", "layoutManagerRecord", "Lcom/baidu/live/business/view/emotion/EmptyView;", "mEmptyView", "Lcom/baidu/live/business/view/emotion/EmptyView;", "Lcom/baidu/live/business/view/emotion/ErrorView;", "mErrorView", "Lcom/baidu/live/business/view/emotion/ErrorView;", "Lcom/baidu/ubc/Flow;", "mFlow", "Lcom/baidu/ubc/Flow;", "Lcom/baidu/live/business/view/emotion/LoadingView;", "mLoadingView", "Lcom/baidu/live/business/view/emotion/LoadingView;", "Lcom/baidu/live/feed/search/view/LiveCustomNestedScrollView;", "nestedScrollView", "Lcom/baidu/live/feed/search/view/LiveCustomNestedScrollView;", "pageNum", "I", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$Presenter;", "recommednList", "Ljava/util/List;", "recommendPn", "Lcom/baidu/live/feed/search/view/LoadRecyclerView;", "recyclerViewRecommend", "Lcom/baidu/live/feed/search/view/LoadRecyclerView;", "Lcom/baidu/live/feed/search/model/data/RequestSearchData;", "requestSearchData", "Lcom/baidu/live/feed/search/model/data/RequestSearchData;", "rootContentView", "searchHistoryView", "Lcom/baidu/live/feed/search/view/LiveSearchPanel;", "searchPanel", "Lcom/baidu/live/feed/search/view/LiveSearchPanel;", "searchRecordView", "searchResultBean", "Lcom/baidu/live/feed/search/model/data/SearchResultBean;", "getSearchResultBean", "()Lcom/baidu/live/feed/search/model/data/SearchResultBean;", "setSearchResultBean", "Landroid/view/ViewGroup;", "searchResultContainer", "Landroid/view/ViewGroup;", "searchResultGradientSpace", "Lcom/baidu/live/feed/search/presenter/LiveSearchStateMachine;", "searchStateMachine", "Lcom/baidu/live/feed/search/presenter/LiveSearchStateMachine;", "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter;", "searchSuggestionAdapter", "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter;", "searchSuggestionsRv", "Landroidx/recyclerview/widget/DividerItemDecoration;", "suggestionListDivider$delegate", "Lkotlin/Lazy;", "getSuggestionListDivider", "()Landroidx/recyclerview/widget/DividerItemDecoration;", "suggestionListDivider", "suggestionListDividerNight$delegate", "getSuggestionListDividerNight", "suggestionListDividerNight", "trashIcon", "<init>", "Companion", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009e\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0010!\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u0000 ¹\u00012\u00020\u00012\u00020\u0002:\u0002¹\u0001B\b¢\u0006\u0005\b¸\u0001\u0010\u0005J\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0006\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0006\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0007\u0010\u0005J\u0017\u0010\n\u001a\u00020\u00032\u0006\u0010\t\u001a\u00020\bH\u0016¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\f\u0010\u0005J\u000f\u0010\r\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\r\u0010\u0005J\u000f\u0010\u000e\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u000e\u0010\u0005J\u000f\u0010\u000f\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u000f\u0010\u0005J\u000f\u0010\u0010\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0010\u0010\u0005J\u000f\u0010\u0011\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0011\u0010\u0005J\u0019\u0010\u0014\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u0012H\u0014¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0016H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u001a\u0010\u0005J\u000f\u0010\u001b\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u001b\u0010\u0005J\u000f\u0010\u001c\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u001c\u0010\u0005J\u000f\u0010\u001d\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u001d\u0010\u0005J\r\u0010\u001e\u001a\u00020\u0003¢\u0006\u0004\b\u001e\u0010\u0005J\u001d\u0010!\u001a\u00020\u00032\f\u0010 \u001a\b\u0012\u0004\u0012\u00020\u00160\u001fH\u0016¢\u0006\u0004\b!\u0010\"J\u001f\u0010&\u001a\u00020\u00032\u000e\u0010%\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010#H\u0016¢\u0006\u0004\b&\u0010\"J\u0017\u0010)\u001a\u00020\u00032\u0006\u0010(\u001a\u00020'H\u0016¢\u0006\u0004\b)\u0010*J\u001f\u0010,\u001a\u00020\u00032\u000e\u0010+\u001a\n\u0012\u0004\u0012\u00020\u0016\u0018\u00010\u001fH\u0016¢\u0006\u0004\b,\u0010\"JA\u00104\u001a\u00020\u00032\u0006\u0010.\u001a\u00020-2\u0006\u0010/\u001a\u00020-2\u0006\u00100\u001a\u00020-2\u0006\u00101\u001a\u00020-2\b\b\u0002\u00102\u001a\u00020-2\b\b\u0002\u00103\u001a\u00020-¢\u0006\u0004\b4\u00105J/\u0010:\u001a\u00020\u00032\u000e\u00107\u001a\n\u0012\u0004\u0012\u000206\u0018\u00010#2\u000e\u00109\u001a\n\u0012\u0004\u0012\u000208\u0018\u00010#H\u0016¢\u0006\u0004\b:\u0010;J\u000f\u0010<\u001a\u00020\u0003H\u0002¢\u0006\u0004\b<\u0010\u0005J\u000f\u0010=\u001a\u00020\u0003H\u0002¢\u0006\u0004\b=\u0010\u0005J\u000f\u0010>\u001a\u00020\u0003H\u0016¢\u0006\u0004\b>\u0010\u0005J\u000f\u0010?\u001a\u00020\u0003H\u0016¢\u0006\u0004\b?\u0010\u0005J\u0017\u0010B\u001a\u00020\u00032\u0006\u0010A\u001a\u00020@H\u0016¢\u0006\u0004\bB\u0010CJ\u000f\u0010D\u001a\u00020\u0003H\u0002¢\u0006\u0004\bD\u0010\u0005J\u0017\u0010F\u001a\u00020\u00032\u0006\u0010E\u001a\u00020\u0016H\u0016¢\u0006\u0004\bF\u0010\u0019J!\u0010I\u001a\u00020\u00032\u0006\u0010G\u001a\u00020-2\b\b\u0002\u0010H\u001a\u00020-H\u0002¢\u0006\u0004\bI\u0010JJ\u000f\u0010K\u001a\u00020\u0003H\u0002¢\u0006\u0004\bK\u0010\u0005J\u0017\u0010L\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0016H\u0002¢\u0006\u0004\bL\u0010\u0019R\u0016\u0010N\u001a\u00020M8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bN\u0010OR\u0018\u0010Q\u001a\u0004\u0018\u00010P8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bQ\u0010RR\u0018\u0010T\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bT\u0010UR\u0018\u0010V\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bV\u0010UR\u0018\u0010X\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bX\u0010YR\u0016\u0010Z\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bZ\u0010[R\u0018\u0010]\u001a\u0004\u0018\u00010\\8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b]\u0010^R\u0018\u0010_\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b_\u0010YR\u0018\u0010`\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b`\u0010YR\u0018\u0010a\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\ba\u0010UR\u0018\u0010b\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bb\u0010UR\u0018\u0010d\u001a\u0004\u0018\u00010c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bd\u0010eR\u0018\u0010f\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bf\u0010UR\u0018\u0010g\u001a\u0004\u0018\u00010P8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bg\u0010RR\u0018\u0010i\u001a\u0004\u0018\u00010h8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bi\u0010jR\u0018\u0010k\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bk\u0010UR\u0018\u0010l\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bl\u0010YR\u0018\u0010n\u001a\u0004\u0018\u00010m8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bn\u0010oR\u0018\u0010p\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bp\u0010YR\u0016\u0010q\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bq\u0010[R\u0016\u0010r\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\br\u0010[R\u0016\u0010t\u001a\u00020s8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bt\u0010uR\u0018\u0010w\u001a\u0004\u0018\u00010v8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bw\u0010xR\u0018\u0010z\u001a\u0004\u0018\u00010y8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bz\u0010{R\u0018\u0010|\u001a\u0004\u0018\u00010y8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b|\u0010{R\u0018\u0010~\u001a\u0004\u0018\u00010}8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b~\u0010\u007fR\u001c\u0010\u0081\u0001\u001a\u0005\u0018\u00010\u0080\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0081\u0001\u0010\u0082\u0001R\u001c\u0010\u0084\u0001\u001a\u0005\u0018\u00010\u0083\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0084\u0001\u0010\u0085\u0001R\u001c\u0010\u0087\u0001\u001a\u0005\u0018\u00010\u0086\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0087\u0001\u0010\u0088\u0001R\u001c\u0010\u008a\u0001\u001a\u0005\u0018\u00010\u0089\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008a\u0001\u0010\u008b\u0001R\u0019\u0010\u008c\u0001\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008c\u0001\u0010\u008d\u0001R\u0019\u0010(\u001a\u0004\u0018\u00010'8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b(\u0010\u008e\u0001R!\u0010\u008f\u0001\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010\u001f8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008f\u0001\u0010\u0090\u0001R\u0019\u0010\u0091\u0001\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0091\u0001\u0010\u008d\u0001R\u001a\u0010\u0093\u0001\u001a\u00030\u0092\u00018\u0002@\u0002X\u0082.¢\u0006\b\n\u0006\b\u0093\u0001\u0010\u0094\u0001R\u001a\u0010\u0096\u0001\u001a\u00030\u0095\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0096\u0001\u0010\u0097\u0001R\u001a\u0010\u0098\u0001\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0098\u0001\u0010YR\u001a\u0010\u0099\u0001\u001a\u0004\u0018\u00010c8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0099\u0001\u0010eR\u001c\u0010\u009b\u0001\u001a\u0005\u0018\u00010\u009a\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009b\u0001\u0010\u009c\u0001R\u001a\u0010\u009d\u0001\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u009d\u0001\u0010YR*\u0010\u009e\u0001\u001a\u0004\u0018\u00010@8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0006\b\u009e\u0001\u0010\u009f\u0001\u001a\u0006\b \u0001\u0010¡\u0001\"\u0005\b¢\u0001\u0010CR\u001c\u0010¤\u0001\u001a\u0005\u0018\u00010£\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¤\u0001\u0010¥\u0001R\u001a\u0010¦\u0001\u001a\u0004\u0018\u00010W8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b¦\u0001\u0010YR\u001c\u0010¨\u0001\u001a\u0005\u0018\u00010§\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¨\u0001\u0010©\u0001R\u001c\u0010«\u0001\u001a\u0005\u0018\u00010ª\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b«\u0001\u0010¬\u0001R\u001a\u0010\u00ad\u0001\u001a\u0004\u0018\u00010c8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u00ad\u0001\u0010eR#\u0010³\u0001\u001a\u00030®\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b¯\u0001\u0010°\u0001\u001a\u0006\b±\u0001\u0010²\u0001R#\u0010¶\u0001\u001a\u00030®\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b´\u0001\u0010°\u0001\u001a\u0006\bµ\u0001\u0010²\u0001R\u001a\u0010·\u0001\u001a\u0004\u0018\u00010P8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b·\u0001\u0010R¨\u0006º\u0001"}, d2 = {"Lcom/baidu/live/feed/search/LiveFeedSearchActivity;", "Lcom/baidu/tieba/cc0;", "Landroidx/appcompat/app/AppCompatActivity;", "", "attachKeyboard", "()V", "checkFirstScreenDataIntegrity", "clearHistoryList", "", "posotion", "followCallback", "(I)V", "hideIncognitoModeBgView", "hideLoading", "hideSoftInput", "hideSuggestView", "initData", "initView", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", "", "uiMode", "onDarkModeChange", "(Ljava/lang/String;)V", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "releaseHotRank", "resetRequestData", "", "historyList", "setHistoryList", "(Ljava/util/List;)V", "", "Lcom/baidu/live/business/model/data/LiveRoomEntity;", "entities", "setHotRank", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$Presenter;", "presenter", "setPresenter", "(Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$Presenter;)V", "hintList", "setQueryHintList", "", "sug", "record", "hotrank", "result", "error", SchemeCollecter.CLASSIFY_EMPTY, "setRecyccleVisiable", "(ZZZZZZ)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "searchList", "Lcom/baidu/live/feed/search/model/data/LiveSearchSuggestion;", "suggestionList", "setSuggestions", "(Ljava/util/List;Ljava/util/List;)V", "showHistoryRecord", "showIncognitoModeBgView", "showLoading", "showSearchError", "Lcom/baidu/live/feed/search/model/data/SearchResultBean;", "searchBean", "showSearchResult", "(Lcom/baidu/live/feed/search/model/data/SearchResultBean;)V", "showSuggestView", "content", PopItemMethodConstant.showToast, "isEnterIncognito", "isShowToast", "switchIncognitoMode", "(ZZ)V", "ubcLogSearchResultPageShowEnd", "updateIncognitoModeBg", "Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter;", "adapter", "Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter;", "Landroid/widget/ImageView;", "backIcon", "Landroid/widget/ImageView;", "Landroid/widget/TextView;", "completeText", "Landroid/widget/TextView;", "deleteAllText", "Landroid/view/View;", "deleteIcon", "Landroid/view/View;", "firstScreenLoadSuccess", "Z", "Lcom/baidu/live/feed/search/adapter/LiveSearchHistoryRecordAdapter;", "historyRecordAdapter", "Lcom/baidu/live/feed/search/adapter/LiveSearchHistoryRecordAdapter;", "historyRecordHeadDelete", "historyRecordHeadNomal", "historyTitleOne", "historyTitleTwo", "Landroidx/recyclerview/widget/RecyclerView;", "hotRankView", "Landroidx/recyclerview/widget/RecyclerView;", "incognitoModeBgDes", "incognitoModeBgIcon", "Landroid/view/ViewStub;", "incognitoModeBgStub", "Landroid/view/ViewStub;", "incognitoModeBgTip", "incognitoModeBgView", "Landroid/widget/Button;", "incognitoModeBtn", "Landroid/widget/Button;", "incognitoModeView", "isInIncognito", "isRecommend", "Landroidx/recyclerview/widget/GridLayoutManager;", "layoutManager", "Landroidx/recyclerview/widget/GridLayoutManager;", "Landroidx/recyclerview/widget/LinearLayoutManager;", "layoutManagerHotRank", "Landroidx/recyclerview/widget/LinearLayoutManager;", "Landroidx/recyclerview/widget/StaggeredGridLayoutManager;", "layoutManagerRecommend", "Landroidx/recyclerview/widget/StaggeredGridLayoutManager;", "layoutManagerRecord", "Lcom/baidu/live/business/view/emotion/EmptyView;", "mEmptyView", "Lcom/baidu/live/business/view/emotion/EmptyView;", "Lcom/baidu/live/business/view/emotion/ErrorView;", "mErrorView", "Lcom/baidu/live/business/view/emotion/ErrorView;", "Lcom/baidu/ubc/Flow;", "mFlow", "Lcom/baidu/ubc/Flow;", "Lcom/baidu/live/business/view/emotion/LoadingView;", "mLoadingView", "Lcom/baidu/live/business/view/emotion/LoadingView;", "Lcom/baidu/live/feed/search/view/LiveCustomNestedScrollView;", "nestedScrollView", "Lcom/baidu/live/feed/search/view/LiveCustomNestedScrollView;", "pageNum", "I", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$Presenter;", "recommednList", "Ljava/util/List;", "recommendPn", "Lcom/baidu/live/feed/search/view/LoadRecyclerView;", "recyclerViewRecommend", "Lcom/baidu/live/feed/search/view/LoadRecyclerView;", "Lcom/baidu/live/feed/search/model/data/RequestSearchData;", "requestSearchData", "Lcom/baidu/live/feed/search/model/data/RequestSearchData;", "rootContentView", "searchHistoryView", "Lcom/baidu/live/feed/search/view/LiveSearchPanel;", "searchPanel", "Lcom/baidu/live/feed/search/view/LiveSearchPanel;", "searchRecordView", "searchResultBean", "Lcom/baidu/live/feed/search/model/data/SearchResultBean;", "getSearchResultBean", "()Lcom/baidu/live/feed/search/model/data/SearchResultBean;", "setSearchResultBean", "Landroid/view/ViewGroup;", "searchResultContainer", "Landroid/view/ViewGroup;", "searchResultGradientSpace", "Lcom/baidu/live/feed/search/presenter/LiveSearchStateMachine;", "searchStateMachine", "Lcom/baidu/live/feed/search/presenter/LiveSearchStateMachine;", "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter;", "searchSuggestionAdapter", "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter;", "searchSuggestionsRv", "Landroidx/recyclerview/widget/DividerItemDecoration;", "suggestionListDivider$delegate", "Lkotlin/Lazy;", "getSuggestionListDivider", "()Landroidx/recyclerview/widget/DividerItemDecoration;", "suggestionListDivider", "suggestionListDividerNight$delegate", "getSuggestionListDividerNight", "suggestionListDividerNight", "trashIcon", "<init>", "Companion", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class LiveFeedSearchActivity extends AppCompatActivity implements bc0 {
+public final class LiveFeedSearchActivity extends AppCompatActivity implements cc0 {
     public static final /* synthetic */ KProperty[] W = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LiveFeedSearchActivity.class), "suggestionListDivider", "getSuggestionListDivider()Landroidx/recyclerview/widget/DividerItemDecoration;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LiveFeedSearchActivity.class), "suggestionListDividerNight", "getSuggestionListDividerNight()Landroidx/recyclerview/widget/DividerItemDecoration;"))};
-    public cc0 A;
+    public dc0 A;
     public LiveFeedSearchSuggestionAdapter B;
     public LiveSearchHistoryRecordAdapter C;
     public ViewGroup D;
@@ -129,7 +129,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         @Override // kotlin.jvm.functions.Function0
         public final DividerItemDecoration invoke() {
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(LiveFeedSearchActivity.this, 1);
-            Drawable drawable = ContextCompat.getDrawable(LiveFeedSearchActivity.this.getApplicationContext(), R.drawable.obfuscated_res_0x7f080f20);
+            Drawable drawable = ContextCompat.getDrawable(LiveFeedSearchActivity.this.getApplicationContext(), R.drawable.obfuscated_res_0x7f080f24);
             if (drawable != null) {
                 dividerItemDecoration.setDrawable(drawable);
             }
@@ -146,7 +146,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         @Override // kotlin.jvm.functions.Function0
         public final DividerItemDecoration invoke() {
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(LiveFeedSearchActivity.this, 1);
-            Drawable drawable = ContextCompat.getDrawable(LiveFeedSearchActivity.this.getApplicationContext(), R.drawable.obfuscated_res_0x7f080f21);
+            Drawable drawable = ContextCompat.getDrawable(LiveFeedSearchActivity.this.getApplicationContext(), R.drawable.obfuscated_res_0x7f080f25);
             if (drawable != null) {
                 dividerItemDecoration.setDrawable(drawable);
             }
@@ -167,11 +167,11 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
     }
 
     /* loaded from: classes3.dex */
-    public static final class a implements jc0.b {
+    public static final class a implements kc0.b {
         public a() {
         }
 
-        @Override // com.baidu.tieba.jc0.b
+        @Override // com.baidu.tieba.kc0.b
         public final void a(boolean z) {
             if (!z || LiveFeedSearchActivity.this.e == null) {
                 View view2 = LiveFeedSearchActivity.this.e;
@@ -198,7 +198,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             if (view6 == null) {
                 Intrinsics.throwNpe();
             }
-            view5.setTranslationY(-(view6.getTranslationY() + jc0.c(LiveFeedSearchActivity.this)));
+            view5.setTranslationY(-(view6.getTranslationY() + kc0.c(LiveFeedSearchActivity.this)));
         }
     }
 
@@ -226,7 +226,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         public void a() {
             View currentFocus = LiveFeedSearchActivity.this.getCurrentFocus();
             if (currentFocus != null) {
-                jc0.h(currentFocus);
+                kc0.h(currentFocus);
             }
         }
     }
@@ -238,11 +238,11 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
         @Override // com.baidu.live.feed.search.adapter.LiveSearchHistoryRecordAdapter.recordListener
         public void deleteAllRecord() {
-            cc0 cc0Var = LiveFeedSearchActivity.this.A;
-            if (cc0Var != null) {
+            dc0 dc0Var = LiveFeedSearchActivity.this.A;
+            if (dc0Var != null) {
                 Context applicationContext = LiveFeedSearchActivity.this.getApplicationContext();
                 Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-                cc0Var.b(applicationContext);
+                dc0Var.b(applicationContext);
             }
             if (!LiveFeedSearchActivity.this.Q) {
                 LiveFeedSearchActivity.n2(LiveFeedSearchActivity.this, false, true, true, false, false, false, 48, null);
@@ -254,11 +254,11 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
         @Override // com.baidu.live.feed.search.adapter.LiveSearchHistoryRecordAdapter.recordListener
         public void deleteClick(int i) {
-            cc0 cc0Var = LiveFeedSearchActivity.this.A;
-            if (cc0Var != null) {
+            dc0 dc0Var = LiveFeedSearchActivity.this.A;
+            if (dc0Var != null) {
                 Context applicationContext = LiveFeedSearchActivity.this.getApplicationContext();
                 Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-                cc0Var.f(applicationContext, i);
+                dc0Var.f(applicationContext, i);
             }
             if (!LiveFeedSearchActivity.this.Q) {
                 LiveFeedSearchActivity.n2(LiveFeedSearchActivity.this, false, true, true, false, false, false, 48, null);
@@ -283,11 +283,11 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
         @Override // com.baidu.live.feed.search.adapter.LiveSearchHistoryRecordAdapter.recordListener
         public void historyItemClick(String str, String str2, boolean z, int i) {
-            cc0 cc0Var;
-            if (!LiveFeedSearchActivity.this.Q && (cc0Var = LiveFeedSearchActivity.this.A) != null) {
+            dc0 dc0Var;
+            if (!LiveFeedSearchActivity.this.Q && (dc0Var = LiveFeedSearchActivity.this.A) != null) {
                 Context applicationContext = LiveFeedSearchActivity.this.getApplicationContext();
                 Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-                cc0Var.a(applicationContext, str);
+                dc0Var.a(applicationContext, str);
             }
             LiveFeedSearchActivity.this.L = 0;
             LiveFeedSearchActivity.t1(LiveFeedSearchActivity.this).resetData();
@@ -308,7 +308,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             if (liveSearchPanel != null) {
                 liveSearchPanel.k(str);
             }
-            fb0.F(LiveFeedSearchActivity.this.getApplicationContext(), String.valueOf(i));
+            gb0.F(LiveFeedSearchActivity.this.getApplicationContext(), String.valueOf(i));
         }
     }
 
@@ -356,11 +356,11 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
         @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
         public void onFollowClick(LiveSearchResultInfo liveSearchResultInfo, int i) {
-            cc0 cc0Var = LiveFeedSearchActivity.this.A;
-            if (cc0Var != null) {
+            dc0 dc0Var = LiveFeedSearchActivity.this.A;
+            if (dc0Var != null) {
                 Context applicationContext = LiveFeedSearchActivity.this.getApplicationContext();
                 Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-                cc0Var.j(liveSearchResultInfo, applicationContext, i);
+                dc0Var.j(liveSearchResultInfo, applicationContext, i);
             }
         }
 
@@ -396,13 +396,13 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
         public void onRetryLoadMore() {
             String text;
-            cc0 cc0Var;
+            dc0 dc0Var;
             if (LiveFeedSearchActivity.t1(LiveFeedSearchActivity.this).getFooterStatus() == 4) {
                 LiveFeedSearchActivity.t1(LiveFeedSearchActivity.this).setFooterStatus(2);
                 LiveFeedSearchActivity.this.L++;
                 LiveSearchPanel liveSearchPanel = LiveFeedSearchActivity.this.c;
-                if (liveSearchPanel != null && (text = liveSearchPanel.getText()) != null && (cc0Var = LiveFeedSearchActivity.this.A) != null) {
-                    cc0.a.a(cc0Var, text, String.valueOf(LiveFeedSearchActivity.this.L), null, 4, null);
+                if (liveSearchPanel != null && (text = liveSearchPanel.getText()) != null && (dc0Var = LiveFeedSearchActivity.this.A) != null) {
+                    dc0.a.a(dc0Var, text, String.valueOf(LiveFeedSearchActivity.this.L), null, 4, null);
                 }
             }
         }
@@ -416,10 +416,10 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         public void onUbcResult(boolean z, List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, int i, String str) {
             if (z) {
                 if (i < list2.size() && i >= 0) {
-                    fb0.Q(LiveFeedSearchActivity.this.getApplicationContext(), null, list2.get(i), Boolean.valueOf(z), i, str);
+                    gb0.Q(LiveFeedSearchActivity.this.getApplicationContext(), null, list2.get(i), Boolean.valueOf(z), i, str);
                 }
             } else if (i < list.size() && i >= 0) {
-                fb0.Q(LiveFeedSearchActivity.this.getApplicationContext(), list.get(i), null, Boolean.valueOf(z), i, str);
+                gb0.Q(LiveFeedSearchActivity.this.getApplicationContext(), list.get(i), null, Boolean.valueOf(z), i, str);
             }
         }
     }
@@ -475,11 +475,11 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            cc0 cc0Var = LiveFeedSearchActivity.this.A;
-            if (cc0Var != null) {
+            dc0 dc0Var = LiveFeedSearchActivity.this.A;
+            if (dc0Var != null) {
                 Context applicationContext = LiveFeedSearchActivity.this.getApplicationContext();
                 Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-                cc0Var.b(applicationContext);
+                dc0Var.b(applicationContext);
             }
             if (!LiveFeedSearchActivity.this.Q) {
                 LiveFeedSearchActivity.n2(LiveFeedSearchActivity.this, false, true, true, false, false, false, 48, null);
@@ -504,7 +504,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         public void a(boolean z) {
             Boolean bool;
             String text;
-            cc0 cc0Var;
+            dc0 dc0Var;
             if (LiveFeedSearchActivity.this.O) {
                 LiveFeedSearchActivity.t1(LiveFeedSearchActivity.this).setFooterStatus(2);
                 LiveFeedSearchActivity.this.P++;
@@ -512,9 +512,9 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
                 if (requestSearchData != null) {
                     requestSearchData.refreshIndex = String.valueOf(LiveFeedSearchActivity.this.P);
                 }
-                cc0 cc0Var2 = LiveFeedSearchActivity.this.A;
-                if (cc0Var2 != null) {
-                    cc0Var2.g(AdvanceSetting.NETWORK_TYPE, String.valueOf(LiveFeedSearchActivity.this.L), LiveFeedSearchActivity.this.f1043T);
+                dc0 dc0Var2 = LiveFeedSearchActivity.this.A;
+                if (dc0Var2 != null) {
+                    dc0Var2.g(AdvanceSetting.NETWORK_TYPE, String.valueOf(LiveFeedSearchActivity.this.L), LiveFeedSearchActivity.this.f1043T);
                     return;
                 }
                 return;
@@ -536,19 +536,19 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             LiveFeedSearchActivity.t1(LiveFeedSearchActivity.this).setFooterStatus(2);
             LiveFeedSearchActivity.this.L++;
             LiveSearchPanel liveSearchPanel = LiveFeedSearchActivity.this.c;
-            if (liveSearchPanel != null && (text = liveSearchPanel.getText()) != null && (cc0Var = LiveFeedSearchActivity.this.A) != null) {
-                cc0.a.a(cc0Var, text, String.valueOf(LiveFeedSearchActivity.this.L), null, 4, null);
+            if (liveSearchPanel != null && (text = liveSearchPanel.getText()) != null && (dc0Var = LiveFeedSearchActivity.this.A) != null) {
+                dc0.a.a(dc0Var, text, String.valueOf(LiveFeedSearchActivity.this.L), null, 4, null);
             }
-            fb0.O(LiveFeedSearchActivity.this.getApplicationContext(), String.valueOf(LiveFeedSearchActivity.this.L));
+            gb0.O(LiveFeedSearchActivity.this.getApplicationContext(), String.valueOf(LiveFeedSearchActivity.this.L));
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class k implements tb0 {
+    public static final class k implements ub0 {
         public k() {
         }
 
-        @Override // com.baidu.tieba.tb0
+        @Override // com.baidu.tieba.ub0
         public final void a(View view2) {
             LiveSearchPanel liveSearchPanel = LiveFeedSearchActivity.this.c;
             if (liveSearchPanel != null) {
@@ -587,9 +587,9 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         @Override // com.baidu.live.feed.search.view.LiveSearchPanel.g
         public void onQueryTextChange(String str) {
             boolean z;
-            cc0 cc0Var = LiveFeedSearchActivity.this.A;
-            if (cc0Var != null) {
-                cc0Var.d();
+            dc0 dc0Var = LiveFeedSearchActivity.this.A;
+            if (dc0Var != null) {
+                dc0Var.d();
             }
             if (str != null && str.length() != 0) {
                 z = false;
@@ -617,9 +617,9 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             if (liveSearchStateMachine2 != null) {
                 liveSearchStateMachine2.b(LiveSearchStateMachine.SearchState.STATE_INPUT);
             }
-            cc0 cc0Var2 = LiveFeedSearchActivity.this.A;
-            if (cc0Var2 != null) {
-                cc0Var2.i(str);
+            dc0 dc0Var2 = LiveFeedSearchActivity.this.A;
+            if (dc0Var2 != null) {
+                dc0Var2.i(str);
             }
             LiveFeedSearchActivity.this.f2();
             LiveFeedSearchActivity.n2(LiveFeedSearchActivity.this, true, false, false, false, false, false, 48, null);
@@ -627,26 +627,26 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
         @Override // com.baidu.live.feed.search.view.LiveSearchPanel.g
         public void onQueryTextSubmit(String str) {
-            cc0 cc0Var;
+            dc0 dc0Var;
             LiveSearchStateMachine liveSearchStateMachine = LiveFeedSearchActivity.this.R;
             if (liveSearchStateMachine != null) {
                 liveSearchStateMachine.b(LiveSearchStateMachine.SearchState.STATE_RESULT);
             }
-            fb0.E(LiveFeedSearchActivity.this.getApplicationContext());
+            gb0.E(LiveFeedSearchActivity.this.getApplicationContext());
             if (str != null) {
                 LiveFeedSearchActivity.this.h2();
-                if (!LiveFeedSearchActivity.this.Q && (cc0Var = LiveFeedSearchActivity.this.A) != null) {
+                if (!LiveFeedSearchActivity.this.Q && (dc0Var = LiveFeedSearchActivity.this.A) != null) {
                     Context applicationContext = LiveFeedSearchActivity.this.getApplicationContext();
                     Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-                    cc0Var.a(applicationContext, str);
+                    dc0Var.a(applicationContext, str);
                 }
                 LiveFeedSearchActivity.this.L = 0;
                 LiveFeedSearchActivity.t1(LiveFeedSearchActivity.this).resetData();
                 LiveFeedSearchActivity.t1(LiveFeedSearchActivity.this).setShowMore(false);
                 LiveFeedSearchActivity.n2(LiveFeedSearchActivity.this, false, false, false, false, false, false, 48, null);
-                cc0 cc0Var2 = LiveFeedSearchActivity.this.A;
-                if (cc0Var2 != null) {
-                    cc0.a.a(cc0Var2, str, "0", null, 4, null);
+                dc0 dc0Var2 = LiveFeedSearchActivity.this.A;
+                if (dc0Var2 != null) {
+                    dc0.a.a(dc0Var2, str, "0", null, 4, null);
                 }
                 LiveFeedSearchActivity.this.q2();
             }
@@ -661,7 +661,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            fb0.M(LiveFeedSearchActivity.this.getApplicationContext());
+            gb0.M(LiveFeedSearchActivity.this.getApplicationContext());
         }
     }
 
@@ -756,11 +756,11 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
         @Override // com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter.OnSuggestionListener
         public void onFollowClick(LiveSearchResultInfo liveSearchResultInfo, int i) {
-            cc0 cc0Var = LiveFeedSearchActivity.this.A;
-            if (cc0Var != null) {
+            dc0 dc0Var = LiveFeedSearchActivity.this.A;
+            if (dc0Var != null) {
                 Context applicationContext = LiveFeedSearchActivity.this.getApplicationContext();
                 Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-                cc0Var.j(liveSearchResultInfo, applicationContext, i);
+                dc0Var.j(liveSearchResultInfo, applicationContext, i);
             }
         }
 
@@ -771,7 +771,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
                 liveSearchPanel.k(str);
             }
             LiveFeedSearchActivity.this.h2();
-            fb0.U(LiveFeedSearchActivity.this.getApplicationContext(), i);
+            gb0.U(LiveFeedSearchActivity.this.getApplicationContext(), i);
         }
 
         @Override // com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter.OnSuggestionListener
@@ -780,24 +780,24 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             if (liveSearchPanel != null) {
                 liveSearchPanel.setText(str);
             }
-            fb0.T(LiveFeedSearchActivity.this.getApplicationContext(), i);
+            gb0.T(LiveFeedSearchActivity.this.getApplicationContext(), i);
         }
 
         @Override // com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter.OnSuggestionListener
         public void onUbcResult(List<? extends LiveSearchResultInfo> list, int i, String str) {
             if (i >= 0 && i < list.size()) {
-                fb0.D(LiveFeedSearchActivity.this.getApplicationContext(), list.get(i), String.valueOf(i), str);
+                gb0.D(LiveFeedSearchActivity.this.getApplicationContext(), list.get(i), String.valueOf(i), str);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void E0() {
         n2(this, false, false, true, false, false, false, 48, null);
     }
 
     public final void a2() {
-        jc0.b(this, null, new a());
+        kc0.b(this, null, new a());
     }
 
     public final SearchResultBean c2() {
@@ -833,7 +833,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void h0() {
         LoadingView loadingView = this.x;
         if (loadingView != null) {
@@ -852,7 +852,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void l() {
         LiveSearchStateMachine.SearchState searchState;
         ErrorView errorView;
@@ -894,16 +894,16 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        cc0 cc0Var;
+        dc0 dc0Var;
         super.onResume();
-        fb0.L(getApplicationContext());
+        gb0.L(getApplicationContext());
         LoadingView loadingView = this.x;
         if (loadingView != null) {
             loadingView.e();
         }
         RecyclerView recyclerView = this.n;
-        if (recyclerView != null && recyclerView.getVisibility() == 0 && (cc0Var = this.A) != null) {
-            cc0Var.h();
+        if (recyclerView != null && recyclerView.getVisibility() == 0 && (dc0Var = this.A) != null) {
+            dc0Var.h();
         }
     }
 
@@ -915,7 +915,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
     }
 
     public final void t2() {
-        fb0.P(getApplicationContext(), false, this.S);
+        gb0.P(getApplicationContext(), false, this.S);
         this.S = null;
     }
 
@@ -943,16 +943,16 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         return liveRecommendMoreAdapter;
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void a1(List<String> list) {
         LiveSearchPanel liveSearchPanel = this.c;
         if (liveSearchPanel != null) {
             LiveSearchPanel.setQueryHintList$default(liveSearchPanel, null, list, 1, null);
         }
-        fb0.N(getApplicationContext());
+        gb0.N(getApplicationContext());
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void k(int i2) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter = this.G;
         if (liveRecommendMoreAdapter == null) {
@@ -965,12 +965,12 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
     }
 
-    @Override // com.baidu.tieba.bc0
-    public void p(cc0 cc0Var) {
-        this.A = cc0Var;
+    @Override // com.baidu.tieba.cc0
+    public void p(dc0 dc0Var) {
+        this.A = dc0Var;
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void showToast(String str) {
         LiveFeedPageSdk liveFeedPageSdk = LiveFeedPageSdk.getInstance();
         Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
@@ -980,7 +980,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void x0(List<? extends LiveRoomEntity> list) {
         RecyclerView recyclerView = this.n;
         if (recyclerView != null && (recyclerView.getAdapter() instanceof LiveSearchHotRankAdapter)) {
@@ -988,7 +988,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             if (adapter != null) {
                 ((LiveSearchHotRankAdapter) adapter).updateData(list);
                 if (list != null && (!list.isEmpty())) {
-                    fb0.K(getApplicationContext());
+                    gb0.K(getApplicationContext());
                     return;
                 }
                 return;
@@ -1098,7 +1098,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void i0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2) {
         String str;
         if (this.B == null) {
@@ -1128,7 +1128,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
     public final void i2() {
         new LiveFeedSearchPresenter(this);
-        boolean a2 = nb0.a("sp_key_search_incognito_mode", false);
+        boolean a2 = ob0.a("sp_key_search_incognito_mode", false);
         this.Q = a2;
         Button button = this.f;
         if (button != null) {
@@ -1141,9 +1141,9 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         } else {
             n2(this, false, false, false, false, false, false, 48, null);
         }
-        cc0 cc0Var = this.A;
-        if (cc0Var != null) {
-            cc0Var.c();
+        dc0 dc0Var = this.A;
+        if (dc0Var != null) {
+            dc0Var.c();
         }
     }
 
@@ -1164,11 +1164,11 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             return;
         }
         n2(this, false, true, true, false, false, false, 48, null);
-        cc0 cc0Var = this.A;
-        if (cc0Var != null) {
+        dc0 dc0Var = this.A;
+        if (dc0Var != null) {
             Context applicationContext = getApplicationContext();
             Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-            cc0Var.e(applicationContext);
+            dc0Var.e(applicationContext);
         }
     }
 
@@ -1191,9 +1191,9 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         if (liveSearchPanel != null) {
             liveSearchPanel.j();
         }
-        cc0 cc0Var = this.A;
-        if (cc0Var != null) {
-            cc0Var.onDetach();
+        dc0 dc0Var = this.A;
+        if (dc0Var != null) {
+            dc0Var.onDetach();
         }
         LiveCustomNestedScrollView liveCustomNestedScrollView = this.l;
         if (liveCustomNestedScrollView != null) {
@@ -1204,40 +1204,40 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
     public final void initView() {
         Context context;
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091554);
-        ((ViewGroup) findViewById).setPadding(0, md0.e(getApplicationContext()), 0, 0);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f09155a);
+        ((ViewGroup) findViewById).setPadding(0, nd0.e(getApplicationContext()), 0, 0);
         this.a = findViewById;
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091553);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091559);
         imageView.setOnClickListener(new b());
         this.b = imageView;
-        this.e = findViewById(R.id.obfuscated_res_0x7f091552);
-        this.f = (Button) findViewById(R.id.obfuscated_res_0x7f091551);
-        this.g = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09154f);
-        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091557);
-        this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f09201f);
-        this.m = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09154d);
-        this.n = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09154e);
-        this.c = (LiveSearchPanel) findViewById(R.id.obfuscated_res_0x7f091555);
-        this.D = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09157a);
-        this.E = findViewById(R.id.obfuscated_res_0x7f09157b);
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0915ab);
+        this.e = findViewById(R.id.obfuscated_res_0x7f091558);
+        this.f = (Button) findViewById(R.id.obfuscated_res_0x7f091557);
+        this.g = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091555);
+        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09155d);
+        this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f09202a);
+        this.m = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091553);
+        this.n = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091554);
+        this.c = (LiveSearchPanel) findViewById(R.id.obfuscated_res_0x7f09155b);
+        this.D = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091580);
+        this.E = findViewById(R.id.obfuscated_res_0x7f091581);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0915b1);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.livesh…arch_recommend_more_live)");
         this.F = (LoadRecyclerView) findViewById2;
-        this.o = findViewById(R.id.obfuscated_res_0x7f091571);
-        this.p = findViewById(R.id.obfuscated_res_0x7f09156a);
-        this.q = findViewById(R.id.obfuscated_res_0x7f091567);
-        this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f091566);
-        this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f091578);
-        this.r = findViewById(R.id.obfuscated_res_0x7f09156b);
-        this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f09155a);
-        this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f091558);
-        this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f091559);
-        EmptyView emptyView = (EmptyView) findViewById(R.id.obfuscated_res_0x7f09154a);
+        this.o = findViewById(R.id.obfuscated_res_0x7f091577);
+        this.p = findViewById(R.id.obfuscated_res_0x7f091570);
+        this.q = findViewById(R.id.obfuscated_res_0x7f09156d);
+        this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f09156c);
+        this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f09157e);
+        this.r = findViewById(R.id.obfuscated_res_0x7f091571);
+        this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f091560);
+        this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09155e);
+        this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09155f);
+        EmptyView emptyView = (EmptyView) findViewById(R.id.obfuscated_res_0x7f091550);
         this.z = emptyView;
         if (emptyView != null) {
             emptyView.a(LiveFeedPageSdk.HOST_LIVE_TAB);
         }
-        ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f09154b);
+        ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f091551);
         this.y = errorView;
         if (errorView != null) {
             errorView.c(LiveFeedPageSdk.HOST_LIVE_TAB);
@@ -1246,7 +1246,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         if (errorView2 != null) {
             errorView2.setActionCallback(new k());
         }
-        LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f09154c);
+        LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091552);
         this.x = loadingView;
         if (loadingView != null) {
             loadingView.c(LiveFeedPageSdk.HOST_LIVE_TAB);
@@ -1401,7 +1401,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         RecyclerView recyclerView;
         View view2 = this.a;
         if (view2 != null) {
-            view2.setBackgroundColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_white1"));
+            view2.setBackgroundColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_white1"));
         }
         LiveSearchPanel liveSearchPanel = this.c;
         if (liveSearchPanel != null) {
@@ -1410,25 +1410,25 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         if (Intrinsics.areEqual(str, "day")) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f07);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f0b);
             }
             Button button = this.f;
             if (button != null) {
-                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f10);
+                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f14);
             }
         } else if (Intrinsics.areEqual(str, "night")) {
             ImageView imageView2 = this.b;
             if (imageView2 != null) {
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f08);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f0c);
             }
             Button button2 = this.f;
             if (button2 != null) {
-                button2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f11);
+                button2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f15);
             }
         }
         View view3 = this.e;
         if (view3 != null) {
-            view3.setBackgroundColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_EEEEEE"));
+            view3.setBackgroundColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_EEEEEE"));
         }
         u2(str);
         RecyclerView recyclerView2 = this.d;
@@ -1449,10 +1449,10 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
         ViewGroup viewGroup = this.D;
         if (viewGroup != null) {
-            viewGroup.setBackgroundColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_F5F5F51"));
+            viewGroup.setBackgroundColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_F5F5F51"));
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColors(new int[]{ce0.f().a(this, LiveFeedPageSdk.HOST_LIVE_TAB, "color_white1"), ce0.f().a(this, LiveFeedPageSdk.HOST_LIVE_TAB, "color_F5F5F51")});
+        gradientDrawable.setColors(new int[]{de0.f().a(this, LiveFeedPageSdk.HOST_LIVE_TAB, "color_white1"), de0.f().a(this, LiveFeedPageSdk.HOST_LIVE_TAB, "color_F5F5F51")});
         gradientDrawable.setGradientType(0);
         gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
         View view4 = this.E;
@@ -1532,13 +1532,13 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
                 view2 = viewStub.inflate();
             }
             this.h = view2;
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09156e);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091570);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09156f);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091574);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091576);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091575);
         } else if (view3 != null) {
             view3.setVisibility(0);
         }
-        ce0 f2 = ce0.f();
+        de0 f2 = de0.f();
         Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
         String r = f2.r();
         Intrinsics.checkExpressionValueIsNotNull(r, "UIModeUtils.getInstance().uiMode");
@@ -1546,7 +1546,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
     }
 
     public final void m2(boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
-        cc0 cc0Var;
+        dc0 dc0Var;
         if (z) {
             RecyclerView recyclerView = this.d;
             if (recyclerView != null) {
@@ -1567,7 +1567,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             if (recyclerView3 != null) {
                 recyclerView3.setVisibility(0);
             }
-            fb0.R(getApplicationContext());
+            gb0.R(getApplicationContext());
         } else {
             RecyclerView recyclerView4 = this.m;
             if (recyclerView4 != null) {
@@ -1580,8 +1580,8 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
         if (z3) {
             RecyclerView recyclerView5 = this.n;
-            if ((recyclerView5 == null || recyclerView5.getVisibility() != 0) && (cc0Var = this.A) != null) {
-                cc0Var.h();
+            if ((recyclerView5 == null || recyclerView5.getVisibility() != 0) && (dc0Var = this.A) != null) {
+                dc0Var.h();
             }
             RecyclerView recyclerView6 = this.n;
             if (recyclerView6 != null) {
@@ -1641,9 +1641,9 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        md0.h(this, false);
+        nd0.h(this, false);
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d05cc);
+        setContentView(R.layout.obfuscated_res_0x7f0d05ca);
         LiveFeedPageSdk.getInstance().setContext(this);
         if (bundle != null) {
             finish();
@@ -1655,14 +1655,14 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
         initView();
         i2();
-        ce0 f2 = ce0.f();
+        de0 f2 = de0.f();
         Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
         String r = f2.r();
         Intrinsics.checkExpressionValueIsNotNull(r, "UIModeUtils.getInstance().uiMode");
         j2(r);
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void t(List<String> list) {
         RecyclerView.Adapter adapter;
         RecyclerView.Adapter adapter2;
@@ -1710,10 +1710,10 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
                 Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
                 ILiveFeedPageInvoke invoker = liveFeedPageSdk.getInvoker();
                 if (invoker != null) {
-                    invoker.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0b98));
+                    invoker.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0b9c));
                 }
             }
-            nb0.d("sp_key_search_incognito_mode", true);
+            ob0.d("sp_key_search_incognito_mode", true);
             return;
         }
         f2();
@@ -1722,13 +1722,13 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
             Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk2, "LiveFeedPageSdk.getInstance()");
             ILiveFeedPageInvoke invoker2 = liveFeedPageSdk2.getInvoker();
             if (invoker2 != null) {
-                invoker2.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0b99));
+                invoker2.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0b9d));
             }
         }
-        nb0.d("sp_key_search_incognito_mode", false);
+        ob0.d("sp_key_search_incognito_mode", false);
     }
 
-    @Override // com.baidu.tieba.bc0
+    @Override // com.baidu.tieba.cc0
     public void u(SearchResultBean searchResultBean) {
         h0();
         n2(this, false, false, false, true, false, false, 48, null);
@@ -1740,7 +1740,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         }
         if (liveRecommendMoreAdapter.isEmptyList()) {
             this.N = searchResultBean.searchResultVideoList;
-            this.S = fb0.P(getApplicationContext(), true, null);
+            this.S = gb0.P(getApplicationContext(), true, null);
             b2();
             return;
         }
@@ -1785,45 +1785,45 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements b
         if (Intrinsics.areEqual(str, "day")) {
             ImageView imageView = this.i;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f0e);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f12);
             }
             ImageView imageView2 = this.u;
             if (imageView2 != null) {
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f1c);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f20);
             }
         } else if (Intrinsics.areEqual(str, "night")) {
             ImageView imageView3 = this.i;
             if (imageView3 != null) {
-                imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080f0f);
+                imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080f13);
             }
             ImageView imageView4 = this.u;
             if (imageView4 != null) {
-                imageView4.setImageResource(R.drawable.obfuscated_res_0x7f080f1d);
+                imageView4.setImageResource(R.drawable.obfuscated_res_0x7f080f21);
             }
         }
         TextView textView = this.j;
         if (textView != null) {
-            textView.setTextColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+            textView.setTextColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
         }
         TextView textView2 = this.k;
         if (textView2 != null) {
-            textView2.setTextColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+            textView2.setTextColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
         }
         TextView textView3 = this.v;
         if (textView3 != null) {
-            textView3.setTextColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+            textView3.setTextColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
         }
         TextView textView4 = this.w;
         if (textView4 != null) {
-            textView4.setTextColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+            textView4.setTextColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
         }
         TextView textView5 = this.t;
         if (textView5 != null) {
-            textView5.setTextColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+            textView5.setTextColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
         }
         TextView textView6 = this.s;
         if (textView6 != null) {
-            textView6.setTextColor(ce0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+            textView6.setTextColor(de0.f().a(getApplicationContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
         }
     }
 }

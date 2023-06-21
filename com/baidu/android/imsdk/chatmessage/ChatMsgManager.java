@@ -104,14 +104,14 @@ public class ChatMsgManager extends BaseManager {
 
     public static void sendPaChatMsg(Context context, int i, int i2, long j, int i3, String str, ISendMessageListener iSendMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65633, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), str, iSendMessageListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65632, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), str, iSendMessageListener}) == null) {
             ChatMsgManagerImpl.getInstance(context).sendPaChatMsg(i, i2, j, i3, str, iSendMessageListener);
         }
     }
 
     public static void uploadFile(Context context, String str, String str2, String str3, String str4, String str5, IFileUploadListener iFileUploadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65650, null, new Object[]{context, str, str2, str3, str4, str5, iFileUploadListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65649, null, new Object[]{context, str, str2, str3, str4, str5, iFileUploadListener}) == null) {
             if (context != null && !TextUtils.isEmpty(str2) && new File(str2).exists()) {
                 new FileUploadTask(context, str, str2, str3, str4, str5, iFileUploadListener).execute(new Void[0]);
             } else if (iFileUploadListener != null) {
@@ -153,21 +153,10 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
-    public static void sendMsgToChatRoom(Context context, long j, String str, @NonNull ChatMsg chatMsg, @NonNull IChatRoomEnterListener.UserInfo userInfo, ISendMessageListener iSendMessageListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65631, null, new Object[]{context, Long.valueOf(j), str, chatMsg, userInfo, iSendMessageListener}) == null) {
-            chatMsg.setNickName(userInfo.name);
-            chatMsg.setPortrait(userInfo.portrait);
-            ChatMsg generateMsg = generateMsg(j, chatMsg);
-            generateMsg.setMsgContent(getMsgContent(j, str, chatMsg, userInfo));
-            sendMessage(context, generateMsg, iSendMessageListener);
-        }
-    }
-
     public static int setBusinessChatMsgContacterRead(Context context, int i, int i2, long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65636, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65635, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             return ChatMsgManagerImpl.getInstance(context).setBusinessChatMsgContacterRead(i, i2, j, j2, j3);
         }
         return invokeCommon.intValue;
@@ -443,7 +432,7 @@ public class ChatMsgManager extends BaseManager {
     public static boolean setMsgReadByChatTpyes(Context context, List<Integer> list, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65640, null, new Object[]{context, list, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65639, null, new Object[]{context, list, Long.valueOf(j)})) == null) {
             return ChatMsgManagerImpl.getInstance(context).setMsgReadByChatTpyes(list, j);
         }
         return invokeCommon.booleanValue;
@@ -452,7 +441,7 @@ public class ChatMsgManager extends BaseManager {
     public static long updateLocalChatMsgByBusiness(Context context, int i, List<ChatMsg> list) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65648, null, context, i, list)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65647, null, context, i, list)) == null) {
             if (context == null || list == null || list.size() == 0 || AccountManager.isCuidLogin(context)) {
                 return -1L;
             }
@@ -631,28 +620,28 @@ public class ChatMsgManager extends BaseManager {
 
     public static void setMediaAllSessionRead(Context context, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65638, null, context, iMediaSetSessionReadListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65637, null, context, iMediaSetSessionReadListener) == null) {
             mediaSetSessionRead(context, -1L, -1, -1L, "", System.currentTimeMillis(), iMediaSetSessionReadListener);
         }
     }
 
     public static void unRegisterConsultMsgNotifyListener(Context context, IChatMsgChangedListener iChatMsgChangedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65644, null, context, iChatMsgChangedListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65643, null, context, iChatMsgChangedListener) == null) {
             ChatMsgManagerImpl.getInstance(context).unRegisterConsultMsgNotifyListener(iChatMsgChangedListener);
         }
     }
 
     public static void unRegisterCustomNotifyListener(Context context, ICustomizeNotifyListener iCustomizeNotifyListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65645, null, context, iCustomizeNotifyListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65644, null, context, iCustomizeNotifyListener) == null) {
             ChatMsgManagerImpl.getInstance(context).unRegisterCustomNotifyListener(iCustomizeNotifyListener);
         }
     }
 
     public static void unregisterMessageReceiveListener(Context context, IMessageReceiveListener iMessageReceiveListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65646, null, context, iMessageReceiveListener) != null) || BaseManager.isNullContext(context)) {
+        if ((interceptable != null && interceptable.invokeLL(65645, null, context, iMessageReceiveListener) != null) || BaseManager.isNullContext(context)) {
             return;
         }
         ChatMsgManagerImpl.getInstance(context).unregisterMessageReceiveListener(context, iMessageReceiveListener);
@@ -660,7 +649,7 @@ public class ChatMsgManager extends BaseManager {
 
     public static void unregisterStudioUsePaReceivePaMsg(Context context, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65647, null, context, iLiveMsgReceiveListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65646, null, context, iLiveMsgReceiveListener) == null) {
             ChatMsgManagerImpl.getInstance(context).unregisterStudioUsePaReceivePaMsg(iLiveMsgReceiveListener);
         }
     }
@@ -692,7 +681,7 @@ public class ChatMsgManager extends BaseManager {
     public static boolean setMsgRead(Context context, int i, long j, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65639, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65638, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             if (BaseManager.isNullContext(context)) {
                 return false;
             }
@@ -1006,7 +995,7 @@ public class ChatMsgManager extends BaseManager {
     public static boolean setAllMsgRead(Context context, int i, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65634, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65633, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             if (BaseManager.isNullContext(context)) {
                 return false;
             }
@@ -1017,7 +1006,7 @@ public class ChatMsgManager extends BaseManager {
 
     public static void showSendMsgPV(Context context, long j, long j2, IShowSendMsgPVListener iShowSendMsgPVListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65643, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), iShowSendMsgPVListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65642, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), iShowSendMsgPVListener}) == null) {
             if (context == null) {
                 if (iShowSendMsgPVListener != null) {
                     iShowSendMsgPVListener.onResult(0);
@@ -1043,10 +1032,10 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
-    public static String getMsgContent(long j, String str, @NonNull ChatMsg chatMsg, IChatRoomEnterListener.UserInfo userInfo) {
+    public static String getMsgContent(long j, String str, @NonNull ChatMsg chatMsg) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65579, null, new Object[]{Long.valueOf(j), str, chatMsg, userInfo})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65579, null, new Object[]{Long.valueOf(j), str, chatMsg})) == null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
@@ -1054,10 +1043,6 @@ public class ChatMsgManager extends BaseManager {
                 jSONObject2.put("type", "0");
                 jSONObject2.put("to_uid", "0");
                 jSONObject2.put("vip", "0");
-                if (userInfo != null) {
-                    jSONObject2.put("character", "" + userInfo.character);
-                    jSONObject2.put("character_name", userInfo.characterName);
-                }
                 jSONObject2.put("name", chatMsg.getNickName());
                 jSONObject2.put("portrait", chatMsg.getPortrait());
                 jSONObject2.put("content_type", "" + chatMsg.getMsgType());
@@ -1181,18 +1166,9 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
-    public static void sendMsgToChatRoom(Context context, long j, String str, @NonNull ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65632, null, new Object[]{context, Long.valueOf(j), str, chatMsg, iSendMessageListener}) == null) {
-            ChatMsg generateMsg = generateMsg(j, chatMsg);
-            generateMsg.setMsgContent(getMsgContent(j, str, chatMsg, null));
-            sendMessage(context, generateMsg, iSendMessageListener);
-        }
-    }
-
     public static void setInterActiveMsgStatus(Context context, long j, long j2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65637, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65636, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             ChatMsgManagerImpl.getInstance(context).setInterActiveMsgStatus(j, j2, i, i2);
         }
     }
@@ -1237,9 +1213,19 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
+    public static void sendMsgToChatRoom(Context context, long j, String str, @NonNull ChatMsg chatMsg, String str2, ISendMessageListener iSendMessageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65631, null, new Object[]{context, Long.valueOf(j), str, chatMsg, str2, iSendMessageListener}) == null) {
+            ChatMsgManagerImpl.getInstance(context).setSendMsgSafeParam(str2);
+            ChatMsg generateMsg = generateMsg(j, chatMsg);
+            generateMsg.setMsgContent(getMsgContent(j, str, chatMsg));
+            sendMessage(context, generateMsg, iSendMessageListener);
+        }
+    }
+
     public static void uploadBottomMenuEvent(Context context, long j, int i, String str, long j2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65649, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, Long.valueOf(j2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65648, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, Long.valueOf(j2), str2}) == null) {
             ChatMsgManagerImpl.getInstance(context).uploadBottomMenuEventRequest(j, i, str, j2, str2);
         }
     }
@@ -1253,7 +1239,7 @@ public class ChatMsgManager extends BaseManager {
 
     public static void setBusinessAdvAdShowClickedInfoByUK(Context context, String str, boolean z, IAdvisoryAdBtnShowSaveListener iAdvisoryAdBtnShowSaveListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65635, null, new Object[]{context, str, Boolean.valueOf(z), iAdvisoryAdBtnShowSaveListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65634, null, new Object[]{context, str, Boolean.valueOf(z), iAdvisoryAdBtnShowSaveListener}) == null) {
             ChatMsgManagerImpl.getInstance(context).setBusinessAdvAdShowClickedInfoByUK(str, z, iAdvisoryAdBtnShowSaveListener);
         }
     }
@@ -1261,7 +1247,7 @@ public class ChatMsgManager extends BaseManager {
     public static boolean setMsgReadByChatTypeAndSubType(Context context, SparseArray<List<Integer>> sparseArray, long j, ISetMessageReadListener iSetMessageReadListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65641, null, new Object[]{context, sparseArray, Long.valueOf(j), iSetMessageReadListener})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65640, null, new Object[]{context, sparseArray, Long.valueOf(j), iSetMessageReadListener})) == null) {
             return ChatMsgManagerImpl.getInstance(context).setMsgReadByChatTypeAndSubType(sparseArray, j, iSetMessageReadListener);
         }
         return invokeCommon.booleanValue;
@@ -1270,7 +1256,7 @@ public class ChatMsgManager extends BaseManager {
     public static boolean setMsgReadByMsgId(Context context, long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65642, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65641, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)})) == null) {
             if (i != 1 && i != 0) {
                 String str = BaseManager.TAG;
                 LogUtils.d(str, "return!!! for setMsgReadByMsgId...setType=" + i);

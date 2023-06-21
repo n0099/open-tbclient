@@ -110,10 +110,10 @@ public class ue<T> extends oe<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (this.b instanceof pe.b) {
-                zg.a().b(new a(this, str));
+                ah.a().b(new a(this, str));
             }
             if (this.b instanceof pe.a) {
-                zg.a().b(new b(this, str));
+                ah.a().b(new b(this, str));
             }
         }
     }

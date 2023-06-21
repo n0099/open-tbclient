@@ -1,8 +1,8 @@
 package com.huawei.hms.opendevice;
 
-import com.baidu.tieba.wab;
+import com.baidu.tieba.pcb;
 import com.huawei.hms.support.api.opendevice.OdidResult;
 /* loaded from: classes9.dex */
 public interface OpenDeviceClient {
-    wab<OdidResult> getOdid();
+    pcb<OdidResult> getOdid();
 }

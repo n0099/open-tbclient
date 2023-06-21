@@ -21,13 +21,13 @@ import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ma5;
-import com.baidu.tieba.mr5;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.ow9;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.gy9;
+import com.baidu.tieba.na5;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.rr5;
+import com.baidu.tieba.s95;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public CardLinkInfoData b;
-    public oa5 c;
+    public pa5 c;
     public View d;
     public TbImageView e;
     public View f;
@@ -73,13 +73,13 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
                 return;
             }
         }
-        n = vi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        o = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        p = vi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-        q = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        r = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-        s = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        t = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+        n = wi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        o = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        p = wi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+        q = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        r = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+        s = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        t = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
     }
 
     public final void b() {
@@ -117,11 +117,11 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) tagText);
             int tagColorId = getTagColorId();
-            r95 r95Var = new r95(n, -1, tagColorId, p, tagColorId, q, t);
-            r95Var.b(o);
-            r95Var.h(r);
-            r95Var.i(s);
-            spannableStringBuilder.setSpan(r95Var, 0, tagText.length(), 17);
+            s95 s95Var = new s95(n, -1, tagColorId, p, tagColorId, q, t);
+            s95Var.b(o);
+            s95Var.h(r);
+            s95Var.i(s);
+            spannableStringBuilder.setSpan(s95Var, 0, tagText.length(), 17);
             spannableStringBuilder.append((CharSequence) this.b.getTitle());
             this.g.setText(spannableStringBuilder);
         } else {
@@ -206,7 +206,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             CardLinkInfoData cardLinkInfoData = this.b;
             if (cardLinkInfoData != null && !StringUtils.isNull(cardLinkInfoData.getTagColor()) && this.b.getTagColor().startsWith("CAM_")) {
-                i = ow9.d(this.a, this.b.getTagColor());
+                i = gy9.d(this.a, this.b.getTagColor());
             } else {
                 i = 0;
             }
@@ -243,10 +243,10 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public void setClickListener(oa5 oa5Var) {
+    public void setClickListener(pa5 pa5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, oa5Var) == null) {
-            this.c = oa5Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, pa5Var) == null) {
+            this.c = pa5Var;
         }
     }
 
@@ -282,7 +282,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
             this.l.setOnClickListener(this);
             this.m.setOnClickListener(this);
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
-            setPadding(vi.g(getContext(), R.dimen.M_W_X003), vi.g(getContext(), R.dimen.M_H_X002), vi.g(getContext(), R.dimen.M_W_X006), vi.g(getContext(), R.dimen.M_H_X002));
+            setPadding(wi.g(getContext(), R.dimen.M_W_X003), wi.g(getContext(), R.dimen.M_H_X002), wi.g(getContext(), R.dimen.M_W_X006), wi.g(getContext(), R.dimen.M_H_X002));
         }
     }
 
@@ -302,14 +302,14 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
                 setTextBtnInfo(this.b.getBtnText());
                 String textBtnStatus = this.b.getTextBtnStatus();
                 if ("1".equals(textBtnStatus)) {
-                    this.k.setConfig(new ma5());
+                    this.k.setConfig(new na5());
                     this.k.setUseDisableState(true);
                 } else if ("2".equals(textBtnStatus)) {
-                    ma5 ma5Var = new ma5();
-                    ma5Var.s(R.color.CAM_X0110);
-                    this.k.setConfig(ma5Var);
+                    na5 na5Var = new na5();
+                    na5Var.s(R.color.CAM_X0110);
+                    this.k.setConfig(na5Var);
                 } else {
-                    this.k.setConfig(new ma5());
+                    this.k.setConfig(new na5());
                 }
             } else if ("2".equals(btnStyle)) {
                 this.k.setVisibility(8);
@@ -330,7 +330,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o75 d = o75.d(this);
+            p75 d = p75.d(this);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0206);
             if (TbadkCoreApplication.getInst().getSkinType() == 4) {
@@ -338,28 +338,28 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
             } else {
                 this.f.setVisibility(0);
             }
-            o75 d2 = o75.d(this.f);
+            p75 d2 = p75.d(this.f);
             d2.o(R.string.J_X04);
             d2.m(R.dimen.L_X01);
             d2.l(R.color.CAM_X0203);
             f();
             TextView textView = this.g;
             if (textView != null) {
-                o75 d3 = o75.d(textView);
-                d3.C(R.string.F_X01);
-                d3.w(R.color.CAM_X0107);
+                p75 d3 = p75.d(textView);
+                d3.D(R.string.F_X01);
+                d3.x(R.color.CAM_X0107);
             }
             TextView textView2 = this.h;
             if (textView2 != null) {
-                o75 d4 = o75.d(textView2);
-                d4.C(R.string.F_X01);
-                d4.w(R.color.CAM_X0109);
+                p75 d4 = p75.d(textView2);
+                d4.D(R.string.F_X01);
+                d4.x(R.color.CAM_X0109);
             }
             TextView textView3 = this.i;
             if (textView3 != null) {
-                o75 d5 = o75.d(textView3);
-                d5.C(R.string.F_X01);
-                d5.w(R.color.CAM_X0109);
+                p75 d5 = p75.d(textView3);
+                d5.D(R.string.F_X01);
+                d5.x(R.color.CAM_X0109);
             }
             WebPManager.setPureDrawable(this.l, R.drawable.icon_pure_mount_card_link_right_arrow, R.color.CAM_X0110, null);
             WebPManager.setPureDrawable(this.m, R.drawable.icon_pure_mount_card_link_right_del, R.color.CAM_X0110, null);
@@ -370,7 +370,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            mr5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a);
+            rr5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a);
             if (currentVisiblePageExtra != null) {
                 return currentVisiblePageExtra.a();
             }
@@ -400,33 +400,33 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             if (view2.getId() == R.id.tb_mount_card_icon) {
-                oa5 oa5Var = this.c;
-                if (oa5Var != null) {
-                    oa5Var.a("2");
+                pa5 pa5Var = this.c;
+                if (pa5Var != null) {
+                    pa5Var.a("2");
                 }
                 a("2");
             } else if (view2.getId() == R.id.tb_mount_card_text_btn) {
-                oa5 oa5Var2 = this.c;
-                if (oa5Var2 != null) {
-                    oa5Var2.a("3");
+                pa5 pa5Var2 = this.c;
+                if (pa5Var2 != null) {
+                    pa5Var2.a("3");
                 }
                 a("3");
             } else if (view2.getId() == R.id.tb_mount_card_arrow_btn) {
-                oa5 oa5Var3 = this.c;
-                if (oa5Var3 != null) {
-                    oa5Var3.a("5");
+                pa5 pa5Var3 = this.c;
+                if (pa5Var3 != null) {
+                    pa5Var3.a("5");
                 }
                 a("5");
             } else if (view2.getId() == R.id.tb_mount_card_del_btn) {
-                oa5 oa5Var4 = this.c;
-                if (oa5Var4 != null) {
-                    oa5Var4.a("4");
+                pa5 pa5Var4 = this.c;
+                if (pa5Var4 != null) {
+                    pa5Var4.a("4");
                 }
                 a("4");
             } else {
-                oa5 oa5Var5 = this.c;
-                if (oa5Var5 != null) {
-                    oa5Var5.a("1");
+                pa5 pa5Var5 = this.c;
+                if (pa5Var5 != null) {
+                    pa5Var5.a("1");
                 }
                 a("1");
             }

@@ -132,13 +132,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d10);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d0e);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d11);
-        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d12);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d14);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091d16);
-        this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d0f);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d1a);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d18);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d1b);
+        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d1c);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d1e);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091d20);
+        this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d19);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.k = rotateAnimation;
         rotateAnimation.setDuration(120L);

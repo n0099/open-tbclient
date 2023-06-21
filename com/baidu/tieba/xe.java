@@ -166,7 +166,7 @@ public class xe<T> implements we.c<T> {
     public void f(String str, we.a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
-            zg.a().b(new a(this, str, aVar));
+            ah.a().b(new a(this, str, aVar));
         }
     }
 
@@ -228,7 +228,7 @@ public class xe<T> implements we.c<T> {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            zg.a().b(new c(this, str));
+            ah.a().b(new c(this, str));
         }
     }
 
@@ -266,7 +266,7 @@ public class xe<T> implements we.c<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && vi.E()) {
+            if (BdBaseApplication.getInst().isDebugMode() && wi.E()) {
                 if (!this.a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
@@ -283,7 +283,7 @@ public class xe<T> implements we.c<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && vi.E()) {
+            if (BdBaseApplication.getInst().isDebugMode() && wi.E()) {
                 if (!this.a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
@@ -299,7 +299,7 @@ public class xe<T> implements we.c<T> {
     public void i(String str, T t, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
-            zg.a().b(new b(this, str, t, j));
+            ah.a().b(new b(this, str, t, j));
         }
     }
 }

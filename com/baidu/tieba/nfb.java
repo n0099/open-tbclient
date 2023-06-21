@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface nfb {
-    void a(String str, boolean z, HashMap<String, String> hashMap);
+    void onCancel();
+
+    void onComplete(JSONObject jSONObject);
+
+    void onError(ofb ofbVar);
 }

@@ -1,117 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
-import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
-import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.TopicList.DataRes;
+import tbclient.TopicList.NewTopicList;
+import tbclient.TopicList.TabList;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes5.dex */
 public class f68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<j68> b;
+    public i68 c;
+    public List<y58> d;
+    public List<x58> e;
+    public List<TopicList> f;
 
-    /* loaded from: classes5.dex */
-    public static class a extends hb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public f68() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-
-        public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-                if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
-                    PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
-                    if (pushNotifyMessageDecoder.getMsgList() != null) {
-                        Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
-                        while (it.hasNext()) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
-                        }
-                    }
-                }
-                return socketResponsedMessage;
-            }
-            return (SocketResponsedMessage) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-        @Override // com.baidu.tieba.eb
-        public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-            c(socketResponsedMessage2);
-            return socketResponsedMessage2;
-        }
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            b();
-            c();
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            g68.b(104102, ResponseUpdateMaskInfoMessage.class, false);
-            g68.b(202003, ResponsePullMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            g68.b(202009, PushResponseMessage.class, false);
-            g68.b(202006, PushNotifyMessageDecoder.class, false);
-            g68.b(104103, ResponseGetMaskInfoMessage.class, false);
-            g68.b(304100, ResponseAddFriendMessage.class, false);
-            g68.b(304102, ResponseDeleteFriendMessage.class, false);
-            g68.b(304103, ResponseApplyMessage.class, false);
-            g68.b(104104, ResponseCheckUserMaskMessage.class, false);
-            MessageManager.getInstance().registerStickyMode(2001120);
-        }
-    }
-
-    public static boolean c() {
+    public List<TopicList> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            MessageManager.getInstance().addResponsedMessageRule(new a(202006));
-            MessageManager.getInstance().addResponsedMessageRule(new k98());
-            MessageManager.getInstance().addResponsedMessageRule(new o98());
-            MessageManager.getInstance().addMessageRule(new j98());
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        List<TopicList> list;
+        List<TopicList> list2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        List<TabList> list3 = dataRes.tab_list;
+        if (list3 != null && !ListUtils.isEmpty(list3)) {
+            this.b = new ArrayList();
+            for (TabList tabList : dataRes.tab_list) {
+                j68 j68Var = new j68();
+                j68Var.a(tabList);
+                this.b.add(j68Var);
+            }
+        }
+        if (dataRes.media_topic != null) {
+            i68 i68Var = new i68();
+            this.c = i68Var;
+            i68Var.a(dataRes.media_topic);
+        }
+        TopicListModule topicListModule = dataRes.topic_manual;
+        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
+            this.e = new ArrayList();
+            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
+                x58 x58Var = new x58();
+                x58Var.b(dataRes.topic_manual);
+                x58Var.a(dataRes.topic_manual.topic_list.get(i));
+                this.e.add(x58Var);
+            }
+        }
+        TopicListModule topicListModule2 = dataRes.topic_bang;
+        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
+            this.d = new ArrayList();
+            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
+                y58 y58Var = new y58();
+                y58Var.b(dataRes.topic_bang);
+                y58Var.a(dataRes.topic_bang.topic_list.get(i2));
+                this.d.add(y58Var);
+            }
+        }
+        this.f = dataRes.frs_tab_topic;
+        List<NewTopicList> list4 = dataRes.topic_list;
     }
 }

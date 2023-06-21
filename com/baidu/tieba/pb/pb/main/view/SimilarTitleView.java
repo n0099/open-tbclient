@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.pb.databinding.SimilarTitleViewBinding;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,9 +106,9 @@ public final class SimilarTitleView extends RelativeLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = vi.g(context, R.dimen.M_W_X002);
-        this.b = vi.g(context, R.dimen.M_W_X002);
-        this.c = vi.g(context, R.dimen.tbds42);
+        this.a = wi.g(context, R.dimen.M_W_X002);
+        this.b = wi.g(context, R.dimen.M_W_X002);
+        this.c = wi.g(context, R.dimen.tbds42);
         this.d = new ArrayList();
         this.e = LazyKt__LazyJVMKt.lazy(new Function0<SimilarTitleViewBinding>(context, this) { // from class: com.baidu.tieba.pb.pb.main.view.SimilarTitleView$binding$2
             public static /* synthetic */ Interceptable $ic;
@@ -171,10 +171,10 @@ public final class SimilarTitleView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o75 d = o75.d(getBinding().c);
-            d.B(R.dimen.T_X07);
-            d.C(R.string.F_X02);
-            d.w(R.color.CAM_X0105);
+            p75 d = p75.d(getBinding().c);
+            d.C(R.dimen.T_X07);
+            d.D(R.string.F_X02);
+            d.x(R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(getBinding().d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
             setTags(this.d);
         }
@@ -196,9 +196,9 @@ public final class SimilarTitleView extends RelativeLayout {
                 layoutParams.leftMargin = this.b;
                 textView.setLayoutParams(layoutParams);
                 textView.setText(str);
-                o75 d = o75.d(textView);
-                d.B(R.dimen.T_X10);
-                d.w(R.color.CAM_X0108);
+                p75 d = p75.d(textView);
+                d.C(R.dimen.T_X10);
+                d.x(R.color.CAM_X0108);
                 d.o(R.string.J_X04);
                 d.f(R.color.CAM_X0202);
                 getBinding().b.addView(textView);

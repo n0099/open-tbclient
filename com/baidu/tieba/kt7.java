@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.funad.adapter.FunAdNativeNewAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
 /* loaded from: classes6.dex */
-public class kt7 implements HostBasicInfoService {
+public class kt7 implements dt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,23 +29,100 @@ public class kt7 implements HostBasicInfoService {
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService
-    public String getCuid() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dt7
+    public jn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbadkCoreApplication.getInst().getCuidGalaxy2();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.F) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(gt7.e().d("pb_banner"));
+                funAdNativeNewAdapter.setPageType("pb");
+                funAdNativeNewAdapter.setSceneKey("pb_banner");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId == AdvertAppInfo.I) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter2 = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter2.setSid(at7.f());
+                funAdNativeNewAdapter2.setPageType("pb");
+                return funAdNativeNewAdapter2;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new lt7(baseFragmentActivity, bdUniqueId);
+            }
         }
-        return (String) invokeV.objValue;
+        return (jn) invokeLL.objValue;
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService
-    public int getHostIconResId() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dt7
+    public jn<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return TbadkCoreApplication.getInst().getResources().getIdentifier("tb_launcher_icon", ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(at7.g());
+                funAdNativeNewAdapter.setPageType("personalize");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new lt7(baseFragmentActivity, bdUniqueId);
+            }
         }
-        return invokeV.intValue;
+        return (jn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dt7
+    public jn<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(gt7.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new lt7(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (jn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dt7
+    public jn<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, baseFragmentActivity, bdUniqueId, str)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(gt7.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setPageTab(str);
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new lt7(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (jn) invokeLLL.objValue;
     }
 }

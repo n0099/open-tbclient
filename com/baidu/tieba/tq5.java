@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
-public interface tq5 {
-    boolean C0(uq5 uq5Var);
+public interface tq5 extends rq5 {
+    boolean H(String str);
 
-    boolean g1();
-
-    BdUniqueId getUniqueId();
+    String t();
 }

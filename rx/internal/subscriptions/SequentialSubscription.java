@@ -1,24 +1,24 @@
 package rx.internal.subscriptions;
 
-import com.baidu.tieba.nrb;
-import com.baidu.tieba.umb;
+import com.baidu.tieba.gtb;
+import com.baidu.tieba.nob;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class SequentialSubscription extends AtomicReference<umb> implements umb {
+public final class SequentialSubscription extends AtomicReference<nob> implements nob {
     public static final long serialVersionUID = 995205034283130269L;
 
     public SequentialSubscription() {
     }
 
-    public umb current() {
-        umb umbVar = (umb) super.get();
-        if (umbVar == Unsubscribed.INSTANCE) {
-            return nrb.c();
+    public nob current() {
+        nob nobVar = (nob) super.get();
+        if (nobVar == Unsubscribed.INSTANCE) {
+            return gtb.c();
         }
-        return umbVar;
+        return nobVar;
     }
 
-    @Override // com.baidu.tieba.umb
+    @Override // com.baidu.tieba.nob
     public boolean isUnsubscribed() {
         if (get() == Unsubscribed.INSTANCE) {
             return true;
@@ -26,86 +26,86 @@ public final class SequentialSubscription extends AtomicReference<umb> implement
         return false;
     }
 
-    @Override // com.baidu.tieba.umb
+    @Override // com.baidu.tieba.nob
     public void unsubscribe() {
-        umb andSet;
-        umb umbVar = get();
+        nob andSet;
+        nob nobVar = get();
         Unsubscribed unsubscribed = Unsubscribed.INSTANCE;
-        if (umbVar != unsubscribed && (andSet = getAndSet(unsubscribed)) != null && andSet != Unsubscribed.INSTANCE) {
+        if (nobVar != unsubscribed && (andSet = getAndSet(unsubscribed)) != null && andSet != Unsubscribed.INSTANCE) {
             andSet.unsubscribe();
         }
     }
 
-    public SequentialSubscription(umb umbVar) {
-        lazySet(umbVar);
+    public SequentialSubscription(nob nobVar) {
+        lazySet(nobVar);
     }
 
-    public boolean replace(umb umbVar) {
-        umb umbVar2;
+    public boolean replace(nob nobVar) {
+        nob nobVar2;
         do {
-            umbVar2 = get();
-            if (umbVar2 == Unsubscribed.INSTANCE) {
-                if (umbVar != null) {
-                    umbVar.unsubscribe();
+            nobVar2 = get();
+            if (nobVar2 == Unsubscribed.INSTANCE) {
+                if (nobVar != null) {
+                    nobVar.unsubscribe();
                     return false;
                 }
                 return false;
             }
-        } while (!compareAndSet(umbVar2, umbVar));
+        } while (!compareAndSet(nobVar2, nobVar));
         return true;
     }
 
-    public boolean replaceWeak(umb umbVar) {
-        umb umbVar2 = get();
-        if (umbVar2 == Unsubscribed.INSTANCE) {
-            if (umbVar != null) {
-                umbVar.unsubscribe();
+    public boolean replaceWeak(nob nobVar) {
+        nob nobVar2 = get();
+        if (nobVar2 == Unsubscribed.INSTANCE) {
+            if (nobVar != null) {
+                nobVar.unsubscribe();
             }
             return false;
-        } else if (compareAndSet(umbVar2, umbVar) || get() != Unsubscribed.INSTANCE) {
+        } else if (compareAndSet(nobVar2, nobVar) || get() != Unsubscribed.INSTANCE) {
             return true;
         } else {
-            if (umbVar != null) {
-                umbVar.unsubscribe();
+            if (nobVar != null) {
+                nobVar.unsubscribe();
             }
             return false;
         }
     }
 
-    public boolean update(umb umbVar) {
-        umb umbVar2;
+    public boolean update(nob nobVar) {
+        nob nobVar2;
         do {
-            umbVar2 = get();
-            if (umbVar2 == Unsubscribed.INSTANCE) {
-                if (umbVar != null) {
-                    umbVar.unsubscribe();
+            nobVar2 = get();
+            if (nobVar2 == Unsubscribed.INSTANCE) {
+                if (nobVar != null) {
+                    nobVar.unsubscribe();
                     return false;
                 }
                 return false;
             }
-        } while (!compareAndSet(umbVar2, umbVar));
-        if (umbVar2 != null) {
-            umbVar2.unsubscribe();
+        } while (!compareAndSet(nobVar2, nobVar));
+        if (nobVar2 != null) {
+            nobVar2.unsubscribe();
             return true;
         }
         return true;
     }
 
-    public boolean updateWeak(umb umbVar) {
-        umb umbVar2 = get();
-        if (umbVar2 == Unsubscribed.INSTANCE) {
-            if (umbVar != null) {
-                umbVar.unsubscribe();
+    public boolean updateWeak(nob nobVar) {
+        nob nobVar2 = get();
+        if (nobVar2 == Unsubscribed.INSTANCE) {
+            if (nobVar != null) {
+                nobVar.unsubscribe();
             }
             return false;
-        } else if (compareAndSet(umbVar2, umbVar)) {
+        } else if (compareAndSet(nobVar2, nobVar)) {
             return true;
         } else {
-            umb umbVar3 = get();
-            if (umbVar != null) {
-                umbVar.unsubscribe();
+            nob nobVar3 = get();
+            if (nobVar != null) {
+                nobVar.unsubscribe();
             }
-            if (umbVar3 != Unsubscribed.INSTANCE) {
+            if (nobVar3 != Unsubscribed.INSTANCE) {
                 return false;
             }
             return true;

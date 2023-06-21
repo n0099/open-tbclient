@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.utils.AbiType;
-import com.baidu.tieba.nmb;
-import com.baidu.tieba.ol2;
-import com.baidu.tieba.ue2;
+import com.baidu.tieba.pl2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,42 +14,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.Collection;
+import java.util.HashSet;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ql2 extends cf2 implements vo4, so4 {
+public final class ql2 implements jn4<JSONArray> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean m;
-    public static int n;
-    public static final PMSDownloadType o;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public tmb<? super al4> d;
-    public tmb<al4> e;
-    public gp4 f;
-    public final en4 g;
-    public pj4<al4> h;
-    public final Map<String, pl2> i;
-    public final Map<String, wo4> j;
-    public final ol2 k;
-    public final in4<JSONArray> l;
-
-    @Override // com.baidu.tieba.vo4
-    public tj4 getCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this : (tj4) invokeV.objValue;
-    }
+    public final rl2 a;
+    public final String b;
+    public bl4 c;
+    public bl4 d;
+    public sn3 e;
+    public boolean f;
+    public boolean g;
+    public final Collection<sq3<ql2>> h;
+    public final Collection<sq3<ql2>> i;
+    public pl2.b j;
 
     /* loaded from: classes7.dex */
-    public class a implements in4<JSONArray> {
+    public class a implements Function1<sn3, Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ql2 a;
@@ -79,419 +62,60 @@ public final class ql2 extends cf2 implements vo4, so4 {
             this.a = ql2Var;
         }
 
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.ql2.c(com.baidu.tieba.ql2, com.baidu.tieba.sn3):com.baidu.tieba.ql2
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.in4
-        /* renamed from: b */
-        public void a(@NonNull JSONArray jSONArray) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray != null && !this.a.i.isEmpty()) {
-                for (pl2 pl2Var : this.a.i.values()) {
-                    if (pl2Var != null && pl2Var.r(this.a)) {
-                        pl2Var.a(jSONArray);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements rq3<pl2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql2 a;
-
-        public b(ql2 ql2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ql2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
-        /* renamed from: b */
-        public void a(pl2 pl2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pl2Var) == null) {
-                if (ql2.m) {
-                    String str = this.a.c;
-                    Log.i(str, "onCallback: SoUpdating=" + pl2Var);
-                }
-                if (pl2Var != null) {
-                    this.a.k.c(pl2Var.k(), pl2Var.o());
-                }
-                this.a.Z(null);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements rq3<pl2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql2 a;
-
-        public c(ql2 ql2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ql2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
-        /* renamed from: b */
-        public void a(pl2 pl2Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pl2Var) == null) && pl2Var != null) {
-                this.a.k.d(pl2Var.k(), pl2Var.m());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements ue2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ al4 a;
-        public final /* synthetic */ ql2 b;
-
-        public d(ql2 ql2Var, al4 al4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql2Var, al4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ql2Var;
-            this.a = al4Var;
-        }
-
-        @Override // com.baidu.tieba.ue2.c
-        public void b(PMSDownloadType pMSDownloadType, rn3 rn3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, rn3Var) == null) {
-                this.b.f.l(this.a);
-                if (this.b.d != null) {
-                    this.b.d.onError(new PkgDownloadError(this.a, rn3Var));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ue2.c
-        public void a(PMSDownloadType pMSDownloadType) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.b.f.m(this.a);
-                if (this.b.d != null) {
-                    this.b.d.onNext(this.a);
-                    this.b.d.onCompleted();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements nmb.a<al4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql2 a;
-
-        public e(ql2 ql2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ql2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
-        public void call(tmb<? super al4> tmbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, tmbVar) != null) {
-                return;
-            }
-            this.a.d = tmbVar;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f extends tmb<al4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql2 e;
-
-        public f(ql2 ql2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = ql2Var;
-        }
-
-        public /* synthetic */ f(ql2 ql2Var, a aVar) {
-            this(ql2Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.omb
-        /* renamed from: g */
-        public void onNext(al4 al4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, al4Var) == null) && ql2.m) {
-                String str = this.e.c;
-                Log.e(str, "PkgDlSubscriber 单个包下载、业务层处理完成：" + al4Var.toString());
-            }
-        }
-
-        @Override // com.baidu.tieba.omb
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (ql2.m) {
-                    String str = this.e.c;
-                    Log.e(str, "PkgDlSubscriber 包下载、业务层处理 OnError：" + th.toString());
-                }
-                this.e.e0(new Exception("failed by Download error = ", th));
-            }
-        }
-
-        @Override // com.baidu.tieba.omb
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (ql2.m) {
-                    Log.e(this.e.c, "PkgDlSubscriber 包下载完成");
-                }
-                this.e.e0(null);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class g extends mj4<al4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql2 a;
-
-        public g(ql2 ql2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ql2Var;
-        }
-
-        public /* synthetic */ g(ql2 ql2Var, a aVar) {
-            this(ql2Var);
-        }
-
-        @Override // com.baidu.tieba.rj4
-        @NonNull
-        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) {
-                return this.a.m(bundle, set);
-            }
-            return (Bundle) invokeLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pj4
-        /* renamed from: l */
-        public String d(al4 al4Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, al4Var)) == null) {
-                String g = nl2.d.g(al4Var);
-                if (ql2.m) {
-                    String str = this.a.c;
-                    Log.i(str, "SoDlCallback getDownloadPath: so=" + al4Var.g + " path=" + g);
-                }
-                return g;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mj4, com.baidu.tieba.pj4
-        /* renamed from: q */
-        public void a(al4 al4Var) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, al4Var) == null) {
-                super.a(al4Var);
-                wo4 wo4Var = (wo4) this.a.j.get(al4Var.g);
-                ql2 ql2Var = this.a;
-                if (wo4Var == null) {
-                    str = null;
-                } else {
-                    str = wo4Var.a;
-                }
-                pl2 a0 = ql2Var.a0(str);
-                if (a0 != null) {
-                    a0.x(new ol2.b(al4Var.b, al4Var.k));
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mj4, com.baidu.tieba.pj4
-        /* renamed from: r */
-        public void c(al4 al4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, al4Var) == null) {
-                super.c(al4Var);
-                if (ql2.m) {
-                    String str = this.a.c;
-                    Log.i(str, "SoDlCallback onDownloadStart: so=" + al4Var.g);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mj4, com.baidu.tieba.pj4
-        /* renamed from: s */
-        public void f(al4 al4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, al4Var) == null) {
-                super.f(al4Var);
-                if (ql2.m) {
-                    String str = this.a.c;
-                    Log.i(str, "SoDlCallback onDownloading: so=" + al4Var.g);
-                }
-                this.a.f0(al4Var);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mj4, com.baidu.tieba.pj4
-        /* renamed from: o */
-        public void e(al4 al4Var, sk4 sk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, al4Var, sk4Var) == null) {
-                super.e(al4Var, sk4Var);
-                if (ql2.m) {
-                    String str = this.a.c;
-                    Log.i(str, "SoDlCallback onDownloadError: so=" + al4Var.g + " err=" + sk4Var);
-                }
-                this.a.f.l(al4Var);
-                rn3 rn3Var = new rn3();
-                rn3Var.k(13L);
-                rn3Var.i(sk4Var.a);
-                rn3Var.d("so包下载失败");
-                rn3Var.f(sk4Var.toString());
-                if (this.a.d != null) {
-                    this.a.d.onError(new PkgDownloadError(al4Var, rn3Var));
-                }
-                ue2.c().a(al4Var, ql2.o, rn3Var);
-                cs4.k(al4Var.a);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mj4, com.baidu.tieba.pj4
-        /* renamed from: p */
-        public void i(al4 al4Var) {
-            wo4 wo4Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, al4Var) == null) {
-                super.i(al4Var);
-                if (ql2.m) {
-                    String str = this.a.c;
-                    Log.i(str, "SoDlCallback onDownloadFinish: so=" + al4Var);
-                }
-                String str2 = al4Var.p;
-                if (TextUtils.isEmpty(str2) && (wo4Var = (wo4) this.a.j.get(al4Var.g)) != null) {
-                    str2 = wo4Var.a;
-                }
-                pl2 a0 = this.a.a0(str2);
-                if (a0 != null) {
-                    boolean a = lp3.a(new File(al4Var.a), al4Var.m);
-                    if (ql2.m) {
-                        String str3 = this.a.c;
-                        Log.i(str3, "SoDlCallback onDownloadFinish: bundle=" + al4Var.g + " checkSign=" + a);
-                    }
-                    boolean z = true;
-                    z = (ql2.m && !sp3.G() && x73.j() == 1) ? false : false;
-                    if (a || z) {
-                        vj4.i().m(al4Var);
-                        if (ql2.m) {
-                            String str4 = this.a.c;
-                            Log.i(str4, "SoDlCallback onDownloadFinish: updating=" + a0 + " libName=" + str2);
-                        }
-                    }
-                    a0.q();
-                }
-                this.a.f.m(al4Var);
-                if (this.a.d != null) {
-                    this.a.d.onNext(al4Var);
-                    this.a.d.onCompleted();
-                }
-                ue2.c().b(al4Var, ql2.o);
-            }
+        @Override // kotlin.jvm.functions.Function1
+        /* renamed from: a */
+        public kotlin.Unit invoke(com.baidu.tieba.sn3 r5) {
+            /*
+                r4 = this;
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.ql2.a.$ic
+                if (r0 != 0) goto L38
+            L4:
+                boolean r0 = com.baidu.tieba.ql2.b()
+                if (r0 == 0) goto L2b
+                java.lang.StringBuilder r0 = new java.lang.StringBuilder
+                r0.<init>()
+                java.lang.String r1 = "install: "
+                r0.append(r1)
+                com.baidu.tieba.ql2 r1 = r4.a
+                java.lang.String r1 = r1.k()
+                r0.append(r1)
+                java.lang.String r1 = " onCallback"
+                r0.append(r1)
+                java.lang.String r0 = r0.toString()
+                java.lang.String r1 = "SoUpdating"
+                android.util.Log.i(r1, r0)
+            L2b:
+                com.baidu.tieba.ql2 r0 = r4.a
+                com.baidu.tieba.ql2.c(r0, r5)
+                com.baidu.tieba.ql2 r5 = r4.a
+                r0 = 0
+                com.baidu.tieba.ql2.d(r5, r0)
+                r5 = 0
+                return r5
+            L38:
+                r2 = r0
+                r3 = 1048576(0x100000, float:1.469368E-39)
+                com.baidu.titan.sdk.runtime.InterceptResult r0 = r2.invokeL(r3, r4, r5)
+                if (r0 == 0) goto L4
+                java.lang.Object r1 = r0.objValue
+                kotlin.Unit r1 = (kotlin.Unit) r1
+                return r1
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.ql2.a.invoke(com.baidu.tieba.sn3):kotlin.Unit");
         }
     }
 
@@ -508,86 +132,110 @@ public final class ql2 extends cf2 implements vo4, so4 {
                 return;
             }
         }
-        m = is1.a;
-        n = 0;
-        o = PMSDownloadType.SO_LIB;
+        k = js1.a;
     }
 
-    @Override // com.baidu.tieba.tj4
-    public void E() {
+    public final synchronized void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.E();
-            if (m) {
-                Log.e(this.c, "onFetchSuccess:");
+            synchronized (this) {
+                this.h.clear();
+                this.i.clear();
             }
         }
     }
 
-    @Override // com.baidu.tieba.tj4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.F();
-            if (m) {
-                Log.e(this.c, "onNoPackage:");
-            }
-            e0(null);
-        }
-    }
-
-    public final tmb<al4> b0() {
+    public bl4 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.e == null) {
-                this.e = new f(this, null);
-            }
-            return this.e;
+            return this.d;
         }
-        return (tmb) invokeV.objValue;
+        return (bl4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vo4
-    public in4<JSONArray> g() {
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public bl4 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.c == null && !TextUtils.isEmpty(this.b)) {
+                this.c = wj4.i().t(this.b);
+            }
+            return this.c;
+        }
+        return (bl4) invokeV.objValue;
+    }
+
+    public pl2.b m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return (pl2.b) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return (in4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vo4
-    @Nullable
-    public en4 getRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.g;
-        }
-        return (en4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tj4
-    public pj4<al4> z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.h == null) {
-                this.h = new g(this, null);
+            if (n() && (this.e == null || ol2.d.k(k()))) {
+                return true;
             }
-            return this.h;
+            return false;
         }
-        return (pj4) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ql2(en4 en4Var, ol2 ol2Var) {
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            bl4 bl4Var = this.d;
+            if (bl4Var != null && bl4Var != this.c) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (!n() && this.f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ql2(@NonNull rl2 rl2Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {en4Var, ol2Var};
+            Object[] objArr = {rl2Var, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -597,350 +245,250 @@ public final class ql2 extends cf2 implements vo4, so4 {
                 return;
             }
         }
-        this.c = "SwanSoUpdater";
-        this.i = new HashMap();
-        this.j = new HashMap();
-        this.l = new a(this);
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.c);
-        int i3 = n;
-        n = i3 + 1;
-        sb.append(i3);
-        String sb2 = sb.toString();
-        this.c = sb2;
-        if (m) {
-            Log.i(sb2, "SwanSoUpdater: config=" + ol2Var + " trace=" + Log.getStackTraceString(new Exception()));
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = false;
+        this.g = false;
+        this.h = new HashSet();
+        this.i = new HashSet();
+        this.j = null;
+        this.a = rl2Var;
+        this.b = str;
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    public static /* synthetic */ com.baidu.tieba.ql2 c(com.baidu.tieba.ql2 r0, com.baidu.tieba.sn3 r1) {
+        /*
+            r0.i(r1)
+            return r0
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.ql2.c(com.baidu.tieba.ql2, com.baidu.tieba.sn3):com.baidu.tieba.ql2");
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ql2.a.a(com.baidu.tieba.sn3):kotlin.Unit] */
+    public static /* synthetic */ boolean d(ql2 ql2Var, boolean z) {
+        ql2Var.f = z;
+        return z;
+    }
+
+    public ql2 w(rl2 rl2Var, bl4 bl4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, rl2Var, bl4Var)) == null) {
+            if (r(rl2Var)) {
+                this.d = bl4Var;
+            }
+            return this;
         }
-        this.g = en4Var;
-        this.k = ol2Var;
-        if (ol2Var != null) {
-            Iterator<String> it = ol2Var.a().iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                ll2 a2 = ml2.a(next);
-                if (a2 == null) {
-                    ol2Var.c(next, false);
-                } else if (a2.f()) {
-                    ol2Var.c(next, true);
-                } else {
-                    String e2 = a2.e();
-                    pl2 t = nl2.d.t(this, e2);
-                    b bVar = new b(this);
-                    c cVar = new c(this);
-                    t.u(bVar);
-                    t.v(cVar);
-                    this.i.put(e2, t);
-                    this.j.putAll(wo4.b(e2));
+        return (ql2) invokeLL.objValue;
+    }
+
+    public synchronized ql2 g(sq3<ql2> sq3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sq3Var)) == null) {
+            synchronized (this) {
+                this.h.remove(sq3Var);
+            }
+            return this;
+        }
+        return (ql2) invokeL.objValue;
+    }
+
+    public synchronized ql2 h(sq3<ql2> sq3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sq3Var)) == null) {
+            synchronized (this) {
+                this.i.remove(sq3Var);
+            }
+            return this;
+        }
+        return (ql2) invokeL.objValue;
+    }
+
+    public boolean r(rl2 rl2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, rl2Var)) == null) {
+            if (rl2Var != null && rl2Var == this.a) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized ql2 u(sq3<ql2> sq3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, sq3Var)) == null) {
+            synchronized (this) {
+                this.h.add(sq3Var);
+            }
+            return this;
+        }
+        return (ql2) invokeL.objValue;
+    }
+
+    public synchronized ql2 v(sq3<ql2> sq3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, sq3Var)) == null) {
+            synchronized (this) {
+                this.i.add(sq3Var);
+            }
+            return this;
+        }
+        return (ql2) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn4
+    /* renamed from: f */
+    public void a(@NonNull JSONArray jSONArray) {
+        boolean z;
+        long j;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+            bl4 l = l();
+            if (k) {
+                Log.i("SoUpdating", "decorateParams libName=" + this.b + " localSo=" + l);
+            }
+            try {
+                for (AbiType abiType : AbiType.currentAbi().getCompatible()) {
+                    if (k) {
+                        Log.i("SoUpdating", "decorateParams loop abi=" + abiType);
+                    }
+                    if (abiType != null) {
+                        xo4 d = xo4.d(this.b, abiType);
+                        if (k) {
+                            Log.i("SoUpdating", "decorateParams loop bundleId=" + d);
+                        }
+                        if (d != null) {
+                            JSONObject jSONObject = new JSONObject();
+                            if (l != null && abiType == l.q) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (l != null && z) {
+                                j = l.i;
+                            } else {
+                                j = 0;
+                            }
+                            String str2 = "0";
+                            if (l == null || !z) {
+                                str = "0";
+                            } else {
+                                str = l.j;
+                            }
+                            if (!TextUtils.isEmpty(str)) {
+                                str2 = str;
+                            }
+                            jSONObject.put("type", "so");
+                            jSONObject.put("bundle_id", d.b);
+                            jSONObject.put("version_code", j);
+                            jSONObject.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, str2);
+                            if (k) {
+                                Log.i("SoUpdating", "decorate abi=" + abiType + " jo=" + jSONObject);
+                            }
+                            jSONArray.put(jSONObject);
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                if (k) {
+                    e.printStackTrace();
                 }
             }
         }
-        if (m) {
-            String str = this.c;
-            Log.i(str, "SoNodeHandler() start mUpdatings=" + this.i.size());
-        }
-        if (this.i.isEmpty()) {
-            e0(null);
-        }
     }
 
-    public final pl2 a0(String str) {
+    public final synchronized ql2 i(sn3 sn3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            pl2 pl2Var = this.i.get(str);
-            if (pl2Var == null || !pl2Var.r(this)) {
-                return null;
-            }
-            return pl2Var;
-        }
-        return (pl2) invokeL.objValue;
-    }
-
-    public final void f0(al4 al4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, al4Var) == null) {
-            ue2.c().d(al4Var, new d(this, al4Var));
-        }
-    }
-
-    @Override // com.baidu.tieba.tj4
-    public so4 w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            if (TextUtils.equals("so", str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sn3Var)) == null) {
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "finish: " + k() + " finished=" + this.g + " error=" + sn3Var);
+                }
+                if (this.g) {
+                    return this;
+                }
+                this.g = true;
+                this.e = sn3Var;
+                if (sn3Var == null) {
+                    ol2.d.v(k(), System.currentTimeMillis());
+                }
+                ol2.d.f(k());
+                t();
+                e();
                 return this;
             }
-            return super.w(str);
         }
-        return (so4) invokeL.objValue;
+        return (ql2) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tj4
-    public void C(sk4 sk4Var) {
+    public synchronized void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sk4Var) == null) {
-            super.C(sk4Var);
-            if (m) {
-                String str = this.c;
-                Log.e(str, "onFetchError: " + sk4Var.toString());
-            }
-            e0(new Exception("failed by fetch error = " + sk4Var));
-        }
-    }
-
-    @Override // com.baidu.tieba.tj4
-    public void G(gp4 gp4Var) {
-        int n2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gp4Var) == null) {
-            if (m) {
-                String str = this.c;
-                StringBuilder sb = new StringBuilder();
-                sb.append("onPrepareDownload: countSet.size=");
-                if (gp4Var == null) {
-                    n2 = 0;
-                } else {
-                    n2 = gp4Var.n();
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "install: " + k() + " finished=" + this.g + " installing=" + this.f);
                 }
-                sb.append(n2);
-                Log.i(str, sb.toString());
-            }
-            super.G(gp4Var);
-            if (gp4Var == null) {
-                return;
-            }
-            this.f = gp4Var;
-            if (!gp4Var.k()) {
-                c0();
-            }
-        }
-    }
-
-    public final void d0(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, exc) == null) {
-            if (m) {
-                String str = this.c;
-                Log.i(str, "notifyFinalCallback: e=" + Log.getStackTraceString(exc));
-            }
-            ol2 ol2Var = this.k;
-            if (ol2Var != null) {
-                ol2Var.b(exc);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.so4
-    public void l(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, jSONObject) == null) {
-            if (m) {
-                String str = this.c;
-                Log.i(str, "SoNodeHandler parseData start data=" + jSONObject);
-            }
-            if (jSONObject != null) {
-                g0((al4) fp4.j(jSONObject, new al4()));
-            }
-        }
-    }
-
-    public final void Z(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (m) {
-                String str = this.c;
-                Log.i(str, "finishWithUpdatingCheck: updatings=" + this.i.size() + " e=" + exc);
-            }
-            for (pl2 pl2Var : this.i.values()) {
-                if (!pl2Var.n()) {
-                    if (m) {
-                        String str2 = this.c;
-                        Log.i(str2, "finishWithUpdatingCheck: return by wait for=" + pl2Var);
-                        return;
+                if (!this.g && !this.f) {
+                    this.f = true;
+                    if (k) {
+                        Log.i("SoUpdating", "install: " + k());
                     }
-                    return;
-                }
-            }
-            d0(exc);
-        }
-    }
-
-    public final void e0(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, exc) == null) {
-            if (m) {
-                String str = this.c;
-                Log.i(str, "notifyPmsFinish: updatings=" + this.i.size() + " e=" + exc);
-            }
-            for (pl2 pl2Var : this.i.values()) {
-                if (pl2Var != null && pl2Var.r(this) && !pl2Var.n() && !pl2Var.s()) {
-                    if (m) {
-                        String str2 = this.c;
-                        Log.i(str2, "notifyPmsFinish: try install updating=" + pl2Var);
-                    }
-                    pl2Var.q();
-                }
-            }
-            Z(exc);
-        }
-    }
-
-    public final void c0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (this.f.g()) {
-                arrayList.add(nmb.a(new e(this)));
-            }
-            if (!arrayList.isEmpty()) {
-                nmb.k(arrayList).w(b0());
-            }
-        }
-    }
-
-    public final void g0(al4 al4Var) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, al4Var) == null) {
-            if (m) {
-                Log.i(this.c, "SoNodeHandler updateBestSo start so=" + al4Var);
-            }
-            if (al4Var == null) {
-                if (m) {
-                    Log.i(this.c, "SoNodeHandler updateBestSo end by null so");
-                    return;
-                }
-                return;
-            }
-            wo4 wo4Var = this.j.get(al4Var.g);
-            if (wo4Var == null) {
-                if (m) {
-                    Log.i(this.c, "SoNodeHandler updateBestSo end by illegal bundleId=" + al4Var.g);
-                    return;
-                }
-                return;
-            }
-            if (TextUtils.isEmpty(al4Var.p)) {
-                al4Var.p = wo4Var.a;
-            }
-            pl2 a0 = a0(al4Var.p);
-            if (a0 == null) {
-                if (m) {
-                    Log.i(this.c, "SoNodeHandler updateBestSo end by no updating lib=" + al4Var.p);
-                    return;
-                }
-                return;
-            }
-            if (al4Var.q == null) {
-                al4Var.q = wo4Var.c;
-            }
-            if (!AbiType.currentAbi().compat(al4Var.q)) {
-                if (m) {
-                    Log.i(this.c, "SoNodeHandler updateBestSo end by currentAbi");
-                    return;
-                }
-                return;
-            }
-            al4 l = a0.l();
-            al4 j2 = a0.j();
-            long j3 = 0;
-            if (l == null) {
-                j = 0;
-            } else {
-                j = l.i;
-            }
-            if (j2 != null) {
-                j3 = j2.i;
-            }
-            long max = Math.max(j3, j);
-            long j4 = al4Var.i;
-            if (j4 < max) {
-                if (m) {
-                    Log.i(this.c, String.format("SoNodeHandler updateBestSo end by not bestVer(%d) libVer(%d)", Long.valueOf(max), Long.valueOf(al4Var.i)));
-                }
-            } else if (j4 > max) {
-                if (m) {
-                    Log.i(this.c, "SoNodeHandler updateBestSo end by update bestVer=" + al4Var.i);
-                }
-                a0.w(this, al4Var);
-            } else {
-                if (j2 == null || !j2.q.compat(al4Var.q)) {
-                    if (m) {
-                        Log.i(this.c, "SoNodeHandler updateBestSo end by update abi update=" + al4Var.q);
-                    }
-                    a0.w(this, al4Var);
-                }
-                if (m) {
-                    Log.i(this.c, "SoNodeHandler updateBestSo end by should not exec here");
+                    ol2.d.x(k(), new a(this));
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.so4
-    public void o() {
+    public final synchronized void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            qo4 qo4Var = new qo4();
-            gp4 gp4Var = new gp4();
-            if (m) {
-                Log.i(this.c, "SoNodeHandler handle for loop start");
-            }
-            boolean z = true;
-            if ((m && !sp3.G() && x73.j() == 1) ? false : false) {
-                String i = x73.i();
-                if (!TextUtils.isEmpty(i)) {
-                    try {
-                        al4 al4Var = (al4) fp4.j(new JSONObject(i), new al4());
-                        al4Var.g = "so_zeus_armeabi";
-                        g0(al4Var);
-                        qb3.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f145f)).G();
-                    } catch (JSONException e2) {
-                        qb3.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f145e)).G();
-                        e2.printStackTrace();
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "notifyFinish: " + k() + " mCallbacks=" + this.h.size());
+                }
+                this.g = true;
+                for (sq3<ql2> sq3Var : this.h) {
+                    if (sq3Var != null) {
+                        sq3Var.a(this);
                     }
                 }
             }
-            for (pl2 pl2Var : this.i.values()) {
-                if (pl2Var.r(this)) {
-                    g0(pl2Var.l());
-                    al4 j = pl2Var.j();
-                    if (pl2Var.p() && j != null) {
-                        if (m) {
-                            String str = this.c;
-                            Log.i(str, "SoNodeHandler handle for bestSo=" + j);
+        }
+    }
+
+    public synchronized void x(pl2.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, bVar) == null) {
+            synchronized (this) {
+                if (!this.g && bVar != null && 0 != bVar.b) {
+                    this.j = bVar;
+                    for (sq3<ql2> sq3Var : this.i) {
+                        if (sq3Var != null) {
+                            sq3Var.a(this);
                         }
-                        ro4.b(j, gp4Var);
-                        if (qo4Var.d == null) {
-                            qo4Var.d = new ArrayList();
-                        }
-                        qo4Var.d.add(j);
-                    } else {
-                        if (m) {
-                            Log.i(this.c, "SoNodeHandler localSo not update, just check for install");
-                        }
-                        pl2Var.q();
                     }
                 }
             }
-            if (m) {
-                Log.i(this.c, "SoNodeHandler handle for loop end");
-                String str2 = this.c;
-                Log.i(str2, "SoNodeHandler handle soSet.pkgSize()=" + gp4Var.n());
-            }
-            if (gp4Var.n() == 0) {
-                if (m) {
-                    Log.i(this.c, "SoNodeHandler handle end by no pkg");
-                }
-                F();
-                return;
-            }
-            if (m) {
-                Log.i(this.c, "SoNodeHandler handle end by start dl");
-            }
-            G(gp4Var);
-            jl4.e(qo4Var, this);
         }
     }
 }

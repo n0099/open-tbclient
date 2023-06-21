@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.inb;
-import com.baidu.tieba.nmb;
-import com.baidu.tieba.pmb;
-import com.baidu.tieba.tmb;
-import com.baidu.tieba.umb;
-import com.baidu.tieba.vnb;
+import com.baidu.tieba.bpb;
+import com.baidu.tieba.gob;
+import com.baidu.tieba.iob;
+import com.baidu.tieba.mob;
+import com.baidu.tieba.nob;
+import com.baidu.tieba.opb;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,34 +13,34 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements pmb, umb, nmb.a<T> {
+public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements iob, nob, gob.a<T> {
     public static final long serialVersionUID = -3852313036005250360L;
     public final boolean delayError;
     public volatile boolean done;
     public Throwable error;
     public final K key;
-    public final vnb<?, K, T> parent;
+    public final opb<?, K, T> parent;
     public final Queue<Object> queue = new ConcurrentLinkedQueue();
     public final AtomicBoolean cancelled = new AtomicBoolean();
-    public final AtomicReference<tmb<? super T>> actual = new AtomicReference<>();
+    public final AtomicReference<mob<? super T>> actual = new AtomicReference<>();
     public final AtomicBoolean once = new AtomicBoolean();
     public final AtomicLong requested = new AtomicLong();
 
-    public OperatorGroupBy$State(int i, vnb<?, K, T> vnbVar, K k, boolean z) {
-        this.parent = vnbVar;
+    public OperatorGroupBy$State(int i, opb<?, K, T> opbVar, K k, boolean z) {
+        this.parent = opbVar;
         this.key = k;
         this.delayError = z;
     }
 
-    public void call(tmb<? super T> tmbVar) {
+    public void call(mob<? super T> mobVar) {
         if (this.once.compareAndSet(false, true)) {
-            tmbVar.b(this);
-            tmbVar.f(this);
-            this.actual.lazySet(tmbVar);
+            mobVar.b(this);
+            mobVar.f(this);
+            this.actual.lazySet(mobVar);
             drain();
             return;
         }
-        tmbVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
+        mobVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
     }
 
     public void onError(Throwable th) {
@@ -59,12 +59,12 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         drain();
     }
 
-    @Override // com.baidu.tieba.pmb
+    @Override // com.baidu.tieba.iob
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i != 0) {
-                inb.b(this.requested, j);
+                bpb.b(this.requested, j);
                 drain();
                 return;
             }
@@ -73,12 +73,12 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         throw new IllegalArgumentException("n >= required but it was " + j);
     }
 
-    @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+    @Override // com.baidu.tieba.gob.a, com.baidu.tieba.uob
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((tmb) ((tmb) obj));
+        call((mob) ((mob) obj));
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, tmb<? super T> tmbVar, boolean z3) {
+    public boolean checkTerminated(boolean z, boolean z2, mob<? super T> mobVar, boolean z3) {
         if (this.cancelled.get()) {
             this.queue.clear();
             this.parent.g(this.key);
@@ -88,9 +88,9 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                 if (z2) {
                     Throwable th = this.error;
                     if (th != null) {
-                        tmbVar.onError(th);
+                        mobVar.onError(th);
                     } else {
-                        tmbVar.onCompleted();
+                        mobVar.onCompleted();
                     }
                     return true;
                 }
@@ -99,10 +99,10 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
             Throwable th2 = this.error;
             if (th2 != null) {
                 this.queue.clear();
-                tmbVar.onError(th2);
+                mobVar.onError(th2);
                 return true;
             } else if (z2) {
-                tmbVar.onCompleted();
+                mobVar.onCompleted();
                 return true;
             } else {
                 return false;
@@ -119,11 +119,11 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
         Queue<Object> queue = this.queue;
         boolean z2 = this.delayError;
-        tmb<? super T> tmbVar = this.actual.get();
+        mob<? super T> mobVar = this.actual.get();
         int i = 1;
         while (true) {
-            if (tmbVar != null) {
-                if (checkTerminated(this.done, queue.isEmpty(), tmbVar, z2)) {
+            if (mobVar != null) {
+                if (checkTerminated(this.done, queue.isEmpty(), mobVar, z2)) {
                     return;
                 }
                 long j = this.requested.get();
@@ -136,18 +136,18 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     } else {
                         z = false;
                     }
-                    if (checkTerminated(z3, z, tmbVar, z2)) {
+                    if (checkTerminated(z3, z, mobVar, z2)) {
                         return;
                     }
                     if (z) {
                         break;
                     }
-                    tmbVar.onNext((Object) NotificationLite.e(poll));
+                    mobVar.onNext((Object) NotificationLite.e(poll));
                     j2++;
                 }
                 if (j2 != 0) {
                     if (j != Long.MAX_VALUE) {
-                        inb.g(this.requested, j2);
+                        bpb.g(this.requested, j2);
                     }
                     this.parent.e.request(j2);
                 }
@@ -156,13 +156,13 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
             if (i == 0) {
                 return;
             }
-            if (tmbVar == null) {
-                tmbVar = this.actual.get();
+            if (mobVar == null) {
+                mobVar = this.actual.get();
             }
         }
     }
 
-    @Override // com.baidu.tieba.umb
+    @Override // com.baidu.tieba.nob
     public boolean isUnsubscribed() {
         return this.cancelled.get();
     }
@@ -172,7 +172,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         drain();
     }
 
-    @Override // com.baidu.tieba.umb
+    @Override // com.baidu.tieba.nob
     public void unsubscribe() {
         if (this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
             this.parent.g(this.key);

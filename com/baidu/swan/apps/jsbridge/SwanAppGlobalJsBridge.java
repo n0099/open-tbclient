@@ -10,27 +10,27 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
-import com.baidu.tieba.cx2;
-import com.baidu.tieba.fe2;
-import com.baidu.tieba.gw2;
-import com.baidu.tieba.n53;
+import com.baidu.tieba.dx2;
+import com.baidu.tieba.ge2;
+import com.baidu.tieba.hw2;
 import com.baidu.tieba.o53;
-import com.baidu.tieba.sp3;
-import com.baidu.tieba.vl2;
-import com.baidu.tieba.wa2;
+import com.baidu.tieba.p53;
+import com.baidu.tieba.tp3;
 import com.baidu.tieba.wl2;
-import com.baidu.tieba.y82;
+import com.baidu.tieba.xa2;
+import com.baidu.tieba.xl2;
+import com.baidu.tieba.z82;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
 /* loaded from: classes4.dex */
-public class SwanAppGlobalJsBridge extends gw2 {
+public class SwanAppGlobalJsBridge extends hw2 {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_jsbridge";
     public static final String TAG = "SwanAppGlobalJsBridge";
     public CopyOnWriteArrayList<String> mPendingSchemeList;
 
     /* loaded from: classes4.dex */
-    public class c implements n53 {
+    public class c implements o53 {
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -44,7 +44,7 @@ public class SwanAppGlobalJsBridge extends gw2 {
                     SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
                     swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), (String) it.next());
                 }
-                if (cx2.a) {
+                if (dx2.a) {
                     Log.d("SwanPerformance", "pending api count = " + SwanAppGlobalJsBridge.this.mPendingSchemeList.size());
                 }
                 SwanAppGlobalJsBridge.this.mPendingSchemeList.clear();
@@ -54,12 +54,12 @@ public class SwanAppGlobalJsBridge extends gw2 {
         public c() {
         }
 
-        @Override // com.baidu.tieba.n53
+        @Override // com.baidu.tieba.o53
         public void a() {
             if (SwanAppGlobalJsBridge.this.mPendingSchemeList.isEmpty()) {
                 return;
             }
-            sp3.a0(new a());
+            tp3.a0(new a());
         }
     }
 
@@ -75,7 +75,7 @@ public class SwanAppGlobalJsBridge extends gw2 {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends wl2 {
+    public class b extends xl2 {
         public final /* synthetic */ String c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,21 +84,21 @@ public class SwanAppGlobalJsBridge extends gw2 {
             this.c = str2;
         }
 
-        @Override // com.baidu.tieba.wl2
+        @Override // com.baidu.tieba.xl2
         public void c() {
             SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
             swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.c);
         }
     }
 
-    public SwanAppGlobalJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, wa2 wa2Var) {
-        super(context, unitedSchemeMainDispatcher, callbackHandler, wa2Var);
+    public SwanAppGlobalJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, xa2 xa2Var) {
+        super(context, unitedSchemeMainDispatcher, callbackHandler, xa2Var);
         this.mPendingSchemeList = new CopyOnWriteArrayList<>();
-        sp3.e0(new a());
+        tp3.e0(new a());
     }
 
     private void dispatchOnUiThread(String str) {
-        vl2.b().c(new b(str, str), null);
+        wl2.b().c(new b(str, str), null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,7 +107,7 @@ public class SwanAppGlobalJsBridge extends gw2 {
             UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(str2));
             unitedSchemeEntity.setReferUrl(this.mCallbackHandler.getCurrentPageUrl());
             unitedSchemeEntity.setPageUrl(str);
-            if (gw2.DEBUG) {
+            if (hw2.DEBUG) {
                 Log.d(TAG, "doSchemeDispatch scheme: " + str2 + " mCallbackHandler: " + this.mCallbackHandler);
             }
             SchemeTimeCostMoniter.getInstance().schemeStart(str2);
@@ -120,16 +120,16 @@ public class SwanAppGlobalJsBridge extends gw2 {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void registerLaunchTrigger() {
-        o53.c().d(new c());
+        p53.c().d(new c());
     }
 
     @JavascriptInterface
     public boolean dispatch(String str) {
-        y82.i(TAG, "dispatch: scheme " + str);
-        if (fe2.a(this.mJsContainer, str)) {
+        z82.i(TAG, "dispatch: scheme " + str);
+        if (ge2.a(this.mJsContainer, str)) {
             return false;
         }
-        if (o53.c().b(str)) {
+        if (p53.c().b(str)) {
             this.mPendingSchemeList.add(str);
             return true;
         }

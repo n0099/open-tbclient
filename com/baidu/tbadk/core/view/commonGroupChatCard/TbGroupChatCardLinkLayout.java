@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f25;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.g25;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.tbadkcore.databinding.TbGroupChatLinkCardLayoutBinding;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -300,7 +300,7 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void c(f25 data) {
+    public final void c(g25 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -336,19 +336,19 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         }
     }
 
-    public final void d(f25 f25Var) {
+    public final void d(g25 g25Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f25Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g25Var) == null) {
             TbGroupChatLinkCardLayoutBinding tbGroupChatLinkCardLayoutBinding = this.b;
             if (tbGroupChatLinkCardLayoutBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            tbGroupChatLinkCardLayoutBinding.h.N(f25Var.e, 10, false);
-            tbGroupChatLinkCardLayoutBinding.i.setText(f25Var.c);
+            tbGroupChatLinkCardLayoutBinding.h.N(g25Var.e, 10, false);
+            tbGroupChatLinkCardLayoutBinding.i.setText(g25Var.c);
             tbGroupChatLinkCardLayoutBinding.g.setVisibility(8);
-            CardLinkInfoData mCardLinkInfoData = f25Var.p;
+            CardLinkInfoData mCardLinkInfoData = g25Var.p;
             if (mCardLinkInfoData != null) {
                 Intrinsics.checkNotNullExpressionValue(mCardLinkInfoData, "mCardLinkInfoData");
                 String str = mCardLinkInfoData.content1;
@@ -435,21 +435,21 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            o75 d2 = o75.d(tbGroupChatLinkCardLayoutBinding.j);
+            p75 d2 = p75.d(tbGroupChatLinkCardLayoutBinding.j);
             d2.o(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
-            o75 d3 = o75.d(tbGroupChatLinkCardLayoutBinding.i);
-            d3.C(R.string.F_X01);
-            d3.B(R.dimen.T_X07);
-            d3.w(R.color.CAM_X0107);
-            o75 d4 = o75.d(tbGroupChatLinkCardLayoutBinding.d);
-            d4.C(R.string.F_X01);
-            d4.B(R.dimen.T_X09);
-            d4.w(R.color.CAM_X0109);
-            o75 d5 = o75.d(tbGroupChatLinkCardLayoutBinding.f);
-            d5.C(R.string.F_X01);
-            d5.B(R.dimen.T_X09);
-            d5.w(R.color.CAM_X0109);
+            p75 d3 = p75.d(tbGroupChatLinkCardLayoutBinding.i);
+            d3.D(R.string.F_X01);
+            d3.C(R.dimen.T_X07);
+            d3.x(R.color.CAM_X0107);
+            p75 d4 = p75.d(tbGroupChatLinkCardLayoutBinding.d);
+            d4.D(R.string.F_X01);
+            d4.C(R.dimen.T_X09);
+            d4.x(R.color.CAM_X0109);
+            p75 d5 = p75.d(tbGroupChatLinkCardLayoutBinding.f);
+            d5.D(R.string.F_X01);
+            d5.C(R.dimen.T_X09);
+            d5.x(R.color.CAM_X0109);
             WebPManager.setPureDrawable(tbGroupChatLinkCardLayoutBinding.c, R.drawable.icon_group_chat_bar_icon, R.color.CAM_X0109, null);
             WebPManager.setPureDrawable(tbGroupChatLinkCardLayoutBinding.e, R.drawable.icon_group_chat_icon, R.color.CAM_X0109, null);
             WebPManager.setPureDrawable(tbGroupChatLinkCardLayoutBinding.b, R.drawable.icon_pure_mount_card_link_right_del, R.color.CAM_X0108, null);

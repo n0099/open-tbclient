@@ -1,54 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class xh8 {
+public class xh8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<int[]> a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public vh8 a;
-    public le8 b;
-    public ke8 c;
 
-    public abstract BaseTagItemViewHolder b(ViewGroup viewGroup, int i);
-
-    public xh8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948300481, "Lcom/baidu/tieba/xh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948300481, "Lcom/baidu/tieba/xh8;");
+                return;
             }
         }
+        a = new ArrayList();
+        b = SkinManager.getColor(R.color.CAM_X0304);
     }
 
-    public void a(vh8 vh8Var) {
+    public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vh8Var) == null) {
-            this.a = vh8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, spannableStringBuilder)) == null) {
+            if (!TextUtils.isEmpty(spannableStringBuilder) && !ListUtils.isEmpty(a)) {
+                for (int[] iArr : a) {
+                    int i = iArr[0];
+                    int i2 = iArr[1];
+                    if (i < spannableStringBuilder.length() && i2 <= spannableStringBuilder.length() && i >= 0 && i2 >= 0) {
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(b), i, i2, 18);
+                    }
+                }
+            }
+            return spannableStringBuilder;
         }
+        return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public void c(ke8 ke8Var) {
+    public static void b(List<AtUserInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ke8Var) == null) {
-            this.c = ke8Var;
-        }
-    }
-
-    public void d(le8 le8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, le8Var) == null) {
-            this.b = le8Var;
+        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
+            a.clear();
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (AtUserInfo atUserInfo : list) {
+                if (atUserInfo != null) {
+                    int atPosition = atUserInfo.getAtPosition();
+                    a.add(new int[]{atPosition, atUserInfo.getAtName().length() + atPosition + 1});
+                }
+            }
         }
     }
 }

@@ -1,92 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewTreeObserver;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.IdRes;
+import androidx.core.content.ContextCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.adapter.CardAppLegoViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.pushdialog.PushDialogVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
+import java.text.DecimalFormat;
+import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class nm9 extends in<qo6, CardAppLegoViewHolder> implements zl9, em9 {
+public class nm9 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public boolean c;
-    public AdvertAppInfo.ILegoAdvert d;
-    public String e;
-    public Runnable f;
-    public CustomMessageListener g;
-
-    @Override // com.baidu.tieba.zl9
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zl9
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
+    public final PushDialogActivity a;
+    public Drawable b;
+    public View c;
+    public View d;
+    public EditorScrollView e;
+    public TbImageView f;
+    public TextView g;
+    public ImageView h;
+    public TextView i;
+    public TbRichTextView j;
+    public PushDialogVideoView k;
+    public ClickableHeaderImageView l;
+    public TextView m;
+    public TextView n;
+    public CommonUserLikeButton o;
+    public View p;
+    public TextView q;
+    public r16 r;
+    public long s;
+    public a26 t;
+    public boolean u;
 
     /* loaded from: classes7.dex */
-    public class a implements lo8 {
+    public class a implements ViewTreeObserver.OnScrollChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdvertAppInfo a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ nm9 a;
 
-        public a(nm9 nm9Var, AdvertAppInfo advertAppInfo, int i, String str) {
+        public a(nm9 nm9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nm9Var, advertAppInfo, Integer.valueOf(i), str};
+                Object[] objArr = {nm9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = advertAppInfo;
-            this.b = i;
-            this.c = str;
+            this.a = nm9Var;
         }
 
-        @Override // com.baidu.tieba.lo8
-        public void a(int i, HashMap hashMap) {
+        @Override // android.view.ViewTreeObserver.OnScrollChangedListener
+        public void onScrollChanged() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, hashMap) != null) || i == 0) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.u) {
+                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 1).param("tid", this.a.a.z1()));
+                this.a.u = true;
             }
-            if (km9.h(i)) {
-                xn9.g(this.a, this.b, hashMap, i);
-            } else {
-                xn9.n(this.a, this.b, this.c, null, hashMap);
-            }
-            to8.c(this.a);
         }
     }
 
@@ -117,241 +122,273 @@ public class nm9 extends in<qo6, CardAppLegoViewHolder> implements zl9, em9 {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((CardAppLegoViewHolder) this.a.viewholder).a((int) TimeUnit.SECONDS.toSeconds(1L));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.a.y1() != null) {
+                this.a.a.y1().d();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nm9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(nm9 nm9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nm9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nm9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.viewholder == null) {
-                return;
-            }
-            if (!(customResponsedMessage.getData() instanceof Boolean)) {
-                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-            } else if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-            } else {
-                int c = ((CardAppLegoViewHolder) this.a.viewholder).c();
-                if (((CardAppLegoViewHolder) this.a.viewholder).b()) {
-                    if (c == -1) {
-                        wg.a().removeCallbacks(this.a.f);
-                        wg.a().postDelayed(this.a.f, 500L);
-                    }
-                } else if (c != -1) {
-                    ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nm9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public nm9(PushDialogActivity pushDialogActivity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, str};
+            Object[] objArr = {pushDialogActivity, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 3;
-        this.c = false;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.g = new c(this, 2921517);
-        this.a = tbPageContext;
-        this.e = str;
-        if ((tbPageContext.getPageActivity() instanceof BaseFragmentActivity) && TextUtils.equals(str, "CONCERN")) {
-            if (bdUniqueId == AdvertAppInfo.C || bdUniqueId == AdvertAppInfo.E) {
-                MessageManager.getInstance().registerListener(this.g);
+        this.u = false;
+        this.a = pushDialogActivity;
+        pushDialogActivity.setContentView(i);
+        this.d = d(R.id.obfuscated_res_0x7f091edb);
+        this.c = d(R.id.obfuscated_res_0x7f0908b2);
+        EditorScrollView editorScrollView = (EditorScrollView) d(R.id.obfuscated_res_0x7f091d34);
+        this.e = editorScrollView;
+        editorScrollView.setOverScrollMode(2);
+        this.e.setListener(new a(this));
+        if (this.c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            int j = wi.j(this.a);
+            layoutParams.height = j / 2;
+            layoutParams.topMargin = (int) (j * 0.22f);
+            this.c.postInvalidate();
+        }
+        if (wi.C()) {
+            Drawable a2 = z7a.a();
+            this.b = a2;
+            if (a2 != null && this.a.getWindow() != null) {
+                this.a.getWindow().setBackgroundDrawable(this.b);
             }
         }
+        View d = d(R.id.obfuscated_res_0x7f091d32);
+        this.p = d;
+        d.setOnClickListener(this);
+        this.q = (TextView) d(R.id.comment_num);
+        TbImageView tbImageView = (TbImageView) d(R.id.obfuscated_res_0x7f091d36);
+        this.f = tbImageView;
+        tbImageView.setDefaultBgResource(R.drawable.tb_launcher_icon);
+        this.f.setAutoChangeStyle(false);
+        this.g = (TextView) d(R.id.obfuscated_res_0x7f091d37);
+        this.i = (TextView) d(R.id.obfuscated_res_0x7f091d35);
+        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) d(R.id.obfuscated_res_0x7f091d39);
+        this.l = clickableHeaderImageView;
+        clickableHeaderImageView.setBorderSurroundContent(true);
+        this.l.setIsRound(true);
+        this.l.setEnabled(false);
+        this.l.setAutoChangeStyle(false);
+        this.l.setBorderWidth(wi.g(this.a, R.dimen.tbds1));
+        this.l.setBorderColor(ContextCompat.getColor(this.a, R.color.black_alpha15));
+        this.r = new r16();
+        TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.obfuscated_res_0x7f091d33);
+        this.j = tbRichTextView;
+        tbRichTextView.setTextColor(ContextCompat.getColor(this.a, R.color.CAM_X0107));
+        this.r.u(wi.g(this.a, R.dimen.tbds38));
+        this.r.x(wi.g(this.a, R.dimen.tbds42));
+        this.r.k(wi.g(this.a, R.dimen.tbds23));
+        this.r.p(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
+        this.r.j(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        this.j.setLayoutStrategy(this.r);
+        PushDialogVideoView pushDialogVideoView = (PushDialogVideoView) d(R.id.obfuscated_res_0x7f091d3c);
+        this.k = pushDialogVideoView;
+        pushDialogVideoView.setPageContext(this.a.getPageContext());
+        this.m = (TextView) d(R.id.obfuscated_res_0x7f091d3b);
+        this.n = (TextView) d(R.id.obfuscated_res_0x7f091d38);
+        CommonUserLikeButton commonUserLikeButton = (CommonUserLikeButton) d(R.id.obfuscated_res_0x7f091d3a);
+        this.o = commonUserLikeButton;
+        commonUserLikeButton.setAfterOnClickListener(this);
+        ImageView imageView = (ImageView) d(R.id.obfuscated_res_0x7f090893);
+        this.h = imageView;
+        imageView.setOnClickListener(this);
     }
 
-    @Override // com.baidu.tieba.em9
-    public void setIsFromCDN(boolean z) {
+    public final View d(@IdRes int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.findViewById(i);
         }
+        return (View) invokeI.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
-    /* renamed from: B */
-    public View getView(int i, View view2, ViewGroup viewGroup, qo6 qo6Var) {
-        InterceptResult invokeCommon;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public void e() {
+        PushDialogVideoView pushDialogVideoView;
+        a26 a26Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qo6Var})) == null) {
-            if (qo6Var != null && (advertAppInfo = qo6Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.d = iLegoAdvert;
-                if (C(view2)) {
-                    CardAppLegoViewHolder onCreateViewHolder = onCreateViewHolder(viewGroup);
-                    this.viewholder = onCreateViewHolder;
-                    if (onCreateViewHolder != null) {
-                        view2 = onCreateViewHolder.getView();
-                    }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pushDialogVideoView = this.k) != null) {
+            pushDialogVideoView.setNetworkChange();
+            if (BdNetTypeUtil.isMobileNet() && this.k.A() && (a26Var = this.t) != null && a26Var.c() > 0 && this.t.b() > 0) {
+                DecimalFormat decimalFormat = new DecimalFormat("0.0");
+                double c = ((this.t.c() * (1.0f - ((this.k.getCurrentPosition() * 1.0f) / (this.t.b() * 1000)))) * 1.0f) / 1048576.0f;
+                if (c >= 0.1d) {
+                    wi.Q(this.a.getPageContext().getPageActivity(), String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1158), decimalFormat.format(c)));
                 }
-                View view3 = view2;
-                if (view3 != null) {
-                    view3 = onFillViewHolder(i, view3, viewGroup, qo6Var, (CardAppLegoViewHolder) view3.getTag());
-                    if (cm9.class.isAssignableFrom(view3.getClass())) {
-                        ((CardAppLegoViewHolder) this.viewholder).d(((cm9) view3).getVideoOrVrView());
-                    }
-                }
-                return view3;
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public final boolean C(View view2) {
-        InterceptResult invokeL;
-        V v;
+    public void f() {
+        PushDialogVideoView pushDialogVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.d == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
-                return true;
-            }
-            return !this.d.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.tag_first));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (pushDialogVideoView = this.k) != null) {
+            pushDialogVideoView.C();
         }
-        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
-    /* renamed from: D */
-    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        View view2;
+    public void g() {
+        PushDialogVideoView pushDialogVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (this.d == null || (view2 = (View) mo8.h().a(this.a, this.d, 2)) == null) {
-                return null;
-            }
-            view2.setTag(R.id.tag_first, this.d);
-            return new CardAppLegoViewHolder((hp8) view2);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pushDialogVideoView = this.k) != null) {
+            pushDialogVideoView.D();
         }
-        return (CardAppLegoViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
-    /* renamed from: E */
-    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup, qo6 qo6Var) {
-        InterceptResult invokeLL;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public void h() {
+        PushDialogVideoView pushDialogVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, qo6Var)) == null) {
-            if (qo6Var != null && (advertAppInfo = qo6Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.d = iLegoAdvert;
-                return onCreateViewHolder(viewGroup);
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (pushDialogVideoView = this.k) != null) {
+            pushDialogVideoView.E();
         }
-        return (CardAppLegoViewHolder) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.in
-    /* renamed from: F */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qo6 qo6Var, CardAppLegoViewHolder cardAppLegoViewHolder) {
-        InterceptResult invokeCommon;
+    public void i(om9 om9Var) {
         boolean z;
+        boolean z2;
+        int g;
+        int g2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qo6Var, cardAppLegoViewHolder})) == null) {
-            TbPageContext<?> tbPageContext = this.a;
-            if (tbPageContext != null && qo6Var != null && qo6Var.a != null) {
-                if (tbPageContext.getPageActivity() instanceof oj0) {
-                    AdvertAppInfo advertAppInfo = qo6Var.a;
-                    advertAppInfo.r = qj0.b(advertAppInfo.r, (oj0) this.a.getPageActivity(), cardAppLegoViewHolder.itemView);
-                }
-                AdvertAppInfo.ILegoAdvert iLegoAdvert = qo6Var.a.h;
-                this.d = iLegoAdvert;
-                if (iLegoAdvert != null && view2 != null) {
-                    if (this.viewholder == 0) {
-                        this.viewholder = cardAppLegoViewHolder;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, om9Var) != null) || om9Var == null) {
+            return;
+        }
+        this.f.N(om9Var.a(), 17, false);
+        this.g.setText(om9Var.b());
+        if (om9Var.d() != null) {
+            this.l.setData(om9Var.d());
+            this.m.setText(om9Var.d().getName_show());
+            if (om9Var.d().getGodUserData() != null && (!StringUtils.isNull(om9Var.d().getGodUserData().getForumName()) || !StringUtils.isNull(om9Var.d().getGodUserData().getIntro()))) {
+                this.n.setText(om9Var.d().getGodUserData().getForumName() + "吧 " + om9Var.d().getGodIntro());
+                this.n.setVisibility(0);
+            } else {
+                this.n.setVisibility(8);
+            }
+            if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(om9Var.d().getUserId())) {
+                this.o.setVisibility(8);
+            } else {
+                new pb5(this.a.getPageContext(), this.o).l(om9Var.d());
+                this.o.g(0);
+                this.o.setVisibility(0);
+            }
+            pm9 c = om9Var.c();
+            if (c == null) {
+                this.a.y1().d();
+                this.a.finish();
+                return;
+            }
+            if (c.a() != null && !ListUtils.isEmpty(c.a().W())) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (StringUtils.isNull(c.d()) && z) {
+                this.a.y1().d();
+                this.a.finish();
+                return;
+            }
+            if (c.a() != null) {
+                Iterator<TbRichTextData> it = c.a().W().iterator();
+                while (it.hasNext()) {
+                    TbRichTextData next = it.next();
+                    if (next != null) {
+                        this.t = next.l0();
                     }
-                    m15.d(qo6Var);
-                    d05 layoutMode = this.a.getLayoutMode();
-                    if (this.b == 4) {
-                        z = true;
-                    } else {
-                        z = false;
+                    if (this.t != null) {
+                        break;
                     }
-                    layoutMode.l(z);
-                    this.a.getLayoutMode().k(view2);
-                    AdvertAppInfo c2 = qo6Var.c();
-                    c2.u = 1;
-                    hp8 hp8Var = (hp8) view2;
-                    this.d.setAdvertAppInfo(c2);
-                    hp8Var.setFromCDN(this.c);
-                    hp8Var.update(this.d);
-                    int i2 = qo6Var.c;
-                    String str = qo6Var.b;
-                    pn9.e(qo6Var.c(), hp8Var, str, this.e, 1, -1);
-                    hp8Var.setAfterClickSchemeListener(new a(this, c2, i2, str));
-                    if (cm9.class.isAssignableFrom(view2.getClass())) {
-                        cardAppLegoViewHolder.d(((cm9) view2).getVideoOrVrView());
-                    }
-                    return view2;
                 }
             }
-            return null;
+            this.s = c.c();
+            if (this.t == null) {
+                this.k.setVisibility(8);
+                this.j.setVisibility(0);
+                if (!BdNetTypeUtil.is4GNet() && !BdNetTypeUtil.isWifiNet()) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                this.r.y(z2);
+                if (z2) {
+                    g = (wi.l(TbadkCoreApplication.getInst()) - (wi.g(this.a, R.dimen.tbds22) * 2)) - (wi.g(this.a, R.dimen.tbds44) * 2);
+                    g2 = (int) (g * 1.618f);
+                } else {
+                    g = wi.g(this.a, R.dimen.tbds360);
+                    g2 = wi.g(this.a, R.dimen.tbds202);
+                }
+                this.r.l(z2);
+                this.r.r(g);
+                this.r.q(g2);
+                this.j.setText(c.a());
+            } else {
+                this.j.setVisibility(8);
+                this.k.setVisibility(0);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
+                int l = wi.l(this.a) - wi.g(this.a, R.dimen.tbds132);
+                layoutParams.width = l;
+                layoutParams.height = (int) (l * 0.5625f);
+                this.k.setLayoutParams(layoutParams);
+                this.k.setTbRichTextVideoInfo(this.t);
+                this.k.stopPlay();
+                this.k.setThumbnail(this.t.d());
+                this.k.setVideoUrl(this.t.e(), String.valueOf(this.s));
+                this.k.G();
+                hk9 hk9Var = new hk9();
+                hk9Var.a = "15";
+                hk9Var.c = String.valueOf(this.s);
+                hk9Var.e = TbadkCoreApplication.getCurrentAccount();
+                this.k.setVideoViewBusiness(hk9Var);
+            }
+            if (StringUtils.isNull(c.d())) {
+                this.i.setVisibility(8);
+            } else {
+                this.i.setText(c.d());
+                this.i.setVisibility(0);
+            }
+            this.q.setText(String.format(Locale.CHINA, this.a.getString(R.string.obfuscated_res_0x7f0f0381), Integer.valueOf(c.b())));
+            if (!this.a.y1().c()) {
+                this.a.y1().e();
+                return;
+            }
+            return;
         }
-        return (View) invokeCommon.objValue;
+        this.a.y1().d();
+        this.a.finish();
     }
 
-    @Override // com.baidu.tieba.zl9
-    public void onDestroy() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            if (view2 == this.h) {
+                TiebaStatic.log(new StatisticItem("c13198").param("tid", this.a.z1()));
+                xg.a().postDelayed(new b(this), 100L);
+                this.a.finish();
+            } else if (view2 == this.p) {
+                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 4).param("tid", this.a.z1()));
+                if (this.s == 0) {
+                    this.a.finish();
+                    return;
+                }
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(this.s + "", null, null)));
+                this.a.y1().e();
+                this.a.finish();
+            } else if (view2 == this.o) {
+                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 3).param("tid", this.a.z1()));
+            }
         }
     }
 }

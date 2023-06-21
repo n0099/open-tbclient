@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.b67;
-import com.baidu.tieba.c67;
-import com.baidu.tieba.i37;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.t47;
+import com.baidu.tieba.d57;
+import com.baidu.tieba.g67;
+import com.baidu.tieba.h67;
+import com.baidu.tieba.n37;
+import com.baidu.tieba.o15;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.ug;
 import com.baidu.tieba.y47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ import kotlin.jvm.internal.Intrinsics;
 import tbclient.VideoInfo;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\b\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nH\u0016J\u0010\u0010\u000b\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\rH\u0002J\u0010\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\bH\u0016J\u0018\u0010\u0011\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\b2\u0006\u0010\u0013\u001a\u00020\u0014H\u0016R\u0014\u0010\u0003\u001a\u00020\u0004X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/compact/SocialBarImpl;", "Lcom/baidu/tieba/feed/compat/Resolver$ISocialBar;", "()V", "from", "", "getFrom", "()I", "create", "Landroid/view/ViewGroup;", "context", "Landroid/content/Context;", "getShareThreadShowType", "threadType", "", "onSkinChange", "", "view", StickerDataChangeType.UPDATE, "agreeView", "state", "Lcom/baidu/tieba/feed/component/uistate/SocialUiState;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class SocialBarImpl implements i37.j {
+public final class SocialBarImpl implements n37.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -53,7 +53,7 @@ public final class SocialBarImpl implements i37.j {
         }
     }
 
-    @Override // com.baidu.tieba.i37.l
+    @Override // com.baidu.tieba.n37.l
     public void a(ViewGroup view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -79,7 +79,7 @@ public final class SocialBarImpl implements i37.j {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.i37.j
+    @Override // com.baidu.tieba.n37.j
     public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -93,8 +93,8 @@ public final class SocialBarImpl implements i37.j {
         return (ViewGroup) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.i37.j
-    public void update(ViewGroup agreeView, final t47 state) {
+    @Override // com.baidu.tieba.n37.j
+    public void update(ViewGroup agreeView, final y47 state) {
         ThreadData threadData;
         Map<String, String> map;
         String str;
@@ -111,7 +111,7 @@ public final class SocialBarImpl implements i37.j {
         if (interceptable == null || interceptable.invokeLL(1048579, this, agreeView, state) == null) {
             Intrinsics.checkNotNullParameter(agreeView, "agreeView");
             Intrinsics.checkNotNullParameter(state, "state");
-            b67 a = state.a();
+            g67 a = state.a();
             final SocialBarWrapper socialBarWrapper = (SocialBarWrapper) agreeView;
             Object obj = state.a().k;
             String str10 = null;
@@ -125,9 +125,9 @@ public final class SocialBarImpl implements i37.j {
                 threadData.setId(a.c);
                 threadData.setFid(a.d);
                 threadData.setTid(a.c);
-                y47 y47Var = state.a().l;
-                if (y47Var != null) {
-                    map = y47Var.a();
+                d57 d57Var = state.a().l;
+                if (d57Var != null) {
+                    map = d57Var.a();
                 } else {
                     map = null;
                 }
@@ -137,7 +137,7 @@ public final class SocialBarImpl implements i37.j {
                     str = null;
                 }
                 boolean z2 = false;
-                int e = tg.e(str, 0);
+                int e = ug.e(str, 0);
                 threadData.setThreadType(e);
                 if (e == 40) {
                     threadData.setVideoInfo(new VideoInfo.Builder().build(true));
@@ -147,13 +147,13 @@ public final class SocialBarImpl implements i37.j {
                 } else {
                     str2 = null;
                 }
-                threadData.setIs_good(tg.e(str2, 0));
+                threadData.setIs_good(ug.e(str2, 0));
                 if (map != null) {
                     str3 = map.get(VideoPlayActivityConfig.IS_SHARE_THREAD);
                 } else {
                     str3 = null;
                 }
-                if (tg.e(str3, 0) == 1) {
+                if (ug.e(str3, 0) == 1) {
                     z = true;
                 } else {
                     z = false;
@@ -164,7 +164,7 @@ public final class SocialBarImpl implements i37.j {
                 } else {
                     str4 = null;
                 }
-                if (tg.e(str4, 0) == 1) {
+                if (ug.e(str4, 0) == 1) {
                     z2 = true;
                 }
                 threadData.hasItem = z2;
@@ -226,17 +226,17 @@ public final class SocialBarImpl implements i37.j {
             if (this.a == 0) {
                 socialBarWrapper.setFrom(9);
                 socialBarWrapper.setShareReportFrom(4);
-                n15 n15Var = new n15();
-                n15Var.b = 9;
-                n15Var.c = 1;
-                socialBarWrapper.setAgreeStatisticData(n15Var);
+                o15 o15Var = new o15();
+                o15Var.b = 9;
+                o15Var.c = 1;
+                socialBarWrapper.setAgreeStatisticData(o15Var);
             }
             socialBarWrapper.setData(threadData);
             socialBarWrapper.setShowFlag(43);
             socialBarWrapper.setOnShareClick(new Function0<Unit>(state) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ y47 $state;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -278,7 +278,7 @@ public final class SocialBarImpl implements i37.j {
             socialBarWrapper.setOnCommentClick(new Function0<Boolean>(state, socialBarWrapper) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ y47 $state;
                 public final /* synthetic */ SocialBarWrapper $v;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -310,7 +310,7 @@ public final class SocialBarImpl implements i37.j {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        Function3<Context, b67, c67, Boolean> b = this.$state.b();
+                        Function3<Context, g67, h67, Boolean> b = this.$state.b();
                         Context context = this.$v.getContext();
                         Intrinsics.checkNotNullExpressionValue(context, "v.context");
                         return b.invoke(context, this.$state.a(), this.$state.e());
@@ -321,7 +321,7 @@ public final class SocialBarImpl implements i37.j {
             socialBarWrapper.setAfterPraiseClick(new Function0<Unit>(state) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ y47 $state;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -363,7 +363,7 @@ public final class SocialBarImpl implements i37.j {
             socialBarWrapper.setOnAgreeNumUpdateListener(new Function2<Long, Boolean, Unit>(state) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ y47 $state;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {

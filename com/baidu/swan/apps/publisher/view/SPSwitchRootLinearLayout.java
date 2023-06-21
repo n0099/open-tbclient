@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.s93;
+import com.baidu.tieba.t93;
 /* loaded from: classes4.dex */
 public class SPSwitchRootLinearLayout extends LinearLayout {
-    public s93 a;
+    public t93 a;
 
     public SPSwitchRootLinearLayout(Context context) {
         this(context, null);
@@ -30,6 +30,6 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     }
 
     public final void a() {
-        this.a = new s93(this);
+        this.a = new t93(this);
     }
 }

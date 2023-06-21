@@ -256,13 +256,13 @@ public class ma extends ea<SocketMessage, SocketMessageTask> implements ta {
     }
 
     @Override // com.baidu.tieba.ta
-    public void c(qj qjVar) {
+    public void c(rj rjVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, qjVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, rjVar) == null) {
             E();
             ta taVar = this.f;
             if (taVar != null) {
-                taVar.c(qjVar);
+                taVar.c(rjVar);
             }
         }
     }
@@ -318,7 +318,7 @@ public class ma extends ea<SocketMessage, SocketMessageTask> implements ta {
     public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, socketMessage, socketMessageTask) == null) {
-            vi.c();
+            wi.c();
             if (socketMessage != null && socketMessageTask != null) {
                 if (m(socketMessage, socketMessageTask.a())) {
                     oa.c("queue", socketMessage, 0, "sendMessage", na.q, "duplicate message be removed");
@@ -353,7 +353,7 @@ public class ma extends ea<SocketMessage, SocketMessageTask> implements ta {
             if (haVar != null) {
                 haVar.a();
             }
-            if (vi.F() && !ia.a(this.e) && !ia.a(this.d) && !ia.a(this.c) && BdSocketLinkService.isAvailable()) {
+            if (wi.F() && !ia.a(this.e) && !ia.a(this.d) && !ia.a(this.c) && BdSocketLinkService.isAvailable()) {
                 ia.b(this.c);
                 ia.i(this.d, this.e);
                 ia.i(this.d, this.c);
@@ -454,10 +454,10 @@ public class ma extends ea<SocketMessage, SocketMessageTask> implements ta {
     }
 
     @Override // com.baidu.tieba.ta
-    public void d(yj yjVar) {
+    public void d(zj zjVar) {
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, yjVar) != null) || yjVar == null || (bArr = yjVar.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, zjVar) != null) || zjVar == null || (bArr = zjVar.a) == null) {
             return;
         }
         this.i = System.currentTimeMillis();
@@ -469,8 +469,8 @@ public class ma extends ea<SocketMessage, SocketMessageTask> implements ta {
             oa.a("queue", b2, h, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
             ka o = o(b2, h);
             if (o != null) {
-                o.m = yjVar.b;
-                o.n = yjVar.c;
+                o.m = zjVar.b;
+                o.n = zjVar.c;
             }
             if (this.h != null) {
                 if (c.a.b() == this.h.c() && ia.i(this.d, this.e)) {
@@ -487,11 +487,11 @@ public class ma extends ea<SocketMessage, SocketMessageTask> implements ta {
             }
             ta taVar = this.f;
             if (taVar != null) {
-                taVar.d(yjVar);
+                taVar.d(zjVar);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2000986));
         } catch (CoderException unused) {
-            int q = rh.o().q("alert_protobuf", 2);
+            int q = sh.o().q("alert_protobuf", 2);
             int i = this.j + 1;
             this.j = i;
             if (i >= q) {

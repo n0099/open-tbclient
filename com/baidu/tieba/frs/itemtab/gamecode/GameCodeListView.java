@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm7;
-import com.baidu.tieba.mv5;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.km7;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.rv5;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes5.dex */
-public class GameCodeListView extends ConstraintLayout implements mv5 {
+public class GameCodeListView extends ConstraintLayout implements rv5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -58,13 +58,13 @@ public class GameCodeListView extends ConstraintLayout implements mv5 {
                 return;
             }
         }
-        f = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-        g = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
-        h = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        i = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        j = vi.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        k = vi.g(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        l = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        f = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+        g = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        h = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        i = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        j = wi.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        k = wi.g(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        l = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,11 +89,11 @@ public class GameCodeListView extends ConstraintLayout implements mv5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.mv5
+    @Override // com.baidu.tieba.rv5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            o75 d = o75.d(this);
+            p75 d = p75.d(this);
             d.o(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
@@ -175,7 +175,7 @@ public class GameCodeListView extends ConstraintLayout implements mv5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d036d, this);
-            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090db1);
+            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090daf);
             this.a = eMTextView;
             eMTextView.setTextSize(0, j);
             EMTextView eMTextView2 = this.a;
@@ -183,16 +183,16 @@ public class GameCodeListView extends ConstraintLayout implements mv5 {
             eMTextView2.setPadding(i2, g, i2, h);
             this.a.setGravity(1);
             this.a.setText(R.string.obfuscated_res_0x7f0f029f);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090db0);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090dae);
             this.b = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             GameCodeAdapter gameCodeAdapter = new GameCodeAdapter(context);
             this.c = gameCodeAdapter;
             this.b.setAdapter(gameCodeAdapter);
-            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090daf);
+            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090dad);
             this.d = eMTextView3;
             eMTextView3.setTextSize(0, k);
-            this.d.setText(R.string.obfuscated_res_0x7f0f03c9);
+            this.d.setText(R.string.obfuscated_res_0x7f0f03ca);
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.d.getLayoutParams();
             ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = l;
             this.d.setLayoutParams(layoutParams);
@@ -202,10 +202,10 @@ public class GameCodeListView extends ConstraintLayout implements mv5 {
         }
     }
 
-    public void c(fm7 fm7Var) {
+    public void c(km7 km7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fm7Var) == null) {
-            this.c.n(fm7Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, km7Var) == null) {
+            this.c.n(km7Var);
         }
     }
 

@@ -1,48 +1,79 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbPage.ForumHeadlineImgInfo;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t39 {
+public final class t39 extends es6<s39> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final a b;
 
-    public t39() {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(String str, String str2, String str3);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t39(a aVar) {
+        super(s39.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Class) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
+        this.b = aVar;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.es6
+    public void onEvent(s39 event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (!TextUtils.isEmpty(event.a())) {
+                try {
+                    String a2 = event.a();
+                    if (a2 != null) {
+                        JSONObject optJSONObject = new JSONObject(a2).optJSONObject("robot_reply_info");
+                        if (optJSONObject != null) {
+                            String token = optJSONObject.optString("loading_post_token");
+                            String content = optJSONObject.optString("content");
+                            String postId = optJSONObject.optString("post_id");
+                            a aVar = this.b;
+                            if (aVar != null) {
+                                Intrinsics.checkNotNullExpressionValue(token, "token");
+                                Intrinsics.checkNotNullExpressionValue(content, "content");
+                                Intrinsics.checkNotNullExpressionValue(postId, "postId");
+                                aVar.a(token, content, postId);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
-            return;
-        }
-        this.a = forumHeadlineImgInfo.img_url;
     }
 }

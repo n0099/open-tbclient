@@ -1,112 +1,40 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Ref;
 /* loaded from: classes8.dex */
 public class ws0 {
     public static /* synthetic */ Interceptable $ic;
-    public static ft0 a;
-    public static ft0 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public static final class a implements kt0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ Ref.LongRef a;
+        public final /* synthetic */ Ref.ObjectRef b;
+        public final /* synthetic */ Ref.ObjectRef c;
+        public final /* synthetic */ Ref.ObjectRef d;
+        public final /* synthetic */ ro0 e;
+        public final /* synthetic */ File f;
+        public final /* synthetic */ Ref.BooleanRef g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948281013, "Lcom/baidu/tieba/ws0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948281013, "Lcom/baidu/tieba/ws0;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public dt0 a;
-        public dt0 b;
-
-        /* loaded from: classes8.dex */
-        public class a implements ft0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ dt0 b;
-
-            public a(b bVar, dt0 dt0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, dt0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = dt0Var;
-            }
-
-            @Override // com.baidu.tieba.ft0
-            public dt0 a() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return this.b;
-                }
-                return (dt0) invokeV.objValue;
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ws0$b$b  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0518b {
-            public static /* synthetic */ Interceptable $ic;
-            public static final b a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(646711609, "Lcom/baidu/tieba/ws0$b$b;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(646711609, "Lcom/baidu/tieba/ws0$b$b;");
-                        return;
-                    }
-                }
-                a = new b(null);
-            }
-        }
-
-        public b() {
+        public a(Ref.LongRef longRef, Ref.ObjectRef objectRef, Ref.ObjectRef objectRef2, Ref.ObjectRef objectRef3, ro0 ro0Var, File file, Ref.BooleanRef booleanRef) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {longRef, objectRef, objectRef2, objectRef3, ro0Var, file, booleanRef};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -116,67 +44,50 @@ public class ws0 {
                     return;
                 }
             }
-            this.a = null;
-            this.b = null;
+            this.a = longRef;
+            this.b = objectRef;
+            this.c = objectRef2;
+            this.d = objectRef3;
+            this.e = ro0Var;
+            this.f = file;
+            this.g = booleanRef;
         }
 
-        public static b b() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.kt0
+        public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return C0518b.a;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                this.e.accept(new jt0(false, this.a.element, (String) this.b.element, (String) this.c.element, exc));
             }
-            return (b) invokeV.objValue;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public ft0 a(String str) {
-            InterceptResult invokeL;
-            char c;
-            dt0 dt0Var;
+        /* JADX WARN: Type inference failed for: r10v2, types: [T, java.lang.String] */
+        /* JADX WARN: Type inference failed for: r11v19, types: [T, java.lang.Exception] */
+        /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.String] */
+        @Override // com.baidu.tieba.kt0
+        public void c(Headers headers, InputStream inputStream, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode != -1015101340) {
-                    if (hashCode == 1544803905 && str.equals("default")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("okhttp")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-                if (c != 0) {
-                    if (c == 1) {
-                        if (this.b == null) {
-                            synchronized (ws0.class) {
-                                if (this.b == null) {
-                                    this.b = us0.a.b(str);
-                                }
-                            }
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
+                if (headers != null && inputStream != null) {
+                    this.b.element = headers.d(com.baidubce.http.Headers.ETAG);
+                    this.c.element = headers.d(com.baidubce.http.Headers.LAST_MODIFIED);
+                    if (i != 200) {
+                        if (i != 304) {
+                            this.g.element = false;
+                            Ref.ObjectRef objectRef = this.d;
+                            objectRef.element = new Exception("Unsupport http code:" + i);
                         }
-                        dt0Var = this.b;
                     } else {
-                        throw new IllegalStateException("Unexpected type:" + str);
+                        FileOutputStream fileOutputStream = new FileOutputStream(this.f);
+                        this.a.element = g61.b(inputStream, fileOutputStream);
+                        ok0.a(inputStream);
+                        ok0.a(fileOutputStream);
                     }
-                } else {
-                    if (this.a == null) {
-                        synchronized (ws0.class) {
-                            if (this.a == null) {
-                                this.a = us0.a.b(str);
-                            }
-                        }
-                    }
-                    dt0Var = this.a;
+                    this.e.accept(new jt0(this.g.element, this.a.element, (String) this.b.element, (String) this.c.element, (Exception) this.d.element));
+                    return;
                 }
-                return new a(this, dt0Var);
+                this.e.accept(new jt0(false, this.a.element, (String) this.b.element, (String) this.c.element, (Exception) this.d.element));
             }
-            return (ft0) invokeL.objValue;
         }
     }
 
@@ -184,40 +95,48 @@ public class ws0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ft0 a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Type inference failed for: r11v1, types: [T, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r11v2, types: [T, java.lang.String] */
+    public void a(String url, ct0 meta, File toFile, ro0<dt0> callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (ws0.class) {
-                    if (b == null) {
-                        if (a == null) {
-                            a = (ft0) ServiceManager.getService(ft0.a);
-                        }
-                        b = a;
-                    }
-                    if (b != null) {
-                        return b;
-                    }
-                    if (TextUtils.equals("okhttp", "mixed")) {
-                        b = b.b().a("okhttp");
-                    } else {
-                        b = us0.a;
-                    }
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, url, meta, toFile, callback) == null) {
+            Intrinsics.checkNotNullParameter(url, "url");
+            Intrinsics.checkNotNullParameter(meta, "meta");
+            Intrinsics.checkNotNullParameter(toFile, "toFile");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            et0 a2 = at0.b().a();
+            Intrinsics.checkNotNullExpressionValue(a2, "HttpFactory.getInstance().getHttp()");
+            tt0 tt0Var = new tt0();
+            tt0Var.l(url);
+            Ref.ObjectRef objectRef = new Ref.ObjectRef();
+            objectRef.element = meta.a;
+            Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
+            objectRef2.element = meta.b;
+            if (!meta.c) {
+                if (!TextUtils.isEmpty((String) objectRef.element)) {
+                    tt0Var.a("If-None-Match", (String) objectRef.element);
+                }
+                if (!TextUtils.isEmpty((String) objectRef2.element)) {
+                    tt0Var.a("If-Modified-Since", (String) objectRef2.element);
                 }
             }
-            return b;
+            Ref.LongRef longRef = new Ref.LongRef();
+            longRef.element = 0L;
+            Ref.BooleanRef booleanRef = new Ref.BooleanRef();
+            booleanRef.element = true;
+            Ref.ObjectRef objectRef3 = new Ref.ObjectRef();
+            objectRef3.element = null;
+            a2.b(tt0Var, new a(longRef, objectRef, objectRef2, objectRef3, callback, toFile, booleanRef));
         }
-        return (ft0) invokeV.objValue;
     }
 }

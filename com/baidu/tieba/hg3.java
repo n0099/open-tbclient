@@ -1,19 +1,32 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
+import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import android.view.KeyCharacterMap;
+import android.view.ViewConfiguration;
+import android.view.WindowManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.apps.setting.oauth.TaskState;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.g02;
-import com.baidu.tieba.hb2;
-import com.baidu.tieba.hh3;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,59 +34,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class hg3 extends zb3 {
+public class hg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean a;
+    public static long b;
+    public static ContentObserver c;
+    public static ContentResolver d;
+    public static PackageManager e;
+    public static boolean f;
+    public static long g;
+    public static List<fg3> h;
+    public static Runnable i;
+    public static int j;
+    public static Uri k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
-    public lk3 a;
-    public final String b;
-    public final String c;
-    public final Set<j> d;
-    public final Map<String, dh3> e;
-    public final oq3 f;
 
     /* loaded from: classes6.dex */
-    public interface j {
-        void a();
-    }
-
-    public void w(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, activity) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements rq3<yg3> {
+    public static class a extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rq3 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ hg3 e;
+        public final /* synthetic */ Handler a;
 
         /* renamed from: com.baidu.tieba.hg3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0334a implements rq3<bh3<dh3.e>> {
+        public class RunnableC0315a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ Uri a;
+            public final /* synthetic */ a b;
 
-            public C0334a(a aVar) {
+            public RunnableC0315a(a aVar, Uri uri) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {aVar, uri};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -83,295 +85,67 @@ public class hg3 extends zb3 {
                         return;
                     }
                 }
-                this.a = aVar;
+                this.b = aVar;
+                this.a = uri;
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rq3
-            /* renamed from: b */
-            public void a(bh3<dh3.e> bh3Var) {
+            @Override // java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
-                    a aVar = this.a;
-                    aVar.e.u(aVar.a, bh3Var);
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    hg3.q(this.b.a, this.a);
                 }
             }
         }
 
-        public a(hg3 hg3Var, rq3 rq3Var, String str, boolean z, Context context) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Handler handler, Handler handler2) {
+            super(handler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, rq3Var, str, Boolean.valueOf(z), context};
+                Object[] objArr = {handler, handler2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = hg3Var;
-            this.a = rq3Var;
-            this.b = str;
-            this.c = z;
-            this.d = context;
+            this.a = handler2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Type inference failed for: r8v4, types: [com.baidu.tieba.dh3$e, ResultDataT] */
-        /* JADX WARN: Type inference failed for: r8v6, types: [com.baidu.tieba.dh3$e, ResultDataT] */
-        @Override // com.baidu.tieba.rq3
-        /* renamed from: b */
-        public void a(yg3 yg3Var) {
-            boolean z;
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z, Uri uri) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
-                bh3 bh3Var = new bh3();
-                if (hg3.g && x73.m()) {
-                    bh3Var.e();
-                    bh3Var.a = new dh3.e(true, null);
-                    this.e.u(this.a, bh3Var);
-                    return;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
+                super.onChange(z, uri);
+                if (hg3.a) {
+                    Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
                 }
-                boolean z2 = false;
-                if (yg3Var == null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                y82.k("SwanAppSetting", "isResultNull = " + z + "; scope = " + this.b);
-                if (!z && !yg3Var.d) {
-                    if (!this.c ? yg3Var.j == 0 : yg3Var.j <= 0) {
-                        z2 = true;
-                    }
-                    if (z2) {
-                        this.e.c(this.d, this.b, this.c, new C0334a(this));
-                        return;
-                    }
-                    if (yg3Var.j > 0) {
-                        bh3Var.e();
-                        bh3Var.a = new dh3.e(true, null);
-                    } else {
-                        bh3Var.d(new OAuthException(10003));
-                    }
-                    this.e.u(this.a, bh3Var);
-                    return;
-                }
-                bh3Var.d(new OAuthException(10005));
-                this.e.u(this.a, bh3Var);
-                y82.l("SwanAppSetting", "checkOrAuthorize", new Exception("authorize fail"));
-                ri3.r(10005, yg3Var);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0315a(this, uri), "systemScreenShot", 1);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d extends mq3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dh3 b;
-        public final /* synthetic */ String c;
-
-        /* loaded from: classes6.dex */
-        public class a implements rq3<bh3<dh3.e>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rq3
-            /* renamed from: b */
-            public void a(bh3<dh3.e> bh3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
-                    this.a.a();
-                }
-            }
-        }
-
-        public d(hg3 hg3Var, dh3 dh3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, dh3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dh3Var;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                dh3 dh3Var = this.b;
-                dh3Var.q(ji3.a(this.c));
-                dh3Var.o(new a(this));
-                this.b.call();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class h extends mq3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ g02.d c;
-        public final /* synthetic */ Bundle d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ rq3 f;
-
-        /* loaded from: classes6.dex */
-        public class a implements rq3<bh3<hh3.d>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ h a;
-
-            public a(h hVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {hVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = hVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rq3
-            /* renamed from: b */
-            public void a(bh3<hh3.d> bh3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
-                    this.a.a();
-                }
-            }
-        }
-
-        public h(hg3 hg3Var, Activity activity, g02.d dVar, Bundle bundle, String str, rq3 rq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, activity, dVar, bundle, str, rq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = activity;
-            this.c = dVar;
-            this.d = bundle;
-            this.e = str;
-            this.f = rq3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hh3 b = xb3.K().x().a().b().b(this.b, this.c, this.d);
-                b.q(this.e);
-                b.o(this.f);
-                b.o(new a(this));
-                b.call();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements rq3<yg3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rq3 a;
-        public final /* synthetic */ hg3 b;
-
-        public b(hg3 hg3Var, rq3 rq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, rq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = hg3Var;
-            this.a = rq3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
-        /* renamed from: b */
-        public void a(yg3 yg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) != null) {
-                return;
-            }
-            this.b.u(this.a, yg3Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements rq3<bh3<dh3.e>> {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ hg3 b;
+        public final /* synthetic */ Handler b;
+        public final /* synthetic */ d c;
 
-        public c(hg3 hg3Var, String str) {
+        public b(String str, Handler handler, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, str};
+                Object[] objArr = {str, handler, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -381,160 +155,116 @@ public class hg3 extends zb3 {
                     return;
                 }
             }
-            this.b = hg3Var;
             this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq3
-        /* renamed from: b */
-        public void a(bh3<dh3.e> bh3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
-                this.b.e.remove(this.a);
-            }
-        }
-    }
-
-    /* JADX INFO: Add missing generic type declarations: [ResulT] */
-    /* loaded from: classes6.dex */
-    public class e<ResulT> extends i<rq3<ResulT>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Object a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(hg3 hg3Var, Object obj) {
-            super(hg3Var, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((hg3) objArr2[0], (a) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = obj;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.rq3<ResulT> */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.hg3.i
-        /* renamed from: b */
-        public void a(rq3<ResulT> rq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rq3Var) == null) {
-                rq3Var.a(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i a;
-        public final /* synthetic */ Object b;
-
-        public f(hg3 hg3Var, i iVar, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, iVar, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iVar;
-            this.b = obj;
+            this.b = handler;
+            this.c = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
+                hg3.e();
+                if (hg3.a) {
+                    Log.d("SYSTEM_SCREENSHOT", "mCount: " + hg3.j);
+                }
+                if (go3.a()) {
+                    j = 500;
+                } else {
+                    j = 100;
+                }
+                if (!hg3.m(this.a, hg3.k) && hg3.j <= 10) {
+                    this.b.postDelayed(hg3.i, j);
+                } else if (hg3.m(this.a, hg3.k) && hg3.l() && !hg3.o(this.a, hg3.k)) {
+                    for (fg3 fg3Var : hg3.h) {
+                        if (fg3Var != null) {
+                            fg3Var.a(this.c);
+                        }
+                    }
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class g extends i<j> {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
+        public static String a;
+        public static String[] b;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(hg3 hg3Var) {
-            super(hg3Var, null);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-748136682, "Lcom/baidu/tieba/hg3$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-748136682, "Lcom/baidu/tieba/hg3$c;");
+                    return;
+                }
+            }
+            a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            b = new String[]{"_display_name", "_data", "date_added", "_id"};
+        }
+
+        public static boolean e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+                if (str != null && (str.toLowerCase().contains(StatisticConstants.SCREENSHOT) || str.contains("截屏") || str.contains("截图"))) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public static boolean f(long j, long j2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                if (Math.abs(j - j2) <= 10) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public Uri b;
+
+        public d(String str, Long l, Uri uri) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var};
+                Object[] objArr = {str, l, uri};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((hg3) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = str;
+            l.longValue();
+            this.b = uri;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hg3.i
-        /* renamed from: b */
-        public void a(j jVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar) == null) {
-                jVar.a();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public abstract class i<CallBackT> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void a(CallBackT callbackt);
-
-        public i(hg3 hg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ i(hg3 hg3Var, a aVar) {
-            this(hg3Var);
+        public /* synthetic */ d(String str, Long l, Uri uri, a aVar) {
+            this(str, l, uri);
         }
     }
 
@@ -551,147 +281,122 @@ public class hg3 extends zb3 {
                 return;
             }
         }
-        g = is1.a;
+        a = js1.a;
+        g = System.currentTimeMillis() - 10000;
+        h = new ArrayList();
+        j = 0;
+        l = null;
+        m = null;
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            o().edit().clear().apply();
-        }
-    }
-
-    public synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            synchronized (this) {
-                this.e.clear();
-                this.f.c();
-                k();
-            }
-        }
-    }
-
-    public synchronized void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            synchronized (this) {
-                this.d.clear();
-            }
-        }
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            o().edit().clear().commit();
-        }
-    }
-
-    public final lk3 o() {
+    public static int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.a == null) {
-                this.a = new lk3(this.c, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            boolean hasPermanentMenuKey = ViewConfiguration.get(AppRuntime.getAppContext()).hasPermanentMenuKey();
+            boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
+            if (!hasPermanentMenuKey && !deviceHasKey) {
+                Resources resources = AppRuntime.getAppContext().getResources();
+                return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android"));
             }
-            return this.a;
+            return 0;
         }
-        return (lk3) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String p() {
-        InterceptResult invokeV;
+    public static boolean m(String str, Uri uri) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public synchronized void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            synchronized (this) {
-                t(this.d, new g(this));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, uri)) == null) {
+            if (go3.a()) {
+                return n(uri);
             }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hg3(yb3 yb3Var) {
-        super(yb3Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yb3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((yb3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = new HashSet();
-        this.e = new HashMap();
-        this.f = new oq3();
-        this.b = gj3.t(yb3Var);
-        this.c = "aiapp_setting_" + this.b;
-    }
-
-    public void g(Context context, String str, rq3<bh3<dh3.e>> rq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, context, str, rq3Var) == null) {
-            h(context, str, false, rq3Var);
-        }
-    }
-
-    public static void x(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) {
-            sp3.e0(runnable);
-        }
-    }
-
-    public synchronized void C(j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) {
-            synchronized (this) {
-                this.d.add(jVar);
-            }
-        }
-    }
-
-    public void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a.remove(str);
-        }
-    }
-
-    public synchronized void F(j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
-            synchronized (this) {
-                this.d.remove(jVar);
-            }
-        }
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (g && x73.m()) {
+            new BitmapFactory.Options().inJustDecodeBounds = true;
+            if (BitmapFactory.decodeFile(str) != null) {
                 return true;
             }
-            yg3 k = w33.k(str);
-            if (k != null && !k.d && k.a()) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static /* synthetic */ int e() {
+        int i2 = j;
+        j = i2 + 1;
+        return i2;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (nx2.a().b() && currentTimeMillis > 2000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (System.currentTimeMillis() - g <= 1000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static double i(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(d, uri);
+                if (bitmap == null) {
+                    return 0.0d;
+                }
+                int height = bitmap.getHeight();
+                int width = bitmap.getWidth();
+                if (width == 0) {
+                    return 0.0d;
+                }
+                return height / (width * 1.0d);
+            } catch (Exception unused) {
+                return 0.0d;
+            }
+        }
+        return invokeL.doubleValue;
+    }
+
+    public static boolean n(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            try {
+                if (MediaStore.Images.Media.getBitmap(d, uri) == null) {
+                    return false;
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean p(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || cq4.a(context, com.kuaishou.weapon.p0.h.i) == 0) {
                 return true;
             }
             return false;
@@ -699,160 +404,168 @@ public class hg3 extends zb3 {
         return invokeL.booleanValue;
     }
 
-    public void A(String str, long j2) {
+    public static void r(fg3 fg3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
-            o().putLong(str, j2);
+        if ((interceptable == null || interceptable.invokeL(65554, null, fg3Var) == null) && fg3Var != null) {
+            h.add(fg3Var);
         }
     }
 
-    public void B(String str, String str2) {
+    public static void u(fg3 fg3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            o().putString(str, str2);
+        if ((interceptable == null || interceptable.invokeL(65557, null, fg3Var) == null) && fg3Var != null) {
+            h.remove(fg3Var);
         }
     }
 
-    public void e(String str, rq3<yg3> rq3Var) {
+    public static boolean k(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, rq3Var) == null) {
-            if (TextUtils.isEmpty(str)) {
-                u(rq3Var, null);
-            } else {
-                w33.i(str, new b(this, rq3Var));
-            }
-        }
-    }
-
-    public boolean m(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, str, z)) == null) {
-            return o().getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public long n(String str, long j2) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048593, this, str, j2)) == null) {
-            return o().getLong(str, j2);
-        }
-        return invokeLJ.longValue;
-    }
-
-    public String q(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, str2)) == null) {
-            return o().getString(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public synchronized <CallBackT> void s(CallBackT callbackt, i<CallBackT> iVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, callbackt, iVar) == null) {
-            synchronized (this) {
-                x(new f(this, iVar, callbackt));
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.hg3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public synchronized <CallBackT> void t(Collection<CallBackT> collection, i<CallBackT> iVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, collection, iVar) == null) {
-            synchronized (this) {
-                Iterator it = new ArrayList(collection).iterator();
-                while (it.hasNext()) {
-                    s(it.next(), iVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (go3.a()) {
+                Uri uri = k;
+                if (uri != null && !TextUtils.equals(l, uri.toString())) {
+                    return false;
                 }
-            }
-        }
-    }
-
-    public final <ResulT> void u(rq3<ResulT> rq3Var, ResulT result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, rq3Var, result) == null) {
-            s(rq3Var, new e(this, result));
-        }
-    }
-
-    public void z(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048604, this, str, z) == null) {
-            o().putBoolean(str, z);
-        }
-    }
-
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            hb2 U = lx2.T().U();
-            if (U == null) {
-                qb3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01d0).G();
+                return true;
+            } else if (!TextUtils.isEmpty(str) && !TextUtils.equals(m, str)) {
                 return false;
-            }
-            hb2.b i2 = U.i("navigateTo");
-            i2.n(hb2.g, hb2.i);
-            i2.k("authority", null).a();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(Context context, String str, boolean z, rq3<bh3<dh3.e>> rq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, Boolean.valueOf(z), rq3Var}) == null) {
-            d(context, str, z, true, false, rq3Var);
-        }
-    }
-
-    public void d(Context context, String str, boolean z, boolean z2, boolean z3, rq3<bh3<dh3.e>> rq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), rq3Var}) == null) {
-            y(context, str, z, z2, z3, rq3Var);
-        }
-    }
-
-    public void h(Context context, String str, boolean z, rq3<bh3<dh3.e>> rq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, Boolean.valueOf(z), rq3Var}) == null) {
-            e(str, new a(this, rq3Var, str, z, context));
-        }
-    }
-
-    public void r(Activity activity, g02.d dVar, Bundle bundle, rq3<bh3<hh3.d>> rq3Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048597, this, activity, dVar, bundle, rq3Var, str) == null) {
-            this.f.d(new h(this, activity, dVar, bundle, str, rq3Var));
-        }
-    }
-
-    public final void y(Context context, String str, boolean z, boolean z2, boolean z3, rq3<bh3<dh3.e>> rq3Var) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), rq3Var}) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str2 = "";
             } else {
-                str2 = str;
+                return true;
             }
-            dh3 dh3Var = this.e.get(str2);
-            if (dh3Var != null && TaskState.FINISHED != dh3Var.e()) {
-                dh3Var.o(rq3Var);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean o(String str, Uri uri) {
+        InterceptResult invokeLL;
+        double d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, uri)) == null) {
+            Point point = new Point();
+            WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (windowManager.getDefaultDisplay() != null) {
+                windowManager.getDefaultDisplay().getSize(point);
+            }
+            int j2 = point.y + j();
+            int i2 = point.x;
+            double d3 = 0.0d;
+            if (i2 != 0) {
+                d2 = j2 / (i2 * 1.0d);
+            } else {
+                d2 = 0.0d;
+            }
+            double d4 = d2 * 1.2d;
+            if (go3.a()) {
+                d3 = i(uri);
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i4 != 0) {
+                d3 = i3 / (i4 * 1.0d);
+            }
+            if (d3 > d4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x0157: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:44:0x0157 */
+    public static void q(Handler handler, Uri uri) {
+        Cursor cursor;
+        Closeable closeable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, null, handler, uri) == null) {
+            if (!uri.toString().matches(c.a + ".*")) {
                 return;
             }
-            dh3 d2 = xb3.K().x().a().b().d(context, z, z2, new String[]{str2}, null, z3);
-            this.e.put(str2, d2);
-            d2.o(rq3Var);
-            d2.o(new c(this, str2));
-            ri3.T(ji3.a(str), "requestModifyScope");
-            this.f.d(new d(this, d2, str));
+            if (t() && f) {
+                g = System.currentTimeMillis();
+                return;
+            }
+            j = 0;
+            g = System.currentTimeMillis();
+            Closeable closeable2 = null;
+            try {
+                try {
+                    cursor = d.query(uri, c.b, null, null, "date_added DESC");
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                                long j2 = cursor.getLong(cursor.getColumnIndex("date_added"));
+                                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                                k = uri;
+                                if (go3.a()) {
+                                    k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
+                                }
+                                if (a) {
+                                    Log.d("SYSTEM_SCREENSHOT", "imagepath: " + string);
+                                    Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + j2);
+                                    Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis);
+                                    Log.d("SYSTEM_SCREENSHOT", "imageUri: " + k.toString());
+                                }
+                                if (k(string)) {
+                                    ds4.d(cursor);
+                                    return;
+                                }
+                                l = k.toString();
+                                m = string;
+                                if (c.e(string) && c.f(currentTimeMillis, j2)) {
+                                    f = true;
+                                    b bVar = new b(string, handler, new d(string, Long.valueOf(j2), k, null));
+                                    i = bVar;
+                                    handler.post(bVar);
+                                } else {
+                                    f = false;
+                                }
+                            }
+                        } catch (RuntimeException unused) {
+                            if (e != null) {
+                                List<ProviderInfo> queryContentProviders = e.queryContentProviders(null, 0, 131072);
+                                HashMap hashMap = new HashMap();
+                                hashMap.put("from", "SystemScreenshot");
+                                hashMap.put("page", "SystemScreenshot");
+                                hashMap.put("ext", queryContentProviders.toString());
+                                gi3.j(BdNetTypeUtil.NATION_CODE, hashMap);
+                            }
+                            ds4.d(cursor);
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    ds4.d(closeable2);
+                    throw th;
+                }
+            } catch (RuntimeException unused2) {
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                ds4.d(closeable2);
+                throw th;
+            }
+            ds4.d(cursor);
+        }
+    }
+
+    public static void s(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
+            e = context.getPackageManager();
+            Handler handler = new Handler(Looper.getMainLooper());
+            d = context.getContentResolver();
+            c = new a(handler, handler);
+            if (p(context)) {
+                d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, c);
+            } else if (a && tp3.G()) {
+                z82.i("SYSTEM_SCREENSHOT", "WRITE_EXTERNAL_STORAGE permission denied");
+            }
         }
     }
 }

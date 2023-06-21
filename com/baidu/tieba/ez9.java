@@ -1,142 +1,769 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebView;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.h5power.DescriptionTableInfo;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class ez9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<zy9> a;
 
-    public ez9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
+    /* loaded from: classes5.dex */
+    public interface g {
+        void a(WriteData writeData);
     }
 
-    public void a(zy9 zy9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zy9Var) == null) {
-            this.a.add(zy9Var);
-        }
+    /* loaded from: classes5.dex */
+    public interface h {
+        void a(String str);
     }
 
-    public final void b(WebView webView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) {
-            zq8 hybridLog = HybridLog.getInstance();
-            hybridLog.c("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
-            if (webView != null && !ui.isEmpty(str) && !ui.isEmpty(str2)) {
-                if (Build.VERSION.SDK_INT >= 19) {
-                    webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+    /* loaded from: classes5.dex */
+    public static class a extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WriteData a;
+        public final /* synthetic */ String b;
+
+        public a(WriteData writeData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
             }
+            this.a = writeData;
+            this.b = str;
         }
-    }
 
-    public bz9 c(dz9 dz9Var, bz9 bz9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dz9Var, bz9Var)) == null) {
-            if (bz9Var == null) {
-                bz9Var = new bz9();
-            }
-            if ("notification".equals(dz9Var.c()) && "addObserver".equals(dz9Var.a())) {
-                Iterator<zy9> it = this.a.iterator();
-                while (it.hasNext()) {
-                    bz9Var = it.next().addObserver(dz9Var.d(), bz9Var, true);
-                    if (bz9Var.j()) {
-                        return bz9Var;
-                    }
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                c55.d();
+                we<String> e = c55.e("tb.pb_editor");
+                WriteData writeData = this.a;
+                if (writeData != null && writeData.hasContentToSave()) {
+                    e.e(ez9.f(this.b), this.a.toDraftString(), 604800000L);
+                    return null;
                 }
-                if (!bz9Var.j()) {
-                    bz9Var.z(202);
-                    bz9Var.v(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
-                }
-            } else {
-                String c = dz9Var.c();
-                if (!ui.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
-                    bz9Var.z(201);
-                    return bz9Var;
-                }
-                Iterator<zy9> it2 = this.a.iterator();
-                while (it2.hasNext()) {
-                    bz9Var = it2.next().dispatch(dz9Var, bz9Var);
-                    if (bz9Var.i()) {
-                        return bz9Var;
-                    }
-                }
-                if (!bz9Var.i()) {
-                    bz9Var.z(202);
-                }
-            }
-            return bz9Var;
-        }
-        return (bz9) invokeLL.objValue;
-    }
-
-    public void d(WebView webView, bz9 bz9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, bz9Var) != null) || webView == null || bz9Var == null || !bz9Var.k()) {
-            return;
-        }
-        b(webView, bz9Var.c(), bz9Var.d());
-    }
-
-    public void e(WebView webView, List<bz9> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
-            for (bz9 bz9Var : list) {
-                if (bz9Var != null && bz9Var.k()) {
-                    b(webView, bz9Var.c(), bz9Var.d());
-                }
-            }
-        }
-    }
-
-    public List<bz9> f(WebView webView, String str, HashMap hashMap) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
-            List<bz9> list = null;
-            if (ui.isEmpty(str)) {
+                e.remove(ez9.f(this.b));
                 return null;
             }
-            Iterator<zy9> it = this.a.iterator();
-            while (it.hasNext()) {
-                list = it.next().processNotification(webView, str, hashMap);
-                if (!ListUtils.isEmpty(list)) {
-                    break;
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WriteData a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
+
+        public b(WriteData writeData, boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeData, Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return list;
+            this.a = writeData;
+            this.b = z;
+            this.c = str;
         }
-        return (List) invokeLLL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            WriteData writeData;
+            WriteData writeData2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                c55.d();
+                we<String> e = c55.e("tb.pb_editor");
+                WriteData writeData3 = this.a;
+                if (writeData3 != null && writeData3.hasContentToSave() && !this.b) {
+                    String draftString = this.a.toDraftString();
+                    e.e(ez9.b(this.c), draftString, 604800000L);
+                    if (!"0".equals(this.c) && (writeData2 = this.a) != null && writeData2.getStatisticFrom() == 1) {
+                        e.e(ez9.b("0"), draftString, 604800000L);
+                        return null;
+                    }
+                    return null;
+                }
+                e.remove(ez9.b(this.c));
+                if (!"0".equals(this.c) && (writeData = this.a) != null && writeData.getStatisticFrom() == 1) {
+                    e.remove(ez9.b("0"));
+                    return null;
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WriteData a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
+
+        public c(WriteData writeData, boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeData, Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = writeData;
+            this.b = z;
+            this.c = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            WriteData writeData;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                c55.d();
+                we<String> e = c55.e("tb.pb_editor");
+                if (e == null) {
+                    return null;
+                }
+                WriteData writeData2 = this.a;
+                if (writeData2 != null && writeData2.hasContentToSave() && !this.b) {
+                    String draftString = this.a.toDraftString();
+                    e.e(ez9.g(this.c), draftString, 604800000L);
+                    if (!"0".equals(this.c) && this.a.getStatisticFrom() == 1) {
+                        e.e(ez9.g("0"), draftString, 604800000L);
+                    }
+                } else {
+                    e.remove(ez9.g(this.c));
+                    if (!"0".equals(this.c) && (writeData = this.a) != null && writeData.getStatisticFrom() == 1) {
+                        e.remove(ez9.g("0"));
+                    }
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+
+        public d(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                c55.d();
+                we<String> e = c55.e("tb.pb_editor");
+                if (!TextUtils.isEmpty(this.a)) {
+                    e.e(ez9.d(this.b), this.a, 604800000L);
+                    return null;
+                }
+                e.remove(ez9.d(this.b));
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WriteData a;
+        public final /* synthetic */ String b;
+
+        public e(WriteData writeData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = writeData;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                c55.d();
+                we<String> e = c55.e("tb.pb_editor");
+                WriteData writeData = this.a;
+                if (writeData != null && writeData.hasContentToSave()) {
+                    e.e(ez9.h(this.b), this.a.toDraftString(), 604800000L);
+                    return null;
+                }
+                e.remove(ez9.h(this.b));
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                c55.d();
+                we<String> e = c55.e("tb.pb_editor");
+                if (!TextUtils.isEmpty(this.a)) {
+                    e.e(ez9.e(), this.a, 604800000L);
+                    return null;
+                }
+                e.remove(ez9.e());
+                FileHelper.deleteFileOrDir(new File(v8a.e));
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class i extends BdAsyncTask<String, String, WriteData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final g a;
+        public final String b;
+
+        public i(String str, g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            setPriority(3);
+            this.a = gVar;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public WriteData doInBackground(String... strArr) {
+            String str;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                try {
+                    c55.d();
+                    str = c55.e("tb.pb_editor").get(this.b);
+                } catch (Exception unused) {
+                    str = null;
+                }
+                return WriteData.fromDraftString(str);
+            }
+            return (WriteData) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(WriteData writeData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+                super.onPostExecute(writeData);
+                g gVar = this.a;
+                if (gVar != null) {
+                    gVar.a(writeData);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class j extends BdAsyncTask<String, String, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final h a;
+        public final String b;
+
+        public j(String str, h hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            setPriority(3);
+            this.a = hVar;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                try {
+                    c55.d();
+                    return c55.e("tb.pb_editor").get(this.b);
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                super.onPostExecute((j) str);
+                if (this.a != null && !TextUtils.isEmpty(str)) {
+                    this.a.a(str);
+                }
+            }
+        }
+    }
+
+    public static void A(String str, WriteData writeData, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(65536, null, str, writeData, z) != null) || vi.isEmpty(str)) {
+            return;
+        }
+        new c(writeData, z, str).execute(new Void[0]);
+    }
+
+    public static void v(String str, WriteData writeData, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(65561, null, str, writeData, z) != null) || vi.isEmpty(str)) {
+            return;
+        }
+        new b(writeData, z, str).execute(new Void[0]);
+    }
+
+    public static void B(String str, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, str, writeData) != null) || vi.isEmpty(str)) {
+            return;
+        }
+        new e(writeData, str).execute(new Void[0]);
+    }
+
+    public static void k(String str, g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, str, gVar) == null) {
+            if (str == null) {
+                if (gVar != null) {
+                    gVar.a(null);
+                    return;
+                }
+                return;
+            }
+            new i(a(str), gVar).execute(new String[0]);
+        }
+    }
+
+    public static void l(String str, g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, gVar) == null) {
+            if (vi.isEmpty(str)) {
+                if (gVar != null) {
+                    gVar.a(null);
+                    return;
+                }
+                return;
+            }
+            new i(b(str), gVar).execute(new String[0]);
+        }
+    }
+
+    public static void n(String str, h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, null, str, hVar) == null) {
+            if (vi.isEmpty(str)) {
+                if (hVar != null) {
+                    hVar.a(null);
+                    return;
+                }
+                return;
+            }
+            new j(d(str), hVar).execute(new String[0]);
+        }
+    }
+
+    public static void p(String str, g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65555, null, str, gVar) == null) {
+            if (vi.isEmpty(str)) {
+                if (gVar != null) {
+                    gVar.a(null);
+                    return;
+                }
+                return;
+            }
+            new i(f(str), gVar).execute(new String[0]);
+        }
+    }
+
+    public static void q(String str, g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65556, null, str, gVar) == null) {
+            if (vi.isEmpty(str)) {
+                if (gVar != null) {
+                    gVar.a(null);
+                    return;
+                }
+                return;
+            }
+            new i(g(str), gVar).execute(new String[0]);
+        }
+    }
+
+    public static void r(String str, g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65557, null, str, gVar) == null) {
+            if (vi.isEmpty(str)) {
+                if (gVar != null) {
+                    gVar.a(null);
+                    return;
+                }
+                return;
+            }
+            new i(h(str), gVar).execute(new String[0]);
+        }
+    }
+
+    public static void s(String str, g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65558, null, str, gVar) == null) {
+            if (vi.isEmpty(str)) {
+                if (gVar != null) {
+                    gVar.a(null);
+                    return;
+                }
+                return;
+            }
+            new i(i(str), gVar).execute(new String[0]);
+        }
+    }
+
+    public static void u(String str, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65560, null, str, writeData) == null) {
+            v(str, writeData, false);
+        }
+    }
+
+    public static void x(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65563, null, str, str2) != null) || vi.isEmpty(str)) {
+            return;
+        }
+        new d(str2, str).execute(new Void[0]);
+    }
+
+    public static void z(String str, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65565, null, str, writeData) != null) || vi.isEmpty(str)) {
+            return;
+        }
+        new a(writeData, str).execute(new Void[0]);
+    }
+
+    public static void C(String str, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, str, writeData) != null) || vi.isEmpty(str)) {
+            return;
+        }
+        c55.d();
+        we<String> e2 = c55.e("tb.pb_editor");
+        if (writeData != null && writeData.hasContentToSave()) {
+            e2.i(i(str), writeData.toDraftString(), 604800000L);
+        } else {
+            e2.d(i(str));
+        }
+    }
+
+    public static String D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String e2 = e();
+            c55.d();
+            return c55.e("tb.pb_editor").get(e2);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@localchannel";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@newvideo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@evaluate" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@frs" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@localchannelhi" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@pb" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@questionthread@fid" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@subpb" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + "@topic" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void m(g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, gVar) == null) {
+            new i(c(), gVar).execute(new String[0]);
+        }
+    }
+
+    public static void o(h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, null, hVar) == null) {
+            new j(e(), hVar).execute(new String[0]);
+        }
+    }
+
+    public static void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65564, null, str) == null) {
+            new f(str).execute(new Void[0]);
+        }
+    }
+
+    public static void j(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65549, null, writeData) != null) || writeData == null) {
+            return;
+        }
+        if (writeData.isAddThread()) {
+            if (writeData.isLocalChannelDynamic()) {
+                w(null);
+            } else if (writeData.isQuestionThread()) {
+                A(writeData.getForumId(), writeData, true);
+            } else if (writeData.isEvaluate()) {
+                t(writeData.getItem_id(), null);
+            } else if (TextUtils.isEmpty(writeData.getTopicId())) {
+                v(writeData.getForumId(), writeData, true);
+            } else {
+                C(writeData.getTopicId(), null);
+            }
+        } else if (writeData.getType() == 1) {
+            z(writeData.getThreadId(), null);
+        }
+    }
+
+    public static void t(String str, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65559, null, str, writeData) != null) || str == null) {
+            return;
+        }
+        c55.d();
+        we<String> e2 = c55.e("tb.pb_editor");
+        if (writeData != null && writeData.hasContentToSave()) {
+            e2.e(a(str), writeData.toDraftString(), 604800000L);
+            e2.e(a(""), writeData.toDraftString(), 604800000L);
+            return;
+        }
+        e2.remove(a(str));
+        e2.remove(a(""));
+    }
+
+    public static void w(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65562, null, writeData) == null) {
+            c55.d();
+            we<String> e2 = c55.e("tb.pb_editor");
+            if (writeData != null && writeData.hasContentToSave()) {
+                e2.e(c(), writeData.toDraftString(), 604800000L);
+            } else {
+                e2.remove(c());
+            }
+        }
     }
 }

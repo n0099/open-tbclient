@@ -1,53 +1,56 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import android.content.res.Resources;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.tieba.aw;
-import com.baidu.tieba.zv;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 /* loaded from: classes5.dex */
-public final class bw extends aw {
+public class bw {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakReference<cw> a;
-    public static Toast b;
-    public static Handler c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class b implements Runnable {
+    public interface e {
+        void a(ViewGroup viewGroup);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ ViewGroup b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ zv.a d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ TextView b;
+        public final /* synthetic */ e c;
+        public final /* synthetic */ LinearLayout d;
 
         /* loaded from: classes5.dex */
-        public class a implements Runnable {
+        public class a implements Function0<Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ d a;
 
-            /* renamed from: com.baidu.tieba.bw$b$a$a  reason: collision with other inner class name */
+            /* renamed from: com.baidu.tieba.bw$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class View$OnClickListenerC0260a implements View.OnClickListener {
+            public class RunnableC0250a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0260a(a aVar) {
+                public RunnableC0250a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,22 +68,22 @@ public final class bw extends aw {
                     this.a = aVar;
                 }
 
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    zv.a aVar;
+                @Override // java.lang.Runnable
+                public void run() {
                     Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a.d) != null) {
-                        aVar.onToastClick();
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        d dVar = this.a.a;
+                        dVar.c.a(dVar.d);
                     }
                 }
             }
 
-            public a(b bVar) {
+            public a(d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
+                    Object[] objArr = {dVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -90,74 +93,69 @@ public final class bw extends aw {
                         return;
                     }
                 }
-                this.a = bVar;
+                this.a = dVar;
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function0
+            /* renamed from: a */
+            public Unit invoke() {
+                InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && jw.q()) {
-                    Toast unused = bw.b = new Toast(this.a.a);
-                    bw.b.setView(this.a.b);
-                    bw.b.setGravity(81, 0, this.a.c);
-                    jw.m(bw.b, R.style.obfuscated_res_0x7f10043c);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0260a(this));
-                    bw.b.show();
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    du.c(new RunnableC0250a(this));
+                    return Unit.INSTANCE;
                 }
+                return (Unit) invokeV.objValue;
             }
         }
 
-        public b(Context context, ViewGroup viewGroup, int i, zv.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, viewGroup, Integer.valueOf(i), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = viewGroup;
-            this.c = i;
-            this.d = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bw.c.post(new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ ViewGroup b;
-        public final /* synthetic */ int c;
-
-        /* renamed from: com.baidu.tieba.bw$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0259a implements Runnable {
+        public class b implements Function0<Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ d a;
 
-            public RunnableC0259a(a aVar) {
+            /* loaded from: classes5.dex */
+            public class a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ b a;
+
+                public a(b bVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {bVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = bVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        d dVar = this.a.a;
+                        dVar.c.a(dVar.d);
+                    }
+                }
+            }
+
+            public b(d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {dVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -167,104 +165,140 @@ public final class bw extends aw {
                         return;
                     }
                 }
-                this.a = aVar;
+                this.a = dVar;
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function0
+            /* renamed from: a */
+            public Unit invoke() {
+                InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && jw.q()) {
-                    Toast unused = bw.b = new Toast(this.a.a);
-                    bw.b.setView(this.a.b);
-                    bw.b.setGravity(81, 0, this.a.c);
-                    jw.m(bw.b, R.style.obfuscated_res_0x7f10043c);
-                    bw.b.show();
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    du.c(new a(this));
+                    return Unit.INSTANCE;
                 }
+                return (Unit) invokeV.objValue;
             }
         }
 
-        public a(Context context, ViewGroup viewGroup, int i) {
+        public d(String str, TextView textView, e eVar, LinearLayout linearLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, viewGroup, Integer.valueOf(i)};
+                Object[] objArr = {str, textView, eVar, linearLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = context;
-            this.b = viewGroup;
-            this.c = i;
+            this.a = str;
+            this.b = textView;
+            this.c = eVar;
+            this.d = linearLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bw.c.post(new RunnableC0259a(this));
+                if (!TextUtils.isEmpty(this.a)) {
+                    com.baidu.bdtask.ui.utils.d.a.b(this.a, this.b, new a(this), new b(this));
+                } else {
+                    this.c.a(this.d);
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements aw.e {
+    public static class a implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
+        public final /* synthetic */ Runnable a;
 
-        public c(Context context, int i, int i2) {
+        public a(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {runnable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = context;
-            this.b = i;
-            this.c = i2;
+            this.a = runnable;
         }
 
-        @Override // com.baidu.tieba.aw.e
-        public void a(ViewGroup viewGroup) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function0
+        /* renamed from: a */
+        public Unit invoke() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
-                cw cwVar = new cw(this.a);
-                bw.j(cwVar);
-                if (jw.d()) {
-                    cwVar.n(2003);
-                }
-                cwVar.f(viewGroup);
-                cwVar.e(81, 0, this.b);
-                cwVar.d(this.c);
-                cwVar.j(R.style.obfuscated_res_0x7f10043c);
-                cwVar.c();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.run();
+                return Unit.INSTANCE;
             }
+            return (Unit) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements zv.a {
+    public static class b implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zv.a a;
+        public final /* synthetic */ Runnable a;
 
-        public d(zv.a aVar) {
+        public b(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function0
+        /* renamed from: a */
+        public Unit invoke() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.run();
+                return Unit.INSTANCE;
+            }
+            return (Unit) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aw.a a;
+
+        public c(aw.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -282,88 +316,71 @@ public final class bw extends aw {
             this.a = aVar;
         }
 
-        @Override // com.baidu.tieba.zv.a
-        public void onToastClick() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zv.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onToastClick();
-                }
-                bw.e();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.onToastClick();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301048, "Lcom/baidu/tieba/bw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448301048, "Lcom/baidu/tieba/bw;");
-                return;
-            }
-        }
-        c = new Handler(Looper.getMainLooper());
-    }
-
-    public static void e() {
-        cw cwVar;
+    public static ViewGroup a(Context context, CharSequence charSequence, String str, String str2) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            WeakReference<cw> weakReference = a;
-            if (weakReference != null && (cwVar = weakReference.get()) != null) {
-                cwVar.i();
-            }
-            Toast toast = b;
-            if (toast != null) {
-                toast.cancel();
-            }
-        }
-    }
-
-    public static void j(cw cwVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, cwVar) == null) {
-            WeakReference<cw> weakReference = a;
-            if (weakReference != null) {
-                weakReference.clear();
-            }
-            a = new WeakReference<>(cwVar);
-        }
-    }
-
-    public static void f(Context context, CharSequence charSequence, int i, String str, CharSequence charSequence2, int i2, int i3, String str2, String str3, String str4, String str5, String str6, zv.a aVar, xt xtVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, charSequence, Integer.valueOf(i), str, charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, aVar, xtVar}) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, charSequence, str, str2)) == null) {
             Context applicationContext = context.getApplicationContext();
-            int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
-            if (xtVar != null) {
-                dimension = xtVar.a();
+            Resources resources = context.getResources();
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.sdk_normal_toast_view, (ViewGroup) null);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.sdk_normal_toast_view_bg);
+            gradientDrawable.setColor(gw.a.a(str, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
+            gradientDrawable.setAlpha(204);
+            relativeLayout.setBackground(gradientDrawable);
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09190b);
+            if (textView != null) {
+                textView.setTextColor(gw.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
+                textView.setText(charSequence);
             }
-            if (jw.p(context)) {
-                ViewGroup a2 = aw.a(context, charSequence, str2, str3);
-                aw.c(str, a2, new b(applicationContext, a2, dimension, aVar));
-                return;
+            return relativeLayout;
+        }
+        return (ViewGroup) invokeLLLL.objValue;
+    }
+
+    public static void b(Context context, CharSequence charSequence, int i, CharSequence charSequence2, int i2, String str, String str2, String str3, String str4, String str5, String str6, e eVar, aw.a aVar) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), str, str2, str3, str4, str5, str6, eVar, aVar}) == null) {
+            Context applicationContext = context.getApplicationContext();
+            Resources resources = context.getResources();
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.sdk_right_button_toast_view, (ViewGroup) null);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.sdk_normal_toast_view_bg);
+            gradientDrawable.setColor(gw.a.a(str, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
+            gradientDrawable.setAlpha(204);
+            linearLayout.setBackground(gradientDrawable);
+            linearLayout.setClickable(true);
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e71)) != null) {
+                textView.setText(charSequence);
+                textView.setTextColor(gw.a.a(str3, resources.getColor(R.color.task_sdk_text_color_default)));
+                textView.setTextSize(1, i);
             }
-            aw.b(context, charSequence, i, charSequence2, i2, str2, str, str3, str4, str5, str6, new c(applicationContext, dimension, i3), new d(aVar));
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e70);
+            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.sdk_toast_btn_bg);
+            gradientDrawable2.setColor(gw.a.a(str4, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
+            textView2.setBackground(gradientDrawable2);
+            if (!TextUtils.isEmpty(charSequence2)) {
+                textView2.setText(charSequence2);
+                textView2.setTextColor(gw.a.a(str6, resources.getColor(R.color.task_sdk_text_color_default)));
+                textView2.setTextSize(1, i2);
+            }
+            textView2.setOnClickListener(new c(aVar));
+            c(str2, linearLayout, new d(str5, textView2, eVar, linearLayout));
         }
     }
 
-    public static void g(Context context, CharSequence charSequence, int i, String str, String str2, String str3, xt xtVar) {
+    public static void c(String str, View view2, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, charSequence, Integer.valueOf(i), str, str2, str3, xtVar}) == null) {
-            Context applicationContext = context.getApplicationContext();
-            int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
-            if (xtVar != null) {
-                dimension = xtVar.a();
-            }
-            ViewGroup a2 = aw.a(context, charSequence, str, str3);
-            aw.c(str2, a2, new a(applicationContext, a2, dimension));
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, view2, runnable) == null) && runnable != null && view2 != null) {
+            com.baidu.bdtask.ui.utils.d.a.b(str, view2, new a(runnable), new b(runnable));
         }
     }
 }

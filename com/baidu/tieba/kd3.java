@@ -1,45 +1,50 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.tieba.tp3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kd3 extends vd3 {
+public class kd3 extends wd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface b {
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements b {
+    public class a implements sq3<zg3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ Uri b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Context d;
+        public final /* synthetic */ JSONObject e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ kd3 g;
 
-        public a(kd3 kd3Var, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
+        public a(kd3 kd3Var, CallbackHandler callbackHandler, String str, String str2, Context context, JSONObject jSONObject, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kd3Var, activity, uri, str, callbackHandler, str2};
+                Object[] objArr = {kd3Var, callbackHandler, str, str2, context, jSONObject, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,19 +54,155 @@ public class kd3 extends vd3 {
                     return;
                 }
             }
-            this.a = activity;
-            this.b = uri;
+            this.g = kd3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
+            this.d = context;
+            this.e = jSONObject;
+            this.f = str3;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sq3
+        /* renamed from: b */
+        public void a(zg3 zg3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zg3Var) == null) {
+                if (zg3Var != null && !zg3Var.d) {
+                    if (this.g.m(zg3Var, this.c)) {
+                        this.g.l(this.d, this.e, this.a, this.b, this.f);
+                        return;
+                    } else {
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
+                        return;
+                    }
+                }
+                if (wd3.b) {
+                    Log.i("OpenAppAction", "no configuration of authority");
+                }
+                xg3.o(10005, this.a, this.b);
+                si3.r(10005, zg3Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements tp3.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+
+        public b(kd3 kd3Var, CallbackHandler callbackHandler, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kd3Var, callbackHandler, str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+        }
+
+        @Override // com.baidu.tieba.tp3.g
+        public void a(boolean z) {
+            int i;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    i = 0;
+                } else {
+                    i = 1001;
+                }
+                if (z) {
+                    str = "打开APP成功";
+                } else {
+                    str = "打开APP失败，本地没有安装";
+                }
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(i, str).toString());
+                c.a("open", this.c, "confirm", this.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.tp3.g
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
+                c.a("open", this.c, "cancel", this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a(String str, String str2, String str3, String str4) {
+            String str5;
+            String str6;
+            String str7;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, str4) == null) {
+                bj3 bj3Var = new bj3();
+                zb3 b0 = zb3.b0();
+                String str8 = "";
+                if (b0 == null) {
+                    str5 = "";
+                    str6 = str5;
+                    str7 = str6;
+                } else {
+                    str8 = si3.n(b0.k());
+                    str6 = b0.getAppId();
+                    str7 = b0.Z();
+                    str5 = b0.W().T();
+                }
+                String a = gv2.n().a();
+                bj3Var.a = str8;
+                bj3Var.b = str;
+                bj3Var.e = str2;
+                bj3Var.f = str6;
+                bj3Var.c = str5;
+                bj3Var.a("appName", str7);
+                bj3Var.a("hostName", a);
+                bj3Var.a("hostVersion", tp3.D());
+                bj3Var.a(PushConstants.CLICK_TYPE, str3);
+                try {
+                    str4 = URLDecoder.decode(str4, "UTF-8");
+                } catch (UnsupportedEncodingException unused) {
+                }
+                bj3Var.a("scheme", str4);
+                gi3.i("2572", "90", bj3Var.f());
+                if (wd3.b) {
+                    Log.d("OpenAppAction", String.format("ubcId=%s && ceresId=%s , content:%s ", "2572", "90", bj3Var.f()));
+                }
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kd3(vc3 vc3Var) {
-        super(vc3Var, "/swanAPI/file/openDocument");
+    public kd3(wc3 wc3Var) {
+        super(wc3Var, "/swanAPI/openApp");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vc3Var};
+            Object[] objArr = {wc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,100 +216,168 @@ public class kd3 extends vd3 {
         }
     }
 
-    @Override // com.baidu.tieba.vd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+    @Override // com.baidu.tieba.wd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
         InterceptResult invokeLLLL;
-        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
-            if (yb3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
+            if (!gv2.a().d()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
                 return false;
-            } else if (yb3Var.n0()) {
-                if (vd3.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+            } else if (zb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
                 return false;
             } else {
-                JSONObject a2 = vd3.a(unitedSchemeEntity, "params");
+                JSONObject a2 = wd3.a(unitedSchemeEntity, "params");
                 if (a2 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params");
                     return false;
                 }
-                String optString = a2.optString("filePath");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
-                    return false;
+                String optString = a2.optString("cb");
+                if (wd3.b) {
+                    Log.i("OpenAppAction", "params is " + a2.toString());
                 }
-                String g0 = yb3.g0();
-                if (TextUtils.isEmpty(g0)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
-                    return false;
-                }
-                String M = gj3.M(optString, g0);
-                if (TextUtils.isEmpty(M)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
-                    return false;
-                }
-                String optString2 = a2.optString("fileType");
-                String t = cs4.t(M);
-                if (TextUtils.isEmpty(t)) {
-                    if (TextUtils.isEmpty(optString2)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
+                String optString2 = a2.optString("open", "");
+                String optString3 = a2.optString("invokeFrom", "");
+                c.a(DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, optString3, null, optString2);
+                if (optString2.startsWith(BaiduIdentityManager.VALUE_OSNAME)) {
+                    if (!gv2.a().c()) {
+                        rb3.f(context, R.string.obfuscated_res_0x7f0f145e).G();
                         return false;
                     }
+                    l(context, a2, callbackHandler, optString, optString3);
                 } else {
-                    optString2 = t;
+                    zb3Var.e0().e("scope_open_app", new a(this, callbackHandler, optString, optString2, context, a2, optString3));
                 }
-                String b2 = po3.b(optString2);
-                if (TextUtils.isEmpty(b2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
-                    return false;
-                }
-                Uri parse = Uri.parse(M);
-                if (parse == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
-                    return false;
-                }
-                if (parse.getScheme() == null) {
-                    uri = Uri.fromFile(new File(M));
-                } else {
-                    uri = parse;
-                }
-                SwanAppActivity w = yb3Var.w();
-                if (w == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
-                    return false;
-                } else if (!po3.a(b2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + b2);
-                    return false;
-                } else {
-                    String optString3 = a2.optString("cb");
-                    kw1 r = fv2.r();
-                    if (!r.b(w, b2)) {
-                        if (TextUtils.isEmpty(optString3)) {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + b2);
-                            return false;
-                        }
-                        j(w, b2, uri, optString3, callbackHandler);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        return true;
-                    }
-                    r.c(w, uri, b2);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                    return true;
-                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void j(Activity activity, String str, Uri uri, String str2, CallbackHandler callbackHandler) {
+    public final void l(Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str, String str2) {
+        boolean z;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, uri, str2, callbackHandler) == null) {
-            fv2.r().a(activity, str, new a(this, activity, uri, str, callbackHandler, str2));
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, callbackHandler, str, str2) == null) {
+            String optString = jSONObject.optString("open");
+            int i = 0;
+            if (!TextUtils.isEmpty(optString)) {
+                optString = Uri.decode(optString);
+                gv2.P().a(optString, jSONObject.optJSONObject("extraParams"));
+                if (wd3.b) {
+                    Log.i("OpenAppAction", "openUrl:" + optString);
+                }
+                z = o(context, optString, callbackHandler, str, str2);
+            } else {
+                z = false;
+            }
+            boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
+            if (wd3.b) {
+                Log.i("OpenAppAction", "open app result=" + z + "\nisNeedDownload=" + optBoolean);
+            }
+            if (!optBoolean) {
+                if (!z) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1002, "打开APP失败，本地没有安装").toString());
+                }
+            } else if (!z) {
+                boolean e = tp3.e(context, jSONObject.optString("download"));
+                if (!e) {
+                    i = 1001;
+                }
+                if (e) {
+                    str3 = "下载APP成功";
+                } else {
+                    str3 = "下载APP失败";
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, str3).toString());
+                c.a("download", str2, null, optString);
+            }
         }
+    }
+
+    public final boolean m(zg3 zg3Var, String str) {
+        InterceptResult invokeLL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, zg3Var, str)) == null) {
+            if (zg3Var != null && !TextUtils.isEmpty(str)) {
+                String T2 = yb3.K().q().W().T();
+                if (TextUtils.isEmpty(T2)) {
+                    T2 = "NA";
+                }
+                JSONObject jSONObject = zg3Var.o;
+                if (jSONObject != null && jSONObject.keys() != null) {
+                    if (wd3.b) {
+                        Log.i("OpenAppAction", "source: " + T2 + " openUrl:" + str + " 配置数据:" + jSONObject);
+                    }
+                    JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
+                    if (optJSONArray == null) {
+                        length = 0;
+                    } else {
+                        length = optJSONArray.length();
+                    }
+                    if (length > 0) {
+                        boolean z = false;
+                        for (int i = 0; i < length; i++) {
+                            if (T2.equals(optJSONArray.optString(i))) {
+                                z = true;
+                            }
+                        }
+                        if (!z || !n(str, optJSONArray2)) {
+                            return false;
+                        }
+                        return true;
+                    }
+                    return n(str, optJSONArray2);
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean n(String str, JSONArray jSONArray) {
+        InterceptResult invokeLL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jSONArray)) == null) {
+            if (jSONArray == null) {
+                length = 0;
+            } else {
+                length = jSONArray.length();
+            }
+            if (length > 0 && !TextUtils.isEmpty(str)) {
+                for (int i = 0; i < length; i++) {
+                    String optString = jSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString)) {
+                        String decode = Uri.decode(optString);
+                        int indexOf = decode.indexOf(":");
+                        if (indexOf > 0) {
+                            decode = decode.substring(0, indexOf);
+                        }
+                        if (str.startsWith(decode)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean o(Context context, String str, CallbackHandler callbackHandler, String str2, String str3) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, context, str, callbackHandler, str2, str3)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                return tp3.Z(context, str, new b(this, callbackHandler, str2, str3, str));
+            }
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

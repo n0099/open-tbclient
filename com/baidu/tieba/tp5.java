@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import android.app.Activity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tp5 implements cp5<HotEvent> {
+public class tp5 implements hp5<CompeteTaskEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,16 +29,19 @@ public class tp5 implements cp5<HotEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cp5
+    @Override // com.baidu.tieba.hp5
     /* renamed from: a */
-    public boolean onEvent(HotEvent hotEvent) {
+    public boolean onEvent(CompeteTaskEvent competeTaskEvent) {
         InterceptResult invokeL;
-        HotEventData hotEventData;
+        CompleteTaskToastData completeTaskToastData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
-            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
-                qf5.u(hotEventData);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, competeTaskEvent)) == null) {
+            if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity instanceof ru4) {
+                    ((ru4) currentActivity).onMissionCompleted(completeTaskToastData);
+                    return true;
+                }
             }
             return false;
         }

@@ -1,11 +1,11 @@
 package com.baidu.searchbox.logsystem.exceptionhandler.impl;
 
-import com.baidu.tieba.cl1;
-import com.baidu.tieba.dm;
+import com.baidu.tieba.dl1;
+import com.baidu.tieba.em;
 /* loaded from: classes4.dex */
-public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider implements cl1 {
-    @Override // com.baidu.tieba.cl1
+public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider implements dl1 {
+    @Override // com.baidu.tieba.dl1
     public Object get() {
-        return new dm();
+        return new em();
     }
 }

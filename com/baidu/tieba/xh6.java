@@ -1,30 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Rect;
+import android.view.View;
 /* loaded from: classes8.dex */
-public class xh6 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 0;
-    public static int b = 1;
-    public static int c = 2;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xh6 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948300419, "Lcom/baidu/tieba/xh6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948300419, "Lcom/baidu/tieba/xh6;");
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        int a(byte[] bArr, int i);
     }
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(byte[] bArr);
+    }
+
+    View a();
+
+    void b(b bVar);
+
+    void c(int i);
+
+    int d();
+
+    void e();
+
+    Rect f();
+
+    void g();
+
+    void h(int i);
+
+    void i(yh6 yh6Var);
+
+    void pause();
+
+    void resume();
+
+    void start();
+
+    void stop();
 }

@@ -148,7 +148,7 @@ public class oc implements vc {
                 }
                 if (componentType == Byte.TYPE) {
                     try {
-                        ni.k((byte[]) this.a, 0);
+                        oi.k((byte[]) this.a, 0);
                     } catch (Exception unused) {
                         return null;
                     }

@@ -1,58 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.LinearGradientView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
+import com.baidu.tieba.eq7;
+import com.baidu.tieba.frs.TabMenuPopView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class gq7 {
+public class gq7 implements aq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public LinearGradientView c;
-    public BarImageView d;
-    public TextView e;
-    public FrsHeaderBannerView f;
-    public LinearLayout g;
-    public ImageView h;
-    public View i;
-    public TbImageView j;
-    public ImageView k;
-    public ImageView l;
-    public ImageView m;
-    public ImageView n;
+    public Context a;
+    public eq7.e b;
+    public List<lf7> c;
+    public View d;
+    public View e;
+    public TabMenuPopView f;
+    public eq7 g;
+    public TabMenuPopView.c h;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements TabMenuPopView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ gq7 a;
 
-        public a(gq7 gq7Var, Context context) {
+        public a(gq7 gq7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gq7Var, context};
+                Object[] objArr = {gq7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,27 +48,25 @@ public class gq7 {
                     return;
                 }
             }
-            this.a = context;
+            this.a = gq7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.frs.TabMenuPopView.c
+        public void a(View view2, lf7 lf7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, lf7Var) == null) {
+                if (this.a.g != null) {
+                    this.a.g.c();
                 }
+                this.a.b.a(lf7Var.b);
             }
         }
     }
 
-    public gq7(Context context) {
+    public gq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -92,52 +76,59 @@ public class gq7 {
                 return;
             }
         }
-        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
-        UtilHelper.getStatusBarHeight();
-        if (context == null) {
+        this.h = new a(this);
+    }
+
+    @Override // com.baidu.tieba.aq7
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.d.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return this.d.getMeasuredHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.aq7
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aq7
+    public void a(Context context, eq7 eq7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, eq7Var) == null) && context != null && eq7Var != null) {
+            this.a = context;
+            this.g = eq7Var;
+            this.b = eq7Var.d();
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d090d, (ViewGroup) null);
+            this.d = inflate;
+            this.e = inflate.findViewById(R.id.top_line);
+            TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f090643);
+            this.f = tabMenuPopView;
+            tabMenuPopView.setOnItemClickCallBack(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.aq7
+    public void setData(List<lf7> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || list == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0345, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ed6);
-        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090ed9);
-        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ed7);
-        this.j = tbImageView;
-        tbImageView.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f081172);
-        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090cad);
-        TextView textView = (TextView) this.a.findViewById(R.id.forum_name);
-        this.e = textView;
-        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090c9c);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090abc);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090abb);
-        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090ef2);
-        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090abe);
-        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ac0);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090abd);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090abf);
-        this.k.setOnClickListener(new a(this, context));
-        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f031d));
-        this.d.setStrokeWith(vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-        this.d.setShowOval(true);
-        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.d.setStrokeColorResId(R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        o75 d = o75.d(this.i);
-        d.n(1);
-        d.o(R.string.J_X14);
-        d.f(R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
-        SkinManager.setImageResource(this.k, R.drawable.ic_icon_pure_topbar_return40_svg);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f080341, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+        this.c = list;
+        lf7 lf7Var = new lf7();
+        lf7Var.b = 0;
+        lf7Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f029a);
+        lf7Var.c = false;
+        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+        this.f.setData(this.c, lf7Var);
     }
 }

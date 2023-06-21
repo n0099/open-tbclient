@@ -5,14 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ef7 extends ze7 {
+public class ef7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public String a;
+    public String b;
+    public int c;
+    public boolean d;
 
     public ef7() {
         Interceptable interceptable = $ic;
@@ -27,7 +26,6 @@ public class ef7 extends ze7 {
                 return;
             }
         }
-        this.g = true;
-        this.i = true;
+        this.d = false;
     }
 }

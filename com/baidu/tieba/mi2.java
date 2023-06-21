@@ -1,32 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes6.dex */
 public class mi2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public boolean j;
-    public String k;
-    public boolean l;
-    public String m;
+    public UbcFlowEvent b;
+    public boolean c;
 
     public mi2() {
         Interceptable interceptable = $ic;
@@ -42,82 +30,55 @@ public class mi2 {
         }
     }
 
-    public static Map<String, String> a(mi2 mi2Var) {
-        InterceptResult invokeL;
+    public UbcFlowEvent a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mi2Var)) == null) {
-            TreeMap treeMap = new TreeMap();
-            if (mi2Var == null) {
-                return treeMap;
-            }
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, mi2Var.a);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, mi2Var.b);
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, mi2Var.c);
-            treeMap.put(PrefetchEvent.EVENT_KEY_PAGE_URL, mi2Var.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, mi2Var.f);
-            treeMap.put("root", mi2Var.g);
-            if (!TextUtils.isEmpty(mi2Var.e)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, mi2Var.e);
-            }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(mi2Var.h));
-            treeMap.put("pageType", mi2Var.i);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(mi2Var.j));
-            if (!TextUtils.isEmpty(mi2Var.k)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, mi2Var.k);
-            }
-            w73.a(treeMap, "app ready event");
-            qf3.a(mi2Var.d, treeMap);
-            if (cb2.c()) {
-                treeMap.put("offlinePerfTool", String.valueOf(1));
-            }
-            if (wh3.d()) {
-                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
-            }
-            if (wh3.f()) {
-                treeMap.put("performanceType", "stabilityProfile");
-            }
-            treeMap.put("slaveReady", String.valueOf(mi2Var.l));
-            if (!TextUtils.isEmpty(mi2Var.m)) {
-                treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, mi2Var.m);
-            }
-            return treeMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (Map) invokeL.objValue;
+        return (UbcFlowEvent) invokeV.objValue;
     }
 
-    public static zl2 b(mi2 mi2Var) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mi2Var)) == null) {
-            Map<String, String> a = a(mi2Var);
-            zl2 zl2Var = new zl2("AppReady", a);
-            PrefetchEvent.c createFromAppReadyEvent = PrefetchEvent.createFromAppReadyEvent(a);
-            if (createFromAppReadyEvent == null) {
-                return zl2Var;
-            }
-            oi2 oi2Var = new oi2();
-            oi2Var.t(createFromAppReadyEvent);
-            oi2Var.t(zl2Var);
-            return oi2Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (zl2) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String c(yb3 yb3Var, String str) {
-        InterceptResult invokeLL;
-        String str2;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, yb3Var, str)) == null) {
-            if (yb3Var != null) {
-                str2 = yb3Var.c0(qp3.f(str));
-            } else {
-                str2 = null;
-            }
-            if (str2 == null) {
-                return "";
-            }
-            return str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void d(@NonNull UbcFlowEvent ubcFlowEvent, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, ubcFlowEvent, z) == null) {
+            if (this.b == null || z) {
+                this.b = ubcFlowEvent;
+            }
+        }
+    }
+
+    public void f(@NonNull String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
+            if (this.a == null || z) {
+                this.a = str;
+            }
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
     }
 }

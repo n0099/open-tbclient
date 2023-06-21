@@ -142,7 +142,7 @@ public final class AssociatedItemContainer extends LinearLayout {
                     this$0.removeViewAt(this$0.getChildCount() - 1);
                 }
                 this$0.requestLayout();
-                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f091209);
+                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f09120e);
                 if (tag != null) {
                     ItemData itemData = (ItemData) tag;
                     this$0.c.remove(itemData);
@@ -176,8 +176,8 @@ public final class AssociatedItemContainer extends LinearLayout {
             final ItemCardView itemCardView = new ItemCardView(getContext());
             itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             itemCardView.N();
-            itemCardView.setTag(R.id.obfuscated_res_0x7f091209, itemData);
-            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.tfa
+            itemCardView.setTag(R.id.obfuscated_res_0x7f09120e, itemData);
+            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.kha
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

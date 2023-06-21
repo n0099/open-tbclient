@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
 /* loaded from: classes7.dex */
-public interface od8 extends View.OnClickListener {
-    void B1();
-
-    Context getViewContext();
-
-    String v();
-
-    long w();
+public interface od8 {
+    @Nullable
+    BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i);
 }

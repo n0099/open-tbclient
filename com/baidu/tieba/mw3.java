@@ -5,21 +5,23 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class mw3 implements jw3 {
+public class mw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nw3 a;
-    public boolean b;
+    public Method a;
+    public Object b;
 
-    public mw3(@NonNull Context context) {
+    public mw3(Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,38 +31,64 @@ public class mw3 implements jw3 {
                 return;
             }
         }
-        this.b = false;
-        c(context);
-    }
-
-    @Override // com.baidu.tieba.jw3
-    public void b(int i) {
-        nw3 nw3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (nw3Var = this.a) != null && nw3Var.c()) {
-            nw3 nw3Var2 = this.a;
-            if (nw3Var2.d(nw3Var2.a(), "", 0) != 0) {
-                return;
+        if (cls == null) {
+            return;
+        }
+        try {
+            this.b = dg4.m(cls);
+            Method i3 = dg4.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
             }
-            this.b = true;
+        } catch (Throwable unused) {
         }
     }
 
-    @Override // com.baidu.tieba.jw3
-    public void a() {
-        nw3 nw3Var;
+    public static mw3 a(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (nw3Var = this.a) != null && nw3Var.c()) {
-            this.b = false;
-            nw3 nw3Var2 = this.a;
-            nw3Var2.d(nw3Var2.a(), "", -1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                cls = dg4.b("com.hisi.perfhub.PerfHub", true);
+            } catch (Throwable unused) {
+                cls = null;
+            }
+            return new mw3(cls);
         }
+        return (mw3) invokeL.objValue;
     }
 
-    public final void c(Context context) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = nw3.b(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != null && this.a != null) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public int c(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
+            if (!b()) {
+                return -1;
+            }
+            try {
+                Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
+                if (invoke == null) {
+                    return -1;
+                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
+            }
+        }
+        return invokeILL.intValue;
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.uh8;
-import com.baidu.tieba.vh8;
-import com.baidu.tieba.xg8;
+import com.baidu.tieba.ki8;
+import com.baidu.tieba.li8;
+import com.baidu.tieba.nh8;
+import com.baidu.tieba.p75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView c;
-    public xg8 d;
+    public nh8 d;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -60,13 +60,13 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SkillTagItemViewHolder(View view2, vh8 vh8Var) {
+    public SkillTagItemViewHolder(View view2, li8 li8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, vh8Var};
+            Object[] objArr = {view2, li8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,17 +83,17 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void f(uh8 uh8Var, Context context, int i) {
+    public void f(ki8 ki8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, uh8Var, context, i) == null) {
-            super.f(uh8Var, context, i);
-            if (uh8Var instanceof xg8) {
-                xg8 xg8Var = (xg8) uh8Var;
-                this.d = xg8Var;
-                this.c.setText(xg8Var.d());
-                o75 d = o75.d(this.c);
-                d.w(R.color.CAM_X0302);
-                d.B(R.dimen.T_X08);
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, ki8Var, context, i) == null) {
+            super.f(ki8Var, context, i);
+            if (ki8Var instanceof nh8) {
+                nh8 nh8Var = (nh8) ki8Var;
+                this.d = nh8Var;
+                this.c.setText(nh8Var.d());
+                p75 d = p75.d(this.c);
+                d.x(R.color.CAM_X0302);
+                d.C(R.dimen.T_X08);
                 d.o(R.string.deprecated_J_X19);
                 d.f(R.color.CAM_X0905);
             }

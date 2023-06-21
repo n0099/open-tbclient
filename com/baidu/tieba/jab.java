@@ -1,98 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
 public class jab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
 
-    public static SecretKey a(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, int i) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeCommon;
+    public jab(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bArr, bArr2, bArr3, bArr4, Integer.valueOf(i)})) == null) {
-            if (bArr.length == 16 && bArr2.length == 16 && bArr3.length == 16) {
-                return new SecretKeySpec(SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1").generateSecret(new PBEKeySpec(z9b.c(e(bArr, bArr2, bArr3)).toCharArray(), bArr4, i, 128)).getEncoded(), "AES");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            throw new IllegalArgumentException("invalid data for generating the key.");
         }
-        return (SecretKey) invokeCommon.objValue;
+        this.a = str;
+        this.b = a(str);
     }
 
-    public static byte[] b(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
-        InterceptResult invokeLL;
+    public static int a(Object... objArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, secretKey, bArr)) == null) {
-            if (secretKey == null || bArr == null) {
-                throw new NullPointerException("key or cipherText must not be null.");
-            }
-            byte[] copyOfRange = Arrays.copyOfRange(bArr, 1, 17);
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKey, new IvParameterSpec(copyOfRange));
-            return cipher.doFinal(bArr, copyOfRange.length + 1, (bArr.length - copyOfRange.length) - 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
+            return Arrays.hashCode(objArr);
         }
-        return (byte[]) invokeLL.objValue;
+        return invokeL.intValue;
     }
 
-    public static byte[] c(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public static jab b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
-            if (bArr != null) {
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    if (i < 0) {
-                        bArr[i2] = (byte) (bArr[i2] << (-i));
-                    } else {
-                        bArr[i2] = (byte) (bArr[i2] >> i);
-                    }
-                }
-                return bArr;
-            }
-            throw new NullPointerException("bytes must not be null.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new jab(str);
         }
-        return (byte[]) invokeLI.objValue;
+        return (jab) invokeL.objValue;
     }
 
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            if (bArr == null || bArr2 == null) {
-                throw new NullPointerException("left or right must not be null.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if (bArr.length == bArr2.length) {
-                byte[] bArr3 = new byte[bArr.length];
-                for (int i = 0; i < bArr.length; i++) {
-                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
-                }
-                return bArr3;
+            if (obj != null && jab.class == obj.getClass()) {
+                return TextUtils.equals(this.a, ((jab) obj).a);
             }
-            throw new IllegalArgumentException("left and right must be the same length.");
+            return false;
         }
-        return (byte[]) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static byte[] e(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
+    public final int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2, bArr3)) == null) {
-            c(bArr, -4);
-            byte[] d = d(bArr, bArr2);
-            c(d, 6);
-            return d(d, bArr3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (byte[]) invokeLLL.objValue;
+        return invokeV.intValue;
     }
 }

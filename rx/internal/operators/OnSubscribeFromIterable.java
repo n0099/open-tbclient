@@ -1,105 +1,105 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.inb;
-import com.baidu.tieba.nmb;
-import com.baidu.tieba.pmb;
-import com.baidu.tieba.tmb;
-import com.baidu.tieba.zmb;
+import com.baidu.tieba.bpb;
+import com.baidu.tieba.gob;
+import com.baidu.tieba.iob;
+import com.baidu.tieba.mob;
+import com.baidu.tieba.sob;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OnSubscribeFromIterable<T> implements nmb.a<T> {
+public final class OnSubscribeFromIterable<T> implements gob.a<T> {
     public final Iterable<? extends T> a;
 
     /* loaded from: classes2.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements pmb {
+    public static final class IterableProducer<T> extends AtomicLong implements iob {
         public static final long serialVersionUID = -8730475647105475802L;
         public final Iterator<? extends T> it;
-        public final tmb<? super T> o;
+        public final mob<? super T> o;
 
-        public IterableProducer(tmb<? super T> tmbVar, Iterator<? extends T> it) {
-            this.o = tmbVar;
+        public IterableProducer(mob<? super T> mobVar, Iterator<? extends T> it) {
+            this.o = mobVar;
             this.it = it;
         }
 
         /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
         public void fastPath() {
-            tmb<? super T> tmbVar = this.o;
+            mob<? super T> mobVar = this.o;
             Iterator<? extends T> it = this.it;
-            while (!tmbVar.isUnsubscribed()) {
+            while (!mobVar.isUnsubscribed()) {
                 try {
-                    tmbVar.onNext((T) it.next());
-                    if (tmbVar.isUnsubscribed()) {
+                    mobVar.onNext((T) it.next());
+                    if (mobVar.isUnsubscribed()) {
                         return;
                     }
                     try {
                         if (!it.hasNext()) {
-                            if (!tmbVar.isUnsubscribed()) {
-                                tmbVar.onCompleted();
+                            if (!mobVar.isUnsubscribed()) {
+                                mobVar.onCompleted();
                                 return;
                             }
                             return;
                         }
                     } catch (Throwable th) {
-                        zmb.f(th, tmbVar);
+                        sob.f(th, mobVar);
                         return;
                     }
                 } catch (Throwable th2) {
-                    zmb.f(th2, tmbVar);
+                    sob.f(th2, mobVar);
                     return;
                 }
             }
         }
 
-        @Override // com.baidu.tieba.pmb
+        @Override // com.baidu.tieba.iob
         public void request(long j) {
             if (get() == Long.MAX_VALUE) {
                 return;
             }
             if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j > 0 && inb.b(this, j) == 0) {
+            } else if (j > 0 && bpb.b(this, j) == 0) {
                 slowPath(j);
             }
         }
 
         /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: T, ? super T */
         public void slowPath(long j) {
-            tmb<? super T> tmbVar = this.o;
+            mob<? super T> mobVar = this.o;
             Iterator<? extends T> it = this.it;
             do {
                 long j2 = 0;
                 while (true) {
                     if (j2 != j) {
-                        if (tmbVar.isUnsubscribed()) {
+                        if (mobVar.isUnsubscribed()) {
                             return;
                         }
                         try {
-                            tmbVar.onNext((T) it.next());
-                            if (tmbVar.isUnsubscribed()) {
+                            mobVar.onNext((T) it.next());
+                            if (mobVar.isUnsubscribed()) {
                                 return;
                             }
                             try {
                                 if (!it.hasNext()) {
-                                    if (!tmbVar.isUnsubscribed()) {
-                                        tmbVar.onCompleted();
+                                    if (!mobVar.isUnsubscribed()) {
+                                        mobVar.onCompleted();
                                         return;
                                     }
                                     return;
                                 }
                                 j2++;
                             } catch (Throwable th) {
-                                zmb.f(th, tmbVar);
+                                sob.f(th, mobVar);
                                 return;
                             }
                         } catch (Throwable th2) {
-                            zmb.f(th2, tmbVar);
+                            sob.f(th2, mobVar);
                             return;
                         }
                     } else {
                         j = get();
                         if (j2 == j) {
-                            j = inb.g(this, j2);
+                            j = bpb.g(this, j2);
                         }
                     }
                 }
@@ -115,24 +115,24 @@ public final class OnSubscribeFromIterable<T> implements nmb.a<T> {
         throw new NullPointerException("iterable must not be null");
     }
 
-    public void call(tmb<? super T> tmbVar) {
+    public void call(mob<? super T> mobVar) {
         try {
             Iterator<? extends T> it = this.a.iterator();
             boolean hasNext = it.hasNext();
-            if (!tmbVar.isUnsubscribed()) {
+            if (!mobVar.isUnsubscribed()) {
                 if (!hasNext) {
-                    tmbVar.onCompleted();
+                    mobVar.onCompleted();
                 } else {
-                    tmbVar.f(new IterableProducer(tmbVar, it));
+                    mobVar.f(new IterableProducer(mobVar, it));
                 }
             }
         } catch (Throwable th) {
-            zmb.f(th, tmbVar);
+            sob.f(th, mobVar);
         }
     }
 
-    @Override // com.baidu.tieba.nmb.a, com.baidu.tieba.bnb
+    @Override // com.baidu.tieba.gob.a, com.baidu.tieba.uob
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((tmb) ((tmb) obj));
+        call((mob) ((mob) obj));
     }
 }

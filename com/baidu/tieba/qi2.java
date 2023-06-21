@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +16,21 @@ import java.util.TreeMap;
 /* loaded from: classes7.dex */
 public final class qi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final boolean c;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
 
     static {
         InterceptResult invokeClinit;
@@ -30,9 +45,7 @@ public final class qi2 {
                 return;
             }
         }
-        b = is1.a;
-        fv2.g0().getSwitch("swan_slave_ready", false);
-        c = false;
+        n = js1.a;
     }
 
     public qi2() {
@@ -49,38 +62,69 @@ public final class qi2 {
         }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static am2 a(qi2 qi2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, qi2Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, qi2Var.a);
+            treeMap.put("pagePath", qi2Var.b);
+            treeMap.put("pageType", qi2Var.c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, qi2Var.e);
+            if (!TextUtils.isEmpty(qi2Var.f)) {
+                if (n) {
+                    Log.d("PageReadyEvent", "add initData: " + qi2Var.f);
+                }
+                treeMap.put("initData", qi2Var.f);
             }
-            return c;
+            if (!TextUtils.isEmpty(qi2Var.d)) {
+                treeMap.put("onReachBottomDistance", qi2Var.d);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(qi2Var.g));
+            if (!TextUtils.isEmpty(qi2Var.h)) {
+                treeMap.put("routeId", qi2Var.h);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(qi2Var.i));
+            if (!TextUtils.isEmpty(qi2Var.j)) {
+                treeMap.put("slavePreload", qi2Var.j);
+            }
+            treeMap.put("root", qi2Var.k);
+            x73.a(treeMap, "page ready event");
+            rf3.a(qi2Var.b, treeMap);
+            String f = rp3.f(rf3.b(qi2Var.b));
+            z82.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
+            String c = jc3.c(qi2Var.a, f);
+            qi2Var.l = c;
+            if (!TextUtils.isEmpty(c)) {
+                treeMap.put("pageConfig", qi2Var.l);
+            }
+            vd2 W = ti2.U().W();
+            if (W != null) {
+                treeMap.put("masterId", W.a());
+            }
+            if (qi2Var.m) {
+                treeMap.put("isFirstPage", YYOption.IsLive.VALUE_TRUE);
+            }
+            if (db2.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (xh3.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (xh3.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            return new am2("PageReady", treeMap);
         }
-        return invokeV.booleanValue;
+        return (am2) invokeL.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
+            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
         }
         return (String) invokeV.objValue;
-    }
-
-    public static zl2 a(qi2 qi2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, qi2Var)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + qi2Var);
-            }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put("slaveId", qi2Var.a);
-            return new zl2("SlaveReady", treeMap);
-        }
-        return (zl2) invokeL.objValue;
     }
 }

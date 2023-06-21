@@ -20,14 +20,14 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.f0a;
+import com.baidu.tieba.cga;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.g0a;
-import com.baidu.tieba.h0a;
-import com.baidu.tieba.lea;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.x1a;
+import com.baidu.tieba.y1a;
+import com.baidu.tieba.z1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,12 +115,12 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean j = f0a.g().j();
-            g0a.a("发帖阻拦状态 = " + j);
-            if (j && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                vi.Q(currentActivity, "正在发布，请稍后");
+            boolean n = x1a.k().n();
+            y1a.a("发帖阻拦状态 = " + n);
+            if (n && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
+                wi.Q(currentActivity, "正在发布，请稍后");
             }
-            return j;
+            return n;
         }
         return invokeZ.booleanValue;
     }
@@ -137,7 +137,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h0a.h = new Intent(getIntent());
+            z1a.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -321,7 +321,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (lea.l.equals(str)) {
+            if (cga.l.equals(str)) {
                 setType(11);
             }
             return this;

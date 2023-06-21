@@ -1,115 +1,254 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.menu.BaseMenuView;
+import com.baidu.swan.menu.MainMenuView;
+import com.baidu.swan.menu.PopupWindow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ii4 {
+public class ii4 extends PopupWindow implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<gi4> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View Q;
+    public BaseMenuView R;
+    public Context S;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854453, "Lcom/baidu/tieba/ii4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* renamed from: T  reason: collision with root package name */
+    public View f1117T;
+    public MainMenuView U;
+    public FrameLayout V;
+    public ai4 W;
+    public boolean X;
+    public int Y;
+
+    /* loaded from: classes6.dex */
+    public class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ii4 a;
+
+        public a(ii4 ii4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ii4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947854453, "Lcom/baidu/tieba/ii4;");
+            this.a = ii4Var;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                Context context = this.a.S;
+                if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
+                    return;
+                }
+                ii4.super.q();
+                ii4 ii4Var = this.a;
+                BaseMenuView baseMenuView = ii4Var.R;
+                if (baseMenuView != ii4Var.U) {
+                    baseMenuView.setVisibility(8);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ii4(Context context, View view2, @Nullable ai4 ai4Var) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2, ai4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        SparseArray<gi4> sparseArray = new SparseArray<>();
-        a = sparseArray;
-        sparseArray.put(5, new gi4(5, R.string.obfuscated_res_0x7f0f0126, R.drawable.obfuscated_res_0x7f08010f, true));
-        a.put(35, new gi4(35, R.string.obfuscated_res_0x7f0f0119, R.drawable.obfuscated_res_0x7f0800ef, true));
-        a.put(39, new gi4(39, R.string.obfuscated_res_0x7f0f0120, R.drawable.obfuscated_res_0x7f080112, true));
-        a.put(4, new gi4(4, R.string.obfuscated_res_0x7f0f0127, R.drawable.obfuscated_res_0x7f080115, true));
-        a.put(37, new gi4(37, R.string.obfuscated_res_0x7f0f011b, R.drawable.obfuscated_res_0x7f0800f2, true));
-        a.put(38, new gi4(38, R.string.obfuscated_res_0x7f0f0124, R.drawable.obfuscated_res_0x7f0800ee, true));
-        a.put(42, new gi4(42, R.string.obfuscated_res_0x7f0f011c, R.drawable.obfuscated_res_0x7f080112, true));
-        a.put(49, new gi4(49, R.string.obfuscated_res_0x7f0f1476, R.drawable.obfuscated_res_0x7f0813b8, true));
-        a.put(50, new gi4(50, R.string.obfuscated_res_0x7f0f14fa, R.drawable.obfuscated_res_0x7f0813b7, true));
-        a.put(43, new gi4(43, R.string.obfuscated_res_0x7f0f011a, R.drawable.obfuscated_res_0x7f0800f3, true));
-        a.put(9, new gi4(9, R.string.obfuscated_res_0x7f0f0125, R.drawable.obfuscated_res_0x7f0800ff, true));
-        a.put(46, new gi4(46, R.string.obfuscated_res_0x7f0f011d, R.drawable.obfuscated_res_0x7f080104, true));
-        a.put(47, new gi4(47, R.string.obfuscated_res_0x7f0f011e, R.drawable.obfuscated_res_0x7f080107, true));
-    }
-
-    public static gi4 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            return gi4.k(a.get(i));
+        this.X = true;
+        this.Y = 0;
+        this.S = context;
+        this.f1117T = view2;
+        this.W = ai4Var;
+        E(false);
+        G(true);
+        K(true);
+        D(new ColorDrawable(0));
+        N(-1);
+        H(-1);
+        if (Build.VERSION.SDK_INT > 29) {
+            I(true);
         }
-        return (gi4) invokeI.objValue;
+        V();
     }
 
-    public static List<gi4> b(int i) {
-        InterceptResult invokeI;
+    public void X(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i != 0) {
-                if (i != 12) {
-                    if (i != 13) {
-                        switch (i) {
-                            case 16:
-                                arrayList.add(gi4.k(a.get(5)));
-                                break;
-                            case 17:
-                            case 18:
-                                arrayList.add(gi4.k(a.get(38)));
-                                arrayList.add(gi4.k(a.get(4)));
-                                arrayList.add(gi4.k(a.get(39)));
-                                arrayList.add(gi4.k(a.get(35)));
-                                arrayList.add(gi4.k(a.get(5)));
-                                arrayList.add(gi4.k(a.get(49)));
-                                break;
-                            case 19:
-                                arrayList.add(gi4.l(a.get(38), false));
-                                arrayList.add(gi4.l(a.get(4), false));
-                                arrayList.add(gi4.k(a.get(39)));
-                                arrayList.add(gi4.l(a.get(35), false));
-                                arrayList.add(gi4.k(a.get(5)));
-                                arrayList.add(gi4.l(a.get(49), false));
-                                break;
-                            case 20:
-                                arrayList.add(gi4.k(a.get(38)));
-                                arrayList.add(gi4.k(a.get(4)));
-                                arrayList.add(gi4.k(a.get(39)));
-                                arrayList.add(gi4.k(a.get(35)));
-                                arrayList.add(gi4.k(a.get(5)));
-                                arrayList.add(gi4.k(a.get(49)));
-                                break;
-                        }
-                    } else {
-                        arrayList.add(gi4.k(a.get(43)));
-                    }
-                }
-                arrayList.add(gi4.k(a.get(38)));
-                arrayList.add(gi4.k(a.get(4)));
-                arrayList.add(gi4.k(a.get(39)));
-                arrayList.add(gi4.k(a.get(35)));
-                arrayList.add(gi4.k(a.get(5)));
-                arrayList.add(gi4.k(a.get(49)));
-            } else {
-                arrayList.add(gi4.k(a.get(38)));
-                arrayList.add(gi4.k(a.get(5)));
-                arrayList.add(gi4.k(a.get(4)));
-                arrayList.add(gi4.k(a.get(35)));
-                arrayList.add(gi4.k(a.get(42)));
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.Y = i;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f090529 || id == R.id.obfuscated_res_0x7f0916ae) {
+                U(true);
             }
-            return arrayList;
         }
-        return (List) invokeI.objValue;
+    }
+
+    public void T() {
+        ai4 ai4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ai4Var = this.W) != null) {
+            ai4Var.a(this.U);
+        }
+    }
+
+    public void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.U.e();
+        }
+    }
+
+    @Override // com.baidu.swan.menu.PopupWindow
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            U(true);
+        }
+    }
+
+    public void U(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (!z) {
+                super.q();
+            } else if (!y()) {
+            } else {
+                ObjectAnimator c = ci4.c(this.Q);
+                ObjectAnimator e = ci4.e(this.R);
+                AnimatorSet animatorSet = new AnimatorSet();
+                animatorSet.addListener(new a(this));
+                animatorSet.playTogether(c, e);
+                animatorSet.start();
+            }
+        }
+    }
+
+    public final void V() {
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.S).inflate(R.layout.obfuscated_res_0x7f0d0093, (ViewGroup) null);
+            this.V = frameLayout;
+            this.Q = frameLayout.findViewById(R.id.obfuscated_res_0x7f0916ae);
+            this.U = (MainMenuView) this.V.findViewById(R.id.obfuscated_res_0x7f09019d);
+            if (es4.d() && (this.S instanceof Activity)) {
+                FrameLayout frameLayout2 = (FrameLayout) this.V.findViewById(R.id.obfuscated_res_0x7f0916ff);
+                if (es4.e((Activity) this.S)) {
+                    b = es4.a((Activity) this.S);
+                } else {
+                    b = (int) es4.b((Activity) this.S);
+                }
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b, -1);
+                layoutParams.gravity = 17;
+                if (frameLayout2 != null) {
+                    frameLayout2.setLayoutParams(layoutParams);
+                }
+            }
+            this.Q.setOnClickListener(this);
+            this.U.setClickListener(this);
+            this.U.setFitsSystemWindows(true);
+            this.V.measure(0, 0);
+            F(this.V);
+        }
+    }
+
+    public void Y(List<List<hi4>> list, View view2, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            this.U.update(list, view2, z, i);
+            a0();
+        }
+    }
+
+    public void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.Q.setAlpha(0.0f);
+            MainMenuView mainMenuView = this.U;
+            mainMenuView.setTranslationY(mainMenuView.getHeight());
+            ObjectAnimator d = ci4.d(this.Q, this.U);
+            ObjectAnimator b = ci4.b(this.U);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(d);
+            arrayList.add(b);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(arrayList);
+            animatorSet.start();
+        }
+    }
+
+    public final void a0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || y()) {
+            return;
+        }
+        T();
+        this.U.f();
+        this.R = this.U;
+        if (this.X) {
+            G(false);
+        }
+        Activity activity = (Activity) this.S;
+        if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
+            P(this.f1117T, 81, 0, 0);
+            if (this.X) {
+                u().setSystemUiVisibility(this.Y | 1024 | 4096);
+                G(true);
+                update();
+            }
+            Z();
+        }
     }
 }

@@ -1,98 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.fa8;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
+import com.baidu.tieba.im.recommend.detail.RecommendDetailActivity;
+import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes6.dex */
-public class ia8<T> {
+public class ia8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oa8<T> a;
-    public fa8 b;
-    public ga8 c;
-    public T d;
-    public b e;
+    public RecommendDetailActivity a;
+    public View b;
+    public NavigationBar c;
+    public NoNetworkView d;
+    public HeadImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public LinearLayout j;
+    public LinearLayout k;
+    public SettingTextSwitchView l;
+    public SettingTextSwitchView m;
+    public NoDataView n;
+    public LinearLayout o;
+    public RelativeLayout p;
+    public RelativeLayout q;
+    public View r;
+    public boolean s;
+    public long t;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-
-        void onCancel();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ga8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ ia8 b;
-
-        public a(ia8 ia8Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ia8Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ia8Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.ga8
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
-                vi.z(this.a, this.b.a.j());
-                if (this.b.a != null) {
-                    this.b.a.h();
-                }
-                this.b.b.dismiss();
-                if (this.b.e != null) {
-                    this.b.e.onCancel();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ga8
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b.b != null) {
-                vi.z(this.a, this.b.a.j());
-                if (this.b.a != null) {
-                    this.b.a.h();
-                }
-                this.b.b.dismiss();
-                if (this.b.e != null) {
-                    this.b.e.a();
-                }
-            }
-        }
-    }
-
-    public ia8(Context context, oa8<T> oa8Var) {
+    public ia8(RecommendDetailActivity recommendDetailActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, oa8Var};
+            Object[] objArr = {recommendDetailActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,108 +66,297 @@ public class ia8<T> {
                 return;
             }
         }
-        e(context);
-        f(context, oa8Var);
+        this.t = 0L;
+        this.a = recommendDetailActivity;
+        h();
     }
 
-    public final void e(Context context) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = new a(this, context);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.s) {
+                e();
+            } else {
+                m();
+            }
         }
     }
 
-    public /* synthetic */ void h(Context context) {
-        if (g(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
-            vi.z(context, this.a.j());
-            return;
-        }
-        oa8<T> oa8Var = this.a;
-        if (oa8Var != null) {
-            oa8Var.h();
-        }
-        this.b.dismiss();
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final boolean d() {
+    public BdSwitchView c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d != null) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            SettingTextSwitchView settingTextSwitchView = this.l;
+            if (settingTextSwitchView != null) {
+                return settingTextSwitchView.getSwitchView();
             }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (BdSwitchView) invokeV.objValue;
     }
 
-    public void k() {
+    public BdSwitchView d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null && d()) {
-            this.b.show();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            SettingTextSwitchView settingTextSwitchView = this.m;
+            if (settingTextSwitchView != null) {
+                return settingTextSwitchView.getSwitchView();
+            }
+            return null;
+        }
+        return (BdSwitchView) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LinearLayout linearLayout = this.j;
+            if (linearLayout != null) {
+                linearLayout.setVisibility(8);
+            }
+            f();
         }
     }
 
-    public final void f(final Context context, oa8<T> oa8Var) {
+    public void f() {
+        LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, oa8Var) == null) {
-            this.a = oa8Var;
-            oa8Var.n(this.c);
-            fa8 fa8Var = new fa8(context, R.style.obfuscated_res_0x7f10010c);
-            this.b = fa8Var;
-            fa8Var.setContentView(this.a.j());
-            this.b.a(new fa8.a() { // from class: com.baidu.tieba.ea8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (linearLayout = this.k) != null) {
+            linearLayout.setVisibility(8);
+        }
+    }
 
-                @Override // com.baidu.tieba.fa8.a
-                public final void onClick() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ia8.this.h(context);
-                    }
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            NoDataView noDataView = this.n;
+            if (noDataView != null) {
+                noDataView.setVisibility(8);
+            }
+            this.o.setVisibility(0);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (TbadkCoreApplication.getInst().isPromotedMessageOn(String.valueOf(this.t)) && !this.s) {
+                n();
+            } else {
+                f();
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            LinearLayout linearLayout = this.j;
+            if (linearLayout != null) {
+                linearLayout.setVisibility(0);
+            }
+            n();
+        }
+    }
+
+    public void n() {
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (linearLayout = this.k) != null) {
+            linearLayout.setVisibility(0);
+        }
+    }
+
+    public void b() {
+        RecommendDetailActivity recommendDetailActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (recommendDetailActivity = this.a) != null && me5.M(String.valueOf(recommendDetailActivity.c))) {
+            this.e.N(this.a.e, 12, false);
+            RecommendDetailActivity recommendDetailActivity2 = this.a;
+            this.t = recommendDetailActivity2.c;
+            this.f.setText(UtilHelper.getFixedText(recommendDetailActivity2.d, 7));
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e99));
+            e();
+        }
+    }
+
+    public final void h() {
+        RecommendDetailActivity recommendDetailActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (recommendDetailActivity = this.a) == null) {
+            return;
+        }
+        recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d0818);
+        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091edb);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.c = navigationBar;
+        navigationBar.showBottomLine();
+        this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        k(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11ad));
+        this.d = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
+        LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.content_view);
+        this.o = linearLayout;
+        linearLayout.setVisibility(8);
+        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0907c5);
+        this.q = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0907bb);
+        this.r = this.a.findViewById(R.id.obfuscated_res_0x7f0908e5);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09276a);
+        this.e = headImageView;
+        headImageView.setIsRound(true);
+        this.f = (TextView) this.a.findViewById(R.id.user_name);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0927a1);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092772);
+        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091146);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092283);
+        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092284);
+        this.l = settingTextSwitchView;
+        settingTextSwitchView.setSwitchStateChangeListener(this.a);
+        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092286);
+        SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092287);
+        this.m = settingTextSwitchView2;
+        settingTextSwitchView2.setSwitchStateChangeListener(this.a);
+    }
+
+    public void j(int i) {
+        RecommendDetailActivity recommendDetailActivity;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (recommendDetailActivity = this.a) != null && recommendDetailActivity.getPageContext() != null && this.a.getPageContext().getLayoutMode() != null) {
+            e05 layoutMode = this.a.getPageContext().getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.l(z);
+            this.a.getPageContext().getLayoutMode().k(this.b);
+            NavigationBar navigationBar = this.c;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), i);
+            }
+            NoNetworkView noNetworkView = this.d;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.a.getPageContext(), i);
+            }
+            NoDataView noDataView = this.n;
+            if (noDataView != null) {
+                noDataView.f(this.a.getPageContext(), i);
+            }
+            SettingTextSwitchView settingTextSwitchView = this.l;
+            if (settingTextSwitchView != null) {
+                settingTextSwitchView.d(i);
+            }
+            SkinManager.setBackgroundColor(this.p, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.q, R.color.CAM_X0201);
+            p75 d = p75.d(this.f);
+            d.D(R.string.F_X02);
+            d.C(R.dimen.T_X04);
+            d.x(R.color.CAM_X0105);
+            p75 d2 = p75.d(this.g);
+            d2.D(R.string.F_X01);
+            d2.C(R.dimen.T_X08);
+            d2.x(R.color.CAM_X0109);
+            p75 d3 = p75.d(this.h);
+            d3.D(R.string.F_X01);
+            d3.C(R.dimen.obfuscated_res_0x7f0702b7);
+            d3.x(R.color.CAM_X0105);
+        }
+    }
+
+    public void k(String str) {
+        NavigationBar navigationBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (navigationBar = this.c) != null) {
+            navigationBar.setCenterTextTitle(str);
+        }
+    }
+
+    public void l(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, view2, z) == null) {
+            SettingTextSwitchView settingTextSwitchView = this.l;
+            if (view2 == settingTextSwitchView) {
+                if (z) {
+                    settingTextSwitchView.getSwitchView().m();
+                    return;
+                } else {
+                    settingTextSwitchView.getSwitchView().j();
+                    return;
                 }
-            });
-            Window window = this.b.getWindow();
-            window.addFlags(512);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.y = vi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
-            window.setAttributes(attributes);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f100419);
-            window.setGravity(80);
-            window.setLayout(-1, -2);
+            }
+            SettingTextSwitchView settingTextSwitchView2 = this.m;
+            if (view2 == settingTextSwitchView2) {
+                if (z) {
+                    settingTextSwitchView2.getSwitchView().m();
+                } else {
+                    settingTextSwitchView2.getSwitchView().j();
+                }
+            }
         }
     }
 
-    public final boolean g(Context context, View view2) {
-        InterceptResult invokeLL;
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
-            if (view2 == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            if (this.n == null) {
+                this.n = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703b6)), NoDataViewFactory.e.a(i), null);
             }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            if (iArr[1] >= context.getResources().getDisplayMetrics().heightPixels / 2) {
-                return false;
-            }
-            return true;
+            this.n.setTextOption(NoDataViewFactory.e.a(i));
+            this.n.f(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.o.setVisibility(8);
+            this.n.setVisibility(0);
         }
-        return invokeLL.booleanValue;
     }
 
-    public void j(T t, MetaData metaData) {
+    public void p(UserInfoBigVip userInfoBigVip, boolean z) {
+        RecommendDetailActivity recommendDetailActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, t, metaData) == null) {
-            this.d = t;
-            this.a.o(t, metaData);
+        if ((interceptable == null || interceptable.invokeLZ(1048591, this, userInfoBigVip, z) == null) && userInfoBigVip != null && (recommendDetailActivity = this.a) != null) {
+            String str = userInfoBigVip.user_name;
+            if (!StringUtils.isNull(recommendDetailActivity.d) && !this.a.d.equals(userInfoBigVip.user_name)) {
+                RecommendDetailActivity recommendDetailActivity2 = this.a;
+                str = recommendDetailActivity2.d;
+                if (me5.M(String.valueOf(recommendDetailActivity2.c))) {
+                    b();
+                    return;
+                }
+            }
+            this.e.N(userInfoBigVip.portraith, 12, false);
+            String fixedText = UtilHelper.getFixedText(str, 7);
+            this.t = userInfoBigVip.user_id.longValue();
+            this.f.setText(fixedText);
+            this.g.setText(userInfoBigVip.user_type);
+            this.s = me5.M(String.valueOf(this.t));
+            if (!StringUtils.isNull(userInfoBigVip.user_detail) && !this.s) {
+                this.q.setVisibility(0);
+                this.r.setVisibility(0);
+                this.i.setText(userInfoBigVip.user_detail);
+            }
+            a();
+            if (z) {
+                if (userInfoBigVip.message_accept.intValue() == 1) {
+                    l(this.l, true);
+                    TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(userInfoBigVip.user_id), true);
+                } else {
+                    l(this.l, false);
+                    TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(userInfoBigVip.user_id), false);
+                }
+                if (userInfoBigVip.mute_notifications.intValue() == 1) {
+                    l(this.m, true);
+                    this.a.z1(true);
+                } else {
+                    l(this.m, false);
+                    this.a.z1(false);
+                }
+            } else {
+                l(this.l, TbadkCoreApplication.getInst().isPromotedMessageOn(String.valueOf(userInfoBigVip.user_id)));
+                OfficialSettingItemData a = ra8.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(userInfoBigVip.user_id));
+                if (a != null) {
+                    l(this.m, !a.isAcceptNotify());
+                }
+            }
+            i();
         }
     }
 }

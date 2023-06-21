@@ -1,8 +1,8 @@
 package com.baidu.live.business.util;
 
 import com.baidu.live.business.model.data.LiveGrParams;
-import com.baidu.tieba.nd0;
-import com.baidu.tieba.qd0;
+import com.baidu.tieba.od0;
+import com.baidu.tieba.rd0;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ public class GrParasmUtil {
     public static List<String> uploadFeedList = new ArrayList();
 
     public static void clear(List<String> list) {
-        if (!grParamsMap.isEmpty() && !nd0.c(list)) {
+        if (!grParamsMap.isEmpty() && !od0.c(list)) {
             Iterator<Map.Entry<String, LiveGrParams>> it = grParamsMap.entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry<String, LiveGrParams> next = it.next();
@@ -48,7 +48,7 @@ public class GrParasmUtil {
 
     public static void logGrParam(String str, boolean z, boolean z2) {
         LiveGrParams liveGrParams;
-        if (qd0.a(str)) {
+        if (rd0.a(str)) {
             return;
         }
         if (grParamsMap.containsKey(str)) {

@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,21 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j74 extends gj2 {
+public class j74 extends hj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gj2
-    public EventTarget C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ij2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    @Override // com.baidu.tieba.jj2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
     public int getInvokeSourceType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -34,35 +25,18 @@ public class j74 extends gj2 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gj2
-    public EventTarget z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
     /* loaded from: classes6.dex */
-    public static class a extends ck2 {
+    public class a implements V8Engine.WorkerFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        public final /* synthetic */ j74 a;
 
-        @Override // com.baidu.tieba.dk2
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "swan-game-worker.js" : (String) invokeV.objValue;
-        }
-
-        public a(String str) {
+        public a(j74 j74Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {j74Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,38 +46,68 @@ public class j74 extends gj2 {
                     return;
                 }
             }
-            this.a = str;
+            this.a = j74Var;
         }
 
-        @Override // com.baidu.tieba.dk2
-        public String getInitBasePath() {
+        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
+        public V8Engine onCreateWorker() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                k74 k74Var = new k74(this.a.getInitBasePath());
+                k74Var.G0();
+                k74Var.t(new tj2(k74Var));
+                k74Var.F0(new uj2(k74Var));
+                return k74Var.k0();
             }
-            return (String) invokeV.objValue;
+            return (V8Engine) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j74(@NonNull String str) {
-        super("worker", new a(str), null);
+    public j74(@NonNull String str, @NonNull ek2 ek2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, ek2Var, v8ThreadDelegatePolicy);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, ek2Var, v8ThreadDelegatePolicy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (dk2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                super((String) objArr2[0], (ek2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        V8Engine v8Engine = this.a;
+        if (v8Engine == null) {
+            return;
+        }
+        v8Engine.setWorkerFactoryDelegate(new a(this));
+    }
+
+    @Override // com.baidu.tieba.hj2
+    public EventTarget C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new j64(this);
+        }
+        return (EventTarget) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hj2
+    @NonNull
+    public EventTarget z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new g64(this);
+        }
+        return (EventTarget) invokeV.objValue;
     }
 }

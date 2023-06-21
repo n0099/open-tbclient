@@ -96,13 +96,13 @@ public class DressupItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d043a, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903d9);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad9);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903d5);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ae3);
             this.d = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926f1);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926ea);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926fe);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926f7);
         }
     }
 }

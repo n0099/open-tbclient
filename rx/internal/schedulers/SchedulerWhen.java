@@ -1,139 +1,139 @@
 package rx.internal.schedulers;
 
-import com.baidu.tieba.anb;
-import com.baidu.tieba.fnb;
-import com.baidu.tieba.lmb;
-import com.baidu.tieba.mmb;
-import com.baidu.tieba.nmb;
-import com.baidu.tieba.nrb;
-import com.baidu.tieba.omb;
-import com.baidu.tieba.qmb;
-import com.baidu.tieba.sqb;
-import com.baidu.tieba.umb;
+import com.baidu.tieba.eob;
+import com.baidu.tieba.fob;
+import com.baidu.tieba.gob;
+import com.baidu.tieba.gtb;
+import com.baidu.tieba.hob;
+import com.baidu.tieba.job;
+import com.baidu.tieba.lsb;
+import com.baidu.tieba.nob;
+import com.baidu.tieba.tob;
+import com.baidu.tieba.yob;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.operators.BufferUntilSubscriber;
 import rx.subjects.PublishSubject;
 /* loaded from: classes2.dex */
-public class SchedulerWhen extends qmb implements umb {
-    public static final umb d = new c();
-    public static final umb e = nrb.c();
-    public final qmb a;
-    public final omb<nmb<lmb>> b;
-    public final umb c;
+public class SchedulerWhen extends job implements nob {
+    public static final nob d = new c();
+    public static final nob e = gtb.c();
+    public final job a;
+    public final hob<gob<eob>> b;
+    public final nob c;
 
     /* loaded from: classes2.dex */
-    public static class c implements umb {
-        @Override // com.baidu.tieba.umb
+    public static class c implements nob {
+        @Override // com.baidu.tieba.nob
         public boolean isUnsubscribed() {
             return false;
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public void unsubscribe() {
         }
     }
 
     /* loaded from: classes2.dex */
-    public class a implements fnb<ScheduledAction, lmb> {
-        public final /* synthetic */ qmb.a a;
+    public class a implements yob<ScheduledAction, eob> {
+        public final /* synthetic */ job.a a;
 
         /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0785a implements lmb.f {
+        public class C0786a implements eob.f {
             public final /* synthetic */ ScheduledAction a;
 
-            public C0785a(ScheduledAction scheduledAction) {
+            public C0786a(ScheduledAction scheduledAction) {
                 this.a = scheduledAction;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.lmb.f, com.baidu.tieba.bnb
-            public void call(mmb mmbVar) {
-                mmbVar.onSubscribe(this.a);
-                this.a.call(a.this.a, mmbVar);
+            @Override // com.baidu.tieba.eob.f, com.baidu.tieba.uob
+            public void call(fob fobVar) {
+                fobVar.onSubscribe(this.a);
+                this.a.call(a.this.a, fobVar);
             }
         }
 
-        public a(SchedulerWhen schedulerWhen, qmb.a aVar) {
+        public a(SchedulerWhen schedulerWhen, job.a aVar) {
             this.a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fnb
-        public lmb call(ScheduledAction scheduledAction) {
-            return lmb.b(new C0785a(scheduledAction));
+        @Override // com.baidu.tieba.yob
+        public eob call(ScheduledAction scheduledAction) {
+            return eob.b(new C0786a(scheduledAction));
         }
     }
 
     /* loaded from: classes2.dex */
     public static class DelayedAction extends ScheduledAction {
-        public final anb action;
+        public final tob action;
         public final long delayTime;
         public final TimeUnit unit;
 
-        public DelayedAction(anb anbVar, long j, TimeUnit timeUnit) {
-            this.action = anbVar;
+        public DelayedAction(tob tobVar, long j, TimeUnit timeUnit) {
+            this.action = tobVar;
             this.delayTime = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public umb callActual(qmb.a aVar, mmb mmbVar) {
-            return aVar.c(new d(this.action, mmbVar), this.delayTime, this.unit);
+        public nob callActual(job.a aVar, fob fobVar) {
+            return aVar.c(new d(this.action, fobVar), this.delayTime, this.unit);
         }
     }
 
     /* loaded from: classes2.dex */
     public static class ImmediateAction extends ScheduledAction {
-        public final anb action;
+        public final tob action;
 
-        public ImmediateAction(anb anbVar) {
-            this.action = anbVar;
+        public ImmediateAction(tob tobVar) {
+            this.action = tobVar;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public umb callActual(qmb.a aVar, mmb mmbVar) {
-            return aVar.b(new d(this.action, mmbVar));
+        public nob callActual(job.a aVar, fob fobVar) {
+            return aVar.b(new d(this.action, fobVar));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class ScheduledAction extends AtomicReference<umb> implements umb {
-        public abstract umb callActual(qmb.a aVar, mmb mmbVar);
+    public static abstract class ScheduledAction extends AtomicReference<nob> implements nob {
+        public abstract nob callActual(job.a aVar, fob fobVar);
 
         public ScheduledAction() {
             super(SchedulerWhen.d);
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public boolean isUnsubscribed() {
             return get().isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public void unsubscribe() {
-            umb umbVar;
-            umb umbVar2 = SchedulerWhen.e;
+            nob nobVar;
+            nob nobVar2 = SchedulerWhen.e;
             do {
-                umbVar = get();
-                if (umbVar == SchedulerWhen.e) {
+                nobVar = get();
+                if (nobVar == SchedulerWhen.e) {
                     return;
                 }
-            } while (!compareAndSet(umbVar, umbVar2));
-            if (umbVar != SchedulerWhen.d) {
-                umbVar.unsubscribe();
+            } while (!compareAndSet(nobVar, nobVar2));
+            if (nobVar != SchedulerWhen.d) {
+                nobVar.unsubscribe();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void call(qmb.a aVar, mmb mmbVar) {
-            umb umbVar = get();
-            if (umbVar == SchedulerWhen.e || umbVar != SchedulerWhen.d) {
+        public void call(job.a aVar, fob fobVar) {
+            nob nobVar = get();
+            if (nobVar == SchedulerWhen.e || nobVar != SchedulerWhen.d) {
                 return;
             }
-            umb callActual = callActual(aVar, mmbVar);
+            nob callActual = callActual(aVar, fobVar);
             if (!compareAndSet(SchedulerWhen.d, callActual)) {
                 callActual.unsubscribe();
             }
@@ -141,36 +141,36 @@ public class SchedulerWhen extends qmb implements umb {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends qmb.a {
+    public class b extends job.a {
         public final AtomicBoolean a = new AtomicBoolean();
-        public final /* synthetic */ qmb.a b;
-        public final /* synthetic */ omb c;
+        public final /* synthetic */ job.a b;
+        public final /* synthetic */ hob c;
 
-        public b(SchedulerWhen schedulerWhen, qmb.a aVar, omb ombVar) {
+        public b(SchedulerWhen schedulerWhen, job.a aVar, hob hobVar) {
             this.b = aVar;
-            this.c = ombVar;
+            this.c = hobVar;
         }
 
-        @Override // com.baidu.tieba.qmb.a
-        public umb c(anb anbVar, long j, TimeUnit timeUnit) {
-            DelayedAction delayedAction = new DelayedAction(anbVar, j, timeUnit);
+        @Override // com.baidu.tieba.job.a
+        public nob c(tob tobVar, long j, TimeUnit timeUnit) {
+            DelayedAction delayedAction = new DelayedAction(tobVar, j, timeUnit);
             this.c.onNext(delayedAction);
             return delayedAction;
         }
 
-        @Override // com.baidu.tieba.qmb.a
-        public umb b(anb anbVar) {
-            ImmediateAction immediateAction = new ImmediateAction(anbVar);
+        @Override // com.baidu.tieba.job.a
+        public nob b(tob tobVar) {
+            ImmediateAction immediateAction = new ImmediateAction(tobVar);
             this.c.onNext(immediateAction);
             return immediateAction;
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public boolean isUnsubscribed() {
             return this.a.get();
         }
 
-        @Override // com.baidu.tieba.umb
+        @Override // com.baidu.tieba.nob
         public void unsubscribe() {
             if (this.a.compareAndSet(false, true)) {
                 this.b.unsubscribe();
@@ -180,16 +180,16 @@ public class SchedulerWhen extends qmb implements umb {
     }
 
     /* loaded from: classes2.dex */
-    public static class d implements anb {
-        public mmb a;
-        public anb b;
+    public static class d implements tob {
+        public fob a;
+        public tob b;
 
-        public d(anb anbVar, mmb mmbVar) {
-            this.b = anbVar;
-            this.a = mmbVar;
+        public d(tob tobVar, fob fobVar) {
+            this.b = tobVar;
+            this.a = fobVar;
         }
 
-        @Override // com.baidu.tieba.anb
+        @Override // com.baidu.tieba.tob
         public void call() {
             try {
                 this.b.call();
@@ -199,33 +199,33 @@ public class SchedulerWhen extends qmb implements umb {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.omb<com.baidu.tieba.nmb<com.baidu.tieba.lmb>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.hob<com.baidu.tieba.gob<com.baidu.tieba.eob>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.qmb
-    public qmb.a createWorker() {
-        qmb.a createWorker = this.a.createWorker();
+    @Override // com.baidu.tieba.job
+    public job.a createWorker() {
+        job.a createWorker = this.a.createWorker();
         BufferUntilSubscriber H = BufferUntilSubscriber.H();
-        sqb sqbVar = new sqb(H);
+        lsb lsbVar = new lsb(H);
         Object j = H.j(new a(this, createWorker));
-        b bVar = new b(this, createWorker, sqbVar);
+        b bVar = new b(this, createWorker, lsbVar);
         this.b.onNext(j);
         return bVar;
     }
 
-    @Override // com.baidu.tieba.umb
+    @Override // com.baidu.tieba.nob
     public boolean isUnsubscribed() {
         return this.c.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.umb
+    @Override // com.baidu.tieba.nob
     public void unsubscribe() {
         this.c.unsubscribe();
     }
 
-    public SchedulerWhen(fnb<nmb<nmb<lmb>>, lmb> fnbVar, qmb qmbVar) {
-        this.a = qmbVar;
+    public SchedulerWhen(yob<gob<gob<eob>>, eob> yobVar, job jobVar) {
+        this.a = jobVar;
         PublishSubject H = PublishSubject.H();
-        this.b = new sqb(H);
-        this.c = fnbVar.call(H.p()).f();
+        this.b = new lsb(H);
+        this.c = yobVar.call(H.p()).f();
     }
 }

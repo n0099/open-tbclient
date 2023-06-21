@@ -1,23 +1,119 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.switchs.StokenEnableSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class s05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onFailed();
+
+        void onSuccess(String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends GetTplStokenCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        public a(s05 s05Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s05Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(GetTplStokenResult getTplStokenResult) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) && (bVar = this.a) != null) {
+                bVar.onFailed();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(GetTplStokenResult getTplStokenResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) {
+                if (getTplStokenResult == null) {
+                    b bVar = this.a;
+                    if (bVar != null) {
+                        bVar.onFailed();
+                        return;
+                    }
+                    return;
+                }
+                Map<String, String> map = getTplStokenResult.tplStokenMap;
+                if (map != null && map.size() > 0) {
+                    String str = map.get(TbConfig.PassConfig.TPL);
+                    if (StringUtils.isNULL(str)) {
+                        b bVar2 = this.a;
+                        if (bVar2 != null) {
+                            bVar2.onFailed();
+                            return;
+                        }
+                        return;
+                    }
+                    b bVar3 = this.a;
+                    if (bVar3 != null) {
+                        bVar3.onSuccess(str);
+                        return;
+                    }
+                    return;
+                }
+                b bVar4 = this.a;
+                if (bVar4 != null) {
+                    bVar4.onFailed();
+                }
+            }
+        }
+    }
 
     public s05() {
         Interceptable interceptable = $ic;
@@ -33,39 +129,39 @@ public class s05 {
         }
     }
 
-    public int a() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if ("advanced_cert_face_match".equals(this.b)) {
-                return 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (SwitchManager.getInstance().findType(StokenEnableSwitch.KEY) == 1) {
+                return true;
             }
-            if ("cert_face_match".equals(this.b)) {
-                return 1;
-            }
-            return 0;
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Nullable
-    public static s05 b(CheckUserFaceIdResult checkUserFaceIdResult, boolean z) {
-        InterceptResult invokeLZ;
+    public static String a(AccountData accountData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, checkUserFaceIdResult, z)) == null) {
-            if (checkUserFaceIdResult == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountData)) == null) {
+            if (accountData == null || !b()) {
                 return null;
             }
-            s05 s05Var = new s05();
-            s05Var.a = checkUserFaceIdResult.getResultCode();
-            s05Var.b = checkUserFaceIdResult.action;
-            s05Var.c = checkUserFaceIdResult.status;
-            s05Var.d = checkUserFaceIdResult.getResultMsg();
-            s05Var.e = checkUserFaceIdResult.livingUname;
-            s05Var.f = checkUserFaceIdResult.authsid;
-            s05Var.g = checkUserFaceIdResult.authWidgetURL;
-            return s05Var;
+            return accountData.getStoken();
         }
-        return (s05) invokeLZ.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public void c(String str, b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) && !StringUtils.isNull(str)) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(TbConfig.PassConfig.TPL);
+            if (SapiAccountManager.getInstance().getAccountService() == null) {
+                return;
+            }
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, bVar), str, linkedList);
+        }
     }
 }

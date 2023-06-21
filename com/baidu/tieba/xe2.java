@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.PkgDownloadError;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,20 +11,70 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class xe2 extends ye2 {
+public abstract class xe2 extends df2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean D;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicInteger c;
+    public hp4 d;
+    public sn3 e;
+    public final qj4<al4> f;
 
-    @Override // com.baidu.tieba.cf2
-    public int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 3;
+    public abstract void Q(@NonNull sn3 sn3Var);
+
+    public abstract void R();
+
+    /* loaded from: classes8.dex */
+    public class a extends ef2<xe2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xe2 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(xe2 xe2Var, xe2 xe2Var2) {
+            super(xe2Var2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xe2Var, xe2Var2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((df2) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = xe2Var;
         }
-        return invokeV.intValue;
+
+        @Override // com.baidu.tieba.ef2
+        public void u(al4 al4Var, sn3 sn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, al4Var, sn3Var) == null) {
+                z82.k("SwanAppDependentPkgDownloadCallback", "onDownloadOrUnzipFail:" + al4Var + StringUtil.ARRAY_ELEMENT_SEPARATOR + sn3Var);
+                if (this.b.e != null) {
+                    return;
+                }
+                this.b.e = sn3Var;
+            }
+        }
+
+        @Override // com.baidu.tieba.ef2
+        public void r(@NonNull al4 al4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, al4Var) == null) {
+                if (xe2.g) {
+                    Log.v("SwanAppDependentPkgDownloadCallback", "onDownloadAndUnzipSuccess:" + al4Var);
+                }
+                this.b.c.incrementAndGet();
+            }
+        }
     }
 
     static {
@@ -43,145 +90,114 @@ public class xe2 extends ye2 {
                 return;
             }
         }
-        D = is1.a;
+        g = js1.a;
     }
 
-    @Override // com.baidu.tieba.tj4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.F();
-            if (this.n != null) {
-                u0();
-                H0("checkForUpdate", false);
-                of2.c(this.o);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ye2
-    public PMSDownloadType k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return PMSDownloadType.ASYNC;
-        }
-        return (PMSDownloadType) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xe2(String str) {
-        super(str);
+    public xe2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.c = new AtomicInteger(0);
+        this.f = new a(this, this);
     }
 
-    @Override // com.baidu.tieba.ye2, com.baidu.tieba.tj4
-    public void C(sk4 sk4Var) {
+    @Override // com.baidu.tieba.uj4
+    public void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sk4Var) == null) {
-            super.C(sk4Var);
-            if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + sk4Var.toString());
-            }
-            H0("checkForUpdate", false);
-            m0(sk4Var.a);
-            if (of2.m(sk4Var)) {
-                of2.c(this.o);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.F();
+            z82.k("SwanAppDependentPkgDownloadCallback", "onNoPackage");
+            sn3 sn3Var = new sn3();
+            sn3Var.k(17L);
+            sn3Var.i(2901L);
+            sn3Var.d("Server无包");
+            Q(sn3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.uj4
+    public qj4<al4> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (qj4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uj4
+    public void C(tk4 tk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tk4Var) == null) {
+            super.C(tk4Var);
+            z82.k("SwanAppDependentPkgDownloadCallback", "onFetchError: " + tk4Var.toString());
+            sn3 sn3Var = new sn3();
+            sn3Var.k(17L);
+            sn3Var.c(tk4Var);
+            Q(sn3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.uj4
+    public void G(hp4 hp4Var) {
+        int n;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hp4Var) == null) {
+            super.G(hp4Var);
+            this.d = hp4Var;
+            if (g) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("mStartDownload=");
+                if (hp4Var == null) {
+                    n = 0;
+                } else {
+                    n = hp4Var.n();
+                }
+                sb.append(n);
+                Log.e("SwanAppDependentPkgDownloadCallback", sb.toString());
             }
         }
     }
 
-    @Override // com.baidu.tieba.ye2, com.baidu.tieba.tj4
-    public void G(gp4 gp4Var) {
-        boolean z;
+    @Override // com.baidu.tieba.uj4, com.baidu.tieba.rj4
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gp4Var) == null) {
-            super.G(gp4Var);
-            if (gp4Var != null && gp4Var.f()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            H0("checkForUpdate", z);
-        }
-    }
-
-    @Override // com.baidu.tieba.tj4
-    public void H(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            super.H(str, i);
-            dl4 a = dl4.a(str);
-            if (a == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.b();
+            z82.k("SwanAppDependentPkgDownloadCallback", "onTotalPkgDownloadFinish");
+            hp4 hp4Var = this.d;
+            if (hp4Var == null) {
+                sn3 sn3Var = new sn3();
+                sn3Var.k(17L);
+                sn3Var.i(2900L);
+                sn3Var.d("unknown error.");
+                Q(sn3Var);
                 return;
             }
-            boolean b = fp4.b(a.c());
-            y82.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
-            if (b) {
-                o83 e = o83.e();
-                q83 q83Var = new q83(129);
-                q83Var.f(true);
-                e.h(q83Var);
+            int n = hp4Var.n() - this.c.get();
+            if (n == 0) {
+                R();
+                return;
             }
-        }
-    }
-
-    public final void H0(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, str, z) != null) || TextUtils.isEmpty(this.o)) {
-            return;
-        }
-        af2.f(str, this.o, z);
-    }
-
-    @Override // com.baidu.tieba.ye2
-    public void v0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.v0();
-            this.p.add(new UbcFlowEvent("na_start_update_db"));
-            rn3 F0 = F0();
-            this.p.add(new UbcFlowEvent("na_end_update_db"));
-            if (F0 == null) {
-                if (D) {
-                    Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
-                }
-                H0("updateReady", true);
-                A0("main_async_download", "0");
-                of2.c(this.o);
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
+            if (this.e == null) {
+                sn3 sn3Var2 = new sn3();
+                sn3Var2.k(17L);
+                sn3Var2.i(2900L);
+                sn3Var2.d("unknown error.");
+                this.e = sn3Var2;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ye2
-    public void w0(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
-            H0("updateFailed", false);
-            if (th instanceof PkgDownloadError) {
-                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
-                if (D) {
-                    Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage());
-                }
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 未知错误：" + th.getMessage());
-            }
+            sn3 sn3Var3 = this.e;
+            sn3Var3.f("failCount:" + n);
+            Q(this.e);
         }
     }
 }

@@ -1,171 +1,199 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.os.Build;
-import android.os.Message;
-import android.view.Surface;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.content.SharedPreferences;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.AVStream;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.common.AlphaChannelData;
+import com.yy.transvod.player.common.AudioSendStamp;
+import com.yy.transvod.player.common.MixAudioExtraInfo;
+import com.yy.transvod.player.common.MixVideoExtraInfo;
+import com.yy.transvod.player.common.NetRequestStatusInfo;
+import com.yy.transvod.player.common.VideoExtraInfo;
+import com.yy.transvod.player.common.effectmp4.EffectFrame;
+import com.yy.transvod.player.common.effectmp4.EffectInfo;
+import com.yy.transvod.player.common.effectmp4.EffectObject;
+import com.yy.transvod.player.common.effectmp4.EffectSource;
+import com.yy.transvod.player.core.TransVodProxy;
 import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import com.yy.transvod.player.mediacodec.NativeIttiam;
+import java.util.UUID;
 /* loaded from: classes8.dex */
-public class uib extends pib implements SurfaceHolder.Callback {
+public class uib {
     public static /* synthetic */ Interceptable $ic;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public SurfaceView L;
+    public TransVodProxy a;
+    public rib b;
+    public Context c;
 
-    @Override // com.baidu.tieba.mib
-    public void c() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948213371, "Lcom/baidu/tieba/uib;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948213371, "Lcom/baidu/tieba/uib;");
+                return;
+            }
+        }
+        vgb.b();
+        d = null;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return vgb.a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.l();
+                    this.a = null;
+                }
+            }
+            rib ribVar = this.b;
+            if (ribVar != null) {
+                ribVar.f();
+                this.b = null;
+            }
         }
     }
 
-    @Override // com.baidu.tieba.mib
-    public void d(SurfaceTexture surfaceTexture) {
+    public synchronized void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.v(true);
+                }
+            }
         }
     }
 
-    public uib(Context context, View view2, int i, int i2, zgb zgbVar) {
+    public uib(Context context, whb whbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Integer.valueOf(i), Integer.valueOf(i2), zgbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {context, whbVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.L = null;
-        A(context, view2, i, i2, zgbVar);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        vgb.c(context);
+        c();
+        this.c = context;
+        String a = a(context);
+        TLog.h("TransVodManager", "generated uid " + a);
     }
 
-    @Override // com.baidu.tieba.pib
-    public void A(Context context, Object obj, int i, int i2, zgb zgbVar) {
+    public static synchronized String a(Context context) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), zgbVar}) == null) {
-            super.A(context, obj, i, i2, zgbVar);
-            if (obj != null && (obj instanceof SurfaceView)) {
-                SurfaceView surfaceView = (SurfaceView) obj;
-                this.L = surfaceView;
-                surfaceView.getHolder().addCallback(this);
-                if (Build.MODEL.equals("OPPO A33t")) {
-                    this.L.setLayerType(1, null);
-                }
-            }
-        }
-    }
-
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(true);
-            synchronized (this.i) {
-                if (this.L != null && this.L.getHolder() != null) {
-                    this.L.getHolder().setKeepScreenOn(true);
-                }
-                if (this.d != null) {
-                    if (this.a.available()) {
-                        this.d.g(2402);
-                        this.d.f(2402);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (uib.class) {
+                if (d == null) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("transvod-uid-pref", 0);
+                    String string = sharedPreferences.getString("transvod-uid-pref", null);
+                    d = string;
+                    if (string == null) {
+                        d = UUID.randomUUID().toString();
+                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                        edit.putString("transvod-uid-pref", d);
+                        edit.commit();
                     }
-                    TLog.l(this, "do send surfaceCreated. playerUid " + this.r);
-                    this.d.g(2401);
-                    this.d.f(2401);
+                }
+                str = d;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!vgb.a()) {
+                TLog.h("TransVodManager", "init failed, library not load success");
+                return;
+            }
+            Log.i("TransVodManager", "TLog.setLevel()");
+            TLog.i(4);
+            TransVodProxy.nativeClassInit();
+            AVframe.nativeClassInit();
+            AVStream.nativeClassInit();
+            NativeFfmpeg.nativeClassInit();
+            NativeIttiam.nativeClassInit();
+            VideoExtraInfo.nativeClassInit();
+            AlphaChannelData.nativeClassInit();
+            MixVideoExtraInfo.nativeClassInit();
+            MixAudioExtraInfo.nativeClassInit();
+            NetRequestStatusInfo.nativeClassInit();
+            AudioSendStamp.nativeClassInit();
+            EffectInfo.nativeClassInit();
+            EffectSource.nativeClassInit();
+            EffectObject.nativeClassInit();
+            EffectFrame.nativeClassInit();
+        }
+    }
+
+    public TransVodProxy d(int i, whb whbVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, whbVar)) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new TransVodProxy(null, i, whbVar);
                 }
             }
+            if (this.b == null) {
+                rib ribVar = new rib(this.c, this);
+                this.b = ribVar;
+                ribVar.i();
+            }
+            return this.a;
         }
+        return (TransVodProxy) invokeIL.objValue;
     }
 
-    public void Z() {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            X(false);
-            SurfaceView surfaceView = this.L;
-            if (surfaceView != null && surfaceView.getHolder() != null) {
-                this.L.getHolder().setKeepScreenOn(false);
-            }
-            synchronized (this.i) {
-                if (this.d != null && this.a.available()) {
-                    this.d.g(2402);
-                    this.d.f(2402);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.f(i);
                 }
             }
-        }
-    }
-
-    public void finalize() throws Throwable {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.finalize();
-        }
-    }
-
-    @Override // com.baidu.tieba.mib
-    public Object getWindow() {
-        InterceptResult invokeV;
-        Surface surface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SurfaceView surfaceView = this.L;
-            if (surfaceView == null || (surface = surfaceView.getHolder().getSurface()) == null || !surface.isValid()) {
-                return null;
-            }
-            return this.L.getHolder();
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048583, this, surfaceHolder, i, i2, i3) == null) {
-            TLog.l(this, String.format("surfaceChanged(%d, %d, %d). playerUID %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(this.r)));
-            hgb hgbVar = this.d;
-            if (hgbVar != null) {
-                hgbVar.g(2404);
-                this.d.sendMessage(Message.obtain(null, 2404, i2, i3));
-            }
-            D();
-            this.J.set(true);
-            U();
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) {
-            TLog.l(this, "surfaceCreated. playerUid " + this.r);
-            this.J.set(true);
-            Y();
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) {
-            TLog.l(this, "surfaceDestroyed(). playerUid " + this.r);
-            D();
-            this.J.set(false);
-            U();
-            Z();
         }
     }
 }

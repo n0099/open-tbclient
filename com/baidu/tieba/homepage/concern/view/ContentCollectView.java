@@ -28,11 +28,11 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.o15;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -217,28 +217,28 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o75 d = o75.d(this.a);
-            d.C(R.string.F_X02);
-            d.B(R.dimen.T_X05);
-            d.w(R.color.CAM_X0105);
-            o75 d2 = o75.d(this.b);
-            d2.B(R.dimen.T_X07);
-            d2.w(R.color.CAM_X0107);
-            o75 d3 = o75.d(this.c);
-            d3.B(R.dimen.T_X08);
-            d3.w(R.color.CAM_X0108);
-            o75 d4 = o75.d(this.d);
-            d4.w(R.color.CAM_X0101);
-            d4.C(R.string.F_X02);
+            p75 d = p75.d(this.a);
+            d.D(R.string.F_X02);
+            d.C(R.dimen.T_X05);
+            d.x(R.color.CAM_X0105);
+            p75 d2 = p75.d(this.b);
+            d2.C(R.dimen.T_X07);
+            d2.x(R.color.CAM_X0107);
+            p75 d3 = p75.d(this.c);
+            d3.C(R.dimen.T_X08);
+            d3.x(R.color.CAM_X0108);
+            p75 d4 = p75.d(this.d);
+            d4.x(R.color.CAM_X0101);
+            d4.D(R.string.F_X02);
             d4.o(R.string.J_X01);
             d4.f(R.color.CAM_X0607);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_bar34, SkinManager.getColor(R.color.CAM_X0107), null);
-            int g = vi.g(getContext(), R.dimen.tbds42);
+            int g = wi.g(getContext(), R.dimen.tbds42);
             pureDrawable.setBounds(0, 0, g, g);
             this.i.setCompoundDrawables(null, null, pureDrawable, null);
-            this.i.setCompoundDrawablePadding(vi.g(getContext(), R.dimen.M_W_X002));
+            this.i.setCompoundDrawablePadding(wi.g(getContext(), R.dimen.M_W_X002));
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0107);
-            this.g.P(TbadkCoreApplication.getInst().getSkinType());
+            this.g.Q(TbadkCoreApplication.getInst().getSkinType());
             this.e.setSkinType(TbadkCoreApplication.getInst().getSkinType());
             this.f.setSkinType(TbadkCoreApplication.getInst().getSkinType());
             WebPManager.setPureDrawable(this.h, R.drawable.icon_pure_card_comment18, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -248,27 +248,27 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0819, (ViewGroup) this, true);
+            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0817, (ViewGroup) this, true);
             setOrientation(1);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.bottomMargin = vi.g(getContext(), R.dimen.M_H_X003);
+            marginLayoutParams.bottomMargin = wi.g(getContext(), R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
-            this.k = vi.g(getContext(), R.dimen.tbds235);
-            this.l = vi.g(getContext(), R.dimen.tbds62);
-            this.n = vi.g(getContext(), R.dimen.tbds115);
-            this.m = vi.g(getContext(), R.dimen.tbds3);
-            u = (((vi.l(getContext()) - (vi.g(getContext(), R.dimen.M_W_X004) * 5)) - vi.g(getContext(), R.dimen.M_W_X006)) - vi.g(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0924a3);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907ad);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091756);
-            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090344);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09104e);
-            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f090362);
+            this.k = wi.g(getContext(), R.dimen.tbds235);
+            this.l = wi.g(getContext(), R.dimen.tbds62);
+            this.n = wi.g(getContext(), R.dimen.tbds115);
+            this.m = wi.g(getContext(), R.dimen.tbds3);
+            u = (((wi.l(getContext()) - (wi.g(getContext(), R.dimen.M_W_X004) * 5)) - wi.g(getContext(), R.dimen.M_W_X006)) - wi.g(getContext(), R.dimen.M_W_X005)) - this.k;
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0924ae);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907ab);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09175c);
+            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090340);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091053);
+            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f09035e);
             this.h = (ImageView) findViewById(R.id.comment_icon);
             this.c = (EMTextView) findViewById(R.id.comment_num);
             this.g = (AgreeView) findViewById(R.id.agree_and_disagreeview);
-            this.a.setLineSpacing(vi.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            this.b.setLineSpacing(vi.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.a.setLineSpacing(wi.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.b.setLineSpacing(wi.g(getContext(), R.dimen.M_T_X002), 1.0f);
             d();
             e();
             f();
@@ -288,17 +288,17 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.g.setAgreeAlone(true);
             AgreeView agreeView = this.g;
             int i = this.l;
-            agreeView.u(i, i, this.n, this.m);
+            agreeView.v(i, i, this.n, this.m);
             this.g.setFrom(this.p);
             this.g.setIsAgreeNumClick(true);
             this.g.setAgreeAnimationResource();
-            n15 n15Var = new n15();
-            n15Var.b = 1;
-            n15Var.h = 1;
-            n15Var.g = 1;
-            n15Var.c = 7;
-            n15Var.f = this.q;
-            this.g.setStatisticData(n15Var);
+            o15 o15Var = new o15();
+            o15Var.b = 1;
+            o15Var.h = 1;
+            o15Var.g = 1;
+            o15Var.c = 7;
+            o15Var.f = this.q;
+            this.g.setStatisticData(o15Var);
         }
     }
 
@@ -318,7 +318,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.e.setForegroundColor(0);
             this.e.setBorderSurroundContent(true);
             this.e.setDrawBorder(true);
-            this.e.setBorderWidth(vi.g(getContext(), R.dimen.tbds1));
+            this.e.setBorderWidth(wi.g(getContext(), R.dimen.tbds1));
             this.e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -418,7 +418,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
         } else {
             this.b.setVisibility(0);
             this.b.setText(threadData.getAbstractText());
-            i = (2 - ej.a(u, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
+            i = (2 - fj.a(u, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
         }
         this.a.setMaxLines(i);
         this.a.setText(threadData.getTitleText());

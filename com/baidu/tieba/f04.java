@@ -1,44 +1,22 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f04 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public DownloadState a;
-    public String b;
-    public int c;
+public interface f04<VIEW extends View> {
+    void a(String str);
 
-    public f04() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = DownloadState.NOT_START;
-        this.c = Integer.parseInt("0");
-    }
+    void b(DownloadState downloadState);
 
-    public static f04 a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            f04 f04Var = new f04();
-            f04Var.b = str2;
-            return f04Var;
-        }
-        return (f04) invokeLL.objValue;
-    }
+    f04 c(Context context, DownloadParams downloadParams, a04 a04Var);
+
+    void d(int i);
+
+    void e(Object obj);
+
+    void f();
+
+    VIEW getRealView();
 }

@@ -60,10 +60,10 @@ public final class r extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913f8);
-        this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912ed);
-        this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ee);
-        this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912ef);
+        this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913fd);
+        this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f2);
+        this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912f3);
+        this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912f4);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

@@ -17,9 +17,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jl5;
-import com.baidu.tieba.kl5;
-import com.baidu.tieba.sl5;
+import com.baidu.tieba.nl5;
+import com.baidu.tieba.ol5;
+import com.baidu.tieba.wl5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 /* loaded from: classes4.dex */
-public abstract class FrameAnimationDrawable<Decoder extends jl5<?, ?>> extends Drawable implements Animatable2Compat, kl5 {
+public abstract class FrameAnimationDrawable<Decoder extends nl5<?, ?>> extends Drawable implements Animatable2Compat, ol5 {
     public static /* synthetic */ Interceptable $ic;
     public static final String l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public abstract class FrameAnimationDrawable<Decoder extends jl5<?, ?>> extends 
     public final Set<WeakReference<Drawable.Callback>> j;
     public boolean k;
 
-    public abstract Decoder d(sl5 sl5Var, kl5 kl5Var);
+    public abstract Decoder d(wl5 wl5Var, ol5 ol5Var);
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
@@ -161,7 +161,7 @@ public abstract class FrameAnimationDrawable<Decoder extends jl5<?, ?>> extends 
         l = FrameAnimationDrawable.class.getSimpleName();
     }
 
-    @Override // com.baidu.tieba.kl5
+    @Override // com.baidu.tieba.ol5
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -256,7 +256,7 @@ public abstract class FrameAnimationDrawable<Decoder extends jl5<?, ?>> extends 
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kl5
+    @Override // com.baidu.tieba.ol5
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -284,12 +284,12 @@ public abstract class FrameAnimationDrawable<Decoder extends jl5<?, ?>> extends 
         }
     }
 
-    public FrameAnimationDrawable(sl5 sl5Var) {
+    public FrameAnimationDrawable(wl5 wl5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sl5Var};
+            Object[] objArr = {wl5Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -309,10 +309,10 @@ public abstract class FrameAnimationDrawable<Decoder extends jl5<?, ?>> extends 
         this.j = new HashSet();
         this.k = false;
         this.a.setAntiAlias(true);
-        this.b = d(sl5Var, this);
+        this.b = d(wl5Var, this);
     }
 
-    @Override // com.baidu.tieba.kl5
+    @Override // com.baidu.tieba.ol5
     public void b(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) != null) || !isRunning()) {
